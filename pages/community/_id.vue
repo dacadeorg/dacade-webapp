@@ -2,29 +2,35 @@
   <div>
     <Navigation />
     Welcome to {{ $route.params.id }}
-
+    Hello {{ communityData }}
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
 /* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
-import { fireApp } from '@/plugins/firebase'
+import { mapGetters, mapActions } from 'vuex'
 import Navigation from '@/components/Navigation'
+
 export default {
   components: {
     Navigation
   },
-  asyncData({ params }) { // search engine friendly
-    return fireApp.database().ref(`communityData/ae-dev-101`).once('value')
-      .then((snapShot) => {
-        let communityData = snapShot.val()
-        communityData.key = params.id // snapShot.key
-        return { communityData }
-      })
+
+  computed: {
+    ...mapGetters({
+      communityData: 'content/communityData'
+    })
   },
-  mounted() {
-    console.log('TEST', this.communityData)
+
+  created() {
+    this.contentInit()
+  },
+
+  methods: {
+    ...mapActions({
+      contentInit: 'content/init'
+    })
   }
 }
 </script>

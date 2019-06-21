@@ -1,27 +1,19 @@
 /* eslint-disable no-console */
-import fireApp from '@/plugins/firebase'
+/* eslint-disable no-unused-vars */
+import firebase from '@/plugins/firebase'
+import { vuexfireMutations, firebaseAction } from 'vuexfire'
+
+const db = firebase.database()
+const communityDataRef = db.ref('communityData')
 
 export const state = () => ({
-  communityData: [],
-  chapterData: []
+  communityData: []
 })
 
-export const mutations = {
-  loadCommunityData(state, payload) {
-    state.communityData.push(payload)
-  }
-}
-
 export const actions = {
-  getCommunityData({ commit }) {
-    fireApp.database().ref('communityData').on('child_added',
-      (snapShot) => {
-        const item = snapShot.val()
-        item.key = snapShot.key
-        commit('loadCommunityData', item)
-      }
-    )
-  }
+  init: firebaseAction(({ bindFirebaseRef }) => {
+    bindFirebaseRef('communityData', communityDataRef)
+  })
 }
 
 export const getters = {

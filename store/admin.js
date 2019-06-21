@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import fireApp from '@/plugins/firebase'
+import firebase from '@/plugins/firebase'
 
 export const state = () => ({
   groups: []
@@ -13,7 +13,7 @@ export const mutations = {
 
 export const actions = {
   createGroup({ commit }, payload) {
-    fireApp.database().ref('groups').push(payload)
+    firebase.database().ref('groups').push(payload)
       .then(() => {
         console.log('success')
       })
@@ -22,7 +22,7 @@ export const actions = {
       })
   },
   getGroups({ commit }) {
-    fireApp.database().ref('groups').on('child_added',
+    firebase.database().ref('groups').on('child_added',
       (snapShot) => {
         const item = snapShot.val()
         item.key = snapShot.key

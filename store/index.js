@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import fireApp from '@/plugins/firebase'
+import firebase from '@/plugins/firebase'
+import { vuexfireMutations } from 'vuexfire'
 
 export const state = () => ({
   user: null
@@ -9,13 +10,14 @@ export const state = () => ({
 export const mutations = {
   setUser(state, payload) {
     state.user = payload
-  }
+  },
+  ...vuexfireMutations
 }
 
 export const actions = {
   signUpUser({ commit }, payload) {
     let newUser = null
-    fireApp.auth().createUserWithEmailAndPassword(payload.email, payload.password)
+    firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
       .then((user) => {
         newUser = user
         const currentUser = {
@@ -33,11 +35,11 @@ export const actions = {
           name: payload.name,
           createdAt: new Date().toISOString()
         }
-        return fireApp.database().ref(`users/${newUser.uid}`).set(userData)
+        return firebase.database().ref(`users/${newUser.uid}`).set(userData)
       })
   },
   loginUser({ commit }, payload) {
-    fireApp.auth().signInWithEmailAndPassword(payload.email, payload.password).catch(function (error) {
+    firebase.auth().signInWithEmailAndPassword(payload.email, payload.password).catch(function (error) {
       // Handle Errors here.
       const errorCode = error.code
       const errorMessage = error.message
@@ -46,11 +48,11 @@ export const actions = {
     })
   },
   logOut({ commit }) {
-    fireApp.auth().signOut()
+    firebase.auth().signOut()
     commit('setUser', null)
   },
   setAuthStatus({ commit }) {
-    fireApp.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         const authUser = {
           id: user.uid,
