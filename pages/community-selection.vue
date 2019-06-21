@@ -13,10 +13,10 @@
           class="mb-2"
         >
           <b-card-text>
-            {{ community.description }}
+            {{ community.key }}
           </b-card-text>
 
-          <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{path: communityPath(community.key) }">
+          <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{path: communityPath(community.slug) }">
             Learn more
           </nuxt-link>
         </b-card>
@@ -26,29 +26,24 @@
 </template>
 
 <script>
+/* eslint-disable no-console */
+import firebase from '@/plugins/firebase'
 import Navigation from '@/components/Navigation'
+
 export default {
   components: {
     Navigation
   },
-  data() {
-    return {
-    }
-  },
-  computed: {
-    communityData() {
-      return this.$store.getters['content/communityData']
-    }
-  },
-  created() {
-    const loadedCommunity = this.$store.getters['content/communityData']
-    if (loadedCommunity.length === 0) {
-      this.$store.dispatch('content/getCommunityData')
-    }
+  asyncData({ params }) {
+    return firebase.database().ref(`communityData`).once('value').then((snapShot) => {
+      const communityData = snapShot.val()
+      console.log(communityData)
+      return { communityData }
+    })
   },
   methods: {
     communityPath(slug) {
-      return `/community/${slug}`
+      return `/${slug}/introduction`
     }
   }
 }
