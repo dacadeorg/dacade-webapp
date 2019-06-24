@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="communityData">
     <Navigation />
     <p>
       {{ communityData.description }}
@@ -11,19 +11,22 @@
   </div>
 </template>
 <script>
-import firebase from '@/plugins/firebase'
+/* eslint-disable no-console */
 import Navigation from '@/components/Navigation'
 
 export default {
   components: {
     Navigation
   },
-  asyncData({ params }) {
-    return firebase.database().ref(`communityData/${params.slug}`).once('value').then((snapShot) => {
-      const communityData = snapShot.val()
-      communityData.key = params.slug // snapShot.key
-      return { communityData }
-    })
+  props: {
+    communityData: {
+      type: Object,
+      required: true
+    }
+  },
+  data() {
+    return {
+    }
   },
   methods: {
     communityPath(slug) {
