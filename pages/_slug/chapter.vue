@@ -1,11 +1,11 @@
 <template>
   <div>
-    <nuxt-child :chapter-data="chapterData($route.params)" />
+    <nuxt-child :chapter-data="chapterData($route.params)" :chapter-length="chapterLength($route.params)" />
   </div>
 </template>
 <script>
-export default {
 /* eslint-disable no-console */
+export default {
   props: {
     communityData: {
       type: Object,
@@ -19,6 +19,9 @@ export default {
   methods: {
     chapterData(params) {
       return this.communityData.chapter[params.id]
+    },
+    chapterLength(params) {
+      return this.communityData.chapter.length
     }
   }
 }
