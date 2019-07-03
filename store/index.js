@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import firebase from '@/plugins/firebase'
-import { vuexfireMutations } from 'vuexfire'
+import { vuexfireMutations, firebaseAction } from 'vuexfire'
+const db = firebase.database()
 
 export const state = () => ({
-  user: null
+  user: null,
+  usersData: null
 })
 
 export const mutations = {
@@ -21,21 +23,22 @@ export const actions = {
       .then((user) => {
         newUser = user
         const currentUser = {
-          // id: user.uid,
+          id: user.user.uid,
           email: payload.email,
-          name: payload.name,
+          displayName: payload.name,
           role: 'consumer'
         }
-        console.log('USER', currentUser)
         commit('setUser', currentUser)
       })
       .then(() => {
         const userData = {
           email: payload.email,
-          name: payload.name,
-          createdAt: new Date().toISOString()
+          displayName: payload.name,
+          learningPoints: 0,
+          teachingPoints: 0,
+          balance: 0
         }
-        return firebase.database().ref(`users/${newUser.uid}`).set(userData)
+        return firebase.database().ref(`users/${newUser.user.uid}`).set(userData)
       })
   },
   loginUser({ commit }, payload) {
@@ -61,7 +64,10 @@ export const actions = {
         commit('setUser', authUser)
       }
     })
-  }
+  },
+  getUsersDataDb: firebaseAction(({ bindFirebaseRef }, uid) => {
+    bindFirebaseRef('usersData', db.ref('users').child(uid))
+  })
 }
 
 export const getters = {
@@ -70,5 +76,8 @@ export const getters = {
   },
   loginStatus(state) {
     return state.user !== null && state.user !== undefined
+  },
+  getUsersData(state) {
+    return state.usersData
   }
 }

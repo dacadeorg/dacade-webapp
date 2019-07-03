@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>
+      {{ groups }}
       <b-table striped hover :items="groups" />
     </div>
     <b-form @submit.prevent="onSubmit">
@@ -24,6 +25,8 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -31,17 +34,17 @@ export default {
     }
   },
   computed: {
-    groups() {
-      return this.$store.getters['admin/groups']
-    }
+    ...mapGetters({
+      groups: 'admin/groups'
+    })
   },
   created() {
-    const loadedGroups = this.$store.getters['admin/groups']
-    if (loadedGroups.length === 0) {
-      this.$store.dispatch('admin/getGroups')
-    }
+    this.getGroups()
   },
   methods: {
+    ...mapActions({
+      getGroups: 'admin/getGroups'
+    }),
     onSubmit() {
       this.$store.dispatch('admin/createGroup', { name: this.name })
     }

@@ -37,7 +37,6 @@ export default {
   asyncData({ params }) {
     return firebase.database().ref(`communityData`).once('value').then((snapShot) => {
       const communityData = snapShot.val()
-      console.log(communityData)
       return { communityData }
     })
   },

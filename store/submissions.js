@@ -2,15 +2,15 @@
 import firebase from '@/plugins/firebase'
 import { firebaseAction } from 'vuexfire'
 const db = firebase.database()
-const groupsRef = db.ref('groups')
+const submissionsRef = db.ref('submissions')
 
 export const state = () => ({
-  groups: []
+  submissions: []
 })
 
 export const actions = {
-  createGroup({ commit }, payload) {
-    groupsRef.push(payload)
+  createSubmission({ commit }, payload) {
+    submissionsRef.push(payload)
       .then(() => {
         console.log('success')
       })
@@ -18,13 +18,13 @@ export const actions = {
         console.log('error', error)
       })
   },
-  getGroups: firebaseAction(({ bindFirebaseRef }) => {
-    bindFirebaseRef('groups', groupsRef)
+  getSubmissions: firebaseAction(({ bindFirebaseRef }) => {
+    bindFirebaseRef('submissions', submissionsRef)
   })
 }
 
 export const getters = {
-  groups(state) {
-    return state.groups
+  submissions(state) {
+    return state.submissions
   }
 }
