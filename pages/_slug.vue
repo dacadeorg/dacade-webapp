@@ -1,6 +1,7 @@
 <template>
   <div>
     <Navigation />
+    <CommunityNavigation :community-data="communityData" />
     {{ user }}
     {{ userData }}
     <div class="container">
@@ -11,12 +12,14 @@
 <script>
 import firebase from '@/plugins/firebase'
 import Navigation from '@/components/Navigation'
+import CommunityNavigation from '@/components/CommunityNavigation'
 import { mapGetters, mapActions } from 'vuex'
 /* eslint-disable no-console */
 
 export default {
   components: {
-    Navigation
+    Navigation,
+    CommunityNavigation
   },
   data() {
     return {

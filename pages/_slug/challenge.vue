@@ -5,8 +5,6 @@
         <p><i class="dacade-note">{{ communityData.challengeDescription }}</i></p>
         <h4>Challenge:</h4>
         <div v-html="communityData.challenge" />
-        {{ submissions }}
-        <b-table striped hover :items="submissions" />
         <b-form @submit.prevent="onSubmit">
           <b-form-group
             id="input-group-1"
