@@ -9,7 +9,7 @@
               by {{ submission.name }}
             </b-card-text>
             <b-card-text>
-              {{ submission.text}}
+              {{ submission.text }}
             </b-card-text>
             <a href="#" class="card-link">
               <nuxt-link :to="{path: submissionPath($route.params.slug, submission['.key']) }">

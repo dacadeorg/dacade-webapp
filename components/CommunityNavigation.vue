@@ -7,11 +7,11 @@
         </nuxt-link>
       </b-nav-item>
       <b-nav-item-dropdown
-            id="my-nav-dropdown"
-            text="Chapter"
-            toggle-class="nav-link-custom"
-            right
-          >
+        id="my-nav-dropdown"
+        text="Chapter"
+        toggle-class="nav-link-custom"
+        right
+      >
         <b-dropdown-item v-for="chapter in communityData.chapter" :key="chapter.key">
           <nuxt-link :to="{path: chapterPath($route.params.slug, chapter.chapterId) }">
             {{ chapter.chapterName }}

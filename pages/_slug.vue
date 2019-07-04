@@ -25,17 +25,17 @@ export default {
     return {
     }
   },
+  computed: {
+    ...mapGetters({
+      user: 'user',
+      userData: 'getUsersData'
+    })
+  },
   asyncData({ params }) {
     return firebase.database().ref(`LCData/${params.slug}`).once('value').then((snapShot) => {
       const communityData = snapShot.val()
       communityData.key = params.slug // snapShot.key
       return { communityData }
-    })
-  },
-  computed: {
-    ...mapGetters({
-      user: 'user',
-      userData: 'getUsersData'
     })
   },
   created() {
