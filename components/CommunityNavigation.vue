@@ -1,5 +1,6 @@
 <template>
   <div>
+    <span>{{ communityData.name }}</span>
     <b-nav>
       <b-nav-item>
         <nuxt-link :to="{path: communityPath($route.params.slug, 'introduction') }">

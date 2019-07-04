@@ -5,7 +5,7 @@
     {{ user }}
     {{ userData }}
     <div class="container">
-      <nuxt-child :community-data="communityData" />
+      <nuxt-child :community-data="communityData" :userData="userData"/>
     </div>
   </div>
 </template>

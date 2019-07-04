@@ -35,13 +35,19 @@ export default {
     communityData: {
       type: Object,
       required: true
+    },
+    userData: {
+      type: Object,
+      required: true
     }
   },
   data() {
     return {
       submission: {
         text: null,
-        name: 'bernd'
+        lCId: this.communityData.id,
+        displayName: this.userData.displayName,
+        userId: this.userData['.key']
       }
     }
   },

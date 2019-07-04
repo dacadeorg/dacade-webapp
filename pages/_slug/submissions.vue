@@ -4,9 +4,9 @@
       <div class="col-lg-12">
         {{ submissions }}
         <div>
-          <b-card v-for="submission in submissions" :key="submission.key">
+          <b-card v-for="submission in getCommunitySubmissions" :key="submission.key">
             <b-card-text>
-              by {{ submission.name }}
+              by {{ submission.displayName }}
             </b-card-text>
             <b-card-text>
               {{ submission.text }}
@@ -39,7 +39,16 @@ export default {
   computed: {
     ...mapGetters({
       submissions: 'submissions/submissions'
-    })
+    }),
+    getCommunitySubmissions() {
+      const communitySubmissions = []
+      for (let index = 0; index < this.submissions.length; index++) {
+        if (this.submissions[index].lCId === this.communityData.id) {
+          communitySubmissions.push(this.submissions[index])
+        }
+      }
+      return communitySubmissions
+    }
   },
   created() {
     this.getSubmissions()
