@@ -1,15 +1,29 @@
 <template>
   <div>
-    Submission by {{ submission.name }}
-    <p>
-      {{ submission.text }}
-    </p>
-    <br>
-    {{ getSubmissionReviews }}
+    <div>
+      Submission:
+      <b-card>
+        <b-card-text>
+          Submission by {{ submission.displayName }}
+        </b-card-text>
+        <b-card-text>
+          {{ submission.text }}
+        </b-card-text>
+      </b-card>
+    </div>
+    Feedback:
+    <b-card v-for="review in getSubmissionReviews" :key="review.key">
+      <b-card-text>
+        Feedback by {{ review.displayName }}
+      </b-card-text>
+      <b-card-text>
+        {{ review.text }}
+      </b-card-text>
+    </b-card>
     <b-form @submit.prevent="onSubmit">
       <b-form-group
         id="input-group-1"
-        label="Feedback:"
+        label="Give Feedback:"
         label-for="input-1"
       >
         <b-form-input
@@ -35,10 +49,20 @@ import firebase from '@/plugins/firebase'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  props: {
+    communityData: {
+      type: Object,
+      required: true
+    },
+    userData: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
       review: {
-        name: 'misterx',
+        displayName: this.userData.displayName,
         text: 'text',
         submissionId: this.$route.params.id
       }

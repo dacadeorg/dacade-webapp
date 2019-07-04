@@ -2,7 +2,6 @@
   <div>
     <div class="row marketing">
       <div class="col-lg-12">
-        {{ submissions }}
         <div>
           <b-card v-for="submission in getCommunitySubmissions" :key="submission.key">
             <b-card-text>
