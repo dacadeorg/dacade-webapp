@@ -3,9 +3,12 @@ import firebase from '@/plugins/firebase'
 import { firebaseAction } from 'vuexfire'
 const db = firebase.database()
 const submissionsRef = db.ref('submissions')
+const gradingsRef = db.ref('gradings')
 
 export const state = () => ({
-  submissions: []
+  submissions: [],
+  gradings: [],
+  grading: null
 })
 
 export const actions = {
@@ -20,11 +23,25 @@ export const actions = {
   },
   getSubmissions: firebaseAction(({ bindFirebaseRef }) => {
     bindFirebaseRef('submissions', submissionsRef)
-  })
+  }),
+  getGradings: firebaseAction(({ bindFirebaseRef }) => {
+    bindFirebaseRef('gradings', gradingsRef)
+  }),
+  getGrading({ commit }, payload) {
+    firebase.database().ref(`gradings/${payload}`).once('value').then((snapShot) => {
+      const grading = snapShot.val()
+      return { grading }
+    })
+  }
 }
-
 export const getters = {
   submissions(state) {
     return state.submissions
+  },
+  gradings(state) {
+    return state.gradings
+  },
+  grading(state) {
+    return state.grading
   }
 }

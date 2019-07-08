@@ -12,12 +12,12 @@
       </b-card>
     </div>
     Feedback:
-    <b-card v-for="review in getSubmissionReviews" :key="review.key">
+    <b-card v-for="getReview in getSubmissionReviews" :key="getReview.key">
       <b-card-text>
-        Feedback by {{ review.displayName }}
+        Feedback by {{ getReview.displayName }}
       </b-card-text>
       <b-card-text>
-        {{ review.text }}
+        {{ getReview.text }}
       </b-card-text>
     </b-card>
     <b-form @submit.prevent="onSubmit">
@@ -68,13 +68,6 @@ export default {
       }
     }
   },
-  asyncData({ params }) {
-    return firebase.database().ref(`submissions/${params.id}`).once('value').then((snapShot) => {
-      const submission = snapShot.val()
-      //communityData.key = params.slug // snapShot.key
-      return { submission }
-    })
-  },
   computed: {
     ...mapGetters({
       reviews: 'reviews/reviews'
@@ -88,6 +81,13 @@ export default {
       }
       return submissionReviews
     }
+  },
+  asyncData({ params }) {
+    return firebase.database().ref(`submissions/${params.id}`).once('value').then((snapShot) => {
+      const submission = snapShot.val()
+      //communityData.key = params.slug // snapShot.key
+      return { submission }
+    })
   },
   created() {
     this.getReviews()
