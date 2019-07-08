@@ -11,6 +11,10 @@
         </b-card-text>
       </b-card>
     </div>
+    <div>
+      gradings:
+      {{ getGradingsDb }}
+    </div>
     Feedback:
     <b-card v-for="getReview in getSubmissionReviews" :key="getReview.key">
       <b-card-text>
@@ -70,7 +74,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      reviews: 'reviews/reviews'
+      reviews: 'reviews/reviews',
+      gradings: 'submissions/gradings'
     }),
     getSubmissionReviews() {
       let submissionReviews = []
@@ -80,6 +85,15 @@ export default {
         }
       }
       return submissionReviews
+    },
+    getGradingsDb() {
+      let gradingsNew = null
+      for (let index = 0; index < this.gradings.length; index++) {
+        if (this.gradings[index].submissionId === this.$route.params.id) {
+          gradingsNew = this.gradings[index]
+        }
+      }
+      return gradingsNew
     }
   },
   asyncData({ params }) {
@@ -91,10 +105,12 @@ export default {
   },
   created() {
     this.getReviews()
+    this.getGradings()
   },
   methods: {
     ...mapActions({
-      getReviews: 'reviews/getReviews'
+      getReviews: 'reviews/getReviews',
+      getGradings: 'submissions/getGradings'
     }),
     communityPath(slug) {
       return `/${slug}/submissions`

@@ -7,8 +7,7 @@ const gradingsRef = db.ref('gradings')
 
 export const state = () => ({
   submissions: [],
-  gradings: [],
-  grading: null
+  gradings: []
 })
 
 export const actions = {
@@ -26,13 +25,7 @@ export const actions = {
   }),
   getGradings: firebaseAction(({ bindFirebaseRef }) => {
     bindFirebaseRef('gradings', gradingsRef)
-  }),
-  getGrading({ commit }, payload) {
-    firebase.database().ref(`gradings/${payload}`).once('value').then((snapShot) => {
-      const grading = snapShot.val()
-      return { grading }
-    })
-  }
+  })
 }
 export const getters = {
   submissions(state) {
@@ -40,8 +33,5 @@ export const getters = {
   },
   gradings(state) {
     return state.gradings
-  },
-  grading(state) {
-    return state.grading
   }
 }
