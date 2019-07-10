@@ -35,10 +35,6 @@ export default {
     communityData: {
       type: Object,
       required: true
-    },
-    userData: {
-      type: Object,
-      required: true
     }
   },
   data() {
@@ -46,13 +42,14 @@ export default {
       submission: {
         text: null,
         lCId: this.communityData.id,
-        displayName: this.userData.displayName,
-        userId: this.userData['.key']
+        displayName: null,
+        userId: null
       }
     }
   },
   computed: {
     ...mapGetters({
+      user: 'user',
       submissions: 'submissions/submissions'
     })
   },
@@ -67,6 +64,9 @@ export default {
       return `/${slug}/submissions`
     },
     onSubmit() {
+      console.log(this.user)
+      this.submission.displayName = this.user.displayName
+      this.submission.userId = this.user.id
       this.$store.dispatch('submissions/createSubmission', this.submission)
     }
   }

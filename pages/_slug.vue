@@ -3,9 +3,8 @@
     <Navigation />
     <CommunityNavigation :community-data="communityData" />
     {{ user }}
-    {{ userData }}
     <div class="container">
-      <nuxt-child :community-data="communityData" :userData="userData" />
+      <nuxt-child :community-data="communityData" />
     </div>
   </div>
 </template>
@@ -13,7 +12,7 @@
 import firebase from '@/plugins/firebase'
 import Navigation from '@/components/Navigation'
 import CommunityNavigation from '@/components/CommunityNavigation'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 
 export default {
@@ -27,8 +26,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'user',
-      userData: 'getUsersData'
+      user: 'user'
     })
   },
   asyncData({ params }) {
@@ -36,18 +34,6 @@ export default {
       const communityData = snapShot.val()
       communityData.key = params.slug // snapShot.key
       return { communityData }
-    })
-  },
-  created() {
-    console.log('created')
-    console.log('user:' + this.user)
-    if (this.user) {
-      this.getUsersDataStore(this.user.id)
-    }
-  },
-  methods: {
-    ...mapActions({
-      getUsersDataStore: 'getUsersDataDb'
     })
   }
 }

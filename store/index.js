@@ -61,7 +61,14 @@ export const actions = {
           id: user.uid,
           email: user.email
         }
-        commit('setUser', authUser)
+        firebase.database().ref(`users/${authUser.id}`).once('value').then((snapShot) => {
+          const userData = snapShot.val()
+          authUser.balance = userData.balance
+          authUser.displayName = userData.displayName
+          authUser.learningPoints = userData.learningPoints
+          authUser.teachingPoints = userData.teachingPoints
+          commit('setUser', authUser)
+        })
       }
     })
   },
