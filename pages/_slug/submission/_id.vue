@@ -22,6 +22,9 @@
       </b-card-text>
       <b-card-text>
         {{ getReview.text }}
+        <p v-if="getReview.rewardAmount">
+          {{ getReview.rewardAmount }}
+        </p>
       </b-card-text>
     </b-card>
     <b-form @submit.prevent="onSubmit">
@@ -57,16 +60,11 @@ export default {
     communityData: {
       type: Object,
       required: true
-    },
-    userData: {
-      type: Object,
-      required: true
     }
   },
   data() {
     return {
       review: {
-        displayName: this.userData.displayName,
         text: 'text',
         submissionId: this.$route.params.id
       }
@@ -74,6 +72,7 @@ export default {
   },
   computed: {
     ...mapGetters({
+      user: 'user',
       reviews: 'reviews/reviews',
       gradings: 'submissions/gradings'
     }),
@@ -116,6 +115,7 @@ export default {
       return `/${slug}/submissions`
     },
     onSubmit() {
+      this.review.displayName = this.user.displayName
       this.$store.dispatch('reviews/createReview', this.review)
     }
   }

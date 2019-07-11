@@ -27,7 +27,7 @@
 
           <div class="learn-more-button">
             <nuxt-link class="btn btn-primary btn-lg" to="/community-selection">
-              Start LEarning
+              START
             </nuxt-link>
           </div>
 

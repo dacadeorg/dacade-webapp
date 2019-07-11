@@ -29,7 +29,10 @@ export const actions = {
       })
   },
   updateSubmission({ commit }, payload) {
-    db.ref(`submissions/${payload.submissionId}`).set(payload)
+    console.log(payload)
+    const key = payload['.key']
+    delete payload['.key']
+    db.ref(`submissions/${key}`).set(payload)
       .then(() => {
         console.log('success')
       })
@@ -39,7 +42,18 @@ export const actions = {
   },
   getGroups: firebaseAction(({ bindFirebaseRef }) => {
     bindFirebaseRef('groups', groupsRef)
-  })
+  }),
+  updateReview({ commit }, payload) {
+    const key = payload['.key']
+    delete payload['.key']
+    db.ref(`reviews/${key}`).set(payload)
+      .then(() => {
+        console.log('success')
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  }
 }
 
 export const getters = {

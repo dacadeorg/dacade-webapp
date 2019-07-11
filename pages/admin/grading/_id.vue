@@ -18,9 +18,30 @@
       </b-card-text>
       <b-card-text>
         {{ getReview.text }}
+        <p v-if="getReview.rewardAmount">
+          {{ getReview.rewardAmount }}
+        </p>
       </b-card-text>
+      <b-form @submit.prevent="submitReviewGrading(getReview)">
+        <b-form-group
+          id="input-group-1"
+          label="Reward Amount"
+          label-for="input-1"
+        >
+          <b-form-input
+            id="input-1"
+            v-model="review.rewardAmount"
+            type="number"
+            required
+            placeholder="1"
+          />
+        </b-form-group>
+        <b-button type="submit" variant="primary">
+          Submit
+        </b-button>
+      </b-form>
     </b-card>
-    <b-form @submit.prevent="onSubmit">
+    <b-form @submit.prevent="submitSubmissionGrading">
       <b-form-group
         id="input-group-1"
         label="Give Feedback Relevanz:"
@@ -112,8 +133,7 @@ export default {
   data() {
     return {
       review: {
-        // displayName: this.userData.displayName,
-        text: 'text',
+        rewardAmount: 0,
         submissionId: this.$route.params.id
       },
       grading: {
@@ -160,10 +180,9 @@ export default {
     communityPath(slug) {
       return `/${slug}/submissions`
     },
-    onSubmit() {
+    submitSubmissionGrading() {
+      const key = this.$route.params.id
       const submissionUpdate = {
-        // need to ge rid of submission id in object
-        submissionId: this.$route.params.id,
         displayName: this.submission.displayName,
         lCId: this.submission.lCId,
         text: this.submission.text,
@@ -171,8 +190,19 @@ export default {
         submissionPoints: parseInt(this.grading.relevanzAmount, 10) + parseInt(this.grading.originalityAmount, 10) + parseInt(this.grading.qualityAmount, 10),
         submissionReward: parseInt(this.submissionReward, 10)
       }
+      submissionUpdate['.key'] = key
       this.$store.dispatch('admin/createGrading', this.grading)
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
+    },
+    submitReviewGrading(review) {
+      const reviewUpdate = {
+        text: review.text,
+        submissionId: review.submissionId,
+        displayName: review.displayName,
+        rewardAmount: parseInt(this.review.rewardAmount, 10)
+      }
+      reviewUpdate['.key'] = review['.key']
+      this.$store.dispatch('admin/updateReview', reviewUpdate)
     }
   }
 }
