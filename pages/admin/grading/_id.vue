@@ -148,6 +148,7 @@ export default {
       submissionReward: 0
     }
   },
+  middleware: 'verify-admin',
   computed: {
     ...mapGetters({
       reviews: 'reviews/reviews'
