@@ -2,7 +2,9 @@
   <div>
     <b-navbar class="navbar-main" toggleable="lg" type="dark">
       <b-navbar-brand href="#">
-        <img src="/img/logo-white.png" height="30" alt="">
+        <nuxt-link to="/">
+          <img src="/img/logo-white.png" height="30" alt="">
+        </nuxt-link>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse" />

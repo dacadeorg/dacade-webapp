@@ -18,10 +18,10 @@ export default {
   },
   methods: {
     chapterData(params) {
-      return this.communityData.chapter[params.id]
+      return this.communityData.ChapterData[params.id]
     },
     chapterLength(params) {
-      return this.communityData.chapter.length
+      return this.communityData.ChapterData.length
     }
   }
 }

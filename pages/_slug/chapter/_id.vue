@@ -1,7 +1,6 @@
 <template>
   <div>
-    {{ chapterData }}
-    {{ chapterLength }}
+    {{ chapterData.chapterDescription }}
     <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{ path: chapterPath($route.params) }">
       {{ nextChapterLinkText }}
     </nuxt-link>
