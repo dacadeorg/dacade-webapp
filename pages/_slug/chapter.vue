@@ -16,6 +16,7 @@ export default {
     return {
     }
   },
+  middleware: 'verify-user',
   methods: {
     chapterData(params) {
       return this.communityData.ChapterData[params.id]

@@ -35,6 +35,7 @@ export default {
     return {
     }
   },
+  middleware: 'verify-user',
   computed: {
     ...mapGetters({
       submissions: 'submissions/submissions'

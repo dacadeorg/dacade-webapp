@@ -84,7 +84,7 @@ export const getters = {
   loginStatus(state) {
     return state.user !== null && state.user !== undefined
   },
-  getUsersData(state) {
+  usersData(state) {
     return state.usersData
   }
 }

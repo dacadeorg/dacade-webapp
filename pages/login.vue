@@ -1,5 +1,11 @@
 <template>
   <div>
+    <Navigation />
+    <a href="#">
+      <nuxt-link to="/signup">
+        Signup
+      </nuxt-link>
+    </a>
     <b-form @submit.prevent="onLogin">
       <b-form-group
         id="input-group-1"
@@ -34,7 +40,12 @@
 
 <script>
 /* eslint-disable no-console */
+import Navigation from '@/components/Navigation'
+
 export default {
+  components: {
+    Navigation
+  },
   data() {
     return {
       form: {

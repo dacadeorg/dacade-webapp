@@ -1,5 +1,11 @@
 <template>
   <div>
+    <Navigation />
+    <a href="#">
+      <nuxt-link to="/login">
+        Login
+      </nuxt-link>
+    </a>
     <b-form @submit.prevent="onSignUp">
       <b-form-group
         id="input-group-1"
@@ -42,7 +48,12 @@
 </template>
 
 <script>
+import Navigation from '@/components/Navigation'
+
 export default {
+  components: {
+    Navigation
+  },
   data() {
     return {
       form: {
