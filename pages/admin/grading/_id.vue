@@ -187,22 +187,38 @@ export default {
         lCId: this.submission.lCId,
         text: this.submission.text,
         userId: this.submission.userId,
-        submissionPoints: parseInt(this.grading.relevanzAmount, 10) + parseInt(this.grading.originalityAmount, 10) + parseInt(this.grading.qualityAmount, 10),
+        submissionPoints: parseInt(this.grading.relevanzAmount, 10) +
+          parseInt(this.grading.originalityAmount, 10) +
+          parseInt(this.grading.qualityAmount, 10),
         submissionReward: parseInt(this.submissionReward, 10)
       }
       submissionUpdate['.key'] = key
+      const userUpdate = {
+        userId: submissionUpdate.userId,
+        rewardAmount: submissionUpdate.submissionReward,
+        learningPoints: submissionUpdate.submissionPoints
+      }
       this.$store.dispatch('admin/createGrading', this.grading)
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
+      this.$store.dispatch('admin/increaseUserBalance', userUpdate)
+      this.$store.dispatch('admin/increaseUserLearningPoints', userUpdate)
     },
     submitReviewGrading(review) {
       const reviewUpdate = {
         text: review.text,
         submissionId: review.submissionId,
         displayName: review.displayName,
+        reviewUserId: review.reviewUserId,
         rewardAmount: parseInt(this.review.rewardAmount, 10)
       }
       reviewUpdate['.key'] = review['.key']
+      const userUpdate = {
+        userId: review.reviewUserId,
+        rewardAmount: parseInt(this.review.rewardAmount, 10)
+      }
       this.$store.dispatch('admin/updateReview', reviewUpdate)
+      this.$store.dispatch('admin/increaseUserBalance', userUpdate)
+      this.$store.dispatch('admin/increaseUserTeachingPoints', userUpdate)
     }
   }
 }

@@ -53,6 +53,39 @@ export const actions = {
       .catch((error) => {
         console.log('error', error)
       })
+  },
+  increaseUserBalance({ commit }, payload) {
+    db.ref(`users/${payload.userId}/balance`).transaction(function (currentData) {
+      return currentData + payload.rewardAmount
+    })
+      .then(() => {
+        console.log('success')
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  },
+  increaseUserTeachingPoints({ commit }, payload) {
+    db.ref(`users/${payload.userId}/teachingPoints`).transaction(function (currentData) {
+      return currentData + payload.rewardAmount
+    })
+      .then(() => {
+        console.log('success')
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  },
+  increaseUserLearningPoints({ commit }, payload) {
+    db.ref(`users/${payload.userId}/learningPoints`).transaction(function (currentData) {
+      return currentData + payload.learningPoints
+    })
+      .then(() => {
+        console.log('success')
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
   }
 }
 

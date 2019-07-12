@@ -116,6 +116,7 @@ export default {
     },
     onSubmit() {
       this.review.displayName = this.user.displayName
+      this.review.reviewUserId = this.user.id
       this.$store.dispatch('reviews/createReview', this.review)
     }
   }
