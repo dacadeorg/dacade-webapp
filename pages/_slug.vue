@@ -2,7 +2,6 @@
   <div>
     <Navigation />
     <CommunityNavigation :community-data="communityData" />
-    {{ user }}
     <div class="container">
       <nuxt-child :community-data="communityData" />
     </div>

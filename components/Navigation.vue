@@ -6,10 +6,14 @@
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse" />
-
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
+          <b-nav-text v-if="userLoggedIn">
+            <span>{{ user.learningPoints }} LP</span>
+            <span>{{ user.teachingPoints }} TP</span>
+            <span>{{ user.balance }} $</span>
+          </b-nav-text>
           <b-nav-item-dropdown v-if="userLoggedIn" right>
             <!-- Using 'button-content' slot -->
             <template slot="button-content">
@@ -49,6 +53,8 @@
 </template>
 <script>
 /* eslint-disable no-console */
+import { mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
@@ -57,7 +63,10 @@ export default {
   computed: {
     userLoggedIn() {
       return this.$store.getters.loginStatus
-    }
+    },
+    ...mapGetters({
+      user: 'user'
+    })
   },
   created() {
     if (!this.userLoggedIn) {
