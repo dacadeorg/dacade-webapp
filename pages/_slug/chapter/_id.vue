@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ chapterData.chapterDescription }}
+    {{ lcData.ChapterData[$route.params.id].chapterDescription }}
     <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{ path: chapterPath($route.params) }">
       {{ nextChapterLinkText }}
     </nuxt-link>
@@ -10,26 +10,23 @@
 /* eslint-disable no-console */
 /* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
+import { mapGetters } from 'vuex'
+
 export default {
-  props: {
-    chapterData: {
-      type: Object,
-      required: true
-    },
-    chapterLength: {
-      type: Number,
-      required: true
-    }
-  },
   data() {
     return {
       nextChapterLinkText: 'Next chapter'
     }
   },
+  computed: {
+    ...mapGetters({
+      lcData: 'content/lcData'
+    })
+  },
   methods: {
     chapterPath(params) {
       const newParams = parseInt(params.id, 10) + 1
-      if (newParams < this.chapterLength) {
+      if (newParams < this.lcData.ChapterData.length) {
         return `/${params.slug}/chapter/${newParams}`
       } else {
         this.nextChapterLinkText = 'Next: Challenge'

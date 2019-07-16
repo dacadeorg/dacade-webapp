@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span>{{ communityData.name }}</span>
+    <span>{{ lcData.name }}</span>
     <b-nav>
       <b-nav-item>
         <nuxt-link :to="{path: communityPath($route.params.slug, 'introduction') }">
@@ -13,7 +13,7 @@
         toggle-class="nav-link-custom"
         right
       >
-        <b-dropdown-item v-for="chapter in communityData.chapter" :key="chapter.key">
+        <b-dropdown-item v-for="chapter in lcData.chapter" :key="chapter.key">
           <nuxt-link :to="{path: chapterPath($route.params.slug, chapter.chapterId) }">
             {{ chapter.chapterName }}
           </nuxt-link>
@@ -34,16 +34,17 @@
 </template>
 <script>
 /* eslint-disable no-console */
+import { mapGetters } from 'vuex'
+
 export default {
-  props: {
-    communityData: {
-      type: Object,
-      required: true
-    }
-  },
   data() {
     return {
     }
+  },
+  computed: {
+    ...mapGetters({
+      lcData: 'content/lcData'
+    })
   },
   methods: {
     communityPath(slug, chapterLink) {

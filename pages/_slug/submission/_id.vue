@@ -56,12 +56,6 @@ import firebase from '@/plugins/firebase'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  props: {
-    communityData: {
-      type: Object,
-      required: true
-    }
-  },
   data() {
     return {
       review: {
@@ -75,7 +69,8 @@ export default {
     ...mapGetters({
       user: 'user',
       reviews: 'reviews/reviews',
-      gradings: 'submissions/gradings'
+      gradings: 'submissions/gradings',
+      lcData: 'content/lcData'
     }),
     getSubmissionReviews() {
       let submissionReviews = []
@@ -99,7 +94,6 @@ export default {
   asyncData({ params }) {
     return firebase.database().ref(`submissions/${params.id}`).once('value').then((snapShot) => {
       const submission = snapShot.val()
-      //communityData.key = params.slug // snapShot.key
       return { submission }
     })
   },

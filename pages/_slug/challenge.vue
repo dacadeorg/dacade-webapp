@@ -2,9 +2,9 @@
   <div>
     <div class="row marketing">
       <div class="col-lg-12">
-        <p><i class="dacade-note">{{ communityData.challengeDescription }}</i></p>
+        <p><i class="dacade-note">{{ lcData.challengeDescription }}</i></p>
         <h4>Challenge:</h4>
-        <div v-html="communityData.challenge" />
+        <div v-html="lcData.challenge" />
         <b-form @submit.prevent="onSubmit">
           <b-form-group
             id="input-group-1"
@@ -31,17 +31,11 @@
 /* eslint-disable no-console */
 import { mapGetters, mapActions } from 'vuex'
 export default {
-  props: {
-    communityData: {
-      type: Object,
-      required: true
-    }
-  },
   data() {
     return {
       submission: {
         text: null,
-        lCId: this.communityData.id,
+        lCId: null,
         displayName: null,
         userId: null
       }
@@ -51,7 +45,8 @@ export default {
   computed: {
     ...mapGetters({
       user: 'user',
-      submissions: 'submissions/submissions'
+      submissions: 'submissions/submissions',
+      lcData: 'content/lcData'
     })
   },
   created() {
@@ -66,6 +61,7 @@ export default {
     },
     onSubmit() {
       console.log(this.user)
+      this.submission.lCId = this.lcData.id
       this.submission.displayName = this.user.displayName
       this.submission.userId = this.user.id
       this.$store.dispatch('submissions/createSubmission', this.submission)

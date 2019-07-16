@@ -25,12 +25,6 @@
 /* eslint-disable no-console */
 import { mapGetters, mapActions } from 'vuex'
 export default {
-  props: {
-    communityData: {
-      type: Object,
-      required: true
-    }
-  },
   data() {
     return {
     }
@@ -38,12 +32,13 @@ export default {
   middleware: 'verify-user',
   computed: {
     ...mapGetters({
-      submissions: 'submissions/submissions'
+      submissions: 'submissions/submissions',
+      lcData: 'content/lcData'
     }),
     getCommunitySubmissions() {
       const communitySubmissions = []
       for (let index = 0; index < this.submissions.length; index++) {
-        if (this.submissions[index].lCId === this.communityData.id) {
+        if (this.submissions[index].lCId === this.lcData.id) {
           communitySubmissions.push(this.submissions[index])
         }
       }

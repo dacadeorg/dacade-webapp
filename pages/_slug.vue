@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navigation />
-    <CommunityNavigation :community-data="communityData" />
+    <CommunityNavigation />
     <div class="container">
       <nuxt-child :community-data="communityData" />
     </div>
@@ -33,6 +33,12 @@ export default {
       const communityData = snapShot.val()
       communityData.key = params.slug // snapShot.key
       return { communityData }
+    })
+  },
+  fetch({ store, params }) {
+    return firebase.database().ref(`LCData/${params.slug}`).once('value').then((snapShot) => {
+      const lcData = snapShot.val()
+      store.commit('content/setLc', lcData)
     })
   }
 }

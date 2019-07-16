@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      {{ communityData.description }}
+      {{ lcData.description }}
     </p>
 
     <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{ path: communityPath($route.params.slug) }">
@@ -11,17 +11,17 @@
 </template>
 <script>
 /* eslint-disable no-console */
+import { mapGetters } from 'vuex'
 
 export default {
-  props: {
-    communityData: {
-      type: Object,
-      required: true
-    }
-  },
   data() {
     return {
     }
+  },
+  computed: {
+    ...mapGetters({
+      lcData: 'content/lcData'
+    })
   },
   methods: {
     communityPath(slug) {
