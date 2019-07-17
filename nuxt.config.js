@@ -30,7 +30,13 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/nuxt-client-init.js', ssr: false }
   ],
+
+  router: {
+    middleware: 'router-auth'
+  },
+
   /*
   ** Nuxt.js modules
   */

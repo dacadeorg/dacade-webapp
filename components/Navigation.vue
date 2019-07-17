@@ -11,12 +11,12 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-text v-if="userLoggedIn">
+          <b-nav-text v-if="loginStatus">
             <span>{{ user.learningPoints }} LP</span>
             <span>{{ user.teachingPoints }} TP</span>
             <span>{{ user.balance }} $</span>
           </b-nav-text>
-          <b-nav-item-dropdown v-if="userLoggedIn" right>
+          <b-nav-item-dropdown v-if="loginStatus" right>
             <!-- Using 'button-content' slot -->
             <template slot="button-content">
               <i class="fa fa-bars" />
@@ -29,7 +29,7 @@
             </b-dropdown-item>
           </b-nav-item-dropdown>
 
-          <p v-if="!userLoggedIn" class="control">
+          <p v-if="!loginStatus" class="control">
             <nuxt-link class="btn btn-primary" to="/login">
               <span class="icon is-small">
                 <i class="fa fa-unlock-alt" />
@@ -40,7 +40,7 @@
             </nuxt-link>
           </p>
 
-          <p v-if="!userLoggedIn" class="control">
+          <p v-if="!loginStatus" class="control">
             <nuxt-link class="btn btn-primary" to="/signup">
               <span class="icon is-small">
                 <i class="fa fa-user-o" />
@@ -67,14 +67,15 @@ export default {
       return this.$store.getters.loginStatus
     },
     ...mapGetters({
-      user: 'user'
+      user: 'user',
+      loginStatus: 'loginStatus'
     })
   },
-  created() {
-    if (!this.userLoggedIn) {
-      this.$store.dispatch('setAuthStatus')
-    }
-  },
+  // created() {
+  //   if (!this.userLoggedIn) {
+  //     this.$store.dispatch('setAuthStatus')
+  //   }
+  // },
   methods: {
     logOut() {
       this.$store.dispatch('logOut')
