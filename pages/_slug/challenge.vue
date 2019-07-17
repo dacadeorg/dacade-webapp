@@ -41,7 +41,6 @@ export default {
       }
     }
   },
-  middleware: 'verify-user',
   computed: {
     ...mapGetters({
       user: 'user',

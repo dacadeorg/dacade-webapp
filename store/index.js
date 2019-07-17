@@ -17,27 +17,27 @@ export const mutations = {
 }
 
 export const actions = {
-  nuxtClientInit({ commit }) {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        const authUser = {
-          id: user.uid,
-          email: user.email
-        }
-        firebase.database().ref(`users/${authUser.id}`).once('value').then((snapShot) => {
-          const userData = snapShot.val()
-          authUser.balance = userData.balance
-          authUser.displayName = userData.displayName
-          authUser.learningPoints = userData.learningPoints
-          authUser.teachingPoints = userData.teachingPoints
-          if (userData.role) {
-            authUser.role = userData.role
-          }
-          commit('setUser', authUser)
-        })
-      }
-    })
-  },
+  // nuxtClientInit({ commit }) {
+  //   firebase.auth().onAuthStateChanged((user) => {
+  //     if (user) {
+  //       const authUser = {
+  //         id: user.uid,
+  //         email: user.email
+  //       }
+  //       firebase.database().ref(`users/${authUser.id}`).once('value').then((snapShot) => {
+  //         const userData = snapShot.val()
+  //         authUser.balance = userData.balance
+  //         authUser.displayName = userData.displayName
+  //         authUser.learningPoints = userData.learningPoints
+  //         authUser.teachingPoints = userData.teachingPoints
+  //         if (userData.role) {
+  //           authUser.role = userData.role
+  //         }
+  //         commit('setUser', authUser)
+  //       })
+  //     }
+  //   })
+  // },
   signUpUser({ commit }, payload) {
     let newUser = null
     firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)

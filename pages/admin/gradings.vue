@@ -30,7 +30,6 @@ export default {
     return {
     }
   },
-  middleware: 'verify-admin',
   computed: {
     ...mapGetters({
       submissions: 'submissions/submissions'

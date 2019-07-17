@@ -18,7 +18,6 @@ export default {
       nextChapterLinkText: 'Next chapter'
     }
   },
-  middleware: 'verify-user',
   computed: {
     ...mapGetters({
       lcData: 'content/lcData'
