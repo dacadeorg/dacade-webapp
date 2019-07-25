@@ -3,7 +3,7 @@
     <Navigation />
     <CommunityNavigation />
     <div class="container">
-      <nuxt-child/>
+      <nuxt-child />
     </div>
   </div>
 </template>

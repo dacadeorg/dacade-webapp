@@ -18,14 +18,17 @@ export default function ({ store, redirect, route }) {
         if (userData.role === 'admin') {
           authUser.role = userData.role
         } else if (isAdminRoute(route)) {
-          redirect('/')
+          store.commit('setForwardRoute', route.path)
+          redirect('/login')
         }
         store.commit('setUser', authUser)
       })
     } else if (isAdminRoute(route)) {
-      redirect('/login')
+      store.commit('setForwardRoute', route.path)
+      redirect('/signup')
     } else if (isUserRoute(route)) {
-      redirect('/login')
+      store.commit('setForwardRoute', route.path)
+      redirect('/signup')
     }
   })
 }

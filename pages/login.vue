@@ -1,6 +1,7 @@
 <template>
   <div>
     <Navigation />
+    <notification-bar />
     <a href="#">
       <nuxt-link to="/signup">
         Signup
@@ -11,7 +12,6 @@
         id="input-group-1"
         label="Email address:"
         label-for="input-1"
-        description="We'll never share your email with anyone else."
       >
         <b-form-input
           id="input-1"
@@ -24,14 +24,18 @@
 
       <b-form-group>
         <label for="text-password">Password</label>
-        <b-input id="text-password" v-model="form.password" type="password" aria-describedby="password-help-block" />
-        <b-form-text id="password-help-block">
-          Your password must be 8-20 characters long, contain letters and numbers, and must not
-          contain spaces, special characters, or emoji.
-        </b-form-text>
+        <b-input
+          id="text-password"
+          v-model="form.password"
+          type="password"
+        />
       </b-form-group>
 
-      <b-button type="submit" variant="primary">
+      <b-button
+        type="submit"
+        variant="primary"
+        :disabled="busy"
+      >
         Submit
       </b-button>
     </b-form>
@@ -41,11 +45,15 @@
 <script>
 /* eslint-disable no-console */
 import Navigation from '@/components/Navigation'
+import apiJobMixin from '@/mixins/apiJobMixin'
+import NotificationBar from '@/components/NotificationBar'
 
 export default {
   components: {
-    Navigation
+    Navigation,
+    NotificationBar: NotificationBar
   },
+  mixins: [apiJobMixin],
   data() {
     return {
       form: {
@@ -59,21 +67,28 @@ export default {
       return this.$store.getters.loginStatus
     }
   },
-  watch: {
-    userLoggedIn(value) {
-      if (value) {
-        console.log('logged in')
-        this.$router.replace('/community-selection')
-      }
-    }
-  },
   methods: {
     onLogin() {
-      const loginData = {
-        email: this.form.email,
-        password: this.form.password
+      this.$validator.validateAll()
+        .then((result) => {
+          if (result) {
+            const loginData = {
+              email: this.form.email,
+              password: this.form.password
+            }
+            this.$store.dispatch('loginUser', loginData)
+          }
+        })
+    },
+    jobsDone() {
+      this.removeErrors()
+      let nextRoute = '/'
+      const forwardRoute = this.$store.getters.forwardRoute
+      if (forwardRoute !== null) {
+        nextRoute = forwardRoute
+        this.$store.commit('setForwardRoute', null)
       }
-      this.$store.dispatch('loginUser', loginData)
+      this.$router.replace(nextRoute)
     }
   }
 }

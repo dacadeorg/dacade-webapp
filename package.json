@@ -17,6 +17,7 @@
     "bootstrap-vue": "^2.0.0-rc.11",
     "firebase": "^6.2.1",
     "nuxt": "^2.0.0",
+    "vee-validate": "^2.2.13",
     "vuexfire": "^3.0.0"
   },
   "devDependencies": {

@@ -6,12 +6,31 @@ const db = firebase.database()
 
 export const state = () => ({
   user: null,
-  usersData: null
+  usersData: null,
+  error: null,
+  busy: false,
+  jobDone: false,
+  forwardRoute: null
 })
 
 export const mutations = {
   setUser(state, payload) {
     state.user = payload
+  },
+  setError(state, payload) {
+    state.error = payload
+  },
+  clearError(state) {
+    state.error = null
+  },
+  setBusy(state, payload) {
+    state.busy = payload
+  },
+  setJobDone(state, payload) {
+    state.jobDone = payload
+  },
+  setForwardRoute(state, payload) {
+    state.forwardRoute = payload
   },
   ...vuexfireMutations
 }
@@ -39,6 +58,8 @@ export const actions = {
   //   })
   // },
   signUpUser({ commit }, payload) {
+    commit('setBusy', true)
+    commit('clearError')
     let newUser = null
     firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
       .then((user) => {
@@ -61,15 +82,27 @@ export const actions = {
         }
         return firebase.database().ref(`users/${newUser.user.uid}`).set(userData)
       })
+      .then(() => {
+        commit('setJobDone', true)
+        commit('setBusy', false)
+      })
+      .catch((error) => {
+        commit('setBusy', false)
+        commit('setError', error)
+      })
   },
   loginUser({ commit }, payload) {
-    firebase.auth().signInWithEmailAndPassword(payload.email, payload.password).catch(function (error) {
-      // Handle Errors here.
-      const errorCode = error.code
-      const errorMessage = error.message
-      console.log(errorCode + errorMessage)
-      // ...
-    })
+    commit('setBusy', true)
+    commit('clearError')
+    firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
+      .then(() => {
+        commit('setJobDone', true)
+        commit('setBusy', false)
+      })
+      .catch((error) => {
+        commit('setBusy', false)
+        commit('setError', error)
+      })
   },
   logOut({ commit }) {
     firebase.auth().signOut()
@@ -89,5 +122,17 @@ export const getters = {
   },
   usersData(state) {
     return state.usersData
+  },
+  error(state) {
+    return state.error
+  },
+  busy(state) {
+    return state.busy
+  },
+  jobDone(state) {
+    return state.jobDone
+  },
+  forwardRoute(state) {
+    return state.forwardRoute
   }
 }
