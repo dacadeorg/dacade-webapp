@@ -1,12 +1,8 @@
 <template>
   <div class="site-wrapper">
     <div class="site-wrapper-inner">
+      <Navigation />
       <div class="cover-container">
-        <nav class="navbar fixed-top navbar-light navbar-landing">
-          <a class="navbar-brand" href="https://dacade.org/">
-            <img src="/img/logo-white.png" height="24" alt="">
-          </a>
-        </nav>
         <main>
           <div>
             <b-alert show variant="warning" dismissible class="cookieAlert">
@@ -18,10 +14,12 @@
           <div>
             <img class="cover-img" src="/img/dacade-cover.png" alt="Card image cap">
             <h1>
-              Peer-to-Peer Blockchain Learning
+              Peer-to-Peer <br>
+              Blockchain Learning
             </h1>
             <p class="lead">
-              Earn cryptocurrency by learning about blockchain, building dApps and educating your peers.
+              Earn cryptocurrency by learning about blockchain,
+              building dApps and educating your peers.
             </p>
           </div>
 
@@ -209,68 +207,18 @@
 </template>
 
 <script>
-export default {
+import Navigation from '@/components/Navigation'
 
+export default {
+  components: {
+    Navigation
+  }
 }
 </script>
 
 <style scoped>
 .alert-dismissible {
   padding-right: 2rem;
-}
-
-.btn-primary,
-.btn-primary:focus,
-.btn-primary:active {
-  color: white;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #6AD5BF;
-  border: .05rem solid #6AD5BF;
-    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-    0px 5px 8px 0px rgba(0, 0, 0, 0.14),
-    0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-}
-
-.btn-primary:active {
-  color: green;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #6AD5BF;
-  border: .05rem solid #6AD5BF;
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-  0px 5px 8px 0px rgba(0, 0, 0, 0.14),
-  0px 1px 14px 0px rgba(0, 0, 0, 0.12);
-}
-
-.btn-primary:hover {
-  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
-  0px 12px 17px 2px rgba(0, 0, 0, 0.14),
-  0px 5px 22px 4px rgba(0, 0, 0, 0.12);
-}
-
-.btn-lg {
-  padding: .75rem 1.25rem;
-  font-weight: 700;
-}
-
-.btn-outline-primary {
-  border-color: #6AD5BF!important;
-  cursor: pointer;
-  color: #6AD5BF!important;
-  font-weight: 500;
-}
-
-.btn-outline-primary:hover {
-  color: #fff!important;
-  background-color: #6AD5BF!important;
-  border-color: #65CB99!important;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.btn-white{
-  background-color: white;
-  border: none;
-  color: #53D1AF;
 }
 
 .card {
@@ -364,6 +312,10 @@ export default {
   margin-bottom: 1em;
 }
 
+h1{
+  font-weight: 600;
+}
+
 .impressumLink {
   color:white;
   cursor:pointer;
@@ -398,6 +350,8 @@ export default {
 
 .learn-more-button {
   margin: 2em 0;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
 main {

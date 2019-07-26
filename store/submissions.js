@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import firebase from '@/plugins/firebase'
 import { firebaseAction } from 'vuexfire'
+
 const db = firebase.database()
 const submissionsRef = db.ref('submissions')
 const gradingsRef = db.ref('gradings')

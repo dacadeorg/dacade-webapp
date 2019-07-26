@@ -60,35 +60,46 @@ export const actions = {
   signUpUser({ commit }, payload) {
     commit('setBusy', true)
     commit('clearError')
+    console.log('payload name: ' + payload.name)
     let newUser = null
-    firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
-      .then((user) => {
-        newUser = user
-        const currentUser = {
-          id: user.user.uid,
-          email: payload.email,
-          displayName: payload.name,
-          role: 'consumer'
+    firebase.database().ref('users').orderByChild('displayName').equalTo(`${payload.name}`).once('value')
+      .then((snapShot) => {
+        if (snapShot.exists()) {
+          console.log('user name existst')
+          const error = { message: 'This username is already in use' }
+          commit('setBusy', false)
+          commit('setError', error)
+        } else {
+          firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
+            .then((user) => {
+              newUser = user
+              const currentUser = {
+                id: user.user.uid,
+                email: payload.email,
+                displayName: payload.name,
+                role: 'consumer'
+              }
+              commit('setUser', currentUser)
+            })
+            .then(() => {
+              const userData = {
+                email: payload.email,
+                displayName: payload.name,
+                learningPoints: 0,
+                teachingPoints: 0,
+                balance: 0
+              }
+              return firebase.database().ref(`users/${newUser.user.uid}`).set(userData)
+            })
+            .then(() => {
+              commit('setJobDone', true)
+              commit('setBusy', false)
+            })
+            .catch((error) => {
+              commit('setBusy', false)
+              commit('setError', error)
+            })
         }
-        commit('setUser', currentUser)
-      })
-      .then(() => {
-        const userData = {
-          email: payload.email,
-          displayName: payload.name,
-          learningPoints: 0,
-          teachingPoints: 0,
-          balance: 0
-        }
-        return firebase.database().ref(`users/${newUser.user.uid}`).set(userData)
-      })
-      .then(() => {
-        commit('setJobDone', true)
-        commit('setBusy', false)
-      })
-      .catch((error) => {
-        commit('setBusy', false)
-        commit('setError', error)
       })
   },
   loginUser({ commit }, payload) {

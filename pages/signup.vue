@@ -55,7 +55,11 @@
         </p>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">
+      <b-button
+        type="submit"
+        variant="primary"
+        :disabled="busy"
+      >
         Submit
       </b-button>
     </b-form>
@@ -98,7 +102,7 @@ export default {
     },
     jobsDone() {
       this.removeErrors()
-      let nextRoute = '/'
+      let nextRoute = '/community-selection'
       const forwardRoute = this.$store.getters.forwardRoute
       if (forwardRoute !== null) {
         nextRoute = forwardRoute

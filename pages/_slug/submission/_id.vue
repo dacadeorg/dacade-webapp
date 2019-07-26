@@ -54,8 +54,10 @@
 /* eslint-disable spaced-comment */
 import firebase from '@/plugins/firebase'
 import { mapGetters, mapActions } from 'vuex'
+import apiJobMixin from '@/mixins/apiJobMixin'
 
 export default {
+  mixins: [apiJobMixin],
   data() {
     return {
       review: {

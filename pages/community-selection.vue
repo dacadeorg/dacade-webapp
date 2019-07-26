@@ -16,7 +16,10 @@
             {{ community.key }}
           </b-card-text>
 
-          <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{path: communityPath(community.slug) }">
+          <nuxt-link
+            class="btn btn-outline-primary btn-lg btn-block"
+            :to="{path: communityPath(community.slug) }"
+          >
             Learn more
           </nuxt-link>
         </b-card>
