@@ -72,6 +72,15 @@ export const actions = {
       .catch((error) => {
         console.log('error', error)
       })
+  },
+  addUserNotification({ commit }, payload) {
+    db.ref(`notifications/${payload.userId}`).push(payload)
+      .then(() => {
+        console.log('success user notification added')
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
   }
 }
 

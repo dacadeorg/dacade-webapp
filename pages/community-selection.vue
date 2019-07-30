@@ -9,11 +9,13 @@
           img-alt="Image"
           img-top
           tag="article"
-          style="max-width: 20rem;"
+          style="max-width: 30rem;"
           class="mb-2 bg-dark text-white"
         >
           <b-card-text>
-            {{ community.key }}
+            <span>🕒 ~{{ community.time }}min</span>
+            <span>💰 {{ community.submissionReward }}/{{ community.reviewReward }}$</span>
+            <span>🎓 {{ community.submissions }}</span>
           </b-card-text>
 
           <nuxt-link
@@ -50,3 +52,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+.card-text{
+  text-align: center;
+}
+.card-title{
+  text-align: center;
+}
+</style>

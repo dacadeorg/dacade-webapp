@@ -13,7 +13,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '/main.css' },
       { rel: 'stylesheet', href: '/font-awesome.min.css' }
     ]
   },

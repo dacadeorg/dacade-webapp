@@ -10,7 +10,8 @@ export const state = () => ({
   error: null,
   busy: false,
   jobDone: false,
-  forwardRoute: null
+  forwardRoute: null,
+  userNotifications: null
 })
 
 export const mutations = {
@@ -121,7 +122,19 @@ export const actions = {
   },
   getUsersDataDb: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('usersData', db.ref('users').child(uid))
-  })
+  }),
+  getUserNotifications: firebaseAction(({ bindFirebaseRef }, uid) => {
+    bindFirebaseRef('userNotifications', db.ref('notifications').child(uid))
+  }),
+  setUserNotificationSeen({ commit }, payload) {
+    db.ref(`notifications/${payload.userId}/${payload.id}/notificationRead`).set(true)
+      .then(() => {
+        console.log('success user notification changed to seen')
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  }
 }
 
 export const getters = {
@@ -145,5 +158,8 @@ export const getters = {
   },
   forwardRoute(state) {
     return state.forwardRoute
+  },
+  userNotifications(state) {
+    return state.userNotifications
   }
 }

@@ -19,9 +19,9 @@
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: #53d1af;
   border: .05rem solid #53d1af;
-    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-    0px 5px 8px 0px rgba(0, 0, 0, 0.14),
-    0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+  0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 14px 0px rgba(0, 0, 0, 0.12);
 }
 
 .btn-primary:hover {
@@ -46,4 +46,8 @@
   border-color: #53d1af!important;
   cursor: pointer;
   font-weight: 500;
+}
+
+.navbar-main {
+  background-color: #53D1AF;
 }

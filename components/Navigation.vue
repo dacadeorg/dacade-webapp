@@ -3,10 +3,9 @@
     <b-navbar class="navbar-main" toggleable="lg" type="dark">
       <b-navbar-brand href="#">
         <nuxt-link to="/">
-          <img src="/img/logo-white.png" height="30" alt="">
+          <img class="logoImg" src="/img/logo-white.png" height="20" alt="">
         </nuxt-link>
       </b-navbar-brand>
-
       <b-navbar-toggle target="nav-collapse" />
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
@@ -20,7 +19,20 @@
             <!-- Using 'button-content' slot -->
             <template slot="button-content">
               <i class="fa fa-bars" />
+              <span v-if="getUnreadNotification()>0">
+                <b-badge variant="light">{{ getUnreadNotification() }}
+                  <span class="sr-only">unread messages</span>
+                </b-badge>
+              </span>
             </template>
+            <nuxt-link class="dropdown-item" to="/notifications/">
+              Notifications
+              <span v-if="getUnreadNotification()>0">
+                <b-badge variant="light">{{ getUnreadNotification() }}
+                  <span class="sr-only">unread messages</span>
+                </b-badge>
+              </span>
+            </nuxt-link>
             <nuxt-link class="dropdown-item" to="/community-selection/">
               Community Selection
             </nuxt-link>
@@ -68,7 +80,9 @@ export default {
     },
     ...mapGetters({
       user: 'user',
-      loginStatus: 'loginStatus'
+      loginStatus: 'loginStatus',
+      lcData: 'content/lcData',
+      userNotifications: 'userNotifications'
     })
   },
   // created() {
@@ -80,12 +94,30 @@ export default {
     logOut() {
       this.$store.dispatch('logOut')
       this.$router.push('/community-selection')
+    },
+    getUnreadNotification() {
+      let notifications = 0
+      if (this.userNotifications) {
+        console.log(Object.values(this.userNotifications).length)
+        for (let index = 0; index < Object.values(this.userNotifications).length; index++) {
+          if (!Object.values(this.userNotifications)[index].notificationRead) {
+            notifications++
+          }
+        }
+      }
+      return notifications
     }
   }
 }
 </script>
 <style scoped>
-.navbar-main{
+/* .navbar-main{
   background:#53d1af;
+} */
+.community-title{
+  text-align: center;
+}
+.logoImg{
+  vertical-align: unset;
 }
 </style>

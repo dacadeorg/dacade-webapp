@@ -22,6 +22,7 @@ export default function ({ store, redirect, route }) {
           redirect('/login')
         }
         store.commit('setUser', authUser)
+        store.dispatch('getUserNotifications', authUser.id)
       })
     } else if (isAdminRoute(route)) {
       store.commit('setForwardRoute', route.path)

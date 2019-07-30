@@ -198,10 +198,18 @@ export default {
         rewardAmount: submissionUpdate.submissionReward,
         learningPoints: submissionUpdate.submissionPoints
       }
+      const userNotification = {
+        userId: submissionUpdate.userId,
+        message: `Good Job. Your received: ${userUpdate.rewardAmount}$ 
+          ,${userUpdate.rewardAmount} Reputation ${userUpdate.learningPoints} and for your Feedback: "${submissionUpdate.text}"`,
+        link: `/${this.idToSlug(this.submission.lCId)}/submission/${key}`,
+        notificationRead: false
+      }
       this.$store.dispatch('admin/createGrading', this.grading)
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
       this.$store.dispatch('admin/increaseUserBalance', userUpdate)
       this.$store.dispatch('admin/increaseUserLearningPoints', userUpdate)
+      this.$store.dispatch('admin/addUserNotification', userNotification)
     },
     submitReviewGrading(review) {
       const reviewUpdate = {
@@ -216,9 +224,28 @@ export default {
         userId: review.reviewUserId,
         rewardAmount: parseInt(this.review.rewardAmount, 10)
       }
+      const userNotification = {
+        userId: review.reviewUserId,
+        message: `Good job, ${reviewUpdate.displayName}. Your received: ${userUpdate.rewardAmount}$ 
+          and ${userUpdate.rewardAmount} Reputation for your Feedback: "${review.text}"`,
+        link: `/${this.idToSlug(this.submission.lCId)}/submission/${review.submissionId}`,
+        notificationRead: false
+      }
       this.$store.dispatch('admin/updateReview', reviewUpdate)
       this.$store.dispatch('admin/increaseUserBalance', userUpdate)
       this.$store.dispatch('admin/increaseUserTeachingPoints', userUpdate)
+      this.$store.dispatch('admin/addUserNotification', userNotification)
+    },
+    idToSlug(id) {
+      if (id === 0) {
+        return 'intro-to-blockchain'
+      } else if (id === 1) {
+        return 'eth-dev-101'
+      } else if (id === 2) {
+        return 'ae-dev-101'
+      } else if (id === 3) {
+        return 'web-dev-101'
+      }
     }
   }
 }

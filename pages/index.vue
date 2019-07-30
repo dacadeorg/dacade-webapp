@@ -2,7 +2,7 @@
   <div class="site-wrapper">
     <div class="site-wrapper-inner">
       <Navigation />
-      <div class="cover-container">
+      <div class="container">
         <main>
           <div>
             <b-alert show variant="warning" dismissible class="cookieAlert">
@@ -11,166 +11,240 @@
             </b-alert>
           </div>
 
-          <div>
-            <img class="cover-img" src="/img/dacade-cover.png" alt="Card image cap">
-            <h1>
-              Peer-to-Peer <br>
-              Blockchain Learning
-            </h1>
-            <p class="lead">
-              Earn cryptocurrency by learning about blockchain,
-              building dApps and educating your peers.
-            </p>
-          </div>
-
-          <div class="learn-more-button">
-            <nuxt-link class="btn btn-primary btn-lg" to="/community-selection">
-              START
-            </nuxt-link>
-          </div>
-
-          <div class="card mb-3 mx-auto video-card">
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe
-                class="embed-responsive-item"
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/fS69nu3riM0?rel=0"
-                frameborder="0"
-                allowfullscreen
-              />
-            </div>
-
-            <div class="card-body intro-card">
-              <h4 class="card-title">
-                What is dacade?
-              </h4>
-              <h6 class="mb-2 text-muted">
-                <span>
-                  <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/129/stopwatch_23f1.png"> 90 seconds
-                </span>
-              </h6>
-            </div>
-          </div>
-          <!-- carousel -->
-          <div class="community-carousel card mb-3 mx-auto">
-            <b-carousel
-              controls
-              background="#ababab"
-              :interval="4000"
-              img-width="1024"
-              img-height="480"
-            >
-              <!-- Text slides with image -->
-              <b-carousel-slide
-                img-src="https://app.dacade.org/assets/img/ITBCover.png"
-              />
-
-              <b-carousel-slide
-                img-src="https://app.dacade.org/assets/img/AE101Cover.png"
-              />
-
-              <b-carousel-slide
-                img-src="https://app.dacade.org/assets/img/BD101Cover.png"
-              />
-            </b-carousel>
-
-            <div class="card-body">
-              <h4
-                class="card-title"
-              >
-                Our Learning Communities
-              </h4>
-              <p
-                class="card-text"
-              >
-                At the moment, we have three
-                communities. One gives a non-technical introduction
-                to blockchain, and we have two developer communities,
-                a æternity and an ethereum introduction.
-              </p>
-              <div
-                class="community-button"
-              >
-                <nuxt-link
-                  class="btn btn-outline-primary btn-lg btn-block"
-                  to="/community-selection"
-                >
-                  Start Learning
-                </nuxt-link>
+          <section>
+            <div>
+              <div class="img-wrapper">
+                <b-img class="img-responsive cover-img" src="/img/dacade-cover.png" />
+                <div class="img-overlay">
+                  <b-button v-b-modal.modal-xl class="play-button">
+                    <i class="fa fa-play-circle fa-5x play-button2" />
+                  </b-button>
+                  <b-modal id="modal-xl" size="xl" hide-footer class="bg-dark">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe
+                        class="embed-responsive-item"
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/fS69nu3riM0?rel=0"
+                        frameborder="0"
+                        allowfullscreen
+                      />
+                    </div>
+                  </b-modal>
+                </div>
+              </div>
+              <div class="text-cover mx-auto">
+                <h1>
+                  Peer-to-Peer <br>
+                  Blockchain Learning
+                </h1>
+                <p class="lead">
+                  Earn cryptocurrency by learning about blockchain,
+                  building dApps and educating your peers.
+                </p>
               </div>
             </div>
-          </div>
 
-          <!-- Collaboration -->
-          <div class="collaboration-card card text-white mb-3 mx-auto">
-            <div class="card-header">
-              <b>In Collaboration with</b>
+            <div class="learn-more-button">
+              <nuxt-link class="btn btn-primary btn-lg" to="/community-selection">
+                START
+              </nuxt-link>
             </div>
-            <div class="card-body">
-              <a
-                href="https://aeternity.com"
-                target="_blank"
-              >
-                <img
-                  class="card-img-top"
-                  src="https://aeternity.com/brandguide/assets/images/logo-dark-bg.png"
-                  alt="Card image cap"
-                >
-              </a>
-            </div>
-          </div>
+          </section>
 
-          <!-- Team -->
-          <div class="card text-white mx-auto green-card">
-            <div class="card-header">
-              <b>Founder</b>
+          <section>
+            <div class="container pb-md-5">
+              <div class="row">
+                <div class="col-sm">
+                  <div>
+                    <h1>
+                      2200+
+                    </h1>
+                    <p>User</p>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div>
+                    <h1>
+                      600+
+                    </h1>
+                    <p>Submissions</p>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div>
+                    <h1>
+                      1700+
+                    </h1>
+                    <p>Feedbacks</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="card-body">
-              <img
-                class="card-img-top"
-                src="https://app.dacade.org/assets/img/moritz.png"
-                alt="Card image cap"
-              >
-              <p
-                style="text-align:left;"
-                class="card-text"
-              >
-                Dacade is built and developed by Moritz Stellmacher.
-                He takes care of all programming, design, videos, images, and
-                text with the help of friendly advisors. One of them is
-                Hannes Klöpper, former CEO of Iversity, one of Europe's
-                biggest online education platforms. His experiences profoundly
-                influenced the creation of dacade.
+          </section>
+
+          <section>
+            <div class="pb-md-5 text-cover mx-auto">
+              <h2>
+                Learning Communities
+              </h2>
+              <p class="lead">
+                Earn cryptocurrency by learning about blockchain,
+                building dApps and educating your peers.
               </p>
             </div>
-          </div>
+
+            <b-card-group deck>
+              <b-card bg-variant="dark" img-src="/img/ITB-Cover.png" img-alt="Image" img-top>
+                <b-card-text>
+                  <h4>Introduction to Blockchain</h4>
+                </b-card-text>
+                <nuxt-link
+                  class="btn btn-outline-primary btn-lg btn-block"
+                  to="/intro-to-blockchain/introduction"
+                >
+                  Learn more
+                </nuxt-link>
+              </b-card>
+
+              <b-card bg-variant="dark" img-src="/img/AE-DEV-101-Cover.png" img-alt="Image" img-top>
+                <b-card-text>
+                  <h4>Aeternity Development 101</h4>
+                </b-card-text>
+                <nuxt-link
+                  class="btn btn-outline-primary btn-lg btn-block"
+                  to="/intro-to-blockchain/introduction"
+                >
+                  Learn more
+                </nuxt-link>
+              </b-card>
+            </b-card-group>
+            <br><br>
+            <b-card-group deck>
+              <b-card bg-variant="dark" img-src="/img/ED1_cover.png" img-alt="Image" img-top>
+                <b-card-text>
+                  <h4>Ethereum Development 101</h4>
+                </b-card-text>
+                <nuxt-link
+                  class="btn btn-outline-primary btn-lg btn-block"
+                  to="/intro-to-blockchain/introduction"
+                >
+                  Learn more
+                </nuxt-link>
+              </b-card>
+
+              <b-card bg-variant="dark" img-src="/img/WD1_cover.png" img-alt="Image" img-top>
+                <b-card-text>
+                  <h4>Web Development 101</h4>
+                </b-card-text>
+                <nuxt-link
+                  class="btn btn-outline-primary btn-lg btn-block"
+                  to="/intro-to-blockchain/introduction"
+                >
+                  Learn more
+                </nuxt-link>
+              </b-card>
+            </b-card-group>
+          </section>
+
+          <section>
+            <div class="pb-md-5">
+              <h2>
+                User Stories
+              </h2>
+            </div>
+
+            <div class="container pb-md-5">
+              <div class="row">
+                <div class="col-sm">
+                  <div>
+                    <i>"I just made submission of my quote deapp on dacade.org. I'm so excited i took the course really enjoyed and learnt more."</i>
+                    <br><br>
+                    <h5>Tosin miniro</h5>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div>
+                    <i>"Thanks for your support, love and care on Dacade(Telegram and Website) it has being an awesome experience. I have learnt a lot and am still learning a lot."</i>
+                    <br><br>
+                    <h5>Emmanuel Joseph(JET)</h5>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div>
+                    <i>"..I'm very greatful. Your platform has really helped me in learning. Also the submission on GitHub is like building a portfolio which is very cool."</i>
+                    <br><br>
+                    <h5>EBENEZER OSEZELE</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="pb-md-5">
+              <h2>
+                Contributor
+              </h2>
+            </div>
+
+            <div class="container pb-md-5">
+              <div class="row">
+                <div class="col-sm">
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://app.dacade.org/assets/img/moritz.png" />
+                  <div>
+                    <h4>Moritz Stellmacher</h4>
+                    <p>Founded after </p>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://app.dacade.org/assets/img/moritz.png" />
+                  <div>
+                    <h4>Moritz Stellmacher</h4>
+                    <p>Founded after </p>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://app.dacade.org/assets/img/moritz.png" />
+                  <div>
+                    <h4>Moritz Stellmacher</h4>
+                    <p>Founded after </p>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.licdn.com/dms/image/C4D03AQEPlpRFTnmrCQ/profile-displayphoto-shrink_200_200/0?e=1570060800&v=beta&t=8VeCLwamWuGh28bliuLzgQSuKbIxXRwYe2Ojr388C5Q" />
+                </div>
+                <div class="col-sm">
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.creativemornings.com/uploads/user/avatar/123843/_MG_0255klein.jpg" />
+                  <div>test</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="pb-md-5">
+              <h2>
+                In Collaboration with
+              </h2>
+            </div>
+
+            <div class="container pb-md-5">
+              <div class="row">
+                <div class="col-sm">
+                  <b-img rounded alt="Circle image" width="128px" src="https://aeternity.com/brandguide/assets/images/logo-dark-bg.png" />
+                </div>
+                <div class="col-sm">
+                  <h1>APE UNIT</h1>
+                </div>
+              </div>
+            </div>
+          </section>
 
           <!-- Contact -->
-          <div
-            class="card text-white mb-3 mx-auto green-card"
-          >
-            <div class="card-header">
-              <b>Contact</b>
-            </div>
-            <div
-              class="card-body"
-            >
-              <p
-                class="card-text"
-              >
-                Help us to build the next education
-                platform, join the conversation!
-              </p>
-              <a
-                class="btn btn-primary btn-white btn-lg"
-                href="https://t.me/dacade"
-                target="_blank"
-              >
-                On telegram
-              </a>
-            </div>
-          </div>
+          <button type="button" class="btn btn-outline-primary btn-lg">
+            Join us on telegram
+          </button>
 
           <!--<footer class="mastfoot">-->
           <footer
@@ -221,9 +295,12 @@ export default {
   padding-right: 2rem;
 }
 
+b-button{
+  background: none;
+}
+
 .card {
   max-width:42em;
-  margin-top: 8em;
   box-shadow:
     0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14),
@@ -292,7 +369,8 @@ export default {
   display: block;
   margin: 0em auto 2em auto;
   padding-top: 4em;
-  width:90%;
+  max-width:600px;
+  width: 100%;
 }
 
 .cover .btn-lg {
@@ -314,6 +392,26 @@ export default {
 
 h1{
   font-weight: 600;
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 50%;
 }
 
 .impressumLink {
@@ -355,7 +453,6 @@ h1{
 }
 
 main {
-  margin-top: 2em;
   padding-bottom: 10em;
   text-align: center;
 }
@@ -369,8 +466,26 @@ main {
 }
 
 .navbar-landing {
+  text-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
   background-color: #53D1AF;
   margin-bottom: 2em;
+}
+
+.play-button{
+  background-color: transparent;
+  border:none;
+}
+
+.play-button2{
+  text-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.play-button2:hover{
+  text-shadow: none;
+}
+
+section{
+  margin-bottom: 6rem;
 }
 
 .socialIcon {
@@ -380,8 +495,12 @@ main {
 
 .site-wrapper{
   color:white;
-  background: url('/img/bg-pattern.png'),linear-gradient(0deg,#7C4DC1, #515EB4, #658ECB, #53D1AF);
+  background: linear-gradient(0deg,#343a40, #343a40, #658ECB, #53D1AF);
   position:relative;
+}
+
+.text-cover{
+  max-width: 42em;
 }
 
 .video-card {

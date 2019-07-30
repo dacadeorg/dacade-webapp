@@ -24,8 +24,8 @@
                 v-model="submission.text"
                 type="text"
                 name="submission"
-                required
                 v-validate="'required|min:20'"
+                required
                 placeholder="Enter Submission"
               />
               <p v-show="errors.has('submission')" class="help is-danger">
