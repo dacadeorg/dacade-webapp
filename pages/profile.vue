@@ -3,58 +3,56 @@
     <Navigation />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-8 col-xl-6 mx-auto">
-          <div class="site-wraper">
-            <div v-if="user">
-              <h2 class="h-dark">
-                {{ user.displayName }}
-              </h2>
-              <h4 class="muted-dark">
-                {{ user.email }}
-              </h4>
-              <h4>
-                Learning Points:
-                <span class="learning-color">
-                  {{ user.learningPoints }}
+        <div class="col-md-8 col-xl-6 mx-auto mt-4">
+          <div v-if="user">
+            <h2 class="h-dark">
+              {{ user.displayName }}
+            </h2>
+            <h4 class="muted-dark">
+              {{ user.email }}
+            </h4>
+            <h4>
+              Learning Points:
+              <span class="learning-color">
+                {{ user.learningPoints }}
+              </span>
+            </h4>
+            <h4>
+              Teaching Points:
+              <span class="teaching-color">
+                {{ user.teachingPoints }}
+              </span>
+            </h4>
+            <h4>
+              Balance:
+              <span class="earning-color">
+                {{ user.balance }}$
+              </span>
+            </h4>
+            <div class="btn-cash-out btn mt-2 mb-6">
+              Cash out
+            </div>
+            <div class="muted-dark">
+              <h5>
+                Verification:
+                <span>
+                  None
                 </span>
-              </h4>
-              <h4>
-                Teaching Points:
-                <span class="teaching-color">
-                  {{ user.teachingPoints }}
+              </h5>
+              <h5>
+                AE walletaddress:
+                <span>
+                  None
                 </span>
-              </h4>
-              <h4>
-                Balance:
-                <span class="earning-color">
-                  {{ user.balance }}$
+              </h5>
+              <h5>
+                ETH walletaddress:
+                <span>
+                  None
                 </span>
-              </h4>
-              <div class="btn-cash-out btn mt-2 mb-6">
-                Cash out
-              </div>
-              <div class="muted-dark">
-                <h5>
-                  Verification:
-                  <span>
-                    None
-                  </span>
-                </h5>
-                <h5>
-                  AE walletaddress:
-                  <span>
-                    None
-                  </span>
-                </h5>
-                <h5>
-                  ETH walletaddress:
-                  <span>
-                    None
-                  </span>
-                </h5>
-                <div class="btn-edit btn mt-2 mb-6">
-                  Edit
-                </div>
+              </h5>
+              <div class="btn-edit btn mt-2 mb-6">
+                Edit
               </div>
             </div>
           </div>

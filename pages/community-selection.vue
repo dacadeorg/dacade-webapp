@@ -17,9 +17,9 @@
                 {{ community.name }}
               </h4>
               <b-card-text class="muted-dark">
-                <span>🕒 ~{{ community.time }}min</span>
-                <span>💰 {{ community.submissionReward }}/{{ community.reviewReward }}$</span>
-                <span>🎓 {{ community.submissions }}</span>
+                <b class="muted-dark">~{{ community.time }}min</b>
+                <b class="earning-color">{{ community.submissionReward }}/{{ community.reviewReward }}$</b>
+                <b class="learning-color">{{ community.submissions }}sbm</b>
               </b-card-text>
 
               <nuxt-link
@@ -62,6 +62,7 @@ export default {
   .card-text{
     text-align: center;
     color:#acb2be;
+    font-size: 1.2em;
   }
   .card-title{
     text-align: center;

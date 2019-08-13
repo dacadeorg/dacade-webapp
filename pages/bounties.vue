@@ -3,37 +3,35 @@
     <Navigation />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-8 col-xl-6 mx-auto">
-          <div class="site-wraper">
-            <div
-              v-for="openBounty in getOpenBounties()"
-              :key="openBounty.id"
-              class="bounty mb-4"
-            >
-              <nuxt-link :to="openBounty.link">
-                <h5 class="h-dark">
-                  Review for Submission of {{ openBounty.displayName }}
-                </h5>
-                <div>
-                  Community:
-                  <b :style="{ color: openBounty.color }">
-                    {{ openBounty.lcName }}
-                  </b>
-                </div>
-                <div>
-                  Reward:
-                  <b class="earning-color">
-                    {{ openBounty.reviewReward }}$
-                  </b>
-                </div>
-                <div>
-                  Time:
-                  <b>
-                    - 3h
-                  </b>
-                </div>
-              </nuxt-link>
-            </div>
+        <div class="col-md-8 col-xl-6 mx-auto mt-4">
+          <div
+            v-for="openBounty in getOpenBounties()"
+            :key="openBounty.id"
+            class="bounty mb-4"
+          >
+            <nuxt-link :to="openBounty.link">
+              <h5 class="h-dark">
+                Review for Submission of {{ openBounty.displayName }}
+              </h5>
+              <div>
+                Community:
+                <b :style="{ color: openBounty.color }">
+                  {{ openBounty.lcName }}
+                </b>
+              </div>
+              <div>
+                Reward:
+                <b class="earning-color">
+                  {{ openBounty.reviewReward }}$
+                </b>
+              </div>
+              <div>
+                Time:
+                <b>
+                  - 3h
+                </b>
+              </div>
+            </nuxt-link>
           </div>
         </div>
       </div>

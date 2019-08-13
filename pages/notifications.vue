@@ -3,31 +3,29 @@
     <Navigation />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-8 col-xl-6 mx-auto">
-          <div class="site-wraper">
-            <div v-if="userNotifications">
-              <div class="text-center mb-4">
-                <b-button variant="primary" @click.prevent="markNotificationsRead()">
-                  Mark as seen
-                </b-button>
-              </div>
-              <div
-                v-for="notification in orderDesc()"
-                :key="notification.id"
-                :class="{'unread': !notification.notificationRead }"
-                class="muted-dark mb-4 notification"
-              >
-                <nuxt-link :to="notification.link">
-                  <div>
-                    <b>
-                      20-12-2019
-                    </b>
-                    <p class="mt-2">
-                      {{ notification.message }}
-                    </p>
-                  </div>
-                </nuxt-link>
-              </div>
+        <div class="col-md-8 col-xl-6 mx-auto mt-4">
+          <div v-if="userNotifications">
+            <div class="text-center mb-4">
+              <b-button variant="primary" @click.prevent="markNotificationsRead()">
+                Mark as seen
+              </b-button>
+            </div>
+            <div
+              v-for="notification in orderDesc()"
+              :key="notification.id"
+              :class="{'unread': !notification.notificationRead }"
+              class="muted-dark mb-4 notification"
+            >
+              <nuxt-link :to="notification.link">
+                <div>
+                  <b>
+                    20-12-2019
+                  </b>
+                  <p class="mt-2">
+                    {{ notification.message }}
+                  </p>
+                </div>
+              </nuxt-link>
             </div>
           </div>
         </div>
