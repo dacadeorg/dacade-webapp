@@ -49,14 +49,14 @@
       >
         <b-form-input
           id="input-1"
-          v-model="grading.relevanzText"
+          v-model="grading.relevanceText"
           type="text"
           required
           placeholder="Enter Feedback Relevanz"
         />
         <b-form-input
           id="input-1-1"
-          v-model="grading.relevanzAmount"
+          v-model="grading.relevanceValue"
           type="number"
           required
           placeholder="1"
@@ -76,7 +76,7 @@
         />
         <b-form-input
           id="input-2-1"
-          v-model="grading.originalityAmount"
+          v-model="grading.originalityValue"
           type="number"
           required
           placeholder="1"
@@ -96,7 +96,7 @@
         />
         <b-form-input
           id="input-3-1"
-          v-model="grading.qualityAmount"
+          v-model="grading.qualityValue"
           type="number"
           required
           placeholder="1"
@@ -138,12 +138,12 @@ export default {
       },
       grading: {
         submissionId: this.$route.params.id,
-        relevanzText: null,
-        relevanzAmount: 0,
+        relevanceText: null,
+        relevanceValue: 0,
         originalityText: null,
-        originalityAmount: 0,
+        originalityValue: 0,
         qualityText: null,
-        qualityAmount: 0
+        qualityValue: 0
       },
       submissionReward: 0
     }
@@ -187,9 +187,9 @@ export default {
         lCId: this.submission.lCId,
         text: this.submission.text,
         userId: this.submission.userId,
-        submissionPoints: parseInt(this.grading.relevanzAmount, 10) +
-          parseInt(this.grading.originalityAmount, 10) +
-          parseInt(this.grading.qualityAmount, 10),
+        submissionPoints: parseInt(this.grading.relevanceValue, 10) +
+          parseInt(this.grading.originalityValue, 10) +
+          parseInt(this.grading.qualityValue, 10),
         submissionReward: parseInt(this.submissionReward, 10)
       }
       submissionUpdate['.key'] = key

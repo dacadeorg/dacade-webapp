@@ -1,30 +1,19 @@
 <template>
   <div>
-    <b-navbar
-      :class="{'navbar-green': $route.name === 'index' }"
-      class="navbar-main"
-      toggleable="lg"
-      type="dark"
-    >
+    <b-navbar :style="{ background: lcData.gradient }" toggleable="lg" type="dark">
       <b-navbar-brand href="#">
         <nuxt-link to="/">
           <img class="logoImg" src="/img/logo-white.png" height="20" alt="">
         </nuxt-link>
       </b-navbar-brand>
       <b-nav-text class="community-title">
-        <span v-if="$route.name === 'index'" />
-        <span v-else class="nav-divider" />
-        {{ getSectionName($route) }}
+        <span class="nav-divider" />
+        {{ lcData.name }}
       </b-nav-text>
       <b-navbar-toggle target="nav-collapse" />
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto userPoints">
-          <b-nav-text v-if="$route.name === 'index'">
-          </b-nav-text>
-          <b-nav-text v-else-if="loginStatus" class="mr-2 muted-dark">
-            <b class="learning-color">{{ user.learningPoints }}LP</b><span class="muted-dark">/</span><b class="teaching-color">{{ user.teachingPoints }}TP</b><span class="muted-dark">/</span><b class="earning-color">{{ user.balance }}$</b>
-          </b-nav-text>
           <b-nav-item v-if="loginStatus">
             <i v-b-modal.modal-1 class="fa fa-bars fa-lg" />
             <b-modal
@@ -33,6 +22,7 @@
               header-text-variant="light"
               hide-footer
             >
+
               <nuxt-link class="dropdown-item" to="/bounties/">
                 Bounties
               </nuxt-link>
@@ -68,7 +58,7 @@
           </div>
 
           <div v-if="!loginStatus">
-            <nuxt-link class="btn btn btn-white-outline" to="/signup">
+            <nuxt-link class="btn btn-white-outline" to="/signup">
               <span>Sign up</span>
             </nuxt-link>
           </div>
@@ -87,7 +77,7 @@ export default {
     }
   },
   computed: {
-    userLoggedIn(params) {
+    userLoggedIn() {
       return this.$store.getters.loginStatus
     },
     ...mapGetters({
@@ -110,6 +100,7 @@ export default {
     getUnreadNotification() {
       let notifications = 0
       if (this.userNotifications) {
+        console.log(Object.values(this.userNotifications).length)
         for (let index = 0; index < Object.values(this.userNotifications).length; index++) {
           if (!Object.values(this.userNotifications)[index].notificationRead) {
             notifications++
@@ -157,6 +148,10 @@ export default {
   border-radius: 25px;
 }
 
+.logoImg{
+  vertical-align: unset;
+}
+
 .login-link {
   color: white;
   font-weight: 700;
@@ -168,18 +163,10 @@ export default {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.logoImg{
-  vertical-align: unset;
-}
-
 .nav-divider{
   padding-left: 1em;
   margin-left: 10px;
   border-left: 2px solid rgba(255,255,255,0.5);
-}
-
-.navbar-green{
-  background: #53d1af;
 }
 
 .userPoints{

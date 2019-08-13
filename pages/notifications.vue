@@ -1,20 +1,36 @@
 <template>
   <div>
     <Navigation />
-    <div v-if="userNotifications">
-      <b-button variant="primary" @click.prevent="markNotificationsRead()">
-        Mark as seen
-      </b-button>
-      <div
-        v-for="notification in orderDesc()"
-        :key="notification.id"
-        :class="{'styleA': !notification.notificationRead}"
-      >
-        {{notification.message}}
-        {{notification.key}}
-        <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="notification.link">
-          See
-        </nuxt-link>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 col-xl-6 mx-auto">
+          <div class="site-wraper">
+            <div v-if="userNotifications">
+              <div class="text-center mb-4">
+                <b-button variant="primary" @click.prevent="markNotificationsRead()">
+                  Mark as seen
+                </b-button>
+              </div>
+              <div
+                v-for="notification in orderDesc()"
+                :key="notification.id"
+                :class="{'unread': !notification.notificationRead }"
+                class="muted-dark mb-4 notification"
+              >
+                <nuxt-link :to="notification.link">
+                  <div>
+                    <b>
+                      20-12-2019
+                    </b>
+                    <p class="mt-2">
+                      {{ notification.message }}
+                    </p>
+                  </div>
+                </nuxt-link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -53,7 +69,31 @@ export default {
 </script>
 
 <style scoped>
-.styleA{
-  background-color: green;
+.notification {
+  border: 1.6px solid grey;
+  border-radius: 0.35rem;
+  padding: 1em;
+}
+
+.notification:hover {
+  background: #343b42;
+  border: none;
+  box-shadow:
+    0 5px 5px -3px rgba(0,0,0,.2),
+    0 8px 10px 1px rgba(0,0,0,.14),
+    0 3px 14px 2px rgba(0,0,0,.12);
+}
+
+.notification:hover a{
+  text-decoration: none;
+}
+
+.unread {
+  color: #53d1af;
+  border-color:#53d1af;
+}
+
+.unread a{
+  color: #53d1af;
 }
 </style>

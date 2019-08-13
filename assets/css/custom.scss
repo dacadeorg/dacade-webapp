@@ -1,11 +1,55 @@
 @import url('https://fonts.googleapis.com/css?family=Open-sans:400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+
+a {
+  color: none!important;
+}
+
+a:not([href]):not([tabindex]){
+  color:#53d1af;
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):hover{
+  color:#53d1afaf;
+}
+
+.badge-notification-menu {
+  color: rgba(217,217,217,1.00);
+  background-color: #181a1f!important;
+  border: 1.2px solid rgba(217,217,217,1.00);
+  vertical-align: 10%;
+}
+
+.badge-notification-nav {
+  color: rgba(255, 255, 255, 1);
+  background: none!important;
+  border: 1.6px solid rgba(255, 255, 255, 1);
+  vertical-align: 10%;
+}
 
 body {
   font-family: 'Open sans', sans-serif;
   background-color: #22262b;
-  color: #acb2be;
+  color: #acb2be!important;
 }
 
 .dropdown-toggle::after {
   display: none;
+}
+
+.modal-body {
+  background: #181a1f;
+  border-radius: 0 0 4px 4px;
+}
+
+.modal-content {
+  background: #181a1f;
+  border: none;
+}
+
+.modal-header {
+  background: #282c34;
+  text-align: center;
+  border-bottom: 1px solid #181a1f;
 }

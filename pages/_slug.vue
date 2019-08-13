@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navigation />
+    <NavigationInCommunity />
     <notification-bar />
     <CommunityNavigation />
     <div class="container">
@@ -11,14 +11,14 @@
 <script>
 /* eslint-disable no-console */
 import firebase from '@/plugins/firebase'
-import Navigation from '@/components/Navigation'
+import NavigationInCommunity from '@/components/NavigationInCommunity'
 import CommunityNavigation from '@/components/CommunityNavigation'
 import apiJobMixin from '@/mixins/apiJobMixin'
 import NotificationBar from '@/components/NotificationBar'
 
 export default {
   components: {
-    Navigation,
+    NavigationInCommunity,
     CommunityNavigation,
     NotificationBar: NotificationBar
   },

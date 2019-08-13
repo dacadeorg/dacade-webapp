@@ -2,29 +2,35 @@
   <div>
     <Navigation />
     <div>
-      <div v-for="(community) in communityData" :key="community.key">
-        <b-card
-          :title="community.name"
-          :img-src="community.imgUrl"
-          img-alt="Image"
-          img-top
-          tag="article"
-          style="max-width: 30rem;"
-          class="mb-2 bg-dark text-white"
-        >
-          <b-card-text>
-            <span>🕒 ~{{ community.time }}min</span>
-            <span>💰 {{ community.submissionReward }}/{{ community.reviewReward }}$</span>
-            <span>🎓 {{ community.submissions }}</span>
-          </b-card-text>
+      <div class="container">
+        <div class="row">
+          <div v-for="(community) in communityData" :key="community.key" class="col-md-4 mb-4">
+            <b-card
+              :img-src="community.imgUrl"
+              img-alt="Image"
+              img-top
+              tag="article"
+              style="max-width: 30rem;"
+              class="mb-2 bg-dark small-shadow"
+            >
+              <h4 class="text-center h-dark">
+                {{ community.name }}
+              </h4>
+              <b-card-text class="muted-dark">
+                <span>🕒 ~{{ community.time }}min</span>
+                <span>💰 {{ community.submissionReward }}/{{ community.reviewReward }}$</span>
+                <span>🎓 {{ community.submissions }}</span>
+              </b-card-text>
 
-          <nuxt-link
-            class="btn btn-outline-primary btn-lg btn-block"
-            :to="{path: communityPath(community.slug) }"
-          >
-            Learn more
-          </nuxt-link>
-        </b-card>
+              <nuxt-link
+                class="btn btn-outline-primary btn-lg btn-block"
+                :to="{path: communityPath(community.slug) }"
+              >
+                Learn more
+              </nuxt-link>
+            </b-card>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -53,10 +59,14 @@ export default {
 }
 </script>
 <style scoped>
-.card-text{
-  text-align: center;
-}
-.card-title{
-  text-align: center;
-}
+  .card-text{
+    text-align: center;
+    color:#acb2be;
+  }
+  .card-title{
+    text-align: center;
+  }
+  .container{
+    margin-top:4rem;
+  }
 </style>

@@ -2,43 +2,54 @@
   <div>
     <Navigation />
     <notification-bar />
-    <a href="#">
-      <nuxt-link to="/signup">
-        Signup
-      </nuxt-link>
-    </a>
-    <b-form @submit.prevent="onLogin">
-      <b-form-group
-        id="input-group-1"
-        label="Email address:"
-        label-for="input-1"
-      >
-        <b-form-input
-          id="input-1"
-          v-model="form.email"
-          type="email"
-          required
-          placeholder="Enter email"
-        />
-      </b-form-group>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item">
+              <span class="nav-link active" href="#">Login</span>
+            </li>
+            <li class="nav-item">
+              <nuxt-link class="nav-link" to="/signup">
+                Signup
+              </nuxt-link>
+            </li>
+          </ul>
+          <b-form @submit.prevent="onLogin">
+            <b-form-group
+              id="input-group-1"
+            >
+              <label for="input-1">Email address</label>
+              <b-form-input
+                id="input-1"
+                v-model="form.email"
+                type="email"
+                required
+                placeholder="Enter email"
+              />
+            </b-form-group>
 
-      <b-form-group>
-        <label for="text-password">Password</label>
-        <b-input
-          id="text-password"
-          v-model="form.password"
-          type="password"
-        />
-      </b-form-group>
+            <b-form-group>
+              <label for="text-password">Password</label>
+              <b-input
+                id="text-password"
+                v-model="form.password"
+                type="password"
+                placeholder="Enter password"
+              />
+            </b-form-group>
 
-      <b-button
-        type="submit"
-        variant="primary"
-        :disabled="busy"
-      >
-        Submit
-      </b-button>
-    </b-form>
+            <b-button
+              type="submit"
+              variant="primary"
+              :disabled="busy"
+            >
+              Submit
+            </b-button>
+          </b-form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -93,3 +104,30 @@ export default {
   }
 }
 </script>
+<style scoped>
+a{
+  color:white;
+  font-size: 19px;
+  font-weight:700;
+}
+a:hover{
+  color:#53d1af;
+  font-size: 19px;
+  font-weight:700;
+}
+.container{
+  padding-top:4em;
+}
+form{
+  margin: 2em 0;
+}
+label{
+  font-size:19px;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #53d1af;
+  font-size: 19px;
+  font-weight:700;
+}
+</style>
