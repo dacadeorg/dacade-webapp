@@ -62,7 +62,7 @@
           </h4>
           <div v-for="item2 in lcData.chapter" :key="item2.key" class="chapter-outline mt-4">
             <h5 class="h-dark">
-              {{ item2.chapterName }} ⏱️
+              {{ item2.chapterName }}
               <span class="chapter-time">
                 {{ item2.chapterTime }} min
               </span>
@@ -71,7 +71,6 @@
           </div>
 
           <h4 class="h-dark mt-4">
-            🏆
             Creative Challenge
           </h4>
 
@@ -123,7 +122,6 @@ export default {
 <style scoped>
 .chapter-time {
   color:rgba(255, 255, 255, 0.3);
-  font-size:1rem;
   font-weight:bold;
 }
 .chapter-time img{

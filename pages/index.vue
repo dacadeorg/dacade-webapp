@@ -100,7 +100,7 @@
             <b-card-group deck>
               <b-card bg-variant="dark" img-src="/img/ITB-Cover.png" img-alt="Image" img-top>
                 <b-card-text>
-                  <h4>Introduction <br>to Blockchain</h4>
+                  <h4 class="h-dark">Introduction <br>to Blockchain</h4>
                   <p>Learn the most important concepts for blockchain technology.</p>
                 </b-card-text>
                 <nuxt-link
@@ -113,7 +113,7 @@
 
               <b-card bg-variant="dark" img-src="/img/AE-DEV-101-Cover.png" img-alt="Image" img-top>
                 <b-card-text>
-                  <h4>Aeternity <br> Development 101</h4>
+                  <h4 class="h-dark">Aeternity <br> Development 101</h4>
                   <p>Learn how to build a voting dApp on top of Aeternity.</p>
                 </b-card-text>
                 <nuxt-link
@@ -126,7 +126,7 @@
 
               <b-card bg-variant="dark" img-src="/img/ED1_cover.png" img-alt="Image" img-top>
                 <b-card-text>
-                  <h4>Ethereum <br> Development 101</h4>
+                  <h4 class="h-dark">Ethereum <br> Development 101</h4>
                   <p>Learn how to build a registry on top of Ethereum.</p>
                 </b-card-text>
                 <nuxt-link
@@ -341,6 +341,10 @@ b-button{
   border-top:1px solid rgba(0,0,0,.125);
 }
 
+.card-text {
+  color:#acb2be !important;
+}
+
 .card:hover{
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
       0px 4px 5px 0px rgba(0, 0, 0, 0.14),
@@ -390,6 +394,7 @@ b-button{
   max-width:52rem;
   margin:0 auto;
   margin-top:2em;
+  bottom: 1em;
 }
 
 .cover-container {
@@ -400,8 +405,7 @@ b-button{
 .cover-img {
   display: block;
   margin: 0em auto 2em auto;
-  padding-top: 4em;
-  max-width:600px;
+  max-width:500px;
   width: 100%;
 }
 
@@ -424,6 +428,10 @@ b-button{
 
 h1{
   font-weight: 600;
+}
+
+h2,h3,h4 {
+  font-weight: 700;
 }
 
 .img-wrapper {
