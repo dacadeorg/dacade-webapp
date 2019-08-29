@@ -68,14 +68,19 @@ export default {
 
 <style scoped>
 .notification {
-  border: 1.6px solid grey;
   border-radius: 0.35rem;
+  background: #343b42;
   padding: 1em;
+  box-shadow:
+    0 1px 3px 0 rgba(0,0,0,.2),
+    0 1px 1px 0 rgba(0,0,0,.14),
+    0 2px 1px -1px rgba(0,0,0,.12);
 }
 
 .notification:hover {
+  border: 1.6px solid #53d1af;
   background: #343b42;
-  border: none;
+  padding: 1em;
   box-shadow:
     0 5px 5px -3px rgba(0,0,0,.2),
     0 8px 10px 1px rgba(0,0,0,.14),

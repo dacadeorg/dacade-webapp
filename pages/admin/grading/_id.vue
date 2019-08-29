@@ -137,6 +137,9 @@ export default {
         submissionId: this.$route.params.id
       },
       grading: {
+        date: Date.now(),
+        gradingUserId: null,
+        gradingDisplayName: null,
         submissionId: this.$route.params.id,
         relevanceText: null,
         relevanceValue: 0,
@@ -150,6 +153,7 @@ export default {
   },
   computed: {
     ...mapGetters({
+      user: 'user',
       reviews: 'reviews/reviews'
     }),
     getSubmissionReviews() {
@@ -187,6 +191,7 @@ export default {
         lCId: this.submission.lCId,
         text: this.submission.text,
         userId: this.submission.userId,
+        date: this.submission.date,
         submissionPoints: parseInt(this.grading.relevanceValue, 10) +
           parseInt(this.grading.originalityValue, 10) +
           parseInt(this.grading.qualityValue, 10),
@@ -205,6 +210,8 @@ export default {
         link: `/${this.idToSlug(this.submission.lCId)}/submission/${key}`,
         notificationRead: false
       }
+      this.grading.gradingUserId = this.user.id
+      this.grading.gradingDisplayName = this.user.displayName
       this.$store.dispatch('admin/createGrading', this.grading)
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
       this.$store.dispatch('admin/increaseUserBalance', userUpdate)
@@ -217,6 +224,7 @@ export default {
         submissionId: review.submissionId,
         displayName: review.displayName,
         reviewUserId: review.reviewUserId,
+        date: review.date,
         rewardAmount: parseInt(this.review.rewardAmount, 10)
       }
       reviewUpdate['.key'] = review['.key']

@@ -3,7 +3,7 @@
     <Navigation />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-8 col-xl-6 mx-auto mt-4">
+        <div class="col-md-6 col-xl-4 mx-auto mt-4">
           <div
             v-for="openBounty in getOpenBounties()"
             :key="openBounty.id"
@@ -26,9 +26,9 @@
                 </b>
               </div>
               <div>
-                Time:
+                Time left:
                 <b>
-                  - 3h
+                  -{{ openBounty.hoursLeft }}h
                 </b>
               </div>
             </nuxt-link>
@@ -48,15 +48,15 @@ export default {
   components: {
     Navigation
   },
+  computed: {
+    ...mapGetters({
+      submissions: 'submissions/submissions'
+    })
+  },
   asyncData({ params }) {
     return firebase.database().ref(`communityData`).once('value').then((snapShot) => {
       const communityData = snapShot.val()
       return { communityData }
-    })
-  },
-  computed: {
-    ...mapGetters({
-      submissions: 'submissions/submissions'
     })
   },
   created() {
@@ -78,6 +78,8 @@ export default {
           element.link = `/${result[0].slug}/submission/${element['.key']}`
           element.color = result[0].color
           element.reviewReward = result[0].reviewReward
+          const endTime = element.date + 48 * 60 * 60 * 1000
+          element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
           bounties.push(element)
         }
       }
@@ -89,9 +91,13 @@ export default {
 
 <style scoped>
 .bounty {
-  border: 1.6px solid #53d1af;
   border-radius: 0.35rem;
+  background: #343b42;
   padding: 1em;
+  box-shadow:
+    0 1px 3px 0 rgba(0,0,0,.2),
+    0 1px 1px 0 rgba(0,0,0,.14),
+    0 2px 1px -1px rgba(0,0,0,.12);
 }
 
 .bounty a{
@@ -103,10 +109,10 @@ export default {
 }
 
 .bounty:hover{
-  background: #53d1af42;
+  border: 1.6px solid #53d1af;
+  background: #343b42;
   text-decoration: none;
   cursor: pointer;
-  border: none;
   box-shadow:
     0 5px 5px -3px rgba(0,0,0,.2),
     0 8px 10px 1px rgba(0,0,0,.14),

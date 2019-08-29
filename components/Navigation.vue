@@ -153,8 +153,10 @@ export default {
 
 .dropdown-item:hover{
   color: #53d1af!important;
-  background: #53d1af09;
+  background: none;
   border-radius: 25px;
+  font-size: 1.3em;
+  margin-left: 0.3em;
 }
 
 .login-link {

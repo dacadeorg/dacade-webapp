@@ -122,7 +122,8 @@ export default {
         text: null,
         lCId: null,
         displayName: null,
-        userId: null
+        userId: null,
+        date: Date.now()
       }
     }
   },

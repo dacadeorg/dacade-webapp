@@ -100,7 +100,9 @@
             <b-card-group deck>
               <b-card bg-variant="dark" img-src="/img/ITB-Cover.png" img-alt="Image" img-top>
                 <b-card-text>
-                  <h4 class="h-dark">Introduction <br>to Blockchain</h4>
+                  <h4 class="h-dark">
+                    Introduction <br>to Blockchain
+                  </h4>
                   <p>Learn the most important concepts for blockchain technology.</p>
                 </b-card-text>
                 <nuxt-link
@@ -113,7 +115,9 @@
 
               <b-card bg-variant="dark" img-src="/img/AE-DEV-101-Cover.png" img-alt="Image" img-top>
                 <b-card-text>
-                  <h4 class="h-dark">Aeternity <br> Development 101</h4>
+                  <h4 class="h-dark">
+                    Aeternity <br> Development 101
+                  </h4>
                   <p>Learn how to build a voting dApp on top of Aeternity.</p>
                 </b-card-text>
                 <nuxt-link
@@ -126,7 +130,9 @@
 
               <b-card bg-variant="dark" img-src="/img/ED1_cover.png" img-alt="Image" img-top>
                 <b-card-text>
-                  <h4 class="h-dark">Ethereum <br> Development 101</h4>
+                  <h4 class="h-dark">
+                    Ethereum <br> Development 101
+                  </h4>
                   <p>Learn how to build a registry on top of Ethereum.</p>
                 </b-card-text>
                 <nuxt-link
@@ -145,7 +151,7 @@
                 <div class="col-sm">
                   <div>
                     <h1>
-                      2200+
+                      2500+
                     </h1>
                     <p>Learners registered on dacade.</p>
                   </div>
@@ -153,7 +159,7 @@
                 <div class="col-sm">
                   <div>
                     <h1>
-                      600+
+                      700+
                     </h1>
                     <p>Learners finnished the community tutorials and made a submission to the challenge.</p>
                   </div>

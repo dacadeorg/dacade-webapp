@@ -18,8 +18,8 @@
               </h4>
               <b-card-text class="muted-dark">
                 <b class="muted-dark">~{{ community.time }}min</b>
-                <b class="earning-color">{{ community.submissionReward }}/{{ community.reviewReward }}$</b>
-                <b class="learning-color">{{ community.submissions }}sbm</b>
+                <b class="muted-dark">{{ community.submissionReward }}/{{ community.reviewReward }}$</b>
+                <b class="muted-dark">{{ community.submissions }}sub</b>
               </b-card-text>
 
               <nuxt-link

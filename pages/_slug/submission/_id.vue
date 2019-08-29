@@ -4,10 +4,10 @@
       <div class="site-wraper">
         <!-- Submission Card -->
         <b-card
-          class="bg-dark mb-4 small-shadow"
+          class="bg-dark mb-4 small-shadow-no-hover"
         >
           <span class="float-right muted-dark">
-            20-12-2019
+            {{ convertDate(submission.date) }}
           </span>
           <b-card-text>
             <span class="learning-color">
@@ -37,10 +37,10 @@
         <!-- Evaluation Card -->
         <b-card
           v-if="getGradingsDb"
-          class="bg-dark mb-4 small-shadow"
+          class="bg-dark mb-4 small-shadow-no-hover"
         >
           <span class="float-right muted-dark">
-            20-12-2019
+            {{ convertDate(getGradingsDb.date) }}
           </span>
           <b-card-text>
             <span class="earning-color">
@@ -52,7 +52,7 @@
               by
             </span>
             <span class="h-dark">
-              {{ getGradingsDb.submissionId }}
+              {{ getGradingsDb.gradingDisplayName }}
             </span>
           </b-card-text>
           <b-card-text>
@@ -83,10 +83,10 @@
         <b-card
           v-for="getReview in getSubmissionReviews"
           :key="getReview.key"
-          class="bg-dark small-shadow mb-4"
+          class="bg-dark small-shadow-no-hover mb-4"
         >
           <span class="float-right muted-dark">
-            20-12-2019
+            {{ convertDate(getReview.date) }}
           </span>
           <b-card-text>
             <span class="teaching-color">
@@ -151,7 +151,8 @@ export default {
     return {
       review: {
         text: null,
-        submissionId: this.$route.params.id
+        submissionId: this.$route.params.id,
+        date: Date.now()
       }
     }
   },
@@ -225,6 +226,21 @@ export default {
       if (input === 'Quality') {
         return input2.qualityText
       };
+    },
+    convertDate(date) {
+      const submissionInputDate = new Date(date)
+      const submissionDate = submissionInputDate.toDateString().slice(4, -4)
+      let submissionMinutes = submissionInputDate.getMinutes()
+      if (submissionMinutes < 10) {
+        submissionMinutes = '0' + submissionMinutes
+      }
+      let submissionHours = submissionInputDate.getHours()
+      if (submissionHours < 10) {
+        submissionHours = '0' + submissionHours
+      }
+      const submissionTime = submissionHours + ':' + submissionMinutes
+      const submissionTimeAndDate = submissionDate + ' ' + submissionTime
+      return submissionTimeAndDate
     }
   }
 }

@@ -10,7 +10,7 @@
               class="bg-dark mb-4 small-shadow"
             >
               <span class="float-right muted-dark">
-                20-12-2019
+                {{ convertDate(submission.date) }}
               </span>
               <b class="learning-color">
                 Submission
@@ -83,8 +83,12 @@ export default {
       return trimmedString
     },
     submissionPath(slug, submissionKey) {
-      console.log(submissionKey)
       return `/${slug}/submission/${submissionKey}`
+    },
+    convertDate(date) {
+      let submissionDate = new Date(date).toDateString()
+      submissionDate = submissionDate.slice(4, -4)
+      return submissionDate
     }
   }
 }
