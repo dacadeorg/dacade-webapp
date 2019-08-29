@@ -48,10 +48,20 @@
           </div> -->
 
           <div v-if="getUserSubmission">
-            {{ getUserSubmission }}
-
+            <div v-if="getGradingsDb">
+              Your submission was evaluated click on the link to see the evaluation and feedback of your peers.
+            </div>
+            <div v-else>
+              Thank you for your submission! It will take on average 48 hours until you will get an evaluation of your submission and feedback from your peers.
+            </div>
+            <nuxt-link
+              class="btn btn-outline-primary btn-lg btn-block mt-4"
+              :to="{path: submissionPath($route.params.slug, getUserSubmission['.key']) }"
+            >
+              See your Submission
+            </nuxt-link>
             <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{ path: communityPath($route.params.slug) }">
-              See Submissions
+              See Peer Submissions
             </nuxt-link>
           </div>
 
@@ -131,7 +141,8 @@ export default {
     ...mapGetters({
       user: 'user',
       submissions: 'submissions/submissions',
-      lcData: 'content/lcData'
+      lcData: 'content/lcData',
+      gradings: 'submissions/gradings'
     }),
     getUserSubmission() {
       let userSubmission = null
@@ -143,17 +154,31 @@ export default {
         }
       }
       return userSubmission
+    },
+    getGradingsDb() {
+      let gradingsNew = null
+      for (let index = 0; index < this.gradings.length; index++) {
+        if (this.gradings[index].submissionId === this.getUserSubmission['.key']) {
+          gradingsNew = this.gradings[index]
+        }
+      }
+      return gradingsNew
     }
   },
   created() {
     this.getSubmissions()
+    this.getGradings()
   },
   methods: {
     ...mapActions({
-      getSubmissions: 'submissions/getSubmissions'
+      getSubmissions: 'submissions/getSubmissions',
+      getGradings: 'submissions/getGradings'
     }),
     communityPath(slug) {
       return `/${slug}/submissions`
+    },
+    submissionPath(slug, submissionKey) {
+      return `/${slug}/submission/${submissionKey}`
     },
     onSubmit() {
       this.$validator.validateAll()
