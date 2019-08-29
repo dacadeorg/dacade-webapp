@@ -131,6 +131,10 @@ export default {
 /* .navbar-main{
   background:#53d1af;
 } */
+
+.navbar{
+  z-index: 2;
+}
 .community-title{
   color: white;
   font-size: 21px;

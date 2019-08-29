@@ -5,6 +5,11 @@
         <nav class="col-md-3 d-none d-md-block sidebar sticky-top">
           <!-- <span class="nav-item">{{ lcData.name }}</span> -->
           <div>
+            <div style="margin:1em; font-weight:800;">
+              <h4 :style="{ color: lcData.gradient }" class="navLcName">
+                {{lcData.name}}
+              </h4>
+            </div>
             <ul class="nav flex-column">
               <li class="nav-item">
                 <nuxt-link :to="{path: communityPath($route.params.slug, 'introduction') }">
@@ -102,16 +107,21 @@ export default {
   margin-left: 1.8em;
 }
 
+.navLcName {
+  font-weight:700;
+  font-size: 21px;
+}
+
 .font-bold{
   font-weight:600;
 }
 
 .sidebar {
   position: fixed;
-  top: 63px;
+  /* top: 63px; */
   bottom: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1;
   padding: 10px 0 0 10px;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
   background-image: linear-gradient( #2c3238, #22262b);
