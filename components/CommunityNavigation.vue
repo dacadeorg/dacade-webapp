@@ -7,7 +7,7 @@
           <div>
             <div style="margin:1em; font-weight:800;">
               <h4 :style="{ color: lcData.gradient }" class="navLcName">
-                {{lcData.name}}
+                {{ lcData.name }}
               </h4>
             </div>
             <ul class="nav flex-column">

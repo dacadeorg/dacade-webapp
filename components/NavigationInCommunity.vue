@@ -26,7 +26,7 @@
             <nuxt-link class="dropdown-item" to="/community-selection/">
               Community Selection
             </nuxt-link>
-            <CommunityNavigationMobile class="mobile-only"/>
+            <CommunityNavigationMobile class="mobile-only" />
             <nuxt-link class="dropdown-item" to="/notifications/">
               Notifications
               <b-badge v-if="getUnreadNotification()>0" class="badge-notification-menu">

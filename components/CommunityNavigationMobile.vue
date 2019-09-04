@@ -2,7 +2,7 @@
   <div>
     <div class="nav-wrapper">
       <div :style="{ color: lcData.gradient }" class="navLcName">
-        {{lcData.name}}
+        {{ lcData.name }}
       </div>
       <ul class="nav flex-column">
         <li class="nav-item">

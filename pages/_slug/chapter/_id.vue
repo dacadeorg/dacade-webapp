@@ -23,7 +23,7 @@
                     <b>
                       {{ item.materialSubtitle }}
                     </b>
-                      {{ item.materialTime }}min
+                    {{ item.materialTime }}min
                   </h6>
                   <p class="mt-2" v-html="item.materialDescription" />
 

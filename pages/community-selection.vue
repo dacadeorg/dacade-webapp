@@ -22,9 +22,15 @@
                   </h4>
                 </div>
                 <b-card-text class="muted-dark">
-                  <div class="muted-dark">Estimated Time: ~{{ community.time }}min</div>
-                  <div class="muted-dark">Total Submissions: {{ community.submissions }}</div>
-                  <div class="muted-dark">Rewards: <b class="earning-color">{{ community.submissionReward }}/{{ community.reviewReward }}$</b></div>
+                  <div class="muted-dark">
+                    Estimated Time: ~{{ community.time }}min
+                  </div>
+                  <div class="muted-dark">
+                    Total Submissions: {{ community.submissions }}
+                  </div>
+                  <div class="muted-dark">
+                    Rewards: <b class="earning-color">{{ community.submissionReward }}/{{ community.reviewReward }}$</b>
+                  </div>
                 </b-card-text>
               </b-card>
             </nuxt-link>

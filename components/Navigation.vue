@@ -18,8 +18,7 @@
       </b-nav-text>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto userPoints">
-        <b-nav-text v-if="$route.name === 'index'">
-        </b-nav-text>
+        <b-nav-text v-if="$route.name === 'index'" />
         <b-nav-text v-else-if="loginStatus" class="mr-2 muted-dark desktop-only">
           <b class="learning-color">{{ user.learningPoints }}LP</b><span class="muted-dark">/</span><b class="teaching-color">{{ user.teachingPoints }}TP</b><span class="muted-dark">/</span><b class="earning-color">{{ user.balance }}$</b>
         </b-nav-text>

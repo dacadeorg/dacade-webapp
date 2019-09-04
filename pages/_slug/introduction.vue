@@ -37,7 +37,7 @@
                 Trailer
               </h4>
               <h6 class="mb-2">
-                  {{ lcData.introductionVideoTime }}sec
+                {{ lcData.introductionVideoTime }}sec
               </h6>
               <div class="embed-responsive embed-responsive-16by9 mt-1">
                 <iframe

@@ -162,7 +162,7 @@
                     <i>"I just made submission of my quote daepp on dacade.org. I'm so excited I took the course, I really enjoyed it and have learned a lot."</i>
                     <br><br><br>
                     <h5>Labi23</h5>
-                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_tosin_edit.png" class="mt-4"/>
+                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_tosin_edit.png" class="mt-4" />
                   </div>
                 </div>
                 <div class="col-sm">
@@ -170,7 +170,7 @@
                     <i>"Thanks for your support, love and care on Dacade(Telegram and Website) it has being an awesome experience. I have learned a lot and I am still learning a lot."</i>
                     <br><br>
                     <h5>emmanuelJet_</h5>
-                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_jet.png" class="mt-4"/>
+                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_jet.png" class="mt-4" />
                   </div>
                 </div>
                 <div class="col-sm">
@@ -178,7 +178,7 @@
                     <i>"I'm still baffled that I can earn for learning, so are my friends - Dacade's courses are visual, practical and you can learn about blockchain through interactions."</i>
                     <br><br>
                     <h5>ced000</h5>
-                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_ced.jpg" class="mt-4"/>
+                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_ced.jpg" class="mt-4" />
                   </div>
                 </div>
               </div>
@@ -248,20 +248,20 @@
                   </div>
                 </div>
                 <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.creativemornings.com/uploads/user/avatar/123843/_MG_0255klein.jpg" class="mb-4"/>
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.creativemornings.com/uploads/user/avatar/123843/_MG_0255klein.jpg" class="mb-4" />
                   <div>
                     <h4>Alexandre Peschel</h4>
                     <p>CEO of APE Unit, Blockchain developer network</p>
                   </div>
                 </div>
                 <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://aeternity.com/user/pages/01.home/_10.team/emin.jpg" class="mb-4"/>
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://aeternity.com/user/pages/01.home/_10.team/emin.jpg" class="mb-4" />
                   <h4>Emin <br> Mahrt</h4>
                   <p>CPO of Aeternity, <br> a third generation Blockchain</p>
                 </div>
                 <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/add_person2.png" class="mb-4"/>
-                 <h4>YOU<br><br></h4>
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/add_person2.png" class="mb-4" />
+                  <h4>YOU<br><br></h4>
                   <p>Contribute to dacade and help to create a peer learning revolution</p>
                 </div>
               </div>
