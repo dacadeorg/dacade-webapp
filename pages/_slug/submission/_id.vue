@@ -25,12 +25,27 @@
           <b-card-text>
             {{ submission.text }}
           </b-card-text>
-          <div v-if="submission.submissionPoints" class="evaluation-points">
-            <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ lcData.assignmentPoints }} LP</span>
-            </b>
-            <b v-if="submission.submissionReward > 1" class="earning-color ml-1">
-              +{{ submission.submissionReward }}$
-            </b>
+          <div
+            v-if="submission.githubLink"
+            class="github-link"
+          >
+            <a class="btn btn-dark" target="blank" :href="submission.githubLink">GitHub Code</a>
+            <i>Click to see the code on GitHub</i>
+
+            <div
+              v-if="lcData.githubUrl"
+              class="github-url"
+            >
+              <a class="btn btn-dark" target="blank" :href="getGithubUrl">Website</a>
+              <i>Click to see the Website</i>
+            </div>
+            <div v-if="submission.submissionPoints" class="evaluation-points mt-4">
+              <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ lcData.assignmentPoints }} LP</span>
+              </b>
+              <b v-if="submission.submissionReward > 1" class="earning-color ml-1">
+                +{{ submission.submissionReward }}$
+              </b>
+            </div>
           </div>
         </b-card>
 
@@ -98,16 +113,23 @@
               by
             </span>
             <span class="h-dark">
-              {{ getReview.displayName }}
+              {{ getReview.reviewDisplayName }}
             </span>
           </b-card-text>
           <b-card-text>
-            {{ getReview.text }}
-            <div v-if="getReview.rewardAmount" class="mt-3">
-              <b class="earning-color mr-1">+{{ getReview.rewardAmount }}$</b>
-              <b class="teaching-color">+{{ getReview.rewardAmount }}TP</b>
-            </div>
+            {{ getReview.content }}
           </b-card-text>
+          <div
+            v-if="getReview.reviewCodeLink"
+            class="github-link"
+          >
+            <a class="btn btn-dark" target="blank" :href="getReview.reviewCodeLink">Code Review</a>
+            <i>Click to see GitHub Pull Request</i>
+          </div>
+          <div v-if="getReview.rewardAmount" class="mt-3">
+            <b class="earning-color mr-1">+{{ getReview.rewardAmount }}$</b>
+            <b class="teaching-color">+{{ getReview.rewardAmount }}TP</b>
+          </div>
         </b-card>
 
         <!-- Feedback Input Area -->
@@ -121,14 +143,28 @@
           >
             <b-form-textarea
               id="input-1"
-              v-model="review.text"
+              v-model="review.content"
               type="text"
               required
               placeholder="Enter Feedback"
               rows="4"
             />
           </b-form-group>
-          <b-button type="submit" variant="primary">
+
+          <h5 class="h-dark mb-2">
+            GitHub Pull Request
+          </h5>
+          <div v-if="lcData.reviewCodeLink" style="width:100%;">
+            <textarea
+              id="reviewCodeLink"
+              v-model="review.reviewCodeLink"
+              class="form-control"
+              type="text"
+              placeholder="Enter link to GitHub Pull Request"
+              rows="1"
+            />
+          </div>
+          <b-button type="submit" variant="primary" class="mt-4">
             Submit
           </b-button>
         </b-form>
@@ -150,7 +186,7 @@ export default {
   data() {
     return {
       review: {
-        text: null,
+        content: null,
         submissionId: this.$route.params.id,
         date: Date.now()
       }
@@ -180,6 +216,14 @@ export default {
         }
       }
       return gradingsNew
+    },
+    getGithubUrl() {
+      const str = this.submission.githubLink
+      const urlsplit = str.split('https://github.com/')
+      const urlsplit2 = urlsplit[1].split('/')
+      const newUrl = 'https://' + urlsplit2[0] + '.github.io/' + urlsplit2[1]
+      console.log(newUrl)
+      return newUrl
     }
   },
   asyncData({ params }) {
@@ -201,9 +245,17 @@ export default {
       return `/${slug}/submissions`
     },
     onSubmit() {
-      this.review.displayName = this.user.displayName
-      this.review.reviewUserId = this.user.id
-      this.$store.dispatch('reviews/createReview', this.review)
+      this.$validator.validateAll()
+        .then((result) => {
+          if (result) {
+            this.review.reviewDisplayName = this.user.displayName
+            this.review.reviewUserId = this.user.id
+            this.$store.dispatch('reviews/createReview', this.review)
+          }
+        })
+    },
+    jobsDone() {
+      this.removeErrors()
     },
     getRatingCriteria(input, input2) {
       if (input === 'Relevance') {
@@ -245,3 +297,23 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.github-link a{
+  font-family: 'Inconsolata', monospace;
+}
+.github-link i{
+  color:rgba(255,255,255,.3);
+  margin-left: 0.5rem;
+}
+.github-url {
+  margin-top:1em;
+}
+.github-link url{
+  font-family: 'Inconsolata', monospace;
+}
+.github-link url{
+  color:rgba(0,0,0,.4);
+  margin-left: 0.5rem;
+}
+</style>

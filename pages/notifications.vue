@@ -22,7 +22,7 @@
                     20-12-2019
                   </b>
                   <p class="mt-2">
-                    {{ notification.message }}
+                    {{ contentPreview(notification.message) }}..
                   </p>
                 </div>
               </nuxt-link>
@@ -61,6 +61,12 @@ export default {
     },
     orderDesc() {
       return Object.values(this.userNotifications).reverse()
+    },
+    contentPreview(content) {
+      const maxLength = 160
+      let trimmedString = content.substr(0, maxLength)
+      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))
+      return trimmedString
     }
   }
 }

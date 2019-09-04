@@ -1,80 +1,77 @@
 <template>
   <div>
     <b-navbar :style="{ background: lcData.gradient }" toggleable="lg" type="dark">
-      <b-navbar-brand href="#">
+      <b-navbar-brand href="#" class="desktop-only">
         <nuxt-link to="/">
           <img class="logoImg" src="/img/logo-white.png" height="20" alt="">
         </nuxt-link>
       </b-navbar-brand>
       <b-nav-text class="community-title">
-        <span class="nav-divider" />
+        <span class="nav-divider desktop-only" />
         {{ lcData.name }}
       </b-nav-text>
-      <b-navbar-toggle target="nav-collapse" />
-      <b-collapse id="nav-collapse" is-nav>
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto userPoints">
-          <b-nav-item v-if="loginStatus">
-            <i v-b-modal.modal-1 class="fa fa-bars fa-lg" />
-            <b-modal
-              id="modal-1"
-              title="MENU"
-              header-text-variant="light"
-              hide-footer
-            >
-
-              <nuxt-link class="dropdown-item" to="/bounties/">
-                Bounties
-              </nuxt-link>
-              <nuxt-link class="dropdown-item" to="/community-selection/">
-                Community Selection
-              </nuxt-link>
-              <nuxt-link class="dropdown-item" to="/notifications/">
-                Notifications
-                <b-badge v-if="getUnreadNotification()>0" class="badge-notification-menu">
-                  {{ getUnreadNotification() }}
-                  <span class="sr-only">unread messages</span>
-                </b-badge>
-              </nuxt-link>
-              <nuxt-link class="dropdown-item" to="/profile/">
-                Profile
-              </nuxt-link>
-              <a class="dropdown-item" @click="logOut">
-                Sign Out
-              </a>
-            </b-modal>
-            <b-badge v-if="getUnreadNotification()>0" class="badge-notification-nav">
-              {{ getUnreadNotification() }}
-              <span class="sr-only">unread messages</span>
-            </b-badge>
-          </b-nav-item>
-
-          <div v-if="!loginStatus">
-            <nuxt-link class="login-link btn" to="/login">
-              <span>
-                Login
-              </span>
+      <!-- Right aligned nav items -->
+      <b-navbar-nav class="ml-auto userPoints">
+        <b-nav-item v-if="loginStatus">
+          <i v-b-modal.modal-1 class="fa fa-bars fa-lg" />
+          <b-modal
+            id="modal-1"
+            title="Menu"
+            header-text-variant="light"
+            hide-footer
+          >
+            <nuxt-link class="dropdown-item" to="/bounties/">
+              Bounties
             </nuxt-link>
-          </div>
-
-          <div v-if="!loginStatus">
-            <nuxt-link class="btn btn-white-outline" to="/signup">
-              <span>Sign up</span>
+            <nuxt-link class="dropdown-item" to="/community-selection/">
+              Community Selection
             </nuxt-link>
-          </div>
-        </b-navbar-nav>
-      </b-collapse>
+            <CommunityNavigationMobile class="mobile-only"/>
+            <nuxt-link class="dropdown-item" to="/notifications/">
+              Notifications
+              <b-badge v-if="getUnreadNotification()>0" class="badge-notification-menu">
+                {{ getUnreadNotification() }}
+                <span class="sr-only">unread messages</span>
+              </b-badge>
+            </nuxt-link>
+            <nuxt-link class="dropdown-item" to="/profile/">
+              Profile
+            </nuxt-link>
+            <a class="dropdown-item" @click="logOut">
+              Sign Out
+            </a>
+          </b-modal>
+          <b-badge v-if="getUnreadNotification()>0" class="badge-notification-nav">
+            {{ getUnreadNotification() }}
+            <span class="sr-only">unread messages</span>
+          </b-badge>
+        </b-nav-item>
+
+        <div v-if="!loginStatus">
+          <nuxt-link class="login-link btn" to="/login">
+            <span>
+              Login
+            </span>
+          </nuxt-link>
+        </div>
+
+        <div v-if="!loginStatus">
+          <nuxt-link class="btn btn-white-outline" to="/signup">
+            <span>Sign up</span>
+          </nuxt-link>
+        </div>
+      </b-navbar-nav>
     </b-navbar>
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import CommunityNavigationMobile from '@/components/CommunityNavigationMobile'
 
 export default {
-  data() {
-    return {
-    }
+  components: {
+    CommunityNavigationMobile
   },
   computed: {
     userLoggedIn() {
@@ -100,7 +97,6 @@ export default {
     getUnreadNotification() {
       let notifications = 0
       if (this.userNotifications) {
-        console.log(Object.values(this.userNotifications).length)
         for (let index = 0; index < Object.values(this.userNotifications).length; index++) {
           if (!Object.values(this.userNotifications)[index].notificationRead) {
             notifications++
@@ -110,7 +106,6 @@ export default {
       return notifications
     },
     getSectionName(route) {
-      console.log(route)
       if (route.name === 'notifications') {
         return 'Notifications'
       }

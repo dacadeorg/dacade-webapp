@@ -29,9 +29,27 @@
                 {{ user.balance }}$
               </span>
             </h4>
-            <div class="btn-cash-out btn mt-2 mb-6">
+            <div v-b-modal.modal-cashout class="btn-cash-out btn mt-2 mb-6">
               Cash out
             </div>
+            <b-modal
+              id="modal-cashout"
+              title="Cash Out"
+              header-text-variant="light"
+              hide-footer
+            >
+              <p>
+                In order to combat fraud by users who have multiple accounts, we need to verify your identity. Please make a post with your dacade username on an active social media account (active meaning the account already exists since a longer period of time and has active interaction with other people) and send us the link to the post. It could look something like this: “Verifying my dacade.org username moritzfelipe”.
+                If you haven't done this already.
+              </p>
+              <p>
+                In order to send you the tokens, you must send us the address of an AE Main net Token compatible wallet. You can use the base app under https://base.aepps.com or install the airgap wallet from https://airgap.it/. Ot an ethereum address if you want to cash out ethereum token.
+                ⚠️ It takes on average two days until your email will be answered. Thank you for your patience.
+              </p>
+              <p>
+                Please send your address and verfication link to moritz@dacade.org from the email address you used to register on dacade.org
+              </p>
+            </b-modal>
           </div>
         </div>
       </div>

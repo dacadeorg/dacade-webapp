@@ -9,36 +9,30 @@
               :key="submission.key"
               class="bg-dark mb-4 small-shadow"
             >
-              <span class="float-right muted-dark">
-                {{ convertDate(submission.date) }}
-              </span>
-              <b class="learning-color">
-                Submission
-              </b>
-              <span class="muted-dark">
-                by
-              </span>
-              <span class="h-dark">
-                {{ submission.displayName }}
-              </span>
-              <div v-if="submission.submissionPoints">
+              <nuxt-link
+                :to="{path: submissionPath($route.params.slug, submission['.key']) }"
+              >
+                <span class="float-right muted-dark">
+                  {{ convertDate(submission.date) }}
+                </span>
                 <b class="learning-color">
-                  {{ submission.submissionPoints }}<span class="learning-color-muted">/{{ lcData.challengePoints }} LP</span>
+                  Submission
                 </b>
-              </div>
-              <b-card-text>
-                <p>
+                <span class="muted-dark">
+                  by
+                </span>
+                <span class="h-dark">
+                  {{ submission.displayName }}
+                </span>
+                <div v-if="submission.submissionPoints">
+                  <b class="learning-color">
+                    {{ submission.submissionPoints }}<span class="learning-color-muted">/{{ lcData.challengePoints }} LP</span>
+                  </b>
+                </div>
+                <b-card-text class="mt-2">
                   {{ contentPreview(submission.text) }}..
-                </p>
-              </b-card-text>
-              <div class="text-center">
-                <nuxt-link
-                  :to="{path: submissionPath($route.params.slug, submission['.key']) }"
-                  class="btn btn-outline-primary"
-                >
-                  See Submission
-                </nuxt-link>
-              </div>
+                </b-card-text>
+              </nuxt-link>
             </b-card>
           </div>
         </div>
@@ -97,5 +91,17 @@ export default {
 .card-date {
   color: rgba(255,255,255,.5);
   float: right;
+}
+
+a{
+  color:rgba(255,255,255,.5);
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.small-shadow:hover{
+  border: 1.6px solid #53d1af;
 }
 </style>

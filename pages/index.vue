@@ -14,7 +14,7 @@
           <section>
             <div>
               <div class="img-wrapper">
-                <b-img class="img-responsive cover-img" src="/img/dacade-cover.png" />
+                <b-img class="img-responsive cover-img" src="/img/hero_img2.png" />
                 <div class="img-overlay">
                   <i v-b-modal.modal-xl class="fa fa-play-circle fa-5x play-button2" />
                   <b-modal
@@ -57,30 +57,33 @@
           </section>
 
           <section>
-            <div class="container pb-md-5">
+            <div class="container usp">
               <div class="row">
                 <div class="col-sm">
                   <div>
-                    <h2>
+                    <img src="/img/usp-cap.png" alt="">
+                    <h4>
                       Learn
-                    </h2>
-                    <p>Dacade offers practical active learning with real human feedback while staying scablale and afforadable.</p>
+                    </h4>
+                    <p>Dacade offers practical active learning with real human feedback while being scaleable and affordable.</p>
                   </div>
                 </div>
                 <div class="col-sm">
                   <div>
-                    <h2>
+                    <img src="/img/usp-coin.png" alt="">
+                    <h4>
                       Earn
-                    </h2>
+                    </h4>
                     <p>You have the possibility to earn cryptocurrencies by solving challenges and giving feedback to your peers.</p>
                   </div>
                 </div>
                 <div class="col-sm">
                   <div>
-                    <h2>
+                    <img src="/img/usp-key.png" alt="">
+                    <h4>
                       Own
-                    </h2>
-                    <p>Dacade is designed as an open source community owned platform, where decsions are made and data is owned by the users.</p>
+                    </h4>
+                    <p>Dacade is designed as an open source, community owned platform, where decsions are made and data is owned by it's users.</p>
                   </div>
                 </div>
               </div>
@@ -146,37 +149,6 @@
           </section>
 
           <section>
-            <div class="container pb-md-5">
-              <div class="row">
-                <div class="col-sm">
-                  <div>
-                    <h1>
-                      2500+
-                    </h1>
-                    <p>Learners registered on dacade.</p>
-                  </div>
-                </div>
-                <div class="col-sm">
-                  <div>
-                    <h1>
-                      700+
-                    </h1>
-                    <p>Learners finnished the community tutorials and made a submission to the challenge.</p>
-                  </div>
-                </div>
-                <div class="col-sm">
-                  <div>
-                    <h1>
-                      1700+
-                    </h1>
-                    <p>Learners gave feedback to a submission of their peers.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section>
             <div class="pb-md-5">
               <h2>
                 User Stories
@@ -187,23 +159,26 @@
               <div class="row">
                 <div class="col-sm">
                   <div>
-                    <i>"I just made submission of my quote deapp on dacade.org. I'm so excited I took the course, I really enjoyed it and have learned a lot."</i>
+                    <i>"I just made submission of my quote daepp on dacade.org. I'm so excited I took the course, I really enjoyed it and have learned a lot."</i>
                     <br><br><br>
-                    <h5>Tosin miniro</h5>
+                    <h5>Labi23</h5>
+                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_tosin_edit.png" class="mt-4"/>
                   </div>
                 </div>
                 <div class="col-sm">
                   <div>
                     <i>"Thanks for your support, love and care on Dacade(Telegram and Website) it has being an awesome experience. I have learned a lot and I am still learning a lot."</i>
                     <br><br>
-                    <h5>Emmanuel Joseph(JET)</h5>
+                    <h5>emmanuelJet_</h5>
+                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_jet.png" class="mt-4"/>
                   </div>
                 </div>
                 <div class="col-sm">
                   <div>
-                    <i>"..I'm very greatful. Your platform has really helped me to learn. Also the submission on GitHub is like building a portfolio which is very cool."</i>
+                    <i>"I'm still baffled that I can earn for learning, so are my friends - Dacade's courses are visual, practical and you can learn about blockchain through interactions."</i>
                     <br><br>
-                    <h5>EBENEZER OSEZELE</h5>
+                    <h5>ced000</h5>
+                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_ced.jpg" class="mt-4"/>
                   </div>
                 </div>
               </div>
@@ -213,50 +188,93 @@
           <section>
             <div class="pb-md-5">
               <h2>
-                Contributor
+                Stats
+              </h2>
+            </div>
+            <div class="container pb-md-5">
+              <div class="row">
+                <div class="col-sm">
+                  <div>
+                    <h4>
+                      2700+
+                    </h4>
+                    <p>Over 2700 Learners have already registered on dacade.</p>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div>
+                    <h4>
+                      700+
+                    </h4>
+                    <p>Learners finnished the community tutorials and made a submission to the challenge.</p>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div>
+                    <h4>
+                      1700+
+                    </h4>
+                    <p>Over 1700 times Learners gave feedback to a submission of their peer.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="pb-md-5">
+              <h2>
+                Contributors
               </h2>
               <p class="lead text-cover mx-auto">
-                Dacade is an open platform, we are always looking for contributers who want to help building a decentralised education system.
+                Dacade is an open platform, we are always looking for contributers who want to help building a decentralised education system. Here is a selection of them:
               </p>
             </div>
 
             <div class="container pb-md-5">
               <div class="row">
                 <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/moritz-pic.png" />
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/moritz-pic.png" class="mb-4" />
                   <div>
                     <h4>Moritz Stellmacher</h4>
-                    <p>Founded after </p>
+                    <p>Founder of dacade</p>
                   </div>
                 </div>
                 <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.licdn.com/dms/image/C4D03AQEPlpRFTnmrCQ/profile-displayphoto-shrink_200_200/0?e=1570060800&v=beta&t=8VeCLwamWuGh28bliuLzgQSuKbIxXRwYe2Ojr388C5Q" />
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.licdn.com/dms/image/C4D03AQEPlpRFTnmrCQ/profile-displayphoto-shrink_200_200/0?e=1570060800&v=beta&t=8VeCLwamWuGh28bliuLzgQSuKbIxXRwYe2Ojr388C5Q" class="mb-4" />
                   <div>
-                    <h4>Moritz Stellmacher</h4>
-                    <p>Founded after </p>
+                    <h4>Hannes <br>Klöpper</h4>
+                    <p>Former CEO of Iversity, one of europes biggest MOOCs</p>
                   </div>
                 </div>
                 <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.creativemornings.com/uploads/user/avatar/123843/_MG_0255klein.jpg" />
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.creativemornings.com/uploads/user/avatar/123843/_MG_0255klein.jpg" class="mb-4"/>
                   <div>
-                    <h4>Moritz Stellmacher</h4>
-                    <p>Founded after </p>
+                    <h4>Alexandre Peschel</h4>
+                    <p>CEO of APE Unit, Blockchain developer network</p>
                   </div>
                 </div>
                 <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.creativemornings.com/uploads/user/avatar/123843/_MG_0255klein.jpg" />
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://aeternity.com/user/pages/01.home/_10.team/emin.jpg" class="mb-4"/>
+                  <h4>Emin <br> Mahrt</h4>
+                  <p>CPO of Aeternity, <br> a third generation Blockchain</p>
                 </div>
                 <div class="col-sm">
-                  <i class="fa fa-plus" />
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/add_person2.png" class="mb-4"/>
+                 <h4>YOU<br><br></h4>
+                  <p>Contribute to dacade and help to create a peer learning revolution</p>
                 </div>
               </div>
             </div>
           </section>
 
           <!-- Contact -->
-          <section>
+          <section class="pb-md-5">
+            <h2 class="mb-6">
+              Join our Community
+            </h2>
             <button type="button" class="btn btn-outline-primary btn-lg">
-              Join our community on telegram
+              On telegram
             </button>
           </section>
 
@@ -274,7 +292,7 @@
                   <b-img rounded alt="Circle image" width="128px" src="https://aeternity.com/brandguide/assets/images/logo-dark-bg.png" />
                 </div>
                 <div class="col-sm-2">
-                  <b-img rounded alt="Circle image" width="128px" src="/img/Ape_Unit_Logo.png" />
+                  <b-img rounded alt="Circle image" width="128px" src="/img/Ape_Unit_Logo_White.png" />
                 </div>
               </div>
             </div>
@@ -344,7 +362,6 @@ b-button{
     0px 1px 1px 0px rgba(0, 0, 0, 0.14),
     0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   border:none;
-  border-top:1px solid rgba(0,0,0,.125);
 }
 
 .card-text {
@@ -397,7 +414,7 @@ b-button{
   right:0;
   left:0;
   width:100%;
-  max-width:52rem;
+  max-width:54rem;
   margin:0 auto;
   margin-top:2em;
   bottom: 1em;
@@ -410,7 +427,7 @@ b-button{
 
 .cover-img {
   display: block;
-  margin: 0em auto 2em auto;
+  margin: 4em auto 4em auto;
   max-width:500px;
   width: 100%;
 }
@@ -433,11 +450,14 @@ b-button{
 }
 
 h1{
+  font-size:2em;
   font-weight: 600;
+  color:white;
 }
 
 h2,h3,h4 {
   font-weight: 700;
+  color:white;
 }
 
 .img-wrapper {
@@ -520,11 +540,13 @@ main {
 .play-button{
   background-color: transparent;
   border:none;
+  color: white;
 }
 
 .play-button2{
   text-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  color: white;
 }
 
 .play-button2:hover{
@@ -541,13 +563,19 @@ section{
 }
 
 .site-wrapper{
-  color:white;
-  background: linear-gradient(0deg,#22262b, #22262b, #658ECB, #53D1AF);
+  /* color:white; */
+  /* background: linear-gradient(0deg,#22262b, #22262b, #658ECB, #53D1AF); */
+  background: #22262b;
   position:relative;
 }
 
 .text-cover{
   max-width: 42em;
+}
+
+.usp img{
+  margin-bottom: 1em;
+  width: 50px;
 }
 
 .video-card {

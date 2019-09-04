@@ -11,28 +11,24 @@
           <div v-html="lcData.challenge" />
 
           <div v-if="lcData.challengeExampleSubmissionId">
-            <a class="example-button btn" @click="SendToExample(lcData.challengeExampleSubmissionId)">See example</a>
+            <span class="btn btn-dark-outline mt-4 mb-4" @click="SendToExample(lcData.challengeExampleSubmissionId)">See example</span>
           </div>
 
-          <div class="learning-points-box">
-            <h5 class="mb-2">
-              <span class="learning-points">Earn {{ lcData.challengePoints }} Learning Points</span>
+          <div class="learning-points-box mb-6">
+            <h5 class="learning-color">
+              <b>
+                Earn {{ lcData.submissionPrice }}$
+              </b>
             </h5>
+            <p class="mb-4">
+              In order to earn <b>{{ lcData.submissionPrice }}$</b>
+              in {{ lcData.priceFormat }} you must get at least <b>70%</b>
+              of the Learning Points from this challenge.
+            </p>
             <b>Rating criteria:</b>
             <div v-for="criteria in lcData.challengeRatingCriteria" :key="criteria.key">
               <span>✓ {{ criteria }}</span>
             </div>
-          </div>
-
-          <div class="challenge-reward mb-6">
-            <h5>
-              +{{ lcData.submissionPrice }}$ for challenge
-            </h5>
-            <span>
-              In order to earn <b>{{ lcData.submissionPrice }}$</b>
-              in {{ lcData.priceFormat }} you must get at least <b>70%</b>
-              of the Learning Points from this challenge.
-            </span>
           </div>
 
           <!-- <div class="submissions-earnings">
@@ -109,7 +105,7 @@
                   {{ errors.first('submission') }}
                 </p>
               </b-form-group>
-              <b-button type="submit" variant="primary">
+              <b-button type="submit" variant="primary" class="mt-2">
                 Submit
               </b-button>
             </b-form>
@@ -226,7 +222,6 @@ export default {
 }
 
 .learning-points-box {
-  color: #53D1AF;
   border: 1px solid #53D1AF;
   border-radius:.25rem;
   /* color:rgba(0,0,0,.8); */

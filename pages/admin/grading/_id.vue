@@ -14,10 +14,10 @@
     Feedback:
     <b-card v-for="getReview in getSubmissionReviews" :key="getReview.key">
       <b-card-text>
-        Feedback by {{ getReview.displayName }}
+        Feedback by {{ getReview.reviewDisplayName }}
       </b-card-text>
       <b-card-text>
-        {{ getReview.text }}
+        {{ getReview.content }}
         <p v-if="getReview.rewardAmount">
           {{ getReview.rewardAmount }}
         </p>
@@ -192,6 +192,7 @@ export default {
         text: this.submission.text,
         userId: this.submission.userId,
         date: this.submission.date,
+        githubLink: this.submission.githubLink,
         submissionPoints: parseInt(this.grading.relevanceValue, 10) +
           parseInt(this.grading.originalityValue, 10) +
           parseInt(this.grading.qualityValue, 10),
@@ -220,10 +221,11 @@ export default {
     },
     submitReviewGrading(review) {
       const reviewUpdate = {
-        text: review.text,
+        content: review.content,
         submissionId: review.submissionId,
-        displayName: review.displayName,
+        reviewDisplayName: review.reviewDisplayName,
         reviewUserId: review.reviewUserId,
+        reviewCodeLink: review.reviewCodeLink,
         date: review.date,
         rewardAmount: parseInt(this.review.rewardAmount, 10)
       }
@@ -234,8 +236,8 @@ export default {
       }
       const userNotification = {
         userId: review.reviewUserId,
-        message: `Good job, ${reviewUpdate.displayName}. Your received: ${userUpdate.rewardAmount}$ 
-          and ${userUpdate.rewardAmount} Reputation for your Feedback: "${review.text}"`,
+        message: `Good job, ${reviewUpdate.reviewDisplayName}. Your received: ${userUpdate.rewardAmount}$ 
+          and ${userUpdate.rewardAmount} Reputation for your Feedback: "${review.content}"`,
         link: `/${this.idToSlug(this.submission.lCId)}/submission/${review.submissionId}`,
         notificationRead: false
       }

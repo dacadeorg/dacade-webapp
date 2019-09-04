@@ -7,7 +7,7 @@
 
           <div v-if="lcData.ChapterData[$route.params.id].learningObjective" class="objective-box">
             <h5 class="h-dark">
-              🎯 Learning Objective
+              Learning Objective
             </h5>
             <span v-html="lcData.ChapterData[$route.params.id].learningObjective" />
           </div>
@@ -20,10 +20,10 @@
                     {{ item.materialTitle }}
                   </h4>
                   <h6 class="mb-2">
-                    {{ item.materialSubtitle }}
-                    <span>
-                      ⏱️ {{ item.materialTime }} min
-                    </span>
+                    <b>
+                      {{ item.materialSubtitle }}
+                    </b>
+                      {{ item.materialTime }}min
                   </h6>
                   <p class="mt-2" v-html="item.materialDescription" />
 
@@ -80,7 +80,7 @@
           <div class="mb-4">
             <i>If you have any questions or suggestions
               regarding the learning material please get in touch with us on
-              <a href="https://t.me/dacade">telegram</a>!
+              <a class="underline" href="https://t.me/dacade">telegram</a>!
             </i>
           </div>
 
@@ -135,7 +135,16 @@ a{
 .additional-material-item a{
   color: #53d1af;
 }
+
+.btn-code{
+  color:white;
+}
+
 .code-link{
   margin-top:1em;
+}
+
+.underline{
+  text-decoration: underline;
 }
 </style>

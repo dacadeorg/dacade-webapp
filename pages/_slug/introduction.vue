@@ -6,24 +6,20 @@
           <div v-html="lcData.introductionText" />
 
           <div v-if="lcData.learningObjective" class="objective-box">
-            <h5>
-              <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/129/direct-hit_1f3af.png">
+            <h5 class="h-dark">
               Learning Objective
             </h5>
             <span v-html="lcData.learningObjective" />
           </div>
 
           <div v-if="lcData.motivationVideo" class="card intro-videos w-100">
-            <div class="card-body">
-              <h5 class="card-lite-title">
+            <div class="card-body card-lite">
+              <h4>
                 Why should you learn to code?
-              </h5>
-              <h7 class="card-subtitle mb-2">
-                <span>
-                  <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/129/stopwatch_23f1.png">
-                  130 sec
-                </span>
-              </h7>
+              </h4>
+              <h6 class="mb-2">
+                130sec
+              </h6>
               <div class="embed-responsive embed-responsive-16by9">
                 <iframe
                   class="embed-responsive-item"
@@ -41,10 +37,7 @@
                 Trailer
               </h4>
               <h6 class="mb-2">
-                <span>
-                  <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/129/stopwatch_23f1.png">
-                  {{ lcData.introductionVideoTime }} sec
-                </span>
+                  {{ lcData.introductionVideoTime }}sec
               </h6>
               <div class="embed-responsive embed-responsive-16by9 mt-1">
                 <iframe
@@ -64,7 +57,7 @@
             <h5 class="h-dark">
               {{ item2.chapterName }}
               <span class="chapter-time">
-                {{ item2.chapterTime }} min
+                {{ item2.chapterTime }}min
               </span>
             </h5>
             <p v-html="item2.chapterShortDescription" />
@@ -142,10 +135,11 @@ export default {
   margin-bottom:2em;
 }
 .intro-videos h6 {
-  color:rgba(0,0,0,.2)!important;
+  color:rgba(0,0,0,.3)!important;
 }
 .intro-videos img {
   padding-bottom: 0.3em;
   width:16px;
 }
+
 </style>

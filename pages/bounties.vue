@@ -3,15 +3,18 @@
     <Navigation />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6 col-xl-4 mx-auto mt-4">
+        <div class="col-md-8 col-xl-6 mx-auto mt-4">
           <div
             v-for="openBounty in getOpenBounties()"
             :key="openBounty.id"
             class="bounty mb-4"
           >
             <nuxt-link :to="openBounty.link">
-              <h5 class="h-dark">
+              <h5 v-if="openBounty.typ === 'review'" class="h-dark">
                 Review for Submission of {{ openBounty.displayName }}
+              </h5>
+              <h5 v-else class="h-dark">
+                Submission
               </h5>
               <div>
                 Community:
@@ -22,11 +25,11 @@
               <div>
                 Reward:
                 <b class="earning-color">
-                  {{ openBounty.reviewReward }}$
+                  {{ openBounty.reward }}$
                 </b>
               </div>
-              <div>
-                Time left:
+              <div v-if="openBounty.hoursLeft">
+                Hours left:
                 <b>
                   -{{ openBounty.hoursLeft }}h
                 </b>
@@ -50,6 +53,8 @@ export default {
   },
   computed: {
     ...mapGetters({
+      user: 'user',
+      lcData: 'content/lcData',
       submissions: 'submissions/submissions'
     })
   },
@@ -68,22 +73,50 @@ export default {
     }),
     getOpenBounties() {
       const bounties = []
+      const userSubmissions = []
       for (let index = 0; index < this.submissions.length; index++) {
         const element = this.submissions[index]
+        // Todo: Exlude submission if user hasn't made a submission to the community yet
         if (!element.submissionPoints) {
           const result = Object.values(this.communityData).filter((obj) => {
             return obj.id === element.lCId
           })
+          element.typ = 'review'
           element.lcName = result[0].name
           element.link = `/${result[0].slug}/submission/${element['.key']}`
           element.color = result[0].color
-          element.reviewReward = result[0].reviewReward
-          const endTime = element.date + 48 * 60 * 60 * 1000
-          element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
+          element.reward = result[0].reviewReward
+          if (result[0].bountyTime) {
+            const endTime = element.date + (result[0].bountyTime * 60 * 60 * 1000)
+            element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
+          } else {
+            const endTime = element.date + 168 * 60 * 60 * 1000
+            element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
+          }
+          // Exclude submission if its from current user
+          // console.log(element)
+          if (this.user) {
+            if (element.userId !== this.user.id) {
+              bounties.push(element)
+            }
+          }
+        }
+        if (element.userId === this.user.id) {
+          userSubmissions.push(element.lCId)
+        }
+      }
+      for (let index = 0; index < Object.values(this.communityData).length; index++) {
+        if (!userSubmissions.includes(Object.values(this.communityData)[index].id)) {
+          const element = {}
+          element.typ = 'submission'
+          element.lcName = Object.values(this.communityData)[index].name
+          element.color = Object.values(this.communityData)[index].color
+          element.link = `/${Object.values(this.communityData)[index].slug}/challenge/`
+          element.reward = Object.values(this.communityData)[index].submissionReward
           bounties.push(element)
         }
       }
-      return Object.values(bounties).reverse()
+      return Object.values(bounties)
     }
   }
 }
