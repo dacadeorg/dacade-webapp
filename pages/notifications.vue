@@ -19,7 +19,7 @@
               <nuxt-link :to="notification.link">
                 <div>
                   <b>
-                    20-12-2019
+                    {{ convertDate(notification.date) }}
                   </b>
                   <p class="mt-2">
                     {{ contentPreview(notification.message) }}..
@@ -67,6 +67,21 @@ export default {
       let trimmedString = content.substr(0, maxLength)
       trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))
       return trimmedString
+    },
+    convertDate(date) {
+      const submissionInputDate = new Date(date)
+      const submissionDate = submissionInputDate.toDateString().slice(4, -4)
+      let submissionMinutes = submissionInputDate.getMinutes()
+      if (submissionMinutes < 10) {
+        submissionMinutes = '0' + submissionMinutes
+      }
+      let submissionHours = submissionInputDate.getHours()
+      if (submissionHours < 10) {
+        submissionHours = '0' + submissionHours
+      }
+      const submissionTime = submissionHours + ':' + submissionMinutes
+      const submissionTimeAndDate = submissionDate + ' ' + submissionTime
+      return submissionTimeAndDate
     }
   }
 }

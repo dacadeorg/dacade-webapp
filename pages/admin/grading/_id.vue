@@ -205,11 +205,12 @@ export default {
         learningPoints: submissionUpdate.submissionPoints
       }
       const userNotification = {
-        userId: submissionUpdate.userId,
-        message: `Good Job. Your received: ${userUpdate.rewardAmount}$ 
-          ,${userUpdate.rewardAmount} Reputation ${userUpdate.learningPoints} and for your Feedback: "${submissionUpdate.text}"`,
+        date: Date.now(),
         link: `/${this.idToSlug(this.submission.lCId)}/submission/${key}`,
-        notificationRead: false
+        message: `Good Job. Your received: ${userUpdate.rewardAmount}$ 
+          and ${userUpdate.learningPoints} Learning Points as a reward for your submission: "${submissionUpdate.text}"`,
+        notificationRead: false,
+        userId: submissionUpdate.userId
       }
       this.grading.gradingUserId = this.user.id
       this.grading.gradingDisplayName = this.user.displayName
@@ -225,9 +226,11 @@ export default {
         submissionId: review.submissionId,
         reviewDisplayName: review.reviewDisplayName,
         reviewUserId: review.reviewUserId,
-        reviewCodeLink: review.reviewCodeLink,
         date: review.date,
         rewardAmount: parseInt(this.review.rewardAmount, 10)
+      }
+      if (review.reviewCodeLink) {
+        reviewUpdate.reviewCodeLink = review.reviewCodeLink
       }
       reviewUpdate['.key'] = review['.key']
       const userUpdate = {
@@ -235,11 +238,12 @@ export default {
         rewardAmount: parseInt(this.review.rewardAmount, 10)
       }
       const userNotification = {
-        userId: review.reviewUserId,
+        date: Date.now(),
+        link: `/${this.idToSlug(this.submission.lCId)}/submission/${review.submissionId}`,
         message: `Good job, ${reviewUpdate.reviewDisplayName}. Your received: ${userUpdate.rewardAmount}$ 
           and ${userUpdate.rewardAmount} Reputation for your Feedback: "${review.content}"`,
-        link: `/${this.idToSlug(this.submission.lCId)}/submission/${review.submissionId}`,
-        notificationRead: false
+        notificationRead: false,
+        userId: review.reviewUserId
       }
       this.$store.dispatch('admin/updateReview', reviewUpdate)
       this.$store.dispatch('admin/increaseUserBalance', userUpdate)
