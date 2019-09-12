@@ -113,7 +113,8 @@
               by
             </span>
             <span class="h-dark">
-              {{ getReview.reviewDisplayName }}
+              {{ getReview.reviewDisplayName }}:
+              <!-- (<span class="teaching-color">{{getTP(getReview.reviewUserId)}}TP</span>): -->
             </span>
           </b-card-text>
           <b-card-text>
@@ -151,10 +152,10 @@
             />
           </b-form-group>
 
-          <h5 class="h-dark mb-2">
-            GitHub Pull Request
-          </h5>
           <div v-if="lcData.reviewCodeLink" style="width:100%;">
+            <h5 class="h-dark mb-2">
+              GitHub Pull Request
+            </h5>
             <textarea
               id="reviewCodeLink"
               v-model="review.reviewCodeLink"

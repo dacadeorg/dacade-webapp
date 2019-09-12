@@ -167,12 +167,16 @@ export default {
     }
   },
   // this may need to be changed to be more dynamic
-  asyncData({ params }) {
-    return firebase.database().ref(`submissions/${params.id}`).once('value').then((snapShot) => {
-      const submission = snapShot.val()
-      //communityData.key = params.slug // snapShot.key
-      return { submission }
+  async asyncData({ params }) {
+    let submission = null
+    await firebase.database().ref(`submissions/${params.id}`).once('value').then((snapShot) => {
+      submission = snapShot.val()
     })
+    let communityData = null
+    await firebase.database().ref(`communityData`).once('value').then((snapShot) => {
+      communityData = snapShot.val()
+    })
+    return { submission, communityData }
   },
   created() {
     this.getReviews()
@@ -188,27 +192,36 @@ export default {
       const key = this.$route.params.id
       const submissionUpdate = {
         displayName: this.submission.displayName,
-        lCId: this.submission.lCId,
+        communityId: this.submission.communityId,
         text: this.submission.text,
         userId: this.submission.userId,
         date: this.submission.date,
-        githubLink: this.submission.githubLink,
         submissionPoints: parseInt(this.grading.relevanceValue, 10) +
           parseInt(this.grading.originalityValue, 10) +
           parseInt(this.grading.qualityValue, 10),
         submissionReward: parseInt(this.submissionReward, 10)
       }
+      if (this.submission.githubLink) {
+        submissionUpdate.githubLink = this.submission.githubLink
+      }
       submissionUpdate['.key'] = key
       const userUpdate = {
         userId: submissionUpdate.userId,
+        learningPoints: submissionUpdate.submissionPoints,
+        communityId: submissionUpdate.communityId
+      }
+      const balanceUpdate = {
+        userId: submissionUpdate.userId,
         rewardAmount: submissionUpdate.submissionReward,
-        learningPoints: submissionUpdate.submissionPoints
+        rewardToken: this.communityData[this.submission.communityId].rewardToken
       }
       const userNotification = {
         date: Date.now(),
-        link: `/${this.idToSlug(this.submission.lCId)}/submission/${key}`,
-        message: `Good Job. Your received: ${userUpdate.rewardAmount}$ 
-          and ${userUpdate.learningPoints} Learning Points as a reward for your submission: "${submissionUpdate.text}"`,
+        link: `/${this.submission.communityId}/submission/${key}`,
+        message: `Good job, ${submissionUpdate.displayName}! You received: ${userUpdate.learningPoints} 
+        of ${this.communityData[this.submission.communityId].submissionPoints} Learning Points for your submission in the
+        Learning Community '${this.communityData[this.submission.communityId].name}'. 
+        This means you earned a reward of ${balanceUpdate.rewardAmount}$ in ${balanceUpdate.rewardToken} token.`,
         notificationRead: false,
         userId: submissionUpdate.userId
       }
@@ -216,7 +229,7 @@ export default {
       this.grading.gradingDisplayName = this.user.displayName
       this.$store.dispatch('admin/createGrading', this.grading)
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
-      this.$store.dispatch('admin/increaseUserBalance', userUpdate)
+      this.$store.dispatch('admin/increaseUserBalance', balanceUpdate)
       this.$store.dispatch('admin/increaseUserLearningPoints', userUpdate)
       this.$store.dispatch('admin/addUserNotification', userNotification)
     },
@@ -233,33 +246,35 @@ export default {
         reviewUpdate.reviewCodeLink = review.reviewCodeLink
       }
       reviewUpdate['.key'] = review['.key']
-      const userUpdate = {
+      const reputationUpdate = {
         userId: review.reviewUserId,
-        rewardAmount: parseInt(this.review.rewardAmount, 10)
+        rewardAmount: parseInt(this.review.rewardAmount, 10),
+        communityId: this.submission.communityId
+      }
+      const balanceUpdate = {
+        userId: reviewUpdate.reviewUserId,
+        rewardAmount: reviewUpdate.rewardAmount,
+        rewardToken: this.communityData[this.submission.communityId].rewardToken
       }
       const userNotification = {
         date: Date.now(),
-        link: `/${this.idToSlug(this.submission.lCId)}/submission/${review.submissionId}`,
-        message: `Good job, ${reviewUpdate.reviewDisplayName}. Your received: ${userUpdate.rewardAmount}$ 
-          and ${userUpdate.rewardAmount} Reputation for your Feedback: "${review.content}"`,
+        link: `/${this.submission.communityId}/submission/${review.submissionId}`,
+        message: `Good job, ${reviewUpdate.reviewDisplayName}. You received: ${balanceUpdate.rewardAmount}$ in 
+          ${balanceUpdate.rewardToken} and ${balanceUpdate.rewardAmount} Reputation, 
+          for your Feedback: "${this.contentPreview(review.content)}.."`,
         notificationRead: false,
         userId: review.reviewUserId
       }
       this.$store.dispatch('admin/updateReview', reviewUpdate)
-      this.$store.dispatch('admin/increaseUserBalance', userUpdate)
-      this.$store.dispatch('admin/increaseUserTeachingPoints', userUpdate)
+      this.$store.dispatch('admin/increaseUserBalance', balanceUpdate)
+      this.$store.dispatch('admin/increaseUserTeachingPoints', reputationUpdate)
       this.$store.dispatch('admin/addUserNotification', userNotification)
     },
-    idToSlug(id) {
-      if (id === 0) {
-        return 'intro-to-blockchain'
-      } else if (id === 1) {
-        return 'eth-dev-101'
-      } else if (id === 2) {
-        return 'ae-dev-101'
-      } else if (id === 3) {
-        return 'web-dev-101'
-      }
+    contentPreview(content) {
+      const maxLength = 160
+      let trimmedString = content.substr(0, maxLength)
+      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))
+      return trimmedString
     }
   }
 }

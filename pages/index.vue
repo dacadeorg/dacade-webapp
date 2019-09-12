@@ -477,7 +477,7 @@ h2,h3,h4 {
   content: ' ';
   display: block;
   /* adjust 'height' to position overlay content vertically */
-  height: 50%;
+  height: 30%;
 }
 
 .impressumLink {

@@ -18,11 +18,10 @@
       </b-nav-text>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto userPoints">
-        <b-nav-text v-if="$route.name === 'index'" />
-        <b-nav-text v-else-if="loginStatus" class="mr-2 muted-dark desktop-only">
-          <b class="learning-color">{{ user.learningPoints }}LP</b><span class="muted-dark">/</span><b class="teaching-color">{{ user.teachingPoints }}TP</b><span class="muted-dark">/</span><b class="earning-color">{{ user.balance }}$</b>
-        </b-nav-text>
         <b-nav-item v-if="loginStatus">
+          <b-nav-text  v-if="$route.name != 'index'" class="mr-2 muted-dark">
+            <b class="earning-color">{{ getBalance() }}$</b>
+          </b-nav-text>
           <i v-b-modal.modal-1 class="fa fa-bars fa-lg" />
           <b-modal
             id="modal-1"
@@ -34,7 +33,7 @@
               Bounties
             </nuxt-link>
             <nuxt-link class="dropdown-item" to="/community-selection/">
-              Community Selection
+              Communities
             </nuxt-link>
             <nuxt-link class="dropdown-item" to="/notifications/">
               Notifications
@@ -114,13 +113,21 @@ export default {
       }
       return notifications
     },
+    getBalance() {
+      let balance = 0
+      if (this.user && this.user.balance) {
+        for (const key in this.user.balance) {
+          balance = balance + this.user.balance[key]
+        }
+      }
+      return balance
+    },
     getSectionName(route) {
-      // console.log(route)
       if (route.name === 'notifications') {
         return 'Notifications'
       }
       if (route.name === 'community-selection') {
-        return 'Community Selection'
+        return 'Communities'
       }
       if (route.name === 'bounties') {
         return 'Bounties'

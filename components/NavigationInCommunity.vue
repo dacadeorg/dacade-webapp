@@ -13,6 +13,7 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto userPoints">
         <b-nav-item v-if="loginStatus">
+          <b class="desktop-only mr-2">{{ getReputation() }} REP</b>
           <i v-b-modal.modal-1 class="fa fa-bars fa-lg" />
           <b-modal
             id="modal-1"
@@ -24,7 +25,7 @@
               Bounties
             </nuxt-link>
             <nuxt-link class="dropdown-item" to="/community-selection/">
-              Community Selection
+              Communities
             </nuxt-link>
             <CommunityNavigationMobile class="mobile-only" />
             <nuxt-link class="dropdown-item" to="/notifications/">
@@ -110,7 +111,7 @@ export default {
         return 'Notifications'
       }
       if (route.name === 'community-selection') {
-        return 'Community Selection'
+        return 'Communities'
       }
       if (route.name === 'bounties') {
         return 'Bounties'
@@ -118,6 +119,14 @@ export default {
       if (route.name === 'profile') {
         return 'Profile'
       }
+    },
+    getReputation() {
+      let reputation = 0
+      if (this.user && this.user.reputation && this.user.reputation[this.lcData.id]) {
+        reputation = this.user.reputation[this.lcData.id]
+      }
+      console.log(reputation)
+      return reputation
     }
   }
 }

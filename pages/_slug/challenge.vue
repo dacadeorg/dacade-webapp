@@ -126,7 +126,7 @@ export default {
     return {
       submission: {
         text: null,
-        lCId: null,
+        communityId: null,
         displayName: null,
         userId: null,
         date: Date.now()
@@ -142,11 +142,13 @@ export default {
     }),
     getUserSubmission() {
       let userSubmission = null
+      console.log(this.user)
       for (let index = 0; index < this.submissions.length; index++) {
-        if (this.submissions[index].userId === this.user.id) {
-          if (this.submissions[index].lCId === this.lcData.id) {
-            userSubmission = this.submissions[index]
-          }
+        if (this.user &&
+        this.user.id &&
+        this.submissions[index].userId === this.user.id &&
+        this.submissions[index].communityId === this.lcData.id) {
+          userSubmission = this.submissions[index]
         }
       }
       return userSubmission
@@ -180,7 +182,7 @@ export default {
       this.$validator.validateAll()
         .then((result) => {
           if (result) {
-            this.submission.lCId = this.lcData.id
+            this.submission.communityId = this.lcData.id
             this.submission.displayName = this.user.displayName
             this.submission.userId = this.user.id
             this.$store.dispatch('submissions/createSubmission', this.submission)

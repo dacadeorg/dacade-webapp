@@ -56,7 +56,7 @@ export default {
     getCommunitySubmissions() {
       const communitySubmissions = []
       for (let index = 0; index < this.submissions.length; index++) {
-        if (this.submissions[index].lCId === this.lcData.id) {
+        if (this.submissions[index].communityId === this.lcData.id) {
           communitySubmissions.push(this.submissions[index])
         }
       }

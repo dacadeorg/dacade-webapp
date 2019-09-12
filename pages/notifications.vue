@@ -22,7 +22,7 @@
                     {{ convertDate(notification.date) }}
                   </b>
                   <p class="mt-2">
-                    {{ contentPreview(notification.message) }}..
+                    {{ notification.message }}
                   </p>
                 </div>
               </nuxt-link>

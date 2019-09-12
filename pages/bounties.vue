@@ -79,7 +79,7 @@ export default {
         // Todo: Exlude submission if user hasn't made a submission to the community yet
         if (!element.submissionPoints) {
           const result = Object.values(this.communityData).filter((obj) => {
-            return obj.id === element.lCId
+            return obj.slug === element.communityId
           })
           element.typ = 'review'
           element.lcName = result[0].name
@@ -101,12 +101,14 @@ export default {
             }
           }
         }
-        if (element.userId === this.user.id) {
-          userSubmissions.push(element.lCId)
+        if (this.user && element.userId === this.user.id) {
+          userSubmissions.push(element.communityId)
         }
       }
+      // Get open submissions for user
       for (let index = 0; index < Object.values(this.communityData).length; index++) {
-        if (!userSubmissions.includes(Object.values(this.communityData)[index].id)) {
+        // todo change slug to Id
+        if (!userSubmissions.includes(Object.values(this.communityData)[index].slug)) {
           const element = {}
           element.typ = 'submission'
           element.lcName = Object.values(this.communityData)[index].name
@@ -116,6 +118,8 @@ export default {
           bounties.push(element)
         }
       }
+      console.log('bounties')
+      console.log(bounties)
       return Object.values(bounties)
     }
   }

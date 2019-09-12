@@ -41,7 +41,8 @@ export const actions = {
       })
   },
   increaseUserBalance({ commit }, payload) {
-    db.ref(`users/${payload.userId}/balance`).transaction(function (currentData) {
+    db.ref(`balance/${payload.userId}/${payload.rewardToken}`).transaction(function (currentData) {
+      console.log(payload.rewardAmount)
       return currentData + payload.rewardAmount
     })
       .then(() => {
@@ -52,7 +53,7 @@ export const actions = {
       })
   },
   increaseUserTeachingPoints({ commit }, payload) {
-    db.ref(`users/${payload.userId}/teachingPoints`).transaction(function (currentData) {
+    db.ref(`reputation/${payload.userId}/${payload.communityId}`).transaction(function (currentData) {
       return currentData + payload.rewardAmount
     })
       .then(() => {
@@ -63,7 +64,7 @@ export const actions = {
       })
   },
   increaseUserLearningPoints({ commit }, payload) {
-    db.ref(`users/${payload.userId}/learningPoints`).transaction(function (currentData) {
+    db.ref(`learningPoints/${payload.userId}/${payload.communityId}`).transaction(function (currentData) {
       return currentData + payload.learningPoints
     })
       .then(() => {

@@ -9,7 +9,7 @@
             </b-card-text>
             <b-card-text>
               {{ submission.text }}
-              lCId: {{ submission.lCId }}
+              communityId: {{ submission.communityId }}
             </b-card-text>
             <a href="#" class="card-link">
               <nuxt-link :to="{path: submissionPath($route.params.slug, submission['.key']) }">

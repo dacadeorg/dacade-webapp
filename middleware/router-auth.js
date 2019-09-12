@@ -1,33 +1,33 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import firebase from '@/plugins/firebase'
+import { firebaseAction } from 'vuexfire'
 
 export default function ({ store, redirect, route }) {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       const authUser = {
         id: user.uid,
-        email: user.email
+        email: user.email,
+        displayName: user.displayName
       }
-      firebase.database().ref(`users/${authUser.id}`).once('value').then((snapShot) => {
-        const userData = snapShot.val()
-        authUser.balance = userData.balance
-        authUser.displayName = userData.displayName
-        authUser.learningPoints = userData.learningPoints
-        authUser.teachingPoints = userData.teachingPoints
-        if (userData.role === 'admin') {
-          authUser.role = userData.role
-        } else if (isAdminRoute(route)) {
-          store.commit('setForwardRoute', route.path)
-          redirect('/login')
-        }
-        store.commit('setUser', authUser)
-        store.dispatch('getUserNotifications', authUser.id)
+      if (isAdminRoute(route)) {
+        firebase.database().ref(`admin/${authUser.id}`).once('value').then((snapShot) => {
+          if (!snapShot.val()) {
+            store.commit('setForwardRoute', route.path)
+            redirect('/login')
+          }
+        })
+      }
+      firebase.database().ref(`balance/${authUser.id}`).once('value').then((snapShot) => {
+        authUser.balance = snapShot.val()
       })
-    } else if (isAdminRoute(route)) {
-      store.commit('setForwardRoute', route.path)
-      redirect('/signup')
-    } else if (isUserRoute(route)) {
+      firebase.database().ref(`reputation/${authUser.id}`).once('value').then((snapShot) => {
+        authUser.reputation = snapShot.val()
+      })
+      store.commit('setUser', authUser)
+      store.dispatch('getUserNotifications', authUser.id)
+    } else if (isUserRoute(route) || isAdminRoute(route)) {
       store.commit('setForwardRoute', route.path)
       redirect('/signup')
     }

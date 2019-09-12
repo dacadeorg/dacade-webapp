@@ -61,36 +61,34 @@ export const actions = {
   signUpUser({ commit }, payload) {
     commit('setBusy', true)
     commit('clearError')
-    console.log('payload name: ' + payload.name)
     let newUser = null
+    let user = null
     firebase.database().ref('users').orderByChild('displayName').equalTo(`${payload.name}`).once('value')
       .then((snapShot) => {
         if (snapShot.exists()) {
-          console.log('user name existst')
           const error = { message: 'This username is already in use' }
           commit('setBusy', false)
           commit('setError', error)
         } else {
           firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
-            .then((user) => {
+            .then(() => {
+              user = firebase.auth().currentUser
               newUser = user
-              const currentUser = {
-                id: user.user.uid,
-                email: payload.email,
-                displayName: payload.name,
-                role: 'consumer'
-              }
-              commit('setUser', currentUser)
+              return user.updateProfile({ displayName: payload.name })
+                .then(() => {
+                  const currentUser = {
+                    id: user.uid,
+                    email: payload.email,
+                    displayName: payload.name
+                  }
+                  commit('setUser', currentUser)
+                })
             })
             .then(() => {
               const userData = {
-                email: payload.email,
-                displayName: payload.name,
-                learningPoints: 0,
-                teachingPoints: 0,
-                balance: 0
+                displayName: payload.name
               }
-              return firebase.database().ref(`users/${newUser.user.uid}`).set(userData)
+              return firebase.database().ref(`users/${user.uid}`).set(userData)
             })
             .then(() => {
               commit('setJobDone', true)
