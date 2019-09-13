@@ -82,7 +82,8 @@ export default {
       user: 'user',
       loginStatus: 'loginStatus',
       communityData: 'content/communityData',
-      userNotifications: 'userNotifications'
+      userNotifications: 'userNotifications',
+      userReputation: 'userReputation'
     })
   },
   // created() {
@@ -122,10 +123,9 @@ export default {
     },
     getReputation() {
       let reputation = 0
-      if (this.user && this.user.reputation && this.user.reputation[this.communityData.id]) {
-        reputation = this.user.reputation[this.communityData.id]
+      if (this.userReputation && this.userReputation[this.communityData.id]) {
+        reputation = this.userReputation[this.communityData.id]
       }
-      console.log(reputation)
       return reputation
     }
   }

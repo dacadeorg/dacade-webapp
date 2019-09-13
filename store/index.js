@@ -11,7 +11,10 @@ export const state = () => ({
   busy: false,
   jobDone: false,
   forwardRoute: null,
-  userNotifications: null
+  userNotifications: null,
+  userBalance: null,
+  userReputation: null,
+  userLearningPoints: null
 })
 
 export const mutations = {
@@ -32,6 +35,9 @@ export const mutations = {
   },
   setForwardRoute(state, payload) {
     state.forwardRoute = payload
+  },
+  setLearningPoints(state, payload) {
+    state.userLearningPoints = payload
   },
   ...vuexfireMutations
 }
@@ -114,6 +120,12 @@ export const actions = {
         commit('setError', error)
       })
   },
+  getUserLearningPoints({ commit }, payload) {
+    firebase.database().ref(`learningPoints/${payload.id}`).once('value').then((snapShot) => {
+      const learningPoints = snapShot.val()
+      commit('setLearningPoints', learningPoints)
+    })
+  },
   logOut({ commit }) {
     firebase.auth().signOut()
     commit('setUser', null)
@@ -123,6 +135,12 @@ export const actions = {
   }),
   getUserNotifications: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userNotifications', db.ref('notifications').child(uid))
+  }),
+  getUserBalance: firebaseAction(({ bindFirebaseRef }, uid) => {
+    bindFirebaseRef('userBalance', db.ref('balance').child(uid))
+  }),
+  getUserReputation: firebaseAction(({ bindFirebaseRef }, uid) => {
+    bindFirebaseRef('userReputation', db.ref('reputation').child(uid))
   }),
   setUserNotificationSeen({ commit }, payload) {
     db.ref(`notifications/${payload.userId}/${payload.id}/notificationRead`).set(true)
@@ -159,5 +177,14 @@ export const getters = {
   },
   userNotifications(state) {
     return state.userNotifications
+  },
+  userBalance(state) {
+    return state.userBalance
+  },
+  userReputation(state) {
+    return state.userReputation
+  },
+  userLearningPoints(state) {
+    return state.userLearningPoints
   }
 }

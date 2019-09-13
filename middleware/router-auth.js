@@ -19,14 +19,10 @@ export default function ({ store, redirect, route }) {
           }
         })
       }
-      firebase.database().ref(`balance/${authUser.id}`).once('value').then((snapShot) => {
-        authUser.balance = snapShot.val()
-      })
-      firebase.database().ref(`reputation/${authUser.id}`).once('value').then((snapShot) => {
-        authUser.reputation = snapShot.val()
-      })
       store.commit('setUser', authUser)
       store.dispatch('getUserNotifications', authUser.id)
+      store.dispatch('getUserBalance', authUser.id)
+      store.dispatch('getUserReputation', authUser.id)
     } else if (isUserRoute(route) || isAdminRoute(route)) {
       store.commit('setForwardRoute', route.path)
       redirect('/signup')

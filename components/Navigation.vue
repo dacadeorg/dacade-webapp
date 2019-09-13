@@ -77,10 +77,6 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-    }
-  },
   computed: {
     userLoggedIn(params) {
       return this.$store.getters.loginStatus
@@ -89,7 +85,8 @@ export default {
       user: 'user',
       loginStatus: 'loginStatus',
       communityData: 'content/communityData',
-      userNotifications: 'userNotifications'
+      userNotifications: 'userNotifications',
+      userBalance: 'userBalance'
     })
   },
   // created() {
@@ -116,9 +113,9 @@ export default {
     getBalance() {
       console.log(this.user)
       let balance = 0
-      if (this.user && this.user.balance) {
-        for (const key in this.user.balance) {
-          balance = balance + this.user.balance[key]
+      if (this.user && this.userBalance) {
+        for (const key in this.userBalance) {
+          balance = balance + this.userBalance[key]
         }
       }
       return balance

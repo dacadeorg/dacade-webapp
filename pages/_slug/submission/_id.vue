@@ -113,7 +113,7 @@
               by
             </span>
             <span class="h-dark">
-              {{ getReview.reviewDisplayName }}:
+              {{ getReview.reviewDisplayName }}
               <!-- (<span class="teaching-color">{{getTP(getReview.reviewUserId)}}TP</span>): -->
             </span>
           </b-card-text>
