@@ -4,7 +4,7 @@
     <div>
       <div class="container">
         <div class="row">
-          <div v-for="(community) in communityData" :key="community.key" class="col-md-4 mb-4 sel-com">
+          <div v-for="(community) in communityDataPreview" :key="community.key" class="col-md-4 mb-4 sel-com">
             <nuxt-link
               :to="{path: communityPath(community.slug) }"
             >
@@ -51,9 +51,9 @@ export default {
     Navigation
   },
   asyncData({ params }) {
-    return firebase.database().ref(`communityData`).once('value').then((snapShot) => {
-      const communityData = snapShot.val()
-      return { communityData }
+    return firebase.database().ref(`communityDataPreview`).once('value').then((snapShot) => {
+      const communityDataPreview = snapShot.val()
+      return { communityDataPreview }
     })
   },
   methods: {

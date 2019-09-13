@@ -88,7 +88,7 @@ export default {
     ...mapGetters({
       user: 'user',
       loginStatus: 'loginStatus',
-      lcData: 'content/lcData',
+      communityData: 'content/communityData',
       userNotifications: 'userNotifications'
     })
   },
@@ -114,6 +114,7 @@ export default {
       return notifications
     },
     getBalance() {
+      console.log(this.user)
       let balance = 0
       if (this.user && this.user.balance) {
         for (const key in this.user.balance) {

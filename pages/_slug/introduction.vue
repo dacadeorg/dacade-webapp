@@ -3,16 +3,16 @@
     <div class="row">
       <div class="col-md-8">
         <div class="site-wraper">
-          <div v-html="lcData.introductionText" />
+          <div v-html="communityData.introductionText" />
 
-          <div v-if="lcData.learningObjective" class="objective-box">
+          <div v-if="communityData.learningObjective" class="objective-box">
             <h5 class="h-dark">
               Learning Objective
             </h5>
-            <span v-html="lcData.learningObjective" />
+            <span v-html="communityData.learningObjective" />
           </div>
 
-          <div v-if="lcData.motivationVideo" class="card intro-videos w-100">
+          <div v-if="communityData.motivationVideo" class="card intro-videos w-100">
             <div class="card-body card-lite">
               <h4>
                 Why should you learn to code?
@@ -23,7 +23,7 @@
               <div class="embed-responsive embed-responsive-16by9">
                 <iframe
                   class="embed-responsive-item"
-                  :src="lcData.motivationVideo"
+                  :src="communityData.motivationVideo"
                   allowfullscreen="allowfullscreen"
                   frameborder="0"
                 />
@@ -31,18 +31,18 @@
             </div>
           </div>
 
-          <div v-if="lcData.introductionVideo" class="card intro-videos w-100">
+          <div v-if="communityData.introductionVideo" class="card intro-videos w-100">
             <div class="card-body card-lite">
               <h4>
                 Trailer
               </h4>
               <h6 class="mb-2">
-                {{ lcData.introductionVideoTime }}sec
+                {{ communityData.introductionVideoTime }}sec
               </h6>
               <div class="embed-responsive embed-responsive-16by9 mt-1">
                 <iframe
                   class="embed-responsive-item"
-                  :src="lcData.introductionVideo"
+                  :src="communityData.introductionVideo"
                   allowfullscreen="allowfullscreen"
                   frameborder="0"
                 />
@@ -53,7 +53,7 @@
           <h4 class="h-dark">
             Chapter Overview
           </h4>
-          <div v-for="item2 in lcData.chapter" :key="item2.key" class="chapter-outline mt-4">
+          <div v-for="item2 in communityData.chapter" :key="item2.key" class="chapter-outline mt-4">
             <h5 class="h-dark">
               {{ item2.chapterName }}
               <span class="chapter-time">
@@ -67,7 +67,7 @@
             Creative Challenge
           </h4>
 
-          <p>{{ lcData.introductionChallenge }}</p>
+          <p>{{ communityData.introductionChallenge }}</p>
           <!--Shows how much submission have been made in community and how much was earned-->
           <div>
             <span>
@@ -81,8 +81,8 @@
           <!--Shows sponsor of the community-->
           <div class="community-sponsor">
             <p>This community is made possible by</p>
-            <a :href="lcData.communitySponsorLink" target="_blank">
-              <img :src="lcData.communitySponsorImg">
+            <a :href="communityData.communitySponsorLink" target="_blank">
+              <img :src="communityData.communitySponsorImg">
             </a>
           </div>
           <br>
@@ -102,7 +102,7 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      lcData: 'content/lcData'
+      communityData: 'content/communityData'
     })
   },
   methods: {

@@ -26,7 +26,7 @@
                 </span>
                 <div v-if="submission.submissionPoints">
                   <b class="learning-color">
-                    {{ submission.submissionPoints }}<span class="learning-color-muted">/{{ lcData.challengePoints }} LP</span>
+                    {{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.challengePoints }} LP</span>
                   </b>
                 </div>
                 <b-card-text class="mt-2">
@@ -51,12 +51,12 @@ export default {
   computed: {
     ...mapGetters({
       submissions: 'submissions/submissions',
-      lcData: 'content/lcData'
+      communityData: 'content/communityData'
     }),
     getCommunitySubmissions() {
       const communitySubmissions = []
       for (let index = 0; index < this.submissions.length; index++) {
-        if (this.submissions[index].communityId === this.lcData.id) {
+        if (this.submissions[index].communityId === this.communityData.id) {
           communitySubmissions.push(this.submissions[index])
         }
       }

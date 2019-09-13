@@ -40,7 +40,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  increaseUserBalance({ commit }, payload) {
+  updateBalance({ commit }, payload) {
     db.ref(`balance/${payload.userId}/${payload.rewardToken}`).transaction(function (currentData) {
       console.log(payload.rewardAmount)
       return currentData + payload.rewardAmount
@@ -52,7 +52,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  increaseUserTeachingPoints({ commit }, payload) {
+  updateReputation({ commit }, payload) {
     db.ref(`reputation/${payload.userId}/${payload.communityId}`).transaction(function (currentData) {
       return currentData + payload.rewardAmount
     })
@@ -63,7 +63,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  increaseUserLearningPoints({ commit }, payload) {
+  addLearningPoints({ commit }, payload) {
     db.ref(`learningPoints/${payload.userId}/${payload.communityId}`).transaction(function (currentData) {
       return currentData + payload.learningPoints
     })

@@ -172,11 +172,11 @@ export default {
     await firebase.database().ref(`submissions/${params.id}`).once('value').then((snapShot) => {
       submission = snapShot.val()
     })
-    let communityData = null
-    await firebase.database().ref(`communityData`).once('value').then((snapShot) => {
-      communityData = snapShot.val()
+    let communityDataPreview = null
+    await firebase.database().ref(`communityDataPreview`).once('value').then((snapShot) => {
+      communityDataPreview = snapShot.val()
     })
-    return { submission, communityData }
+    return { submission, communityDataPreview }
   },
   created() {
     this.getReviews()
@@ -205,7 +205,7 @@ export default {
         submissionUpdate.githubLink = this.submission.githubLink
       }
       submissionUpdate['.key'] = key
-      const userUpdate = {
+      const addLearningPoints = {
         userId: submissionUpdate.userId,
         learningPoints: submissionUpdate.submissionPoints,
         communityId: submissionUpdate.communityId
@@ -213,14 +213,14 @@ export default {
       const balanceUpdate = {
         userId: submissionUpdate.userId,
         rewardAmount: submissionUpdate.submissionReward,
-        rewardToken: this.communityData[this.submission.communityId].rewardToken
+        rewardToken: this.communityDataPreview[this.submission.communityId].rewardToken
       }
       const userNotification = {
         date: Date.now(),
         link: `/${this.submission.communityId}/submission/${key}`,
-        message: `Good job, ${submissionUpdate.displayName}! You received: ${userUpdate.learningPoints} 
-        of ${this.communityData[this.submission.communityId].submissionPoints} Learning Points for your submission in the
-        Learning Community '${this.communityData[this.submission.communityId].name}'. 
+        message: `Good job, ${submissionUpdate.displayName}! You received: ${addLearningPoints.learningPoints} 
+        of ${this.communityDataPreview[this.submission.communityId].submissionPoints} Learning Points for your submission in the
+        Learning Community '${this.communityDataPreview[this.submission.communityId].name}'. 
         This means you earned a reward of ${balanceUpdate.rewardAmount}$ in ${balanceUpdate.rewardToken} token.`,
         notificationRead: false,
         userId: submissionUpdate.userId
@@ -229,8 +229,8 @@ export default {
       this.grading.gradingDisplayName = this.user.displayName
       this.$store.dispatch('admin/createGrading', this.grading)
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
-      this.$store.dispatch('admin/increaseUserBalance', balanceUpdate)
-      this.$store.dispatch('admin/increaseUserLearningPoints', userUpdate)
+      this.$store.dispatch('admin/updateBalance', balanceUpdate)
+      this.$store.dispatch('admin/addLearningPoints', addLearningPoints)
       this.$store.dispatch('admin/addUserNotification', userNotification)
     },
     submitReviewGrading(review) {
@@ -254,7 +254,7 @@ export default {
       const balanceUpdate = {
         userId: reviewUpdate.reviewUserId,
         rewardAmount: reviewUpdate.rewardAmount,
-        rewardToken: this.communityData[this.submission.communityId].rewardToken
+        rewardToken: this.communityDataPreview[this.submission.communityId].rewardToken
       }
       const userNotification = {
         date: Date.now(),
@@ -266,8 +266,8 @@ export default {
         userId: review.reviewUserId
       }
       this.$store.dispatch('admin/updateReview', reviewUpdate)
-      this.$store.dispatch('admin/increaseUserBalance', balanceUpdate)
-      this.$store.dispatch('admin/increaseUserTeachingPoints', reputationUpdate)
+      this.$store.dispatch('admin/updateBalance', balanceUpdate)
+      this.$store.dispatch('admin/updateReputation', reputationUpdate)
       this.$store.dispatch('admin/addUserNotification', userNotification)
     },
     contentPreview(content) {

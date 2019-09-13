@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar :style="{ background: lcData.gradient }" toggleable="lg" type="dark">
+    <b-navbar :style="{ background: communityData.gradient }" toggleable="lg" type="dark">
       <b-navbar-brand href="#" class="desktop-only">
         <nuxt-link to="/">
           <img class="logoImg" src="/img/logo-white.png" height="20" alt="">
@@ -8,7 +8,7 @@
       </b-navbar-brand>
       <b-nav-text class="community-title">
         <span class="nav-divider desktop-only" />
-        {{ lcData.name }}
+        {{ communityData.name }}
       </b-nav-text>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto userPoints">
@@ -81,7 +81,7 @@ export default {
     ...mapGetters({
       user: 'user',
       loginStatus: 'loginStatus',
-      lcData: 'content/lcData',
+      communityData: 'content/communityData',
       userNotifications: 'userNotifications'
     })
   },
@@ -122,8 +122,8 @@ export default {
     },
     getReputation() {
       let reputation = 0
-      if (this.user && this.user.reputation && this.user.reputation[this.lcData.id]) {
-        reputation = this.user.reputation[this.lcData.id]
+      if (this.user && this.user.reputation && this.user.reputation[this.communityData.id]) {
+        reputation = this.user.reputation[this.communityData.id]
       }
       console.log(reputation)
       return reputation

@@ -1,21 +1,21 @@
 <template>
   <div>
     <div class="nav-wrapper">
-      <div :style="{ color: lcData.gradient }" class="navLcName">
-        {{ lcData.name }}
+      <div :style="{ color: communityData.gradient }" class="navLcName">
+        {{ communityData.name }}
       </div>
       <ul class="nav flex-column">
         <li class="nav-item">
           <nuxt-link :to="{path: communityPath($route.params.slug, 'introduction') }">
-            <i class="fa fa-sticky-note-o fa-lg mr-1 font-bold" :style="{ color: lcData.gradient }" />
+            <i class="fa fa-sticky-note-o fa-lg mr-1 font-bold" :style="{ color: communityData.gradient }" />
             Introduction
           </nuxt-link>
         </li>
         <span class="nav-item">
-          <i class="fa fa-folder-open-o fa-lg font-bold" :style="{ color: lcData.gradient }" />
+          <i class="fa fa-folder-open-o fa-lg font-bold" :style="{ color: communityData.gradient }" />
           <span class="chapter-nav-header">Chapter</span>
         </span>
-        <li v-for="chapter in lcData.chapter" :key="chapter.key" class="nav-item">
+        <li v-for="chapter in communityData.chapter" :key="chapter.key" class="nav-item">
           <nuxt-link
             :to="{path: chapterPath($route, chapter.chapterId) }"
             class="chapter-item"
@@ -24,13 +24,13 @@
           </nuxt-link>
         </li>
         <li class="nav-item">
-          <b class="fa fa-flag-o fa-lg mr-1 font-bold" :style="{ color: lcData.gradient }" />
+          <b class="fa fa-flag-o fa-lg mr-1 font-bold" :style="{ color: communityData.gradient }" />
           <nuxt-link :to="{path: communityPath($route.params.slug, 'challenge') }">
             Challenge
           </nuxt-link>
         </li>
         <li class="nav-item">
-          <i class="fa fa fa-edit fa-lg mr-1 font-bold" :style="{ color: lcData.gradient }" />
+          <i class="fa fa fa-edit fa-lg mr-1 font-bold" :style="{ color: communityData.gradient }" />
           <nuxt-link :to="{path: communityPath($route.params.slug, 'submissions') }">
             Submissions
           </nuxt-link>
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      lcData: 'content/lcData'
+      communityData: 'content/communityData'
     })
   },
   methods: {

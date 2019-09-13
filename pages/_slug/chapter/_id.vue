@@ -3,16 +3,16 @@
     <div class="row">
       <div class="col-md-8">
         <div class="site-wraper">
-          <div v-html="lcData.ChapterData[$route.params.id].chapterDescription" />
+          <div v-html="communityData.ChapterData[$route.params.id].chapterDescription" />
 
-          <div v-if="lcData.ChapterData[$route.params.id].learningObjective" class="objective-box">
+          <div v-if="communityData.ChapterData[$route.params.id].learningObjective" class="objective-box">
             <h5 class="h-dark">
               Learning Objective
             </h5>
-            <span v-html="lcData.ChapterData[$route.params.id].learningObjective" />
+            <span v-html="communityData.ChapterData[$route.params.id].learningObjective" />
           </div>
 
-          <div v-for="item in lcData.ChapterData[$route.params.id].chapterMaterials" :key="item.key" class="chapter-materials">
+          <div v-for="item in communityData.ChapterData[$route.params.id].chapterMaterials" :key="item.key" class="chapter-materials">
             <div v-if="!item.materialAdditional">
               <div class="card w-100 mb-4">
                 <div class="card-body card-lite">
@@ -53,15 +53,15 @@
             </div>
           </div>
 
-          <!-- <div v-if="lcData.ChapterData[$route.params.id].chapterQuizData" class="knowledge-check">
+          <!-- <div v-if="communityData.ChapterData[$route.params.id].chapterQuizData" class="knowledge-check">
             <h5>Knowledge check:</h5>
             <quiz />
           </div> -->
 
-          <div v-if="lcData.ChapterData[$route.params.id].additionalChapterMaterials" class="mb-4">
+          <div v-if="communityData.ChapterData[$route.params.id].additionalChapterMaterials" class="mb-4">
             <h5>Additional material:</h5>
 
-            <div v-for="item in lcData.ChapterData[$route.params.id].chapterMaterials" :key="item.key" class="list-group additional-material-item">
+            <div v-for="item in communityData.ChapterData[$route.params.id].chapterMaterials" :key="item.key" class="list-group additional-material-item">
               <a
                 v-if="item.materialAdditional"
                 :href="item.materialLink"
@@ -106,13 +106,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      lcData: 'content/lcData'
+      communityData: 'content/communityData'
     })
   },
   methods: {
     chapterPath(params) {
       const newParams = parseInt(params.id, 10) + 1
-      if (newParams < this.lcData.ChapterData.length) {
+      if (newParams < this.communityData.ChapterData.length) {
         return `/${params.slug}/chapter/${newParams}`
       } else {
         this.nextChapterLinkText = 'Next: Challenge'

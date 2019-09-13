@@ -168,6 +168,14 @@
   color: #ff9100;
 }
 
+/* Font colors */
+
+.help {
+  color: rgba(255,255,255,.3);
+  font-style: italic;
+  margin-top: 0.5em;
+}
+
 .navbar-main {
   background-color: #343a40;
 }

@@ -3,30 +3,30 @@
     <div class="row marketing">
       <div class="col-lg-8">
         <div class="site-wraper">
-          <p><i class="dacade-note">{{ lcData.challengeDescription }}</i></p>
+          <p v-if="communityData.challengeDescription"><i class="dacade-note">{{ communityData.challengeDescription }}</i></p>
 
           <h4 class="h-dark">
             Challenge:
           </h4>
-          <div v-html="lcData.challenge" />
+          <div v-html="communityData.challenge" />
 
-          <div v-if="lcData.challengeExampleSubmissionId">
-            <span class="btn btn-dark-outline mt-4 mb-4" @click="SendToExample(lcData.challengeExampleSubmissionId)">See example</span>
+          <div v-if="communityData.challengeExampleSubmissionId">
+            <span class="btn btn-dark-outline mt-4 mb-4" @click="SendToExample(communityData.challengeExampleSubmissionId)">See example</span>
           </div>
 
           <div class="learning-points-box mb-6">
             <h5 class="learning-color">
               <b>
-                Earn {{ lcData.submissionPrice }}$
+                Earn {{ communityData.submissionPrice }}$
               </b>
             </h5>
             <p class="mb-4">
-              In order to earn <b>{{ lcData.submissionPrice }}$</b>
-              in {{ lcData.priceFormat }} you must get at least <b>70%</b>
+              In order to earn <b>{{ communityData.submissionPrice }}$</b>
+              in {{ communityData.priceFormat }} you must get at least <b>70%</b>
               of the Learning Points from this challenge.
             </p>
             <b>Rating criteria:</b>
-            <div v-for="criteria in lcData.challengeRatingCriteria" :key="criteria.key">
+            <div v-for="criteria in communityData.challengeRatingCriteria" :key="criteria.key">
               <span>✓ {{ criteria }}</span>
             </div>
           </div>
@@ -64,7 +64,7 @@
           <div v-else>
             <b-form @submit.prevent="onSubmit">
               <b-form-group
-                v-if="lcData.challengeFormat[0].text"
+                v-if="communityData.challengeFormat[0].text"
                 id="input-group-1"
               >
                 <h5 class="h-dark">
@@ -86,7 +86,7 @@
               </b-form-group>
 
               <b-form-group
-                v-if="lcData.challengeFormat[0].githubLink"
+                v-if="communityData.challengeFormat[0].githubLink"
                 id="input-group-1"
               >
                 <h5 class="h-dark">
@@ -137,7 +137,7 @@ export default {
     ...mapGetters({
       user: 'user',
       submissions: 'submissions/submissions',
-      lcData: 'content/lcData',
+      communityData: 'content/communityData',
       gradings: 'submissions/gradings'
     }),
     getUserSubmission() {
@@ -147,7 +147,7 @@ export default {
         if (this.user &&
         this.user.id &&
         this.submissions[index].userId === this.user.id &&
-        this.submissions[index].communityId === this.lcData.id) {
+        this.submissions[index].communityId === this.communityData.id) {
           userSubmission = this.submissions[index]
         }
       }
@@ -182,7 +182,7 @@ export default {
       this.$validator.validateAll()
         .then((result) => {
           if (result) {
-            this.submission.communityId = this.lcData.id
+            this.submission.communityId = this.communityData.id
             this.submission.displayName = this.user.displayName
             this.submission.userId = this.user.id
             this.$store.dispatch('submissions/createSubmission', this.submission)

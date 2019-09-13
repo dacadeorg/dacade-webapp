@@ -15,7 +15,8 @@
               Balance:
             </b>
           </h4>
-          <h4 v-for="(balance, key) in this.user.balance" :key="balance.id">
+          {{ user }}
+          <h4 v-for="(balance, key) in getBalance()" :key="balance.id">
             {{ key }} token:
             <span class="earning-color">
               {{ balance }}$
@@ -48,7 +49,7 @@
       <h2 class="h-dark mb-4">Reputation</h2>
 
       <div class="row">
-        <div v-for="(community) in communityData" :key="community.key" class="col-md-3 mb-4">
+        <div v-for="(community) in communityDataPreview" :key="community.key" class="col-md-3 mb-4">
           <b-card
             overlay=""
             :img-src="community.imgUrl"
@@ -68,7 +69,7 @@
       <!-- <h2 class="h-dark mb-4 achievements">Achievements</h2>
 
       <div class="row">
-        <div v-for="(community) in communityData" :key="community.key" class="col-md-3 mb-4">
+        <div v-for="(community) in communityDataPreview" :key="community.key" class="col-md-3 mb-4">
           <b-card
             :header="community.name"
             tag="article"
@@ -96,9 +97,9 @@ export default {
     Navigation
   },
   asyncData({ params }) {
-    return firebase.database().ref(`communityData`).once('value').then((snapShot) => {
-      const communityData = snapShot.val()
-      return { communityData }
+    return firebase.database().ref(`communityDataPreview`).once('value').then((snapShot) => {
+      const communityDataPreview = snapShot.val()
+      return { communityDataPreview }
     })
   },
   computed: {
@@ -117,12 +118,10 @@ export default {
       return balance
     },
     getReputation(communityId) {
-      console.log(communityId)
       let reputation = 0
       if (this.user && this.user.reputation && this.user.reputation[communityId]) {
         reputation = this.user.reputation[communityId]
       }
-      console.log(reputation)
       return reputation
     },
     getLearningPoints(communityId) {

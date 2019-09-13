@@ -5,43 +5,43 @@ import firebase from '@/plugins/firebase'
 import { vuexfireMutations, firebaseAction } from 'vuexfire'
 
 const db = firebase.database()
+const communityDataPreviewRef = db.ref('communityDataPreview')
 const communityDataRef = db.ref('communityData')
-const lcDataRef = db.ref('LCData')
 
 export const state = () => ({
-  communityData: [],
-  lcData: []
+  communityDataPreview: [],
+  communityData: []
 })
 
 export const mutations = {
-  setLc(state, payload) {
-    state.lcData = payload
+  setCommunityData(state, payload) {
+    state.communityData = payload
   }
 }
 
 export const actions = {
   init: firebaseAction(({ bindFirebaseRef }) => {
+    bindFirebaseRef('communityDataPreview', communityDataPreviewRef)
+  }),
+  getBoundcommunityData: firebaseAction(({ bindFirebaseRef }) => {
     bindFirebaseRef('communityData', communityDataRef)
   }),
-  getBoundLcData: firebaseAction(({ bindFirebaseRef }) => {
-    bindFirebaseRef('lcData', lcDataRef)
-  }),
-  getLcData({ commit }, payload) {
+  getcommunityData({ commit }, payload) {
     console.log(payload)
-    return db.ref(`LCData/${payload}`).once('value').then((snapShot) => {
-      const lcData = snapShot.val()
-      console.log(lcData)
-      //communityData.key = params.slug // snapShot.key
-      commit('setLc', lcData)
+    return db.ref(`communityData/${payload}`).once('value').then((snapShot) => {
+      const communityData = snapShot.val()
+      console.log(communityData)
+      //communityDataPreview.key = params.slug // snapShot.key
+      commit('setCommunityData', communityData)
     })
   }
 }
 
 export const getters = {
+  communityDataPreview(state) {
+    return state.communityDataPreview
+  },
   communityData(state) {
     return state.communityData
-  },
-  lcData(state) {
-    return state.lcData
   }
 }

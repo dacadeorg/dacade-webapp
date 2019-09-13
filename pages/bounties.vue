@@ -59,9 +59,9 @@ export default {
     })
   },
   asyncData({ params }) {
-    return firebase.database().ref(`communityData`).once('value').then((snapShot) => {
-      const communityData = snapShot.val()
-      return { communityData }
+    return firebase.database().ref(`communityDataPreview`).once('value').then((snapShot) => {
+      const communityDataPreview = snapShot.val()
+      return { communityDataPreview }
     })
   },
   created() {
@@ -78,7 +78,7 @@ export default {
         const element = this.submissions[index]
         // Todo: Exlude submission if user hasn't made a submission to the community yet
         if (!element.submissionPoints) {
-          const result = Object.values(this.communityData).filter((obj) => {
+          const result = Object.values(this.communityDataPreview).filter((obj) => {
             return obj.slug === element.communityId
           })
           element.typ = 'review'
@@ -106,15 +106,15 @@ export default {
         }
       }
       // Get open submissions for user
-      for (let index = 0; index < Object.values(this.communityData).length; index++) {
+      for (let index = 0; index < Object.values(this.communityDataPreview).length; index++) {
         // todo change slug to Id
-        if (!userSubmissions.includes(Object.values(this.communityData)[index].slug)) {
+        if (!userSubmissions.includes(Object.values(this.communityDataPreview)[index].slug)) {
           const element = {}
           element.typ = 'submission'
-          element.lcName = Object.values(this.communityData)[index].name
-          element.color = Object.values(this.communityData)[index].color
-          element.link = `/${Object.values(this.communityData)[index].slug}/challenge/`
-          element.reward = Object.values(this.communityData)[index].submissionReward
+          element.lcName = Object.values(this.communityDataPreview)[index].name
+          element.color = Object.values(this.communityDataPreview)[index].color
+          element.link = `/${Object.values(this.communityDataPreview)[index].slug}/challenge/`
+          element.reward = Object.values(this.communityDataPreview)[index].submissionReward
           bounties.push(element)
         }
       }

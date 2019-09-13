@@ -33,14 +33,14 @@
             <i>Click to see the code on GitHub</i>
 
             <div
-              v-if="lcData.githubUrl"
+              v-if="communityData.githubUrl"
               class="github-url"
             >
               <a class="btn btn-dark" target="blank" :href="getGithubUrl">Website</a>
               <i>Click to see the Website</i>
             </div>
             <div v-if="submission.submissionPoints" class="evaluation-points mt-4">
-              <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ lcData.assignmentPoints }} LP</span>
+              <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span>
               </b>
               <b v-if="submission.submissionReward > 1" class="earning-color ml-1">
                 +{{ submission.submissionReward }}$
@@ -71,7 +71,7 @@
             </span>
           </b-card-text>
           <b-card-text>
-            <div v-for="evaluation in lcData.challengeRatingCriteriaPoints" :key="evaluation.key" class="mb-2">
+            <div v-for="evaluation in communityData.challengeRatingCriteriaPoints" :key="evaluation.key" class="mb-2">
               <span class="h-dark">
                 {{ evaluation.name }}
               </span>
@@ -89,7 +89,7 @@
                   +{{ submission.submissionReward }}$
                 </b>
               </span>
-              <div>Congratulations you gained at least {{ lcData.challengeThreshold }}% of the available learning points.</div>
+              <div>Congratulations you gained at least {{ communityData.challengeThreshold }}% of the available learning points.</div>
             </div>
           </b-card-text>
         </b-card>
@@ -145,14 +145,19 @@
             <b-form-textarea
               id="input-1"
               v-model="review.content"
+              v-validate="'required|min:20'"
               type="text"
+              name="feedback"
               required
               placeholder="Enter Feedback"
               rows="4"
             />
+            <p v-show="errors.has('feedback')" class="help is-danger">
+              {{ errors.first('feedback') }}
+            </p>
           </b-form-group>
 
-          <div v-if="lcData.reviewCodeLink" style="width:100%;">
+          <div v-if="communityData.reviewCodeLink" style="width:100%;">
             <h5 class="h-dark mb-2">
               GitHub Pull Request
             </h5>
@@ -198,7 +203,7 @@ export default {
       user: 'user',
       reviews: 'reviews/reviews',
       gradings: 'submissions/gradings',
-      lcData: 'content/lcData'
+      communityData: 'content/communityData'
     }),
     getSubmissionReviews() {
       let submissionReviews = []

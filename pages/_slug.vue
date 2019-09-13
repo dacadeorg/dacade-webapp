@@ -24,9 +24,9 @@ export default {
   },
   mixins: [apiJobMixin],
   fetch({ store, params }) {
-    return firebase.database().ref(`LCData/${params.slug}`).once('value').then((snapShot) => {
-      const lcData = snapShot.val()
-      store.commit('content/setLc', lcData)
+    return firebase.database().ref(`communityData/${params.slug}`).once('value').then((snapShot) => {
+      const communityData = snapShot.val()
+      store.commit('content/setCommunityData', communityData)
     })
   }
 }
