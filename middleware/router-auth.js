@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import firebase from '@/plugins/firebase'
-import { firebaseAction } from 'vuexfire'
 
 export default function ({ store, redirect, route }) {
   firebase.auth().onAuthStateChanged((user) => {
@@ -11,6 +10,7 @@ export default function ({ store, redirect, route }) {
         email: user.email,
         displayName: user.displayName
       }
+      // Todo: Fix this so we dont have to always make a call if user is admin
       if (isAdminRoute(route)) {
         firebase.database().ref(`admin/${authUser.id}`).once('value').then((snapShot) => {
           if (!snapShot.val()) {
@@ -19,10 +19,18 @@ export default function ({ store, redirect, route }) {
           }
         })
       }
-      store.commit('setUser', authUser)
-      store.dispatch('getUserNotifications', authUser.id)
-      store.dispatch('getUserBalance', authUser.id)
-      store.dispatch('getUserReputation', authUser.id)
+      if (!store.getters.user) {
+        store.commit('setUser', authUser)
+      }
+      if (!store.getters.userBalance) {
+        store.dispatch('getUserBalance', authUser.id)
+      }
+      if (!store.getters.userNotifications) {
+        store.dispatch('getUserNotifications', authUser.id)
+      }
+      if (!store.getters.userReputation) {
+        store.dispatch('getUserReputation', authUser.id)
+      }
     } else if (isUserRoute(route) || isAdminRoute(route)) {
       store.commit('setForwardRoute', route.path)
       redirect('/signup')

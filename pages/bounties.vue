@@ -54,19 +54,25 @@ export default {
     ...mapGetters({
       user: 'user',
       submissions: 'submissions/submissions',
-      communityDataPreview: 'content/communityDataPreview'
+      communityDataPreview: 'content/communityDataPreview',
+      reviews: 'reviews/reviews'
     })
   },
   mounted() {
     if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
-      this.$store.dispatch('content/getCommunityDataPreview')
+      this.getCommunityDataPreview()
     }
-  },
-  created() {
-    this.getSubmissions()
+    if ((!this.submissions || Object.keys(this.submissions).length === 0)) {
+      this.getSubmissions()
+    }
+    if ((!this.reviews || Object.keys(this.reviews).length === 0)) {
+      this.getReviews()
+    }
   },
   methods: {
     ...mapActions({
+      getCommunityDataPreview: 'content/getCommunityDataPreview',
+      getReviews: 'reviews/getReviews',
       getSubmissions: 'submissions/getSubmissions'
     }),
     getOpenBounties() {

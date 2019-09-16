@@ -43,18 +43,22 @@
 
 <script>
 /* eslint-disable no-console */
-import firebase from '@/plugins/firebase'
+import { mapGetters } from 'vuex'
 import Navigation from '@/components/Navigation'
 
 export default {
   components: {
     Navigation
   },
-  asyncData({ params }) {
-    return firebase.database().ref(`communityDataPreview`).once('value').then((snapShot) => {
-      const communityDataPreview = snapShot.val()
-      return { communityDataPreview }
+  computed: {
+    ...mapGetters({
+      communityDataPreview: 'content/communityDataPreview'
     })
+  },
+  mounted() {
+    if (!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0) {
+      this.$store.dispatch('content/getCommunityDataPreview')
+    }
   },
   methods: {
     communityPath(slug) {

@@ -196,7 +196,7 @@
                 <div class="col-sm">
                   <div>
                     <h4>
-                      2700+
+                      2900+
                     </h4>
                     <p>Over 2700 Learners have already registered on dacade.</p>
                   </div>
