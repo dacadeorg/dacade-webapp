@@ -1,10 +1,9 @@
 <template>
   <div>
     <Navigation />
-    <div v-if="user" class="container">
+    <div v-if="Object.keys(communityDataPreview).length != 0 && user" class="container">
       <div class="row">
         <div class="col-md-4 mt-4">
-
           <h2 class="h-dark">
             {{ user.displayName }}
           </h2>
@@ -46,12 +45,13 @@
               </p>
             </b-modal>
           </section>
-
         </div>
       </div>
 
       <section v-if="userReputation && Object.keys(userReputation).length">
-        <h2 class="h-dark mb-4">Reputation</h2>
+        <h2 class="h-dark mb-4">
+          Reputation
+        </h2>
         <div class="row">
           <div v-for="(rep, key) in userReputation" :key="rep.key" class="col-md-3 mb-4">
             <b-card
@@ -64,7 +64,7 @@
               class="mb-2 small-shadow text-center bg-black"
             >
               <b-card-text class="text-center mt-4">
-                  <h2><b class="overlay-text teaching-color">{{ rep }} REP</b></h2>
+                <h2><b class="overlay-text teaching-color">{{ rep }} REP</b></h2>
               </b-card-text>
             </b-card>
           </div>
@@ -72,7 +72,9 @@
       </section>
 
       <section v-if="userLearningPoints && Object.keys(userLearningPoints).length">
-        <h2 class="h-dark mb-4">Achievements</h2>
+        <h2 class="h-dark mb-4">
+          Achievements
+        </h2>
         <div class="row">
           <div v-for="(lp, key) in userLearningPoints" :key="lp.key" class="col-md-3 mb-4">
             <b-card
@@ -85,13 +87,12 @@
               class="mb-2 small-shadow text-center bg-black"
             >
               <b-card-text class="text-center mt-4">
-                  <h2><b class="overlay-text learning-color">{{ lp }} LP</b></h2>
+                <h2><b class="overlay-text learning-color">{{ lp }} LP</b></h2>
               </b-card-text>
             </b-card>
           </div>
         </div>
       </section>
-
     </div>
   </div>
 </template>
@@ -99,7 +100,6 @@
 /* eslint-disable no-console */
 import Navigation from '@/components/Navigation'
 import { mapGetters } from 'vuex'
-import firebase from '@/plugins/firebase'
 
 export default {
   components: {
@@ -110,18 +110,18 @@ export default {
       user: 'user',
       userBalance: 'userBalance',
       userReputation: 'userReputation',
-      userLearningPoints: 'userLearningPoints'
+      userLearningPoints: 'userLearningPoints',
+      communityDataPreview: 'content/communityDataPreview'
     })
   },
-  asyncData({ params }) {
-    return firebase.database().ref(`communityDataPreview`).once('value').then((snapShot) => {
-      const communityDataPreview = snapShot.val()
-      return { communityDataPreview }
-    })
+  watch: {
+    user(value) {
+      this.getLearningPoints()
+    }
   },
   mounted() {
-    if ((!this.userLearningPoints || this.userLearningPoints.length === 0) && this.user) {
-      this.$store.dispatch('getUserLearningPoints', { id: this.user.id })
+    if (!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0) {
+      this.$store.dispatch('content/getCommunityDataPreview')
     }
   },
   methods: {
@@ -134,16 +134,10 @@ export default {
       }
       return balance
     },
-    getLearningPoints(communityId) {
-      console.log('this.userLearningPoints')
-      console.log(this.userLearningPoints)
-      const learningPoints = 0
-      // if (this.user.data[communityId]) {
-      //   if (this.user.data[communityId].learningPoints) {
-      //     learningPoints = this.user.data[communityId].learningPoints
-      //   }
-      // }
-      return learningPoints
+    getLearningPoints() {
+      if ((!this.userLearningPoints || Object.keys(this.userLearningPoints).length)) {
+        this.$store.dispatch('getUserLearningPoints', { id: this.user.id })
+      }
     }
   }
 }

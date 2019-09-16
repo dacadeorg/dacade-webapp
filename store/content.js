@@ -9,13 +9,16 @@ const communityDataPreviewRef = db.ref('communityDataPreview')
 const communityDataRef = db.ref('communityData')
 
 export const state = () => ({
-  communityDataPreview: [],
-  communityData: []
+  communityData: [],
+  communityDataPreview: []
 })
 
 export const mutations = {
   setCommunityData(state, payload) {
     state.communityData = payload
+  },
+  setCommunityDataPreview(state, payload) {
+    state.communityDataPreview = payload
   }
 }
 
@@ -34,14 +37,20 @@ export const actions = {
       //communityDataPreview.key = params.slug // snapShot.key
       commit('setCommunityData', communityData)
     })
+  },
+  getCommunityDataPreview({ commit }) {
+    firebase.database().ref(`communityDataPreview`).once('value').then((snapShot) => {
+      const communityDataPreview = snapShot.val()
+      commit('setCommunityDataPreview', communityDataPreview)
+    })
   }
 }
 
 export const getters = {
-  communityDataPreview(state) {
-    return state.communityDataPreview
-  },
   communityData(state) {
     return state.communityData
+  },
+  communityDataPreview(state) {
+    return state.communityDataPreview
   }
 }

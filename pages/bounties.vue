@@ -44,7 +44,6 @@
 <script>
 /* eslint-disable no-console */
 import Navigation from '@/components/Navigation'
-import firebase from '@/plugins/firebase'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -54,15 +53,14 @@ export default {
   computed: {
     ...mapGetters({
       user: 'user',
-      lcData: 'content/lcData',
-      submissions: 'submissions/submissions'
+      submissions: 'submissions/submissions',
+      communityDataPreview: 'content/communityDataPreview'
     })
   },
-  asyncData({ params }) {
-    return firebase.database().ref(`communityDataPreview`).once('value').then((snapShot) => {
-      const communityDataPreview = snapShot.val()
-      return { communityDataPreview }
-    })
+  mounted() {
+    if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
+      this.$store.dispatch('content/getCommunityDataPreview')
+    }
   },
   created() {
     this.getSubmissions()
@@ -77,7 +75,7 @@ export default {
       for (let index = 0; index < this.submissions.length; index++) {
         const element = this.submissions[index]
         // Todo: Exlude submission if user hasn't made a submission to the community yet
-        if (!element.submissionPoints) {
+        if (!element.submissionPoints && Object.keys(this.communityDataPreview).length) {
           const result = Object.values(this.communityDataPreview).filter((obj) => {
             return obj.slug === element.communityId
           })
@@ -118,8 +116,6 @@ export default {
           bounties.push(element)
         }
       }
-      console.log('bounties')
-      console.log(bounties)
       return Object.values(bounties)
     }
   }

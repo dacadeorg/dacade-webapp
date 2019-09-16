@@ -14,7 +14,8 @@ export const state = () => ({
   userNotifications: null,
   userBalance: null,
   userReputation: null,
-  userLearningPoints: null
+  userLearningPoints: null,
+  communityDataPreview: null
 })
 
 export const mutations = {
@@ -120,15 +121,15 @@ export const actions = {
         commit('setError', error)
       })
   },
+  logOut({ commit }) {
+    firebase.auth().signOut()
+    commit('setUser', null)
+  },
   getUserLearningPoints({ commit }, payload) {
     firebase.database().ref(`learningPoints/${payload.id}`).once('value').then((snapShot) => {
       const learningPoints = snapShot.val()
       commit('setLearningPoints', learningPoints)
     })
-  },
-  logOut({ commit }) {
-    firebase.auth().signOut()
-    commit('setUser', null)
   },
   getUsersDataDb: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('usersData', db.ref('users').child(uid))

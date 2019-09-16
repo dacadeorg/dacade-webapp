@@ -19,7 +19,7 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto userPoints">
         <b-nav-item v-if="loginStatus">
-          <b-nav-text  v-if="$route.name != 'index'" class="mr-2 muted-dark">
+          <b-nav-text v-if="$route.name != 'index'" class="mr-2 muted-dark">
             <b class="earning-color">{{ getBalance() }}$</b>
           </b-nav-text>
           <i v-b-modal.modal-1 class="fa fa-bars fa-lg" />
@@ -111,7 +111,6 @@ export default {
       return notifications
     },
     getBalance() {
-      console.log(this.user)
       let balance = 0
       if (this.user && this.userBalance) {
         for (const key in this.userBalance) {

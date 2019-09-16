@@ -3,7 +3,9 @@
     <div class="row marketing">
       <div class="col-lg-8">
         <div class="site-wraper">
-          <p v-if="communityData.challengeDescription"><i class="dacade-note">{{ communityData.challengeDescription }}</i></p>
+          <p v-if="communityData.challengeDescription">
+            <i class="dacade-note">{{ communityData.challengeDescription }}</i>
+          </p>
 
           <h4 class="h-dark">
             Challenge:
