@@ -76,12 +76,18 @@ export default {
       getSubmissions: 'submissions/getSubmissions'
     }),
     getOpenBounties() {
+      // Todo: Exlude submission if user hasn't made a submission to the community yet
       const bounties = []
       const userSubmissions = []
+      // Loop over all submissions to get the submissons that need a review
       for (let index = 0; index < this.submissions.length; index++) {
         const element = this.submissions[index]
-        // Todo: Exlude submission if user hasn't made a submission to the community yet
-        if (!element.submissionPoints && Object.keys(this.communityDataPreview).length) {
+        // Check if the submission was from the current user
+        if (this.user && element.userId === this.user.id) {
+          userSubmissions.push(element.communityId)
+        // Else check if it was already evaluated and user made no review yet
+        } else if (!element.submissionPoints && this.userMadeNoReview(element['.key']) && Object.keys(this.communityDataPreview).length) {
+          // Get the chapter data from the community of the submission
           const result = Object.values(this.communityDataPreview).filter((obj) => {
             return obj.slug === element.communityId
           })
@@ -90,23 +96,12 @@ export default {
           element.link = `/${result[0].slug}/submission/${element['.key']}`
           element.color = result[0].color
           element.reward = result[0].reviewReward
-          if (result[0].bountyTime) {
-            const endTime = element.date + (result[0].bountyTime * 60 * 60 * 1000)
-            element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
-          } else {
-            const endTime = element.date + 168 * 60 * 60 * 1000
-            element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
+          const endTime = element.date + (result[0].bountyTime * 60 * 60 * 1000)
+          element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
+          // Check if there is still time left for submission
+          if (element.hoursLeft > 0) {
+            bounties.push(element)
           }
-          // Exclude submission if its from current user
-          // console.log(element)
-          if (this.user) {
-            if (element.userId !== this.user.id) {
-              bounties.push(element)
-            }
-          }
-        }
-        if (this.user && element.userId === this.user.id) {
-          userSubmissions.push(element.communityId)
         }
       }
       // Get open submissions for user
@@ -123,6 +118,21 @@ export default {
         }
       }
       return Object.values(bounties)
+    },
+    userMadeNoReview(submissionId) {
+      const submissionReviews = []
+      let userMadeNoReview = true
+      for (let index = 0; index < this.reviews.length; index++) {
+        if (this.reviews[index].submissionId === submissionId) {
+          submissionReviews.push(this.reviews[index])
+        }
+      }
+      for (let index = 0; index < submissionReviews.length; index++) {
+        if (submissionReviews[index].reviewUserId === this.user.id) {
+          userMadeNoReview = false
+        }
+      }
+      return userMadeNoReview
     }
   }
 }
