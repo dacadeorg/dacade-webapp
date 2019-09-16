@@ -238,9 +238,19 @@ export default {
       return { submission }
     })
   },
-  created() {
-    this.getReviews()
-    this.getGradings()
+  mounted(params) {
+    if ((!this.communityData || Object.keys(this.communityData).length === 0)) {
+      this.$store.dispatch('content', { payload: params.slug })
+    }
+    if ((!this.gradings || Object.keys(this.reviews).gradings === 0)) {
+      this.getGradings()
+    }
+    if ((!this.reviews || Object.keys(this.reviews).length === 0)) {
+      this.getReviews()
+    }
+    if ((!this.reviews || Object.keys(this.reviews).length === 0)) {
+      this.getReviews()
+    }
   },
   methods: {
     ...mapActions({

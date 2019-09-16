@@ -63,8 +63,10 @@ export default {
       return communitySubmissions
     }
   },
-  created() {
-    this.getSubmissions()
+  mounted(params) {
+    if ((!this.submissions || Object.keys(this.submissions).length === 0)) {
+      this.getSubmissions()
+    }
   },
   methods: {
     ...mapActions({
