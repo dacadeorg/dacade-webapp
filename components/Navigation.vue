@@ -32,7 +32,7 @@
             <nuxt-link class="dropdown-item" to="/bounties/">
               Bounties
             </nuxt-link>
-            <nuxt-link class="dropdown-item" to="/community-selection/">
+            <nuxt-link class="dropdown-item" to="/communities/">
               Communities
             </nuxt-link>
             <nuxt-link class="dropdown-item" to="/notifications/">
@@ -97,7 +97,7 @@ export default {
   methods: {
     logOut() {
       this.$store.dispatch('logOut')
-      this.$router.push('/community-selection')
+      this.$router.push('/communities')
     },
     getUnreadNotification() {
       let notifications = 0
@@ -123,7 +123,7 @@ export default {
       if (route.name === 'notifications') {
         return 'Notifications'
       }
-      if (route.name === 'community-selection') {
+      if (route.name === 'communities') {
         return 'Communities'
       }
       if (route.name === 'bounties') {

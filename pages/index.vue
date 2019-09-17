@@ -50,7 +50,7 @@
             </div>
 
             <div class="learn-more-button">
-              <nuxt-link class="btn btn-primary btn-lg" to="/community-selection">
+              <nuxt-link class="btn btn-primary btn-lg" to="/communities">
                 LEarn
               </nuxt-link>
             </div>

@@ -113,7 +113,7 @@ export default {
     },
     jobsDone() {
       this.removeErrors()
-      let nextRoute = '/community-selection'
+      let nextRoute = '/communities'
       const forwardRoute = this.$store.getters.forwardRoute
       if (forwardRoute !== null) {
         nextRoute = forwardRoute

@@ -107,12 +107,12 @@ export default {
       // Get open submissions for user
       for (let index = 0; index < Object.values(this.communityDataPreview).length; index++) {
         // todo change slug to Id
-        if (!userSubmissions.includes(Object.values(this.communityDataPreview)[index].slug)) {
+        if (!userSubmissions.includes(Object.keys(this.communityDataPreview)[index])) {
           const element = {}
           element.typ = 'submission'
           element.lcName = Object.values(this.communityDataPreview)[index].name
           element.color = Object.values(this.communityDataPreview)[index].color
-          element.link = `/${Object.values(this.communityDataPreview)[index].slug}/challenge/`
+          element.link = `/${Object.keys(this.communityDataPreview)[index]}/challenge/`
           element.reward = Object.values(this.communityDataPreview)[index].submissionReward
           bounties.push(element)
         }
