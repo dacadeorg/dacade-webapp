@@ -54,7 +54,7 @@ export default {
     }),
     submissionPath(slug, submissionKey) {
       console.log(submissionKey)
-      return `grading/${submissionKey}`
+      return `evaluation/${submissionKey}`
     }
   }
 }

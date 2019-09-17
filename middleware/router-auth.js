@@ -50,9 +50,9 @@ export default function ({ store, redirect, route }) {
 }
 
 function isAdminRoute(route) {
-  if (route.matched.some(record => record.path === '/admin/gradings')) {
+  if (route.matched.some(record => record.path === '/admin/evaluations')) {
     return true
-  } else if (route.matched.some(record => record.path === '/admin/grading/:id?')) {
+  } else if (route.matched.some(record => record.path === '/admin/evaluation/:id?')) {
     return true
   } else {
     return false

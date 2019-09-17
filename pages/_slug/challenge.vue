@@ -46,7 +46,7 @@
           </div> -->
 
           <div v-if="getUserSubmission">
-            <div v-if="getGradingsDb">
+            <div v-if="getEvaluationsDb">
               Your submission was evaluated click on the link to see the evaluation and feedback of your peers.
             </div>
             <div v-else>
@@ -140,7 +140,7 @@ export default {
       user: 'user',
       submissions: 'submissions/submissions',
       communityData: 'content/communityData',
-      gradings: 'submissions/gradings'
+      evaluations: 'submissions/evaluations'
     }),
     getUserSubmission() {
       let userSubmission = null
@@ -155,24 +155,24 @@ export default {
       }
       return userSubmission
     },
-    getGradingsDb() {
-      let gradingsNew = null
-      for (let index = 0; index < this.gradings.length; index++) {
-        if (this.gradings[index].submissionId === this.getUserSubmission['.key']) {
-          gradingsNew = this.gradings[index]
+    getEvaluationsDb() {
+      let evaluationsNew = null
+      for (let index = 0; index < this.evaluations.length; index++) {
+        if (this.evaluations[index].submissionId === this.getUserSubmission['.key']) {
+          evaluationsNew = this.evaluations[index]
         }
       }
-      return gradingsNew
+      return evaluationsNew
     }
   },
   created() {
     this.getSubmissions()
-    this.getGradings()
+    this.getEvaluations()
   },
   methods: {
     ...mapActions({
       getSubmissions: 'submissions/getSubmissions',
-      getGradings: 'submissions/getGradings'
+      getEvaluations: 'submissions/getEvaluations'
     }),
     communityPath(slug) {
       return `/${slug}/submissions`

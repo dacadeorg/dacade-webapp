@@ -22,7 +22,7 @@
           {{ getReview.rewardAmount }}
         </p>
       </b-card-text>
-      <b-form @submit.prevent="submitReviewGrading(getReview)">
+      <b-form @submit.prevent="submitReviewEvaluation(getReview)">
         <b-form-group
           id="input-group-1"
           label="Reward Amount"
@@ -41,7 +41,7 @@
         </b-button>
       </b-form>
     </b-card>
-    <b-form @submit.prevent="submitSubmissionGrading">
+    <b-form @submit.prevent="submitSubmissionEvaluation">
       <b-form-group
         id="input-group-1"
         label="Give Feedback Relevanz:"
@@ -49,14 +49,14 @@
       >
         <b-form-input
           id="input-1"
-          v-model="grading.relevanceText"
+          v-model="evaluation.relevanceText"
           type="text"
           required
           placeholder="Enter Feedback Relevanz"
         />
         <b-form-input
           id="input-1-1"
-          v-model="grading.relevanceValue"
+          v-model="evaluation.relevanceValue"
           type="number"
           required
           placeholder="1"
@@ -69,14 +69,14 @@
       >
         <b-form-input
           id="input-2"
-          v-model="grading.originalityText"
+          v-model="evaluation.originalityText"
           type="text"
           required
           placeholder="Enter Feedback Originality"
         />
         <b-form-input
           id="input-2-1"
-          v-model="grading.originalityValue"
+          v-model="evaluation.originalityValue"
           type="number"
           required
           placeholder="1"
@@ -89,14 +89,14 @@
       >
         <b-form-input
           id="input-3"
-          v-model="grading.qualityText"
+          v-model="evaluation.qualityText"
           type="text"
           required
           placeholder="Enter Feedback Quality"
         />
         <b-form-input
           id="input-3-1"
-          v-model="grading.qualityValue"
+          v-model="evaluation.qualityValue"
           type="number"
           required
           placeholder="1"
@@ -136,10 +136,10 @@ export default {
         rewardAmount: 0,
         submissionId: this.$route.params.id
       },
-      grading: {
+      evaluation: {
         date: Date.now(),
-        gradingUserId: null,
-        gradingDisplayName: null,
+        evaluationUserId: null,
+        evaluationDisplayName: null,
         submissionId: this.$route.params.id,
         relevanceText: null,
         relevanceValue: 0,
@@ -188,7 +188,7 @@ export default {
     communityPath(slug) {
       return `/${slug}/submissions`
     },
-    submitSubmissionGrading() {
+    submitSubmissionEvaluation() {
       const key = this.$route.params.id
       const submissionUpdate = {
         displayName: this.submission.displayName,
@@ -196,9 +196,9 @@ export default {
         text: this.submission.text,
         userId: this.submission.userId,
         date: this.submission.date,
-        submissionPoints: parseInt(this.grading.relevanceValue, 10) +
-          parseInt(this.grading.originalityValue, 10) +
-          parseInt(this.grading.qualityValue, 10),
+        submissionPoints: parseInt(this.evaluation.relevanceValue, 10) +
+          parseInt(this.evaluation.originalityValue, 10) +
+          parseInt(this.evaluation.qualityValue, 10),
         submissionReward: parseInt(this.submissionReward, 10)
       }
       if (this.submission.githubLink) {
@@ -225,15 +225,15 @@ export default {
         notificationRead: false,
         userId: submissionUpdate.userId
       }
-      this.grading.gradingUserId = this.user.id
-      this.grading.gradingDisplayName = this.user.displayName
-      this.$store.dispatch('admin/createGrading', this.grading)
+      this.evaluation.evaluationUserId = this.user.id
+      this.evaluation.evaluationDisplayName = this.user.displayName
+      this.$store.dispatch('admin/createEvaluation', this.evaluation)
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
       this.$store.dispatch('admin/updateBalance', balanceUpdate)
       this.$store.dispatch('admin/addLearningPoints', addLearningPoints)
       this.$store.dispatch('admin/addUserNotification', userNotification)
     },
-    submitReviewGrading(review) {
+    submitReviewEvaluation(review) {
       const reviewUpdate = {
         content: review.content,
         submissionId: review.submissionId,

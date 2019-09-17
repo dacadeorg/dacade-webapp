@@ -1,15 +1,15 @@
 /* eslint-disable no-console */
 import firebase from '@/plugins/firebase'
 const db = firebase.database()
-const gradingsRef = db.ref('gradings')
+const evaluationsRef = db.ref('evaluations')
 
 export const state = () => ({
   groups: []
 })
 
 export const actions = {
-  createGrading({ commit }, payload) {
-    gradingsRef.push(payload)
+  createEvaluation({ commit }, payload) {
+    evaluationsRef.push(payload)
       .then(() => {
         console.log('success')
       })

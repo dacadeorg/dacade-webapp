@@ -50,12 +50,12 @@
         </b-card>
 
         <!-- Evaluation Card -->
-        <section v-if="getGradingsDb">
+        <section v-if="getEvaluationsDb">
           <b-card
             class="bg-dark mb-4 small-shadow-no-hover"
           >
             <span class="float-right muted-dark">
-              {{ convertDate(getGradingsDb.date) }}
+              {{ convertDate(getEvaluationsDb.date) }}
             </span>
             <b-card-text>
               <span class="earning-color">
@@ -67,7 +67,7 @@
                 by
               </span>
               <span class="h-dark">
-                {{ getGradingsDb.gradingDisplayName }}
+                {{ getEvaluationsDb.evaluationDisplayName }}
               </span>
             </b-card-text>
             <b-card-text>
@@ -76,9 +76,9 @@
                   {{ evaluation.name }}
                 </span>
                 <b class="learning-color">
-                  +{{ getRatingCriteria(evaluation.name,getGradingsDb) }}<span class="learning-color-muted">/{{ evaluation.points }} LP</span>
+                  +{{ getRatingCriteria(evaluation.name,getEvaluationsDb) }}<span class="learning-color-muted">/{{ evaluation.points }} LP</span>
                 </b>
-                <div v-html="getRatingText(evaluation.name,getGradingsDb)" />
+                <div v-html="getRatingText(evaluation.name,getEvaluationsDb)" />
               </div>
               <div v-if="submission.submissionReward > 1">
                 <span class="h-dark">
@@ -208,7 +208,7 @@ export default {
     ...mapGetters({
       user: 'user',
       reviews: 'reviews/reviews',
-      gradings: 'submissions/gradings',
+      evaluations: 'submissions/evaluations',
       communityData: 'content/communityData'
     }),
     getSubmissionReviews() {
@@ -221,21 +221,20 @@ export default {
       }
       return submissionReviews
     },
-    getGradingsDb() {
-      let gradingsNew = null
-      for (let index = 0; index < this.gradings.length; index++) {
-        if (this.gradings[index].submissionId === this.$route.params.id) {
-          gradingsNew = this.gradings[index]
+    getEvaluationsDb() {
+      let evaluationsNew = null
+      for (let index = 0; index < this.evaluations.length; index++) {
+        if (this.evaluations[index].submissionId === this.$route.params.id) {
+          evaluationsNew = this.evaluations[index]
         }
       }
-      return gradingsNew
+      return evaluationsNew
     },
     getGithubUrl() {
       const str = this.submission.githubLink
       const urlsplit = str.split('https://github.com/')
       const urlsplit2 = urlsplit[1].split('/')
       const newUrl = 'https://' + urlsplit2[0] + '.github.io/' + urlsplit2[1]
-      console.log(newUrl)
       return newUrl
     }
   },
@@ -249,8 +248,8 @@ export default {
     if ((!this.communityData || Object.keys(this.communityData).length === 0)) {
       this.$store.dispatch('content', { payload: params.slug })
     }
-    if ((!this.gradings || Object.keys(this.gradings).length === 0)) {
-      this.getGradings()
+    if ((!this.evaluations || Object.keys(this.evaluations).length === 0)) {
+      this.getEvaluations()
     }
     if ((!this.reviews || Object.keys(this.reviews).length === 0)) {
       this.getReviews()
@@ -259,7 +258,7 @@ export default {
   methods: {
     ...mapActions({
       getReviews: 'reviews/getReviews',
-      getGradings: 'submissions/getGradings'
+      getEvaluations: 'submissions/getEvaluations'
     }),
     communityPath(slug) {
       return `/${slug}/submissions`
