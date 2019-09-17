@@ -24,12 +24,23 @@ export default function ({ store, redirect, route }) {
       }
       if (!store.getters.userBalance) {
         store.dispatch('getUserBalance', authUser.id)
+      } else if (store.getters.userBalance['.key'] !== authUser.id) {
+        store.dispatch('getUserBalance', authUser.id)
       }
       if (!store.getters.userNotifications) {
+        store.dispatch('getUserNotifications', authUser.id)
+      } else if (store.getters.userNotifications['.key'] !== authUser.id) {
         store.dispatch('getUserNotifications', authUser.id)
       }
       if (!store.getters.userReputation) {
         store.dispatch('getUserReputation', authUser.id)
+      } else if (store.getters.userReputation['.key'] !== authUser.id) {
+        store.dispatch('getUserReputation', authUser.id)
+      }
+      if (!store.getters.userLearningPoints) {
+        store.dispatch('getUserLearningPoints', authUser.id)
+      } else if (store.getters.userLearningPoints['.key'] !== authUser.id) {
+        store.dispatch('getUserLearningPoints', authUser.id)
       }
     } else if (isUserRoute(route) || isAdminRoute(route)) {
       store.commit('setForwardRoute', route.path)

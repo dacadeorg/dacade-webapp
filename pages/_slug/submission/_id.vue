@@ -50,130 +50,135 @@
         </b-card>
 
         <!-- Evaluation Card -->
-        <b-card
-          v-if="getGradingsDb"
-          class="bg-dark mb-4 small-shadow-no-hover"
-        >
-          <span class="float-right muted-dark">
-            {{ convertDate(getGradingsDb.date) }}
-          </span>
-          <b-card-text>
-            <span class="earning-color">
-              <b>
-                Evaluation
-              </b>
+        <section v-if="getGradingsDb">
+          <b-card
+            class="bg-dark mb-4 small-shadow-no-hover"
+          >
+            <span class="float-right muted-dark">
+              {{ convertDate(getGradingsDb.date) }}
             </span>
-            <span class="muted-dark">
-              by
-            </span>
-            <span class="h-dark">
-              {{ getGradingsDb.gradingDisplayName }}
-            </span>
-          </b-card-text>
-          <b-card-text>
-            <div v-for="evaluation in communityData.challengeRatingCriteriaPoints" :key="evaluation.key" class="mb-2">
-              <span class="h-dark">
-                {{ evaluation.name }}
-              </span>
-              <b class="learning-color">
-                +{{ getRatingCriteria(evaluation.name,getGradingsDb) }}<span class="learning-color-muted">/{{ evaluation.points }} LP</span>
-              </b>
-              <div v-html="getRatingText(evaluation.name,getGradingsDb)" />
-            </div>
-            <div v-if="submission.submissionReward > 1">
-              <span class="h-dark">
-                Reward
-              </span>
+            <b-card-text>
               <span class="earning-color">
                 <b>
-                  +{{ submission.submissionReward }}$
+                  Evaluation
                 </b>
               </span>
-              <div>Congratulations you gained at least {{ communityData.challengeThreshold }}% of the available learning points.</div>
-            </div>
-          </b-card-text>
-        </b-card>
+              <span class="muted-dark">
+                by
+              </span>
+              <span class="h-dark">
+                {{ getGradingsDb.gradingDisplayName }}
+              </span>
+            </b-card-text>
+            <b-card-text>
+              <div v-for="evaluation in communityData.challengeRatingCriteriaPoints" :key="evaluation.key" class="mb-2">
+                <span class="h-dark">
+                  {{ evaluation.name }}
+                </span>
+                <b class="learning-color">
+                  +{{ getRatingCriteria(evaluation.name,getGradingsDb) }}<span class="learning-color-muted">/{{ evaluation.points }} LP</span>
+                </b>
+                <div v-html="getRatingText(evaluation.name,getGradingsDb)" />
+              </div>
+              <div v-if="submission.submissionReward > 1">
+                <span class="h-dark">
+                  Reward
+                </span>
+                <span class="earning-color">
+                  <b>
+                    +{{ submission.submissionReward }}$
+                  </b>
+                </span>
+                <div>Congratulations you gained at least {{ communityData.challengeThreshold }}% of the available learning points.</div>
+              </div>
+            </b-card-text>
+          </b-card>
+        </section>
 
         <!-- Feedback Cards -->
-        <b-card
-          v-for="getReview in getSubmissionReviews"
-          :key="getReview.key"
-          class="bg-dark small-shadow-no-hover mb-4"
-        >
-          <span class="float-right muted-dark">
-            {{ convertDate(getReview.date) }}
-          </span>
-          <b-card-text>
-            <span class="teaching-color">
-              <b>
-                Feedback
-              </b>
-            </span>
-            <span class="muted-dark">
-              by
-            </span>
-            <span class="h-dark">
-              {{ getReview.reviewDisplayName }}
-              <!-- (<span class="teaching-color">{{getTP(getReview.reviewUserId)}}TP</span>): -->
-            </span>
-          </b-card-text>
-          <b-card-text>
-            {{ getReview.content }}
-          </b-card-text>
-          <div
-            v-if="getReview.reviewCodeLink"
-            class="github-link"
+        <section v-if="getSubmissionReviews">
+          <b-card
+            v-for="getReview in getSubmissionReviews"
+            :key="getReview.key"
+            class="bg-dark small-shadow-no-hover mb-4"
           >
-            <a class="btn btn-dark" target="blank" :href="getReview.reviewCodeLink">Code Review</a>
-            <i>Click to see GitHub Pull Request</i>
-          </div>
-          <div v-if="getReview.rewardAmount" class="mt-3">
-            <b class="earning-color mr-1">+{{ getReview.rewardAmount }}$</b>
-            <b class="teaching-color">+{{ getReview.rewardAmount }}TP</b>
-          </div>
-        </b-card>
+            <span class="float-right muted-dark">
+              {{ convertDate(getReview.date) }}
+            </span>
+            <b-card-text>
+              <span class="teaching-color">
+                <b>
+                  Feedback
+                </b>
+              </span>
+              <span class="muted-dark">
+                by
+              </span>
+              <span class="h-dark">
+                {{ getReview.reviewDisplayName }}
+                (<span class="teaching-color">{{ reviewerReputation[getReview.reviewUserId] }} REP</span>):
+              </span>
+            </b-card-text>
+            <b-card-text>
+              {{ getReview.content }}
+            </b-card-text>
+            <div
+              v-if="getReview.reviewCodeLink"
+              class="github-link"
+            >
+              <a class="btn btn-dark" target="blank" :href="getReview.reviewCodeLink">Code Review</a>
+              <i>Click to see GitHub Pull Request</i>
+            </div>
+            <div v-if="getReview.rewardAmount" class="mt-3">
+              <b class="earning-color mr-1">+{{ getReview.rewardAmount }}$</b>
+              <b class="teaching-color">+{{ getReview.rewardAmount }}TP</b>
+            </div>
+          </b-card>
+        </section>
 
         <!-- Feedback Input Area -->
-        <h5 class="h-dark mb-2">
-          Give Feedback
-        </h5>
-        <b-form @submit.prevent="onSubmit">
-          <b-form-group
-            id="input-group-1"
-            class="mb-4"
-          >
-            <b-form-textarea
-              id="input-1"
-              v-model="review.content"
-              v-validate="'required|min:20'"
-              type="text"
-              name="feedback"
-              required
-              placeholder="Enter Feedback"
-              rows="4"
-            />
-            <p v-show="errors.has('feedback')" class="help is-danger">
-              {{ errors.first('feedback') }}
-            </p>
-          </b-form-group>
+        <section>
+          <h5 class="h-dark mb-2">
+            Give Feedback
+          </h5>
+          <b-form @submit.prevent="onSubmit">
+            <b-form-group
+              id="input-group-1"
+              class="mb-4"
+            >
+              <b-form-textarea
+                id="input-1"
+                v-model="review.content"
+                v-validate="'required|min:20'"
+                type="text"
+                name="feedback"
+                required
+                placeholder="Enter Feedback"
+                rows="4"
+              />
+              <p v-show="errors.has('feedback')" class="help is-danger">
+                {{ errors.first('feedback') }}
+              </p>
+            </b-form-group>
 
-          <div v-if="communityData.reviewCodeLink" style="width:100%;">
-            <h5 class="h-dark mb-2">
-              GitHub Pull Request
-            </h5>
-            <textarea
-              id="reviewCodeLink"
-              v-model="review.reviewCodeLink"
-              class="form-control"
-              type="text"
-              placeholder="Enter link to GitHub Pull Request"
-              rows="1"
-            />
-          </div>
-          <b-button type="submit" variant="primary" class="mt-4">
-            Submit
-          </b-button>
-        </b-form>
+            <div v-if="communityData.reviewCodeLink" style="width:100%;">
+              <h5 class="h-dark mb-2">
+                GitHub Pull Request
+              </h5>
+              <textarea
+                id="reviewCodeLink"
+                v-model="review.reviewCodeLink"
+                class="form-control"
+                type="text"
+                placeholder="Enter link to GitHub Pull Request"
+                rows="1"
+              />
+            </div>
+            <b-button type="submit" variant="primary" class="mt-4">
+              Submit
+            </b-button>
+          </b-form>
+        </section>
       </div>
     </div>
   </div>
@@ -191,6 +196,7 @@ export default {
   mixins: [apiJobMixin],
   data() {
     return {
+      reviewerReputation: {},
       review: {
         content: null,
         submissionId: this.$route.params.id,
@@ -210,6 +216,7 @@ export default {
       for (let index = 0; index < this.reviews.length; index++) {
         if (this.reviews[index].submissionId === this.$route.params.id) {
           submissionReviews.push(this.reviews[index])
+          this.getReputation(this.reviews[index].reviewUserId)
         }
       }
       return submissionReviews
@@ -242,11 +249,8 @@ export default {
     if ((!this.communityData || Object.keys(this.communityData).length === 0)) {
       this.$store.dispatch('content', { payload: params.slug })
     }
-    if ((!this.gradings || Object.keys(this.reviews).gradings === 0)) {
+    if ((!this.gradings || Object.keys(this.gradings).length === 0)) {
       this.getGradings()
-    }
-    if ((!this.reviews || Object.keys(this.reviews).length === 0)) {
-      this.getReviews()
     }
     if ((!this.reviews || Object.keys(this.reviews).length === 0)) {
       this.getReviews()
@@ -309,6 +313,16 @@ export default {
       const submissionTime = submissionHours + ':' + submissionMinutes
       const submissionTimeAndDate = submissionDate + ' ' + submissionTime
       return submissionTimeAndDate
+    },
+    async getReputation(userId) {
+      const eventref = await firebase.database().ref(`reputation/${userId}/${this.communityData.id}`)
+      const snapshot = await eventref.once('value')
+      const value = snapshot.val()
+      if (value) {
+        this.$set(this.reviewerReputation, userId, value)
+      } else {
+        this.$set(this.reviewerReputation, userId, 0)
+      }
     }
   }
 }

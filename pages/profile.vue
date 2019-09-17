@@ -114,11 +114,6 @@ export default {
       communityDataPreview: 'content/communityDataPreview'
     })
   },
-  watch: {
-    user(value) {
-      this.getLearningPoints()
-    }
-  },
   mounted() {
     if (!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0) {
       this.$store.dispatch('content/getCommunityDataPreview')
@@ -133,11 +128,6 @@ export default {
         }
       }
       return balance
-    },
-    getLearningPoints() {
-      if ((!this.userLearningPoints || Object.keys(this.userLearningPoints).length)) {
-        this.$store.dispatch('getUserLearningPoints', { id: this.user.id })
-      }
     }
   }
 }

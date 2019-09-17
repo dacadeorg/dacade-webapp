@@ -37,9 +37,6 @@ export const mutations = {
   setForwardRoute(state, payload) {
     state.forwardRoute = payload
   },
-  setLearningPoints(state, payload) {
-    state.userLearningPoints = payload
-  },
   ...vuexfireMutations
 }
 
@@ -125,17 +122,11 @@ export const actions = {
     firebase.auth().signOut()
     commit('setUser', null)
   },
-  getUserLearningPoints({ commit }, payload) {
-    firebase.database().ref(`learningPoints/${payload.id}`).once('value').then((snapShot) => {
-      const learningPoints = snapShot.val()
-      commit('setLearningPoints', learningPoints)
-    })
-  },
-  getUsersDataDb: firebaseAction(({ bindFirebaseRef }, uid) => {
-    bindFirebaseRef('usersData', db.ref('users').child(uid))
-  }),
   getUserNotifications: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userNotifications', db.ref('notifications').child(uid))
+  }),
+  getUserLearningPoints: firebaseAction(({ bindFirebaseRef }, uid) => {
+    bindFirebaseRef('userLearningPoints', db.ref('learningPoints').child(uid))
   }),
   getUserBalance: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userBalance', db.ref('balance').child(uid))
