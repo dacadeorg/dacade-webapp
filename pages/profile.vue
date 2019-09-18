@@ -11,48 +11,60 @@
             {{ user.email }}
           </h4>
 
-          <section v-if="userBalance && Object.keys(userBalance).length">
+          <section>
+            <div v-if="userBalance && Object.keys(userBalance).length">
+              <h4>
+                <b>
+                  Balance:
+                </b>
+              </h4>
+              <h4 v-for="(balance, key) in userBalance" :key="balance.id">
+                {{ key }} token:
+                <span class="earning-color">
+                  {{ balance }}$
+                </span>
+              </h4>
+              <div v-b-modal.modal-cashout class="btn-cash-out btn mt-2 mb-6">
+                Cash out
+              </div>
+              <b-modal
+                id="modal-cashout"
+                title="Cash Out"
+                header-text-variant="light"
+                hide-footer
+              >
+                <p>
+                  In order to combat fraud by users who have multiple accounts, we need to verify your identity. Please make a post with your dacade username on an active social media account (active meaning the account already exists since a longer period of time and has active interaction with other people) and send us the link to the post. It could look something like this: “Verifying my dacade.org username moritzfelipe”.
+                  If you haven't done this already.
+                </p>
+                <p>
+                  In order to send you the tokens, you must send us the address of an AE Main net Token compatible wallet. You can use the base app under https://base.aepps.com or install the airgap wallet from https://airgap.it/. Ot an ethereum address if you want to cash out ethereum token.
+                  ⚠️ It takes on average two days until your email will be answered. Thank you for your patience.
+                </p>
+                <p>
+                  Please send your address and verfication link to moritz@dacade.org from the email address you used to register on dacade.org
+                </p>
+              </b-modal>
+            </div>
+            <div v-else class="mb-4">
             <h4>
               <b>
                 Balance:
               </b>
-            </h4>
-            <h4 v-for="(balance, key) in userBalance" :key="balance.id">
-              {{ key }} token:
               <span class="earning-color">
-                {{ balance }}$
+                0$
               </span>
-            </h4>
-            <div v-b-modal.modal-cashout class="btn-cash-out btn mt-2 mb-6">
-              Cash out
+              </h4>
             </div>
-            <b-modal
-              id="modal-cashout"
-              title="Cash Out"
-              header-text-variant="light"
-              hide-footer
-            >
-              <p>
-                In order to combat fraud by users who have multiple accounts, we need to verify your identity. Please make a post with your dacade username on an active social media account (active meaning the account already exists since a longer period of time and has active interaction with other people) and send us the link to the post. It could look something like this: “Verifying my dacade.org username moritzfelipe”.
-                If you haven't done this already.
-              </p>
-              <p>
-                In order to send you the tokens, you must send us the address of an AE Main net Token compatible wallet. You can use the base app under https://base.aepps.com or install the airgap wallet from https://airgap.it/. Ot an ethereum address if you want to cash out ethereum token.
-                ⚠️ It takes on average two days until your email will be answered. Thank you for your patience.
-              </p>
-              <p>
-                Please send your address and verfication link to moritz@dacade.org from the email address you used to register on dacade.org
-              </p>
-            </b-modal>
           </section>
         </div>
       </div>
 
-      <section v-if="userReputation && Object.keys(userReputation).length">
-        <h2 class="h-dark mb-4">
+      <section>
+        <h2 class="h-dark">
           Reputation
         </h2>
-        <div class="row">
+        <div v-if="userReputation && Object.keys(userReputation).length" class="row mt-4">
           <div v-for="(rep, key) in userReputation" :key="rep.key" class="col-md-3 mb-4">
             <b-card
               overlay=""
@@ -69,13 +81,18 @@
             </b-card>
           </div>
         </div>
+        <div v-else class="mb-4">
+          <h4>
+            You didn't earn reputation in any community yet.
+          </h4>
+        </div>
       </section>
 
-      <section v-if="userLearningPoints && Object.keys(userLearningPoints).length">
-        <h2 class="h-dark mb-4">
+      <section>
+        <h2 class="h-dark">
           Achievements
         </h2>
-        <div class="row">
+        <div class="row mt-4" v-if="userLearningPoints && Object.keys(userLearningPoints).length">
           <div v-for="(lp, key) in userLearningPoints" :key="lp.key" class="col-md-3 mb-4">
             <b-card
               overlay=""
@@ -91,6 +108,11 @@
               </b-card-text>
             </b-card>
           </div>
+        </div>
+        <div v-else class="mb-4">
+          <h4>
+            You havent solved a challenge in any community yet.
+          </h4>
         </div>
       </section>
     </div>
