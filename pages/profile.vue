@@ -47,13 +47,13 @@
               </b-modal>
             </div>
             <div v-else class="mb-4">
-            <h4>
-              <b>
-                Balance:
-              </b>
-              <span class="earning-color">
-                0$
-              </span>
+              <h4>
+                <b>
+                  Balance:
+                </b>
+                <span class="earning-color">
+                  0$
+                </span>
               </h4>
             </div>
           </section>
@@ -92,7 +92,7 @@
         <h2 class="h-dark">
           Achievements
         </h2>
-        <div class="row mt-4" v-if="userLearningPoints && Object.keys(userLearningPoints).length">
+        <div v-if="userLearningPoints && Object.keys(userLearningPoints).length" class="row mt-4">
           <div v-for="(lp, key) in userLearningPoints" :key="lp.key" class="col-md-3 mb-4">
             <b-card
               overlay=""
