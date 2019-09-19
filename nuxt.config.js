@@ -53,6 +53,7 @@ export default {
   bootstrapVue: {
     componentPlugins: [
       'AlertPlugin',
+      'BadgePlugin',
       'ButtonPlugin',
       'CardPlugin',
       'LayoutPlugin',

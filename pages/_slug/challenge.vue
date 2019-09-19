@@ -50,7 +50,8 @@
               Your submission was evaluated click on the link to see the evaluation and feedback of your peers.
             </div>
             <div v-else>
-              Thank you for your submission! It will take on average 48 hours until you will get an evaluation of your submission and feedback from your peers.
+              Thank you for your submission! It will take on average {{ communityData.bountyTime }} hours until you will get an evaluation of your submission,
+              you will get feedback from your peers earlier.
             </div>
             <nuxt-link
               class="btn btn-outline-primary btn-lg btn-block mt-4"
