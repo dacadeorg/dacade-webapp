@@ -141,43 +141,53 @@
           <h5 class="h-dark mb-2">
             Give Feedback
           </h5>
-          <b-form @submit.prevent="onSubmit">
-            <b-form-group
-              id="input-group-1"
-              class="mb-4"
-            >
-              <b-form-textarea
-                id="input-1"
-                v-model="review.content"
-                v-validate="'required|min:20'"
-                type="text"
-                name="feedback"
-                required
-                placeholder="Enter Feedback"
-                rows="4"
-              />
-              <p v-show="errors.has('feedback')" class="help is-danger">
-                {{ errors.first('feedback') }}
-              </p>
-            </b-form-group>
+          <ValidationObserver v-slot="{ invalid, passes }">
+            <b-form @submit.prevent="passes(onSubmit)">
+              <b-form-group
+                id="input-group-1"
+                class="mb-4"
+              >
+                <ValidationProvider
+                    name="feedback"
+                    rules="required|min:20"
+                    v-slot="{ errors }"
+                  >
+                  <b-form-textarea
+                    id="input-1"
+                    v-model="review.content"
+                    type="text"
+                    placeholder="Enter Feedback"
+                    rows="4"
+                  />
+                  <span class="help">{{ errors[0] }}</span>
+                </ValidationProvider>
+              </b-form-group>
 
-            <div v-if="communityData.reviewCodeLink" style="width:100%;">
-              <h5 class="h-dark mb-2">
-                GitHub Pull Request
-              </h5>
-              <textarea
-                id="reviewCodeLink"
-                v-model="review.reviewCodeLink"
-                class="form-control"
-                type="text"
-                placeholder="Enter link to GitHub Pull Request"
-                rows="1"
-              />
-            </div>
-            <b-button type="submit" variant="primary" class="mt-4">
-              Submit
-            </b-button>
-          </b-form>
+              <div v-if="communityData.reviewCodeLink" style="width:100%;">
+                <h5 class="h-dark mb-2">
+                  GitHub Pull Request
+                </h5>
+                <ValidationProvider
+                  name="review code link"
+                  rules="min:7"
+                  v-slot="{ errors }"
+                >
+                  <textarea
+                    id="reviewCodeLink"
+                    v-model="review.reviewCodeLink"
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter link to GitHub Pull Request"
+                    rows="1"
+                  />
+                  <span class="help">{{ errors[0] }}</span>
+                </ValidationProvider>
+              </div>
+              <b-button type="submit" variant="primary" class="mt-4">
+                Submit
+              </b-button>
+            </b-form>
+          </ValidationObserver>
         </section>
       </div>
     </div>
@@ -264,14 +274,11 @@ export default {
       return `/${slug}/submissions`
     },
     onSubmit() {
-      this.$validator.validateAll()
-        .then((result) => {
-          if (result) {
-            this.review.reviewDisplayName = this.user.displayName
-            this.review.reviewUserId = this.user.id
-            this.$store.dispatch('reviews/createReview', this.review)
-          }
-        })
+      this.review.reviewDisplayName = this.user.displayName
+      this.review.reviewUserId = this.user.id
+      this.$store.dispatch('reviews/createReview', this.review)
+      this.review.content = null
+      this.review.reviewCodeLink = null
     },
     jobsDone() {
       this.removeErrors()

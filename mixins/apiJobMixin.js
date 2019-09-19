@@ -1,7 +1,6 @@
 export default {
   methods: {
     removeErrors() {
-      this.$validator.reset()
       this.$store.commit('clearError')
     }
   },

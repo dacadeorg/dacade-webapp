@@ -15,38 +15,56 @@
               </nuxt-link>
             </li>
           </ul>
-          <b-form @submit.prevent="onLogin">
-            <b-form-group
-              id="input-group-1"
-            >
+          <ValidationObserver v-slot="{ invalid, passes }">
+            <b-form @submit.prevent="passes(onLogin)">
+              <b-form-group
+                id="input-group-1"
+                label-for="input-1"
+              >
               <label for="input-1">Email address</label>
-              <b-form-input
-                id="input-1"
-                v-model="form.email"
-                type="email"
-                required
-                placeholder="Enter email"
-              />
-            </b-form-group>
+                <ValidationProvider
+                  name="email"
+                  rules="required|email"
+                  v-slot="{ errors }"
+                >
+                  <b-form-input
+                    id="input-1"
+                    v-model="form.email"
+                    type="email"
+                    required
+                    placeholder="Enter email"
+                  />
+                  <span class="help">{{ errors[0] }}</span>
+                </ValidationProvider>
+              </b-form-group>
 
-            <b-form-group>
-              <label for="text-password">Password</label>
-              <b-input
-                id="text-password"
-                v-model="form.password"
-                type="password"
-                placeholder="Enter password"
-              />
-            </b-form-group>
+              <b-form-group>
+                <label for="text-password">Password</label>
+                <ValidationProvider
+                  name="password"
+                  rules="required|min:6"
+                  v-slot="{ errors }"
+                >
+                  <b-input
+                    id="text-password"
+                    v-model="form.password"
+                    type="password"
+                    placeholder="Enter password"
+                  />
+                  <span class="help">{{ errors[0] }}</span>
+                </ValidationProvider>
+              </b-form-group>
 
-            <b-button
-              type="submit"
-              variant="primary"
-              :disabled="busy"
-            >
-              Submit
-            </b-button>
-          </b-form>
+              <b-button
+                type="submit"
+                variant="primary"
+                :disabled="busy"
+                class="mt-4"
+              >
+                Submit
+              </b-button>
+            </b-form>
+          </ValidationObserver>
         </div>
       </div>
     </div>
@@ -80,20 +98,15 @@ export default {
   },
   methods: {
     onLogin() {
-      this.$validator.validateAll()
-        .then((result) => {
-          if (result) {
-            const loginData = {
-              email: this.form.email,
-              password: this.form.password
-            }
-            this.$store.dispatch('loginUser', loginData)
-          }
-        })
+      const loginData = {
+        email: this.form.email,
+        password: this.form.password
+      }
+      this.$store.dispatch('loginUser', loginData)
     },
     jobsDone() {
       this.removeErrors()
-      let nextRoute = '/'
+      let nextRoute = '/communities'
       const forwardRoute = this.$store.getters.forwardRoute
       if (forwardRoute !== null) {
         nextRoute = forwardRoute

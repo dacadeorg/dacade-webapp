@@ -64,53 +64,57 @@
           </div>
 
           <div v-else>
-            <b-form @submit.prevent="onSubmit">
-              <b-form-group
-                v-if="communityData.challengeFormat[0].text"
-                id="input-group-1"
-              >
-                <h5 class="h-dark">
-                  Submission Text
-                </h5>
-                <b-form-textarea
-                  id="input-1"
-                  v-model="submission.text"
-                  v-validate="'required|min:20'"
-                  type="text"
-                  name="submission"
-                  required
-                  placeholder="Enter Submission Text"
-                  rows="4"
-                />
-                <p v-show="errors.has('submission')" class="help is-danger">
-                  {{ errors.first('submission') }}
-                </p>
-              </b-form-group>
+            <ValidationObserver v-slot="{ invalid, passes }">
+              <b-form @submit.prevent="passes(onSubmit)">
+                <b-form-group
+                  v-if="communityData.challengeFormat[0].text"
+                  id="input-group-1"
+                >
+                  <h5 class="h-dark">
+                    Submission Text
+                  </h5>
+                  <ValidationProvider
+                    name="submission text"
+                    rules="required|min:20"
+                    v-slot="{ errors }"
+                  >
+                    <b-form-textarea
+                      id="input-1"
+                      v-model="submission.text"
+                      type="text"
+                      placeholder="Enter Submission Text"
+                      rows="4"
+                    />
+                    <span class="help">{{ errors[0] }}</span>
+                </ValidationProvider>
+                </b-form-group>
 
-              <b-form-group
-                v-if="communityData.challengeFormat[0].githubLink"
-                id="input-group-1"
-              >
-                <h5 class="h-dark">
-                  GitHub Link
-                </h5>
-                <b-form-input
-                  id="input-2"
-                  v-model="submission.githubLink"
-                  v-validate="'required|min:10'"
-                  type="text"
-                  name="submission"
-                  required
-                  placeholder="Enter Github Link"
-                />
-                <p v-show="errors.has('submission')" class="help is-danger">
-                  {{ errors.first('submission') }}
-                </p>
-              </b-form-group>
-              <b-button type="submit" variant="primary" class="mt-2">
-                Submit
-              </b-button>
-            </b-form>
+                <b-form-group
+                  v-if="communityData.challengeFormat[0].githubLink"
+                  id="input-group-1"
+                >
+                  <h5 class="h-dark">
+                    GitHub Link
+                  </h5>
+                  <ValidationProvider
+                    name="GitHub link"
+                    rules="min:7"
+                    v-slot="{ errors }"
+                  >
+                    <b-form-input
+                      id="input-2"
+                      v-model="submission.githubLink"
+                      type="text"
+                      placeholder="Enter Github Link"
+                    />
+                  <span class="help">{{ errors[0] }}</span>
+                </ValidationProvider>
+                </b-form-group>
+                <b-button type="submit" variant="primary" class="mt-2">
+                  Submit
+                </b-button>
+              </b-form>
+            </ValidationObserver>
           </div>
         </div>
       </div>
@@ -144,7 +148,6 @@ export default {
     }),
     getUserSubmission() {
       let userSubmission = null
-      console.log(this.user)
       for (let index = 0; index < this.submissions.length; index++) {
         if (this.user &&
         this.user.id &&
@@ -181,15 +184,10 @@ export default {
       return `/${slug}/submission/${submissionKey}`
     },
     onSubmit() {
-      this.$validator.validateAll()
-        .then((result) => {
-          if (result) {
-            this.submission.communityId = this.communityData.id
-            this.submission.displayName = this.user.displayName
-            this.submission.userId = this.user.id
-            this.$store.dispatch('submissions/createSubmission', this.submission)
-          }
-        })
+      this.submission.communityId = this.communityData.id
+      this.submission.displayName = this.user.displayName
+      this.submission.userId = this.user.id
+      this.$store.dispatch('submissions/createSubmission', this.submission)
     },
     jobsDone() {
       this.removeErrors()
