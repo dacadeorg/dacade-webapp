@@ -241,21 +241,21 @@
                   </div>
                 </div>
                 <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.licdn.com/dms/image/C4D03AQEPlpRFTnmrCQ/profile-displayphoto-shrink_200_200/0?e=1570060800&v=beta&t=8VeCLwamWuGh28bliuLzgQSuKbIxXRwYe2Ojr388C5Q" class="mb-4" />
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/hannes.png" class="mb-4" />
                   <div>
                     <h4>Hannes <br>Klöpper</h4>
                     <p>Former CEO of Iversity, one of europes biggest MOOCs</p>
                   </div>
                 </div>
                 <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://media.creativemornings.com/uploads/user/avatar/123843/_MG_0255klein.jpg" class="mb-4" />
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/alex.jpg" class="mb-4" />
                   <div>
                     <h4>Alexandre Peschel</h4>
                     <p>CEO of APE Unit, Blockchain developer network</p>
                   </div>
                 </div>
                 <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="https://aeternity.com/user/pages/01.home/_10.team/emin.jpg" class="mb-4" />
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/emin.jpg" class="mb-4" />
                   <h4>Emin <br> Mahrt</h4>
                   <p>CPO of Aeternity, <br> a third generation Blockchain</p>
                 </div>
@@ -289,7 +289,7 @@
               <div class="row">
                 <div class="col-sm-4" />
                 <div class="col-sm-2">
-                  <b-img rounded alt="Circle image" width="128px" src="https://aeternity.com/brandguide/assets/images/logo-dark-bg.png" />
+                  <b-img rounded alt="Circle image" width="128px" src="/img/ae-logo.png" />
                 </div>
                 <div class="col-sm-2">
                   <b-img rounded alt="Circle image" width="128px" src="/img/Ape_Unit_Logo_White.png" />
