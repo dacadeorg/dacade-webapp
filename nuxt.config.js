@@ -50,6 +50,21 @@ export default {
       dev: false
     }]
   ],
+  bootstrapVue: {
+    componentPlugins: [
+      'AlertPlugin',
+      'ButtonPlugin',
+      'CardPlugin',
+      'LayoutPlugin',
+      'FormInputPlugin',
+      'FormGroupPlugin',
+      'FormPlugin',
+      'FormTextarea',
+      'ImagePlugin',
+      'ModalPlugin',
+      'NavbarPlugin'
+    ]
+  },
   /*
   ** Build configuration
   */
