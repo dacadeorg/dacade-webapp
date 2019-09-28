@@ -5,14 +5,14 @@ a {
   color: none!important;
 }
 
-a:not([href]):not([tabindex]){
-  color:#53d1af;
-  cursor: pointer;
-}
+// a:not([href]):not([tabindex]){
+//   color:white;
+//   cursor: pointer;
+// }
 
-a:not([href]):not([tabindex]):hover{
-  color:#53d1afaf;
-}
+// a:not([href]):not([tabindex]):hover{
+//   color:white;
+// }
 
 .badge-notification-menu {
   color: rgba(217,217,217,1.00);

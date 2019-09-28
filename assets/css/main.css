@@ -176,6 +176,10 @@
   margin-top: 0.5em;
 }
 
+.modal-title {
+  font-weight: 600;
+}
+
 .navbar-main {
   background-color: #343a40;
 }

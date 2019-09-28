@@ -3,14 +3,11 @@
     <div class="container-fluid">
       <div class="row">
         <nav class="col-md-3 d-none d-md-block sidebar sticky-top">
-          <!-- <span class="nav-item">{{ communityData.name }}</span> -->
           <div>
-            <div style="margin:1em; font-weight:800;">
-              <h4 :style="{ color: communityData.gradient }" class="navLcName">
-                {{ communityData.name }}
-              </h4>
-            </div>
-            <ul class="nav flex-column">
+            <ul
+              id="menuList"
+              class="nav flex-column noShrink"
+            >
               <li class="nav-item">
                 <nuxt-link :to="{path: communityPath($route.params.slug, 'introduction') }">
                   <i class="fa fa-sticky-note-o fa-lg mr-1 font-bold" :style="{ color: communityData.gradient }" />
@@ -21,11 +18,9 @@
                 <i class="fa fa-folder-open-o fa-lg font-bold" :style="{ color: communityData.gradient }" />
                 <span class="chapter-nav-header">Chapter</span>
               </span>
-              <li v-for="chapter in communityData.chapter" :key="chapter.key" class="nav-item">
+              <li v-for="chapter in communityData.chapter" :key="chapter.key" class="nav-item chapter-item">
                 <nuxt-link
-                  :to="{path: chapterPath($route, chapter.chapterId) }"
-                  class="chapter-item"
-                >
+                  :to="{path: chapterPath($route, chapter.chapterId) }">
                   {{ chapter.chapterName }}
                 </nuxt-link>
               </li>
@@ -41,55 +36,46 @@
                   Submissions
                 </nuxt-link>
               </li>
+              <li
+                v-if="$route.params.id"
+                class="nav-item"
+              >
+                <span style="color:#53D1AF; margin-left: 1.8em;">
+                  Submission
+                </span>
+              </li>
             </ul>
           </div>
         </nav>
       </div>
     </div>
-
-    <!-- <b-nav>
-      <b-nav-item>
-        <nuxt-link :to="{path: communityPath($route.params.slug, 'introduction') }">
-          Introduction
-        </nuxt-link>
-      </b-nav-item>
-      <b-nav-item-dropdown
-        id="my-nav-dropdown"
-        text="Chapter"
-        toggle-class="nav-link-custom"
-        right
-      >
-        <b-dropdown-item v-for="chapter in communityData.chapter" :key="chapter.key">
-          <nuxt-link :to="{path: chapterPath($route.params.slug, chapter.chapterId) }">
-            {{ chapter.chapterName }}
-          </nuxt-link>
-        </b-dropdown-item>
-      </b-nav-item-dropdown>
-      <b-nav-item>
-        <nuxt-link :to="{path: communityPath($route.params.slug, 'challenge') }">
-          Challenge
-        </nuxt-link>
-      </b-nav-item>
-      <b-nav-item>
-        <nuxt-link :to="{path: communityPath($route.params.slug, 'submissions') }">
-          Submissions
-        </nuxt-link>
-      </b-nav-item>
-    </b-nav> -->
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+
 import { mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-    }
-  },
   computed: {
     ...mapGetters({
       communityData: 'content/communityData'
+    })
+  },
+  mounted() {
+    this.$nextTick(function () {
+      window.addEventListener('scroll', function () {
+        const navbar = document.getElementById('menuList')
+        const navClasses = navbar.classList
+        if (document.documentElement.scrollTop >= 60) {
+          if (navClasses.contains('shrink') === false) {
+            navClasses.toggle('shrink')
+          }
+        } else if (navClasses.contains('shrink') === true) {
+          navClasses.toggle('shrink')
+        }
+      })
     })
   },
   methods: {
@@ -125,6 +111,14 @@ export default {
   padding: 10px 0 0 10px;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
   background-image: linear-gradient( #2c3238, #22262b);
+}
+
+.noShrink {
+  margin-top:60px;
+}
+
+.shrink {
+  margin-top:0.5em;
 }
 
 .nav-item {

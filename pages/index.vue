@@ -59,7 +59,7 @@
           <section>
             <div class="container usp">
               <div class="row">
-                <div class="col-sm">
+                <div class="col-sm mb-6">
                   <div>
                     <img src="/img/usp-cap.png" alt="">
                     <h4>
@@ -68,7 +68,7 @@
                     <p>Dacade offers practical active learning with real human feedback while being scaleable and affordable.</p>
                   </div>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm mb-6">
                   <div>
                     <img src="/img/usp-coin.png" alt="">
                     <h4>
@@ -77,7 +77,7 @@
                     <p>You have the possibility to earn cryptocurrencies by solving challenges and giving feedback to your peers.</p>
                   </div>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm mb-6">
                   <div>
                     <img src="/img/usp-key.png" alt="">
                     <h4>
@@ -99,57 +99,72 @@
                 In our learning environments you will work with your peers to learn about blockchain technology. Here is a selection:
               </p>
             </div>
-
-            <b-card-group deck>
-              <b-card bg-variant="dark" img-src="/img/ITB-Cover.png" img-alt="Image" img-top>
-                <b-card-text>
-                  <h4 class="h-dark">
-                    Introduction <br>to Blockchain
-                  </h4>
-                  <p>Learn the most important concepts for blockchain technology.</p>
-                </b-card-text>
+            <div class="row">
+              <div class="col-md-4 mb-4 sel-com">
                 <nuxt-link
-                  class="btn btn-outline-primary btn-lg btn-block"
                   to="/intro-to-blockchain/introduction"
                 >
-                  Learn more
+                  <b-card
+                    bg-variant="dark"
+                    img-src="/img/ITB-Cover.png"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                  >
+                    <b-card-text>
+                      <h4 class="h-dark">
+                        Introduction <br>to Blockchain
+                      </h4>
+                      <p class="muted-dark">Learn the most important concepts for blockchain technology.</p>
+                    </b-card-text>
+                  </b-card>
                 </nuxt-link>
-              </b-card>
-
-              <b-card bg-variant="dark" img-src="/img/AE-DEV-101-Cover.png" img-alt="Image" img-top>
-                <b-card-text>
-                  <h4 class="h-dark">
-                    Aeternity <br> Development 101
-                  </h4>
-                  <p>Learn how to build a voting dApp on top of Aeternity.</p>
-                </b-card-text>
+              </div>
+              <div class="col-md-4 mb-4 sel-com">
                 <nuxt-link
-                  class="btn btn-outline-primary btn-lg btn-block"
-                  to="/intro-to-blockchain/introduction"
+                  to="/ae-dev-101/introduction"
                 >
-                  Learn more
+                  <b-card
+                    bg-variant="dark"
+                    img-src="/img/AE-DEV-101-Cover.png"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                  >
+                    <b-card-text>
+                      <h4 class="h-dark">
+                        Aeternity <br> Development 101
+                      </h4>
+                      <p class="muted-dark">Learn how to build a voting dApp on top of Aeternity.</p>
+                    </b-card-text>
+                  </b-card>
                 </nuxt-link>
-              </b-card>
-
-              <b-card bg-variant="dark" img-src="/img/ED1_cover.png" img-alt="Image" img-top>
-                <b-card-text>
-                  <h4 class="h-dark">
-                    Ethereum <br> Development 101
-                  </h4>
-                  <p>Learn how to build a registry on top of Ethereum.</p>
-                </b-card-text>
+              </div>
+              <div class="col-md-4 mb-4 sel-com">
                 <nuxt-link
-                  class="btn btn-outline-primary btn-lg btn-block"
-                  to="/intro-to-blockchain/introduction"
+                  to="/eth-dev-101/introduction"
                 >
-                  Learn more
+                  <b-card
+                    bg-variant="dark"
+                    img-src="/img/ED1_cover.png"
+                    img-alt="Image"
+                    img-top
+                    tag="article"
+                  >
+                    <b-card-text>
+                      <h4 class="h-dark">
+                        Ethereum <br> Development 101
+                      </h4>
+                      <p class="muted-dark">Learn how to build a registry on top of Ethereum.</p>
+                    </b-card-text>
+                  </b-card>
                 </nuxt-link>
-              </b-card>
-            </b-card-group>
+              </div>
+            </div>
           </section>
 
           <section>
-            <div class="pb-md-5">
+            <div class="pb-md-5 mb-4">
               <h2>
                 User Stories
               </h2>
@@ -157,28 +172,32 @@
 
             <div class="container pb-md-5">
               <div class="row">
-                <div class="col-sm">
+                <div class="col-sm mb-4">
                   <div>
-                    <i>"I just made submission of my quote daepp on dacade.org. I'm so excited I took the course, I really enjoyed it and have learned a lot."</i>
-                    <br><br><br>
-                    <h5>Labi23</h5>
-                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_tosin_edit.png" class="mt-4" />
+                    <p>
+                      <i>"I just made submission of my quote daepp on dacade.org. I'm so excited I took the course, I really enjoyed it and have learned a lot."</i>
+                    <br><br>
+                    </p>
+                    <h5 class="muted-dark">Labi23</h5>
+                    <b-img rounded alt="Circle image" width="64px" src="img/user_tosin_edit.png" class="mt-2 mb-3" />
                   </div>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm mb-4">
                   <div>
-                    <i>"Thanks for your support, love and care on Dacade(Telegram and Website) it has being an awesome experience. I have learned a lot and I am still learning a lot."</i>
-                    <br><br>
-                    <h5>emmanuelJet_</h5>
-                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_jet.png" class="mt-4" />
+                    <p>
+                      <i>"Thanks for your support, love and care on Dacade(Telegram and Website) it has being an awesome experience. I have learned a lot and I am still learning a lot."</i>
+                    </p>
+                    <h5 class="muted-dark">emmanuelJet_</h5>
+                    <b-img rounded alt="Circle image" width="64px" src="img/user_jet.png" class="mt-2 mb-3" />
                   </div>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm mb-4">
                   <div>
-                    <i>"I'm still baffled that I can earn for learning, so are my friends - Dacade's courses are visual, practical and you can learn about blockchain through interactions."</i>
-                    <br><br>
-                    <h5>ced000</h5>
-                    <b-img rounded="circle" alt="Circle image" width="62px" src="img/user_ced.jpg" class="mt-4" />
+                    <p>
+                      <i>"I'm still baffled that I can earn for learning, so are my friends - Dacade's courses are visual, practical and you can learn about blockchain through interactions."</i>
+                    </p>
+                    <h5 class="muted-dark">ced000</h5>
+                    <b-img rounded alt="Circle image" width="64px" src="img/user_ced.jpg" class="mt-2 mb-3" />
                   </div>
                 </div>
               </div>
@@ -186,35 +205,60 @@
           </section>
 
           <section>
-            <div class="pb-md-5">
+            <div class="pb-md-5 mb-6">
               <h2>
                 Stats
               </h2>
             </div>
-            <div class="container pb-md-5">
+            <div class="container mb-4">
               <div class="row">
-                <div class="col-sm">
+                <div class="col-md-4 mb-4 stats-column">
                   <div>
-                    <h4>
-                      2900+
-                    </h4>
-                    <p>Over 2700 Learners have already registered on dacade.</p>
+                    <b-card
+                      tag="article"
+                      style="border-bottom-color:#53D1AF"
+                      class="mb-2 small-shadow text-center bg-dark card-stats"
+                    >
+                    <b-card-text class="text-center mt-4">
+                      <h4><b class="learning-color points">2900</b></h4>
+                      <h4><b class="learning-color">Learners</b></h4>
+                      <span class="muted-dark">Have already registered on dacade.</span>
+                      <br>
+                      <br>
+                    </b-card-text>
+                  </b-card>
                   </div>
                 </div>
-                <div class="col-sm">
+                <div class="col-md-4 mb-4 stats-column">
                   <div>
-                    <h4>
-                      700+
-                    </h4>
-                    <p>Learners finnished the community tutorials and made a submission to the challenge.</p>
+                    <b-card
+                      tag="article"
+                      style="border-bottom-color:#53D1AF"
+                      class="mb-2 small-shadow text-center bg-dark card-stats"
+                    >
+                      <b-card-text class="text-center mt-4">
+                        <h4><b class="learning-color points">800</b></h4>
+                        <h4><b class="learning-color">Submissions</b></h4>
+                        <span class="muted-dark">to the challenges by Learners who finnished the community tutorials.</span>
+                      </b-card-text>
+                    </b-card>
                   </div>
                 </div>
-                <div class="col-sm">
+                <div class="col-md-4 mb-4 stats-column">
                   <div>
-                    <h4>
-                      1700+
-                    </h4>
-                    <p>Over 1700 times Learners gave feedback to a submission of their peer.</p>
+                    <b-card
+                      tag="article"
+                      style="border-bottom-color:#9c58ff"
+                      class="mb-2 small-shadow text-center bg-dark card-stats"
+                    >
+                      <b-card-text class="text-center mt-4">
+                        <h4><b class="teaching-color points">1800</b></h4>
+                        <h4><b class="teaching-color">Feedback</b></h4>
+                        <span class="muted-dark">Learners gave to submissions of their peer.</span>
+                        <br>
+                        <br>
+                      </b-card-text>
+                    </b-card>
                   </div>
                 </div>
               </div>
@@ -222,7 +266,7 @@
           </section>
 
           <section>
-            <div class="pb-md-5">
+            <div class="pb-md-5 mb-6">
               <h2>
                 Contributors
               </h2>
@@ -233,36 +277,36 @@
 
             <div class="container pb-md-5">
               <div class="row">
-                <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/moritz-pic.png" class="mb-4" />
+                <div class="col-sm mb-4">
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/moritz-pic.png" class="mb-3" />
                   <div>
                     <h4>Moritz Stellmacher</h4>
-                    <p>Founder of dacade</p>
+                    <p class="muted-dark">Founder of dacade</p>
                   </div>
                 </div>
-                <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/hannes.png" class="mb-4" />
+                <div class="col-sm mb-4">
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/hannes.png" class="mb-3" />
                   <div>
                     <h4>Hannes <br>Klöpper</h4>
-                    <p>Former CEO of Iversity, one of europes biggest MOOCs</p>
+                    <p class="muted-dark">Former CEO of Iversity, one of europes biggest MOOCs</p>
                   </div>
                 </div>
-                <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/alex.jpg" class="mb-4" />
+                <div class="col-sm mb-4">
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/alex.jpg" class="mb-3" />
                   <div>
                     <h4>Alexandre Peschel</h4>
-                    <p>CEO of APE Unit, Blockchain developer network</p>
+                    <p class="muted-dark">CEO of APE Unit, Blockchain developer network</p>
                   </div>
                 </div>
-                <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/emin.jpg" class="mb-4" />
+                <div class="col-sm mb-4">
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/emin.jpg" class="mb-3" />
                   <h4>Emin <br> Mahrt</h4>
-                  <p>CPO of Aeternity, <br> a third generation Blockchain</p>
+                  <p class="muted-dark">CPO of Aeternity, <br> a third generation Blockchain</p>
                 </div>
-                <div class="col-sm">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/add_person2.png" class="mb-4" />
+                <div class="col-sm mb-4">
+                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/add_person2.png" class="mb-3" />
                   <h4>YOU<br><br></h4>
-                  <p>Contribute to dacade and help to create a peer learning revolution</p>
+                  <p class="muted-dark">Contribute to dacade and help to create a peer learning revolution</p>
                 </div>
               </div>
             </div>
@@ -280,7 +324,7 @@
 
           <section>
             <div class="pb-md-5">
-              <h2>
+              <h2 class="mb-6">
                 In Collaboration with
               </h2>
             </div>
@@ -288,7 +332,7 @@
             <div class="container pb-md-5">
               <div class="row">
                 <div class="col-sm-4" />
-                <div class="col-sm-2">
+                <div class="col-sm-2 mb-4">
                   <b-img rounded alt="Circle image" width="128px" src="/img/ae-logo.png" />
                 </div>
                 <div class="col-sm-2">
@@ -361,7 +405,13 @@ b-button{
     0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14),
     0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-  border:none;
+  border: none;
+}
+
+.card-stats{
+  border:4px solid rgba(255,255,255,.1);
+  border-radius:.32rem;
+  padding-bottom: 3em;
 }
 
 .card-text {
@@ -553,8 +603,29 @@ main {
   text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
+.points {
+  font-style: italic;
+  font-size: 3em;
+}
+
+.stats-column {
+  padding: 0 3em;
+}
+
 section{
   margin-bottom: 6rem;
+}
+
+.sel-com .card-text{
+  padding: 0 1.2rem;
+}
+
+.sel-com article:hover{
+  border: 1.6px solid #53d1af;
+}
+
+.sel-com a:hover{
+  text-decoration: none;
 }
 
 .socialIcon {
@@ -591,8 +662,9 @@ section{
   .mastfoot {
     width: 90%;
   }
-  .site-wrapper {
-    padding:0 1em;
+
+  .stats-column {
+    padding: 0 2em;
   }
 }
 

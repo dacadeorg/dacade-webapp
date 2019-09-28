@@ -64,7 +64,7 @@
         </div>
 
         <div v-if="!loginStatus">
-          <nuxt-link class="btn btn btn-white-outline" to="/signup">
+          <nuxt-link class="btn btn-white-outline" to="/signup">
             <span>Sign up</span>
           </nuxt-link>
         </div>
@@ -140,6 +140,16 @@ export default {
 /* .navbar-main{
   background:#53d1af;
 } */
+
+a:not([href]):not([tabindex]){
+  color: rgba(217,217,217,1.00);
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):hover{
+  color: #53d1af;
+}
+
 .community-title{
   color: white;
   font-size: 21px;
@@ -148,15 +158,36 @@ export default {
 .dropdown-item {
   font-size: 19px;
   font-weight: 700;
-  color: rgba(217,217,217,1.00)!important;
+  color: rgba(217,217,217,1.00);
+}
+
+.dropdown-item a:hover{
+  color: #53d1af;
 }
 
 .dropdown-item:hover{
-  color: #53d1af!important;
+  color: #53d1af;
   background: none;
   border-radius: 25px;
   font-size: 1.3em;
   margin-left: 0.3em;
+}
+
+a.nuxt-link-active{
+  color: #53d1af;
+  background: none;
+  border-radius: 25px;
+  font-size: 1.3em;
+  margin-left: 0.3em;
+}
+
+a.nuxt-link-active:hover{
+  color: #53d1af;
+  background: none;
+  border-radius: 25px;
+  font-size: 1.3em;
+  margin-left: 0.3em;
+  cursor: default;
 }
 
 .login-link {

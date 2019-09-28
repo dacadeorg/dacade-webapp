@@ -27,6 +27,12 @@
             <nuxt-link class="dropdown-item" to="/communities/">
               Communities
             </nuxt-link>
+            <span
+              class="dropdown-item desktop-only activeCommunity"
+              :style="{ color: communityData.gradient }"
+            >
+              {{ communityData.name }}
+            </span>
             <CommunityNavigationMobile class="mobile-only" />
             <nuxt-link class="dropdown-item" to="/notifications/">
               Notifications
@@ -86,11 +92,6 @@ export default {
       userReputation: 'userReputation'
     })
   },
-  // created() {
-  //   if (!this.userLoggedIn) {
-  //     this.$store.dispatch('setAuthStatus')
-  //   }
-  // },
   methods: {
     logOut() {
       this.$store.dispatch('logOut')
@@ -135,6 +136,14 @@ export default {
 /* .navbar-main{
   background:#53d1af;
 } */
+a:not([href]):not([tabindex]){
+  color: rgba(217,217,217,1.00);
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):hover{
+  color: #53d1af;
+}
 
 .navbar{
   z-index: 2;
@@ -144,14 +153,24 @@ export default {
   font-size: 21px;
   font-weight: 700;
 }
+
 .dropdown-item {
   font-size: 19px;
   font-weight: 700;
-  color: rgba(217,217,217,1.00)!important;
+  color: rgba(217,217,217,1.00);
+}
+
+.activeCommunity {
+  color: #53d1af;
+  background: none;
+  border-radius: 25px;
+  font-size: 1.3em;
+  margin-left: 0.3em;
+  cursor: default;
 }
 
 .dropdown-item:hover{
-  color: #53d1af!important;
+  color: #53d1af;
   background: none;
   border-radius: 25px;
   font-size: 1.3em;

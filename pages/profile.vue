@@ -67,16 +67,14 @@
         <div v-if="userReputation && Object.keys(userReputation).length" class="row mt-4">
           <div v-for="(rep, key) in userReputation" :key="rep.key" class="col-md-3 mb-4">
             <b-card
-              overlay=""
-              :img-src="communityDataPreview[key].imgUrl"
-              img-alt="Image"
-              img-top
               tag="article"
-              style="max-width: 30rem;"
-              class="mb-2 small-shadow text-center bg-black"
+              :style="{ borderBottomColor:communityDataPreview[key].color }"
+              class="mb-2 small-shadow text-center bg-dark bg-rep"
             >
               <b-card-text class="text-center mt-4">
-                <h2><b class="overlay-text teaching-color">{{ rep }} REP</b></h2>
+                <h4><b class="teaching-color points">{{ rep }}</b></h4>
+                <h4><b class="teaching-color">REPUTATION</b></h4>
+                <h4 class="muted-dark">{{ communityDataPreview[key].name }}</h4>
               </b-card-text>
             </b-card>
           </div>
@@ -95,16 +93,17 @@
         <div v-if="userLearningPoints && Object.keys(userLearningPoints).length" class="row mt-4">
           <div v-for="(lp, key) in userLearningPoints" :key="lp.key" class="col-md-3 mb-4">
             <b-card
-              overlay=""
               :img-src="communityDataPreview[key].imgUrl"
               img-alt="Image"
               img-top
               tag="article"
-              style="max-width: 30rem;"
-              class="mb-2 small-shadow text-center bg-black"
+              rounded="circle"
+              class="mb-2 small-shadow text-center bg-dark"
             >
-              <b-card-text class="text-center mt-4">
-                <h2><b class="overlay-text learning-color">{{ lp }} LP</b></h2>
+              <b-card-text class="text-center">
+                <h4><b class="learning-color">{{ lp }}<span class="muted-dark">/{{ communityDataPreview[key].submissionPoints }}</span></b></h4>
+                <h4><b class="learning-color">Learning Points</b></h4>
+                <h4 class="muted-dark">{{ communityDataPreview[key].name }}</h4>
               </b-card-text>
             </b-card>
           </div>
@@ -185,16 +184,14 @@ export default {
   background-color: rgba(255,255,255,.3);
 }
 
-.card{
-  border:none;
+.bg-rep{
+  border:4px solid rgba(255,255,255,.1);
+  border-radius:.32rem;
+  padding-bottom: 3em;
 }
 
 .bg-black {
   background: black;
-}
-
-.card-img-top{
-  opacity: .3;
 }
 
 .notification {
@@ -210,6 +207,11 @@ export default {
 
 .overlay-text{
   font-size: 1.4em;
+}
+
+.points {
+  font-style: italic;
+  font-size: 3em;
 }
 
 .unread {

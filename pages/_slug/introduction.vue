@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="site-wraper">
-          <div v-html="communityData.introductionText" />
+          <i class="muted-dark" v-html="communityData.introductionText" />
 
           <div v-if="communityData.learningObjective" class="objective-box">
             <h5 class="h-dark">
@@ -80,7 +80,9 @@
 
           <!--Shows sponsor of the community-->
           <div class="community-sponsor">
-            <p>This community is made possible by</p>
+            <div class="muted-dark mb-4">
+              <i>This community is made possible by</i>
+            </div>
             <a :href="communityData.communitySponsorLink" target="_blank">
               <img :src="communityData.communitySponsorImg">
             </a>

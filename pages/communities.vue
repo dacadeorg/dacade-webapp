@@ -4,7 +4,11 @@
     <div>
       <div class="container">
         <div class="row">
-          <div v-for="(community) in communityDataPreview" :key="community.key" class="col-md-4 mb-4 sel-com">
+          <div
+            v-for="(community) in communityDataPreview"
+            :key="community.key"
+            class="col-md-4 mb-4 sel-com"
+          >
             <nuxt-link
               :to="{path: communityPath(community.slug) }"
             >
