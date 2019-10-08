@@ -45,17 +45,19 @@
             </span>
           </div> -->
 
-          <div v-if="getUserSubmission">
-            <div v-if="getEvaluationsDb">
+          <div v-if="submissionDb">
+            <div v-if="Object.values(submissionDb)[0].submissionPoints != null">
               Your submission was evaluated click on the link to see the evaluation and feedback of your peers.
             </div>
             <div v-else>
-              Thank you for your submission! It will take on average {{ communityData.bountyTime }} hours until you will get an evaluation of your submission,
-              you will get feedback from your peers earlier.
+              <div>
+                Thank you for your submission! It will take on average {{ communityData.bountyTime }} hours until you will get an evaluation of your submission,
+                you will get feedback from your peers earlier.
+              </div>
             </div>
             <nuxt-link
               class="btn btn-outline-primary btn-lg btn-block mt-4"
-              :to="{path: submissionPath($route.params.slug, getUserSubmission['.key']) }"
+              :to="{path: submissionPath($route.params.slug, Object.keys(submissionDb)) }"
             >
               See your Submission
             </nuxt-link>
@@ -75,9 +77,9 @@
                     Submission Text
                   </h5>
                   <ValidationProvider
+                    v-slot="{ errors }"
                     name="submission text"
                     rules="required|min:20"
-                    v-slot="{ errors }"
                   >
                     <b-form-textarea
                       id="input-1"
@@ -87,7 +89,7 @@
                       rows="4"
                     />
                     <span class="help">{{ errors[0] }}</span>
-                </ValidationProvider>
+                  </ValidationProvider>
                 </b-form-group>
 
                 <b-form-group
@@ -98,9 +100,9 @@
                     GitHub Link
                   </h5>
                   <ValidationProvider
+                    v-slot="{ errors }"
                     name="GitHub link"
                     rules="min:7"
-                    v-slot="{ errors }"
                   >
                     <b-form-input
                       id="input-2"
@@ -108,8 +110,8 @@
                       type="text"
                       placeholder="Enter Github Link"
                     />
-                  <span class="help">{{ errors[0] }}</span>
-                </ValidationProvider>
+                    <span class="help">{{ errors[0] }}</span>
+                  </ValidationProvider>
                 </b-form-group>
                 <b-button type="submit" variant="primary" class="mt-2">
                   Submit
@@ -124,8 +126,9 @@
 </template>
 <script>
 /* eslint-disable no-console */
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import apiJobMixin from '@/mixins/apiJobMixin'
+import firebase from '@/plugins/firebase'
 
 export default {
   mixins: [apiJobMixin],
@@ -137,47 +140,20 @@ export default {
         displayName: null,
         userId: null,
         date: Date.now()
-      }
+      },
+      submissionDb: null
     }
   },
   computed: {
     ...mapGetters({
       user: 'user',
-      submissions: 'submissions/submissions',
-      communityData: 'content/communityData',
-      evaluations: 'submissions/evaluations'
-    }),
-    getUserSubmission() {
-      let userSubmission = null
-      for (let index = 0; index < this.submissions.length; index++) {
-        if (this.user &&
-        this.user.id &&
-        this.submissions[index].userId === this.user.id &&
-        this.submissions[index].communityId === this.communityData.id) {
-          userSubmission = this.submissions[index]
-        }
-      }
-      return userSubmission
-    },
-    getEvaluationsDb() {
-      let evaluationsNew = null
-      for (let index = 0; index < this.evaluations.length; index++) {
-        if (this.evaluations[index].submissionId === this.getUserSubmission['.key']) {
-          evaluationsNew = this.evaluations[index]
-        }
-      }
-      return evaluationsNew
-    }
+      communityData: 'content/communityData'
+    })
   },
   created() {
-    this.getSubmissions()
-    this.getEvaluations()
+    this.getSubmission()
   },
   methods: {
-    ...mapActions({
-      getSubmissions: 'submissions/getSubmissions',
-      getEvaluations: 'submissions/getEvaluations'
-    }),
     communityPath(slug) {
       return `/${slug}/submissions`
     },
@@ -192,6 +168,12 @@ export default {
     },
     jobsDone() {
       this.removeErrors()
+      this.$router.go()
+    },
+    async getSubmission() {
+      await firebase.database().ref(`submissions/${this.$route.params.slug}`).orderByChild('userId').equalTo(this.user.id).once('value').then((snapShot) => {
+        this.submissionDb = snapShot.val()
+      })
     }
   }
 }

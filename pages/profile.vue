@@ -12,7 +12,10 @@
           </h4>
 
           <section>
-            <div v-if="userBalance && Object.keys(userBalance).length">
+            <div
+              v-if="userBalance && Object.keys(userBalance).length"
+              class="mt-4"
+            >
               <h4>
                 <b>
                   Balance:
@@ -20,9 +23,9 @@
               </h4>
               <h4 v-for="(balance, key) in userBalance" :key="balance.id">
                 {{ key }} token:
-                <span class="earning-color">
+                <b class="earning-color">
                   {{ balance }}$
-                </span>
+                </b>
               </h4>
               <div v-b-modal.modal-cashout class="btn-cash-out btn mt-2 mb-6">
                 Cash out
@@ -46,7 +49,7 @@
                 </p>
               </b-modal>
             </div>
-            <div v-else class="mb-4">
+            <div v-else class="mb-6">
               <h4>
                 <b>
                   Balance:
@@ -72,9 +75,11 @@
               class="mb-2 small-shadow text-center bg-dark bg-rep"
             >
               <b-card-text class="text-center mt-4">
-                <h4><b class="teaching-color points">{{ rep }}</b></h4>
+                <h4><b class="teaching-color points">{{ parseFloat(rep).toFixed(0) }}</b></h4>
                 <h4><b class="teaching-color">REPUTATION</b></h4>
-                <h4 class="muted-dark">{{ communityDataPreview[key].name }}</h4>
+                <h4 class="muted-dark">
+                  {{ communityDataPreview[key].name }}
+                </h4>
               </b-card-text>
             </b-card>
           </div>
@@ -103,14 +108,16 @@
               <b-card-text class="text-center">
                 <h4><b class="learning-color">{{ lp }}<span class="muted-dark">/{{ communityDataPreview[key].submissionPoints }}</span></b></h4>
                 <h4><b class="learning-color">Learning Points</b></h4>
-                <h4 class="muted-dark">{{ communityDataPreview[key].name }}</h4>
+                <h4 class="muted-dark">
+                  {{ communityDataPreview[key].name }}
+                </h4>
               </b-card-text>
             </b-card>
           </div>
         </div>
         <div v-else class="mb-4">
           <h4>
-            You havent solved a challenge in any community yet.
+            You haven't solved a challenge in any community yet.
           </h4>
         </div>
       </section>

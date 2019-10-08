@@ -10,9 +10,16 @@
 </template>
 
 <script>
+/* eslint-disable no-console */
 import apiJobMixin from '@/mixins/apiJobMixin'
 
 export default {
-  mixins: [apiJobMixin]
+  mixins: [apiJobMixin],
+  methods: {
+    jobsDone() {
+      this.removeErrors()
+    }
+  }
+
 }
 </script>

@@ -20,7 +20,8 @@
               </span>
               <li v-for="chapter in communityData.chapter" :key="chapter.key" class="nav-item chapter-item">
                 <nuxt-link
-                  :to="{path: chapterPath($route, chapter.chapterId) }">
+                  :to="{path: chapterPath($route, chapter.chapterId) }"
+                >
                   {{ chapter.chapterName }}
                 </nuxt-link>
               </li>
@@ -67,13 +68,15 @@ export default {
     this.$nextTick(function () {
       window.addEventListener('scroll', function () {
         const navbar = document.getElementById('menuList')
-        const navClasses = navbar.classList
-        if (document.documentElement.scrollTop >= 60) {
-          if (navClasses.contains('shrink') === false) {
+        if (navbar.classList) {
+          const navClasses = navbar.classList
+          if (document.documentElement.scrollTop >= 60) {
+            if (navClasses.contains('shrink') === false) {
+              navClasses.toggle('shrink')
+            }
+          } else if (navClasses.contains('shrink') === true) {
             navClasses.toggle('shrink')
           }
-        } else if (navClasses.contains('shrink') === true) {
-          navClasses.toggle('shrink')
         }
       })
     })

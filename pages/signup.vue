@@ -21,9 +21,9 @@
               >
                 <label for="input-2">Email Address</label>
                 <ValidationProvider
+                  v-slot="{ errors }"
                   name="email"
                   rules="required|email"
-                  v-slot="{ errors }"
                 >
                   <b-form-input
                     id="input-1"
@@ -39,9 +39,9 @@
               <b-form-group id="input-group-2" label-for="input-2">
                 <label for="input-2">Username</label>
                 <ValidationProvider
+                  v-slot="{ errors }"
                   name="username"
                   rules="required|min:4"
-                  v-slot="{ errors }"
                 >
                   <b-form-input
                     id="input-2"
@@ -56,9 +56,9 @@
               <b-form-group>
                 <label for="text-password">Password</label>
                 <ValidationProvider
+                  v-slot="{ errors }"
                   name="password"
                   rules="required|min:6"
-                  v-slot="{ errors }"
                 >
                   <b-input
                     id="text-password"

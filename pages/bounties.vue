@@ -2,7 +2,7 @@
   <div>
     <Navigation />
     <div class="container-fluid">
-      <div class="row">
+      <div v-if="userLearningPoints" class="row">
         <div class="col-md-8 col-xl-6 mx-auto mt-4">
           <div
             v-for="openBounty in getOpenBounties()"
@@ -42,72 +42,77 @@
   </div>
 </template>
 <script>
-/* eslint-disable no-console */
+/* eslint-disable no-console, no-unused-vars, require-await, no-unused-expressions */
 import Navigation from '@/components/Navigation'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, Store } from 'vuex'
+import firebase from '@/plugins/firebase'
 
 export default {
   components: {
     Navigation
   },
+  data() {
+    return {
+    }
+  },
   computed: {
     ...mapGetters({
       user: 'user',
-      submissions: 'submissions/submissions',
-      communityDataPreview: 'content/communityDataPreview',
-      reviews: 'reviews/reviews'
+      userLearningPoints: 'userLearningPoints',
+      communityDataPreview: 'content/communityDataPreview'
     })
+  },
+  async asyncData({ params }) {
+    let submissions = {}
+    await firebase.database().ref(`openSubmissions`).once('value').then((snapShot) => {
+      submissions = snapShot.val()
+    })
+    return { submissions }
   },
   mounted() {
     if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
       this.getCommunityDataPreview()
     }
-    if ((!this.submissions || Object.keys(this.submissions).length === 0)) {
-      this.getSubmissions()
-    }
-    if ((!this.reviews || Object.keys(this.reviews).length === 0)) {
-      this.getReviews()
-    }
   },
   methods: {
     ...mapActions({
-      getCommunityDataPreview: 'content/getCommunityDataPreview',
-      getReviews: 'reviews/getReviews',
-      getSubmissions: 'submissions/getSubmissions'
+      getCommunityDataPreview: 'content/getCommunityDataPreview'
     }),
     getOpenBounties() {
       // Todo: Exlude submission if user hasn't made a submission to the community yet
       const bounties = []
-      const userSubmissions = []
-      // Loop over all submissions to get the submissons that need a review
-      for (let index = 0; index < this.submissions.length; index++) {
-        const element = this.submissions[index]
-        // Check if the submission was from the current user
-        if (this.user && element.userId === this.user.id) {
-          userSubmissions.push(element.communityId)
-        // Else check if it was already evaluated and user made no review yet
-        } else if (!element.submissionPoints && this.userMadeNoReview(element['.key']) && Object.keys(this.communityDataPreview).length) {
-          // Get the chapter data from the community of the submission
-          const result = Object.values(this.communityDataPreview).filter((obj) => {
-            return obj.slug === element.communityId
-          })
-          element.typ = 'review'
-          element.lcName = result[0].name
-          element.link = `/${result[0].slug}/submission/${element['.key']}`
-          element.color = result[0].color
-          element.reward = result[0].reviewReward
-          const endTime = element.date + (result[0].bountyTime * 60 * 60 * 1000)
-          element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
-          // Check if there is still time left for submission
-          if (element.hoursLeft > 0) {
-            bounties.push(element)
+      // Get all bounty reviews
+      if (this.submissions && Object.keys(this.communityDataPreview).length) {
+        // Loop over all submissions to get the submissons that needs a review
+        for (let index = 0; index < Object.keys(this.submissions).length; index++) {
+          const element = Object.values(this.submissions)[index]
+          // Check if the submission was from the current user
+          if (this.user && element.userId !== this.user.id) {
+            // If there have been reviews already, check if user made no review yet
+            if ((element.reviews && !Object.keys(element.reviews).includes(this.user.id)) || !element.reviews) {
+              // Get the communityData preview for the submission
+              const result = Object.values(this.communityDataPreview).filter((obj) => {
+                return obj.slug === element.communityId
+              })
+              element.typ = 'review'
+              element.lcName = result[0].name
+              element.link = `/${result[0].slug}/submission/${Object.keys(this.submissions)[index]}`
+              element.color = result[0].color
+              element.reward = result[0].reviewReward
+              const endTime = element.date + (result[0].bountyTime * 60 * 60 * 1000)
+              element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
+              // Check if there is still time left for submission
+              if (element.hoursLeft > 0) {
+                bounties.push(element)
+              }
+            }
           }
         }
       }
       // Get open submissions for user
       for (let index = 0; index < Object.values(this.communityDataPreview).length; index++) {
         // todo change slug to Id
-        if (!userSubmissions.includes(Object.keys(this.communityDataPreview)[index])) {
+        if (!Object.keys(this.userLearningPoints).includes(Object.keys(this.communityDataPreview)[index])) {
           const element = {}
           element.typ = 'submission'
           element.lcName = Object.values(this.communityDataPreview)[index].name
@@ -118,21 +123,6 @@ export default {
         }
       }
       return Object.values(bounties)
-    },
-    userMadeNoReview(submissionId) {
-      const submissionReviews = []
-      let userMadeNoReview = true
-      for (let index = 0; index < this.reviews.length; index++) {
-        if (this.reviews[index].submissionId === submissionId) {
-          submissionReviews.push(this.reviews[index])
-        }
-      }
-      for (let index = 0; index < submissionReviews.length; index++) {
-        if (submissionReviews[index].reviewUserId === this.user.id) {
-          userMadeNoReview = false
-        }
-      }
-      return userMadeNoReview
     }
   }
 }

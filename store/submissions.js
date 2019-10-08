@@ -13,12 +13,27 @@ export const state = () => ({
 
 export const actions = {
   createSubmission({ commit }, payload) {
-    submissionsRef.push(payload)
-      .then(() => {
-        console.log('success')
+    commit('setBusy', true, { root: true })
+    commit('clearError', null, { root: true })
+    db.ref(`submissions/${payload.communityId}`).push(payload)
+      .then((snapshot) => {
+        commit('setJobDone', true, { root: true })
+        commit('setBusy', false, { root: true })
+        console.log(snapshot.key)
+        db.ref(`openSubmissions/${snapshot.key}`).set(payload)
+          .then(() => {
+            commit('setJobDone', true, { root: true })
+            commit('setBusy', false, { root: true })
+            console.log('success')
+          })
+          .catch((error) => {
+            commit('setBusy', false, { root: true })
+            commit('setError', error, { root: true })
+          })
       })
       .catch((error) => {
-        console.log('error', error)
+        commit('setBusy', false, { root: true })
+        commit('setError', error, { root: true })
       })
   },
   getSubmissions: firebaseAction(({ bindFirebaseRef }) => {

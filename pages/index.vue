@@ -115,7 +115,9 @@
                       <h4 class="h-dark">
                         Introduction <br>to Blockchain
                       </h4>
-                      <p class="muted-dark">Learn the most important concepts for blockchain technology.</p>
+                      <p class="muted-dark">
+                        Learn the most important concepts for blockchain technology.
+                      </p>
                     </b-card-text>
                   </b-card>
                 </nuxt-link>
@@ -135,7 +137,9 @@
                       <h4 class="h-dark">
                         Aeternity <br> Development 101
                       </h4>
-                      <p class="muted-dark">Learn how to build a voting dApp on top of Aeternity.</p>
+                      <p class="muted-dark">
+                        Learn how to build a voting dApp on top of Aeternity.
+                      </p>
                     </b-card-text>
                   </b-card>
                 </nuxt-link>
@@ -155,7 +159,9 @@
                       <h4 class="h-dark">
                         Ethereum <br> Development 101
                       </h4>
-                      <p class="muted-dark">Learn how to build a registry on top of Ethereum.</p>
+                      <p class="muted-dark">
+                        Learn how to build a registry on top of Ethereum.
+                      </p>
                     </b-card-text>
                   </b-card>
                 </nuxt-link>
@@ -176,9 +182,11 @@
                   <div>
                     <p>
                       <i>"I just made submission of my quote daepp on dacade.org. I'm so excited I took the course, I really enjoyed it and have learned a lot."</i>
-                    <br><br>
+                      <br><br>
                     </p>
-                    <h5 class="muted-dark">Labi23</h5>
+                    <h5 class="muted-dark">
+                      Labi23
+                    </h5>
                     <b-img rounded alt="Circle image" width="64px" src="img/user_tosin_edit.png" class="mt-2 mb-3" />
                   </div>
                 </div>
@@ -187,7 +195,9 @@
                     <p>
                       <i>"Thanks for your support, love and care on Dacade(Telegram and Website) it has being an awesome experience. I have learned a lot and I am still learning a lot."</i>
                     </p>
-                    <h5 class="muted-dark">emmanuelJet_</h5>
+                    <h5 class="muted-dark">
+                      emmanuelJet_
+                    </h5>
                     <b-img rounded alt="Circle image" width="64px" src="img/user_jet.png" class="mt-2 mb-3" />
                   </div>
                 </div>
@@ -196,7 +206,9 @@
                     <p>
                       <i>"I'm still baffled that I can earn for learning, so are my friends - Dacade's courses are visual, practical and you can learn about blockchain through interactions."</i>
                     </p>
-                    <h5 class="muted-dark">ced000</h5>
+                    <h5 class="muted-dark">
+                      ced000
+                    </h5>
                     <b-img rounded alt="Circle image" width="64px" src="img/user_ced.jpg" class="mt-2 mb-3" />
                   </div>
                 </div>
@@ -219,14 +231,14 @@
                       style="border-bottom-color:#53D1AF"
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
-                    <b-card-text class="text-center mt-4">
-                      <h4><b class="learning-color points">2900</b></h4>
-                      <h4><b class="learning-color">Learners</b></h4>
-                      <span class="muted-dark">Have already registered on dacade.</span>
-                      <br>
-                      <br>
-                    </b-card-text>
-                  </b-card>
+                      <b-card-text class="text-center mt-4">
+                        <h4><b class="learning-color points">3000</b></h4>
+                        <h4><b class="learning-color">Learners</b></h4>
+                        <span class="muted-dark">Have already registered on dacade.</span>
+                        <br>
+                        <br>
+                      </b-card-text>
+                    </b-card>
                   </div>
                 </div>
                 <div class="col-md-4 mb-4 stats-column">
@@ -252,9 +264,9 @@
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
-                        <h4><b class="teaching-color points">1800</b></h4>
+                        <h4><b class="teaching-color points">2200</b></h4>
                         <h4><b class="teaching-color">Feedback</b></h4>
-                        <span class="muted-dark">Learners gave to submissions of their peer.</span>
+                        <span class="muted-dark">Learners gave to submissions of their peers.</span>
                         <br>
                         <br>
                       </b-card-text>
@@ -281,32 +293,42 @@
                   <b-img rounded="circle" alt="Circle image" width="96px" src="/img/moritz-pic.png" class="mb-3" />
                   <div>
                     <h4>Moritz Stellmacher</h4>
-                    <p class="muted-dark">Founder of dacade</p>
+                    <p class="muted-dark">
+                      Founder of dacade
+                    </p>
                   </div>
                 </div>
                 <div class="col-sm mb-4">
                   <b-img rounded="circle" alt="Circle image" width="96px" src="/img/hannes.png" class="mb-3" />
                   <div>
                     <h4>Hannes <br>Klöpper</h4>
-                    <p class="muted-dark">Former CEO of Iversity, one of europes biggest MOOCs</p>
+                    <p class="muted-dark">
+                      Former CEO of Iversity, one of europes biggest MOOCs
+                    </p>
                   </div>
                 </div>
                 <div class="col-sm mb-4">
                   <b-img rounded="circle" alt="Circle image" width="96px" src="/img/alex.jpg" class="mb-3" />
                   <div>
                     <h4>Alexandre Peschel</h4>
-                    <p class="muted-dark">CEO of APE Unit, Blockchain developer network</p>
+                    <p class="muted-dark">
+                      CEO of APE Unit, Blockchain developer network
+                    </p>
                   </div>
                 </div>
                 <div class="col-sm mb-4">
                   <b-img rounded="circle" alt="Circle image" width="96px" src="/img/emin.jpg" class="mb-3" />
                   <h4>Emin <br> Mahrt</h4>
-                  <p class="muted-dark">CPO of Aeternity, <br> a third generation Blockchain</p>
+                  <p class="muted-dark">
+                    CPO of Aeternity, <br> a third generation Blockchain
+                  </p>
                 </div>
                 <div class="col-sm mb-4">
                   <b-img rounded="circle" alt="Circle image" width="96px" src="/img/add_person2.png" class="mb-3" />
                   <h4>YOU<br><br></h4>
-                  <p class="muted-dark">Contribute to dacade and help to create a peer learning revolution</p>
+                  <p class="muted-dark">
+                    Contribute to dacade and help to create a peer learning revolution
+                  </p>
                 </div>
               </div>
             </div>

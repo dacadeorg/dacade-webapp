@@ -33,7 +33,7 @@
                     Total Submissions: {{ community.submissions }}
                   </div>
                   <div class="muted-dark">
-                    Rewards: <b class="earning-color">{{ community.submissionReward }}/{{ community.reviewReward }}$</b>
+                    Rewards: <b class="earning-color">{{ community.submissionReward }}$/{{ community.reviewReward }}$</b>
                   </div>
                 </b-card-text>
               </b-card>
@@ -72,6 +72,10 @@ export default {
 }
 </script>
 <style scoped>
+  .card-body{
+    padding: 1.5rem 2.1rem;
+  }
+
   .card-text{
     text-align: center;
     color:#acb2be;

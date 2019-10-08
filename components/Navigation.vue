@@ -64,7 +64,7 @@
         </div>
 
         <div v-if="!loginStatus">
-          <nuxt-link class="btn btn-white-outline" to="/signup">
+          <nuxt-link class="btn btn-white-outline signup-link" to="/signup">
             <span>Sign up</span>
           </nuxt-link>
         </div>
@@ -89,11 +89,6 @@ export default {
       userBalance: 'userBalance'
     })
   },
-  // created() {
-  //   if (!this.userLoggedIn) {
-  //     this.$store.dispatch('setAuthStatus')
-  //   }
-  // },
   methods: {
     logOut() {
       this.$store.dispatch('logOut')
@@ -193,7 +188,7 @@ a.nuxt-link-active:hover{
 .login-link {
   color: white;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1rem!important;
   padding: 10px 30px;
 }
 
@@ -213,6 +208,10 @@ a.nuxt-link-active:hover{
 
 .navbar-green{
   background: #53d1af;
+}
+
+.signup-link {
+  font-size: 1rem!important;
 }
 
 .userPoints{

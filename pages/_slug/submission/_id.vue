@@ -33,7 +33,7 @@
             <i>Click to see the code on GitHub</i>
 
             <div
-              v-if="communityData.githubUrl"
+              v-if="getGithubUrl"
               class="github-url"
             >
               <a class="btn btn-dark" target="blank" :href="getGithubUrl">Website</a>
@@ -50,12 +50,12 @@
         </b-card>
 
         <!-- Evaluation Card -->
-        <section v-if="getEvaluationsDb">
+        <section v-if="evaluation">
           <b-card
             class="bg-dark mb-4 small-shadow-no-hover"
           >
             <span class="float-right muted-dark">
-              {{ convertDate(getEvaluationsDb.date) }}
+              {{ convertDate(evaluation.date) }}
             </span>
             <b-card-text>
               <span class="earning-color">
@@ -67,18 +67,19 @@
                 by
               </span>
               <span class="h-dark">
-                {{ getEvaluationsDb.evaluationDisplayName }}
+                {{ evaluation.evaluationDisplayName }}
               </span>
             </b-card-text>
             <b-card-text>
-              <div v-for="evaluation in communityData.challengeRatingCriteriaPoints" :key="evaluation.key" class="mb-2">
+              <div v-for="evaluationRating in communityData.challengeRatingCriteriaPoints" :key="evaluationRating.key" class="mb-2">
                 <span class="h-dark">
                   {{ evaluation.name }}
                 </span>
+                <b class="h-dark">{{ evaluationRating.name }}:</b>
                 <b class="learning-color">
-                  +{{ getRatingCriteria(evaluation.name,getEvaluationsDb) }}<span class="learning-color-muted">/{{ evaluation.points }} LP</span>
+                  {{ getRatingCriteria(evaluationRating.name,evaluation) }}<span class="learning-color-muted">/{{ evaluationRating.points }} LP</span>
                 </b>
-                <div v-html="getRatingText(evaluation.name,getEvaluationsDb)" />
+                <div v-html="getRatingText(evaluationRating.name,evaluation)" />
               </div>
               <div v-if="submission.submissionReward > 1">
                 <span class="h-dark">
@@ -95,10 +96,10 @@
           </b-card>
         </section>
 
-        <!-- Feedback Cards -->
-        <section v-if="getSubmissionReviews">
+        <!-- Feedback -->
+        <section v-if="feedback">
           <b-card
-            v-for="getReview in getSubmissionReviews"
+            v-for="getReview in feedback"
             :key="getReview.key"
             class="bg-dark small-shadow-no-hover mb-4"
           >
@@ -116,7 +117,7 @@
               </span>
               <span class="h-dark">
                 {{ getReview.reviewDisplayName }}
-                (<span class="teaching-color">{{ reviewerReputation[getReview.reviewUserId] }} REP</span>):
+                <span class="muted-dark">(</span><span class="teaching-color">{{ parseFloat(reviewerReputation[getReview.reviewUserId]).toFixed(0) }} REP</span><span class="muted-dark">)</span>
               </span>
             </b-card-text>
             <b-card-text>
@@ -131,7 +132,7 @@
             </div>
             <div v-if="getReview.rewardAmount" class="mt-3">
               <b class="earning-color mr-1">+{{ getReview.rewardAmount }}$</b>
-              <b class="teaching-color">+{{ getReview.rewardAmount }}TP</b>
+              <b class="teaching-color">+{{ getReview.rewardAmount }}REP</b>
             </div>
           </b-card>
         </section>
@@ -148,10 +149,10 @@
                 class="mb-4"
               >
                 <ValidationProvider
-                    name="feedback"
-                    rules="required|min:20"
-                    v-slot="{ errors }"
-                  >
+                  v-slot="{ errors }"
+                  name="feedback"
+                  rules="required|min:20"
+                >
                   <b-form-textarea
                     id="input-1"
                     v-model="review.content"
@@ -168,9 +169,9 @@
                   GitHub Pull Request
                 </h5>
                 <ValidationProvider
+                  v-slot="{ errors }"
                   name="review code link"
                   rules="min:7"
-                  v-slot="{ errors }"
                 >
                   <textarea
                     id="reviewCodeLink"
@@ -199,8 +200,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable spaced-comment */
 import firebase from '@/plugins/firebase'
-import { mapGetters, mapActions } from 'vuex'
 import apiJobMixin from '@/mixins/apiJobMixin'
+import { firebaseAction } from 'vuexfire'
+import { mapGetters } from 'vuex'
 
 export default {
   mixins: [apiJobMixin],
@@ -209,7 +211,6 @@ export default {
       reviewerReputation: {},
       review: {
         content: null,
-        submissionId: this.$route.params.id,
         date: Date.now()
       }
     }
@@ -217,71 +218,57 @@ export default {
   computed: {
     ...mapGetters({
       user: 'user',
-      reviews: 'reviews/reviews',
-      evaluations: 'submissions/evaluations',
       communityData: 'content/communityData'
     }),
-    getSubmissionReviews() {
-      let submissionReviews = []
-      for (let index = 0; index < this.reviews.length; index++) {
-        if (this.reviews[index].submissionId === this.$route.params.id) {
-          submissionReviews.push(this.reviews[index])
-          this.getReputation(this.reviews[index].reviewUserId)
-        }
-      }
-      return submissionReviews
-    },
-    getEvaluationsDb() {
-      let evaluationsNew = null
-      for (let index = 0; index < this.evaluations.length; index++) {
-        if (this.evaluations[index].submissionId === this.$route.params.id) {
-          evaluationsNew = this.evaluations[index]
-        }
-      }
-      return evaluationsNew
-    },
     getGithubUrl() {
+      let newUrl = null
       const str = this.submission.githubLink
-      const urlsplit = str.split('https://github.com/')
-      const urlsplit2 = urlsplit[1].split('/')
-      const newUrl = 'https://' + urlsplit2[0] + '.github.io/' + urlsplit2[1]
+      if (str.includes('https://github.com/')) {
+        const urlsplit = str.split('https://github.com/')
+        const urlsplit2 = urlsplit[1].split('/')
+        const newUrl = 'https://' + urlsplit2[0] + '.github.io/' + urlsplit2[1]
+      }
       return newUrl
     }
   },
-  asyncData({ params }) {
-    return firebase.database().ref(`submissions/${params.id}`).once('value').then((snapShot) => {
-      const submission = snapShot.val()
-      return { submission }
+  async asyncData({ params }) {
+    let submission, feedback, evaluation
+    await firebase.database().ref(`submissions/${params.slug}/${params.id}`).once('value').then((snapShot) => {
+      submission = snapShot.val()
     })
+    await firebase.database().ref(`reviews/${params.id}`).once('value').then((snapShot) => {
+      feedback = snapShot.val()
+    })
+    await firebase.database().ref(`evaluations/${params.id}`).once('value').then((snapShot) => {
+      evaluation = snapShot.val()
+    })
+    return { submission, feedback, evaluation }
   },
   mounted(params) {
     if ((!this.communityData || Object.keys(this.communityData).length === 0)) {
       this.$store.dispatch('content', { payload: params.slug })
     }
-    if ((!this.evaluations || Object.keys(this.evaluations).length === 0)) {
-      this.getEvaluations()
-    }
-    if ((!this.reviews || Object.keys(this.reviews).length === 0)) {
-      this.getReviews()
-    }
+  },
+  created() {
+    this.getReputation(this.feedback)
   },
   methods: {
-    ...mapActions({
-      getReviews: 'reviews/getReviews',
-      getEvaluations: 'submissions/getEvaluations'
-    }),
+    jobsDone() {
+      this.removeErrors()
+      this.review.content = null
+      this.review.reviewCodeLink = null
+      this.$router.go()
+    },
     communityPath(slug) {
       return `/${slug}/submissions`
     },
     onSubmit() {
-      this.review.reviewDisplayName = this.user.displayName
-      this.review.reviewUserId = this.user.id
-      this.$store.dispatch('reviews/createReview', this.review)
-      this.review.content = null
-      this.review.reviewCodeLink = null
-    },
-    jobsDone() {
-      this.removeErrors()
+      if (!this.busy) {
+        this.review.reviewDisplayName = this.user.displayName
+        this.review.reviewUserId = this.user.id
+        this.review['.key'] = this.$route.params.id
+        this.$store.dispatch('reviews/createReview', this.review)
+      }
     },
     getRatingCriteria(input, input2) {
       if (input === 'Relevance') {
@@ -320,14 +307,20 @@ export default {
       const submissionTimeAndDate = submissionDate + ' ' + submissionTime
       return submissionTimeAndDate
     },
-    async getReputation(userId) {
-      const eventref = await firebase.database().ref(`reputation/${userId}/${this.communityData.id}`)
-      const snapshot = await eventref.once('value')
-      const value = snapshot.val()
-      if (value) {
-        this.$set(this.reviewerReputation, userId, value)
-      } else {
-        this.$set(this.reviewerReputation, userId, 0)
+    async getReputation(feedback) {
+      if (feedback) {
+        for (let index = 0; index < Object.keys(feedback).length; index++) {
+          const element = Object.values(feedback)[index]
+          const userId = element.reviewUserId
+          const eventref = await firebase.database().ref(`reputation/${userId}/${this.communityData.id}`)
+          const snapshot = await eventref.once('value')
+          const value = snapshot.val()
+          if (value) {
+            this.$set(this.reviewerReputation, userId, value)
+          } else {
+            this.$set(this.reviewerReputation, userId, 0)
+          }
+        }
       }
     }
   }
