@@ -6,9 +6,6 @@
         <div class="col-md-8 col-xl-6 mx-auto mt-4">
           <div v-if="userNotifications">
             <div class="text-center mb-4">
-              <b-button variant="primary" @click.prevent="markNotificationsRead()">
-                Mark as seen
-              </b-button>
             </div>
             <div
               v-for="notification in orderDesc()"
@@ -46,6 +43,9 @@ export default {
     ...mapGetters({
       userNotifications: 'userNotifications'
     })
+  },
+  created() {
+    setTimeout(this.markNotificationsRead, 5000)
   },
   methods: {
     markNotificationsRead() {
@@ -113,11 +113,11 @@ export default {
 }
 
 .unread {
-  color: #53d1af;
-  border-color:#53d1af;
+  color: rgba(255,255,255,.8);
+  border-bottom: 2px solid #53d1af;
 }
 
 .unread a{
-  color: #53d1af;
+  color: rgba(255,255,255,.8);
 }
 </style>
