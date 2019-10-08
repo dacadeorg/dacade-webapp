@@ -146,6 +146,9 @@
 }
 
 /* Font colors */
+.dark-white {
+  color: rgba(255,255,255,.8);
+}
 .earning-color {
   color: #ffcc00;
 }
