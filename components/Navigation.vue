@@ -6,12 +6,17 @@
       toggleable="lg"
       type="dark"
     >
-      <b-navbar-brand href="#" class="desktop-only">
+      <b-navbar-brand class="desktop-only">
         <nuxt-link to="/">
           <img class="logoImg pointer" src="/img/logo-white.png" height="20" alt="">
         </nuxt-link>
       </b-navbar-brand>
-      <b-nav-text class="community-title">
+      <b-navbar-brand v-if="!loginStatus" class="mobile-only">
+        <nuxt-link to="/">
+          <img class="logoImg pointer" src="/img/logo-white.png" height="20" alt="">
+        </nuxt-link>
+      </b-navbar-brand>
+      <b-nav-text v-if="loginStatus" class="community-title">
         <span v-if="$route.name === 'index'" />
         <span v-else class="nav-divider desktop-only" />
         {{ getSectionName($route) }}
@@ -61,9 +66,6 @@
               Login
             </span>
           </nuxt-link>
-        </div>
-
-        <div v-if="!loginStatus">
           <nuxt-link class="btn btn-white-outline signup-link" to="/signup">
             <span>Sign up</span>
           </nuxt-link>
@@ -220,5 +222,12 @@ a.nuxt-link-active:hover{
 
 .userPoints{
   font-size: 19px;
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+  .login-link {
+    padding: 0px;
+  }
 }
 </style>

@@ -86,3 +86,8 @@ sw.*
 
 # Mac OSX
 .DS_Store
+
+# Firebase hosting
+firebase.json
+.firebaserc
+.firebase

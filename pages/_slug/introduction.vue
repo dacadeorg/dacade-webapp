@@ -164,7 +164,6 @@
               <img :src="communityData.communitySponsorImg">
             </a>
           </div>
-          <br>
 
           <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{ path: communityPath($route.params.slug) }">
             Start now
