@@ -1,12 +1,17 @@
 <template>
   <div>
     <b-navbar :style="{ background: communityData.gradient }" toggleable="lg" type="dark">
-      <b-navbar-brand href="#" class="desktop-only">
+      <b-navbar-brand class="desktop-only">
         <nuxt-link to="/">
-          <img class="logoImg" src="/img/logo-white.png" height="20" alt="">
+          <img class="logoImg pointer" src="/img/logo-white.png" height="20" alt="">
         </nuxt-link>
       </b-navbar-brand>
-      <b-nav-text class="community-title">
+      <b-navbar-brand v-if="!loginStatus" class="mobile-only">
+        <nuxt-link to="/">
+          <img class="logoImg pointer" src="/img/logo-white.png" height="20" alt="">
+        </nuxt-link>
+      </b-navbar-brand>
+      <b-nav-text v-if="loginStatus" class="community-title">
         <span class="nav-divider desktop-only" />
         {{ communityData.name }}
       </b-nav-text>
@@ -60,9 +65,6 @@
               Login
             </span>
           </nuxt-link>
-        </div>
-
-        <div v-if="!loginStatus">
           <nuxt-link class="btn btn-white-outline" to="/signup">
             <span>Sign up</span>
           </nuxt-link>
@@ -200,5 +202,15 @@ a:not([href]):not([tabindex]):hover{
 
 .userPoints{
   font-size: 19px;
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+  .navbar-brand{
+    margin-left: 0.3rem;
+  }
+  .login-link {
+    padding: 0px;
+  }
 }
 </style>
