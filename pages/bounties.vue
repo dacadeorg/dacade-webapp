@@ -10,11 +10,15 @@
             class="bounty mb-4"
           >
             <nuxt-link :to="openBounty.link">
-              <h5 v-if="openBounty.typ === 'review'" class="h-dark">
-                Review for Submission of {{ openBounty.displayName }}
+              <h5 v-if="openBounty.typ === 'review'" class="dark-white">
+                <b>
+                  Review for Submission of {{ openBounty.displayName }}
+                </b>
               </h5>
-              <h5 v-else class="h-dark">
-                Submission
+              <h5 v-else class="dark-white">
+                <b>
+                  Submission
+                </b>
               </h5>
               <div>
                 Community:

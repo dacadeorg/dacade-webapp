@@ -18,8 +18,10 @@
             <span class="muted-dark">
               by
             </span>
-            <span class="h-dark">
-              {{ submission.displayName }}
+            <span class="dark-white">
+              <b>
+                {{ submission.displayName }}
+              </b>
             </span>
           </b-card-text>
           <b-card-text>
@@ -66,24 +68,28 @@
               <span class="muted-dark">
                 by
               </span>
-              <span class="h-dark">
-                {{ evaluation.evaluationDisplayName }}
+              <span class="dark-white">
+                <b>
+                  {{ evaluation.evaluationDisplayName }}
+                </b>
               </span>
             </b-card-text>
             <b-card-text>
               <div v-for="evaluationRating in communityData.challengeRatingCriteriaPoints" :key="evaluationRating.key" class="mb-2">
-                <span class="h-dark">
+                <span class="dark-white">
                   {{ evaluation.name }}
                 </span>
-                <b class="h-dark">{{ evaluationRating.name }}:</b>
+                <b class="dark-white">{{ evaluationRating.name }}:</b>
                 <b class="learning-color">
                   {{ getRatingCriteria(evaluationRating.name,evaluation) }}<span class="learning-color-muted">/{{ evaluationRating.points }} LP</span>
                 </b>
                 <div v-html="getRatingText(evaluationRating.name,evaluation)" />
               </div>
               <div v-if="submission.submissionReward > 1">
-                <span class="h-dark">
-                  Reward
+                <span class="dark-white">
+                  <b>
+                    Reward
+                  </b>
                 </span>
                 <span class="earning-color">
                   <b>
@@ -115,8 +121,10 @@
               <span class="muted-dark">
                 by
               </span>
-              <span class="h-dark">
-                {{ getReview.reviewDisplayName }}
+              <span class="dark-white">
+                <b>
+                  {{ getReview.reviewDisplayName }}
+                </b>
                 <span class="muted-dark">(</span><span class="teaching-color">{{ parseFloat(reviewerReputation[getReview.reviewUserId]).toFixed(0) }} REP</span><span class="muted-dark">)</span>
               </span>
             </b-card-text>
@@ -139,8 +147,10 @@
 
         <!-- Feedback Input Area -->
         <section>
-          <h5 class="h-dark mb-2">
-            Give Feedback
+          <h5 class="dark-white mb-2">
+            <b>
+              Give Feedback
+            </b>
           </h5>
           <ValidationObserver v-slot="{ invalid, passes }">
             <b-form @submit.prevent="passes(onSubmit)">
@@ -165,8 +175,10 @@
               </b-form-group>
 
               <div v-if="communityData.reviewCodeLink" style="width:100%;">
-                <h5 class="h-dark mb-2">
-                  GitHub Pull Request
+                <h5 class="dark-white mb-2">
+                  <b>
+                    GitHub Pull Request
+                  </b>
                 </h5>
                 <ValidationProvider
                   v-slot="{ errors }"

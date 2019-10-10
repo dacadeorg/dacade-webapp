@@ -4,8 +4,10 @@
     <div v-if="Object.keys(communityDataPreview).length != 0 && user" class="container">
       <div class="row">
         <div class="col-md-4 mt-4">
-          <h2 class="h-dark">
-            {{ user.displayName }}
+          <h2 class="dark-white">
+            <b>
+              {{ user.displayName }}
+            </b>
           </h2>
           <h4 class="muted-dark">
             {{ user.email }}
@@ -64,8 +66,10 @@
       </div>
 
       <section>
-        <h2 class="h-dark">
-          Reputation
+        <h2 class="dark-white">
+          <b>
+            Reputation
+          </b>
         </h2>
         <div v-if="userReputation && Object.keys(userReputation).length" class="row mt-4">
           <div v-for="(rep, key) in userReputation" :key="rep.key" class="col-md-3 mb-4">
@@ -92,8 +96,10 @@
       </section>
 
       <section>
-        <h2 class="h-dark">
-          Achievements
+        <h2 class="dark-white">
+          <b>
+            Achievements
+          </b>
         </h2>
         <div v-if="userLearningPoints && Object.keys(userLearningPoints).length" class="row mt-4">
           <div v-for="(lp, key) in userLearningPoints" :key="lp.key" class="col-md-3 mb-4">

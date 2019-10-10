@@ -152,30 +152,26 @@
 .earning-color {
   color: #ffcc00;
 }
-.h-dark{
-  color:rgba(255,255,255,0.8);
-  font-weight: 700;
-}
 .learning-color{
   color: #53D1AF;
 }
 .learning-color-muted{
   color: rgba(83, 209, 175, 0.4);
 }
+.light-black {
+  color: rgba(0, 0, 0, 0.8)
+}
 .muted-dark {
   color: rgba(255,255,255,.3);
 }
-
 .muted-dark a{
   color: rgba(255,255,255,.3);
 }
-
 .teaching-color {
   color: #9c58ff;
 }
-
-.time-color {
-  color: #ff9100;
+.white {
+  color:white;
 }
 
 /* Font colors */

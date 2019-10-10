@@ -21,8 +21,10 @@
                 class="mb-2 bg-dark small-shadow"
               >
                 <div class="text-center">
-                  <h4 class="h-dark">
-                    {{ community.name }}
+                  <h4 class="dark-white">
+                    <b>
+                      {{ community.name }}
+                    </b>
                   </h4>
                 </div>
                 <b-card-text class="muted-dark">
@@ -33,7 +35,7 @@
                     Total Submissions: {{ community.submissions }}
                   </div>
                   <div class="muted-dark">
-                    Rewards: <b class="earning-color">{{ community.submissionReward }}$/{{ community.reviewReward }}$</b>
+                    Rewards: <b class="earning-color">{{ community.submissionReward }}$<span class="muted-dark">/</span>{{ community.reviewReward }}$</b>
                   </div>
                 </b-card-text>
               </b-card>

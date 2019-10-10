@@ -8,7 +8,7 @@
     >
       <b-navbar-brand href="#" class="desktop-only">
         <nuxt-link to="/">
-          <img class="logoImg" src="/img/logo-white.png" height="20" alt="">
+          <img class="logoImg pointer" src="/img/logo-white.png" height="20" alt="">
         </nuxt-link>
       </b-navbar-brand>
       <b-nav-text class="community-title">
@@ -208,6 +208,10 @@ a.nuxt-link-active:hover{
 
 .navbar-green{
   background: #53d1af;
+}
+
+.pointer:hover {
+  cursor: pointer;
 }
 
 .signup-link {

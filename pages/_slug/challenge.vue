@@ -7,8 +7,10 @@
             <i class="dacade-note">{{ communityData.challengeDescription }}</i>
           </p>
 
-          <h4 class="h-dark">
-            Challenge:
+          <h4 class="dark-white">
+            <b>
+              Challenge:
+            </b>
           </h4>
           <div v-html="communityData.challenge" />
 
@@ -73,8 +75,8 @@
                   v-if="communityData.challengeFormat[0].text"
                   id="input-group-1"
                 >
-                  <h5 class="h-dark">
-                    Submission Text
+                  <h5 class="dark-white">
+                    <b>Submission Text</b>
                   </h5>
                   <ValidationProvider
                     v-slot="{ errors }"
@@ -96,8 +98,10 @@
                   v-if="communityData.challengeFormat[0].githubLink"
                   id="input-group-1"
                 >
-                  <h5 class="h-dark">
-                    GitHub Link
+                  <h5 class="dark-white">
+                   <b>
+                     GitHub Link
+                   </b>
                   </h5>
                   <ValidationProvider
                     v-slot="{ errors }"

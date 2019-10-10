@@ -112,7 +112,7 @@
                     tag="article"
                   >
                     <b-card-text>
-                      <h4 class="h-dark">
+                      <h4 class="dark-white">
                         Introduction <br>to Blockchain
                       </h4>
                       <p class="muted-dark">
@@ -134,7 +134,7 @@
                     tag="article"
                   >
                     <b-card-text>
-                      <h4 class="h-dark">
+                      <h4 class="dark-white">
                         Aeternity <br> Development 101
                       </h4>
                       <p class="muted-dark">
@@ -156,7 +156,7 @@
                     tag="article"
                   >
                     <b-card-text>
-                      <h4 class="h-dark">
+                      <h4 class="dark-white">
                         Ethereum <br> Development 101
                       </h4>
                       <p class="muted-dark">
@@ -355,10 +355,14 @@
               <div class="row">
                 <div class="col-sm-4" />
                 <div class="col-sm-2 mb-4">
-                  <b-img rounded alt="Circle image" width="128px" src="/img/ae-logo.png" />
+                  <a target="blank" href="https://aeternity.com">
+                    <b-img rounded alt="Circle image" width="128px" src="/img/ae-logo.png" />
+                  </a>
                 </div>
                 <div class="col-sm-2">
-                  <b-img rounded alt="Circle image" width="128px" src="/img/Ape_Unit_Logo_White.png" />
+                  <a target="blank" href="https://apeunit.com">
+                    <b-img rounded alt="Circle image" width="128px" src="/img/Ape_Unit_Logo_White.png" />
+                  </a>
                 </div>
               </div>
             </div>

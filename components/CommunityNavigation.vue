@@ -9,13 +9,13 @@
               class="nav flex-column noShrink"
             >
               <li class="nav-item">
+                <i class="fa fa-sticky-note-o fa-lg mr-1 font-bold" />
                 <nuxt-link :to="{path: communityPath($route.params.slug, 'introduction') }">
-                  <i class="fa fa-sticky-note-o fa-lg mr-1 font-bold" :style="{ color: communityData.gradient }" />
                   Introduction
                 </nuxt-link>
               </li>
               <span class="nav-item">
-                <i class="fa fa-folder-open-o fa-lg font-bold" :style="{ color: communityData.gradient }" />
+                <i class="fa fa-folder-open-o fa-lg font-bold" />
                 <span class="chapter-nav-header">Chapter</span>
               </span>
               <li v-for="chapter in communityData.chapter" :key="chapter.key" class="nav-item chapter-item">
@@ -26,19 +26,19 @@
                 </nuxt-link>
               </li>
               <li class="nav-item">
-                <b class="fa fa-flag-o fa-lg mr-1 font-bold" :style="{ color: communityData.gradient }" />
+                <b class="fa fa-flag-o fa-lg mr-1 font-bold" />
                 <nuxt-link :to="{path: communityPath($route.params.slug, 'challenge') }">
                   Challenge
                 </nuxt-link>
               </li>
               <li class="nav-item">
-                <i class="fa fa fa-edit fa-lg mr-1 font-bold" :style="{ color: communityData.gradient }" />
+                <i class="fa fa fa-edit fa-lg mr-1 font-bold" />
                 <nuxt-link :to="{path: communityPath($route.params.slug, 'submissions') }">
                   Submissions
                 </nuxt-link>
               </li>
               <li
-                v-if="$route.params.id"
+                v-if="$route.name === 'slug-submission-id'"
                 class="nav-item"
               >
                 <span style="color:#53D1AF; margin-left: 1.8em;">
@@ -68,7 +68,7 @@ export default {
     this.$nextTick(function () {
       window.addEventListener('scroll', function () {
         const navbar = document.getElementById('menuList')
-        if (navbar.classList) {
+        if (navbar) {
           const navClasses = navbar.classList
           if (document.documentElement.scrollTop >= 60) {
             if (navClasses.contains('shrink') === false) {
@@ -101,6 +101,10 @@ export default {
   font-size: 21px;
 }
 
+.fa{
+  color: rgba(255, 255, 255, .3)
+}
+
 .font-bold{
   font-weight:600;
 }
@@ -129,11 +133,11 @@ export default {
   padding: .5rem 1rem;
   font-size: 19px;
   font-weight: 700;
-  color: rgba(217,217,217,1.00);
+  color: rgba(255,255,255,.8);
 }
 
 .nav-item a{
-  color: rgba(217,217,217,1.00);
+  color: rgba(255,255,255,.8);
 }
 
 .nav-item a:hover{

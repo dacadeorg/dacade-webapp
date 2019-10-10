@@ -6,8 +6,10 @@
           <div v-html="communityData.ChapterData[$route.params.id].chapterDescription" />
 
           <div v-if="communityData.ChapterData[$route.params.id].learningObjective" class="objective-box">
-            <h5 class="h-dark">
-              Learning Objective
+            <h5>
+              <b>
+                Learning Objective
+              </b>
             </h5>
             <span v-html="communityData.ChapterData[$route.params.id].learningObjective" />
           </div>
@@ -59,7 +61,11 @@
           </div> -->
 
           <div v-if="communityData.ChapterData[$route.params.id].additionalChapterMaterials" class="mb-4">
-            <h5>Additional material:</h5>
+            <h5 class="dark-white">
+              <b>
+                Additional material
+              </b>
+            </h5>
 
             <div v-for="item in communityData.ChapterData[$route.params.id].chapterMaterials" :key="item.key" class="list-group additional-material-item">
               <a
@@ -99,6 +105,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  scrollToTop: true,
   data() {
     return {
       nextChapterLinkText: 'Next chapter'

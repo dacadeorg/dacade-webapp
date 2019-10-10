@@ -21,8 +21,10 @@
                 <span class="muted-dark">
                   by
                 </span>
-                <span class="h-dark">
-                  {{ submission.displayName }}
+                <span class="dark-white">
+                  <b>
+                    {{ submission.displayName }}
+                  </b>
                 </span>
                 <div v-if="submission.submissionPoints >= 0">
                   <b class="learning-color">

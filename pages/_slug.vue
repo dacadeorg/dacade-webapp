@@ -14,6 +14,7 @@ import NavigationInCommunity from '@/components/NavigationInCommunity'
 import CommunityNavigation from '@/components/CommunityNavigation'
 
 export default {
+  scrollToTop: true,
   components: {
     NavigationInCommunity,
     CommunityNavigation
