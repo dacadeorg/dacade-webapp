@@ -3,9 +3,9 @@
     <Navigation />
     <div>
       <div class="container">
-        <div class="row">
+        <div v-if="communityDataPreview" class="row">
           <div
-            v-for="(community) in communityDataPreview"
+            v-for="(community) in orderedCommunityDataPreview"
             :key="community.key"
             class="col-md-4 mb-4 sel-com"
           >
@@ -29,7 +29,7 @@
                 </div>
                 <b-card-text class="muted-dark">
                   <div class="muted-dark">
-                    Estimated Time: ~{{ community.time }}min
+                    Estimated Time: ~ {{ community.time }}min
                   </div>
                   <div class="muted-dark">
                     Total Submissions: {{ community.submissions }}
@@ -59,7 +59,13 @@ export default {
   computed: {
     ...mapGetters({
       communityDataPreview: 'content/communityDataPreview'
-    })
+    }),
+    orderedCommunityDataPreview() {
+      const orderedCommunityDataPreview = this.communityDataPreview
+      return Object.values(orderedCommunityDataPreview).sort(function (a, b) {
+        return a.order - b.order
+      })
+    }
   },
   mounted() {
     if (!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0) {
