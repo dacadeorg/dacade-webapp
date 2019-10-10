@@ -17,7 +17,7 @@
       </b-nav-text>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto userPoints">
-        <b-nav-item v-if="loginStatus">
+        <b-nav-item>
           <b class="desktop-only mr-2">{{ getReputation() }} REP</b>
           <i v-b-modal.modal-1 class="fa fa-bars fa-lg" />
           <b-modal
@@ -26,7 +26,13 @@
             header-text-variant="light"
             hide-footer
           >
-            <nuxt-link class="dropdown-item" to="/bounties/">
+            <nuxt-link v-if="!loginStatus" class="dropdown-item" to="/signup/">
+              Signup
+            </nuxt-link>
+            <nuxt-link v-if="!loginStatus" class="dropdown-item" to="/login/">
+              Login
+            </nuxt-link>
+            <nuxt-link v-if="loginStatus" class="dropdown-item" to="/bounties/">
               Bounties
             </nuxt-link>
             <nuxt-link class="dropdown-item" to="/communities/">
@@ -38,18 +44,18 @@
             >
               {{ communityData.name }}
             </span>
-            <CommunityNavigationMobile class="mobile-only" />
-            <nuxt-link class="dropdown-item" to="/notifications/">
+            <CommunityNavigationMobile v-if="loginStatus" class="mobile-only" />
+            <nuxt-link v-if="loginStatus" class="dropdown-item" to="/notifications/">
               Notifications
               <b-badge v-if="getUnreadNotification()>0" class="badge-notification-menu">
                 {{ getUnreadNotification() }}
                 <span class="sr-only">unread messages</span>
               </b-badge>
             </nuxt-link>
-            <nuxt-link class="dropdown-item" to="/profile/">
+            <nuxt-link v-if="loginStatus" class="dropdown-item" to="/profile/">
               Profile
             </nuxt-link>
-            <a class="dropdown-item" @click="logOut">
+            <a v-if="loginStatus" class="dropdown-item" @click="logOut">
               Sign Out
             </a>
           </b-modal>
@@ -58,17 +64,6 @@
             <span class="sr-only">unread messages</span>
           </b-badge>
         </b-nav-item>
-
-        <div v-if="!loginStatus">
-          <nuxt-link class="login-link btn" to="/login">
-            <span>
-              Login
-            </span>
-          </nuxt-link>
-          <nuxt-link class="btn btn-white-outline" to="/signup">
-            <span>Sign up</span>
-          </nuxt-link>
-        </div>
       </b-navbar-nav>
     </b-navbar>
   </div>
@@ -183,17 +178,6 @@ a:not([href]):not([tabindex]):hover{
   vertical-align: unset;
 }
 
-.login-link {
-  color: white;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 10px 30px;
-}
-
-.login-link:hover{
-  color: rgba(255, 255, 255, 0.8);
-}
-
 .nav-divider{
   padding-left: 1em;
   margin-left: 10px;
@@ -202,15 +186,5 @@ a:not([href]):not([tabindex]):hover{
 
 .userPoints{
   font-size: 19px;
-}
-
-/* Mobile only */
-@media (max-width: 768px) {
-  .navbar-brand{
-    margin-left: 0.3rem;
-  }
-  .login-link {
-    padding: 0px;
-  }
 }
 </style>
