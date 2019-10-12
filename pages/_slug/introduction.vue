@@ -156,7 +156,7 @@
           <p>{{ communityData.introductionChallenge }}</p>
 
           <!--Shows sponsor of the community-->
-          <div class="community-sponsor">
+          <div class="community-sponsor mb-8">
             <div class="muted-dark mb-4">
               <i>This community is made possible by</i>
             </div>
@@ -165,8 +165,8 @@
             </a>
           </div>
 
-          <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{ path: communityPath($route.params.slug) }">
-            Start now
+          <nuxt-link class="btn btn-primary btn-lg btn-block" :to="{ path: communityPath($route.params.slug) }">
+            START
           </nuxt-link>
         </div>
       </div>

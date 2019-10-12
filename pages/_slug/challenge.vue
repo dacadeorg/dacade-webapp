@@ -63,7 +63,7 @@
             >
               See your Submission
             </nuxt-link>
-            <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{ path: communityPath($route.params.slug) }">
+            <nuxt-link class="btn btn-primary btn-lg btn-block" :to="{ path: communityPath($route.params.slug) }">
               See Peer Submissions
             </nuxt-link>
           </div>
@@ -117,7 +117,7 @@
                     <span class="help">{{ errors[0] }}</span>
                   </ValidationProvider>
                 </b-form-group>
-                <b-button type="submit" variant="primary" class="mt-2">
+                <b-button type="submit" :disabled="busy" class="btn btn-primary btn-lg mt-2">
                   Submit
                 </b-button>
               </b-form>

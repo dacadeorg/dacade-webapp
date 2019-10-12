@@ -63,7 +63,8 @@ export default {
       'FormTextarea',
       'ImagePlugin',
       'ModalPlugin',
-      'NavbarPlugin'
+      'NavbarPlugin',
+      'TabsPlugin'
     ]
   },
   /*

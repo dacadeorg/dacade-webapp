@@ -70,7 +70,7 @@ export default {
         const navbar = document.getElementById('menuList')
         if (navbar) {
           const navClasses = navbar.classList
-          if (document.documentElement.scrollTop >= 60) {
+          if (document.documentElement.scrollTop >= 30) {
             if (navClasses.contains('shrink') === false) {
               navClasses.toggle('shrink')
             }

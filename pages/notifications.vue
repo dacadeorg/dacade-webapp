@@ -114,10 +114,20 @@ export default {
 
 .unread {
   color: rgba(255,255,255,.8);
-  border-bottom: 2px solid #53d1af;
+  border-bottom: 2px solid rgba(255,255,255,.8);
+  /* animation: glow 0.5s infinite alternate; */
 }
 
 .unread a{
   color: rgba(255,255,255,.8);
 }
+
+/* @keyframes glow {
+  from {
+    border-bottom: 2px solid rgba(255,255,255,.8);
+  }
+  to {
+    border-bottom: 2px solid rgba(255,255,255,.0);
+  }
+} */
 </style>

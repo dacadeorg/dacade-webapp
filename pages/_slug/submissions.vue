@@ -3,11 +3,12 @@
     <div class="row marketing">
       <div class="col-lg-8">
         <div class="site-wraper">
-          <div>
+          <div class="mb-6">
             <b-card
               v-for="(submission, key) in submissions"
               :key="submission.key"
               class="bg-dark mb-4 small-shadow"
+              style="border-bottom: 2px solid rgb(83, 209, 175)"
             >
               <nuxt-link
                 :to="{path: submissionPath($route.params.slug, key) }"
@@ -15,7 +16,7 @@
                 <span class="float-right muted-dark">
                   {{ convertDate(submission.date) }}
                 </span>
-                <b class="learning-color">
+                <b>
                   Submission
                 </b>
                 <span class="muted-dark">
@@ -36,7 +37,9 @@
                 </b-card-text>
               </nuxt-link>
             </b-card>
-            <b-button v-if="showMoreButton" @click.prevent="getSubmissions()">
+          </div>
+          <div class="text-center">
+            <b-button v-if="showMoreButton" @click.prevent="getSubmissions()" class="btn-outline-primary btn-block">
               Show More
             </b-button>
           </div>
@@ -119,6 +122,10 @@ export default {
 
 a{
   color:rgba(255,255,255,.5);
+}
+
+.btn-secondary {
+  background: none;
 }
 
 a:hover{

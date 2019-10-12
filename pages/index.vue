@@ -50,8 +50,8 @@
             </div>
 
             <div class="learn-more-button">
-              <nuxt-link class="btn btn-primary btn-lg" to="/communities">
-                LEarn
+              <nuxt-link class="btn btn-start btn-lg" to="/communities">
+                START
               </nuxt-link>
             </div>
           </section>
@@ -65,7 +65,7 @@
                     <h4>
                       Learn
                     </h4>
-                    <p>Dacade offers practical active learning with real human feedback while being scaleable and affordable.</p>
+                    <p>Dacade offers practical, active learning with real human feedback while being scaleable and affordable.</p>
                   </div>
                 </div>
                 <div class="col-sm mb-6">
@@ -83,7 +83,7 @@
                     <h4>
                       Own
                     </h4>
-                    <p>Dacade is designed as an open source, community owned platform, where decsions are made and data is owned by it's users.</p>
+                    <p>Dacade is envisioned as an open source, community owned platform, where decsions are made and data is owned by it's users.</p>
                   </div>
                 </div>
               </div>
@@ -116,7 +116,7 @@
                         Introduction <br>to Blockchain
                       </h4>
                       <p class="muted-dark">
-                        Learn the most important concepts for blockchain technology.
+                        Learn the most important concepts of blockchain technology.
                       </p>
                     </b-card-text>
                   </b-card>
@@ -249,7 +249,7 @@
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
-                        <h4><b class="learning-color points">800</b></h4>
+                        <h4><b class="learning-color points">750</b></h4>
                         <h4><b class="learning-color">Submissions</b></h4>
                         <span class="muted-dark">to the challenges by Learners who finnished the community tutorials.</span>
                       </b-card-text>
@@ -327,7 +327,7 @@
                   <b-img rounded="circle" alt="Circle image" width="96px" src="/img/add_person2.png" class="mb-3" />
                   <h4>YOU<br><br></h4>
                   <p class="muted-dark">
-                    Contribute to dacade and help to create a peer learning revolution
+                    Contribute to dacade and help to create effective change
                   </p>
                 </div>
               </div>
@@ -336,9 +336,12 @@
 
           <!-- Contact -->
           <section class="pb-md-5">
-            <h2 class="mb-6">
+            <h2 class="mb-2">
               Join our Community
             </h2>
+            <p class="lead text-cover mx-auto mb-6">
+              Dacade has an active community with over 250 blockchain learners from all over the world in our telegram channel. Join us!
+            </p>
             <button type="button" class="btn btn-outline-primary btn-lg">
               On telegram
             </button>
@@ -346,9 +349,12 @@
 
           <section>
             <div class="pb-md-5">
-              <h2 class="mb-6">
+              <h2 class="mb-2">
                 In Collaboration with
               </h2>
+              <p class="lead text-cover mx-auto mb-4">
+                We are looking forward to cooperate with more blockchain projects in the future. If this is interesting for you, please get in touch.
+              </p>
             </div>
 
             <div class="container pb-md-5">

@@ -76,9 +76,9 @@
                 @click="trackClick(item.materialTitle)"
               >
                 {{ item.materialTitle }}
-                <span>
-                  ⏱️ {{ item.materialTime }} min
-                </span>
+                <b class="muted">
+                  {{ item.materialTime }} min
+                </b>
               </a>
             </div>
           </div>
@@ -89,8 +89,7 @@
               <a class="underline" href="https://t.me/dacade">telegram</a>!
             </i>
           </div>
-
-          <nuxt-link class="btn btn-outline-primary btn-lg btn-block" :to="{ path: chapterPath($route.params) }">
+          <nuxt-link class="btn btn-primary btn-lg btn-block" :to="{ path: chapterPath($route.params) }">
             {{ nextChapterLinkText }}
           </nuxt-link>
         </div>
@@ -145,6 +144,10 @@ a{
 
 .btn-code{
   color:white;
+}
+
+.btn-primary{
+  color: white;
 }
 
 .code-link{

@@ -5,12 +5,13 @@
         <!-- Submission Card -->
         <b-card
           class="bg-dark mb-4 small-shadow-no-hover"
+          style="border-bottom: 2px solid rgb(83, 209, 175)"
         >
           <span class="float-right muted-dark">
             {{ convertDate(submission.date) }}
           </span>
           <b-card-text>
-            <span class="learning-color">
+            <span>
               <b>
                 Submission
               </b>
@@ -31,15 +32,12 @@
             v-if="submission.githubLink"
             class="github-link"
           >
-            <a class="btn btn-dark" target="blank" :href="submission.githubLink">GitHub Code</a>
-            <i>Click to see the code on GitHub</i>
-
+            <a class="btn btn-code" target="blank" :href="submission.githubLink">GitHub Code</a>
             <div
               v-if="getGithubUrl"
               class="github-url"
             >
-              <a class="btn btn-dark" target="blank" :href="getGithubUrl">Website</a>
-              <i>Click to see the Website</i>
+              <a class="btn btn-code" target="blank" :href="getGithubUrl">Website</a>
             </div>
             <div v-if="submission.submissionPoints" class="evaluation-points mt-4">
               <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span>
@@ -55,12 +53,13 @@
         <section v-if="evaluation">
           <b-card
             class="bg-dark mb-4 small-shadow-no-hover"
+            style="border-bottom: 2px solid #ffcc00"
           >
             <span class="float-right muted-dark">
               {{ convertDate(evaluation.date) }}
             </span>
             <b-card-text>
-              <span class="earning-color">
+              <span>
                 <b>
                   Evaluation
                 </b>
@@ -88,12 +87,12 @@
               <div v-if="submission.submissionReward > 1">
                 <span class="dark-white">
                   <b>
-                    Reward
+                    Reward:
                   </b>
                 </span>
                 <span class="earning-color">
                   <b>
-                    +{{ submission.submissionReward }}$
+                    {{ submission.submissionReward }}$
                   </b>
                 </span>
                 <div>Congratulations you gained at least {{ communityData.challengeThreshold }}% of the available learning points.</div>
@@ -108,12 +107,13 @@
             v-for="getReview in feedback"
             :key="getReview.key"
             class="bg-dark small-shadow-no-hover mb-4"
+            style="border-bottom: 2px solid #9c58ff"
           >
             <span class="float-right muted-dark">
               {{ convertDate(getReview.date) }}
             </span>
             <b-card-text>
-              <span class="teaching-color">
+              <span>
                 <b>
                   Feedback
                 </b>
@@ -125,7 +125,7 @@
                 <b>
                   {{ getReview.reviewDisplayName }}
                 </b>
-                <span class="muted-dark">(</span><span class="teaching-color">{{ parseFloat(reviewerReputation[getReview.reviewUserId]).toFixed(0) }} REP</span><span class="muted-dark">)</span>
+                <span class="muted-dark">(</span><b class="teaching-color">{{ parseFloat(reviewerReputation[getReview.reviewUserId]).toFixed(0) }} REP</b><span class="muted-dark">)</span>
               </span>
             </b-card-text>
             <b-card-text>
@@ -135,10 +135,9 @@
               v-if="getReview.reviewCodeLink"
               class="github-link"
             >
-              <a class="btn btn-dark" target="blank" :href="getReview.reviewCodeLink">Code Review</a>
-              <i>Click to see GitHub Pull Request</i>
+              <a class="btn btn-code" target="blank" :href="getReview.reviewCodeLink">Code Review</a>
             </div>
-            <div v-if="getReview.rewardAmount" class="mt-3">
+            <div v-if="getReview.rewardAmount">
               <b class="earning-color mr-1">+{{ getReview.rewardAmount }}$</b>
               <b class="teaching-color">+{{ getReview.rewardAmount }}REP</b>
             </div>
@@ -196,7 +195,7 @@
                   <span class="help">{{ errors[0] }}</span>
                 </ValidationProvider>
               </div>
-              <b-button type="submit" variant="primary" class="mt-4">
+              <b-button class="btn btn-primary btn-lg">
                 Submit
               </b-button>
             </b-form>
