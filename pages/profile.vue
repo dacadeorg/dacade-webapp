@@ -89,9 +89,9 @@
           </div>
         </div>
         <div v-else class="mb-4">
-          <h4>
-            You didn't earn reputation in any community yet.
-          </h4>
+          <p>
+            You didn't earn any reputation in a community yet.
+          </p>
         </div>
       </section>
 
@@ -122,9 +122,9 @@
           </div>
         </div>
         <div v-else class="mb-4">
-          <h4>
-            You haven't solved a challenge in any community yet.
-          </h4>
+          <p>
+            You haven't solved a challenge.
+          </p>
         </div>
       </section>
     </div>

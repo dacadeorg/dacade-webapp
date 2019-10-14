@@ -131,7 +131,9 @@ a{
 a:hover{
   text-decoration: none;
 }
-
+.small-shadow{
+  border: 1.6px solid #00000000;
+}
 .small-shadow:hover{
   border: 1.6px solid #53d1af;
 }
