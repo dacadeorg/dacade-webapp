@@ -195,7 +195,7 @@
                   <span class="help">{{ errors[0] }}</span>
                 </ValidationProvider>
               </div>
-              <b-button class="btn btn-primary btn-lg">
+              <b-button type="submit" class="btn btn-primary btn-lg">
                 Submit
               </b-button>
             </b-form>

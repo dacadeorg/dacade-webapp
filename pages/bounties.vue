@@ -17,26 +17,37 @@
               </h5>
               <h5 v-else class="dark-white">
                 <b>
-                  Submission
+                  {{ openBounty.typ }}
                 </b>
               </h5>
               <div>
-                Community:
                 <b :style="{ color: openBounty.color }">
                   {{ openBounty.lcName }}
                 </b>
               </div>
+              <div v-if="openBounty.bountyText">
+                  {{ openBounty.bountyText }}
+              </div>
               <div>
-                Reward:
+                <span class="muted-dark">Reward:</span>
                 <b class="earning-color">
                   {{ openBounty.reward }}$
                 </b>
               </div>
               <div v-if="openBounty.hoursLeft">
-                Hours left:
+                <span class="muted-dark">Hours left:</span>
                 <b>
                   -{{ openBounty.hoursLeft }}h
                 </b>
+              </div>
+              <div v-if="openBounty.typ === 'review'" class="muted-dark">
+                <span>Feedback:</span>
+                <span v-if="openBounty.reviews">
+                  {{ Object.keys(openBounty.reviews).length }}
+                </span>
+                <span v-else>
+                  0
+                </span>
               </div>
             </nuxt-link>
           </div>
@@ -67,11 +78,14 @@ export default {
     })
   },
   async asyncData({ params }) {
-    let submissions = {}
+    let submissions, bountiesDb
     await firebase.database().ref(`openSubmissions`).once('value').then((snapShot) => {
       submissions = snapShot.val()
     })
-    return { submissions }
+    await firebase.database().ref(`bounties`).once('value').then((snapShot) => {
+      bountiesDb = snapShot.val()
+    })
+    return { submissions, bountiesDb }
   },
   mounted() {
     if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
@@ -99,6 +113,7 @@ export default {
                 return obj.slug === element.communityId
               })
               element.typ = 'review'
+              // element.feedback = element.reviews
               element.lcName = result[0].name
               element.link = `/${result[0].slug}/submission/${Object.keys(this.submissions)[index]}`
               element.color = result[0].color
@@ -113,12 +128,22 @@ export default {
           }
         }
       }
+      for (let index = 0; index < Object.values(this.bountiesDb).length; index++) {
+        const element = {}
+        element.typ = Object.values(this.bountiesDb)[index].type
+        element.lcName = Object.values(this.bountiesDb)[index].community
+        element.color = Object.values(this.bountiesDb)[index].color
+        element.link = `${Object.values(this.bountiesDb)[index].link}`
+        element.bountyText = Object.values(this.bountiesDb)[index].text
+        element.reward = Object.values(this.bountiesDb)[index].reward
+        bounties.push(element)
+      }
       // Get open submissions for user
       for (let index = 0; index < Object.values(this.communityDataPreview).length; index++) {
         // todo change slug to Id
         if (!Object.keys(this.userLearningPoints).includes(Object.keys(this.communityDataPreview)[index])) {
           const element = {}
-          element.typ = 'submission'
+          element.typ = 'Submission'
           element.lcName = Object.values(this.communityDataPreview)[index].name
           element.color = Object.values(this.communityDataPreview)[index].color
           element.link = `/${Object.keys(this.communityDataPreview)[index]}/challenge/`
