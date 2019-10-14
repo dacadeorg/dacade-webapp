@@ -133,7 +133,7 @@
             </b-card-text>
             <div
               v-if="getReview.reviewCodeLink"
-              class="github-link"
+              class="github-link mb-4"
             >
               <a class="btn btn-code" target="blank" :href="getReview.reviewCodeLink">Code Review</a>
             </div>
@@ -173,7 +173,7 @@
                 </ValidationProvider>
               </b-form-group>
 
-              <div v-if="communityData.reviewCodeLink" style="width:100%;">
+              <div v-if="communityData.reviewCodeLink" style="width:100%;" class="mb-4">
                 <h5 class="dark-white mb-2">
                   <b>
                     GitHub Pull Request
@@ -262,6 +262,7 @@ export default {
   },
   created() {
     this.getReputation(this.feedback)
+    this.$store.commit('content/setSubmissionDisplayName', this.submission.displayName)
   },
   methods: {
     jobsDone() {

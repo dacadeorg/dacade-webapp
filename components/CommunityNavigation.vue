@@ -42,7 +42,7 @@
                 class="nav-item"
               >
                 <span style="color:#53D1AF; margin-left: 1.8em;">
-                  Submission
+                  Submission by {{ submissionDisplayName }}
                 </span>
               </li>
             </ul>
@@ -61,7 +61,8 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      communityData: 'content/communityData'
+      communityData: 'content/communityData',
+      submissionDisplayName: 'content/submissionDisplayName'
     })
   },
   mounted() {

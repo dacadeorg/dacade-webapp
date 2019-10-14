@@ -7,7 +7,8 @@ const db = firebase.database()
 
 export const state = () => ({
   communityData: [],
-  communityDataPreview: []
+  communityDataPreview: [],
+  submissionDisplayName: null
 })
 
 export const mutations = {
@@ -16,6 +17,9 @@ export const mutations = {
   },
   setCommunityDataPreview(state, payload) {
     state.communityDataPreview = payload
+  },
+  setSubmissionDisplayName(state, payload) {
+    state.submissionDisplayName = payload
   }
 }
 
@@ -40,5 +44,8 @@ export const getters = {
   },
   communityDataPreview(state) {
     return state.communityDataPreview
+  },
+  submissionDisplayName(state) {
+    return state.submissionDisplayName
   }
 }
