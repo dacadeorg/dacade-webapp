@@ -15,28 +15,34 @@
           </b-button>
         </div>
       </div>
-      <div class="offset-md-3 col-lg-6">
+      <div v-if="submissions" class="offset-md-3 col-lg-6">
         <div>
           <b-card
-            v-for="( submission, key ) in submissions"
-            :key="key"
+            v-for="( openBounty ) in getOpenBounties()"
+            :key="openBounty.id"
             class="mb-4"
             bg-variant="dark"
             text-variant="white"
-            :title="convertDate(submission.date)"
           >
             <b-card-text>
-              <b>
-                {{ submission.communityId }}
+              <h3>
+                {{ openBounty.hoursLeft }} h
+              </h3>
+              <b :style="{ color: openBounty.color }">
+                {{ openBounty.communityId }}
               </b>
+              {{ convertDate(openBounty.date) }}
             </b-card-text>
             <b-card-text class="mb-4">
-              {{ submission.displayName }}:
+              {{ openBounty.displayName }}:
               <span class="muted-dark">
-                {{ contentPreview(submission.text) }}..
+                {{ contentPreview(openBounty.text) }}..
               </span>
+            <b v-if="openBounty.reviews" class="muted-dark">
+              Feedback: {{ Object.keys(openBounty.reviews).length }}
+            </b>
             </b-card-text>
-            <nuxt-link class="btn-dark mt-2" :to="{path: submissionPath($route.params.slug, key, submission.communityId) }">
+            <nuxt-link class="btn-dark mt-2" :to="openBounty.link">
               See Submission
             </nuxt-link>
           </b-card>
@@ -89,6 +95,35 @@ export default {
     async getSubmissions() {
       await firebase.database().ref(`openSubmissions`).once('value').then((snapShot) => {
         this.submissions = snapShot.val()
+      })
+    },
+    getOpenBounties() {
+      // Todo: Exlude submission if user hasn't made a submission to the community yet
+      const bounties = []
+      // Get all bounty reviews
+      if (this.submissions && Object.keys(this.communityDataPreview).length) {
+        // Loop over all submissions to get the submissons that needs a review
+        for (let index = 0; index < Object.keys(this.submissions).length; index++) {
+          const element = Object.values(this.submissions)[index]
+          // Get the communityData preview for the submission
+          const result = Object.values(this.communityDataPreview).filter((obj) => {
+            return obj.slug === element.communityId
+          })
+          element.typ = 'review'
+          // element.feedback = element.reviews
+          element.lcName = result[0].name
+          element.link = `/${result[0].slug}/submission/${Object.keys(this.submissions)[index]}`
+          element.color = result[0].color
+          element.reward = result[0].reviewReward
+          const endTime = element.date + (result[0].bountyTime * 60 * 60 * 1000)
+          element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
+          if (element.hoursLeft < 0) {
+            bounties.push(element)
+          }
+        }
+      }
+      return Object.values(bounties).sort(function (a, b) {
+        return a.hoursLeft - b.hoursLeft
       })
     }
   }
