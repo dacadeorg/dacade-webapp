@@ -95,6 +95,17 @@ export const actions = {
               return firebase.database().ref(`users/${user.uid}`).set(userData)
             })
             .then(() => {
+              const notification = {
+                date: Date.now(),
+                displayName: payload.name,
+                link: '/communities',
+                message: `👋 Welcome to dacade ${payload.name}! In this notification view, you will be notified about your successes, like earnings from your submissions and reviews. To get started, click on this link and choose a learning community.`,
+                notificationRead: false,
+                userId: user.uid
+              }
+              return firebase.database().ref(`notifications/${user.uid}`).push(notification)
+            })
+            .then(() => {
               commit('setJobDone', true)
               commit('setBusy', false)
             })
@@ -137,7 +148,18 @@ export const actions = {
   setUserNotificationSeen({ commit }, payload) {
     db.ref(`notifications/${payload.userId}/${payload.id}/notificationRead`).set(true)
       .then(() => {
-        console.log('success user notification changed to seen')
+        commit('setJobDone', true)
+        commit('setBusy', false)
+      })
+      .catch((error) => {
+        commit('setBusy', false)
+        commit('setError', error)
+      })
+  },
+  addUserNotification({ commit }, payload) {
+    db.ref(`notifications/${payload.userId}`).push(payload)
+      .then(() => {
+        console.log('success user notification added')
       })
       .catch((error) => {
         console.log('error', error)

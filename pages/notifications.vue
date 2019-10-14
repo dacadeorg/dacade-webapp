@@ -89,6 +89,7 @@ export default {
 
 <style scoped>
 .notification {
+  border: 1.6px solid #00000000;
   border-radius: 0.35rem;
   background: #343b42;
   padding: 1em;

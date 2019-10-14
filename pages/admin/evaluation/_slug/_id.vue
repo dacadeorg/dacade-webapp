@@ -282,7 +282,7 @@ export default {
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
       this.$store.dispatch('admin/updateBalance', balanceUpdate)
       this.$store.dispatch('admin/addLearningPoints', addLearningPoints)
-      this.$store.dispatch('admin/addUserNotification', userNotification)
+      this.$store.dispatch('addUserNotification', userNotification)
     },
     submitReviewEvaluation(review, key) {
       const reviewUpdate = {
@@ -319,7 +319,7 @@ export default {
       this.$store.dispatch('admin/updateReview', reviewUpdate)
       this.$store.dispatch('admin/updateBalance', balanceUpdate)
       this.$store.dispatch('admin/updateReputation', reputationUpdate)
-      this.$store.dispatch('admin/addUserNotification', userNotification)
+      this.$store.dispatch('addUserNotification', userNotification)
     },
     back() {
       this.$router.back()
