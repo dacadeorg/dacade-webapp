@@ -33,12 +33,11 @@
             class="github-link"
           >
             <a class="btn btn-code" target="blank" :href="submission.githubLink">GitHub Code</a>
-            <div
+            <span
               v-if="getGithubUrl"
-              class="github-url"
             >
-              <a class="btn btn-code" target="blank" :href="getGithubUrl">Website</a>
-            </div>
+              <a class="btn btn-code" target="blank" :href="getGithubUrl()">Website</a>
+            </span>
             <div v-if="submission.submissionPoints" class="evaluation-points mt-4">
               <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span>
               </b>
@@ -230,17 +229,7 @@ export default {
     ...mapGetters({
       user: 'user',
       communityData: 'content/communityData'
-    }),
-    getGithubUrl() {
-      let newUrl = null
-      const str = this.submission.githubLink
-      if (str.includes('https://github.com/')) {
-        const urlsplit = str.split('https://github.com/')
-        const urlsplit2 = urlsplit[1].split('/')
-        const newUrl = 'https://' + urlsplit2[0] + '.github.io/' + urlsplit2[1]
-      }
-      return newUrl
-    }
+    })
   },
   async asyncData({ params }) {
     let submission, feedback, evaluation
@@ -335,6 +324,16 @@ export default {
           }
         }
       }
+    },
+    getGithubUrl() {
+      let newUrl = null
+      const str = this.submission.githubLink
+      if (str.includes('https://github.com/')) {
+        const urlsplit = str.split('https://github.com/')
+        const urlsplit2 = urlsplit[1].split('/')
+        newUrl = 'https://' + urlsplit2[0] + '.github.io/' + urlsplit2[1]
+      }
+      return newUrl
     }
   }
 }
