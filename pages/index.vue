@@ -77,7 +77,7 @@
                     <p>You have the possibility to earn cryptocurrencies by solving challenges and giving feedback to your peers.</p>
                   </div>
                 </div>
-                <div class="col-sm mb-6">
+                <div class="col-sm">
                   <div>
                     <img src="/img/usp-key.png" alt="">
                     <h4>
