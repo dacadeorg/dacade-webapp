@@ -195,7 +195,7 @@
                   <span class="help">{{ errors[0] }}</span>
                 </ValidationProvider>
               </div>
-              <b-button type="submit" class="btn btn-primary btn-lg">
+              <b-button type="submit" id="submitButton" class="btn btn-primary btn-lg">
                 Submit
               </b-button>
             </b-form>
@@ -276,6 +276,7 @@ export default {
     },
     onSubmit() {
       if (!this.busy) {
+        document.getElementById('submitButton').disabled = true
         this.review.reviewDisplayName = this.user.displayName
         this.review.reviewUserId = this.user.id
         this.review['.key'] = this.$route.params.id

@@ -117,7 +117,7 @@
                     <span class="help">{{ errors[0] }}</span>
                   </ValidationProvider>
                 </b-form-group>
-                <b-button type="submit" :disabled="busy" class="btn btn-primary btn-lg mt-2">
+                <b-button type="submit" id="submitButton" class="btn btn-primary btn-lg mt-2">
                   Submit
                 </b-button>
               </b-form>
@@ -165,6 +165,7 @@ export default {
       return `/${slug}/submission/${submissionKey}`
     },
     onSubmit() {
+      document.getElementById('submitButton').disabled = true
       this.submission.communityId = this.communityData.id
       this.submission.displayName = this.user.displayName
       this.submission.userId = this.user.id
