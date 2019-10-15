@@ -42,12 +42,12 @@
               </div>
               <div v-if="openBounty.typ === 'review'" class="muted-dark">
                 <span>Feedback:</span>
-                <span v-if="openBounty.reviews">
+                <b v-if="openBounty.reviews">
                   {{ Object.keys(openBounty.reviews).length }}
-                </span>
-                <span v-else>
+                </b>
+                <b v-else>
                   0
-                </span>
+                </b>
               </div>
             </nuxt-link>
           </div>

@@ -91,7 +91,7 @@
           </section>
 
           <section>
-            <div class="pb-md-5 text-cover mx-auto">
+            <div class="text-cover mx-auto mb-6">
               <h2>
                 Learning Communities
               </h2>
@@ -170,13 +170,13 @@
           </section>
 
           <section>
-            <div class="pb-md-5 mb-4">
+            <div class="mb-6">
               <h2>
                 User Stories
               </h2>
             </div>
 
-            <div class="container pb-md-5">
+            <div class="container">
               <div class="row">
                 <div class="col-sm mb-4">
                   <div>
@@ -217,7 +217,7 @@
           </section>
 
           <section>
-            <div class="pb-md-5 mb-6">
+            <div class="mb-6">
               <h2>
                 Stats
               </h2>
@@ -278,7 +278,7 @@
           </section>
 
           <section>
-            <div class="pb-md-5 mb-6">
+            <div class="mb-6">
               <h2>
                 Contributors
               </h2>
@@ -287,7 +287,7 @@
               </p>
             </div>
 
-            <div class="container pb-md-5">
+            <div class="container">
               <div class="row">
                 <div class="col-sm mb-4">
                   <b-img rounded="circle" alt="Circle image" width="96px" src="/img/moritz-pic.png" class="mb-3" />
@@ -335,7 +335,7 @@
           </section>
 
           <!-- Contact -->
-          <section class="pb-md-5">
+          <section>
             <h2 class="mb-2">
               Join our Community
             </h2>
@@ -348,7 +348,7 @@
           </section>
 
           <section>
-            <div class="pb-md-5">
+            <div class="mb-6">
               <h2 class="mb-2">
                 In Collaboration with
               </h2>
@@ -697,6 +697,12 @@ section{
 
   .stats-column {
     padding: 0 2em;
+  }
+
+  .cover-img {
+    margin: 4em auto 3em auto;
+    max-width: 500px;
+    width: 90%;
   }
 }
 
