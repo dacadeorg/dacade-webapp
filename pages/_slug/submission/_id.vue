@@ -276,11 +276,11 @@ export default {
     },
     onSubmit() {
       if (!this.busy) {
-        document.getElementById('submitButton').disabled = true
         this.review.reviewDisplayName = this.user.displayName
         this.review.reviewUserId = this.user.id
         this.review['.key'] = this.$route.params.id
         this.$store.dispatch('reviews/createReview', this.review)
+        document.getElementById('submitButton').disabled = true
       }
     },
     getRatingCriteria(input, input2) {

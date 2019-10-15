@@ -165,11 +165,11 @@ export default {
       return `/${slug}/submission/${submissionKey}`
     },
     onSubmit() {
-      document.getElementById('submitButton').disabled = true
       this.submission.communityId = this.communityData.id
       this.submission.displayName = this.user.displayName
       this.submission.userId = this.user.id
       this.$store.dispatch('submissions/createSubmission', this.submission)
+      document.getElementById('submitButton').disabled = true
     },
     jobsDone() {
       this.removeErrors()
