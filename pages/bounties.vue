@@ -99,6 +99,7 @@ export default {
     getOpenBounties() {
       // Todo: Exlude submission if user hasn't made a submission to the community yet
       const bounties = []
+      const userSubmissions = []
       // Get all bounty reviews
       if (this.submissions && Object.keys(this.communityDataPreview).length) {
         // Loop over all submissions to get the submissons that needs a review
@@ -125,6 +126,11 @@ export default {
                 bounties.push(element)
               }
             }
+          } else {
+            const result = Object.values(this.communityDataPreview).filter((obj) => {
+              return obj.slug === element.communityId
+            })
+            userSubmissions.push(result[0].slug)
           }
         }
       }
@@ -139,9 +145,10 @@ export default {
         bounties.push(element)
       }
       // Get open submissions for user
+      console.log(userSubmissions)
       for (let index = 0; index < Object.values(this.communityDataPreview).length; index++) {
         // todo change slug to Id
-        if (!Object.keys(this.userLearningPoints).includes(Object.keys(this.communityDataPreview)[index])) {
+        if (!Object.keys(this.userLearningPoints).includes(Object.keys(this.communityDataPreview)[index]) && !userSubmissions.includes(Object.keys(this.communityDataPreview)[index])) {
           const element = {}
           element.typ = 'Submission'
           element.lcName = Object.values(this.communityDataPreview)[index].name
