@@ -109,7 +109,7 @@ export default {
           balance = balance + this.userBalance[key]
         }
       }
-      return balance
+      return parseFloat(balance).toFixed(0)
     },
     getSectionName(route) {
       if (route.name === 'notifications') {

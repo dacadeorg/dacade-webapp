@@ -124,7 +124,7 @@ export default {
       if (this.userReputation && this.userReputation[this.communityData.id]) {
         reputation = this.userReputation[this.communityData.id]
       }
-      return reputation
+      return parseFloat(reputation).toFixed(0)
     }
   }
 }

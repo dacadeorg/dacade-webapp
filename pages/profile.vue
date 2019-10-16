@@ -26,7 +26,7 @@
               <h4 v-for="(balance, key) in userBalance" :key="balance.id">
                 {{ key }} token:
                 <b class="earning-color">
-                  {{ balance }}$
+                  {{ parseFloat(balance).toFixed(0) }}$
                 </b>
               </h4>
               <div v-b-modal.modal-cashout class="btn-cash-out btn mt-2 mb-6">
