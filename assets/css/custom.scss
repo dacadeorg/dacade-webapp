@@ -54,6 +54,10 @@ body {
   border-bottom: 1px solid #181a1f;
 }
 
+.modal-backdrop:not(.show):not(.fade) {
+  opacity: 0.8;
+}
+
 .nav-tabs a{
   color: #53d1af;
 }

@@ -83,7 +83,7 @@
                     <h4>
                       Own
                     </h4>
-                    <p>Dacade is envisioned as an open source, community owned platform, where decsions are made and data is owned by it's users.</p>
+                    <p>We envision dacade as an open source, community-owned platform, where decisions are made and data is owned by it's users.</p>
                   </div>
                 </div>
               </div>
@@ -251,7 +251,7 @@
                       <b-card-text class="text-center mt-4">
                         <h4><b class="learning-color points">750</b></h4>
                         <h4><b class="learning-color">Submissions</b></h4>
-                        <span class="muted-dark">to the challenges by Learners who finnished the community tutorials.</span>
+                        <span class="muted-dark">To the challenges by Learners who finished the community tutorials.</span>
                       </b-card-text>
                     </b-card>
                   </div>
@@ -312,7 +312,7 @@
                   <div>
                     <h4>Alexandre Peschel</h4>
                     <p class="muted-dark">
-                      CEO of APE Unit, Blockchain developer network
+                      CEO of Ape Unit, Blockchain design and development network
                     </p>
                   </div>
                 </div>
@@ -320,7 +320,7 @@
                   <b-img rounded="circle" alt="Circle image" width="96px" src="/img/emin.jpg" class="mb-3" />
                   <h4>Emin <br> Mahrt</h4>
                   <p class="muted-dark">
-                    CPO of Aeternity, <br> a third generation Blockchain
+                    CPO of Æternity, <br> a third generation Blockchain
                   </p>
                 </div>
                 <div class="col-sm mb-4">
@@ -650,6 +650,10 @@ section{
 
 .sel-com .card-text{
   padding: 0 1.2rem;
+}
+
+.sel-com article{
+  border: 1.6px solid #00000000;
 }
 
 .sel-com article:hover{

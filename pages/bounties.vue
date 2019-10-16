@@ -158,7 +158,9 @@ export default {
           bounties.push(element)
         }
       }
-      return Object.values(bounties)
+      return Object.values(bounties).sort(function (a, b) {
+        return a.hoursLeft - b.hoursLeft
+      })
     }
   }
 }
