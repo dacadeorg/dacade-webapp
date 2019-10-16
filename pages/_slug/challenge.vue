@@ -4,7 +4,7 @@
       <div class="col-lg-8">
         <div class="site-wraper">
           <p v-if="communityData.challengeDescription">
-            <i class="dacade-note">{{ communityData.challengeDescription }}</i>
+            <i class="dacade-note muted-dark">{{ communityData.challengeDescription }}</i>
           </p>
 
           <h4 class="dark-white">
@@ -14,9 +14,9 @@
           </h4>
           <div v-html="communityData.challenge" />
 
-          <div v-if="communityData.challengeExampleSubmissionId">
+          <!-- <div v-if="communityData.challengeExampleSubmissionId">
             <span class="btn btn-dark-outline mt-4 mb-4" @click="SendToExample(communityData.challengeExampleSubmissionId)">See example</span>
-          </div>
+          </div> -->
 
           <div class="learning-points-box mb-6">
             <h5 class="learning-color">
@@ -34,18 +34,6 @@
               <span>✓ {{ criteria }}</span>
             </div>
           </div>
-
-          <!-- <div class="submissions-earnings">
-            There were already
-            <span>
-                <b>{{getSubmissionFromLcId()[0]}}</b> Submissions
-            </span>
-            issued in this community and
-            <span>
-            </span>
-                <b>{{getSubmissionFromLcId()[1]}}$</b> earned.
-            </span>
-          </div> -->
 
           <div v-if="submissionDb">
             <div v-if="Object.values(submissionDb)[0].submissionPoints != null">
