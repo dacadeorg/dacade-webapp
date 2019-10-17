@@ -38,9 +38,14 @@
               <span class="muted-dark">
                 {{ contentPreview(openBounty.text) }}..
               </span>
-            <b v-if="openBounty.reviews" class="muted-dark">
-              Feedback: {{ Object.keys(openBounty.reviews).length }}
-            </b>
+              <div v-if="openBounty.reviews">
+                <b class="muted">
+                  Feedback:
+                </b>
+                <b class="teaching-color">
+                  {{ Object.keys(openBounty.reviews).length }}
+                </b>
+              </div>
             </b-card-text>
             <nuxt-link class="btn-dark mt-2" :to="openBounty.link">
               See Submission

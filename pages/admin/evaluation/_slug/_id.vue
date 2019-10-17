@@ -79,14 +79,12 @@
             id="input-2-1"
             v-model="evaluation.originalityValue"
             type="number"
-            required
             placeholder="1"
           />
           <b-form-textarea
             id="input-2"
             v-model="evaluation.originalityText"
             type="text"
-            required
             rows="6"
             placeholder="Enter Feedback Originality"
           />
@@ -272,7 +270,7 @@ export default {
       const userNotification = {
         date: Date.now(),
         link: `/${this.submission.communityId}/submission/${key}`,
-        message: `Good job, ${submissionUpdate.displayName}! You received: ${addLearningPoints.learningPoints} 
+        message: `Hello, ${submissionUpdate.displayName}! You received: ${addLearningPoints.learningPoints} 
         of ${this.communityDataPreview[this.submission.communityId].submissionPoints} Learning Points for your submission in the
         Learning Community '${this.communityDataPreview[this.submission.communityId].name}'. 
         This means you earned a reward of ${balanceUpdate.rewardAmount}$ in ${balanceUpdate.rewardToken} token.`,

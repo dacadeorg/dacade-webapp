@@ -153,7 +153,7 @@ export default {
           element.typ = 'Submission'
           element.lcName = Object.values(this.communityDataPreview)[index].name
           element.color = Object.values(this.communityDataPreview)[index].color
-          element.link = `/${Object.keys(this.communityDataPreview)[index]}/challenge/`
+          element.link = `/${Object.keys(this.communityDataPreview)[index]}/introduction/`
           element.reward = Object.values(this.communityDataPreview)[index].submissionReward
           bounties.push(element)
         }
