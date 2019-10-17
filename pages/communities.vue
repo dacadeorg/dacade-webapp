@@ -96,6 +96,9 @@ export default {
   .container{
     margin-top:4rem;
   }
+  .sel-com article{
+    border: 1.6px solid #00000000;
+  }
   .sel-com article:hover{
     border: 1.6px solid #53d1af;
   }

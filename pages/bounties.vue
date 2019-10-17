@@ -40,7 +40,7 @@
                   -{{ openBounty.hoursLeft }}h
                 </b>
               </div>
-              <div v-if="openBounty.typ === 'review'" class="muted-dark">
+              <!-- <div v-if="openBounty.typ === 'review'" class="muted-dark">
                 <span>Feedback:</span>
                 <b v-if="openBounty.reviews">
                   {{ Object.keys(openBounty.reviews).length }}
@@ -48,7 +48,7 @@
                 <b v-else>
                   0
                 </b>
-              </div>
+              </div> -->
             </nuxt-link>
           </div>
         </div>

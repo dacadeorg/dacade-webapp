@@ -38,13 +38,13 @@
             >
               <a class="btn btn-code" target="blank" :href="getGithubUrl()">Website</a>
             </span>
-            <div v-if="submission.submissionPoints" class="evaluation-points mt-4">
-              <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span>
-              </b>
-              <b v-if="submission.submissionReward > 1" class="earning-color ml-1">
-                +{{ submission.submissionReward }}$
-              </b>
-            </div>
+          </div>
+          <div v-if="submission.submissionPoints" class="evaluation-points mt-4">
+            <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span>
+            </b>
+            <b v-if="submission.submissionReward > 1" class="earning-color ml-1">
+              +{{ submission.submissionReward }}$
+            </b>
           </div>
         </b-card>
 
