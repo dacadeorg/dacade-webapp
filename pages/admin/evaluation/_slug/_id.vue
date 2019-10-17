@@ -32,7 +32,7 @@
           </b-card-text>
           <b-card-text>
             {{ submission.text }}
-            <div>
+            <div v-if="submission.reviewCodeLink">
               <a
                 class="btn btn-dark mt-4"
                 target="blank"
@@ -47,6 +47,9 @@
       <h2 class="mt-4">
         Evaluation
       </h2>
+      <span class="muted">
+        Max Submission Points: {{ communityDataPreview[$route.params.slug].submissionPoints }}
+      </span>
       <b-form @submit.prevent="submitSubmissionEvaluation">
         <b-form-group
           id="input-group-1"
@@ -57,14 +60,12 @@
             id="input-1-1"
             v-model="evaluation.relevanceValue"
             type="number"
-            required
             placeholder="1"
           />
           <b-form-textarea
             id="input-1"
             v-model="evaluation.relevanceText"
             type="text"
-            required
             placeholder="Enter Feedback Relevanz"
             rows="6"
           />
@@ -110,6 +111,9 @@
             placeholder="Enter Feedback Quality"
           />
         </b-form-group>
+        <span class="muted">
+          Max Reward: {{ communityDataPreview[$route.params.slug].submissionReward }}
+        </span>
         <b-form-group
           id="input-group-4"
           label="Reward:"
@@ -124,7 +128,7 @@
           />
         </b-form-group>
         <b-button type="submit" variant="primary">
-          Submit
+          Submit Evaluation
         </b-button>
       </b-form>
       <h2 class="mt-4">
@@ -140,12 +144,12 @@
       >
         <b-card-text>
           <b class="muted-dark">
-            {{ convertDate(submission.date) }}
+            {{ convertDate(getReview.date) }}
           </b>
         </b-card-text>
         <b-card-text>
           {{ getReview.content }}
-          <div>
+          <div v-if="getReview.reviewCodeLink">
             <a
               class="btn btn-dark mt-3 mb-2"
               target="blank"
@@ -173,6 +177,7 @@
               id="input-1"
               v-model="review.rewardAmount"
               type="number"
+              step="0.01"
               required
               placeholder="1"
             />
@@ -291,7 +296,7 @@ export default {
         reviewDisplayName: review.reviewDisplayName,
         reviewUserId: review.reviewUserId,
         date: review.date,
-        rewardAmount: parseInt(this.review.rewardAmount, 10)
+        rewardAmount: parseFloat(this.review.rewardAmount)
       }
       if (review.reviewCodeLink) {
         reviewUpdate.reviewCodeLink = review.reviewCodeLink
@@ -299,7 +304,7 @@ export default {
       reviewUpdate['.key'] = key
       const reputationUpdate = {
         userId: review.reviewUserId,
-        rewardAmount: parseInt(this.review.rewardAmount, 10),
+        rewardAmount: parseFloat(this.review.rewardAmount),
         communityId: this.submission.communityId
       }
       const balanceUpdate = {
