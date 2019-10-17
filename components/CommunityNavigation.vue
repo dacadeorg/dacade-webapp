@@ -41,9 +41,9 @@
                 v-if="$route.name === 'slug-submission-id'"
                 class="nav-item"
               >
-                <span style="color:#53D1AF; margin-left: 1.8em;">
+                <div style="color:#53D1AF; margin-left: 1.8em;">
                   Submission by {{ submissionDisplayName }}
-                </span>
+                </div>
               </li>
             </ul>
           </div>

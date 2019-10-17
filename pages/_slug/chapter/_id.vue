@@ -48,7 +48,6 @@
 
                   <div v-if="item.materialCodeLink" class="code-link">
                     <a class="btn btn-code" target="blank" :href="item.materialCodeLink">SEE CODE</a>
-                    <i>Click to see the code and ask questions</i>
                   </div>
                 </div>
               </div>

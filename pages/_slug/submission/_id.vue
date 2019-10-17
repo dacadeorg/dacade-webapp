@@ -39,7 +39,7 @@
               <a class="btn btn-code" target="blank" :href="getGithubUrl()">Website</a>
             </span>
           </div>
-          <div v-if="submission.submissionPoints" class="evaluation-points mt-4">
+          <div v-if="submission.submissionPoints != null" class="evaluation-points mt-4">
             <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span>
             </b>
             <b v-if="submission.submissionReward > 1" class="earning-color ml-1">
@@ -124,7 +124,7 @@
                 <b>
                   {{ getReview.reviewDisplayName }}
                 </b>
-                <span class="muted-dark">(</span><b class="teaching-color">{{ parseFloat(reviewerReputation[getReview.reviewUserId]).toFixed(0) }} REP</b><span class="muted-dark">)</span>
+                <span class="muted-dark">(</span><b class="teaching-color">{{ parseFloat(reviewerReputation[getReview.reviewUserId]).toFixed(1) }} REP</b><span class="muted-dark">)</span>
               </span>
             </b-card-text>
             <b-card-text>
