@@ -52,7 +52,13 @@ export default function ({ store, redirect, route }) {
 function isAdminRoute(route) {
   if (route.matched.some(record => record.path === '/admin/evaluations')) {
     return true
+  } else if (route.matched.some(record => record.path === '/admin')) {
+    return true
   } else if (route.matched.some(record => record.path === '/admin/evaluation/:id?')) {
+    return true
+  } else if (route.matched.some(record => record.path === '/admin/functions')) {
+    return true
+  } else if (route.matched.some(record => record.path === '/admin/test')) {
     return true
   } else {
     return false

@@ -19,8 +19,8 @@
             <b-nav-item>
               <h2>
                 <i>
-                  <nuxt-link to="/admin/migration/">
-                    MIGRATION
+                  <nuxt-link to="/admin/test/">
+                    test
                   </nuxt-link>
                 </i>
               </h2>
