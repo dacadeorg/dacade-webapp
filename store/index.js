@@ -104,6 +104,11 @@ export const actions = {
                 userId: user.uid
               }
               return firebase.database().ref(`notifications/${user.uid}`).push(notification)
+            }).then(() => {
+              this.$ga.event({
+                eventCategory: 'registration',
+                eventAction: `registration userId: ${user.uid}`
+              })
             })
             .then(() => {
               commit('setJobDone', true)

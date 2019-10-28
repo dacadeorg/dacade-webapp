@@ -19,12 +19,18 @@ export const actions = {
       .then((snapshot) => {
         commit('setJobDone', true, { root: true })
         commit('setBusy', false, { root: true })
-        console.log(snapshot.key)
+        // console.log(snapshot.key)
         db.ref(`openSubmissions/${snapshot.key}`).set(payload)
           .then(() => {
             commit('setJobDone', true, { root: true })
             commit('setBusy', false, { root: true })
-            console.log('success')
+            // console.log('success')
+          }).then(() => {
+            this.$ga.event({
+              eventCategory: 'submission',
+              eventAction: `submissionId:${snapshot.key}`,
+              eventLabel: `${payload.communityId}`
+            })
           })
           .catch((error) => {
             commit('setBusy', false, { root: true })

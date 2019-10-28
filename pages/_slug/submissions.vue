@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row marketing">
+    <div class="row">
       <div class="col-lg-8">
         <div class="site-wraper">
           <div class="mb-6">

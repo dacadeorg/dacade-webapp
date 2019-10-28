@@ -113,16 +113,18 @@ export default {
           })
           element.typ = 'review'
           // element.feedback = element.reviews
-          element.lcName = result[0].name
-          element.link = `/admin/evaluation/${element.communityId}/${Object.keys(this.submissions)[index]}`
-          element.color = result[0].color
-          element.reward = result[0].reviewReward
-          const endTime = element.date + (result[0].bountyTime * 60 * 60 * 1000)
-          element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
-          bounties.push(element)
-          // if (element.hoursLeft < 0) {
-          //   bounties.push(element)
-          // }
+          if (result[0]) {
+            element.lcName = result[0].name
+            element.link = `/admin/evaluation/${element.communityId}/${Object.keys(this.submissions)[index]}`
+            element.color = result[0].color
+            element.reward = result[0].reviewReward
+            const endTime = element.date + (result[0].bountyTime * 60 * 60 * 1000)
+            element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
+            bounties.push(element)
+            // if (element.hoursLeft < 0) {
+            //   bounties.push(element)
+            // }
+          }
         }
       }
       return Object.values(bounties).sort(function (a, b) {

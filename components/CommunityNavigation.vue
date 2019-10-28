@@ -45,6 +45,12 @@
                   Submission by {{ submissionDisplayName }}
                 </div>
               </li>
+              <li class="nav-item">
+                <i class="fa fa fa-star-o fa-lg mr-1 font-bold" />
+                <nuxt-link :to="{path: communityPath($route.params.slug, 'scoreboard') }">
+                  Scoreboard
+                </nuxt-link>
+              </li>
             </ul>
           </div>
         </nav>

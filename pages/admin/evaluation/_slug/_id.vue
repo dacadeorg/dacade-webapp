@@ -32,13 +32,21 @@
           </b-card-text>
           <b-card-text>
             {{ submission.text }}
-            <div v-if="submission.reviewCodeLink">
+            <div v-if="submission.githubLink">
               <a
                 class="btn btn-dark mt-4"
                 target="blank"
                 :href="submission.githubLink"
               >
                 GitHub Code
+              </a>
+
+              <a
+                class="btn btn-dark mt-4"
+                target="blank"
+                :href="getGithubUrl(submission.githubLink)"
+              >
+                GitHub Url
               </a>
             </div>
           </b-card-text>
@@ -347,6 +355,16 @@ export default {
       let trimmedString = content.substr(0, maxLength)
       trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))
       return trimmedString
+    },
+    getGithubUrl() {
+      let newUrl = null
+      const str = this.submission.githubLink
+      if (str.includes('https://github.com/')) {
+        const urlsplit = str.split('https://github.com/')
+        const urlsplit2 = urlsplit[1].split('/')
+        newUrl = 'https://' + urlsplit2[0] + '.github.io/' + urlsplit2[1]
+      }
+      return newUrl
     }
   }
 }

@@ -115,15 +115,17 @@ export default {
               })
               element.typ = 'review'
               // element.feedback = element.reviews
-              element.lcName = result[0].name
-              element.link = `/${result[0].slug}/submission/${Object.keys(this.submissions)[index]}`
-              element.color = result[0].color
-              element.reward = result[0].reviewReward
-              const endTime = element.date + (result[0].bountyTime * 60 * 60 * 1000)
-              element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
-              // Check if there is still time left for submission
-              if (element.hoursLeft > 0) {
-                bounties.push(element)
+              if (result[0]) {
+                element.lcName = result[0].name
+                element.link = `/${result[0].slug}/submission/${Object.keys(this.submissions)[index]}`
+                element.color = result[0].color
+                element.reward = result[0].reviewReward
+                const endTime = element.date + (result[0].bountyTime * 60 * 60 * 1000)
+                element.hoursLeft = Math.round((endTime - Date.now()) / (1000 * 60 * 60))
+                // Check if there is still time left for submission
+                if (element.hoursLeft > 0) {
+                  bounties.push(element)
+                }
               }
             }
           } else {

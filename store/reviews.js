@@ -21,6 +21,12 @@ export const actions = {
             commit('setJobDone', true, { root: true })
             commit('setBusy', false, { root: true })
           })
+          .then(() => {
+            this.$ga.event({
+              eventCategory: 'feedback',
+              eventAction: `feedbackSubmissionId:${key}`
+            })
+          })
           .catch((error) => {
             commit('setBusy', false, { root: true })
             commit('setError', error, { root: true })

@@ -232,7 +232,7 @@
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
-                        <h4><b class="learning-color points">3000</b></h4>
+                        <h4><b class="learning-color points">3500</b></h4>
                         <h4><b class="learning-color">Learners</b></h4>
                         <span class="muted-dark">Have already registered on dacade.</span>
                         <br>
@@ -249,7 +249,7 @@
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
-                        <h4><b class="learning-color points">750</b></h4>
+                        <h4><b class="learning-color points">800</b></h4>
                         <h4><b class="learning-color">Submissions</b></h4>
                         <span class="muted-dark">To the challenges by Learners who finished the community tutorials.</span>
                       </b-card-text>
@@ -264,7 +264,7 @@
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
-                        <h4><b class="teaching-color points">2200</b></h4>
+                        <h4><b class="teaching-color points">2500</b></h4>
                         <h4><b class="teaching-color">Feedback</b></h4>
                         <span class="muted-dark">Learners gave to submissions of their peers.</span>
                         <br>
@@ -303,7 +303,7 @@
                   <div>
                     <h4>Hannes <br>Klöpper</h4>
                     <p class="muted-dark">
-                      Former CEO of Iversity, one of europes biggest MOOCs
+                      Former CEO of Iversity, one of europes biggest online education platforms
                     </p>
                   </div>
                 </div>
@@ -495,7 +495,7 @@ b-button{
   z-index:3;
   right:0;
   left:0;
-  width:100%;
+  width:90%;
   max-width:54rem;
   margin:0 auto;
   margin-top:2em;
