@@ -12,7 +12,7 @@
             <nuxt-link :to="openBounty.link">
               <h5 v-if="openBounty.typ === 'review'" class="dark-white">
                 <b>
-                  Review for Submission of {{ openBounty.displayName }}
+                  Feedback for Submission of {{ openBounty.displayName }}
                 </b>
               </h5>
               <h5 v-else class="dark-white">
@@ -40,15 +40,15 @@
                   -{{ openBounty.hoursLeft }}h
                 </b>
               </div>
-              <!-- <div v-if="openBounty.typ === 'review'" class="muted-dark">
-                <span>Feedback:</span>
+              <div v-if="openBounty.typ === 'review'">
+                <span class="muted-dark">Feedback:</span>
                 <b v-if="openBounty.reviews">
                   {{ Object.keys(openBounty.reviews).length }}
                 </b>
                 <b v-else>
                   0
                 </b>
-              </div> -->
+              </div>
             </nuxt-link>
           </div>
         </div>

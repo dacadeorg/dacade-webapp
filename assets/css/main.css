@@ -152,6 +152,8 @@
   color: rgba(0, 0, 0, 0.8)
 }
 
+/* Margins */
+
 .mb-5 {
   margin-bottom: 2rem !important;
 }
@@ -164,6 +166,8 @@
 .mb-8 {
   margin-bottom: 4rem !important;
 }
+
+/* Margins End */
 
 /* Font colors */
 .dark-white {
@@ -199,16 +203,23 @@
 .white {
   color:white;
 }
+.red {
+  color:#dc3545;
+}
+.green {
+  color:#28a745;
+}
+/* Font colors End */
 
-/* Font colors */
-
-/* Font sizes end */
+/* Font sizes */
 .fs-1{
   font-size:1em!important;
 }
-
 /* Font sizes end */
 
+.pointer {
+  cursor: pointer;
+}
 
 .help {
   color: rgba(255,255,255,.3);
@@ -243,6 +254,8 @@
   margin: 2em 3em 4em 3em;
 }
 
+/* Shadows */
+
 .small-shadow{
   box-shadow:
     0 1px 3px 0 rgba(0,0,0,.2), 
@@ -271,6 +284,7 @@
   0 3px 14px 2px rgba(0,0,0,.12);
 }
 
+/* Shadows End */
 
 @media (min-width: 768px) {
   .mobile-only {

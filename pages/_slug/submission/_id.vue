@@ -102,8 +102,11 @@
 
         <!-- Feedback -->
         <section v-if="feedback">
+          <div v-if="evaluation" class="text-center muted mb-4">
+            <i>Feedback ordered by rewards.</i>
+          </div>
           <b-card
-            v-for="getReview in feedback"
+            v-for="getReview in orderedFeedback"
             :key="getReview.key"
             class="bg-dark small-shadow-no-hover mb-4"
             style="border-bottom: 2px solid #9c58ff"
@@ -132,7 +135,7 @@
             </b-card-text>
             <div
               v-if="getReview.reviewCodeLink"
-              class="github-link mb-4"
+              class="github-link mb-1"
             >
               <a class="btn btn-code" target="blank" :href="getReview.reviewCodeLink">Code Review</a>
             </div>
@@ -145,11 +148,50 @@
 
         <!-- Feedback Input Area -->
         <section>
-          <h5 class="dark-white mb-2">
+          <h5 class="dark-white mb-1">
             <b>
               Give Feedback
             </b>
+            <span v-b-modal.modal-feedback-info class="fa fa-info-circle pointer info" />
+            <b-modal
+              id="modal-feedback-info"
+              header-text-variant="light"
+              title="Feedback Info"
+              size="lg"
+              v-if="communityData.feedbackInfo"
+              hide-footer
+            >
+              <article>
+                <section>
+                  <h3 class="dark-white">
+                    <i class="fa fa-thumbs-up green"/>
+                    <b>Do</b>
+                  </h3>
+                  <ul>
+                    <li v-for="(feedbackDo, key) in communityData.feedbackInfo.do" :key="key">
+                      {{ feedbackDo }}
+                    </li>
+                  </ul>
+                </section>
+                <section>
+                  <h3 class="dark-white">
+                    <i class="fa fa-thumbs-down red" />
+                    <b>Don't</b>
+                  </h3>
+                  <ul>
+                    <li v-for="(feedbackDont, key) in communityData.feedbackInfo.dont" :key="key">
+                      {{ feedbackDont }}
+                    </li>
+                  </ul>
+                </section>
+              </article>
+            </b-modal>
           </h5>
+          <div class="mb-1">
+            <i class="muted">
+              To learn how to earn more rewards and improve your feedback, click on the info icon.
+            </i>
+          </div>
           <ValidationObserver v-slot="{ invalid, passes }">
             <b-form @submit.prevent="passes(onSubmit)">
               <b-form-group
@@ -229,7 +271,12 @@ export default {
     ...mapGetters({
       user: 'user',
       communityData: 'content/communityData'
-    })
+    }),
+    orderedFeedback() {
+      const orderedFeedback = this.feedback
+      console.log(Object.values(orderedFeedback).sort(this.compare))
+      return Object.values(orderedFeedback).sort(this.compare)
+    }
   },
   async asyncData({ params }) {
     let submission, feedback, evaluation
@@ -334,12 +381,25 @@ export default {
         newUrl = 'https://' + urlsplit2[0] + '.github.io/' + urlsplit2[1]
       }
       return newUrl
+    },
+    compare(a, b) {
+      if (a.rewardAmount < b.rewardAmount) {
+        return 1
+      }
+      if (a.rewardAmount > b.rewardAmount) {
+        return -1
+      }
+      return 0
     }
   }
 }
 </script>
 
 <style scoped>
+.info:hover {
+  color: #53d1af;
+}
+
 .github-link a{
   font-family: 'Inconsolata', monospace;
 }

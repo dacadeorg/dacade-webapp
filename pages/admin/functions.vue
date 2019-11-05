@@ -77,17 +77,19 @@ export default {
       let submissionsLength = 0
       for (let index = 0; index < communities.length; index++) {
         let communitySubmissionLength = 0
-        await firebase.database().ref(`submissions/${communities[index]}`).orderByChild('date').startAt(1571616000000).endAt(1572220800000).once('value', function (snapshot) {
+        await firebase.database().ref(`submissions/${communities[index]}`).orderByChild('date').startAt(1572220800000).once('value', function (snapshot) {
           snapshot.forEach(function (childSnapshot) {
             const element = {}
             element.key = childSnapshot.key
             element.data = childSnapshot.val()
-            console.log(element)
+            // console.log(element)
             submissionsLength = submissionsLength + 1
             communitySubmissionLength++
             console.log(communitySubmissionLength)
           })
         })
+        console.log(communities[index])
+        console.log(submissionsLength)
       }
       console.log(submissionsLength)
     },

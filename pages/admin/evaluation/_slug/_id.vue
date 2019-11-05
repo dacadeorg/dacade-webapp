@@ -219,7 +219,7 @@ export default {
         relevanceValue: 0,
         originalityText: null,
         originalityValue: 0,
-        qualityText: 'You completed the requested assignment, wrote in coherent sentences and followed the word limit.',
+        qualityText: 'You completed the requested assignment and wrote in coherent sentences.',
         qualityValue: 1
       },
       submissionReward: 0

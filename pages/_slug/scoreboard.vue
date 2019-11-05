@@ -55,7 +55,7 @@
               </div>
               <div
                 v-else
-                class="col col-md-6 mb-3 name offset-md-1 small-shadow"
+                class="col col-md-6 mb-3 name offset-md-1 small-shadow-no-hover"
                 :style="{ borderColor: communityDataPreview[$route.params.slug].color }"
               >
                 {{ user.displayName }}

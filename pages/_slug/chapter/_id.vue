@@ -83,7 +83,7 @@
           </div>
 
           <div class="mb-4">
-            <i>If you have any questions or suggestions
+            <i class="muted-dark">If you have any questions or suggestions
               regarding the learning material please get in touch with us on
               <a class="underline" href="https://t.me/dacade">telegram</a>!
             </i>
