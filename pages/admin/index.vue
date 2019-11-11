@@ -39,7 +39,9 @@
             <b-nav-item>
               <h2>
                 <i>
-                  STATS
+                  <nuxt-link to="/admin/stats/">
+                    STATS
+                  </nuxt-link>
                 </i>
               </h2>
             </b-nav-item>

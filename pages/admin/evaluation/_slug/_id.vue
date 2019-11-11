@@ -9,9 +9,9 @@
         </h1>
       </div>
       <div class="mb-4">
-        <b-button @click="back()">
-          BACK
-        </b-button>
+         <nuxt-link to="/admin/evaluations" class="btn btn-secondary">
+            BACK
+          </nuxt-link>
       </div>
     </div>
     <div class="offset-md-3 col-lg-6">

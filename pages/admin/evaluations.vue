@@ -10,9 +10,9 @@
           </h1>
         </div>
         <div class="mb-4">
-          <b-button @click="back()">
+         <nuxt-link to="/admin/" class="btn btn-secondary">
             BACK
-          </b-button>
+          </nuxt-link>
         </div>
       </div>
       <div v-if="submissions" class="offset-md-3 col-lg-6">

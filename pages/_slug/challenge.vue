@@ -69,7 +69,7 @@
                   <ValidationProvider
                     v-slot="{ errors }"
                     name="submission text"
-                    rules="required|min:300"
+                    rules="required|min:20"
                   >
                     <b-form-textarea
                       id="input-1"

@@ -274,8 +274,7 @@ export default {
     }),
     orderedFeedback() {
       const orderedFeedback = this.feedback
-      console.log(Object.values(orderedFeedback).sort(this.compare))
-      return Object.values(orderedFeedback).sort(this.compare)
+      return Object.values(orderedFeedback).reverse().sort(this.compare)
     }
   },
   async asyncData({ params }) {
@@ -387,6 +386,9 @@ export default {
         return 1
       }
       if (a.rewardAmount > b.rewardAmount) {
+        return -1
+      }
+      if (!b.rewardAmount) {
         return -1
       }
       return 0

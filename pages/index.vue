@@ -249,7 +249,7 @@
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
-                        <h4><b class="learning-color points">800</b></h4>
+                        <h4><b class="learning-color points">900</b></h4>
                         <h4><b class="learning-color">Submissions</b></h4>
                         <span class="muted-dark">To the challenges by Learners who finished the community tutorials.</span>
                       </b-card-text>
@@ -264,7 +264,7 @@
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
-                        <h4><b class="teaching-color points">2500</b></h4>
+                        <h4><b class="teaching-color points">2800</b></h4>
                         <h4><b class="teaching-color">Feedback</b></h4>
                         <span class="muted-dark">Learners gave to submissions of their peers.</span>
                         <br>

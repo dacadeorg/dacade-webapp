@@ -10,9 +10,9 @@
           </h1>
         </div>
         <div class="mb-4">
-          <b-button @click="back()">
+          <nuxt-link to="/admin/" class="btn btn-secondary">
             BACK
-          </b-button>
+          </nuxt-link>
         </div>
         <div>
           <b-nav vertical class="w-25">
@@ -120,8 +120,9 @@ export default {
       console.log(users)
     },
     async getAllUserReviews() {
+      console.log('getAllUserReviews')
       // const test = []
-      await firebase.database().ref(`reviews`).orderByChild('reviewUserId').equalTo('tG1mseZOlUPKeCCqiBrGEXTXtEs1').once('value', function (snapshot) {
+      await firebase.database().ref(`reviews`).orderByChild('reviewUserId').equalTo('zbhLf4OXIPMzA7E66zQnN0XDip02').once('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
           const element = {}
           element.key = childSnapshot.key
