@@ -72,17 +72,52 @@
                 </b>
               </span>
             </b-card-text>
+
             <b-card-text>
-              <div v-for="evaluationRating in communityData.challengeRatingCriteriaPoints" :key="evaluationRating.key" class="mb-2">
-                <span class="dark-white">
-                  {{ evaluation.name }}
-                </span>
-                <b class="dark-white">{{ evaluationRating.name }}:</b>
-                <b class="learning-color">
-                  {{ getRatingCriteria(evaluationRating.name,evaluation) }}<span class="learning-color-muted">/{{ evaluationRating.points }} LP</span>
-                </b>
-                <div v-html="getRatingText(evaluationRating.name,evaluation)" />
+              <div class="mb-2">
+                <div v-for="evaluationRating in communityData.challengeRatingCriteriaPoints" :key="evaluationRating.key" class="mb-2">
+                  <!-- New evaluation model, since 19.11.2019 -->
+                  <div v-if="evaluation.date > 1573718523000">
+                    <div class="mb-2">
+                      <b class="dark-white">
+                        {{ evaluationRating.name }}
+                      </b>
+                    </div>
+                    <div class="row">
+                      <div
+                        v-for="rubric in buildRubric(evaluationRating.rubric)"
+                        :key="rubric.key"
+                        class="col-md-3 col-6 mb-2"
+                        :class="rubric.points == getRatingCriteria(evaluationRating.name,evaluation) ? 'dark-white' : 'muted'"
+                      >
+                      <div class="learning-color fs-1">
+                        <b>
+                          {{ rubric.points }} LP
+                        </b>
+                      </div>
+                      <div class="text-left fs-08">
+                        {{ rubric.text }}
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Old evaluation model -->
+                  <div v-else>
+                    <b class="dark-white">
+                      {{ evaluationRating.name }}:
+                    </b>
+                    <b class="learning-color">
+                      {{ getRatingCriteria(evaluationRating.name,evaluation) }}<span class="learning-color-muted">/{{ evaluationRating.points }} LP</span>
+                    </b>
+                    <div v-html="getRatingText(evaluationRating.name,evaluation)" />
+                  </div>
+                </div>
+                <div class="dark-white mb-2">
+                  <b>Total:</b>
+                  <b class="learning-color">{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span></b>
+                </div>
               </div>
+
               <div v-if="submission.submissionReward > 1">
                 <span class="dark-white">
                   <b>
@@ -103,12 +138,47 @@
         <!-- Feedback -->
         <section v-if="feedback">
           <div v-if="evaluation" class="text-center muted mb-4">
-            <i>Feedback ordered by rewards.</i>
+            <i>Feedback rewards issued. Learn more</i>
+            <span v-b-modal.modal-reward-info class="fa fa-info-circle pointer info" />
+            <b-modal
+              id="modal-reward-info"
+              header-text-variant="light"
+              title="Feedback Reward Info"
+              size="lg"
+              v-if="communityData.feedbackInfo"
+              hide-footer
+            >
+              <article>
+                <section>
+                  <h3 class="dark-white">
+                    <b class="earning-color">
+                    $
+                    </b>
+                    <b>Feedback Rewards</b>
+                  </h3>
+                  <ol>
+                    <li>
+                      The best feedback receives 60% of the feedback bounty.
+                    </li>
+                    <li>
+                      The second best feedback receives 30% of the feedback bounty.
+                    </li>
+                    <li>
+                      The third best feedback receives 10% of the feedback bounty.
+                    </li>
+                  </ol>
+                  <p class="muted-dark">
+                    This applies only if the submission reaches 30% of the learning points, otherwise the best feedback will get 10% of the learning rewards.
+                  </p>
+                </section>
+              </article>
+            </b-modal>
           </div>
           <b-card
-            v-for="getReview in orderedFeedback"
-            :key="getReview.key"
-            class="bg-dark small-shadow-no-hover mb-4"
+            v-for="(getReview, index) in orderedFeedback"
+            :key="index"
+            class="bg-dark mb-4"
+            :class="index == 0 ? 'big-shadow' : 'small-shadow-no-hover'"
             style="border-bottom: 2px solid #9c58ff"
           >
             <span class="float-right muted-dark">
@@ -135,11 +205,26 @@
             </b-card-text>
             <div
               v-if="getReview.reviewCodeLink"
-              class="github-link mb-1"
+              class="github-link mb-4"
             >
               <a class="btn btn-code" target="blank" :href="getReview.reviewCodeLink">Code Review</a>
             </div>
             <div v-if="getReview.rewardAmount">
+              <span
+                v-if="index == 0"
+                class="mr-2 feedback-first small-shadow-no-hover"
+              >
+                #1
+              </span>
+              <span
+                v-if="index == 1"
+                class="mr-2 feedback-ranked small-shadow-no-hover"
+              >
+                2ND
+              </span>
+              <span v-if="index == 2" class="mr-2 feedback-ranked small-shadow-no-hover">
+                3RD
+              </span>
               <b class="earning-color mr-1">+{{ getReview.rewardAmount }}$</b>
               <b class="teaching-color">+{{ getReview.rewardAmount }}REP</b>
             </div>
@@ -392,12 +477,42 @@ export default {
         return -1
       }
       return 0
+    },
+    buildRubric(asd) {
+      console.log(asd)
+      const items = [
+        {
+          '0 LP': 'You didn’t describe the problem in enough detail to make it seem relevant and able to be addressed by blockchain technology.',
+          '3 LP': 'You described a relevant problem that could be addressed using blockchain technology.',
+          '5 LP': 'You convincingly explained why blockchain technology is needed to address a relevant problem.',
+          '6 LP': 'You explained why blockchain technology would be needed to solve a relevant problem and laid out how it could work in practice.'
+        }
+      ]
+      return asd
     }
   }
 }
 </script>
 
 <style scoped>
+.feedback-first {
+  color: white;
+  text-shadow: 0 0 2px #fff, 0 0 4px #ffffff90, 0 0 20px #ffffff50;
+  padding: 0.2em 0.6em 0.2em 1em;
+  border-radius: 0.35rem;
+  font-weight: bold;
+  background-image: linear-gradient(180deg,#505256,#1d2023);
+}
+
+.feedback-ranked {
+  color: #64696e;
+  padding: 0.2em;
+  border-radius: 0.35rem;
+  padding-left: 0.6em;
+  font-weight: bold;
+  background-image: linear-gradient(180deg,#505256,#1d2023);
+}
+
 .info:hover {
   color: #53d1af;
 }
