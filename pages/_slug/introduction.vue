@@ -68,8 +68,8 @@
                     class="mb-2 small-shadow text-center bg-dark card-stats"
                   >
                     <b-card-text class="text-center mt-4 pb-2">
-                      <h3><b class="dark-white points">{{ communityData.earned }}$</b></h3>
-                      <span class="muted-dark">Earned</span>
+                      <h3><b class="dark-white points">{{ communityData.totalFeedback }}</b></h3>
+                      <span class="muted-dark">Feedback</span>
                     </b-card-text>
                   </b-card>
                 </div>
