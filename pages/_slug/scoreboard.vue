@@ -74,7 +74,6 @@
                 </span>
               </div>
             </div>
-            <!-- <b-table striped hover :items="reversedArr"></b-table> -->
           </div>
         </div>
       </div>
