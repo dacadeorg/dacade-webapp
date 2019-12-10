@@ -60,6 +60,7 @@ export default {
       'FormInputPlugin',
       'FormGroupPlugin',
       'FormPlugin',
+      'FormRadioPlugin',
       'FormTextarea',
       'ImagePlugin',
       'ModalPlugin',

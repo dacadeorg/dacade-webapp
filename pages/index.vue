@@ -19,7 +19,7 @@
                   <i v-b-modal.modal-xl class="fa fa-play-circle fa-5x play-button2" />
                   <b-modal
                     id="modal-xl"
-                    title="Dacade in 90 seconds"
+                    title="Trailer"
                     header-text-variant="light"
                     size="xl"
                     hide-footer
@@ -29,7 +29,7 @@
                         class="embed-responsive-item"
                         width="100%"
                         height="100%"
-                        src="https://www.youtube.com/embed/fS69nu3riM0?rel=0"
+                        src="https://www.youtube.com/embed/3eRRGCceoaA?rel=0"
                         frameborder="0"
                         allowfullscreen
                       />
@@ -264,7 +264,7 @@
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
-                        <h4><b class="teaching-color points">2800</b></h4>
+                        <h4><b class="teaching-color points">3000</b></h4>
                         <h4><b class="teaching-color">Feedback</b></h4>
                         <span class="muted-dark">Learners gave to submissions of their peers.</span>
                         <br>
@@ -342,9 +342,9 @@
             <p class="lead text-cover mx-auto mb-6">
               Dacade has an active community with over 250 blockchain learners from all over the world in our telegram channel. Join us!
             </p>
-            <button type="button" class="btn btn-outline-primary btn-lg">
+            <a href="https://t.me/dacade" target="_blank" class="btn btn-outline-primary btn-lg">
               On telegram
-            </button>
+            </a>
           </section>
 
           <section>

@@ -15,128 +15,128 @@
       </div>
     </div>
     <div class="offset-md-3 col-lg-6">
-      <h2>
-        Submission
-      </h2>
-      <div>
-        <b-card
-          class="mb-4"
-          bg-variant="dark"
-          text-variant="white"
-          :title="submission.displayName"
-        >
-          <b-card-text>
-            <b class="muted-dark">
-              {{ convertDate(submission.date) }}
-            </b>
-          </b-card-text>
-          <b-card-text>
-            {{ submission.text }}
-            <div v-if="submission.githubLink">
-              <a
-                class="btn btn-dark mt-4"
-                target="blank"
-                :href="submission.githubLink"
-              >
-                GitHub Code
-              </a>
+      <!-- Submission -->
+      <section>
+        <h2>
+          Submission
+        </h2>
+        <div>
+          <b-card
+            class="mb-4"
+            bg-variant="dark"
+            text-variant="white"
+            :title="submission.displayName"
+          >
+            <b-card-text>
+              <b class="muted-dark">
+                {{ convertDate(submission.date) }}
+              </b>
+            </b-card-text>
+            <b-card-text>
+              {{ submission.text }}
+              <div v-if="submission.githubLink">
+                <a
+                  class="btn btn-dark mt-4"
+                  target="blank"
+                  :href="submission.githubLink"
+                >
+                  GitHub Code
+                </a>
 
-              <a
-                class="btn btn-dark mt-4"
-                target="blank"
-                :href="getGithubUrl(submission.githubLink)"
-              >
-                GitHub Url
-              </a>
-            </div>
-          </b-card-text>
-        </b-card>
-      </div>
-      <h2 class="mt-4">
-        Evaluation
-      </h2>
-      <span class="muted">
-        Max Submission Points: {{ communityDataPreview[$route.params.slug].submissionPoints }}
-      </span>
-      <b-form @submit.prevent="submitSubmissionEvaluation">
-        <b-form-group
-          id="input-group-1"
-          label="Give Feedback Relevanz:"
-          label-for="input-1"
-        >
-          <b-form-input
-            id="input-1-1"
-            v-model="evaluation.relevanceValue"
-            type="number"
-            placeholder="1"
-          />
-          <b-form-textarea
-            id="input-1"
-            v-model="evaluation.relevanceText"
-            type="text"
-            placeholder="Enter Feedback Relevanz"
-            rows="6"
-          />
-        </b-form-group>
-        <b-form-group
-          id="input-group-2"
-          label="Enter Feedback Originality:"
-          label-for="input-2"
-        >
-          <b-form-input
-            id="input-2-1"
-            v-model="evaluation.originalityValue"
-            type="number"
-            placeholder="1"
-          />
-          <b-form-textarea
-            id="input-2"
-            v-model="evaluation.originalityText"
-            type="text"
-            rows="6"
-            placeholder="Enter Feedback Originality"
-          />
-        </b-form-group>
-        <b-form-group
-          id="input-group-3"
-          label="Enter Feedback Quality:"
-          label-for="input-3"
-        >
-          <b-form-input
-            id="input-3-1"
-            v-model="evaluation.qualityValue"
-            type="number"
-            required
-            placeholder="1"
-          />
-          <b-form-textarea
-            id="input-3"
-            v-model="evaluation.qualityText"
-            type="text"
-            required
-            placeholder="Enter Feedback Quality"
-          />
-        </b-form-group>
+                <a
+                  class="btn btn-dark mt-4"
+                  target="blank"
+                  :href="getGithubUrl(submission.githubLink)"
+                >
+                  GitHub Url
+                </a>
+              </div>
+            </b-card-text>
+          </b-card>
+        </div>
+      </section>
+      <!-- Evaluation -->
+      <section>
+        <h2 class="mt-4">
+          Evaluation
+        </h2>
         <span class="muted">
-          Max Reward: {{ communityDataPreview[$route.params.slug].submissionReward }}
+          Total LearningPoints: {{ communityDataPreview[$route.params.slug].submissionPoints }}
         </span>
-        <b-form-group
-          id="input-group-4"
-          label="Reward:"
-          label-for="input-4"
-        >
-          <b-form-input
-            id="input-4-1"
-            v-model="submissionReward"
-            type="number"
-            required
-            placeholder="1"
-          />
-        </b-form-group>
-        <b-button type="submit" variant="primary">
-          Submit Evaluation
-        </b-button>
-      </b-form>
+        <b-form @submit.prevent="submitSubmissionEvaluation">
+          <b-form-group
+            v-for="(rubricItem, index) in communityData.challengeRubric"
+            :key="index"
+            :id="'input-group' + index"
+            label-for="input-1"
+          >
+            <h5 class="dark-white font-bold">
+              {{ rubricItem.text }}
+            </h5>
+            <div class="row">
+              <b-form-radio
+                v-for="(rubricRating, indexR) in rubricItem.rubric"
+                :key="indexR"
+                :name= rubricRating.name
+                :value= rubricRating.points
+                v-model= evaluation.evaluationPoints[rubricItem.name]
+                class="col-md-3 col-6 mb-2"
+              >
+                <h6 class="learning-color font-bold">
+                  {{ rubricRating.points }}LP
+                </h6>
+                <span class="fs-08">
+                  {{ rubricRating.text }}
+                </span>
+              </b-form-radio>
+            </div>
+          </b-form-group>
+          <div class="mb-4">
+            <h5 class="font-bold dark-white">
+              Total
+            </h5>
+            <b class="learning-color">
+              {{ sumLearningPoints }}LP
+            </b>
+          </div>
+          <div
+            v-if="((communityData.challengeThreshold * 0.01) * communityData.challengePoints).toFixed(0) <= sumLearningPoints"
+            class="muted"
+          >
+            User gets reward of {{ communityDataPreview[$route.params.slug].submissionReward }}
+          </div>
+          <b-form-group
+            id="input-group-4"
+            label="Reward:"
+            label-for="input-4"
+          >
+            <b-form-input
+              id="input-4-1"
+              v-model="submissionReward"
+              type="number"
+              required
+              placeholder="1"
+            />
+          </b-form-group>
+          <b-form-group
+            id="input-group-comment"
+            label="Comment:"
+            label-for="input-comment"
+          >
+            <b-form-textarea
+              id="input-comment"
+              v-model="evaluationComment"
+              placeholder="Enter something..."
+              rows="3"
+              max-rows="6"
+            ></b-form-textarea>
+          </b-form-group>
+          <b-button type="submit" variant="primary">
+            Submit Evaluation
+          </b-button>
+        </b-form>
+      </section>
+
       <h2 class="mt-4">
         Feedback
       </h2>
@@ -179,14 +179,22 @@
             label="Reward Amount"
             label-for="input-1"
           >
-            <b-form-input
-              id="input-1"
-              v-model="review.rewardAmount"
-              type="number"
-              step="0.01"
-              required
-              placeholder="1"
-            />
+            <b-form-radio-group
+              key="option1"
+              name="option1"
+              :value= communityData.feedbackPrice
+              v-model= review.rewardAmount
+              :options="getFeedbackPrices"
+            >
+            </b-form-radio-group>
+          <!-- <b-form-input
+            id="input-1"
+            v-model="review.rewardAmount"
+            type="number"
+            step="0.01"
+            required
+            placeholder="1"
+          /> -->
           </b-form-group>
           <b-button type="submit" variant="primary">
             Submit
@@ -212,15 +220,8 @@ export default {
         submissionId: this.$route.params.id
       },
       evaluation: {
-        date: Date.now(),
-        evaluationUserId: null,
-        evaluationDisplayName: null,
-        relevanceText: null,
-        relevanceValue: 0,
-        originalityText: null,
-        originalityValue: 0,
-        qualityText: 'You completed the requested assignment and wrote in coherent sentences.',
-        qualityValue: 1
+        evaluationPoints: [],
+        evaluationComment: null
       },
       submissionReward: 0
     }
@@ -228,21 +229,39 @@ export default {
   computed: {
     ...mapGetters({
       user: 'user'
-    })
+    }),
+    sumLearningPoints() {
+      let submissionPoints = 0
+      for (let key in this.evaluation.evaluationPoints) {
+        submissionPoints = submissionPoints + parseInt(this.evaluation.evaluationPoints[key])
+      }
+      return submissionPoints
+    },
+    getFeedbackPrices() {
+      const feedbackPrices = [
+        { text: `1st ${0.60 * this.communityData.feedbackPrice}$`, value: 0.60 * this.communityData.feedbackPrice },
+        { text: `2nd ${0.30 * this.communityData.feedbackPrice}$`, value: 0.30 * this.communityData.feedbackPrice },
+        { text: `3rd ${0.10 * this.communityData.feedbackPrice}$`, value: 0.10 * this.communityData.feedbackPrice }
+      ]
+      return feedbackPrices
+    }
   },
   // this may need to be changed to be more dynamic
   async asyncData({ params }) {
-    let submission, communityDataPreview, feedback
+    let submission, communityDataPreview, communityData, feedback
     await firebase.database().ref(`submissions/${params.slug}/${params.id}`).once('value').then((snapShot) => {
       submission = snapShot.val()
     })
     await firebase.database().ref(`communityDataPreview`).once('value').then((snapShot) => {
       communityDataPreview = snapShot.val()
     })
+    await firebase.database().ref(`communityData/${params.slug}`).once('value').then((snapShot) => {
+      communityData = snapShot.val()
+    })
     await firebase.database().ref(`reviews/${params.id}`).once('value').then((snapShot) => {
       feedback = snapShot.val()
     })
-    return { submission, communityDataPreview, feedback }
+    return { submission, communityDataPreview, communityData, feedback }
   },
   methods: {
     communityPath(slug) {
@@ -250,15 +269,27 @@ export default {
     },
     submitSubmissionEvaluation() {
       const key = this.$route.params.id
+      let submissionPoints = 0
+      const evaluation = {
+        date: Date.now(),
+        evaluationUserId: this.user.id,
+        evaluationDisplayName: this.user.displayName
+      }
+      if (this.evaluationComment) {
+        evaluation.comment = this.evaluationComment
+      }
+      evaluation['.key'] = key
+      for (let key in this.evaluation.evaluationPoints) {
+        submissionPoints = submissionPoints + parseInt(this.evaluation.evaluationPoints[key])
+        evaluation[key] = parseInt(this.evaluation.evaluationPoints[key])
+      }
       const submissionUpdate = {
         displayName: this.submission.displayName,
         communityId: this.submission.communityId,
         text: this.submission.text,
         userId: this.submission.userId,
         date: this.submission.date,
-        submissionPoints: parseInt(this.evaluation.relevanceValue, 10) +
-          parseInt(this.evaluation.originalityValue, 10) +
-          parseInt(this.evaluation.qualityValue, 10),
+        submissionPoints: submissionPoints,
         submissionReward: parseInt(this.submissionReward, 10)
       }
       if (this.submission.githubLink) {
@@ -285,15 +316,22 @@ export default {
         notificationRead: false,
         userId: submissionUpdate.userId
       }
-      this.evaluation.evaluationUserId = this.user.id
-      this.evaluation.evaluationDisplayName = this.user.displayName
-      this.evaluation['.key'] = key
-      console.log(this.evaluation['.key'])
-      this.$store.dispatch('admin/createEvaluation', this.evaluation)
-      this.$store.dispatch('admin/updateSubmission', submissionUpdate)
-      this.$store.dispatch('admin/updateBalance', balanceUpdate)
-      this.$store.dispatch('admin/addLearningPoints', addLearningPoints)
-      this.$store.dispatch('addUserNotification', userNotification)
+      const transaction = {
+        communityId: this.submission.communityId,
+        receiverId: this.submission.userId,
+        amount: parseInt(this.submissionReward, 10),
+        amountPaid: 0,
+        type: 'submission',
+        contentId: this.$route.params.id,
+        date: Date.now()
+      }
+      // console.log(evaluation)
+      // this.$store.dispatch('admin/createEvaluation', evaluation)
+      // this.$store.dispatch('admin/updateSubmission', submissionUpdate)
+      this.$store.dispatch('admin/createTransaction', transaction)
+      // this.$store.dispatch('admin/updateBalance', balanceUpdate)
+      // this.$store.dispatch('admin/addLearningPoints', addLearningPoints)
+      // this.$store.dispatch('addUserNotification', userNotification)
     },
     submitReviewEvaluation(review, key) {
       const reviewUpdate = {
@@ -370,7 +408,5 @@ export default {
 }
 </script>
 <style scoped>
-.row {
-  margin: 3em;
-}
+
 </style>

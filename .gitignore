@@ -91,3 +91,6 @@ sw.*
 firebase.json
 .firebaserc
 .firebase
+
+# Firebase database
+firebase.js

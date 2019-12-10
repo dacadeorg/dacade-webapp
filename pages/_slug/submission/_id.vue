@@ -12,14 +12,14 @@
           </span>
           <b-card-text>
             <span>
-              <b>
+              <b class="white">
                 Submission
               </b>
             </span>
             <span class="muted-dark">
               by
             </span>
-            <span class="dark-white">
+            <span>
               <b>
                 {{ submission.displayName }}
               </b>
@@ -59,14 +59,14 @@
             </span>
             <b-card-text>
               <span>
-                <b>
+                <b class="white">
                   Evaluation
                 </b>
               </span>
               <span class="muted-dark">
                 by
               </span>
-              <span class="dark-white">
+              <span>
                 <b>
                   {{ evaluation.evaluationDisplayName }}
                 </b>
@@ -75,20 +75,20 @@
 
             <b-card-text>
               <div class="mb-2">
-                <div v-for="evaluationRating in communityData.challengeRatingCriteriaPoints" :key="evaluationRating.key" class="mb-2">
+                <div v-if="evaluation.date > 1574462532000">
                   <!-- New evaluation model, since 19.11.2019 -->
-                  <div v-if="evaluation.date > 1573718523000">
+                  <div v-for="(evaluationRating, index) in communityData.challengeRubric" :key="index" class="mb-2">
                     <div class="mb-2">
-                      <b class="dark-white">
-                        {{ evaluationRating.name }}
+                      <b>
+                        {{ evaluationRating.text }}:
                       </b>
                     </div>
                     <div class="row">
                       <div
-                        v-for="rubric in buildRubric(evaluationRating.rubric)"
+                        v-for="rubric in evaluationRating.rubric"
                         :key="rubric.key"
                         class="col-md-3 col-6 mb-2"
-                        :class="rubric.points == getRatingCriteria(evaluationRating.name,evaluation) ? 'dark-white' : 'muted'"
+                        :class="rubric.points == evaluation[evaluationRating.name] ? 'color-default' : 'muted'"
                       >
                       <div class="learning-color fs-1">
                         <b>
@@ -101,20 +101,32 @@
                       </div>
                     </div>
                   </div>
+                </div>
                   <!-- Old evaluation model -->
-                  <div v-else>
+                <div v-else>
+                  <div v-for="(evaluationRating, index) in communityData.challengeRatingCriteriaPoints" :key="index" class="mb-2">
                     <b class="dark-white">
                       {{ evaluationRating.name }}:
                     </b>
                     <b class="learning-color">
-                      {{ getRatingCriteria(evaluationRating.name,evaluation) }}<span class="learning-color-muted">/{{ evaluationRating.points }} LP</span>
+                      {{ getRatingValue(evaluationRating.name,evaluation) }}<span class="learning-color-muted">/{{ evaluationRating.points }} LP</span>
                     </b>
                     <div v-html="getRatingText(evaluationRating.name,evaluation)" />
                   </div>
                 </div>
+                  <!-- Old evaluation model end -->
                 <div class="dark-white mb-2">
                   <b>Total:</b>
                   <b class="learning-color">{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span></b>
+                </div>
+                <div
+                  v-if="evaluation.comment"
+                  class="dark-white mb-2"
+                >
+                  <b>Comment:</b>
+                  <div class="color-default">
+                    {{ evaluation.comment }}
+                  </div>
                 </div>
               </div>
 
@@ -129,7 +141,9 @@
                     {{ submission.submissionReward }}$
                   </b>
                 </span>
-                <div>Congratulations you gained at least {{ communityData.challengeThreshold }}% of the available learning points.</div>
+                <div>
+                  Congratulations you gained at least {{ communityData.challengeThreshold }}% of the available learning points.
+                </div>
               </div>
             </b-card-text>
           </b-card>
@@ -186,18 +200,15 @@
             </span>
             <b-card-text>
               <span>
-                <b>
+                <b class="white">
                   Feedback
                 </b>
               </span>
               <span class="muted-dark">
                 by
               </span>
-              <span class="dark-white">
-                <b>
-                  {{ getReview.reviewDisplayName }}
-                </b>
-                <span class="muted-dark">(</span><b class="teaching-color">{{ parseFloat(reviewerReputation[getReview.reviewUserId]).toFixed(1) }} REP</b><span class="muted-dark">)</span>
+              <span>
+                <b>{{ getReview.reviewDisplayName }}</b><span class="muted-dark">/</span><b class="teaching-color">{{ parseFloat(reviewerReputation[getReview.reviewUserId]).toFixed(1) }} REP</b>
               </span>
             </b-card-text>
             <b-card-text>
@@ -403,27 +414,13 @@ export default {
         document.getElementById('submitButton').disabled = true
       }
     },
-    getRatingCriteria(input, input2) {
-      if (input === 'Relevance') {
-        return input2.relevanceValue
-      };
-      if (input === 'Originality') {
-        return input2.originalityValue
-      };
-      if (input === 'Quality') {
-        return input2.qualityValue
-      };
+    getRatingValue(input, input2) {
+      let newInput = input.charAt(0).toLowerCase() + input.slice(1) + 'Value'
+      return input2[newInput]
     },
     getRatingText(input, input2) {
-      if (input === 'Relevance') {
-        return input2.relevanceText
-      };
-      if (input === 'Originality') {
-        return input2.originalityText
-      };
-      if (input === 'Quality') {
-        return input2.qualityText
-      };
+      let newInput = input.charAt(0).toLowerCase() + input.slice(1) + 'Text'
+      return input2[newInput]
     },
     convertDate(date) {
       const submissionInputDate = new Date(date)
@@ -477,18 +474,6 @@ export default {
         return -1
       }
       return 0
-    },
-    buildRubric(asd) {
-      console.log(asd)
-      const items = [
-        {
-          '0 LP': 'You didn’t describe the problem in enough detail to make it seem relevant and able to be addressed by blockchain technology.',
-          '3 LP': 'You described a relevant problem that could be addressed using blockchain technology.',
-          '5 LP': 'You convincingly explained why blockchain technology is needed to address a relevant problem.',
-          '6 LP': 'You explained why blockchain technology would be needed to solve a relevant problem and laid out how it could work in practice.'
-        }
-      ]
-      return asd
     }
   }
 }

@@ -25,7 +25,7 @@
             </b-nav-item>
             <b-nav-item>
               <h2>
-                <i @click="getReviews(1510413525000)">
+                <i @click="getReviews(getPreviousMonday)">
                   get Reviews this week
                 </i>
               </h2>
@@ -39,7 +39,7 @@
             </b-nav-item>
             <b-nav-item>
               <h2>
-                <i @click="getSubmissionsSinceDate('1510413525')">
+                <i @click="getSubmissionsSinceDate(1511680461000)">
                   get submissions total
                 </i>
               </h2>
@@ -128,7 +128,7 @@ export default {
             submissionsLength++
             communitySubmissionLength++
             communitySubmissions[communities[index]] = communitySubmissionLength
-            communitySubmissions[communities[index]] = submissionRewards
+            // communitySubmissions[communities[index]] = submissionRewards
           })
         })
       }
@@ -156,9 +156,9 @@ export default {
                 rewards = rewards + parseFloat(Object.values(element.data)[index].rewardAmount)
               }
               rewardCount++
+              reviews = reviews + Object.values(element.data).length
             }
           }
-          reviews = reviews + Object.values(element.data).length
         })
       })
       console.log('Rewards issued in $:' + rewards)
@@ -177,36 +177,37 @@ export default {
           element.data = childSnapshot.val()
           // console.log('element')
           // console.log(element)
-          reviewsCount = reviewsCount + Object.values(element.data).length
-          if (Object.values(element.data)[4]) {
-            // console.log(reviewsReward[elementF.community])
-            if (!reviewsReward[elementF.community]) {
-              reviewsReward[elementF.community] = 0
-              // console.log('test')
-            }
-            reviewsReward[elementF.community] = parseFloat(reviewsReward[elementF.community]) + parseFloat(Object.values(element.data)[4])
-            // console.log(Object.values(element.data)[4])
-            // console.log('end')
-            // console.log(reviewsReward[elementF.community])
-          }
+          reviewsCount++
+          // if (Object.values(element.data)[4]) {
+          //   // console.log(reviewsReward[elementF.community])
+          //   if (!reviewsReward[elementF.community]) {
+          //     reviewsReward[elementF.community] = 0
+          //     // console.log('test')
+          //   }
+          //   reviewsReward[elementF.community] = parseFloat(reviewsReward[elementF.community]) + parseFloat(Object.values(element.data)[4])
+          //   // console.log(Object.values(element.data)[4])
+          //   // console.log('end')
+          //   // console.log(reviewsReward[elementF.community])
+          // }
         })
       })
       // console.log('reviewsReward getFunc')
       // console.log(reviewsReward)
-      return reviewsReward
+      // console.log('reviewsCount')
+      // console.log(reviewsCount)
+      return reviewsCount
     },
     async getSubmissionsSinceDate(dateRange) {
-      console.log(Date.parse(dateRange))
       const communities = ['intro-to-blockchain', 'ae-dev-101', 'web-dev-101', 'eth-dev-101']
       let submissionsLength = []
-      let reviewsCount = 0
+      let reviewsCount = []
       const communitySubmissions = []
       let submissionIds = []
       const communityEarnings = []
       let reviewRewards = []
       for (let index = 0; index < communities.length; index++) {
         let communitySubmissionLength = 0
-        await firebase.database().ref(`submissions/${communities[index]}`).orderByChild('date').startAt(1510413525000).once('value', function (snapshot) {
+        await firebase.database().ref(`submissions/${communities[index]}`).orderByChild('date').startAt(1511162061000).once('value', function (snapshot) {
           snapshot.forEach(function (childSnapshot) {
             const element = {}
             const element2 = {}
@@ -226,23 +227,35 @@ export default {
         const element = submissionIds[index]
         // console.log(element)
         // console.log(this.getReviewsForSubmission(element.submissionId))
-        const newReviewRewards = await this.getReviewsForSubmission(element)
-        if (newReviewRewards[element.community]) {
-          console.log('newReviewRewards')
-          console.log(newReviewRewards)
-          if (!reviewRewards[element.community]) {
-            reviewRewards[element.community] = 0
+        // const newReviewRewards = await this.getReviewsForSubmission(element)
+        // if (newReviewRewards[element.community]) {
+        //   console.log('newReviewRewards')
+        //   console.log(newReviewRewards)
+        //   if (!reviewRewards[element.community]) {
+        //     reviewRewards[element.community] = 0
+        //     console.log('test2')
+        //   }
+        //   reviewRewards[element.community] = reviewRewards[element.community] + newReviewRewards[element.community]
+        //   console.log('reviewRewards new total')
+        //   console.log(reviewRewards)
+        const newReviewsCount = await this.getReviewsForSubmission(element)
+        if (newReviewsCount) {
+          console.log('newReviewsCount')
+          console.log(newReviewsCount)
+          if (!reviewsCount[element.community]) {
+            reviewsCount[element.community] = 0
             console.log('test2')
           }
-          reviewRewards[element.community] = reviewRewards[element.community] + newReviewRewards[element.community]
-          console.log('reviewRewards new total')
-          console.log(reviewRewards)
+          reviewsCount[element.community] = reviewsCount[element.community] + newReviewsCount
+          console.log('reviewsCount new total')
+          console.log(reviewsCount)
         }
       }
       // console.log(reviewsCount)
       // console.log(communitySubmissions)
       // console.log(submissionIds)
       // console.log(reviewRewards)
+      console.log(reviewsCount)
       this.totalSubmissions = submissionsLength
       // this.communitySubmissions[communities[index]] = communitySubmissionLength)
     },

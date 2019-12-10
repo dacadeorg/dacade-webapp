@@ -20,6 +20,21 @@ export const actions = {
         console.log('error', error)
       })
   },
+  createTransaction({ commit }, payload) {
+    console.log(payload)
+    const communityId = payload.communityId
+    delete payload.communityId
+    const receiverId = payload.recipientId
+    delete payload.receiverId
+    console.log(payload)
+    firebase.database().ref(`transactions/${communityId}/${receiverId}`).push(payload)
+      .then(() => {
+        console.log('success')
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  },
   updateSubmission({ commit }, payload) {
     const key = payload['.key']
     delete payload['.key']
