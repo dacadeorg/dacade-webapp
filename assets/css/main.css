@@ -169,6 +169,7 @@
 
 /* Margins End */
 
+/* Font */
 /* Font colors */
 .dark-white {
   color: rgba(255,255,255,.8);
@@ -197,7 +198,7 @@
 .muted-dark a{
   color: rgba(255,255,255,.3);
 }
-.normal-color {
+.color-default {
   color: #acb2be;
 }
 .teaching-color {
@@ -223,6 +224,12 @@
   font-size:0.8em!important;
 }
 /* Font sizes end */
+
+.font-bold {
+  font-weight: bold;
+}
+
+/* Font end */
 
 .pointer {
   cursor: pointer;
