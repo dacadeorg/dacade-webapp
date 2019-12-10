@@ -1,39 +1,72 @@
 <template>
   <div>
-    <div class="row marketing">
+    <div class="row">
       <div class="col-lg-8">
         <div class="site-wraper">
           <p v-if="communityData.challengeDescription">
             <i class="dacade-note muted-dark">{{ communityData.challengeDescription }}</i>
           </p>
 
-          <h4 class="dark-white">
-            <b>
-              Challenge:
-            </b>
-          </h4>
-          <div v-html="communityData.challenge" />
-
+          <section class="mb-4">
+            <h4 class="white">
+              <b>
+                Challenge:
+              </b>
+            </h4>
+            <div v-html="communityData.challenge" />
+          </section>
           <!-- <div v-if="communityData.challengeExampleSubmissionId">
             <span class="btn btn-dark-outline mt-4 mb-4" @click="SendToExample(communityData.challengeExampleSubmissionId)">See example</span>
           </div> -->
 
-          <div class="learning-points-box mb-6">
-            <h5 class="learning-color">
+          <section v-if="communityData.submissionPrice>0">
+            <h5 class="white">
               <b>
                 Earn {{ communityData.submissionPrice }}$
               </b>
             </h5>
             <p class="mb-4">
-              In order to earn <b>{{ communityData.submissionPrice }}$</b>
-              in {{ communityData.priceFormat }} you must get at least <b>70%</b>
-              of the Learning Points from this challenge.
+              In order to earn <b class="earning-color">{{ communityData.submissionPrice }}$</b>
+              in {{ communityData.priceFormat }} token you must get at least <b class="learning-color">{{ ((communityData.challengeThreshold * 0.01) * communityData.challengePoints).toFixed(0)}}</b>
+              out of <b class="learning-color muted">{{ communityData.challengePoints }}</b> Learning Points in this challenge.
             </p>
-            <b>Rating criteria:</b>
-            <div v-for="criteria in communityData.challengeRatingCriteria" :key="criteria.key">
-              <span>✓ {{ criteria }}</span>
+          </section>
+
+          <section>
+            <h5 class="white mb-3">
+              <strong>
+                Rating Rubric:
+              </strong>
+            </h5>
+            <div class="learning-points-box mb-6">
+              <div v-for="(evaluationRating, index) in communityData.challengeRubric" :key="index" class="mb-2">
+                <div class="dark-white mb-1">
+                  <b>
+                    {{ evaluationRating.text }}:
+                  </b>
+                </div>
+                <div class="row">
+                  <div
+                    v-for="rubric in evaluationRating.rubric"
+                    :key="rubric.key"
+                    class="col-md-3 col-6 mb-2"
+                  >
+                    <div class="learning-color fs-1">
+                      <b>
+                        {{ rubric.points }} LP
+                      </b>
+                    </div>
+                    <div class="text-left fs-08">
+                      {{ rubric.text }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div v-for="criteria in communityData.challengeRatingCriteria" :key="criteria.key">
+                <span>✓ {{ criteria }}</span>
+              </div> -->
             </div>
-          </div>
+          </section>
 
           <div v-if="submissionDb">
             <div v-if="Object.values(submissionDb)[0].submissionPoints != null">
@@ -203,7 +236,6 @@ export default {
   border: 1px solid #53D1AF;
   border-radius:.25rem;
   /* color:rgba(0,0,0,.8); */
-  margin:2em 0;
   margin-bottom:1em;
   padding: 1em;
 }
