@@ -181,18 +181,6 @@
                 <div class="col-sm mb-4">
                   <div>
                     <p>
-                      <i>"I just made submission of my quote daepp on dacade.org. I'm so excited I took the course, I really enjoyed it and have learned a lot."</i>
-                      <br><br>
-                    </p>
-                    <h5 class="muted-dark">
-                      Labi23
-                    </h5>
-                    <b-img rounded alt="Circle image" width="64px" src="img/user_tosin_edit.png" class="mt-2 mb-3" />
-                  </div>
-                </div>
-                <div class="col-sm mb-4">
-                  <div>
-                    <p>
                       <i>"Thanks for your support, love and care on Dacade(Telegram and Website) it has being an awesome experience. I have learned a lot and I am still learning a lot."</i>
                     </p>
                     <h5 class="muted-dark">
@@ -204,12 +192,24 @@
                 <div class="col-sm mb-4">
                   <div>
                     <p>
-                      <i>"I'm still baffled that I can earn for learning, so are my friends - Dacade's courses are visual, practical and you can learn about blockchain through interactions."</i>
+                      <i>"Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."</i>
                     </p>
                     <h5 class="muted-dark">
-                      ced000
+                      susen
                     </h5>
-                    <b-img rounded alt="Circle image" width="64px" src="img/user_ced.jpg" class="mt-2 mb-3" />
+                    <b-img rounded alt="Circle image" width="64px" src="img/user_susen.png" class="mt-2 mb-3" />
+                  </div>
+                </div>
+                <div class="col-sm mb-4">
+                  <div>
+                    <p>
+                      <i>"I just made submission of my quote daepp on dacade.org. I'm so excited I took the course, I really enjoyed it and have learned a lot."</i>
+                      <br><br>
+                    </p>
+                    <h5 class="muted-dark">
+                      Labi23
+                    </h5>
+                    <b-img rounded alt="Circle image" width="64px" src="img/user_tosin_edit.png" class="mt-2 mb-3" />
                   </div>
                 </div>
               </div>
@@ -232,7 +232,7 @@
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
-                        <h4><b class="learning-color points">3500</b></h4>
+                        <h4><b class="learning-color points">4000</b></h4>
                         <h4><b class="learning-color">Learners</b></h4>
                         <span class="muted-dark">Have already registered on dacade.</span>
                         <br>
@@ -249,7 +249,7 @@
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
-                        <h4><b class="learning-color points">900</b></h4>
+                        <h4><b class="learning-color points">1000</b></h4>
                         <h4><b class="learning-color">Submissions</b></h4>
                         <span class="muted-dark">To the challenges by Learners who finished the community tutorials.</span>
                       </b-card-text>
@@ -340,7 +340,7 @@
               Join our Community
             </h2>
             <p class="lead text-cover mx-auto mb-6">
-              Dacade has an active community with over 250 blockchain learners from all over the world in our telegram channel. Join us!
+              Dacade has an active community with over 350 blockchain learners from all over the world in our telegram channel. Join us!
             </p>
             <a href="https://t.me/dacade" target="_blank" class="btn btn-outline-primary btn-lg">
               On telegram
