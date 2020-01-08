@@ -10,7 +10,7 @@
           </h1>
         </div>
         <div class="mb-4">
-         <nuxt-link to="/admin/" class="btn btn-secondary">
+          <nuxt-link to="/admin/" class="btn btn-secondary">
             BACK
           </nuxt-link>
         </div>
@@ -100,7 +100,6 @@ export default {
       })
     },
     getOpenBounties() {
-      // Todo: Exlude submission if user hasn't made a submission to the community yet
       const bounties = []
       // Get all bounty reviews
       if (this.submissions && Object.keys(this.communityDataPreview).length) {
