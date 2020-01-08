@@ -88,8 +88,7 @@
                   </ValidationObserver>
                 </div>
               </b-tab>
-              <b-tab title="Login" @click="goToLogin()">
-              </b-tab>
+              <b-tab title="Login" @click="goToLogin()" />
             </b-tabs>
           </b-card>
         </div>

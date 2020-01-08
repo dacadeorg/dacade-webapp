@@ -7,8 +7,7 @@
         <div class="col-md-6 mx-auto">
           <b-card class="bg-dark big-shadow">
             <b-tabs card align="center">
-              <b-tab title="Signup" @click="goToSignup()">
-              </b-tab>
+              <b-tab title="Signup" @click="goToSignup()" />
               <b-tab title="Login" active>
                 <div class="p-4">
                   <ValidationObserver v-slot="{ invalid, passes }">

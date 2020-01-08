@@ -26,7 +26,7 @@
                 </b>
               </div>
               <div v-if="openBounty.bountyText">
-                  {{ openBounty.bountyText }}
+                {{ openBounty.bountyText }}
               </div>
               <div>
                 <span class="muted-dark">Reward:</span>

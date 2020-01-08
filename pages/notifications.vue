@@ -5,8 +5,7 @@
       <div class="row">
         <div class="col-md-8 col-xl-6 mx-auto mt-4">
           <div v-if="userNotifications">
-            <div class="text-center mb-4">
-            </div>
+            <div class="text-center mb-4" />
             <div
               v-for="notification in orderDesc()"
               :key="notification.id"
