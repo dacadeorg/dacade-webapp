@@ -9,9 +9,9 @@
         </h1>
       </div>
       <div class="mb-4">
-         <nuxt-link to="/admin/evaluations" class="btn btn-secondary">
-            BACK
-          </nuxt-link>
+        <nuxt-link to="/admin/evaluations" class="btn btn-secondary">
+          BACK
+        </nuxt-link>
       </div>
     </div>
     <div class="offset-md-3 col-lg-6">
@@ -66,8 +66,8 @@
         <b-form @submit.prevent="submitSubmissionEvaluation">
           <b-form-group
             v-for="(rubricItem, index) in communityData.challengeRubric"
-            :key="index"
             :id="'input-group' + index"
+            :key="index"
             label-for="input-1"
           >
             <h5 class="dark-white font-bold">
@@ -77,9 +77,9 @@
               <b-form-radio
                 v-for="(rubricRating, indexR) in rubricItem.rubric"
                 :key="indexR"
-                :name= rubricRating.name
-                :value= rubricRating.points
-                v-model= evaluation.evaluationPoints[rubricItem.name]
+                v-model="evaluation.evaluationPoints[rubricItem.name]"
+                :name="rubricRating.name"
+                :value="rubricRating.points"
                 class="col-md-3 col-6 mb-2"
               >
                 <h6 class="learning-color font-bold">
@@ -129,7 +129,7 @@
               placeholder="Enter something..."
               rows="3"
               max-rows="6"
-            ></b-form-textarea>
+            />
           </b-form-group>
           <b-button type="submit" variant="primary">
             Submit Evaluation
@@ -181,20 +181,11 @@
           >
             <b-form-radio-group
               key="option1"
+              v-model="review.rewardAmount"
               name="option1"
-              :value= communityData.feedbackPrice
-              v-model= review.rewardAmount
+              :value="communityData.feedbackPrice"
               :options="getFeedbackPrices"
-            >
-            </b-form-radio-group>
-          <!-- <b-form-input
-            id="input-1"
-            v-model="review.rewardAmount"
-            type="number"
-            step="0.01"
-            required
-            placeholder="1"
-          /> -->
+            />
           </b-form-group>
           <b-button type="submit" variant="primary">
             Submit
@@ -205,12 +196,9 @@
   </div>
 </template>
 <script>
-/* eslint-disable no-console */
-/* eslint-disable prefer-const */
-/* eslint-disable no-unused-vars */
 /* eslint-disable spaced-comment */
 import firebase from '@/plugins/firebase'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   data() {
@@ -232,7 +220,7 @@ export default {
     }),
     sumLearningPoints() {
       let submissionPoints = 0
-      for (let key in this.evaluation.evaluationPoints) {
+      for (const key in this.evaluation.evaluationPoints) {
         submissionPoints = submissionPoints + parseInt(this.evaluation.evaluationPoints[key])
       }
       return submissionPoints
@@ -246,7 +234,7 @@ export default {
       return feedbackPrices
     }
   },
-  // this may need to be changed to be more dynamic
+  // This may need to be changed to be more dynamic
   async asyncData({ params }) {
     let submission, communityDataPreview, communityData, feedback
     await firebase.database().ref(`submissions/${params.slug}/${params.id}`).once('value').then((snapShot) => {
@@ -279,7 +267,7 @@ export default {
         evaluation.comment = this.evaluationComment
       }
       evaluation['.key'] = key
-      for (let key in this.evaluation.evaluationPoints) {
+      for (const key in this.evaluation.evaluationPoints) {
         submissionPoints = submissionPoints + parseInt(this.evaluation.evaluationPoints[key])
         evaluation[key] = parseInt(this.evaluation.evaluationPoints[key])
       }
@@ -301,37 +289,49 @@ export default {
         learningPoints: submissionUpdate.submissionPoints,
         communityId: submissionUpdate.communityId
       }
-      const balanceUpdate = {
-        userId: submissionUpdate.userId,
-        rewardAmount: submissionUpdate.submissionReward,
-        rewardToken: this.communityDataPreview[this.submission.communityId].rewardToken
+      if (this.submissionReward > 0) {
+        const transaction = {
+          communityId: this.submission.communityId,
+          receiverId: this.submission.userId,
+          amount: parseInt(this.submissionReward, 10),
+          paid: false,
+          type: 'submission',
+          contentId: this.$route.params.id,
+          date: Date.now()
+        }
+        const balanceUpdate = {
+          userId: submissionUpdate.userId,
+          rewardAmount: submissionUpdate.submissionReward,
+          rewardToken: this.communityDataPreview[this.submission.communityId].rewardToken
+        }
+        const userNotification = {
+          date: Date.now(),
+          link: `/${this.submission.communityId}/submission/${key}`,
+          message: `Hello, ${submissionUpdate.displayName}! You received: ${addLearningPoints.learningPoints} 
+          of ${this.communityDataPreview[this.submission.communityId].submissionPoints} Learning Points for your submission in the
+          Learning Community '${this.communityDataPreview[this.submission.communityId].name}'. 
+          This means you earned a reward of ${balanceUpdate.rewardAmount}$ in ${balanceUpdate.rewardToken} token.`,
+          notificationRead: false,
+          userId: submissionUpdate.userId
+        }
+        this.$store.dispatch('admin/createTransaction', transaction)
+        this.$store.dispatch('admin/updateBalance', balanceUpdate)
+        this.$store.dispatch('addUserNotification', userNotification)
+      } else {
+        const userNotification = {
+          date: Date.now(),
+          link: `/${this.submission.communityId}/submission/${key}`,
+          message: `Hello, ${submissionUpdate.displayName}! You received: ${addLearningPoints.learningPoints} 
+          of ${this.communityDataPreview[this.submission.communityId].submissionPoints} Learning Points for your submission in the
+          Learning Community '${this.communityDataPreview[this.submission.communityId].name}'.`,
+          notificationRead: false,
+          userId: submissionUpdate.userId
+        }
+        this.$store.dispatch('addUserNotification', userNotification)
       }
-      const userNotification = {
-        date: Date.now(),
-        link: `/${this.submission.communityId}/submission/${key}`,
-        message: `Hello, ${submissionUpdate.displayName}! You received: ${addLearningPoints.learningPoints} 
-        of ${this.communityDataPreview[this.submission.communityId].submissionPoints} Learning Points for your submission in the
-        Learning Community '${this.communityDataPreview[this.submission.communityId].name}'. 
-        This means you earned a reward of ${balanceUpdate.rewardAmount}$ in ${balanceUpdate.rewardToken} token.`,
-        notificationRead: false,
-        userId: submissionUpdate.userId
-      }
-      const transaction = {
-        communityId: this.submission.communityId,
-        receiverId: this.submission.userId,
-        amount: parseInt(this.submissionReward, 10),
-        amountPaid: 0,
-        type: 'submission',
-        contentId: this.$route.params.id,
-        date: Date.now()
-      }
-      // console.log(evaluation)
-      // this.$store.dispatch('admin/createEvaluation', evaluation)
-      // this.$store.dispatch('admin/updateSubmission', submissionUpdate)
-      this.$store.dispatch('admin/createTransaction', transaction)
-      // this.$store.dispatch('admin/updateBalance', balanceUpdate)
-      // this.$store.dispatch('admin/addLearningPoints', addLearningPoints)
-      // this.$store.dispatch('addUserNotification', userNotification)
+      this.$store.dispatch('admin/createEvaluation', evaluation)
+      this.$store.dispatch('admin/updateSubmission', submissionUpdate)
+      this.$store.dispatch('admin/addLearningPoints', addLearningPoints)
     },
     submitReviewEvaluation(review, key) {
       const reviewUpdate = {
@@ -365,8 +365,18 @@ export default {
         notificationRead: false,
         userId: review.reviewUserId
       }
+      const transaction = {
+        communityId: this.submission.communityId,
+        receiverId: review.reviewUserId,
+        amount: parseFloat(this.review.rewardAmount),
+        paid: false,
+        type: 'review',
+        contentId: this.$route.params.id,
+        date: Date.now()
+      }
       this.$store.dispatch('admin/updateReview', reviewUpdate)
       this.$store.dispatch('admin/updateBalance', balanceUpdate)
+      this.$store.dispatch('admin/createTransaction', transaction)
       this.$store.dispatch('admin/updateReputation', reputationUpdate)
       this.$store.dispatch('addUserNotification', userNotification)
     },
@@ -407,6 +417,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-
-</style>

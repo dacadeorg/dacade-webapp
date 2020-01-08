@@ -24,12 +24,22 @@ export const actions = {
     console.log(payload)
     const communityId = payload.communityId
     delete payload.communityId
-    const receiverId = payload.recipientId
+    const receiverId = payload.receiverId
     delete payload.receiverId
-    console.log(payload)
+    console.log(receiverId)
     firebase.database().ref(`transactions/${communityId}/${receiverId}`).push(payload)
       .then(() => {
-        console.log('success')
+        console.log('Success, transaction created.')
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  },
+  updateTransactionAsPaid({ commit }, payload) {
+    console.log(payload)
+    firebase.database().ref(`transactions/${payload.communityId}/${payload.userId}/${payload.transactionId}/paid`).set(Date.now())
+      .then(() => {
+        console.log('Success, transaction updated as paid.')
       })
       .catch((error) => {
         console.log('error', error)
@@ -67,11 +77,10 @@ export const actions = {
   },
   updateBalance({ commit }, payload) {
     db.ref(`balance/${payload.userId}/${payload.rewardToken}`).transaction(function (currentData) {
-      console.log(payload.rewardAmount)
       return currentData + payload.rewardAmount
     })
       .then(() => {
-        console.log('success')
+        console.log('Success, user balance updated.')
       })
       .catch((error) => {
         console.log('error', error)
@@ -97,6 +106,48 @@ export const actions = {
       })
       .catch((error) => {
         console.log('error', error)
+      })
+  },
+  deleteVerificationRequest({ commit }, payload) {
+    db.ref(`userVerificationRequest/${payload.userId}/${payload.verificationType}/link`).set(null)
+      .then(() => {
+        console.log('Success, verification deleted')
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  },
+  createUserVerification({ commit }, payload) {
+    db.ref(`userVerifications/${payload.userId}/${payload.verificationType}/link`).set(`${payload.verificationLink}`)
+      .then(() => {
+        console.log('Success, user verified')
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  },
+  updatePayoutRequestPending({ commit }, payload) {
+    firebase.database().ref(`payoutRequestsPending/${payload.userId}/${payload.rewardToken}`).once('value')
+      .then((snapShot) => {
+        if ((snapShot.val() + payload.rewardAmount) === 0) {
+          firebase.database().ref(`payoutRequestsPending/${payload.userId}/${payload.rewardToken}`).set(null)
+            .then(() => {
+              console.log('Success, payout request deleted.')
+            })
+            .catch((error) => {
+              console.log('error', error)
+            })
+        } else {
+          db.ref(`payoutRequestsPending/${payload.userId}/${payload.rewardToken}`).transaction(function (currentData) {
+            return currentData + payload.rewardAmount
+          })
+            .then(() => {
+              console.log('Success, user request updated.')
+            })
+            .catch((error) => {
+              console.log('error', error)
+            })
+        }
       })
   }
 }

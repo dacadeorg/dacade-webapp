@@ -37,31 +37,13 @@ export const mutations = {
   setForwardRoute(state, payload) {
     state.forwardRoute = payload
   },
+  // setUserWalletAddresses(state, payload) {
+  //   state.userWalletAddresses = payload
+  // },
   ...vuexfireMutations
 }
 
 export const actions = {
-  // nuxtClientInit({ commit }) {
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       const authUser = {
-  //         id: user.uid,
-  //         email: user.email
-  //       }
-  //       firebase.database().ref(`users/${authUser.id}`).once('value').then((snapShot) => {
-  //         const userData = snapShot.val()
-  //         authUser.balance = userData.balance
-  //         authUser.displayName = userData.displayName
-  //         authUser.learningPoints = userData.learningPoints
-  //         authUser.teachingPoints = userData.teachingPoints
-  //         if (userData.role) {
-  //           authUser.role = userData.role
-  //         }
-  //         commit('setUser', authUser)
-  //       })
-  //     }
-  //   })
-  // },
   signUpUser({ commit }, payload) {
     commit('setBusy', true)
     commit('clearError')
@@ -169,6 +151,29 @@ export const actions = {
       .catch((error) => {
         console.log('error', error)
       })
+  },
+  updateWalletAddress({ commit }, payload) {
+    console.log(payload)
+    db.ref(`userWallet/${payload.userId}/${payload.token}`).set(`${payload.walletAddress}`)
+      .then(() => {
+        commit('setJobDone', true)
+        commit('setBusy', false)
+      })
+      .catch((error) => {
+        commit('setBusy', false)
+        commit('setError', error)
+      })
+  },
+  createVerificationRequest({ commit }, payload) {
+    db.ref(`userVerificationRequest/${payload.userId}/${payload.verificationType}/link`).set(`${payload.verificationLink}`)
+      .then(() => {
+        commit('setJobDone', true)
+        commit('setBusy', false)
+      })
+      .catch((error) => {
+        commit('setBusy', false)
+        commit('setError', error)
+      })
   }
 }
 
@@ -206,4 +211,7 @@ export const getters = {
   userLearningPoints(state) {
     return state.userLearningPoints
   }
+  // userWalletAddresses(state) {
+  //   return state.userWalletAddresses
+  // }
 }
