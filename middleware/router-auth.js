@@ -60,6 +60,10 @@ function isAdminRoute(route) {
     return true
   } else if (route.matched.some(record => record.path === '/admin/test')) {
     return true
+  } else if (route.matched.some(record => record.path === '/admin/payments')) {
+    return true
+  } else if (route.matched.some(record => record.path === '/admin/verifications')) {
+    return true
   } else {
     return false
   }
