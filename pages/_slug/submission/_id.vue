@@ -90,19 +90,19 @@
                         class="col-md-3 col-6 mb-2"
                         :class="rubric.points == evaluation[evaluationRating.name] ? 'color-default' : 'muted'"
                       >
-                      <div class="learning-color fs-1">
-                        <b>
-                          {{ rubric.points }} LP
-                        </b>
-                      </div>
-                      <div class="text-left fs-08">
-                        {{ rubric.text }}
-                      </div>
+                        <div class="learning-color fs-1">
+                          <b>
+                            {{ rubric.points }} LP
+                          </b>
+                        </div>
+                        <div class="text-left fs-08">
+                          {{ rubric.text }}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                  <!-- Old evaluation model -->
+                <!-- Old evaluation model -->
                 <div v-else>
                   <div v-for="(evaluationRating, index) in communityData.challengeRatingCriteriaPoints" :key="index" class="mb-2">
                     <b class="dark-white">
@@ -114,7 +114,7 @@
                     <div v-html="getRatingText(evaluationRating.name,evaluation)" />
                   </div>
                 </div>
-                  <!-- Old evaluation model end -->
+                <!-- Old evaluation model end -->
                 <div class="dark-white mb-2">
                   <b>Total:</b>
                   <b class="learning-color">{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span></b>
@@ -155,18 +155,18 @@
             <i>Feedback rewards issued. Learn more</i>
             <span v-b-modal.modal-reward-info class="fa fa-info-circle pointer info" />
             <b-modal
+              v-if="communityData.feedbackInfo"
               id="modal-reward-info"
               header-text-variant="light"
               title="Feedback Reward Info"
               size="lg"
-              v-if="communityData.feedbackInfo"
               hide-footer
             >
               <article>
                 <section>
                   <h3 class="dark-white">
                     <b class="earning-color">
-                    $
+                      $
                     </b>
                     <b>Feedback Rewards</b>
                   </h3>
@@ -250,17 +250,17 @@
             </b>
             <span v-b-modal.modal-feedback-info class="fa fa-info-circle pointer info" />
             <b-modal
+              v-if="communityData.feedbackInfo"
               id="modal-feedback-info"
               header-text-variant="light"
               title="Feedback Info"
               size="lg"
-              v-if="communityData.feedbackInfo"
               hide-footer
             >
               <article>
                 <section>
                   <h3 class="dark-white">
-                    <i class="fa fa-thumbs-up green"/>
+                    <i class="fa fa-thumbs-up green" />
                     <b>Do</b>
                   </h3>
                   <ul>
@@ -332,7 +332,11 @@
                   <span class="help">{{ errors[0] }}</span>
                 </ValidationProvider>
               </div>
-              <b-button type="submit" id="submitButton" class="btn btn-primary btn-lg">
+              <b-button
+                id="submitButton"
+                type="submit"
+                class="btn btn-primary btn-lg"
+              >
                 Submit
               </b-button>
             </b-form>
