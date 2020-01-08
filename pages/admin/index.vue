@@ -32,7 +32,18 @@
             <b-nav-item>
               <h2>
                 <i>
-                  PAYMENTS
+                  <nuxt-link to="/admin/payments/">
+                    PAYMENTS
+                  </nuxt-link>
+                </i>
+              </h2>
+            </b-nav-item>
+            <b-nav-item>
+              <h2>
+                <i>
+                  <nuxt-link to="/admin/verifications/">
+                    VERIFICATIONS
+                  </nuxt-link>
                 </i>
               </h2>
             </b-nav-item>
