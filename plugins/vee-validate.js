@@ -1,6 +1,7 @@
+/* eslint-disable camelcase */
 import Vue from 'vue'
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate'
-import { required, email, min } from 'vee-validate/dist/rules'
+import { required, email, min, max_value } from 'vee-validate/dist/rules'
 
 extend('required', {
   ...required,
@@ -15,6 +16,11 @@ extend('email', {
 extend('min', {
   ...min,
   message: 'The {_field_} is too short'
+})
+
+extend('max_value', {
+  ...max_value,
+  message: 'The {_field_} is too high'
 })
 
 // Register it globally
