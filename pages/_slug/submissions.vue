@@ -39,7 +39,11 @@
             </b-card>
           </div>
           <div class="text-center">
-            <b-button v-if="showMoreButton" @click.prevent="getSubmissions()" class="btn-outline-primary btn-block">
+            <b-button
+              v-if="showMoreButton"
+              class="btn-outline-primary btn-block"
+              @click.prevent="getSubmissions()"
+            >
               Show More
             </b-button>
           </div>
