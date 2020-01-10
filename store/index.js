@@ -165,7 +165,10 @@ export const actions = {
       })
   },
   createVerificationRequest({ commit }, payload) {
-    db.ref(`userVerificationRequest/${payload.userId}/${payload.verificationType}/link`).set(`${payload.verificationLink}`)
+    db.ref(`userVerificationRequest/${payload.userId}/${payload.verificationType}`).set({
+      displayName: payload.displayName,
+      link: payload.verificationLink
+    })
       .then(() => {
         commit('setJobDone', true)
         commit('setBusy', false)

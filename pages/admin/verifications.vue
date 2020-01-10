@@ -25,19 +25,23 @@
             text-variant="white"
           >
             <div>
-              <a :href="openRequest[Object.keys(openRequest)].link">Verification Link</a>
+              <a :href="openRequest[Object.keys(openRequest)].link" target="_blank">
+                <h3>
+                  Verification Link for {{ openRequest[Object.keys(openRequest)].displayName }}
+                </h3>
+              </a>
             </div>
             <div
-              class="btn-cash-out pointer btn mt-2 mb-4"
+              class="btn-cash-out pointer btn mt-2 mb-4 mr-2"
               @click="verifyRequest(Object.keys(verificationRequests)[index], openRequest)"
             >
-              Verified
+              Verify
             </div>
             <div
               class="btn-cash-out pointer btn mt-2 mb-4"
               @click="deleteVerificationRequest(Object.keys(verificationRequests)[index], openRequest)"
             >
-              Not Verified
+              Delete request
             </div>
           </b-card>
         </div>
@@ -96,8 +100,8 @@ export default {
 .btn-cash-out {
   color: black;
   text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #ffcc00;
-  border: 1.6px solid #ffcc00;
+  background-color: grey;
+  border: 1.6px solid grey;
   border-radius: .35rem;
   padding: 10px 40px;
   font-weight: 700;

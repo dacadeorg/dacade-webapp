@@ -446,9 +446,11 @@ export default {
     updateUserVerifications() {
       const verficationObject = {
         userId: this.user.id,
+        displayName: this.user.displayName,
         verificationLink: this.inputUserVerifications.socialMedia,
         verificationType: 'socialMedia'
       }
+      // console.log(verficationObject)
       this.$store.dispatch('createVerificationRequest', verficationObject)
       // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
       this.$router.go()
