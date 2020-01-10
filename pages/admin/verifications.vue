@@ -76,8 +76,7 @@ export default {
     deleteVerificationRequest(userId, request) {
       const verificationObject = {
         userId: userId,
-        verificationType: Object.keys(request)[0],
-        verificationLink: Object.values(request)[0].link
+        verificationType: Object.keys(request)[0]
       }
       this.$store.dispatch('admin/deleteVerificationRequest', verificationObject)
     },

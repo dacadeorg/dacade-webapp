@@ -109,7 +109,7 @@ export const actions = {
       })
   },
   deleteVerificationRequest({ commit }, payload) {
-    db.ref(`userVerificationRequest/${payload.userId}/${payload.verificationType}/link`).set(null)
+    db.ref(`userVerificationRequest/${payload.userId}/${payload.verificationType}`).set(null)
       .then(() => {
         console.log('Success, verification deleted')
       })
