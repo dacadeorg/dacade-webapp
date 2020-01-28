@@ -87,6 +87,9 @@
                       v-if="payoutRequestsPending && payoutRequestsPending[key]"
                     >
                       <div class="notification mt-2">
+                        <span>
+                          <i class="fa fa-clock-o mr-2 color-default" aria-hidden="true" />
+                        </span>
                         Payout request for {{ payoutRequestsPending[key] }} {{ key }} pending.
                       </div>
                     </div>
@@ -118,7 +121,10 @@
                       v-if="userVerificationPendig === true"
                       class="notification"
                     >
-                      Social media Verification request pending
+                      <span>
+                        <i class="fa fa-clock-o mr-2 color-default" aria-hidden="true" />
+                      </span>
+                      Social media verification request pending.
                     </div>
                     <div v-else>
                       <div v-b-modal="'add-social-media-verification' + key" class="btn-add btn mt-2 mb-4 small-shadow">
@@ -542,12 +548,15 @@ export default {
 
 .notification {
   background: rgba(255,255,255,.9);
-  border: 1.6px solid white;
+  border: none;
+  border-left: 6px solid #acb2be;
   border-radius: 0.35rem;
   color: rgba(0,0,0,.7);
   font-style: italic;
   font-weight: bold;
   padding: 1em;
+  padding-right: 2em;
+  display: inline-block;
 }
 
 .overlay-text {
