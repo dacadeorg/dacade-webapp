@@ -19,11 +19,21 @@
                   <i v-b-modal.modal-xl class="fa fa-play-circle fa-5x play-button2" />
                   <b-modal
                     id="modal-xl"
-                    title="Trailer"
+                    title="Dacade in 90 seconds"
                     header-text-variant="light"
                     size="xl"
                     hide-footer
                   >
+                    <div class="embed-responsive embed-responsive-16by9 mb-3">
+                      <iframe
+                        class="embed-responsive-item"
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/w5Lru6t2O4s?rel=0"
+                        frameborder="0"
+                        allowfullscreen
+                      />
+                    </div>
                     <div class="embed-responsive embed-responsive-16by9">
                       <iframe
                         class="embed-responsive-item"
