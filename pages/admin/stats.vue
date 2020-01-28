@@ -19,18 +19,18 @@
             <b-nav-item>
               <h2>
                 <i @click="getSubmissions">
-                  get total Submissions
+                  Total Submissions
                 </i>
               </h2>
             </b-nav-item>
             <b-nav-item>
               <h2>
                 <i @click="getReviews(getPreviousMonday)">
-                  get Reviews this week
+                  Total reviews
                 </i>
               </h2>
             </b-nav-item>
-            <b-nav-item>
+            <!-- <b-nav-item>
               <h2>
                 <i @click="getSubmissionsSinceDate(getPreviousMonday)">
                   get submission since last monday
@@ -57,7 +57,7 @@
                   earnedInCommunity
                 </i>
               </h2>
-            </b-nav-item>
+            </b-nav-item> -->
           </b-nav>
           <div>
             <div v-if="totalSubmissions">
@@ -68,8 +68,10 @@
             </div>
             <div>
               <div>
-                <b-form-input v-model="weekStartDate" type="date" placeholder='2019-11-04'></b-form-input>
-                <div class="mt-2">Value: {{ weekStartDate }}</div>
+                <b-form-input v-model="weekStartDate" type="date" placeholder="2019-11-04" />
+                <div class="mt-2">
+                  Value: {{ weekStartDate }}
+                </div>
               </div>
             </div>
           </div>
@@ -94,10 +96,6 @@ export default {
       reviewRewards: null
     }
   },
-  created() {
-    // this.getSubmissions()
-    // this.getReviews()
-  },
   computed: {
     getPreviousMonday() {
       let prevMonday = new Date()
@@ -105,6 +103,10 @@ export default {
       return prevMonday
       // return new Date(prevMonday).toISOString().split('T')[0]
     }
+  },
+  created() {
+    // this.getSubmissions()
+    // this.getReviews()
   },
   methods: {
     back() {
