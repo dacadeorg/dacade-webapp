@@ -10,7 +10,7 @@
           </h1>
         </div>
         <div>
-          <b-nav vertical class="w-25">
+          <b-nav vertical class="w-50">
             <b-nav-item>
               <h2>
                 <i>
@@ -32,8 +32,8 @@
             <b-nav-item>
               <h2>
                 <i>
-                  <nuxt-link to="/admin/payments/">
-                    PAYMENTS
+                  <nuxt-link to="/admin/paymentRequests/">
+                    PAYMENT REQUESTS
                   </nuxt-link>
                 </i>
               </h2>
