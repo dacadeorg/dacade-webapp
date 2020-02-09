@@ -23,7 +23,20 @@
                     class="mb-2 small-shadow text-center bg-dark card-stats"
                   >
                     <b-card-text class="text-center mt-4 pb-2">
-                      <h3><b class="dark-white points">{{ communityData.submissionPrice }}$</b></h3>
+                      <h3
+                        class="dark-white points"
+                      >
+                        <b
+                          v-if="communityData.priceFormat === 'DCN'"
+                        >
+                          {{ communityData.submissionPrice }}<img class="DCN" src="/img/DCN.png" height="24" alt="">
+                        </b>
+                        <b
+                          v-else
+                        >
+                          {{ communityData.submissionPrice }}$
+                        </b>
+                      </h3>
                       <span class="muted-dark">Submission</span>
                     </b-card-text>
                   </b-card>
@@ -38,7 +51,20 @@
                     class="mb-2 small-shadow text-center bg-dark card-stats"
                   >
                     <b-card-text class="text-center mt-4 pb-2">
-                      <h3><b class="dark-white points">{{ communityData.feedbackPrice }}$</b></h3>
+                      <h3
+                        class="dark-white points"
+                      >
+                        <b
+                          v-if="communityData.priceFormat === 'DCN'"
+                        >
+                          {{ communityData.feedbackPrice }}<img class="DCN" src="/img/DCN.png" height="24" alt="">
+                        </b>
+                        <b
+                          v-else
+                        >
+                          {{ communityData.feedbackPrice }}$
+                        </b>
+                      </h3>
                       <span class="muted-dark">Feedback</span>
                     </b-card-text>
                   </b-card>
@@ -224,6 +250,10 @@ export default {
 }
 .community-sponsor img{
   max-width:80px;
+}
+.DCN{
+  vertical-align: -2px;
+  margin-left: 2px;
 }
 .intro-videos {
   margin-bottom:2em;

@@ -22,9 +22,7 @@
               >
                 <div class="text-center">
                   <h4 class="dark-white">
-                    <b>
-                      {{ community.name }}
-                    </b>
+                    <b v-html="community.name" />
                   </h4>
                 </div>
                 <b-card-text class="muted-dark">
@@ -35,7 +33,20 @@
                     Total Submissions: {{ community.submissions }}
                   </div>
                   <div class="muted-dark">
-                    Rewards: <b class="earning-color">{{ community.submissionReward }}$<span class="muted-dark">/</span>{{ community.reviewReward }}$</b>
+                    Rewards:
+                    <b
+                      v-if="community.rewardToken === 'DCN'"
+                      class="learning-color"
+                    >
+                      {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}
+                      <img class="DCN" src="/img/DCN.png" height="18" alt="">
+                    </b>
+                    <b
+                      v-else
+                      class="earning-color"
+                    >
+                      {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}$
+                    </b>
                   </div>
                 </b-card-text>
               </b-card>
@@ -62,6 +73,11 @@ export default {
     }),
     orderedCommunityDataPreview() {
       const orderedCommunityDataPreview = this.communityDataPreview
+      for (const key in orderedCommunityDataPreview) {
+        if (orderedCommunityDataPreview[key].order === undefined) {
+          delete orderedCommunityDataPreview[key]
+        }
+      }
       return Object.values(orderedCommunityDataPreview).sort(function (a, b) {
         return a.order - b.order
       })
@@ -83,7 +99,6 @@ export default {
   .card-body{
     padding: 1.5rem 2.1rem;
   }
-
   .card-text{
     text-align: center;
     color:#acb2be;
@@ -92,9 +107,12 @@ export default {
   .card-title{
     text-align: center;
   }
-
   .container{
     margin-top:4rem;
+  }
+  .DCN{
+    vertical-align: -2px;
+    margin-left: -4px;
   }
   .sel-com article{
     border: 1.6px solid #00000000;
@@ -102,9 +120,7 @@ export default {
   .sel-com article:hover{
     border: 1.6px solid #53d1af;
   }
-
   .sel-com a:hover{
     text-decoration: none;
   }
-
 </style>

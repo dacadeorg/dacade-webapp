@@ -29,194 +29,208 @@
                   Balance:
                 </b>
               </h4>
-              <div v-for="(balance, key) in userBalance" :key="balance.id" class="mb-4">
+              <div
+                v-if="userBalance.DCN"
+                class="mb-4"
+              >
                 <h4>
-                  {{ key }} token:
-                  <b class="earning-color">
-                    {{ parseFloat(balance).toFixed(0) }}$
+                  Dacade coins:
+                  <b class="learning-color">
+                    {{ parseFloat(userBalance.DCN).toFixed(0) }}
+                    <img class="DCN-icon" src="/img/DCN.png" height="22" alt="">
                   </b>
                 </h4>
-                <div>
-                  <div v-if="userWalletAddresses && userWalletAddresses[key] && userVerifications && userVerifications['socialMedia']">
-                    <!-- If the user entered a wallet address for the token and is verified
-                    , they can change the address and make a payout request -->
-                    <h4
-                      class="muted-dark"
-                    >
-                      {{ key }} wallet address: {{ userWalletAddresses[key] }}
-                    </h4>
-                    <div v-b-modal="'add-address-modal2' + key" class="btn-edit btn mt-2 mb-2 muted-dark small-shadow">
-                      Change {{ key }} Address
-                    </div>
-                    <b-modal
-                      :id="'add-address-modal2' + key"
-                      title="Change Address"
-                      header-text-variant="light"
-                      hide-footer
-                    >
-                      <div>
-                        <b-form @submit.prevent="updateWalletAddress(key)">
-                          <b-form-group
-                            id="input-group-1"
-                            :label="`New ${key} wallet address:`"
-                            label-for="wallet-address"
-                          >
-                            <b-form-input
-                              id="wallet-address"
-                              v-model="addresses[key]"
-                              type="text"
-                              required
-                              placeholder="Enter new wallet address"
-                            />
-                          </b-form-group>
-                          <div
-                            class="text-center"
-                          >
-                            <b-button
-                              type="submit"
-                              class="btn-add btn mt-2 mb-2 small-shadow"
-                              @click="$bvModal.hide('add-address-modal2' + key)"
-                            >
-                              Submit new Address
-                            </b-button>
-                          </div>
-                        </b-form>
-                      </div>
-                    </b-modal>
-                    <div
-                      v-if="payoutRequestsPending && payoutRequestsPending[key]"
-                    >
-                      <div class="notification mt-2">
-                        <span>
-                          <i class="fa fa-clock-o mr-2 color-default" aria-hidden="true" />
-                        </span>
-                        Payout request for {{ payoutRequestsPending[key] }} {{ key }} pending.
-                      </div>
-                    </div>
-                    <div v-else>
-                      <span v-b-modal="'cash-out-modal' + key" class="btn-cash-out btn mt-2 mb-4 small-shadow">
-                        Cash out
-                      </span>
-                      <b-modal
-                        :id="'cash-out-modal' + key"
-                        title="Cash Out"
-                        header-text-variant="light"
-                        hide-footer
+              </div>
+              <div v-for="(balance, key) in userBalance" :key="balance.id" class="mb-4">
+                <div v-if="key !== 'DCN'">
+                  <h4>
+                    {{ key }} token:
+                    <b class="earning-color">
+                      {{ parseFloat(balance).toFixed(0) }}$
+                    </b>
+                  </h4>
+                  <div>
+                    <div v-if="userWalletAddresses && userWalletAddresses[key] && userVerifications && userVerifications['socialMedia']">
+                      <!-- If the user entered a wallet address for the token and is verified
+                      , they can change the address and make a payout request -->
+                      <h4
+                        class="muted-dark"
                       >
-                        Request to payout {{ balance }}$ in {{ key }} token to the {{ key }} address: {{ userWalletAddresses[key] }}
-                        <div class="text-center">
-                          <div
-                            class="btn-cash-out btn mt-4 mb-2 small-shadow"
-                            @click="createPayoutObject(key), $bvModal.hide('cash-out-modal' + key)"
-                          >
-                            Send request
-                          </div>
-                        </div>
-                      </b-modal>
-                    </div>
-                  </div>
-                  <!-- If the user isn't verified, they can add a verification request -->
-                  <div v-else-if="!userVerifications || !userVerifications['socialMedia']">
-                    <div
-                      v-if="userVerificationPendig === true"
-                      class="notification"
-                    >
-                      <span>
-                        <i class="fa fa-clock-o mr-2 color-default" aria-hidden="true" />
-                      </span>
-                      Social media verification request pending.
-                    </div>
-                    <div v-else>
-                      <div v-b-modal="'add-social-media-verification' + key" class="btn-add btn mt-2 mb-4 small-shadow">
-                        Add social media verification
+                        {{ key }} wallet address: {{ userWalletAddresses[key] }}
+                      </h4>
+                      <div v-b-modal="'add-address-modal2' + key" class="btn-edit btn mt-2 mb-2 muted-dark small-shadow">
+                        Change {{ key }} Address
                       </div>
                       <b-modal
-                        :id="'add-social-media-verification' + key"
-                        title="Add social media verification"
+                        :id="'add-address-modal2' + key"
+                        title="Change Address"
                         header-text-variant="light"
                         hide-footer
                       >
                         <div>
-                          <b-form @submit.prevent="updateUserVerifications()">
-                            <p>
-                              Please make a post with your dacade username on an active social media account
-                              and submit the link to the post below.
-                            </p>
-                            <b>
-                              Example:
-                            </b>
-                            <div
-                              class="social-media-post mb-4"
-                            >
-                              Verifying my dacade.org username {{ user.displayName }}.
-                            </div>
+                          <b-form @submit.prevent="updateWalletAddress(key)">
                             <b-form-group
-                              id="input-group-verification"
+                              id="input-group-1"
+                              :label="`New ${key} wallet address:`"
                               label-for="wallet-address"
                             >
                               <b-form-input
                                 id="wallet-address"
-                                v-model="inputUserVerifications['socialMedia']"
+                                v-model="addresses[key]"
                                 type="text"
                                 required
-                                placeholder="Verification Link"
+                                placeholder="Enter new wallet address"
                               />
                             </b-form-group>
-                            <div class="text-center">
+                            <div
+                              class="text-center"
+                            >
                               <b-button
                                 type="submit"
                                 class="btn-add btn mt-2 mb-2 small-shadow"
-                                @click="$bvModal.hide('add-social-media-verification' + key)"
+                                @click="$bvModal.hide('add-address-modal2' + key)"
                               >
-                                Submit Verification
+                                Submit new Address
+                              </b-button>
+                            </div>
+                          </b-form>
+                        </div>
+                      </b-modal>
+                      <div
+                        v-if="payoutRequestsPending && payoutRequestsPending[key]"
+                      >
+                        <div class="notification mt-2">
+                          <span>
+                            <i class="fa fa-clock-o mr-2 color-default" aria-hidden="true" />
+                          </span>
+                          Payout request for {{ payoutRequestsPending[key] }} {{ key }} pending.
+                        </div>
+                      </div>
+                      <div v-else>
+                        <span v-b-modal="'cash-out-modal' + key" class="btn-cash-out btn mt-2 mb-4 small-shadow">
+                          Cash out
+                        </span>
+                        <b-modal
+                          :id="'cash-out-modal' + key"
+                          title="Cash Out"
+                          header-text-variant="light"
+                          hide-footer
+                        >
+                          Request to payout {{ balance }}$ in {{ key }} token to the {{ key }} address: {{ userWalletAddresses[key] }}
+                          <div class="text-center">
+                            <div
+                              class="btn-cash-out btn mt-4 mb-2 small-shadow"
+                              @click="createPayoutObject(key), $bvModal.hide('cash-out-modal' + key)"
+                            >
+                              Send request
+                            </div>
+                          </div>
+                        </b-modal>
+                      </div>
+                    </div>
+                    <!-- If the user isn't verified, they can add a verification request -->
+                    <div v-else-if="!userVerifications || !userVerifications['socialMedia']">
+                      <div
+                        v-if="userVerificationPendig === true"
+                        class="notification"
+                      >
+                        <span>
+                          <i class="fa fa-clock-o mr-2 color-default" aria-hidden="true" />
+                        </span>
+                        Social media verification request pending.
+                      </div>
+                      <div v-else>
+                        <div v-b-modal="'add-social-media-verification' + key" class="btn-add btn mt-2 mb-4 small-shadow">
+                          Add social media verification
+                        </div>
+                        <b-modal
+                          :id="'add-social-media-verification' + key"
+                          title="Add social media verification"
+                          header-text-variant="light"
+                          hide-footer
+                        >
+                          <div>
+                            <b-form @submit.prevent="updateUserVerifications()">
+                              <p>
+                                Please make a post with your dacade username on an active social media account
+                                and submit the link to the post below.
+                              </p>
+                              <b>
+                                Example:
+                              </b>
+                              <div
+                                class="social-media-post mb-4"
+                              >
+                                Verifying my dacade.org username {{ user.displayName }}.
+                              </div>
+                              <b-form-group
+                                id="input-group-verification"
+                                label-for="wallet-address"
+                              >
+                                <b-form-input
+                                  id="wallet-address"
+                                  v-model="inputUserVerifications['socialMedia']"
+                                  type="text"
+                                  required
+                                  placeholder="Verification Link"
+                                />
+                              </b-form-group>
+                              <div class="text-center">
+                                <b-button
+                                  type="submit"
+                                  class="btn-add btn mt-2 mb-2 small-shadow"
+                                  @click="$bvModal.hide('add-social-media-verification' + key)"
+                                >
+                                  Submit Verification
+                                </b-button>
+                              </div>
+                            </b-form>
+                          </div>
+                        </b-modal>
+                      </div>
+                    </div>
+                    <!-- If the user didn't enter a wallet address for the token, they can add a new address -->
+                    <div v-else-if="!userWalletAddresses || !userWalletAddresses[key]">
+                      <div v-b-modal="'add-address-modal' + key" class="btn-add btn mt-2 mb-4 small-shadow">
+                        Add {{ key }} Address
+                      </div>
+                      <b-modal
+                        :id="'add-address-modal' + key"
+                        :title="`Add ${key} address`"
+                        header-text-variant="light"
+                        hide-footer
+                      >
+                        <div>
+                          <p>Please enter the address of your {{ key }} wallet below.</p>
+                          <b-form @submit.prevent="updateWalletAddress(key)">
+                            <b-form-group
+                              id="input-group-1"
+                              :label="key + ' wallet address:'"
+                              label-for="wallet-address"
+                            >
+                              <b-form-input
+                                id="wallet-address"
+                                v-model="addresses[key]"
+                                type="text"
+                                required
+                                placeholder="Enter wallet address"
+                              />
+                            </b-form-group>
+                            <div
+                              class="text-center"
+                            >
+                              <b-button
+                                type="submit"
+                                class="btn-add btn mt-2 mb-2 small-shadow"
+                                @click="$bvModal.hide('add-address-modal' + key)"
+                              >
+                                Submit Address
                               </b-button>
                             </div>
                           </b-form>
                         </div>
                       </b-modal>
                     </div>
-                  </div>
-                  <!-- If the user didn't enter a wallet address for the token, they can add a new address -->
-                  <div v-else-if="!userWalletAddresses || !userWalletAddresses[key]">
-                    <div v-b-modal="'add-address-modal' + key" class="btn-add btn mt-2 mb-4 small-shadow">
-                      Add {{ key }} Address
-                    </div>
-                    <b-modal
-                      :id="'add-address-modal' + key"
-                      :title="`Add ${key} address`"
-                      header-text-variant="light"
-                      hide-footer
-                    >
-                      <div>
-                        <p>Please enter the address of your {{ key }} wallet below.</p>
-                        <b-form @submit.prevent="updateWalletAddress(key)">
-                          <b-form-group
-                            id="input-group-1"
-                            :label="key + ' wallet address:'"
-                            label-for="wallet-address"
-                          >
-                            <b-form-input
-                              id="wallet-address"
-                              v-model="addresses[key]"
-                              type="text"
-                              required
-                              placeholder="Enter wallet address"
-                            />
-                          </b-form-group>
-                          <div
-                            class="text-center"
-                          >
-                            <b-button
-                              type="submit"
-                              class="btn-add btn mt-2 mb-2 small-shadow"
-                              @click="$bvModal.hide('add-address-modal' + key)"
-                            >
-                              Submit Address
-                            </b-button>
-                          </div>
-                        </b-form>
-                      </div>
-                    </b-modal>
                   </div>
                 </div>
               </div>
@@ -544,6 +558,11 @@ export default {
 
 .bg-black {
   background: black;
+}
+
+.DCN-icon{
+  vertical-align: -2px;
+  margin-left: -4px;
 }
 
 .notification {
