@@ -27,6 +27,10 @@
           <b-nav-text v-if="$route.name != 'index'" class="mr-2 muted-dark">
             <b class="earning-color">{{ getBalance() }}$</b>
           </b-nav-text>
+          <b-nav-text v-if="$route.name != 'index'" class="mr-2 muted-dark">
+            <b class="learning-color">{{ getDCNBalance() }}</b>
+            <img class="DCN" src="/img/DCN.png" height="18" alt="">
+          </b-nav-text>
           <i v-b-modal.modal-1 class="fa fa-bars fa-lg" />
           <b-modal
             id="modal-1"
@@ -106,8 +110,17 @@ export default {
       let balance = 0
       if (this.user && this.userBalance) {
         for (const key in this.userBalance) {
-          balance = balance + this.userBalance[key]
+          if (key !== 'DCN') {
+            balance = balance + this.userBalance[key]
+          }
         }
+      }
+      return parseFloat(balance).toFixed(0)
+    },
+    getDCNBalance() {
+      let balance = 0
+      if (this.user && this.userBalance && this.userBalance.DCN) {
+        balance = this.userBalance.DCN
       }
       return parseFloat(balance).toFixed(0)
     },
@@ -180,6 +193,11 @@ a.nuxt-link-active:hover{
   font-size: 1.3em;
   margin-left: 0.3em;
   cursor: default;
+}
+
+.DCN{
+  vertical-align: -2px;
+  margin-left: -4px;
 }
 
 .logoImg{
