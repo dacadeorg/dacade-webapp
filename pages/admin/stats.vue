@@ -30,17 +30,17 @@
                 </i>
               </h2>
             </b-nav-item>
+            <b-nav-item>
+              <h2>
+                <i @click="getSubmissionsSinceDate(1511680461000)">
+                  Feedback in Communities
+                </i>
+              </h2>
+            </b-nav-item>
             <!-- <b-nav-item>
               <h2>
                 <i @click="getSubmissionsSinceDate(getPreviousMonday)">
                   get submission since last monday
-                </i>
-              </h2>
-            </b-nav-item>
-            <b-nav-item>
-              <h2>
-                <i @click="getSubmissionsSinceDate(1511680461000)">
-                  get submissions total
                 </i>
               </h2>
             </b-nav-item>
