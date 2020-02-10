@@ -160,17 +160,17 @@
                 >
                   <b-card
                     bg-variant="dark"
-                    img-src="/img/ED1_cover.png"
+                    img-src="/img/WD1_cover.png"
                     img-alt="Image"
                     img-top
                     tag="article"
                   >
                     <b-card-text>
                       <h4 class="dark-white">
-                        Ethereum <br> Development 101
+                        Web <br> Development 101
                       </h4>
                       <p class="muted-dark">
-                        Learn how to build a registry on top of Ethereum.
+                        Learn how to build and host a website with bootstrap.
                       </p>
                     </b-card-text>
                   </b-card>
