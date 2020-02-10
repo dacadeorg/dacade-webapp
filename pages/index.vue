@@ -156,7 +156,7 @@
               </div>
               <div class="col-md-4 mb-4 sel-com">
                 <nuxt-link
-                  to="/eth-dev-101/introduction"
+                  to="/web-dev-101/introduction"
                 >
                   <b-card
                     bg-variant="dark"
