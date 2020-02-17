@@ -21,13 +21,26 @@
         <section v-if="communityData.submissionPrice>0">
           <h5 class="white">
             <b>
-              Earn {{ communityData.submissionPrice }}$
+              Earn {{ communityData.submissionPrice }}
+              <span v-if="communityData.priceFormat === 'DCN'">
+                <img class="DCN" src="/img/DCN.png" height="18" alt="">
+              </span>
+              <span v-else>$</span>
             </b>
           </h5>
-          <p class="mb-4">
-            In order to earn <b class="earning-color">{{ communityData.submissionPrice }}$</b>
-            in {{ communityData.priceFormat }} token you must get at least <b class="learning-color">{{ ((communityData.challengeThreshold * 0.01) * communityData.challengePoints).toFixed(0) }}</b>
-            out of <b class="learning-color muted">{{ communityData.challengePoints }}</b> Learning Points in this challenge.
+          <p
+            class="mb-4"
+          >
+            In order to earn {{ communityData.submissionPrice }}
+            <span v-if="communityData.priceFormat === 'DCN'">
+              dacade coins
+            </span>
+            <span v-else>$
+              in {{ communityData.priceFormat }} token
+            </span>
+            you must get at least
+            {{ ((communityData.challengeThreshold * 0.01) * communityData.challengePoints).toFixed(0) }}
+            out of {{ communityData.challengePoints }} Learning Points in this challenge.
           </p>
         </section>
 
@@ -220,6 +233,10 @@ export default {
 .challenge-reward img{
   padding-bottom: 0.6em;
   width:30px;
+}
+.DCN{
+  vertical-align: -2px;
+  margin-left: -4px;
 }
 .example-button{
   border: 1px solid #53d1af;
