@@ -42,8 +42,20 @@
           <div v-if="submission.submissionPoints != null" class="evaluation-points mt-4">
             <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span>
             </b>
-            <b v-if="submission.submissionReward > 1" class="earning-color ml-1">
-              +{{ submission.submissionReward }}$
+            <b v-if="submission.submissionReward > 1">
+              <span
+                v-if="communityData.priceFormat === 'DCN' && submission.date > 1581344763000"
+                class="ml-2"
+              >
+                +{{ submission.submissionReward }}
+                <img class="DCN" src="/img/DCN.png" height="18" alt="">
+              </span>
+              <span
+                v-else
+                class="earning-color ml-1"
+              >
+                +{{ submission.submissionReward }}$
+              </span>
             </b>
           </div>
         </b-card>
@@ -136,10 +148,23 @@
                     Reward:
                   </b>
                 </span>
-                <span class="earning-color">
+                <span>
                   <b>
-                    {{ submission.submissionReward }}$
+                    <span
+                      v-if="communityData.priceFormat === 'DCN' && submission.date > 1581344763000"
+                      class="ml-1"
+                    >
+                      +{{ submission.submissionReward }}
+                      <img class="DCN" src="/img/DCN.png" height="18" alt="">
+                    </span>
+                    <span
+                      v-else
+                      class="earning-color ml-1"
+                    >
+                      +{{ submission.submissionReward }}$
+                    </span>
                   </b>
+
                 </span>
                 <div>
                   Congratulations you gained at least {{ communityData.challengeThreshold }}% of the available learning points.
@@ -236,7 +261,21 @@
               <span v-if="index == 2" class="mr-2 feedback-ranked small-shadow-no-hover">
                 3RD
               </span>
-              <b class="earning-color mr-1">+{{ getReview.rewardAmount }}$</b>
+              <b>
+                <span
+                  v-if="communityData.priceFormat === 'DCN' && submission.date > 1581344763000"
+                  class="ml-2"
+                >
+                  +{{ getReview.rewardAmount }}
+                  <img class="DCN" src="/img/DCN.png" height="18" alt="">
+                </span>
+                <span
+                  v-else
+                  class="earning-color ml-1"
+                >
+                  +{{ getReview.rewardAmount }}$
+                </span>
+              </b>
               <b class="teaching-color">+{{ getReview.rewardAmount }}REP</b>
             </div>
           </b-card>
@@ -484,6 +523,10 @@ export default {
 </script>
 
 <style scoped>
+.DCN{
+  vertical-align: -4px;
+  margin-left: -2px;
+}
 .feedback-first {
   color: white;
   text-shadow: 0 0 2px #fff, 0 0 4px #ffffff90, 0 0 20px #ffffff50;
