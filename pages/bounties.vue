@@ -136,15 +136,17 @@ export default {
           }
         }
       }
-      for (let index = 0; index < Object.values(this.bountiesDb).length; index++) {
-        const element = {}
-        element.typ = Object.values(this.bountiesDb)[index].type
-        element.lcName = Object.values(this.bountiesDb)[index].community
-        element.color = Object.values(this.bountiesDb)[index].color
-        element.link = `${Object.values(this.bountiesDb)[index].link}`
-        element.bountyText = Object.values(this.bountiesDb)[index].text
-        element.reward = Object.values(this.bountiesDb)[index].reward
-        bounties.push(element)
+      if (this.bountiesDb && Object.keys(this.bountiesDb).length) {
+        for (let index = 0; index < Object.values(this.bountiesDb).length; index++) {
+          const element = {}
+          element.typ = Object.values(this.bountiesDb)[index].type
+          element.lcName = Object.values(this.bountiesDb)[index].community
+          element.color = Object.values(this.bountiesDb)[index].color
+          element.link = `${Object.values(this.bountiesDb)[index].link}`
+          element.bountyText = Object.values(this.bountiesDb)[index].text
+          element.reward = Object.values(this.bountiesDb)[index].reward
+          bounties.push(element)
+        }
       }
       // Get open submissions for user
       console.log(userSubmissions)
