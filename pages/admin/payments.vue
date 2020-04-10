@@ -17,7 +17,7 @@
       </div>
       <div v-if="requestsQueried" class="offset-md-3 col-lg-6">
         <b-card
-          v-for="( transaction, index ) in Object.values(transactions)"
+          v-for="( transaction, index ) in orderTransactions(Object.values(transactions))"
           :key="index"
           class="mb-4"
           bg-variant="dark"
@@ -133,6 +133,11 @@ export default {
     convertDate(date) {
       const outputDate = new Date(date)
       return outputDate.toISOString().slice(0, 10)
+    },
+    orderTransactions(transactions) {
+      return Object.values(transactions).sort(function (a, b) {
+        return a.paid - b.paid
+      })
     }
   }
 }
