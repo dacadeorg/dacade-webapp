@@ -120,6 +120,19 @@ export const actions = {
     firebase.auth().signOut()
     commit('setUser', null)
   },
+  passwordResetRequest({ commit }, payload) {
+    commit('setBusy', true)
+    commit('clearError')
+    firebase.auth().sendPasswordResetEmail(payload.email)
+      .then(() => {
+        commit('setJobDone', true)
+        commit('setBusy', false)
+      })
+      .catch((error) => {
+        commit('setBusy', false)
+        commit('setError', error)
+      })
+  },
   getUserNotifications: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userNotifications', db.ref('notifications').child(uid))
   }),
