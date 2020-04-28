@@ -16,41 +16,49 @@
 
           <div v-for="item in communityData.ChapterData[$route.params.id].chapterMaterials" :key="item.key" class="chapter-materials">
             <div v-if="!item.materialAdditional">
-              <div class="card w-100 mb-4">
-                <div class="card-body card-lite">
-                  <h4>
+              <b-card
+                class="bg-dark mb-4 small-shadow"
+              >
+                <!-- <div class="card w-100 mb-4">
+                <div class="card-body card-lite"> -->
+                <h4>
+                  <b class="white">
                     {{ item.materialTitle }}
-                  </h4>
-                  <h6 class="mb-2">
-                    <b>
-                      {{ item.materialSubtitle }}
-                    </b>
-                    {{ item.materialTime }}min
-                  </h6>
-                  <p class="mt-2" v-html="item.materialDescription" />
+                  </b>
+                </h4>
+                <h6 class="mb-2">
+                  <b>
+                    {{ item.materialSubtitle }}
+                  </b>
+                  {{ item.materialTime }}min
+                </h6>
+                <p class="mt-2" v-html="item.materialDescription" />
 
-                  <div v-if="item.materialType === 'embeded'">
-                    <div
-                      class="embed-responsive embed-responsive-16by9"
-                    >
-                      <iframe
-                        class="embed-responsive-item"
-                        :src="item.materialLink"
-                        allowfullscreen="allowfullscreen"
-                        frameborder="0"
-                      />
-                    </div>
-                  </div>
-
-                  <div v-else style="text-align:center">
-                    <a :href="item.materialLink" target="_blank" class="btn btn-outline-primary">Click Link</a>
-                  </div>
-
-                  <div v-if="item.materialCodeLink" class="code-link">
-                    <a class="btn btn-code" target="blank" :href="item.materialCodeLink">SEE CODE</a>
+                <div v-if="item.materialType === 'embeded'">
+                  <div
+                    class="embed-responsive embed-responsive-16by9"
+                  >
+                    <iframe
+                      class="embed-responsive-item"
+                      :src="item.materialLink"
+                      allowfullscreen="allowfullscreen"
+                      frameborder="0"
+                    />
                   </div>
                 </div>
-              </div>
+
+                <div v-else style="text-align:center">
+                  <a :href="item.materialLink" target="_blank" class="btn btn-primary">
+                    Open {{ item.materialSubtitle }}
+                  </a>
+                </div>
+
+                <div v-if="item.materialCodeLink" class="code-link">
+                  <a class="btn btn-code" target="blank" :href="item.materialCodeLink">SEE CODE</a>
+                </div>
+                <!-- </div>
+              </div> -->
+              </b-card>
             </div>
           </div>
 
