@@ -50,7 +50,8 @@ export default {
     ['@nuxtjs/google-analytics', {
       id: 'UA-36567351-2',
       dev: false
-    }]
+    }],
+    'cookie-universal-nuxt'
   ],
   bootstrapVue: {
     componentPlugins: [

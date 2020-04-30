@@ -5,10 +5,7 @@
       <div class="container">
         <main>
           <div>
-            <b-alert show variant="warning" dismissible class="cookieAlert">
-              We use browser cookies to give you the best possible experience. Learn more about our
-              <a href="http://policy.dacade.org/" class="alert-link">Privacy Policy</a>.
-            </b-alert>
+            <PrivacyPolicyBanner />
           </div>
 
           <section>
@@ -420,10 +417,12 @@
 
 <script>
 import Navigation from '@/components/Navigation'
+import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
 
 export default {
   components: {
-    Navigation
+    Navigation,
+    PrivacyPolicyBanner
   }
 }
 </script>
