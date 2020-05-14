@@ -29,7 +29,7 @@
                 </span>
                 <div v-if="submission.submissionPoints >= 0">
                   <b class="learning-color">
-                    {{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.challengePoints }} LP</span>
+                    {{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.challengePoints }} Points</span>
                   </b>
                 </div>
                 <b-card-text class="mt-2">

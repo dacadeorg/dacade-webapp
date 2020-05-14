@@ -40,7 +40,7 @@
             </span>
             you must get at least
             {{ ((communityData.challengeThreshold * 0.01) * communityData.challengePoints).toFixed(0) }}
-            out of {{ communityData.challengePoints }} Learning Points in this challenge.
+            out of {{ communityData.challengePoints }} Points in this challenge.
           </p>
         </section>
 
@@ -65,7 +65,7 @@
                 >
                   <div class="learning-color fs-1">
                     <b>
-                      {{ rubric.points }} LP
+                      {{ rubric.points }} Points
                     </b>
                   </div>
                   <div class="text-left fs-08">
