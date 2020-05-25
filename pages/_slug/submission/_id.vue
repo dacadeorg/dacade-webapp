@@ -40,7 +40,7 @@
             </span>
           </div>
           <div v-if="submission.submissionPoints != null" class="evaluation-points mt-4">
-            <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span>
+            <b class="learning-color"> +{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} Points</span>
             </b>
             <b v-if="submission.submissionReward > 1">
               <span
@@ -104,7 +104,7 @@
                       >
                         <div class="learning-color fs-1">
                           <b>
-                            {{ rubric.points }} LP
+                            {{ rubric.points }} Points
                           </b>
                         </div>
                         <div class="text-left fs-08">
@@ -121,7 +121,7 @@
                       {{ evaluationRating.name }}:
                     </b>
                     <b class="learning-color">
-                      {{ getRatingValue(evaluationRating.name,evaluation) }}<span class="learning-color-muted">/{{ evaluationRating.points }} LP</span>
+                      {{ getRatingValue(evaluationRating.name,evaluation) }}<span class="learning-color-muted">/{{ evaluationRating.points }} Points</span>
                     </b>
                     <div v-html="getRatingText(evaluationRating.name,evaluation)" />
                   </div>
@@ -129,7 +129,7 @@
                 <!-- Old evaluation model end -->
                 <div class="dark-white mb-2">
                   <b>Total:</b>
-                  <b class="learning-color">{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} LP</span></b>
+                  <b class="learning-color">{{ submission.submissionPoints }}<span class="learning-color-muted">/{{ communityData.assignmentPoints }} Points</span></b>
                 </div>
                 <div
                   v-if="evaluation.comment"

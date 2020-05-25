@@ -297,7 +297,7 @@
             >
               <b-card-text class="text-center">
                 <h4><b class="learning-color">{{ lp }}<span class="muted-dark">/{{ communityDataPreview[key].submissionPoints }}</span></b></h4>
-                <h4><b class="learning-color">Learning Points</b></h4>
+                <h4><b class="learning-color">Points</b></h4>
                 <h4 class="muted-dark">
                   {{ communityDataPreview[key].name }}
                 </h4>
