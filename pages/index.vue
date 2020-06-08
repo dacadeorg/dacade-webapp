@@ -47,11 +47,10 @@
               <div class="text-cover mx-auto">
                 <h1>
                   Peer-to-Peer <br>
-                  Blockchain Learning
+                  Learning
                 </h1>
                 <p class="lead">
-                  Earn cryptocurrency by learning about blockchain technology,
-                  building dApps and educating your peers.
+                  Dacade makes learning a multiplayer game.
                 </p>
               </div>
             </div>
@@ -72,25 +71,25 @@
                     <h4>
                       Learn
                     </h4>
-                    <p>Dacade offers practical, active learning with real human feedback while being scaleable and affordable.</p>
+                    <p>Learn how to build amazing projects and get feedback from your peers.</p>
                   </div>
                 </div>
                 <div class="col-sm mb-6">
                   <div>
-                    <img src="/img/usp-coin.png" alt="">
+                    <img src="/img/usp_coin_dacade.png" alt="">
                     <h4>
-                      Earn
+                      Play
                     </h4>
-                    <p>You have the possibility to earn cryptocurrencies by solving challenges and giving feedback to your peers.</p>
+                    <p>Earn dacade coins by solving challenges and claiming bounties.</p>
                   </div>
                 </div>
                 <div class="col-sm">
                   <div>
                     <img src="/img/usp-key.png" alt="">
                     <h4>
-                      Own
+                      Connect
                     </h4>
-                    <p>We envision dacade as an open source, community-owned platform, where decisions are made and data is owned by it's users.</p>
+                    <p>Connect with other learners and build together.</p>
                   </div>
                 </div>
               </div>
@@ -103,7 +102,7 @@
                 Learning Communities
               </h2>
               <p class="lead">
-                In our learning environments you will work with your peers to learn about blockchain technology. Here is a selection:
+                In our learning environments you will work with your peers to learn about new technology. Here is a selection:
               </p>
             </div>
             <div class="row">
@@ -347,7 +346,7 @@
               Join our Community
             </h2>
             <p class="lead text-cover mx-auto mb-6">
-              Dacade has an active community with over 350 blockchain learners from all over the world in our telegram channel. Join us!
+              Dacade has an active community with over 350 learners from all over the world in our telegram channel. Join us!
             </p>
             <a href="https://t.me/dacade" target="_blank" class="btn btn-outline-primary btn-lg">
               On telegram
@@ -360,7 +359,7 @@
                 In Collaboration with
               </h2>
               <p class="lead text-cover mx-auto mb-4">
-                We are looking forward to cooperate with more blockchain projects in the future. If this is interesting for you, please get in touch.
+                We are looking forward to cooperate with more projects in the future. If this is interesting for you, please get in touch.
               </p>
             </div>
 
