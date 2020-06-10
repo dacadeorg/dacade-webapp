@@ -25,11 +25,8 @@
       <b-navbar-nav class="ml-auto userPoints">
         <b-nav-item>
           <b-nav-text v-if="$route.name != 'index'" class="mr-2 muted-dark">
-            <b class="earning-color">{{ getBalance() }}$</b>
-          </b-nav-text>
-          <b-nav-text v-if="$route.name != 'index'" class="mr-2 muted-dark">
-            <b class="learning-color">{{ getDCNBalance() }}</b>
-            <img class="DCN" src="/img/DCN.png" height="18" alt="">
+            <b class="dark-white">{{ getDCNBalance() }}</b>
+            <img class="DCN" src="/img/usp_iso_coin_dacade.png" height="22" alt="">
           </b-nav-text>
           <i v-b-modal.modal-1 class="fa fa-bars fa-lg" />
           <b-modal
@@ -196,7 +193,7 @@ a.nuxt-link-active:hover{
 }
 
 .DCN{
-  vertical-align: -2px;
+  vertical-align: -4px;
   margin-left: -4px;
 }
 

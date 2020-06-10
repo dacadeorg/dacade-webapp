@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-sm mb-6">
                   <div>
-                    <img src="/img/usp_coin_dacade.png" alt="">
+                    <img src="/img/usp_iso_coin_dacade.png" alt="">
                     <h4>
                       Play
                     </h4>

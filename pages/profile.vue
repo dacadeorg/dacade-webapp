@@ -37,7 +37,7 @@
                   Dacade coins:
                   <b class="learning-color">
                     {{ parseFloat(userBalance.DCN).toFixed(0) }}
-                    <img class="DCN-icon" src="/img/DCN.png" height="22" alt="">
+                    <img class="DCN-icon" src="/img/usp_iso_coin_dacade.png" height="22" alt="">
                   </b>
                 </h4>
               </div>
@@ -240,9 +240,10 @@
                 <b>
                   Balance:
                 </b>
-                <span class="earning-color">
-                  0$
+                <span class="dark-white">
+                  <b>0</b>
                 </span>
+                <img class="DCN-icon" src="/img/usp_iso_coin_dacade.png" height="22" alt="">
               </h4>
             </div>
           </section>
