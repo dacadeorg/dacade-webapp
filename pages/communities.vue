@@ -36,10 +36,10 @@
                     Rewards:
                     <b
                       v-if="community.rewardToken === 'DCN'"
-                      class="learning-color"
+                      class="dark-white"
                     >
                       {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}
-                      <img class="DCN" src="/img/DCN.png" height="18" alt="">
+                      <img class="DCN" src="/img/usp_iso_coin_dacade.png" height="18" alt="">
                     </b>
                     <b
                       v-else
