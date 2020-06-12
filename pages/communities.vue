@@ -74,7 +74,7 @@ export default {
     orderedCommunityDataPreview() {
       const orderedCommunityDataPreview = this.communityDataPreview
       for (const key in orderedCommunityDataPreview) {
-        if (orderedCommunityDataPreview[key].order === undefined) {
+        if (orderedCommunityDataPreview[key].order === undefined || orderedCommunityDataPreview[key].order === 0) {
           delete orderedCommunityDataPreview[key]
         }
       }
