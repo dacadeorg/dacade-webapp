@@ -26,17 +26,7 @@
                         class="embed-responsive-item"
                         width="100%"
                         height="100%"
-                        src="https://www.youtube.com/embed/w5Lru6t2O4s?rel=0"
-                        frameborder="0"
-                        allowfullscreen
-                      />
-                    </div>
-                    <div class="embed-responsive embed-responsive-16by9">
-                      <iframe
-                        class="embed-responsive-item"
-                        width="100%"
-                        height="100%"
-                        src="https://www.youtube.com/embed/3eRRGCceoaA?rel=0"
+                        src="https://www.youtube.com/embed/E-Zyi2KDZFU?rel=0"
                         frameborder="0"
                         allowfullscreen
                       />
