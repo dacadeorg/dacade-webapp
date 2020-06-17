@@ -35,7 +35,7 @@
               >
                 <h4>
                   Dacade coins:
-                  <b class="learning-color">
+                  <b class="dark-white">
                     {{ parseFloat(userBalance.DCN).toFixed(0) }}
                     <img class="DCN-icon" src="/img/usp_iso_coin_dacade.png" height="22" alt="">
                   </b>

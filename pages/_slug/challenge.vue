@@ -23,7 +23,7 @@
             <b>
               Earn {{ communityData.submissionPrice }}
               <span v-if="communityData.priceFormat === 'DCN'">
-                <img class="DCN" src="/img/DCN.png" height="18" alt="">
+                <img class="DCN" src="/img/usp_iso_coin_dacade.png" height="22" alt="">
               </span>
               <span v-else>$</span>
             </b>
