@@ -288,22 +288,26 @@
         </h2>
         <div v-if="userLearningPoints && Object.keys(userLearningPoints).length" class="row mt-4">
           <div v-for="(lp, key) in userLearningPoints" :key="lp.key" class="col-md-3 mb-4">
-            <b-card
-              :img-src="communityDataPreview[key].imgUrl"
-              img-alt="Image"
-              img-top
-              tag="article"
-              rounded="circle"
-              class="mb-2 small-shadow text-center bg-dark"
+            <div
+              v-if="communityDataPreview[key]"
             >
-              <b-card-text class="text-center">
-                <h4><b class="learning-color">{{ lp }}<span class="muted-dark">/{{ communityDataPreview[key].submissionPoints }}</span></b></h4>
-                <h4><b class="learning-color">Points</b></h4>
-                <h4 class="muted-dark">
-                  {{ communityDataPreview[key].name }}
-                </h4>
-              </b-card-text>
-            </b-card>
+              <b-card
+                :img-src="communityDataPreview[key].imgUrl"
+                img-alt="Image"
+                img-top
+                tag="article"
+                rounded="circle"
+                class="mb-2 small-shadow text-center bg-dark"
+              >
+                <b-card-text class="text-center">
+                  <h4><b class="learning-color">{{ lp }}<span class="muted-dark">/{{ communityDataPreview[key].submissionPoints }}</span></b></h4>
+                  <h4><b class="learning-color">Points</b></h4>
+                  <h4 class="muted-dark">
+                    {{ communityDataPreview[key].name }}
+                  </h4>
+                </b-card-text>
+              </b-card>
+            </div>
           </div>
         </div>
         <div v-else class="mb-4">
