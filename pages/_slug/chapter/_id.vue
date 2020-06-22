@@ -48,7 +48,7 @@
                 </div>
 
                 <div v-else style="text-align:center">
-                  <a :href="item.materialLink" target="_blank" class="btn btn-primary">
+                  <a :href="item.materialLink" target="_blank" class="btn btn-outline-primary">
                     Open {{ item.materialSubtitle }}
                   </a>
                 </div>
