@@ -19,9 +19,6 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setUser(state, payload) {
-    state.user = payload
-  },
   setError(state, payload) {
     state.error = payload
   },
@@ -44,9 +41,6 @@ export const mutations = {
 }
 
 export const getters = {
-  user(state) {
-    return state.user
-  },
   loginStatus(state) {
     return state.user !== null && state.user !== undefined
   },
