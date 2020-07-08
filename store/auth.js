@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable spaced-comment */
@@ -9,8 +10,11 @@ export const actions = {
   signUpUser({ commit }, payload) {
     commit('setBusy', true)
     commit('clearError')
-    let newUser = null
-    let user = null
+    const newUser = null
+    const user = null
+    this.getDatabaseAccess()
+  },
+  getDatabaseAccess() {
     firebase.database().ref('users').orderByChild('displayName').equalTo(`${payload.name}`).once('value')
       .then((snapShot) => {
         if (snapShot.exists()) {
@@ -65,36 +69,6 @@ export const actions = {
         }
       })
   },
-  loginUser({ commit }, payload) {
-    commit('setBusy', true)
-    commit('clearError')
-    firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
-      .then(() => {
-        commit('setJobDone', true)
-        commit('setBusy', false)
-      })
-      .catch((error) => {
-        commit('setBusy', false)
-        commit('setError', error)
-      })
-  },
-  logOut({ commit }) {
-    firebase.auth().signOut()
-    commit('setUser', null)
-  },
-  passwordResetRequest({ commit }, payload) {
-    commit('setBusy', true)
-    commit('clearError')
-    firebase.auth().sendPasswordResetEmail(payload.email)
-      .then(() => {
-        commit('setJobDone', true)
-        commit('setBusy', false)
-      })
-      .catch((error) => {
-        commit('setBusy', false)
-        commit('setError', error)
-      })
-  },
   getUserNotifications: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userNotifications', db.ref('notifications').child(uid))
   }),
@@ -107,26 +81,6 @@ export const actions = {
   getUserReputation: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userReputation', db.ref('reputation').child(uid))
   }),
-  setUserNotificationSeen({ commit }, payload) {
-    db.ref(`notifications/${payload.userId}/${payload.id}/notificationRead`).set(true)
-      .then(() => {
-        commit('setJobDone', true)
-        commit('setBusy', false)
-      })
-      .catch((error) => {
-        commit('setBusy', false)
-        commit('setError', error)
-      })
-  },
-  addUserNotification({ commit }, payload) {
-    db.ref(`notifications/${payload.userId}`).push(payload)
-      .then(() => {
-        console.log('success user notification added')
-      })
-      .catch((error) => {
-        console.log('error', error)
-      })
-  },
   updateWalletAddress({ commit }, payload) {
     console.log(payload)
     db.ref(`userWallet/${payload.userId}/${payload.token}`).set(`${payload.walletAddress}`)
