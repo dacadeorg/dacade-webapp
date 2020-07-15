@@ -26,3 +26,24 @@ export const state = () => ({
       })
   }
 })
+export const mutations = {
+  setError(state, payload) {
+    state.error = payload
+  },
+  clearError(state) {
+    state.error = null
+  },
+  setBusy(state, payload) {
+    state.busy = payload
+  },
+  setJobDone(state, payload) {
+    state.jobDone = payload
+  },
+  setForwardRoute(state, payload) {
+    state.forwardRoute = payload
+  },
+  // setUserWalletAddresses(state, payload) {
+  //   state.userWalletAddresses = payload
+  // },
+  ...vuexfireMutations
+}
