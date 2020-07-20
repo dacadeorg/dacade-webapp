@@ -23,11 +23,6 @@ export const mutations = {
   },
   ...vuexfireMutations
 }
-export const getters = {
-  user(state) {
-    return state.user
-  }
-}
 
 export const action = {
   loginUser({ commit }, payload) {
@@ -63,6 +58,9 @@ export const action = {
 }
 
 export const getters = {
+  user(state) {
+    return state.user
+  },
   loginStatus(state) {
     return state.user !== null && state.user !== undefined
   },
