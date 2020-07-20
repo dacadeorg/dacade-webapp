@@ -227,9 +227,9 @@ export default {
     },
     getFeedbackPrices() {
       const feedbackPrices = [
-        { text: `1st ${0.60 * this.communityData.feedbackPrice}$`, value: 0.60 * this.communityData.feedbackPrice },
-        { text: `2nd ${0.30 * this.communityData.feedbackPrice}$`, value: 0.30 * this.communityData.feedbackPrice },
-        { text: `3rd ${0.10 * this.communityData.feedbackPrice}$`, value: 0.10 * this.communityData.feedbackPrice }
+        { text: `1st ${0.60 * this.communityData.feedbackPrice}`, value: 0.60 * this.communityData.feedbackPrice },
+        { text: `2nd ${0.30 * this.communityData.feedbackPrice}`, value: 0.30 * this.communityData.feedbackPrice },
+        { text: `3rd ${0.10 * this.communityData.feedbackPrice}`, value: 0.10 * this.communityData.feedbackPrice }
       ]
       return feedbackPrices
     }
@@ -310,7 +310,7 @@ export default {
           message: `Hello, ${submissionUpdate.displayName}! You received: ${addLearningPoints.learningPoints} 
           of ${this.communityDataPreview[this.submission.communityId].submissionPoints} Learning Points for your submission in the
           Learning Community '${this.communityDataPreview[this.submission.communityId].name}'. 
-          This means you earned a reward of ${balanceUpdate.rewardAmount}$ in ${balanceUpdate.rewardToken} token.`,
+          This means you earned a reward of ${balanceUpdate.rewardAmount} dacade coins.`,
           notificationRead: false,
           userId: submissionUpdate.userId
         }
@@ -359,8 +359,8 @@ export default {
       const userNotification = {
         date: Date.now(),
         link: `/${this.submission.communityId}/submission/${reviewUpdate.submissionId}`,
-        message: `Good job, ${reviewUpdate.reviewDisplayName}. You received: ${balanceUpdate.rewardAmount}$ in 
-          ${balanceUpdate.rewardToken} and ${balanceUpdate.rewardAmount} Reputation, 
+        message: `Good job, ${reviewUpdate.reviewDisplayName}. You received: ${balanceUpdate.rewardAmount} 
+        dacade coins and ${balanceUpdate.rewardAmount} Reputation, 
           for your Feedback: "${this.contentPreview(review.content)}.."`,
         notificationRead: false,
         userId: review.reviewUserId
