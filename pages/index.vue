@@ -353,22 +353,22 @@
               </p>
             </div>
 
-            <div class="container pb-md-5">
+            <div class="container">
               <div class="row">
                 <div class="col-sm-3" />
                 <div class="col-sm-2 mb-4">
                   <a target="blank" href="https://aeternity.com">
-                    <b-img rounded alt="Circle image" width="128px" src="/img/Ape_Unit_Logo_White.png" />
+                    <b-img rounded alt="Circle image" width="100%" src="/img/Ape_Unit_Logo_White.png" />
                   </a>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2 mb-4">
                   <a target="blank" href="https://octan.group">
-                    <b-img rounded alt="Circle image" width="128px" src="/img/logo_octan.png" />
+                    <b-img rounded alt="Circle image" width="100%" src="/img/logo_octan.png" />
                   </a>
                 </div>
                 <div class="col-sm-2">
                   <a target="blank" href="https://aeternity.com">
-                    <b-img rounded alt="Circle image" width="128px" src="/img/ae-logo.png" />
+                    <b-img rounded alt="Circle image" width="100%" src="/img/ae-logo.png" />
                   </a>
                 </div>
               </div>
