@@ -357,7 +357,7 @@
               <div class="row">
                 <div class="col-sm-3" />
                 <div class="col-sm-2 mb-4">
-                  <a target="blank" href="https://aeternity.com">
+                  <a target="blank" href="https://apeunit.com">
                     <b-img rounded alt="Circle image" width="100%" src="/img/Ape_Unit_Logo_White.png" />
                   </a>
                 </div>
