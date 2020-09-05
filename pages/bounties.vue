@@ -2,7 +2,7 @@
   <div>
     <Navigation />
     <div class="container-fluid">
-      <div v-if="userLearningPoints" class="row">
+      <div v-if="learningPoints" class="row">
         <div class="col-md-8 col-xl-6 mx-auto mt-4">
           <div
             v-for="openBounty in getOpenBounties()"
@@ -73,8 +73,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'user',
-      userLearningPoints: 'userLearningPoints',
+      user: 'user/get',
+      learningPoints: 'user/learningPoints',
       communityDataPreview: 'content/communityDataPreview'
     })
   },
@@ -153,7 +153,7 @@ export default {
       console.log(userSubmissions)
       for (let index = 0; index < Object.values(this.communityDataPreview).length; index++) {
         // todo change slug to Id
-        if (!Object.keys(this.userLearningPoints).includes(Object.keys(this.communityDataPreview)[index]) && !userSubmissions.includes(Object.keys(this.communityDataPreview)[index])) {
+        if (!Object.keys(this.learningPoints).includes(Object.keys(this.communityDataPreview)[index]) && !userSubmissions.includes(Object.keys(this.communityDataPreview)[index])) {
           const element = {}
           element.typ = 'Submission'
           element.lcName = Object.values(this.communityDataPreview)[index].name

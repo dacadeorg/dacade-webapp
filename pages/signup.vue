@@ -11,10 +11,7 @@
                 <div class="p-4">
                   <ValidationObserver v-slot="{ invalid, passes }">
                     <b-form @submit.prevent="passes(onSignUp)">
-                      <b-form-group
-                        id="input-group-1"
-                        label-for="input-1"
-                      >
+                      <b-form-group id="input-group-1" label-for="input-1">
                         <label for="input-2">Email Address</label>
                         <ValidationProvider
                           v-slot="{ errors }"
@@ -70,7 +67,10 @@
                       <div>
                         <i class="muted-dark">
                           Click "Signup" below to accept dacade's
-                          <a href="http://policy.dacade.org/" class="fs-1 dark-white">
+                          <a
+                            href="http://policy.dacade.org/"
+                            class="fs-1 dark-white"
+                          >
                             Privacy Policy.
                           </a>
                         </i>
@@ -100,15 +100,14 @@
 <script>
 /* eslint-disable no-console */
 import Navigation from '@/components/Navigation'
-import apiJobMixin from '@/mixins/apiJobMixin'
 import NotificationBar from '@/components/NotificationBar'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     Navigation,
     NotificationBar
   },
-  mixins: [apiJobMixin],
   data () {
     return {
       form: {
@@ -119,44 +118,38 @@ export default {
     }
   },
   computed: {
-    userLoggedIn () {
-      return this.$store.getters.loginStatus
-    }
+    ...mapGetters({
+      busy: 'busy'
+    })
   },
   methods: {
     onSignUp () {
-      this.$store.dispatch('auth/signUp', {
-        name: this.form.name,
-        email: this.form.email,
-        password: this.form.password
-      })
+      this.$store
+        .dispatch('auth/signUp', {
+          name: this.form.name,
+          email: this.form.email,
+          password: this.form.password
+        })
+        .then(() => {
+          this.$router.replace('/notifications')
+        })
     },
     goToLogin () {
       this.$router.push('/login')
-    },
-    jobsDone () {
-      this.removeErrors()
-      const nextRoute = '/notifications'
-      // const forwardRoute = this.$store.getters.forwardRoute
-      // if (forwardRoute !== null) {
-      //   nextRoute = forwardRoute
-      //   this.$store.commit('setForwardRoute', null)
-      // }
-      this.$router.replace(nextRoute)
     }
   }
 }
 </script>
 <style scoped>
-a{
-  color:rgba(255, 255, 255, 0.3);
+a {
+  color: rgba(255, 255, 255, 0.3);
   font-size: 19px;
   text-decoration: underline;
 }
-a:hover{
-  color:#53d1af;
+a:hover {
+  color: #53d1af;
   font-size: 19px;
-  font-weight:700;
+  font-weight: 700;
 }
 .card {
   border: none;
@@ -164,16 +157,16 @@ a:hover{
 .card-body {
   padding: 0rem;
 }
-.container{
-  padding-top:4em;
+.container {
+  padding-top: 4em;
 }
-form{
+form {
   margin: 2em 0;
 }
-label{
-  font-size:19px;
+label {
+  font-size: 19px;
 }
-.p-4{
-  padding: 0 1.5rem!important;
+.p-4 {
+  padding: 0 1.5rem !important;
 }
 </style>

@@ -14,7 +14,11 @@
                   </h3>
                   <b-form-group id="input-group-1" label-for="input-1">
                     <label for="input-2">Email Address</label>
-                    <ValidationProvider v-slot="{ errors }" name="email" rules="required|email">
+                    <ValidationProvider
+                      v-slot="{ errors }"
+                      name="email"
+                      rules="required|email"
+                    >
                       <b-form-input
                         id="input-1"
                         v-model="form.email"
@@ -46,15 +50,14 @@
 <script>
 /* eslint-disable no-console */
 import Navigation from '@/components/Navigation'
-import apiJobMixin from '@/mixins/apiJobMixin'
 import NotificationBar from '@/components/NotificationBar'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     Navigation,
     NotificationBar
   },
-  mixins: [apiJobMixin],
   data () {
     return {
       form: {
@@ -63,64 +66,56 @@ export default {
     }
   },
   computed: {
-    userLoggedIn () {
-      return this.$store.getters.loginStatus
-    }
+    ...mapGetters({
+      busy: 'busy'
+    })
   },
   methods: {
     onPasswordResetRequest () {
       const data = {
         email: this.form.email
       }
-      this.$store.dispatch('passwordResetRequest', data)
-    },
-    jobsDone () {
-      this.removeErrors()
-      const nextRoute = '/login'
-      // const forwardRoute = this.$store.getters.forwardRoute
-      // if (forwardRoute !== null) {
-      //   nextRoute = forwardRoute
-      //   this.$store.commit('setForwardRoute', null)
-      // }
-      this.$router.replace(nextRoute)
+      this.$store.dispatch('auth/passwordResetRequest', data).then(() => {
+        this.$router.replace('/login')
+      })
     }
   }
 }
 </script>
 <style scoped>
-    a {
-        color: rgba(255, 255, 255, 0.3);
-        font-size: 19px;
-        text-decoration: underline;
-    }
+a {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 19px;
+  text-decoration: underline;
+}
 
-    a:hover {
-        color: #53d1af;
-        font-size: 19px;
-        font-weight: 700;
-    }
+a:hover {
+  color: #53d1af;
+  font-size: 19px;
+  font-weight: 700;
+}
 
-    .card {
-        border: none;
-    }
+.card {
+  border: none;
+}
 
-    .card-body {
-        padding: 0rem;
-    }
+.card-body {
+  padding: 0rem;
+}
 
-    .container {
-        padding-top: 4em;
-    }
+.container {
+  padding-top: 4em;
+}
 
-    form {
-        margin: 2em 0;
-    }
+form {
+  margin: 2em 0;
+}
 
-    label {
-        font-size: 19px;
-    }
+label {
+  font-size: 19px;
+}
 
-    .p-4 {
-        padding: 0 1.5rem !important;
-    }
+.p-4 {
+  padding: 0 1.5rem !important;
+}
 </style>

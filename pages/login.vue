@@ -14,7 +14,11 @@
                     <b-form @submit.prevent="passes(onLogin)">
                       <b-form-group id="input-group-1" label-for="input-1">
                         <label for="input-1">Email address</label>
-                        <ValidationProvider v-slot="{ errors }" name="email" rules="required|email">
+                        <ValidationProvider
+                          v-slot="{ errors }"
+                          name="email"
+                          rules="required|email"
+                        >
                           <b-form-input
                             id="input-1"
                             v-model="form.email"
@@ -28,7 +32,11 @@
 
                       <b-form-group>
                         <label for="text-password">Password</label>
-                        <ValidationProvider v-slot="{ errors }" name="password" rules="required|min:6">
+                        <ValidationProvider
+                          v-slot="{ errors }"
+                          name="password"
+                          rules="required|min:6"
+                        >
                           <b-input
                             id="text-password"
                             v-model="form.password"
@@ -40,12 +48,19 @@
                       </b-form-group>
                       <div>
                         <i class="muted-dark">
-                          <NuxtLink to="/password-reset" class="fs-1 dark-white">
+                          <NuxtLink
+                            to="/password-reset"
+                            class="fs-1 dark-white"
+                          >
                             Forgot password?
                           </NuxtLink>
                         </i>
                       </div>
-                      <b-button type="submit" :disabled="busy" class="mt-4 btn-primary btn-lg">
+                      <b-button
+                        type="submit"
+                        :disabled="busy"
+                        class="mt-4 btn-primary btn-lg"
+                      >
                         Login
                       </b-button>
                     </b-form>
@@ -63,15 +78,14 @@
 <script>
 /* eslint-disable no-console */
 import Navigation from '@/components/Navigation'
-import apiJobMixin from '@/mixins/apiJobMixin'
 import NotificationBar from '@/components/NotificationBar'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     Navigation,
     NotificationBar
   },
-  mixins: [apiJobMixin],
   data () {
     return {
       form: {
@@ -82,9 +96,9 @@ export default {
     }
   },
   computed: {
-    userLoggedIn () {
-      return this.$store.getters.loginStatus
-    }
+    ...mapGetters({
+      busy: 'busy'
+    })
   },
   methods: {
     onLogin () {
@@ -92,58 +106,50 @@ export default {
         email: this.form.email,
         password: this.form.password
       }
-      this.$store.dispatch('auth/login', loginData)
+      this.$store.dispatch('auth/login', loginData).then(() => {
+        this.$router.replace('/bounties')
+      })
     },
     goToSignup () {
       this.$router.push('/signup')
-    },
-    jobsDone () {
-      this.removeErrors()
-      const nextRoute = '/bounties'
-      // const forwardRoute = this.$store.getters.forwardRoute
-      // if (forwardRoute !== null) {
-      //   nextRoute = forwardRoute
-      //   this.$store.commit('setForwardRoute', null)
-      // }
-      this.$router.replace(nextRoute)
     }
   }
 }
 </script>
 <style scoped>
-  a {
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 19px;
-    text-decoration: underline;
-  }
+a {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 19px;
+  text-decoration: underline;
+}
 
-  a:hover {
-    color: #53d1af;
-    font-size: 19px;
-    font-weight: 700;
-  }
+a:hover {
+  color: #53d1af;
+  font-size: 19px;
+  font-weight: 700;
+}
 
-  .card {
-    border: none;
-  }
+.card {
+  border: none;
+}
 
-  .card-body {
-    padding: 0rem;
-  }
+.card-body {
+  padding: 0rem;
+}
 
-  .container {
-    padding-top: 4em;
-  }
+.container {
+  padding-top: 4em;
+}
 
-  form {
-    margin: 2em 0;
-  }
+form {
+  margin: 2em 0;
+}
 
-  label {
-    font-size: 19px;
-  }
+label {
+  font-size: 19px;
+}
 
-  .p-4 {
-    padding: 0 1.5rem !important;
-  }
+.p-4 {
+  padding: 0 1.5rem !important;
+}
 </style>
