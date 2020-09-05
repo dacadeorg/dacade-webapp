@@ -82,11 +82,11 @@ export default {
       return this.$store.getters.loginStatus
     },
     ...mapGetters({
-      user: 'user',
-      loginStatus: 'loginStatus',
+      user: 'user/get',
+      loginStatus: 'auth/loginStatus',
       communityData: 'content/communityData',
-      userNotifications: 'userNotifications',
-      userReputation: 'userReputation'
+      notifications: 'notification/get',
+      reputation: 'user/reputation'
     })
   },
   methods: {
@@ -96,9 +96,9 @@ export default {
     },
     getUnreadNotification () {
       let notifications = 0
-      if (this.userNotifications) {
-        for (let index = 0; index < Object.values(this.userNotifications).length; index++) {
-          if (!Object.values(this.userNotifications)[index].notificationRead) {
+      if (this.notifications) {
+        for (let index = 0; index < Object.values(this.notifications).length; index++) {
+          if (!Object.values(this.notifications)[index].notificationRead) {
             notifications++
           }
         }
@@ -121,8 +121,8 @@ export default {
     },
     getReputation () {
       let reputation = 0
-      if (this.userReputation && this.userReputation[this.communityData.id]) {
-        reputation = this.userReputation[this.communityData.id]
+      if (this.reputation && this.reputation[this.communityData.id]) {
+        reputation = this.reputation[this.communityData.id]
       }
       return parseFloat(reputation).toFixed(0)
     }

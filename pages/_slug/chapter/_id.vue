@@ -80,7 +80,6 @@
                 :href="item.materialLink"
                 target="blank"
                 class="list-group-item list-group-item-action"
-                @click="trackClick(item.materialTitle)"
               >
                 {{ item.materialTitle }}
                 <b class="muted">

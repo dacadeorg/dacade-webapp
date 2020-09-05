@@ -186,7 +186,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'user',
+      user: 'user/get',
       communityData: 'content/communityData'
     })
   },

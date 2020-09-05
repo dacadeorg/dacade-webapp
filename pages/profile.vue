@@ -21,7 +21,7 @@
           </h4>
           <section>
             <div
-              v-if="userBalance && Object.keys(userBalance).length"
+              v-if="balance && Object.keys(balance).length"
               class="mt-4"
             >
               <h4>
@@ -30,18 +30,18 @@
                 </b>
               </h4>
               <div
-                v-if="userBalance.DCN"
+                v-if="balance.DCN"
                 class="mb-4"
               >
                 <h4>
                   Dacade coins:
                   <b class="dark-white">
-                    {{ parseFloat(userBalance.DCN).toFixed(0) }}
+                    {{ parseFloat(balance.DCN).toFixed(0) }}
                     <img class="DCN-icon" src="/img/usp_iso_coin_dacade.png" height="22" alt="">
                   </b>
                 </h4>
               </div>
-              <div v-for="(balance, key) in userBalance" :key="balance.id" class="mb-4">
+              <div v-for="(balance, key) in balance" :key="balance.id" class="mb-4">
                 <div v-if="key !== 'DCN'">
                   <h4>
                     {{ key }} token:
@@ -256,8 +256,8 @@
             Reputation
           </b>
         </h2>
-        <div v-if="userReputation && Object.keys(userReputation).length" class="row mt-4">
-          <div v-for="(rep, key) in userReputation" :key="rep.key" class="col-md-3 mb-4">
+        <div v-if="reputation && Object.keys(reputation).length" class="row mt-4">
+          <div v-for="(rep, key) in reputation" :key="rep.key" class="col-md-3 mb-4">
             <b-card
               tag="article"
               :style="{ borderBottomColor:communityDataPreview[key].color }"
@@ -286,8 +286,8 @@
             Achievements
           </b>
         </h2>
-        <div v-if="userLearningPoints && Object.keys(userLearningPoints).length" class="row mt-4">
-          <div v-for="(lp, key) in userLearningPoints" :key="lp.key" class="col-md-3 mb-4">
+        <div v-if="learningPoints && Object.keys(learningPoints).length" class="row mt-4">
+          <div v-for="(lp, key) in learningPoints" :key="lp.key" class="col-md-3 mb-4">
             <div
               v-if="communityDataPreview[key]"
             >
@@ -324,13 +324,11 @@
 import { mapGetters } from 'vuex'
 import Navigation from '@/components/Navigation'
 import firebase from '@/plugins/firebase'
-import apiJobMixin from '@/mixins/apiJobMixin'
 
 export default {
   components: {
     Navigation
   },
-  mixins: [apiJobMixin],
   data () {
     return {
       addresses: [],
@@ -343,10 +341,10 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'user',
-      userBalance: 'userBalance',
-      userReputation: 'userReputation',
-      userLearningPoints: 'userLearningPoints',
+      user: 'user/get',
+      balance: 'user/balance',
+      reputation: 'user/reputation',
+      learningPoints: 'user/learningPoints',
       communityDataPreview: 'content/communityDataPreview'
     })
   },
@@ -403,8 +401,8 @@ export default {
       }
       // Because we introduced transactions later not all issued payments have transactions.
       // Thats why we need to create a different payout request for all unaccounted payments.
-      if (this.userBalance[token] > totalTransactionPayoutAmount) {
-        const unaccountedPayoutAmount = this.userBalance[token] - totalTransactionPayoutAmount
+      if (this.balance[token] > totalTransactionPayoutAmount) {
+        const unaccountedPayoutAmount = this.balance[token] - totalTransactionPayoutAmount
         const payoutObject = {
           communityId: token,
           userId: this.user.id,
@@ -419,7 +417,7 @@ export default {
       }
       const payoutPendingObject = {
         userId: this.user.id,
-        payoutAmount: parseFloat(this.userBalance[token].toFixed(1)),
+        payoutAmount: parseFloat(this.balance[token].toFixed(1)),
         tokenFormat: token
       }
       // console.log(payoutPendingObject)
