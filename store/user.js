@@ -18,34 +18,28 @@ export const state = () => ({
   communityDataPreview: null
 })
 export const mutations = {
-  setUser(state, payload) {
+  setUser (state, payload) {
     state.user = payload
   },
   ...vuexfireMutations
 }
 
 export const action = {
-  loginUser({ commit }, payload) {
-    commit('setBusy', true)
-    commit('clearError')
-    firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
-      .then(() => {
-        commit('setJobDone', true)
-        commit('setBusy', false)
-      })
-      .catch((error) => {
-        commit('setBusy', false)
-        commit('setError', error)
-      })
-  },
-  logOut({ commit }) {
-    firebase.auth().signOut()
-    commit('setUser', null)
-  },
-  passwordResetRequest({ commit }, payload) {
-    commit('setBusy', true)
-    commit('clearError')
-    firebase.auth().sendPasswordResetEmail(payload.email)
+  getUserNotifications: firebaseAction(({ bindFirebaseRef }, uid) => {
+    bindFirebaseRef('userNotifications', db.ref('notifications').child(uid))
+  }),
+  getUserLearningPoints: firebaseAction(({ bindFirebaseRef }, uid) => {
+    bindFirebaseRef('userLearningPoints', db.ref('learningPoints').child(uid))
+  }),
+  getUserBalance: firebaseAction(({ bindFirebaseRef }, uid) => {
+    bindFirebaseRef('userBalance', db.ref('balance').child(uid))
+  }),
+  getUserReputation: firebaseAction(({ bindFirebaseRef }, uid) => {
+    bindFirebaseRef('userReputation', db.ref('reputation').child(uid))
+  }),
+  updateWalletAddress ({ commit }, payload) {
+    console.log(payload)
+    db.ref(`userWallet/${payload.userId}/${payload.token}`).set(`${payload.walletAddress}`)
       .then(() => {
         commit('setJobDone', true)
         commit('setBusy', false)
@@ -58,37 +52,37 @@ export const action = {
 }
 
 export const getters = {
-  user(state) {
+  user (state) {
     return state.user
   },
-  loginStatus(state) {
+  loginStatus (state) {
     return state.user !== null && state.user !== undefined
   },
-  usersData(state) {
+  usersData (state) {
     return state.usersData
   },
-  error(state) {
+  error (state) {
     return state.error
   },
-  busy(state) {
+  busy (state) {
     return state.busy
   },
-  jobDone(state) {
+  jobDone (state) {
     return state.jobDone
   },
-  forwardRoute(state) {
+  forwardRoute (state) {
     return state.forwardRoute
   },
-  userNotifications(state) {
+  userNotifications (state) {
     return state.userNotifications
   },
-  userBalance(state) {
+  userBalance (state) {
     return state.userBalance
   },
-  userReputation(state) {
+  userReputation (state) {
     return state.userReputation
   },
-  userLearningPoints(state) {
+  userLearningPoints (state) {
     return state.userLearningPoints
   }
   // userWalletAddresses(state) {

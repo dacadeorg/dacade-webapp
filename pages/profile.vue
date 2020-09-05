@@ -331,7 +331,7 @@ export default {
     Navigation
   },
   mixins: [apiJobMixin],
-  data() {
+  data () {
     return {
       addresses: [],
       inputUserVerifications: [],
@@ -352,34 +352,34 @@ export default {
   },
   watch: {
     // When we have the userdata, we can execute the function.
-    user: function (userData) {
+    user (userData) {
       this.getUserWalletAddresses()
       this.getUserVerifications()
     },
-    userWalletAddresses: function () {
+    userWalletAddresses () {
       this.getPendingPayoutRequests()
     }
   },
-  mounted() {
+  mounted () {
     if (!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0) {
       this.$store.dispatch('content/getCommunityDataPreview')
     }
   },
-  created() {
+  created () {
     if (this.user) {
       this.getUserWalletAddresses()
       this.getUserVerifications()
     }
   },
   methods: {
-    jobsDone() {
+    jobsDone () {
       this.removeErrors()
     },
     // Create a payout request:
     // 1. Get communities with the requested token.
     // 2. Loop over these communties and get the unpaid transactions of the user in these communties.
     // 3. Send the payout request containing the unpaid transactions.
-    async createPayoutObject(token) {
+    async createPayoutObject (token) {
       const communitiesWithPayoutToken = this.getCommunitiesWithPayoutToken(token, this.communityDataPreview)
       let totalTransactionPayoutAmount = 0
       for (const community in communitiesWithPayoutToken) {
@@ -427,7 +427,7 @@ export default {
       // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
       this.$router.go()
     },
-    getCommunitiesWithPayoutToken(token, communities) {
+    getCommunitiesWithPayoutToken (token, communities) {
       const communitiesWithPayoutToken = []
       for (let index = 0; index < Object.values(communities).length; index++) {
         const element = Object.values(communities)[index].rewardToken
@@ -437,14 +437,14 @@ export default {
       }
       return communitiesWithPayoutToken
     },
-    async getUnpaidTransactionsOfUserInCommunity(communityId, userId) {
+    async getUnpaidTransactionsOfUserInCommunity (communityId, userId) {
       let transactions = []
       await firebase.database().ref(`transactions/${communityId}/${userId}`).orderByChild('paid').equalTo(false).once('value').then((snapShot) => {
         transactions = snapShot.val()
       })
       return transactions
     },
-    getTransactionIdssAndAmount(transactions) {
+    getTransactionIdssAndAmount (transactions) {
       let transactionsAmount = 0
       const transactionIds = []
       if (transactions && Object.values(transactions).length) {
@@ -454,11 +454,11 @@ export default {
         }
       }
       return {
-        transactionsAmount: transactionsAmount,
-        transactionIds: transactionIds
+        transactionsAmount,
+        transactionIds
       }
     },
-    updateWalletAddress(key) {
+    updateWalletAddress (key) {
       const walletObject = {
         userId: this.user.id,
         walletAddress: this.addresses[key],
@@ -468,7 +468,7 @@ export default {
       // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
       this.$router.go()
     },
-    updateUserVerifications() {
+    updateUserVerifications () {
       const verficationObject = {
         userId: this.user.id,
         displayName: this.user.displayName,
@@ -480,17 +480,17 @@ export default {
       // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
       this.$router.go()
     },
-    async getUserWalletAddresses() {
+    async getUserWalletAddresses () {
       await firebase.database().ref(`userWallet/${this.user.id}`).once('value').then((snapShot) => {
         this.userWalletAddresses = snapShot.val()
       })
     },
-    async getPendingPayoutRequests() {
+    async getPendingPayoutRequests () {
       await firebase.database().ref(`payoutRequestsPending/${this.user.id}`).once('value').then((snapShot) => {
         this.payoutRequestsPending = snapShot.val()
       })
     },
-    async getUserVerifications() {
+    async getUserVerifications () {
       await firebase.database().ref(`userVerifications/${this.user.id}`).once('value').then((snapShot) => {
         this.userVerifications = snapShot.val()
       })
@@ -498,7 +498,7 @@ export default {
         await this.getUserVerificationRequest()
       }
     },
-    async getUserVerificationRequest() {
+    async getUserVerificationRequest () {
       await firebase.database().ref(`userVerificationRequest/${this.user.id}/socialMedia`).once('value').then((snapShot) => {
         if (snapShot.val()) {
           this.userVerificationPendig = true

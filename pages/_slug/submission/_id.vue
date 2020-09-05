@@ -397,7 +397,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   mixins: [apiJobMixin],
-  data() {
+  data () {
     return {
       reviewerReputation: {},
       review: {
@@ -411,12 +411,12 @@ export default {
       user: 'user',
       communityData: 'content/communityData'
     }),
-    orderedFeedback() {
+    orderedFeedback () {
       const orderedFeedback = this.feedback
       return Object.values(orderedFeedback).reverse().sort(this.compare)
     }
   },
-  async asyncData({ params }) {
+  async asyncData ({ params }) {
     let submission, feedback, evaluation
     await firebase.database().ref(`submissions/${params.slug}/${params.id}`).once('value').then((snapShot) => {
       submission = snapShot.val()
@@ -429,26 +429,26 @@ export default {
     })
     return { submission, feedback, evaluation }
   },
-  mounted(params) {
+  mounted (params) {
     if ((!this.communityData || Object.keys(this.communityData).length === 0)) {
       this.$store.dispatch('content', { payload: params.slug })
     }
   },
-  created() {
+  created () {
     this.getReputation(this.feedback)
     this.$store.commit('content/setSubmissionDisplayName', this.submission.displayName)
   },
   methods: {
-    jobsDone() {
+    jobsDone () {
       this.removeErrors()
       this.review.content = null
       this.review.reviewCodeLink = null
       this.$router.go()
     },
-    communityPath(slug) {
+    communityPath (slug) {
       return `/${slug}/submissions`
     },
-    onSubmit() {
+    onSubmit () {
       if (!this.busy) {
         this.review.reviewDisplayName = this.user.displayName
         this.review.reviewUserId = this.user.id
@@ -457,15 +457,15 @@ export default {
         document.getElementById('submitButton').disabled = true
       }
     },
-    getRatingValue(input, input2) {
+    getRatingValue (input, input2) {
       let newInput = input.charAt(0).toLowerCase() + input.slice(1) + 'Value'
       return input2[newInput]
     },
-    getRatingText(input, input2) {
+    getRatingText (input, input2) {
       let newInput = input.charAt(0).toLowerCase() + input.slice(1) + 'Text'
       return input2[newInput]
     },
-    convertDate(date) {
+    convertDate (date) {
       const submissionInputDate = new Date(date)
       const submissionDate = submissionInputDate.toDateString().slice(4, -4)
       let submissionMinutes = submissionInputDate.getMinutes()
@@ -480,7 +480,7 @@ export default {
       const submissionTimeAndDate = submissionDate + ' ' + submissionTime
       return submissionTimeAndDate
     },
-    async getReputation(feedback) {
+    async getReputation (feedback) {
       if (feedback) {
         for (let index = 0; index < Object.keys(feedback).length; index++) {
           const element = Object.values(feedback)[index]
@@ -496,7 +496,7 @@ export default {
         }
       }
     },
-    getGithubUrl() {
+    getGithubUrl () {
       let newUrl = null
       const str = this.submission.githubLink
       if (str.includes('https://github.com/')) {
@@ -506,7 +506,7 @@ export default {
       }
       return newUrl
     },
-    compare(a, b) {
+    compare (a, b) {
       if (a.rewardAmount < b.rewardAmount) {
         return 1
       }

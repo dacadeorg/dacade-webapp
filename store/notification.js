@@ -5,7 +5,7 @@ import { vuexfireMutations, firebaseAction } from 'vuexfire'
 const db = firebase.database()
 
 export const state = () => ({
-  setUserNotificationSeen({ commit }, payload) {
+  setUserNotificationSeen ({ commit }, payload) {
     db.ref(`notifications/${payload.userId}/${payload.id}/notificationRead`).set(true)
       .then(() => {
         commit('setJobDone', true)
@@ -16,7 +16,7 @@ export const state = () => ({
         commit('setError', error)
       })
   },
-  addUserNotification({ commit }, payload) {
+  addUserNotification ({ commit }, payload) {
     db.ref(`notifications/${payload.userId}`).push(payload)
       .then(() => {
         console.log('success user notification added')
@@ -27,19 +27,19 @@ export const state = () => ({
   }
 })
 export const mutations = {
-  setError(state, payload) {
+  setError (state, payload) {
     state.error = payload
   },
-  clearError(state) {
+  clearError (state) {
     state.error = null
   },
-  setBusy(state, payload) {
+  setBusy (state, payload) {
     state.busy = payload
   },
-  setJobDone(state, payload) {
+  setJobDone (state, payload) {
     state.jobDone = payload
   },
-  setForwardRoute(state, payload) {
+  setForwardRoute (state, payload) {
     state.forwardRoute = payload
   },
   // setUserWalletAddresses(state, payload) {

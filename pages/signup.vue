@@ -106,10 +106,10 @@ import NotificationBar from '@/components/NotificationBar'
 export default {
   components: {
     Navigation,
-    NotificationBar: NotificationBar
+    NotificationBar
   },
   mixins: [apiJobMixin],
-  data() {
+  data () {
     return {
       form: {
         name: '',
@@ -119,23 +119,23 @@ export default {
     }
   },
   computed: {
-    userLoggedIn() {
+    userLoggedIn () {
       return this.$store.getters.loginStatus
     }
   },
   methods: {
-    onSignUp() {
+    onSignUp () {
       const signUpData = {
         name: this.form.name,
         email: this.form.email,
         password: this.form.password
       }
-      this.$store.dispatch('signUpUser', signUpData)
+      this.$store.dispatch('auth/signUp', signUpData)
     },
-    goToLogin() {
+    goToLogin () {
       this.$router.push('/login')
     },
-    jobsDone() {
+    jobsDone () {
       this.removeErrors()
       const nextRoute = '/notifications'
       // const forwardRoute = this.$store.getters.forwardRoute

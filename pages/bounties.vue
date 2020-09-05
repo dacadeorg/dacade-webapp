@@ -67,7 +67,7 @@ export default {
   components: {
     Navigation
   },
-  data() {
+  data () {
     return {
     }
   },
@@ -78,17 +78,17 @@ export default {
       communityDataPreview: 'content/communityDataPreview'
     })
   },
-  async asyncData({ params }) {
+  async asyncData ({ params }) {
     let submissions, bountiesDb
-    await firebase.database().ref(`openSubmissions`).once('value').then((snapShot) => {
+    await firebase.database().ref('openSubmissions').once('value').then((snapShot) => {
       submissions = snapShot.val()
     })
-    await firebase.database().ref(`bounties`).once('value').then((snapShot) => {
+    await firebase.database().ref('bounties').once('value').then((snapShot) => {
       bountiesDb = snapShot.val()
     })
     return { submissions, bountiesDb }
   },
-  mounted() {
+  mounted () {
     if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
       this.getCommunityDataPreview()
     }
@@ -97,7 +97,7 @@ export default {
     ...mapActions({
       getCommunityDataPreview: 'content/getCommunityDataPreview'
     }),
-    getOpenBounties() {
+    getOpenBounties () {
       // Todo: Exlude submission if user hasn't made a submission to the community yet
       const bounties = []
       const userSubmissions = []

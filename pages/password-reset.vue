@@ -9,7 +9,9 @@
             <div class="p-4">
               <ValidationObserver v-slot="{ invalid, passes }">
                 <b-form @submit.prevent="passes(onPasswordResetRequest)">
-                  <h3 class="mb-5">Password reset</h3>
+                  <h3 class="mb-5">
+                    Password reset
+                  </h3>
                   <b-form-group id="input-group-1" label-for="input-1">
                     <label for="input-2">Email Address</label>
                     <ValidationProvider v-slot="{ errors }" name="email" rules="required|email">
@@ -50,10 +52,10 @@ import NotificationBar from '@/components/NotificationBar'
 export default {
   components: {
     Navigation,
-    NotificationBar: NotificationBar
+    NotificationBar
   },
   mixins: [apiJobMixin],
-  data() {
+  data () {
     return {
       form: {
         email: ''
@@ -61,18 +63,18 @@ export default {
     }
   },
   computed: {
-    userLoggedIn() {
+    userLoggedIn () {
       return this.$store.getters.loginStatus
     }
   },
   methods: {
-    onPasswordResetRequest() {
+    onPasswordResetRequest () {
       const data = {
         email: this.form.email
       }
       this.$store.dispatch('passwordResetRequest', data)
     },
-    jobsDone() {
+    jobsDone () {
       this.removeErrors()
       const nextRoute = '/login'
       // const forwardRoute = this.$store.getters.forwardRoute

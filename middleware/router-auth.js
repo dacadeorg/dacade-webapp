@@ -49,7 +49,7 @@ export default function ({ store, redirect, route }) {
   })
 }
 
-function isAdminRoute(route) {
+function isAdminRoute (route) {
   if (route.matched.some(record => record.path === '/admin/evaluations')) {
     return true
   } else if (route.matched.some(record => record.path === '/admin')) {
@@ -69,7 +69,7 @@ function isAdminRoute(route) {
   }
 }
 
-function isUserRoute(route) {
+function isUserRoute (route) {
   if (route.matched.some(record => record.name === 'slug-chapter-id')) {
     return true
   } else if (route.matched.some(record => record.name === 'slug-challenge')) {

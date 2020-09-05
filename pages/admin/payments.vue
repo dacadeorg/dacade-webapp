@@ -76,7 +76,7 @@ import { mapGetters, mapActions } from 'vuex'
 import firebase from '@/plugins/firebase'
 
 export default {
-  data() {
+  data () {
     return {
       transactions: [],
       requestsQueried: false
@@ -87,19 +87,19 @@ export default {
       communityDataPreview: 'content/communityDataPreview'
     })
   },
-  mounted() {
+  mounted () {
     if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
       this.getCommunityDataPreview()
     }
   },
-  created() {
+  created () {
     this.getPayoutRequests()
   },
   methods: {
     ...mapActions({
       getCommunityDataPreview: 'content/getCommunityDataPreview'
     }),
-    async getPayoutRequests() {
+    async getPayoutRequests () {
       const communityIdsThatAdminManages = ['intro-to-blockchain', 'ae-dev-101', 'web-dev-101', 'eth-dev-101', 'AE', 'ETH']
       const payoutRequests = {}
       for (const communityId of communityIdsThatAdminManages) {
@@ -111,10 +111,10 @@ export default {
       }
       // console.log(payoutRequests)
       for (const key in payoutRequests) {
-        if (payoutRequests.hasOwnProperty(key)) {
+        if (payoutRequests[key]) {
           const element = payoutRequests[key]
           for (const key2 in element) {
-            if (element.hasOwnProperty(key2)) {
+            if (element[key2]) {
               const element2 = element[key2]
               element2.communityId = key
               element2.userId = key2
@@ -130,11 +130,11 @@ export default {
       }
       this.requestsQueried = true
     },
-    convertDate(date) {
+    convertDate (date) {
       const outputDate = new Date(date)
       return outputDate.toISOString().slice(0, 10)
     },
-    orderTransactions(transactions) {
+    orderTransactions (transactions) {
       return Object.values(transactions).sort(function (a, b) {
         return a.paid - b.paid
       })
