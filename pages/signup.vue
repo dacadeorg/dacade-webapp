@@ -125,12 +125,11 @@ export default {
   },
   methods: {
     onSignUp () {
-      const signUpData = {
+      this.$store.dispatch('auth/signUp', {
         name: this.form.name,
         email: this.form.email,
         password: this.form.password
-      }
-      this.$store.dispatch('auth/signUp', signUpData)
+      })
     },
     goToLogin () {
       this.$router.push('/login')

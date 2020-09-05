@@ -5,19 +5,35 @@ import { vuexfireMutations, firebaseAction } from 'vuexfire'
 const db = firebase.database()
 
 export const state = () => ({
-  setUserNotificationSeen ({ commit }, payload) {
-    db.ref(`notifications/${payload.userId}/${payload.id}/notificationRead`).set(true)
+  userNotifications: null
+})
+
+export const mutations = {
+  set (state, payload) {
+    state.user = payload
+  },
+  ...vuexfireMutations
+}
+
+export const actions = {
+  fetch: firebaseAction(({ bindFirebaseRef }, uid) => {
+    bindFirebaseRef('userNotifications', db.ref('notifications').child(uid))
+  }),
+  markAsRead ({ commit }, payload) {
+    db.ref(`notifications/${payload.userId}/${payload.id}/notificationRead`)
+      .set(true)
       .then(() => {
-        commit('setJobDone', true)
-        commit('setBusy', false)
+        this.commit('setJobDone', true)
+        this.commit('setBusy', false)
       })
       .catch((error) => {
-        commit('setBusy', false)
-        commit('setError', error)
+        this.commit('setBusy', false)
+        this.commit('setError', error)
       })
   },
-  addUserNotification ({ commit }, payload) {
-    db.ref(`notifications/${payload.userId}`).push(payload)
+  add ({ commit }, payload) {
+    db.ref(`notifications/${payload.userId}`)
+      .push(payload)
       .then(() => {
         console.log('success user notification added')
       })
@@ -25,25 +41,10 @@ export const state = () => ({
         console.log('error', error)
       })
   }
-})
-export const mutations = {
-  setError (state, payload) {
-    state.error = payload
-  },
-  clearError (state) {
-    state.error = null
-  },
-  setBusy (state, payload) {
-    state.busy = payload
-  },
-  setJobDone (state, payload) {
-    state.jobDone = payload
-  },
-  setForwardRoute (state, payload) {
-    state.forwardRoute = payload
-  },
-  // setUserWalletAddresses(state, payload) {
-  //   state.userWalletAddresses = payload
-  // },
-  ...vuexfireMutations
+}
+
+export const getters = {
+  get (state) {
+    return state.userNotifications
+  }
 }

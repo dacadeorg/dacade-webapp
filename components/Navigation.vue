@@ -80,11 +80,11 @@ export default {
       return this.$store.getters.loginStatus
     },
     ...mapGetters({
-      user: 'user',
-      loginStatus: 'loginStatus',
+      user: 'user/get',
+      loginStatus: 'auth/loginStatus',
       communityData: 'content/communityData',
-      userNotifications: 'userNotifications',
-      userBalance: 'userBalance'
+      notifications: 'notification/get',
+      balance: 'user/balance'
     })
   },
   methods: {
@@ -94,9 +94,9 @@ export default {
     },
     getUnreadNotification () {
       let notifications = 0
-      if (this.userNotifications) {
-        for (let index = 0; index < Object.values(this.userNotifications).length; index++) {
-          if (!Object.values(this.userNotifications)[index].notificationRead) {
+      if (this.notifications) {
+        for (let index = 0; index < Object.values(this.notifications).length; index++) {
+          if (!Object.values(this.notifications)[index].notificationRead) {
             notifications++
           }
         }
@@ -105,10 +105,10 @@ export default {
     },
     getBalance () {
       let balance = 0
-      if (this.user && this.userBalance) {
-        for (const key in this.userBalance) {
+      if (this.user && this.balance) {
+        for (const key in this.balance) {
           if (key !== 'DCN') {
-            balance = balance + this.userBalance[key]
+            balance = balance + this.balance[key]
           }
         }
       }
@@ -116,8 +116,8 @@ export default {
     },
     getDCNBalance () {
       let balance = 0
-      if (this.user && this.userBalance && this.userBalance.DCN) {
-        balance = this.userBalance.DCN
+      if (this.user && this.balance && this.balance.DCN) {
+        balance = this.balance.DCN
       }
       return parseFloat(balance).toFixed(0)
     },

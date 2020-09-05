@@ -2,44 +2,39 @@
 /* eslint-disable no-unused-vars */
 import firebase from '@/plugins/firebase'
 import { vuexfireMutations, firebaseAction } from 'vuexfire'
+
 const db = firebase.database()
 
 export const state = () => ({
   user: null,
-  usersData: null,
-  error: null,
-  busy: false,
-  jobDone: false,
-  forwardRoute: null,
-  userNotifications: null,
+  data: null,
   userBalance: null,
   userReputation: null,
   userLearningPoints: null,
-  communityDataPreview: null
+  walletAddresses: null
 })
+
 export const mutations = {
-  setUser (state, payload) {
+  set (state, payload) {
     state.user = payload
   },
   ...vuexfireMutations
 }
 
-export const action = {
-  getUserNotifications: firebaseAction(({ bindFirebaseRef }, uid) => {
-    bindFirebaseRef('userNotifications', db.ref('notifications').child(uid))
-  }),
-  getUserLearningPoints: firebaseAction(({ bindFirebaseRef }, uid) => {
+export const actions = {
+  getLearningPoints: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userLearningPoints', db.ref('learningPoints').child(uid))
   }),
-  getUserBalance: firebaseAction(({ bindFirebaseRef }, uid) => {
+  getBalance: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userBalance', db.ref('balance').child(uid))
   }),
-  getUserReputation: firebaseAction(({ bindFirebaseRef }, uid) => {
+  getReputation: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userReputation', db.ref('reputation').child(uid))
   }),
   updateWalletAddress ({ commit }, payload) {
     console.log(payload)
-    db.ref(`userWallet/${payload.userId}/${payload.token}`).set(`${payload.walletAddress}`)
+    db.ref(`userWallet/${payload.userId}/${payload.token}`)
+      .set(`${payload.walletAddress}`)
       .then(() => {
         commit('setJobDone', true)
         commit('setBusy', false)
@@ -52,40 +47,22 @@ export const action = {
 }
 
 export const getters = {
-  user (state) {
+  get (state) {
     return state.user
   },
-  loginStatus (state) {
-    return state.user !== null && state.user !== undefined
+  data (state) {
+    return state.data
   },
-  usersData (state) {
-    return state.usersData
-  },
-  error (state) {
-    return state.error
-  },
-  busy (state) {
-    return state.busy
-  },
-  jobDone (state) {
-    return state.jobDone
-  },
-  forwardRoute (state) {
-    return state.forwardRoute
-  },
-  userNotifications (state) {
-    return state.userNotifications
-  },
-  userBalance (state) {
+  balance (state) {
     return state.userBalance
   },
-  userReputation (state) {
+  reputation (state) {
     return state.userReputation
   },
-  userLearningPoints (state) {
+  learningPoints (state) {
     return state.userLearningPoints
+  },
+  walletAddresses (state) {
+    return state.walletAddresses
   }
-  // userWalletAddresses(state) {
-  //   return state.userWalletAddresses
-  // }
 }

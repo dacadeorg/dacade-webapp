@@ -7,90 +7,90 @@ import auth from '@/lib/auth'
 
 export const actions = {
   signUp ({ dispatch }, payload) {
-    dispatch('setBusy', true)
-    dispatch('clearError')
+    this.commit('setBusy', true)
+    this.commit('clearError')
     return new Promise((resolve, reject) => {
       auth
         .signUp(payload)
         .then((user) => {
-          dispatch('setJobDone', true)
-          dispatch('setBusy', false)
+          this.commit('setJobDone', true)
+          this.commit('setBusy', false)
+          this.commit('user/set', user)
+          this.$ga.event({
+            eventCategory: 'registration',
+            eventAction: `registration userId: ${user.uid}`
+          })
+
           resolve(user)
         })
         .catch((error) => {
-          dispatch('setBusy', false)
-          dispatch('setError', error)
-          reject(user)
+          this.commit('setBusy', false)
+          this.commit('setError', error)
+          reject(error)
         })
     })
   },
 
   login ({ dispatch }, payload) {
-    dispatch('setBusy', true)
-    dispatch('clearError')
+    this.commit('setBusy', true)
+    this.commit('clearError')
     return new Promise((resolve, reject) => {
       auth
         .login(payload)
         .then((response) => {
-          dispatch('setJobDone', true)
-          dispatch('setBusy', false)
+          this.commit('setJobDone', true)
+          this.commit('setBusy', false)
           resolve(response)
         })
         .catch((error) => {
-          dispatch('setBusy', false)
-          dispatch('setError', error)
+          this.commit('setBusy', false)
+          this.commit('setError', error)
           reject(error)
         })
     })
   },
   passwordResetRequest ({ dispatch }, payload) {
-    dispatch('setBusy', true)
-    dispatch('clearError')
+    this.commit('setBusy', true)
+    this.commit('clearError')
     return new Promise((resolve, reject) => {
       auth
         .passwordResetRequest(payload.email)
         .then((response) => {
-          dispatch('setJobDone', true)
-          dispatch('setBusy', false)
+          this.commit('setJobDone', true)
+          this.commit('setBusy', false)
           resolve(response)
         })
         .catch((error) => {
-          dispatch('setBusy', false)
-          dispatch('setError', error)
+          this.commit('setBusy', false)
+          this.commit('setError', error)
           reject(error)
         })
     })
   },
   logout ({ dispatch }) {
     firebase.auth().signOut()
-    this.dispatch('setUser', null)
+    this.commit('user/set', null)
   },
   createVerificationRequest ({ dispatch }, payload) {
     return new Promise((resolve, reject) => {
       auth
         .verify(payload)
         .then((response) => {
-          dispatch('setJobDone', true)
-          dispatch('setBusy', false)
+          this.commit('setJobDone', true)
+          this.commit('setBusy', false)
           resolve(response)
         })
         .catch((error) => {
-          dispatch('setBusy', false)
-          dispatch('setError', error)
+          this.commit('setBusy', false)
+          this.commit('setError', error)
           reject(error)
         })
     })
   }
 }
 
-// export const mutations = {
-//   setUser (state, payload) {
-//     state.user = payload
-//   },
-//   ...vuexfireMutations
-// }
-// export const getters = {
-//   user (state) {
-//     return state.user
-//   }
-// }
+export const getters = {
+  loginStatus (state, getters, rootState, rootGetters) {
+    return rootState.user.user !== null && rootState.user.user !== undefined
+  }
+}
