@@ -22,7 +22,7 @@
               >
                 <div class="text-center">
                   <h4 class="dark-white">
-                    <b v-html="community.name" />
+                    <b v-html="community.nameDisplay" />
                   </h4>
                 </div>
                 <b-card-text class="muted-dark">
