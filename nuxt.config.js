@@ -51,7 +51,10 @@ export default {
       id: 'UA-36567351-2',
       dev: false
     }],
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    ['nuxt-bugsnag', {
+      apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd'
+    }]
   ],
   bootstrapVue: {
     componentPlugins: [
