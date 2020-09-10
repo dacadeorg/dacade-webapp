@@ -87,7 +87,7 @@ import firebase from '@/plugins/firebase'
 import util from '~/assets/js/util'
 
 export default {
-  data () {
+  data() {
     return {
       scoreboard: null
     }
@@ -96,26 +96,26 @@ export default {
     ...mapGetters({
       communityDataPreview: 'content/communityDataPreview'
     }),
-    reversedArr () {
+    reversedArr() {
       return this.scoreboard.slice().reverse()
     }
   },
-  mounted () {
+  mounted() {
     if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
       this.getCommunityDataPreview()
     }
   },
-  created () {
+  created() {
     this.getScoreBoard()
   },
   methods: {
     ...mapActions({
       getCommunityDataPreview: 'content/getCommunityDataPreview'
     }),
-    back () {
+    back() {
       this.$router.back()
     },
-    async getScoreBoard () {
+    async getScoreBoard() {
       const route = this.$route.params.slug
       const scoreboard = []
       await firebase.database().ref('reputation').orderByChild(route).limitToLast(10).once('value', function (snapshot) {

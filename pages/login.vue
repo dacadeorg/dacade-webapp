@@ -86,7 +86,7 @@ export default {
     Navigation,
     NotificationBar
   },
-  data () {
+  data() {
     return {
       form: {
         name: '',
@@ -101,7 +101,7 @@ export default {
     })
   },
   methods: {
-    onLogin () {
+    onLogin() {
       const loginData = {
         email: this.form.email,
         password: this.form.password
@@ -110,7 +110,7 @@ export default {
         this.$router.replace('/bounties')
       })
     },
-    goToSignup () {
+    goToSignup() {
       this.$router.push('/signup')
     }
   }

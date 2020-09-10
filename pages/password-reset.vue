@@ -58,7 +58,7 @@ export default {
     Navigation,
     NotificationBar
   },
-  data () {
+  data() {
     return {
       form: {
         email: ''
@@ -71,7 +71,7 @@ export default {
     })
   },
   methods: {
-    onPasswordResetRequest () {
+    onPasswordResetRequest() {
       const data = {
         email: this.form.email
       }

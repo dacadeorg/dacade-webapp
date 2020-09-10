@@ -60,7 +60,7 @@ import firebase from '@/plugins/firebase'
 import util from '~/assets/js/util'
 
 export default {
-  data () {
+  data() {
     return {
       submissions: null,
       lastKey: null,
@@ -72,20 +72,20 @@ export default {
       communityData: 'content/communityData'
     })
   },
-  created () {
+  created() {
     this.getFirstSubmissions()
   },
   methods: {
-    contentPreview (content) {
+    contentPreview(content) {
       return util.contentPreview(content)
     },
-    submissionPath (slug, submissionKey) {
+    submissionPath(slug, submissionKey) {
       return `/${slug}/submission/${submissionKey}`
     },
-    convertDate (date) {
+    convertDate(date) {
       return util.convertDate(date)
     },
-    async getSubmissions () {
+    async getSubmissions() {
       await firebase.database().ref(`submissions/${this.$route.params.slug}`).orderByKey().limitToLast(6).endAt(this.lastKey).once('value').then((snapShot) => {
         let newSubmissions = snapShot.val()
         const lastKey = Object.keys(newSubmissions)[0]
@@ -99,7 +99,7 @@ export default {
         this.submissions = this.reverseSubmissions(newSubmissions)
       })
     },
-    async getFirstSubmissions () {
+    async getFirstSubmissions() {
       await firebase.database().ref(`submissions/${this.$route.params.slug}`).orderByKey().limitToLast(6).once('value').then((snapShot) => {
         let submissions = snapShot.val()
         const lastKey = Object.keys(submissions)[0]
@@ -108,7 +108,7 @@ export default {
         this.submissions = this.reverseSubmissions(submissions)
       })
     },
-    reverseSubmissions (submissions) {
+    reverseSubmissions(submissions) {
       const ordered = {}
       Object.keys(submissions).reverse().forEach(function (key) {
         ordered[key] = submissions[key]

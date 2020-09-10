@@ -9,7 +9,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  set (state, payload) {
+  set(state, payload) {
     state.user = payload
   },
   ...vuexfireMutations
@@ -19,7 +19,7 @@ export const actions = {
   fetch: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userNotifications', db.ref('notifications').child(uid))
   }),
-  markAsRead ({ commit }, payload) {
+  markAsRead({ commit }, payload) {
     db.ref(`notifications/${payload.userId}/${payload.id}/notificationRead`)
       .set(true)
       .then(() => {
@@ -31,7 +31,7 @@ export const actions = {
         this.commit('setError', error)
       })
   },
-  add ({ commit }, payload) {
+  add({ commit }, payload) {
     db.ref(`notifications/${payload.userId}`)
       .push(payload)
       .then(() => {
@@ -44,7 +44,7 @@ export const actions = {
 }
 
 export const getters = {
-  get (state) {
+  get(state) {
     return state.userNotifications
   }
 }

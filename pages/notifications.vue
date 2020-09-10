@@ -43,11 +43,11 @@ export default {
       notifications: 'notification/get'
     })
   },
-  created () {
+  created() {
     setTimeout(this.markNotificationsRead, 5000)
   },
   methods: {
-    markNotificationsRead () {
+    markNotificationsRead() {
       for (let index = 0; index < Object.values(this.notifications).length; index++) {
         if (Object.values(this.notifications)[index].notificationRead === false) {
           const notificationUpdate = {
@@ -58,16 +58,16 @@ export default {
         }
       }
     },
-    orderDesc () {
+    orderDesc() {
       return Object.values(this.notifications).reverse()
     },
-    contentPreview (content) {
+    contentPreview(content) {
       const maxLength = 160
       let trimmedString = content.substr(0, maxLength)
       trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))
       return trimmedString
     },
-    convertDate (date) {
+    convertDate(date) {
       const submissionInputDate = new Date(date)
       const submissionDate = submissionInputDate.toDateString().slice(4, -4)
       let submissionMinutes = submissionInputDate.getMinutes()

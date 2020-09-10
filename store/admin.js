@@ -9,7 +9,7 @@ export const state = () => ({
 })
 
 export const actions = {
-  createEvaluation ({ commit }, payload) {
+  createEvaluation({ commit }, payload) {
     const key = payload['.key']
     delete payload['.key']
     firebase.database().ref(`evaluations/${key}`).set(payload)
@@ -20,7 +20,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  createTransaction ({ commit }, payload) {
+  createTransaction({ commit }, payload) {
     console.log(payload)
     const communityId = payload.communityId
     delete payload.communityId
@@ -35,7 +35,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updateTransactionAsPaid ({ commit }, payload) {
+  updateTransactionAsPaid({ commit }, payload) {
     console.log(payload)
     firebase.database().ref(`transactions/${payload.communityId}/${payload.userId}/${payload.transactionId}/paid`).set(Date.now())
       .then(() => {
@@ -45,7 +45,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updateSubmission ({ commit }, payload) {
+  updateSubmission({ commit }, payload) {
     const key = payload['.key']
     delete payload['.key']
     db.ref(`submissions/${payload.communityId}/${key}`).set(payload)
@@ -62,7 +62,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updateReview ({ commit }, payload) {
+  updateReview({ commit }, payload) {
     const key = payload['.key']
     const submissionId = payload.submissionId
     delete payload['.key']
@@ -75,7 +75,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updateBalance ({ commit }, payload) {
+  updateBalance({ commit }, payload) {
     db.ref(`balance/${payload.userId}/${payload.rewardToken}`).transaction(function (currentData) {
       return currentData + payload.rewardAmount
     })
@@ -86,7 +86,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updateReputation ({ commit }, payload) {
+  updateReputation({ commit }, payload) {
     db.ref(`reputation/${payload.userId}/${payload.communityId}`).transaction(function (currentData) {
       return currentData + payload.rewardAmount
     })
@@ -97,7 +97,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  addLearningPoints ({ commit }, payload) {
+  addLearningPoints({ commit }, payload) {
     db.ref(`learningPoints/${payload.userId}/${payload.communityId}`).transaction(function (currentData) {
       return currentData + payload.learningPoints
     })
@@ -108,7 +108,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  deleteVerificationRequest ({ commit }, payload) {
+  deleteVerificationRequest({ commit }, payload) {
     db.ref(`userVerificationRequest/${payload.userId}/${payload.verificationType}`).set(null)
       .then(() => {
         console.log('Success, verification deleted')
@@ -117,7 +117,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  createUserVerification ({ commit }, payload) {
+  createUserVerification({ commit }, payload) {
     db.ref(`userVerifications/${payload.userId}/${payload.verificationType}/link`).set(`${payload.verificationLink}`)
       .then(() => {
         console.log('Success, user verified')
@@ -126,7 +126,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updatePayoutRequestPending ({ commit }, payload) {
+  updatePayoutRequestPending({ commit }, payload) {
     firebase.database().ref(`payoutRequestsPending/${payload.userId}/${payload.rewardToken}`).once('value')
       .then((snapShot) => {
         if ((snapShot.val() + payload.rewardAmount) === 0) {
@@ -153,7 +153,7 @@ export const actions = {
 }
 
 export const getters = {
-  groups (state) {
+  groups(state) {
     return state.groups
   }
 }

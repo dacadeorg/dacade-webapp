@@ -201,7 +201,7 @@ import firebase from '@/plugins/firebase'
 import { mapGetters } from 'vuex'
 
 export default {
-  data () {
+  data() {
     return {
       review: {
         rewardAmount: 0,
@@ -218,14 +218,14 @@ export default {
     ...mapGetters({
       user: 'user'
     }),
-    sumLearningPoints () {
+    sumLearningPoints() {
       let submissionPoints = 0
       for (const key in this.evaluation.evaluationPoints) {
         submissionPoints = submissionPoints + parseInt(this.evaluation.evaluationPoints[key])
       }
       return submissionPoints
     },
-    getFeedbackPrices () {
+    getFeedbackPrices() {
       const feedbackPrices = [
         { text: `1st ${0.60 * this.communityData.feedbackPrice}`, value: 0.60 * this.communityData.feedbackPrice },
         { text: `2nd ${0.30 * this.communityData.feedbackPrice}`, value: 0.30 * this.communityData.feedbackPrice },
@@ -235,7 +235,7 @@ export default {
     }
   },
   // This may need to be changed to be more dynamic
-  async asyncData ({ params }) {
+  async asyncData({ params }) {
     let submission, communityDataPreview, communityData, feedback
     await firebase.database().ref(`submissions/${params.slug}/${params.id}`).once('value').then((snapShot) => {
       submission = snapShot.val()
@@ -252,10 +252,10 @@ export default {
     return { submission, communityDataPreview, communityData, feedback }
   },
   methods: {
-    communityPath (slug) {
+    communityPath(slug) {
       return `/${slug}/submissions`
     },
-    submitSubmissionEvaluation () {
+    submitSubmissionEvaluation() {
       const key = this.$route.params.id
       let submissionPoints = 0
       const evaluation = {
@@ -333,7 +333,7 @@ export default {
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
       this.$store.dispatch('admin/addLearningPoints', addLearningPoints)
     },
-    submitReviewEvaluation (review, key) {
+    submitReviewEvaluation(review, key) {
       const reviewUpdate = {
         content: review.content,
         submissionId: this.$route.params.id,
@@ -380,10 +380,10 @@ export default {
       this.$store.dispatch('admin/updateReputation', reputationUpdate)
       this.$store.dispatch('addUserNotification', userNotification)
     },
-    back () {
+    back() {
       this.$router.back()
     },
-    convertDate (date) {
+    convertDate(date) {
       const submissionInputDate = new Date(date)
       const submissionDate = submissionInputDate.toDateString().slice(4, -4)
       let submissionMinutes = submissionInputDate.getMinutes()
@@ -398,13 +398,13 @@ export default {
       const submissionTimeAndDate = submissionDate + ' ' + submissionTime
       return submissionTimeAndDate
     },
-    contentPreview (content) {
+    contentPreview(content) {
       const maxLength = 160
       let trimmedString = content.substr(0, maxLength)
       trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))
       return trimmedString
     },
-    getGithubUrl () {
+    getGithubUrl() {
       let newUrl = null
       const str = this.submission.githubLink
       if (str.includes('https://github.com/')) {

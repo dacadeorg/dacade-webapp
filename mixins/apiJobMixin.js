@@ -1,23 +1,23 @@
 /* eslint-disable no-console */
 export default {
   methods: {
-    removeErrors () {
+    removeErrors() {
       this.$store.commit('clearError')
     }
   },
   computed: {
-    error () {
+    error() {
       return this.$store.getters.error
     },
-    busy () {
+    busy() {
       return this.$store.getters.busy
     },
-    jobDone () {
+    jobDone() {
       return this.$store.getters.jobDone
     }
   },
   watch: {
-    jobDone (value) {
+    jobDone(value) {
       if (value) {
         this.$store.commit('setJobDone', false)
         this.jobsDone()

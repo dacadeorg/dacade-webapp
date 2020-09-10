@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const util = {
-  convertDate (date) {
+  convertDate(date) {
     const submissionInputDate = new Date(date)
     const submissionDate = submissionInputDate.toDateString().slice(4, -4)
     let submissionMinutes = submissionInputDate.getMinutes()
@@ -15,7 +15,7 @@ const util = {
     const submissionTimeAndDate = submissionDate + ' ' + submissionTime
     return submissionTimeAndDate
   },
-  contentPreview (content) {
+  contentPreview(content) {
     const maxLength = 160
     let trimmedString = content.substr(0, maxLength)
     trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))

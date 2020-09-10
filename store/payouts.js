@@ -3,7 +3,7 @@
 import firebase from '@/plugins/firebase'
 
 export const actions = {
-  createPayoutRequest ({ commit }, payload) {
+  createPayoutRequest({ commit }, payload) {
     const communityId = payload.communityId
     delete payload.communityId
     const userId = payload.userId
@@ -16,7 +16,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updatePayoutRequestAsPaid ({ commit }, payload) {
+  updatePayoutRequestAsPaid({ commit }, payload) {
     firebase.database().ref(`payoutRequests/${payload.communityId}/${payload.userId}/paid`).set(Date.now())
       .then(() => {
         console.log('Success, payout request updated as paid.')
@@ -25,7 +25,7 @@ export const actions = {
         console.log('error', error)
       })
   },
-  setPayoutRequestPending ({ commit }, payload) {
+  setPayoutRequestPending({ commit }, payload) {
     firebase.database().ref(`payoutRequestsPending/${payload.userId}/${payload.tokenFormat}`).set(payload.payoutAmount)
       .then(() => {
         console.log('Success, payout request pending.')

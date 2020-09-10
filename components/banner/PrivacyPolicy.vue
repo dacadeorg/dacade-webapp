@@ -14,20 +14,20 @@
 <script>
 export default {
   name: 'PrivacyPolicyBanner',
-  data () {
+  data() {
     return {
       show: false,
       cookieName: 'privacy-policy-banner'
     }
   },
-  created () {
+  created() {
     const cookieRes = this.$cookies.get(this.cookieName)
     if (!cookieRes) {
       this.show = true
     }
   },
   methods: {
-    dismiss () {
+    dismiss() {
       this.$cookies.set(this.cookieName, 'cookie-value', {
         path: '/',
         maxAge: 60 * 60 * 24 * 365

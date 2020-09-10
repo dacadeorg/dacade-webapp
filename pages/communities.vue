@@ -71,7 +71,7 @@ export default {
     ...mapGetters({
       communityDataPreview: 'content/communityDataPreview'
     }),
-    orderedCommunityDataPreview () {
+    orderedCommunityDataPreview() {
       const orderedCommunityDataPreview = this.communityDataPreview
       for (const key in orderedCommunityDataPreview) {
         if (orderedCommunityDataPreview[key].order === undefined || orderedCommunityDataPreview[key].order === 0) {
@@ -83,13 +83,13 @@ export default {
       })
     }
   },
-  mounted () {
+  mounted() {
     if (!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0) {
       this.$store.dispatch('content/getCommunityDataPreview')
     }
   },
   methods: {
-    communityPath (slug) {
+    communityPath(slug) {
       return `/${slug}/introduction`
     }
   }

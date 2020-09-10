@@ -15,7 +15,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  set (state, payload) {
+  set(state, payload) {
     state.user = payload
   },
   ...vuexfireMutations
@@ -31,7 +31,7 @@ export const actions = {
   getReputation: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userReputation', db.ref('reputation').child(uid))
   }),
-  updateWalletAddress ({ commit }, payload) {
+  updateWalletAddress({ commit }, payload) {
     console.log(payload)
     db.ref(`userWallet/${payload.userId}/${payload.token}`)
       .set(`${payload.walletAddress}`)
@@ -47,22 +47,22 @@ export const actions = {
 }
 
 export const getters = {
-  get (state) {
+  get(state) {
     return state.user
   },
-  data (state) {
+  data(state) {
     return state.data
   },
-  balance (state) {
+  balance(state) {
     return state.userBalance
   },
-  reputation (state) {
+  reputation(state) {
     return state.userReputation
   },
-  learningPoints (state) {
+  learningPoints(state) {
     return state.userLearningPoints
   },
-  walletAddresses (state) {
+  walletAddresses(state) {
     return state.walletAddresses
   }
 }

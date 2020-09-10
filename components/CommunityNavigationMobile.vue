@@ -58,7 +58,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  data () {
+  data() {
     return {
     }
   },
@@ -69,10 +69,10 @@ export default {
     })
   },
   methods: {
-    communityPath (slug, chapterLink) {
+    communityPath(slug, chapterLink) {
       return `/${slug}/${chapterLink}`
     },
-    chapterPath (route, chapterId) {
+    chapterPath(route, chapterId) {
       return `/${route.params.slug}/chapter/${chapterId}`
     }
   }

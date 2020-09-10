@@ -108,7 +108,7 @@ export default {
     Navigation,
     NotificationBar
   },
-  data () {
+  data() {
     return {
       form: {
         name: '',
@@ -123,7 +123,7 @@ export default {
     })
   },
   methods: {
-    onSignUp () {
+    onSignUp() {
       this.$store
         .dispatch('auth/signUp', {
           name: this.form.name,
@@ -134,7 +134,7 @@ export default {
           this.$router.replace('/notifications')
         })
     },
-    goToLogin () {
+    goToLogin() {
       this.$router.push('/login')
     }
   }

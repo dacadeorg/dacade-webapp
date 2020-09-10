@@ -111,7 +111,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   scrollToTop: true,
-  data () {
+  data() {
     return {
       nextChapterLinkText: 'Next chapter'
     }
@@ -122,7 +122,7 @@ export default {
     })
   },
   methods: {
-    chapterPath (params) {
+    chapterPath(params) {
       const newParams = parseInt(params.id, 10) + 1
       if (newParams < this.communityData.ChapterData.length) {
         return `/${params.slug}/chapter/${newParams}`
