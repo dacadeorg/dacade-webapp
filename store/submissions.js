@@ -12,7 +12,7 @@ export const state = () => ({
 })
 
 export const actions = {
-  createSubmission({ commit }, payload) {
+  createSubmission ({ commit }, payload) {
     commit('setBusy', true, { root: true })
     commit('clearError', null, { root: true })
     db.ref(`submissions/${payload.communityId}`).push(payload)
@@ -50,10 +50,10 @@ export const actions = {
   })
 }
 export const getters = {
-  submissions(state) {
+  submissions (state) {
     return state.submissions
   },
-  evaluations(state) {
+  evaluations (state) {
     return state.evaluations
   }
 }

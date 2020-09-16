@@ -6,7 +6,7 @@ import firebase from '@/plugins/firebase'
 import auth from '@/lib/auth'
 
 export const actions = {
-  signUp({ dispatch }, payload) {
+  signUp ({ dispatch }, payload) {
     this.commit('setBusy', true)
     this.commit('clearError')
     return new Promise((resolve, reject) => {
@@ -29,7 +29,7 @@ export const actions = {
     })
   },
 
-  login({ dispatch }, payload) {
+  login ({ dispatch }, payload) {
     this.commit('setBusy', true)
     this.commit('clearError')
     return new Promise((resolve, reject) => {
@@ -47,7 +47,7 @@ export const actions = {
         })
     })
   },
-  passwordResetRequest({ dispatch }, payload) {
+  passwordResetRequest ({ dispatch }, payload) {
     this.commit('setBusy', true)
     this.commit('clearError')
     return new Promise((resolve, reject) => {
@@ -65,11 +65,11 @@ export const actions = {
         })
     })
   },
-  logout({ dispatch }) {
+  logout ({ dispatch }) {
     firebase.auth().signOut()
     this.commit('user/set', null)
   },
-  createVerificationRequest({ dispatch }, payload) {
+  createVerificationRequest ({ dispatch }, payload) {
     return new Promise((resolve, reject) => {
       auth
         .verify(payload)
@@ -88,7 +88,7 @@ export const actions = {
 }
 
 export const getters = {
-  loginStatus(state, getters, rootState, rootGetters) {
+  loginStatus (state, getters, rootState, rootGetters) {
     return rootState.user.user !== null && rootState.user.user !== undefined
   }
 }

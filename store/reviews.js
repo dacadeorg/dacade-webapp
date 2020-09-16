@@ -9,7 +9,7 @@ export const state = () => ({
 })
 
 export const actions = {
-  createReview({ commit }, payload) {
+  createReview ({ commit }, payload) {
     commit('setBusy', true, { root: true })
     commit('clearError', null, { root: true })
     const key = payload['.key']
@@ -43,7 +43,7 @@ export const actions = {
 }
 
 export const getters = {
-  reviews(state) {
+  reviews (state) {
     return state.reviews
   }
 }

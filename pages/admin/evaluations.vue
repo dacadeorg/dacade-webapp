@@ -63,7 +63,7 @@ import firebase from '@/plugins/firebase'
 import util from '~/assets/js/util'
 
 export default {
-  data() {
+  data () {
     return {
       submissions: null
     }
@@ -73,33 +73,33 @@ export default {
       communityDataPreview: 'content/communityDataPreview'
     })
   },
-  mounted() {
+  mounted () {
     if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
       this.getCommunityDataPreview()
     }
   },
-  created() {
+  created () {
     this.getSubmissions()
   },
   methods: {
     ...mapActions({
       getCommunityDataPreview: 'content/getCommunityDataPreview'
     }),
-    back() {
+    back () {
       this.$router.back()
     },
-    convertDate(date) {
+    convertDate (date) {
       return util.convertDate(date)
     },
-    contentPreview(content) {
+    contentPreview (content) {
       return util.contentPreview(content)
     },
-    async getSubmissions() {
+    async getSubmissions () {
       await firebase.database().ref('openSubmissions').once('value').then((snapShot) => {
         this.submissions = snapShot.val()
       })
     },
-    getOpenBounties() {
+    getOpenBounties () {
       const bounties = []
       // Get all bounty reviews
       if (this.submissions && Object.keys(this.communityDataPreview).length) {

@@ -76,7 +76,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    userLoggedIn(params) {
+    userLoggedIn (params) {
       return this.$store.getters.loginStatus
     },
     ...mapGetters({
@@ -88,11 +88,11 @@ export default {
     })
   },
   methods: {
-    logOut() {
+    logOut () {
       this.$store.dispatch('auth/logout')
       this.$router.push('/communities')
     },
-    getUnreadNotification() {
+    getUnreadNotification () {
       let notifications = 0
       if (this.notifications) {
         for (let index = 0; index < Object.values(this.notifications).length; index++) {
@@ -103,7 +103,7 @@ export default {
       }
       return notifications
     },
-    getBalance() {
+    getBalance () {
       let balance = 0
       if (this.user && this.balance) {
         for (const key in this.balance) {
@@ -114,14 +114,14 @@ export default {
       }
       return parseFloat(balance).toFixed(0)
     },
-    getDCNBalance() {
+    getDCNBalance () {
       let balance = 0
       if (this.user && this.balance && this.balance.DCN) {
         balance = this.balance.DCN
       }
       return parseFloat(balance).toFixed(0)
     },
-    getSectionName(route) {
+    getSectionName (route) {
       if (route.name === 'notifications') {
         return 'Notifications'
       }

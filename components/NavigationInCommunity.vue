@@ -78,7 +78,7 @@ export default {
     CommunityNavigationMobile
   },
   computed: {
-    userLoggedIn() {
+    userLoggedIn () {
       return this.$store.getters.loginStatus
     },
     ...mapGetters({
@@ -90,11 +90,11 @@ export default {
     })
   },
   methods: {
-    logOut() {
+    logOut () {
       this.$store.dispatch('logOut')
       this.$router.push('/communities')
     },
-    getUnreadNotification() {
+    getUnreadNotification () {
       let notifications = 0
       if (this.notifications) {
         for (let index = 0; index < Object.values(this.notifications).length; index++) {
@@ -105,7 +105,7 @@ export default {
       }
       return notifications
     },
-    getSectionName(route) {
+    getSectionName (route) {
       if (route.name === 'notifications') {
         return 'Notifications'
       }
@@ -119,7 +119,7 @@ export default {
         return 'Profile'
       }
     },
-    getReputation() {
+    getReputation () {
       let reputation = 0
       if (this.reputation && this.reputation[this.communityData.id]) {
         reputation = this.reputation[this.communityData.id]

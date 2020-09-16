@@ -172,7 +172,7 @@ import firebase from '@/plugins/firebase'
 
 export default {
   mixins: [apiJobMixin],
-  data() {
+  data () {
     return {
       submission: {
         text: null,
@@ -190,28 +190,28 @@ export default {
       communityData: 'content/communityData'
     })
   },
-  created() {
+  created () {
     this.getSubmission()
   },
   methods: {
-    communityPath(slug) {
+    communityPath (slug) {
       return `/${slug}/submissions`
     },
-    submissionPath(slug, submissionKey) {
+    submissionPath (slug, submissionKey) {
       return `/${slug}/submission/${submissionKey}`
     },
-    onSubmit() {
+    onSubmit () {
       this.submission.communityId = this.communityData.id
       this.submission.displayName = this.user.displayName
       this.submission.userId = this.user.id
       this.$store.dispatch('submissions/createSubmission', this.submission)
       document.getElementById('submitButton').disabled = true
     },
-    jobsDone() {
+    jobsDone () {
       this.removeErrors()
       this.$router.go()
     },
-    async getSubmission() {
+    async getSubmission () {
       await firebase.database().ref(`submissions/${this.$route.params.slug}`).orderByChild('userId').equalTo(this.user.id).once('value').then((snapShot) => {
         this.submissionDb = snapShot.val()
       })

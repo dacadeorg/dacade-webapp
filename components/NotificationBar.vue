@@ -22,7 +22,7 @@ import apiJobMixin from '@/mixins/apiJobMixin'
 export default {
   mixins: [apiJobMixin],
   methods: {
-    jobsDone() {
+    jobsDone () {
       this.removeErrors()
     }
   }

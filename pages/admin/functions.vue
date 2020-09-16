@@ -64,15 +64,15 @@
 import firebase from '@/plugins/firebase'
 
 export default {
-  data() {
+  data () {
     return {
     }
   },
   methods: {
-    back() {
+    back () {
       this.$router.back()
     },
-    async getSubmissions() {
+    async getSubmissions () {
       const communities = ['intro-to-blockchain', 'ae-dev-101', 'web-dev-101', 'eth-dev-101']
       let submissionsLength = 0
       for (let index = 0; index < communities.length; index++) {
@@ -93,7 +93,7 @@ export default {
       }
       console.log(submissionsLength)
     },
-    async getReviews() {
+    async getReviews () {
       let reviews = 0
       await firebase.database().ref('reviews').once('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
@@ -106,7 +106,7 @@ export default {
       })
       console.log(reviews)
     },
-    async getUsers() {
+    async getUsers () {
       let users = 0
       await firebase.database().ref('users').once('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
@@ -119,7 +119,7 @@ export default {
       })
       console.log(users)
     },
-    async getAllUserReviews() {
+    async getAllUserReviews () {
       console.log('getAllUserReviews')
       // const test = []
       await firebase.database().ref('reviews').orderByChild('reviewUserId').equalTo('zbhLf4OXIPMzA7E66zQnN0XDip02').once('value', function (snapshot) {

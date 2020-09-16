@@ -9,35 +9,35 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setError(state, payload) {
+  setError (state, payload) {
     state.error = payload
   },
-  clearError(state) {
+  clearError (state) {
     state.error = null
   },
-  setBusy(state, payload) {
+  setBusy (state, payload) {
     state.busy = payload
   },
-  setJobDone(state, payload) {
+  setJobDone (state, payload) {
     state.jobDone = payload
   },
-  setForwardRoute(state, payload) {
+  setForwardRoute (state, payload) {
     state.forwardRoute = payload
   },
   ...vuexfireMutations
 }
 
 export const getters = {
-  error(state) {
+  error (state) {
     return state.error
   },
-  busy(state) {
+  busy (state) {
     return state.busy
   },
-  jobDone(state) {
+  jobDone (state) {
     return state.jobDone
   },
-  forwardRoute(state) {
+  forwardRoute (state) {
     return state.forwardRoute
   }
 }

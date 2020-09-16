@@ -210,7 +210,7 @@ export default {
     })
   },
   methods: {
-    communityPath(slug) {
+    communityPath (slug) {
       return `/${slug}/chapter/0`
     }
   }
