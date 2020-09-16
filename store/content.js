@@ -31,7 +31,7 @@ export const actions = {
     })
   },
   getCommunityDataPreview ({ commit }) {
-    firebase.database().ref('communityDataPreview').once('value').then((snapShot) => {
+    return firebase.database().ref('communityDataPreview').once('value').then((snapShot) => {
       const communityDataPreview = snapShot.val()
       commit('setCommunityDataPreview', communityDataPreview)
     })

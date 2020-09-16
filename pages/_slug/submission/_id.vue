@@ -328,7 +328,7 @@
             </i>
           </div>
           <ValidationObserver v-slot="{ invalid, passes }">
-            <b-form @submit.prevent="passes(onSubmit)">
+            <b-form ref="form" @submit.prevent="passes(onSubmit)">
               <b-form-group
                 id="input-group-1"
                 class="mb-4"
@@ -374,6 +374,7 @@
               <b-button
                 id="submitButton"
                 type="submit"
+                :disabled="loading"
                 class="btn btn-primary btn-lg"
               >
                 Submit
@@ -391,24 +392,23 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable spaced-comment */
 import firebase from '@/plugins/firebase'
-import apiJobMixin from '@/mixins/apiJobMixin'
 import { firebaseAction } from 'vuexfire'
 import { mapGetters } from 'vuex'
 
 export default {
-  mixins: [apiJobMixin],
   data () {
     return {
       reviewerReputation: {},
       review: {
         content: null,
         date: Date.now()
-      }
+      },
+      loading: false
     }
   },
   computed: {
     ...mapGetters({
-      user: 'user',
+      user: 'user/data',
       communityData: 'content/communityData'
     }),
     orderedFeedback () {
@@ -439,23 +439,20 @@ export default {
     this.$store.commit('content/setSubmissionDisplayName', this.submission.displayName)
   },
   methods: {
-    jobsDone () {
-      this.removeErrors()
-      this.review.content = null
-      this.review.reviewCodeLink = null
-      this.$router.go()
-    },
     communityPath (slug) {
       return `/${slug}/submissions`
     },
     onSubmit () {
-      if (!this.busy) {
-        this.review.reviewDisplayName = this.user.displayName
-        this.review.reviewUserId = this.user.id
-        this.review['.key'] = this.$route.params.id
-        this.$store.dispatch('reviews/createReview', this.review)
-        document.getElementById('submitButton').disabled = true
-      }
+      this.review.reviewDisplayName = this.user.displayName
+      this.review.reviewUserId = this.user.id
+      this.review['.key'] = this.$route.params.id
+      this.loading = true
+      this.$store.dispatch('reviews/createReview', this.review)
+        .then(() => {
+          this.$refs.form.reset()
+          this.getReputation()
+          this.loading = false
+        })
     },
     getRatingValue (input, input2) {
       let newInput = input.charAt(0).toLowerCase() + input.slice(1) + 'Value'

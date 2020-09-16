@@ -82,7 +82,7 @@ export default {
       return this.$store.getters.loginStatus
     },
     ...mapGetters({
-      user: 'user/get',
+      user: 'user/data',
       loginStatus: 'auth/loginStatus',
       communityData: 'content/communityData',
       notifications: 'notification/get',
@@ -91,7 +91,7 @@ export default {
   },
   methods: {
     logOut () {
-      this.$store.dispatch('logOut')
+      this.$store.dispatch('auth/logout')
       this.$router.push('/communities')
     },
     getUnreadNotification () {

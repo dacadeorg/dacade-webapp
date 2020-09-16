@@ -23,7 +23,7 @@ export default function ({ store, redirect, route }) {
             }
           })
       }
-      if (!store.getters['user/get']) {
+      if (!store.getters['user/data']) {
         store.commit('user/set', authUser)
       }
       if (

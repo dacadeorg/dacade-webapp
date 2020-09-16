@@ -72,7 +72,8 @@ export default {
       'ImagePlugin',
       'ModalPlugin',
       'NavbarPlugin',
-      'TabsPlugin'
+      'TabsPlugin',
+      'SpinnerPlugin'
     ]
   },
   /*

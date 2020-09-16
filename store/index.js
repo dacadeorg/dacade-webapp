@@ -28,6 +28,9 @@ export const mutations = {
 }
 
 export const getters = {
+  user (state) {
+    return this.state.user.data
+  },
   error (state) {
     return state.error
   },

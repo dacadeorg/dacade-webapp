@@ -6,7 +6,6 @@ import { vuexfireMutations, firebaseAction } from 'vuexfire'
 const db = firebase.database()
 
 export const state = () => ({
-  user: null,
   data: null,
   userBalance: null,
   userReputation: null,
@@ -16,7 +15,7 @@ export const state = () => ({
 
 export const mutations = {
   set (state, payload) {
-    state.user = payload
+    state.data = payload
   },
   ...vuexfireMutations
 }
@@ -48,7 +47,7 @@ export const actions = {
 
 export const getters = {
   get (state) {
-    return state.user
+    return state.data
   },
   data (state) {
     return state.data

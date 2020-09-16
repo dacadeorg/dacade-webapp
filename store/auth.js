@@ -89,6 +89,6 @@ export const actions = {
 
 export const getters = {
   loginStatus (state, getters, rootState, rootGetters) {
-    return rootState.user.user !== null && rootState.user.user !== undefined
+    return rootState.user.data !== null && rootState.user.data !== undefined
   }
 }

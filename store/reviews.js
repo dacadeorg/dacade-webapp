@@ -14,28 +14,31 @@ export const actions = {
     commit('clearError', null, { root: true })
     const key = payload['.key']
     delete payload['.key']
-    firebase.database().ref(`reviews/${key}`).push(payload)
-      .then(() => {
-        firebase.database().ref(`openSubmissions/${key}/reviews/${payload.reviewUserId}`).set(true)
-          .then(() => {
-            commit('setJobDone', true, { root: true })
-            commit('setBusy', false, { root: true })
-          })
-          .then(() => {
-            this.$ga.event({
-              eventCategory: 'feedback',
-              eventAction: `feedbackSubmissionId:${key}`
+    return new Promise((resolve, reject) => {
+      firebase.database().ref(`reviews/${key}`).push(payload)
+        .then(() => {
+          firebase.database().ref(`openSubmissions/${key}/reviews/${payload.reviewUserId}`).set(true)
+            .then(() => {
+              commit('setJobDone', true, { root: true })
+              commit('setBusy', false, { root: true })
+              // this.$ga.event({
+              //   eventCategory: 'feedback',
+              //   eventAction: `feedbackSubmissionId:${key}`
+              // })
+              resolve()
             })
-          })
-          .catch((error) => {
-            commit('setBusy', false, { root: true })
-            commit('setError', error, { root: true })
-          })
-      })
-      .catch((error) => {
-        commit('setBusy', false, { root: true })
-        commit('setError', error, { root: true })
-      })
+            .catch((error) => {
+              commit('setBusy', false, { root: true })
+              commit('setError', error, { root: true })
+              reject(error)
+            })
+        })
+        .catch((error) => {
+          commit('setBusy', false, { root: true })
+          commit('setError', error, { root: true })
+          reject(error)
+        })
+    })
   },
   getReviews: firebaseAction(({ bindFirebaseRef }) => {
     bindFirebaseRef('reviews', reviewsRef)
