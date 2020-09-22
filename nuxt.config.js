@@ -53,7 +53,11 @@ export default {
     }],
     'cookie-universal-nuxt',
     ['nuxt-bugsnag', {
-      apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd'
+      apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd',
+      enabledReleaseStages: ['staging', 'production'],
+      reporterOptions: {
+        releaseStage: process.env.NODE_ENV
+      }
     }]
   ],
   bootstrapVue: {

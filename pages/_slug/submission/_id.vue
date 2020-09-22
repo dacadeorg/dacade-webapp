@@ -4,6 +4,7 @@
       <div class="site-wraper">
         <!-- Submission Card -->
         <b-card
+          v-if="submission"
           class="bg-dark mb-4 small-shadow-no-hover"
           style="border-bottom: 2px solid rgb(83, 209, 175)"
         >
@@ -327,8 +328,8 @@
               To learn how to earn more rewards and improve your feedback, click on the info icon.
             </i>
           </div>
-          <ValidationObserver v-slot="{ invalid, passes }">
-            <b-form ref="form" @submit.prevent="passes(onSubmit)">
+          <ValidationObserver ref="form" v-slot="{ invalid, passes }">
+            <b-form  @submit.prevent="passes(onSubmit)">
               <b-form-group
                 id="input-group-1"
                 class="mb-4"
@@ -403,7 +404,10 @@ export default {
         content: null,
         date: Date.now()
       },
-      loading: false
+      loading: false,
+      submission: null,
+      feedback: null,
+      evaluation: null
     }
   },
   computed: {
@@ -412,31 +416,18 @@ export default {
       communityData: 'content/communityData'
     }),
     orderedFeedback () {
-      const orderedFeedback = this.feedback
-      return Object.values(orderedFeedback).reverse().sort(this.compare)
-    }
-  },
-  async asyncData ({ params }) {
-    let submission, feedback, evaluation
-    await firebase.database().ref(`submissions/${params.slug}/${params.id}`).once('value').then((snapShot) => {
-      submission = snapShot.val()
-    })
-    await firebase.database().ref(`reviews/${params.id}`).once('value').then((snapShot) => {
-      feedback = snapShot.val()
-    })
-    await firebase.database().ref(`evaluations/${params.id}`).once('value').then((snapShot) => {
-      evaluation = snapShot.val()
-    })
-    return { submission, feedback, evaluation }
-  },
-  mounted (params) {
-    if ((!this.communityData || Object.keys(this.communityData).length === 0)) {
-      this.$store.dispatch('content', { payload: params.slug })
+      if (this.feedback) {
+        const orderedFeedback = this.feedback
+        return Object.values(orderedFeedback).reverse().sort(this.compare)
+      }
+      return []
     }
   },
   created () {
-    this.getReputation(this.feedback)
-    this.$store.commit('content/setSubmissionDisplayName', this.submission.displayName)
+    // this.$store.dispatch('content', { payload: this.$route.params.slug })
+    this.getData(this.$route.params).then(() => {
+      this.$store.commit('content/setSubmissionDisplayName', this.submission.displayName)
+    })
   },
   methods: {
     communityPath (slug) {
@@ -449,8 +440,10 @@ export default {
       this.loading = true
       this.$store.dispatch('reviews/createReview', this.review)
         .then(() => {
+          this.review.content = null
+          this.review.reviewCodeLink = null
           this.$refs.form.reset()
-          this.getReputation()
+          this.getData(this.$route.params)
           this.loading = false
         })
     },
@@ -514,8 +507,23 @@ export default {
         return -1
       }
       return 0
+    },
+    getData (params) {
+      const submissionPromise = firebase.database().ref(`submissions/${params.slug}/${params.id}`).once('value').then((snapShot) => {
+        this.submission = snapShot.val()
+      })
+      const feedbackPromise = firebase.database().ref(`reviews/${params.id}`).once('value').then((snapShot) => {
+        this.feedback = snapShot.val()
+      })
+      const evaluationPromise = firebase.database().ref(`evaluations/${params.id}`).once('value').then((snapShot) => {
+        this.evaluation = snapShot.val()
+      })
+      return Promise.all([submissionPromise, feedbackPromise, evaluationPromise]).then(() => {
+        this.getReputation(this.feedback)
+      })
     }
   }
+
 }
 </script>
 

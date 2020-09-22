@@ -183,7 +183,6 @@ export default {
         }
       }
       // Get open submissions for user
-      console.log(userSubmissions)
       for (
         let index = 0;
         index < Object.values(this.communityDataPreview).length;
