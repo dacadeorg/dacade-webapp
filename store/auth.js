@@ -15,10 +15,12 @@ export const actions = {
         .then((user) => {
           this.commit('setJobDone', true)
           this.commit('setBusy', false)
-          // this.$ga.event({
-          //   eventCategory: 'registration',
-          //   eventAction: `registration userId: ${user.uid}`
-          // })
+          if (process.env.NODE_ENV !== 'development') {
+            this.$ga.event({
+              eventCategory: 'registration',
+              eventAction: `registration userId: ${user.uid}`
+            })
+          }
           resolve(user)
         })
         .catch((error) => {

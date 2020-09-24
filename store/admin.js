@@ -2,11 +2,19 @@
 /* eslint-disable no-unused-vars */
 
 import firebase from '@/plugins/firebase'
+
 const db = firebase.database()
 
 export const state = () => ({
-  groups: []
+  groups: [],
+  data: null
 })
+
+export const mutations = {
+  set (state, payload) {
+    state.data = payload
+  }
+}
 
 export const actions = {
   createEvaluation ({ commit }, payload) {
@@ -149,11 +157,28 @@ export const actions = {
             })
         }
       })
+  },
+  fetch ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      firebase
+        .database()
+        .ref(`admin/${payload.id}`)
+        .once('value')
+        .then((snapShot) => {
+          commit('set', snapShot.val())
+          return resolve(snapShot.val())
+        }).catch((error) => {
+          return reject(error)
+        })
+    })
   }
 }
 
 export const getters = {
   groups (state) {
     return state.groups
+  },
+  get (state) {
+    return state.data
   }
 }

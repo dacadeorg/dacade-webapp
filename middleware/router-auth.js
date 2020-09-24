@@ -6,34 +6,26 @@ export default function ({ store, redirect, route }) {
   const authUser = store.getters['user/data']
   if (authUser) {
     // Todo: Fix this so we dont have to always make a call if user is admin
-    if (isAdminRoute(route)) {
-      firebase
-        .database()
-        .ref(`admin/${authUser.id}`)
-        .once('value')
-        .then((snapShot) => {
-          if (!snapShot.val()) {
-            store.commit('setForwardRoute', route.path)
-            redirect('/login')
-          }
-        })
+    if (isAdminRoute(route) && !store.getters['admin/get']) {
+      store.commit('setForwardRoute', route.path)
+      redirect('/login')
     }
 
     if (
       !store.getters['user/balance'] ||
-                store.getters['user/balance']['.key'] !== authUser.id
+            store.getters['user/balance']['.key'] !== authUser.id
     ) {
       store.dispatch('user/getBalance', authUser.id)
     }
     if (
       !store.getters['notification/get'] ||
-                store.getters['notification/get']['.key'] !== authUser.id
+            store.getters['notification/get']['.key'] !== authUser.id
     ) {
       store.dispatch('notification/fetch', authUser.id)
     }
     if (
       !store.getters['user/reputation'] ||
-                store.getters['user/reputation']['.key'] !== authUser.id
+            store.getters['user/reputation']['.key'] !== authUser.id
     ) {
       store.dispatch('user/getReputation', authUser.id)
     }

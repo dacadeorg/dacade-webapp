@@ -11,10 +11,17 @@ export default (context) => {
           email: user.email,
           displayName: user.displayName
         })
+        store.dispatch('admin/fetch', {
+          id: user.uid
+        }).then(() => {
+          return resolve(user)
+        }).catch(() => {
+          return resolve(user)
+        })
       } else {
         store.commit('user/set', null)
+        return resolve(user)
       }
-      resolve(user)
     })
   })
 }
