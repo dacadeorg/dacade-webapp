@@ -1,10 +1,7 @@
-import firebase from '@/plugins/firebase'
 
 export default function ({ store, redirect }) {
-  firebase.auth().onAuthStateChanged((user) => {
-    // If the user is not authenticated
-    if (user) {
-      return redirect('/')
-    }
-  })
+  // If the user is authenticated
+  if (store.state.user.data) {
+    return redirect('/')
+  }
 }
