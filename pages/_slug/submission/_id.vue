@@ -329,7 +329,7 @@
             </i>
           </div>
           <ValidationObserver ref="form" v-slot="{ invalid, passes }">
-            <b-form  @submit.prevent="passes(onSubmit)">
+            <b-form @submit.prevent="passes(onSubmit)">
               <b-form-group
                 id="input-group-1"
                 class="mb-4"

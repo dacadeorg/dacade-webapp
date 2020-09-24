@@ -86,6 +86,7 @@ export default {
     Navigation,
     NotificationBar
   },
+  middleware: 'guest',
   data () {
     return {
       form: {
