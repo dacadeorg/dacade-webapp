@@ -27,11 +27,13 @@ export const actions = {
               commit('setBusy', false, { root: true })
             // console.log('success')
             }).then(() => {
-              // this.$ga.event({
-              //   eventCategory: 'submission',
-              //   eventAction: `submissionId:${snapshot.key}`,
-              //   eventLabel: `${payload.communityId}`
-              // })
+              if (process.env.NODE_ENV !== 'development') {
+                this.$ga.event({
+                  eventCategory: 'submission',
+                  eventAction: `submissionId:${snapshot.key}`,
+                  eventLabel: `${payload.communityId}`
+                })
+              }
               resolve()
             })
             .catch((error) => {

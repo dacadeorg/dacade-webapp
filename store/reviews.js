@@ -21,10 +21,12 @@ export const actions = {
             .then(() => {
               commit('setJobDone', true, { root: true })
               commit('setBusy', false, { root: true })
-              // this.$ga.event({
-              //   eventCategory: 'feedback',
-              //   eventAction: `feedbackSubmissionId:${key}`
-              // })
+              if (process.env.NODE_ENV !== 'development') {
+                this.$ga.event({
+                  eventCategory: 'feedback',
+                  eventAction: `feedbackSubmissionId:${key}`
+                })
+              }
               resolve()
             })
             .catch((error) => {
