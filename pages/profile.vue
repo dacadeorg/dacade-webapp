@@ -1,7 +1,10 @@
 <template>
   <div>
     <Navigation />
-    <div v-if="Object.keys(communityDataPreview).length != 0 && user" class="container">
+    <div
+      v-if="Object.keys(communityDataPreview).length != 0 && user"
+      class="container"
+    >
       <div class="row">
         <div class="col-md-12 mt-4">
           <h2 class="dark-white">
@@ -12,36 +15,36 @@
           <h4 class="muted-dark">
             {{ user.email }}
           </h4>
-          <h4
-            v-if="userVerifications"
-            class="muted-dark"
-          >
+          <h4 v-if="userVerifications" class="muted-dark">
             <i class="fa fa-check" aria-hidden="true" />
             <b>Verified</b>
           </h4>
           <section>
-            <div
-              v-if="userBalance && Object.keys(userBalance).length"
-              class="mt-4"
-            >
+            <div v-if="balance && Object.keys(balance).length" class="mt-4">
               <h4>
                 <b>
                   Balance:
                 </b>
               </h4>
-              <div
-                v-if="userBalance.DCN"
-                class="mb-4"
-              >
+              <div v-if="balance.DCN" class="mb-4">
                 <h4>
                   Dacade coins:
                   <b class="dark-white">
-                    {{ parseFloat(userBalance.DCN).toFixed(0) }}
-                    <img class="DCN-icon" src="/img/usp_iso_coin_dacade.png" height="22" alt="">
+                    {{ parseFloat(balance.DCN).toFixed(0) }}
+                    <img
+                      class="DCN-icon"
+                      src="/img/usp_iso_coin_dacade.png"
+                      height="22"
+                      alt=""
+                    >
                   </b>
                 </h4>
               </div>
-              <div v-for="(balance, key) in userBalance" :key="balance.id" class="mb-4">
+              <div
+                v-for="(balance, key) in balance"
+                :key="balance.id"
+                class="mb-4"
+              >
                 <div v-if="key !== 'DCN'">
                   <h4>
                     {{ key }} token:
@@ -50,15 +53,23 @@
                     </b>
                   </h4>
                   <div>
-                    <div v-if="userWalletAddresses && userWalletAddresses[key] && userVerifications && userVerifications['socialMedia']">
+                    <div
+                      v-if="
+                        userWalletAddresses &&
+                          userWalletAddresses[key] &&
+                          userVerifications &&
+                          userVerifications['socialMedia']
+                      "
+                    >
                       <!-- If the user entered a wallet address for the token and is verified
                       , they can change the address and make a payout request -->
-                      <h4
-                        class="muted-dark"
-                      >
+                      <h4 class="muted-dark">
                         {{ key }} wallet address: {{ userWalletAddresses[key] }}
                       </h4>
-                      <div v-b-modal="'add-address-modal2' + key" class="btn-edit btn mt-2 mb-2 muted-dark small-shadow">
+                      <div
+                        v-b-modal="'add-address-modal2' + key"
+                        class="btn-edit btn mt-2 mb-2 muted-dark small-shadow"
+                      >
                         Change {{ key }} Address
                       </div>
                       <b-modal
@@ -82,13 +93,13 @@
                                 placeholder="Enter new wallet address"
                               />
                             </b-form-group>
-                            <div
-                              class="text-center"
-                            >
+                            <div class="text-center">
                               <b-button
                                 type="submit"
                                 class="btn-add btn mt-2 mb-2 small-shadow"
-                                @click="$bvModal.hide('add-address-modal2' + key)"
+                                @click="
+                                  $bvModal.hide('add-address-modal2' + key)
+                                "
                               >
                                 Submit new Address
                               </b-button>
@@ -97,17 +108,26 @@
                         </div>
                       </b-modal>
                       <div
-                        v-if="payoutRequestsPending && payoutRequestsPending[key]"
+                        v-if="
+                          payoutRequestsPending && payoutRequestsPending[key]
+                        "
                       >
                         <div class="notification mt-2">
                           <span>
-                            <i class="fa fa-clock-o mr-2 color-default" aria-hidden="true" />
+                            <i
+                              class="fa fa-clock-o mr-2 color-default"
+                              aria-hidden="true"
+                            />
                           </span>
-                          Payout request for {{ payoutRequestsPending[key] }} {{ key }} pending.
+                          Payout request for {{ payoutRequestsPending[key] }}
+                          {{ key }} pending.
                         </div>
                       </div>
                       <div v-else>
-                        <span v-b-modal="'cash-out-modal' + key" class="btn-cash-out btn mt-2 mb-4 small-shadow">
+                        <span
+                          v-b-modal="'cash-out-modal' + key"
+                          class="btn-cash-out btn mt-2 mb-4 small-shadow"
+                        >
                           Cash out
                         </span>
                         <b-modal
@@ -116,11 +136,15 @@
                           header-text-variant="light"
                           hide-footer
                         >
-                          Request to payout {{ balance }}$ in {{ key }} token to the {{ key }} address: {{ userWalletAddresses[key] }}
+                          Request to payout {{ balance }}$ in {{ key }} token to
+                          the {{ key }} address: {{ userWalletAddresses[key] }}
                           <div class="text-center">
                             <div
                               class="btn-cash-out btn mt-4 mb-2 small-shadow"
-                              @click="createPayoutObject(key), $bvModal.hide('cash-out-modal' + key)"
+                              @click="
+                                createPayoutObject(key),
+                                $bvModal.hide('cash-out-modal' + key)
+                              "
                             >
                               Send request
                             </div>
@@ -129,18 +153,28 @@
                       </div>
                     </div>
                     <!-- If the user isn't verified, they can add a verification request -->
-                    <div v-else-if="!userVerifications || !userVerifications['socialMedia']">
+                    <div
+                      v-else-if="
+                        !userVerifications || !userVerifications['socialMedia']
+                      "
+                    >
                       <div
                         v-if="userVerificationPendig === true"
                         class="notification"
                       >
                         <span>
-                          <i class="fa fa-clock-o mr-2 color-default" aria-hidden="true" />
+                          <i
+                            class="fa fa-clock-o mr-2 color-default"
+                            aria-hidden="true"
+                          />
                         </span>
                         Social media verification request pending.
                       </div>
                       <div v-else>
-                        <div v-b-modal="'add-social-media-verification' + key" class="btn-add btn mt-2 mb-4 small-shadow">
+                        <div
+                          v-b-modal="'add-social-media-verification' + key"
+                          class="btn-add btn mt-2 mb-4 small-shadow"
+                        >
                           Add social media verification
                         </div>
                         <b-modal
@@ -152,16 +186,16 @@
                           <div>
                             <b-form @submit.prevent="updateUserVerifications()">
                               <p>
-                                Please make a post with your dacade username on an active social media account
-                                and submit the link to the post below.
+                                Please make a post with your dacade username on
+                                an active social media account and submit the
+                                link to the post below.
                               </p>
                               <b>
                                 Example:
                               </b>
-                              <div
-                                class="social-media-post mb-4"
-                              >
-                                Verifying my dacade.org username {{ user.displayName }}.
+                              <div class="social-media-post mb-4">
+                                Verifying my dacade.org username
+                                {{ user.displayName }}.
                               </div>
                               <b-form-group
                                 id="input-group-verification"
@@ -169,7 +203,9 @@
                               >
                                 <b-form-input
                                   id="wallet-address"
-                                  v-model="inputUserVerifications['socialMedia']"
+                                  v-model="
+                                    inputUserVerifications['socialMedia']
+                                  "
                                   type="text"
                                   required
                                   placeholder="Verification Link"
@@ -179,7 +215,11 @@
                                 <b-button
                                   type="submit"
                                   class="btn-add btn mt-2 mb-2 small-shadow"
-                                  @click="$bvModal.hide('add-social-media-verification' + key)"
+                                  @click="
+                                    $bvModal.hide(
+                                      'add-social-media-verification' + key
+                                    )
+                                  "
                                 >
                                   Submit Verification
                                 </b-button>
@@ -190,8 +230,15 @@
                       </div>
                     </div>
                     <!-- If the user didn't enter a wallet address for the token, they can add a new address -->
-                    <div v-else-if="!userWalletAddresses || !userWalletAddresses[key]">
-                      <div v-b-modal="'add-address-modal' + key" class="btn-add btn mt-2 mb-4 small-shadow">
+                    <div
+                      v-else-if="
+                        !userWalletAddresses || !userWalletAddresses[key]
+                      "
+                    >
+                      <div
+                        v-b-modal="'add-address-modal' + key"
+                        class="btn-add btn mt-2 mb-4 small-shadow"
+                      >
                         Add {{ key }} Address
                       </div>
                       <b-modal
@@ -201,7 +248,10 @@
                         hide-footer
                       >
                         <div>
-                          <p>Please enter the address of your {{ key }} wallet below.</p>
+                          <p>
+                            Please enter the address of your {{ key }} wallet
+                            below.
+                          </p>
                           <b-form @submit.prevent="updateWalletAddress(key)">
                             <b-form-group
                               id="input-group-1"
@@ -216,13 +266,13 @@
                                 placeholder="Enter wallet address"
                               />
                             </b-form-group>
-                            <div
-                              class="text-center"
-                            >
+                            <div class="text-center">
                               <b-button
                                 type="submit"
                                 class="btn-add btn mt-2 mb-2 small-shadow"
-                                @click="$bvModal.hide('add-address-modal' + key)"
+                                @click="
+                                  $bvModal.hide('add-address-modal' + key)
+                                "
                               >
                                 Submit Address
                               </b-button>
@@ -243,7 +293,12 @@
                 <span class="dark-white">
                   <b>0</b>
                 </span>
-                <img class="DCN-icon" src="/img/usp_iso_coin_dacade.png" height="22" alt="">
+                <img
+                  class="DCN-icon"
+                  src="/img/usp_iso_coin_dacade.png"
+                  height="22"
+                  alt=""
+                >
               </h4>
             </div>
           </section>
@@ -256,15 +311,26 @@
             Reputation
           </b>
         </h2>
-        <div v-if="userReputation && Object.keys(userReputation).length" class="row mt-4">
-          <div v-for="(rep, key) in userReputation" :key="rep.key" class="col-md-3 mb-4">
+        <div
+          v-if="reputation && Object.keys(reputation).length"
+          class="row mt-4"
+        >
+          <div
+            v-for="(rep, key) in reputation"
+            :key="rep.key"
+            class="col-md-3 mb-4"
+          >
             <b-card
               tag="article"
-              :style="{ borderBottomColor:communityDataPreview[key].color }"
+              :style="{ borderBottomColor: communityDataPreview[key].color }"
               class="mb-2 small-shadow text-center bg-dark bg-rep"
             >
               <b-card-text class="text-center mt-4">
-                <h4><b class="teaching-color points">{{ parseFloat(rep).toFixed(0) }}</b></h4>
+                <h4>
+                  <b class="teaching-color points">{{
+                    parseFloat(rep).toFixed(0)
+                  }}</b>
+                </h4>
                 <h4><b class="teaching-color">REPUTATION</b></h4>
                 <h4 class="muted-dark">
                   {{ communityDataPreview[key].name }}
@@ -286,11 +352,16 @@
             Achievements
           </b>
         </h2>
-        <div v-if="userLearningPoints && Object.keys(userLearningPoints).length" class="row mt-4">
-          <div v-for="(lp, key) in userLearningPoints" :key="lp.key" class="col-md-3 mb-4">
-            <div
-              v-if="communityDataPreview[key]"
-            >
+        <div
+          v-if="learningPoints && Object.keys(learningPoints).length"
+          class="row mt-4"
+        >
+          <div
+            v-for="(lp, key) in learningPoints"
+            :key="lp.key"
+            class="col-md-3 mb-4"
+          >
+            <div v-if="communityDataPreview[key]">
               <b-card
                 :img-src="communityDataPreview[key].imgUrl"
                 img-alt="Image"
@@ -300,7 +371,14 @@
                 class="mb-2 small-shadow text-center bg-dark"
               >
                 <b-card-text class="text-center">
-                  <h4><b class="learning-color">{{ lp }}<span class="muted-dark">/{{ communityDataPreview[key].submissionPoints }}</span></b></h4>
+                  <h4>
+                    <b
+                      class="learning-color"
+                    >{{ lp
+                    }}<span
+                      class="muted-dark"
+                    >/{{ communityDataPreview[key].submissionPoints }}</span></b>
+                  </h4>
                   <h4><b class="learning-color">Points</b></h4>
                   <h4 class="muted-dark">
                     {{ communityDataPreview[key].name }}
@@ -324,14 +402,12 @@
 import { mapGetters } from 'vuex'
 import Navigation from '@/components/Navigation'
 import firebase from '@/plugins/firebase'
-import apiJobMixin from '@/mixins/apiJobMixin'
 
 export default {
   components: {
     Navigation
   },
-  mixins: [apiJobMixin],
-  data() {
+  data () {
     return {
       addresses: [],
       inputUserVerifications: [],
@@ -343,56 +419,72 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'user',
-      userBalance: 'userBalance',
-      userReputation: 'userReputation',
-      userLearningPoints: 'userLearningPoints',
+      user: 'user/data',
+      balance: 'user/balance',
+      reputation: 'user/reputation',
+      learningPoints: 'user/learningPoints',
       communityDataPreview: 'content/communityDataPreview'
     })
   },
   watch: {
     // When we have the userdata, we can execute the function.
-    user: function (userData) {
-      this.getUserWalletAddresses()
-      this.getUserVerifications()
+    user (userData) {
+      if (userData) {
+        this.getUserWalletAddresses()
+        this.getUserVerifications()
+      }
     },
-    userWalletAddresses: function () {
+    userWalletAddresses () {
       this.getPendingPayoutRequests()
     }
   },
-  mounted() {
-    if (!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0) {
-      this.$store.dispatch('content/getCommunityDataPreview')
-    }
-  },
-  created() {
+  created () {
     if (this.user) {
       this.getUserWalletAddresses()
       this.getUserVerifications()
+      this.$store.dispatch('content/getCommunityDataPreview')
     }
   },
   methods: {
-    jobsDone() {
+    jobsDone () {
       this.removeErrors()
     },
     // Create a payout request:
     // 1. Get communities with the requested token.
     // 2. Loop over these communties and get the unpaid transactions of the user in these communties.
     // 3. Send the payout request containing the unpaid transactions.
-    async createPayoutObject(token) {
-      const communitiesWithPayoutToken = this.getCommunitiesWithPayoutToken(token, this.communityDataPreview)
-      let totalTransactionPayoutAmount = 0
-      for (const community in communitiesWithPayoutToken) {
-        const unpaidCommunityTransactions = await this.getUnpaidTransactionsOfUserInCommunity(communitiesWithPayoutToken[community], this.user.id)
-        const transactionsAmountAndTransactionIds = this.getTransactionIdssAndAmount(unpaidCommunityTransactions)
-        totalTransactionPayoutAmount = totalTransactionPayoutAmount + transactionsAmountAndTransactionIds.transactionsAmount
-        if (transactionsAmountAndTransactionIds.transactionsAmount > 0) {
+    async createPayoutObject (token) {
+      if (this.user) {
+        const communitiesWithPayoutToken = this.getCommunitiesWithPayoutToken(token, this.communityDataPreview)
+        let totalTransactionPayoutAmount = 0
+        for (const community in communitiesWithPayoutToken) {
+          const unpaidCommunityTransactions = await this.getUnpaidTransactionsOfUserInCommunity(communitiesWithPayoutToken[community], this.user.id)
+          const transactionsAmountAndTransactionIds = this.getTransactionIdssAndAmount(unpaidCommunityTransactions)
+          totalTransactionPayoutAmount = totalTransactionPayoutAmount + transactionsAmountAndTransactionIds.transactionsAmount
+          if (transactionsAmountAndTransactionIds.transactionsAmount > 0) {
+            const payoutObject = {
+              communityId: communitiesWithPayoutToken[community],
+              userId: this.user.id,
+              payoutAmount: transactionsAmountAndTransactionIds.transactionsAmount,
+              userWallet: this.userWalletAddresses[token],
+              transactionIds: transactionsAmountAndTransactionIds.transactionIds,
+              date: Date.now(),
+              rewardToken: token,
+              paid: false
+            }
+            // console.log(payoutObject)
+            this.$store.dispatch('payouts/createPayoutRequest', payoutObject)
+          }
+        }
+        // Because we introduced transactions later not all issued payments have transactions.
+        // Thats why we need to create a different payout request for all unaccounted payments.
+        if (this.balance[token] > totalTransactionPayoutAmount) {
+          const unaccountedPayoutAmount = this.balance[token] - totalTransactionPayoutAmount
           const payoutObject = {
-            communityId: communitiesWithPayoutToken[community],
+            communityId: token,
             userId: this.user.id,
-            payoutAmount: transactionsAmountAndTransactionIds.transactionsAmount,
+            payoutAmount: parseFloat(unaccountedPayoutAmount.toFixed(1)),
             userWallet: this.userWalletAddresses[token],
-            transactionIds: transactionsAmountAndTransactionIds.transactionIds,
             date: Date.now(),
             rewardToken: token,
             paid: false
@@ -400,34 +492,18 @@ export default {
           // console.log(payoutObject)
           this.$store.dispatch('payouts/createPayoutRequest', payoutObject)
         }
-      }
-      // Because we introduced transactions later not all issued payments have transactions.
-      // Thats why we need to create a different payout request for all unaccounted payments.
-      if (this.userBalance[token] > totalTransactionPayoutAmount) {
-        const unaccountedPayoutAmount = this.userBalance[token] - totalTransactionPayoutAmount
-        const payoutObject = {
-          communityId: token,
+        const payoutPendingObject = {
           userId: this.user.id,
-          payoutAmount: parseFloat(unaccountedPayoutAmount.toFixed(1)),
-          userWallet: this.userWalletAddresses[token],
-          date: Date.now(),
-          rewardToken: token,
-          paid: false
+          payoutAmount: parseFloat(this.balance[token].toFixed(1)),
+          tokenFormat: token
         }
-        // console.log(payoutObject)
-        this.$store.dispatch('payouts/createPayoutRequest', payoutObject)
+        // console.log(payoutPendingObject)
+        this.$store.dispatch('payouts/setPayoutRequestPending', payoutPendingObject)
+        // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
+        this.$router.go()
       }
-      const payoutPendingObject = {
-        userId: this.user.id,
-        payoutAmount: parseFloat(this.userBalance[token].toFixed(1)),
-        tokenFormat: token
-      }
-      // console.log(payoutPendingObject)
-      this.$store.dispatch('payouts/setPayoutRequestPending', payoutPendingObject)
-      // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
-      this.$router.go()
     },
-    getCommunitiesWithPayoutToken(token, communities) {
+    getCommunitiesWithPayoutToken (token, communities) {
       const communitiesWithPayoutToken = []
       for (let index = 0; index < Object.values(communities).length; index++) {
         const element = Object.values(communities)[index].rewardToken
@@ -437,14 +513,14 @@ export default {
       }
       return communitiesWithPayoutToken
     },
-    async getUnpaidTransactionsOfUserInCommunity(communityId, userId) {
+    async getUnpaidTransactionsOfUserInCommunity (communityId, userId) {
       let transactions = []
       await firebase.database().ref(`transactions/${communityId}/${userId}`).orderByChild('paid').equalTo(false).once('value').then((snapShot) => {
         transactions = snapShot.val()
       })
       return transactions
     },
-    getTransactionIdssAndAmount(transactions) {
+    getTransactionIdssAndAmount (transactions) {
       let transactionsAmount = 0
       const transactionIds = []
       if (transactions && Object.values(transactions).length) {
@@ -454,11 +530,11 @@ export default {
         }
       }
       return {
-        transactionsAmount: transactionsAmount,
-        transactionIds: transactionIds
+        transactionsAmount,
+        transactionIds
       }
     },
-    updateWalletAddress(key) {
+    updateWalletAddress (key) {
       const walletObject = {
         userId: this.user.id,
         walletAddress: this.addresses[key],
@@ -468,7 +544,7 @@ export default {
       // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
       this.$router.go()
     },
-    updateUserVerifications() {
+    updateUserVerifications () {
       const verficationObject = {
         userId: this.user.id,
         displayName: this.user.displayName,
@@ -480,17 +556,17 @@ export default {
       // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
       this.$router.go()
     },
-    async getUserWalletAddresses() {
+    async getUserWalletAddresses () {
       await firebase.database().ref(`userWallet/${this.user.id}`).once('value').then((snapShot) => {
         this.userWalletAddresses = snapShot.val()
       })
     },
-    async getPendingPayoutRequests() {
+    async getPendingPayoutRequests () {
       await firebase.database().ref(`payoutRequestsPending/${this.user.id}`).once('value').then((snapShot) => {
         this.payoutRequestsPending = snapShot.val()
       })
     },
-    async getUserVerifications() {
+    async getUserVerifications () {
       await firebase.database().ref(`userVerifications/${this.user.id}`).once('value').then((snapShot) => {
         this.userVerifications = snapShot.val()
       })
@@ -498,7 +574,7 @@ export default {
         await this.getUserVerificationRequest()
       }
     },
-    async getUserVerificationRequest() {
+    async getUserVerificationRequest () {
       await firebase.database().ref(`userVerificationRequest/${this.user.id}/socialMedia`).once('value').then((snapShot) => {
         if (snapShot.val()) {
           this.userVerificationPendig = true
@@ -514,7 +590,7 @@ export default {
   color: black;
   border: 2px solid #ffcc00;
   background: #ffcc00;
-  border-radius: .35rem;
+  border-radius: 0.35rem;
   padding: 10px 40px;
   font-weight: 700;
 }
@@ -528,7 +604,7 @@ export default {
   color: #64686b;
   background-color: none;
   border: 1.6px solid #64686b;
-  border-radius: .35rem;
+  border-radius: 0.35rem;
   padding: 10px 40px;
   font-weight: 700;
 }
@@ -536,14 +612,14 @@ export default {
 .btn-edit:hover {
   color: black;
   cursor: pointer;
-  background-color: rgba(255,255,255,.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-add {
   color: black;
   border: 2px solid #64686b;
   background: #64686b;
-  border-radius: .35rem;
+  border-radius: 0.35rem;
   padding: 10px 40px;
   font-weight: 700;
 }
@@ -552,12 +628,12 @@ export default {
   color: black;
   cursor: pointer;
   border: 2px solid white;
-  background-color: rgba(255,255,255,.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-.bg-rep{
-  border:4px solid rgba(255,255,255,.1);
-  border-radius:.32rem;
+.bg-rep {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.32rem;
   padding-bottom: 3em;
 }
 
@@ -565,17 +641,17 @@ export default {
   background: black;
 }
 
-.DCN-icon{
+.DCN-icon {
   vertical-align: -2px;
   margin-left: -4px;
 }
 
 .notification {
-  background: rgba(255,255,255,.9);
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   border-left: 6px solid #acb2be;
   border-radius: 0.35rem;
-  color: rgba(0,0,0,.7);
+  color: rgba(0, 0, 0, 0.7);
   font-style: italic;
   font-weight: bold;
   padding: 1em;
@@ -604,10 +680,10 @@ export default {
 
 .unread {
   color: #53d1af;
-  border-color:#53d1af;
+  border-color: #53d1af;
 }
 
-.unread a{
+.unread a {
   color: #53d1af;
 }
 </style>

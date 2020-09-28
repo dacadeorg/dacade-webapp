@@ -71,7 +71,7 @@ export default {
       submissionDisplayName: 'content/submissionDisplayName'
     })
   },
-  mounted() {
+  mounted () {
     this.$nextTick(function () {
       window.addEventListener('scroll', function () {
         const navbar = document.getElementById('menuList')
@@ -89,10 +89,10 @@ export default {
     })
   },
   methods: {
-    communityPath(slug, chapterLink) {
+    communityPath (slug, chapterLink) {
       return `/${slug}/${chapterLink}`
     },
-    chapterPath(route, chapterId) {
+    chapterPath (route, chapterId) {
       return `/${route.params.slug}/chapter/${chapterId}`
     }
   }

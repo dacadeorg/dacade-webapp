@@ -16,15 +16,14 @@
 </template>
 
 <script>
-/* eslint-disable no-console */
-import apiJobMixin from '@/mixins/apiJobMixin'
+import { mapGetters } from 'vuex'
 
 export default {
-  mixins: [apiJobMixin],
-  methods: {
-    jobsDone() {
-      this.removeErrors()
-    }
+  computed: {
+    ...mapGetters({
+      busy: 'busy',
+      error: 'error'
+    })
   }
 }
 </script>

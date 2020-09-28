@@ -3,7 +3,9 @@
     <div class="col-lg-8">
       <div class="site-wraper">
         <p v-if="communityData.challengeDescription">
-          <i class="dacade-note muted-dark">{{ communityData.challengeDescription }}</i>
+          <i class="dacade-note muted-dark">{{
+            communityData.challengeDescription
+          }}</i>
         </p>
 
         <section class="mb-4">
@@ -18,28 +20,35 @@
           <span class="btn btn-dark-outline mt-4 mb-4" @click="SendToExample(communityData.challengeExampleSubmissionId)">See example</span>
         </div> -->
 
-        <section v-if="communityData.submissionPrice>0">
+        <section v-if="communityData.submissionPrice > 0">
           <h5 class="white">
             <b>
               Earn {{ communityData.submissionPrice }}
               <span v-if="communityData.priceFormat === 'DCN'">
-                <img class="DCN" src="/img/usp_iso_coin_dacade.png" height="22" alt="">
+                <img
+                  class="DCN"
+                  src="/img/usp_iso_coin_dacade.png"
+                  height="22"
+                  alt=""
+                >
               </span>
               <span v-else>$</span>
             </b>
           </h5>
-          <p
-            class="mb-4"
-          >
+          <p class="mb-4">
             In order to earn {{ communityData.submissionPrice }}
             <span v-if="communityData.priceFormat === 'DCN'">
               dacade coins
             </span>
-            <span v-else>$
-              in {{ communityData.priceFormat }} token
-            </span>
+            <span v-else>$ in {{ communityData.priceFormat }} token </span>
             you must get at least
-            {{ ((communityData.challengeThreshold * 0.01) * communityData.challengePoints).toFixed(0) }}
+            {{
+              (
+                communityData.challengeThreshold *
+                0.01 *
+                communityData.challengePoints
+              ).toFixed(0)
+            }}
             out of {{ communityData.challengePoints }} Points in this challenge.
           </p>
         </section>
@@ -51,11 +60,13 @@
             </strong>
           </h5>
           <div class="learning-points-box mb-6">
-            <div v-for="(evaluationRating, index) in communityData.challengeRubric" :key="index" class="mb-2">
+            <div
+              v-for="(evaluationRating, index) in communityData.challengeRubric"
+              :key="index"
+              class="mb-2"
+            >
               <div class="dark-white mb-1">
-                <b>
-                  {{ evaluationRating.text }}:
-                </b>
+                <b> {{ evaluationRating.text }}: </b>
               </div>
               <div class="row">
                 <div
@@ -64,9 +75,7 @@
                   class="col-md-3 col-6 mb-2"
                 >
                   <div class="learning-color fs-1">
-                    <b>
-                      {{ rubric.points }} Points
-                    </b>
+                    <b> {{ rubric.points }} Points </b>
                   </div>
                   <div class="text-left fs-08">
                     {{ rubric.text }}
@@ -82,21 +91,32 @@
 
         <div v-if="submissionDb">
           <div v-if="Object.values(submissionDb)[0].submissionPoints != null">
-            Your submission was evaluated click on the link to see the evaluation and feedback of your peers.
+            Your submission was evaluated click on the link to see the
+            evaluation and feedback of your peers.
           </div>
           <div v-else>
             <div>
-              Thank you for your submission! It will take on average {{ communityData.bountyTime }} hours until you will get an evaluation of your submission,
-              you will get feedback from your peers earlier.
+              Thank you for your submission! It will take on average
+              {{ communityData.bountyTime }} hours until you will get an
+              evaluation of your submission, you will get feedback from your
+              peers earlier.
             </div>
           </div>
           <nuxt-link
             class="btn btn-outline-primary btn-lg btn-block mt-4"
-            :to="{path: submissionPath($route.params.slug, Object.keys(submissionDb)) }"
+            :to="{
+              path: submissionPath(
+                $route.params.slug,
+                Object.keys(submissionDb)
+              ),
+            }"
           >
             See your Submission
           </nuxt-link>
-          <nuxt-link class="btn btn-primary btn-lg btn-block" :to="{ path: communityPath($route.params.slug) }">
+          <nuxt-link
+            class="btn btn-primary btn-lg btn-block"
+            :to="{ path: communityPath($route.params.slug) }"
+          >
             See Peer Submissions
           </nuxt-link>
         </div>
@@ -167,12 +187,10 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import apiJobMixin from '@/mixins/apiJobMixin'
 import firebase from '@/plugins/firebase'
 
 export default {
-  mixins: [apiJobMixin],
-  data() {
+  data () {
     return {
       submission: {
         text: null,
@@ -186,35 +204,41 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'user',
+      user: 'user/data',
       communityData: 'content/communityData'
     })
   },
-  created() {
+  created () {
     this.getSubmission()
   },
   methods: {
-    communityPath(slug) {
+    communityPath (slug) {
       return `/${slug}/submissions`
     },
-    submissionPath(slug, submissionKey) {
+    submissionPath (slug, submissionKey) {
       return `/${slug}/submission/${submissionKey}`
     },
-    onSubmit() {
+    onSubmit () {
       this.submission.communityId = this.communityData.id
       this.submission.displayName = this.user.displayName
       this.submission.userId = this.user.id
-      this.$store.dispatch('submissions/createSubmission', this.submission)
       document.getElementById('submitButton').disabled = true
+      this.$store
+        .dispatch('submissions/createSubmission', this.submission)
+        .then(() => {
+          this.getSubmission()
+        })
     },
-    jobsDone() {
-      this.removeErrors()
-      this.$router.go()
-    },
-    async getSubmission() {
-      await firebase.database().ref(`submissions/${this.$route.params.slug}`).orderByChild('userId').equalTo(this.user.id).once('value').then((snapShot) => {
-        this.submissionDb = snapShot.val()
-      })
+    getSubmission () {
+      firebase
+        .database()
+        .ref(`submissions/${this.$route.params.slug}`)
+        .orderByChild('userId')
+        .equalTo(this.user.id)
+        .once('value')
+        .then((snapShot) => {
+          this.submissionDb = snapShot.val()
+        })
     }
   }
 }
@@ -222,40 +246,40 @@ export default {
 <style scoped>
 .challenge-reward {
   border: 1px solid #fab34b;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   padding: 1em;
   color: #fab34b;
 }
-.challenge-reward h5{
-  color:#fab34b;
-  font-weight:bold;
+.challenge-reward h5 {
+  color: #fab34b;
+  font-weight: bold;
 }
-.challenge-reward img{
+.challenge-reward img {
   padding-bottom: 0.6em;
-  width:30px;
+  width: 30px;
 }
-.DCN{
+.DCN {
   vertical-align: -2px;
   margin-left: -4px;
 }
-.example-button{
+.example-button {
   border: 1px solid #53d1af;
   color: #53d1af;
   margin: 1em 0;
 }
-.example-button a{
-  color: #53d1af!important;
+.example-button a {
+  color: #53d1af !important;
 }
-.learning-points{
-  color: #53D1AF;
+.learning-points {
+  color: #53d1af;
   font-weight: 700;
 }
 
 .learning-points-box {
-  border: 1px solid #53D1AF;
-  border-radius:.25rem;
+  border: 1px solid #53d1af;
+  border-radius: 0.25rem;
   /* color:rgba(0,0,0,.8); */
-  margin-bottom:1em;
+  margin-bottom: 1em;
   padding: 1em;
 }
 </style>

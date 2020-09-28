@@ -70,7 +70,7 @@ import firebase from '@/plugins/firebase'
 import util from '~/assets/js/util'
 
 export default {
-  data() {
+  data () {
     return {
       payoutRequests: [],
       requestsQueried: false
@@ -81,22 +81,22 @@ export default {
       communityDataPreview: 'content/communityDataPreview'
     })
   },
-  mounted() {
+  mounted () {
     if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
       this.getCommunityDataPreview()
     }
   },
-  created() {
+  created () {
     this.getPayoutRequests()
   },
   methods: {
     ...mapActions({
       getCommunityDataPreview: 'content/getCommunityDataPreview'
     }),
-    convertDate(date) {
+    convertDate (date) {
       return util.convertDate(date)
     },
-    async getPayoutRequests() {
+    async getPayoutRequests () {
       const communityIdsThatAdminManages = ['intro-to-blockchain', 'ae-dev-101', 'web-dev-101', 'eth-dev-101', 'AE', 'ETH']
       for (const communityId of communityIdsThatAdminManages) {
         await firebase.database().ref(`payoutRequests/${communityId}`).orderByChild('paid').equalTo(false).once('value').then((snapShot) => {
@@ -109,11 +109,11 @@ export default {
       // console.log(this.payoutRequests)
       this.requestsQueried = true
     },
-    paymentDone(index, openRequest, userId) {
+    paymentDone (index, openRequest, userId) {
       // Add a timestamp to the request object indicating that it was paid and when.
       const requestObject = {
         communityId: index,
-        userId: userId
+        userId
       }
       // console.log('requestObject')
       // console.log(requestObject)
@@ -122,9 +122,9 @@ export default {
       if (openRequest.transactionIds) {
         for (const transactionId of openRequest.transactionIds) {
           const transactionObject = {
-            userId: userId,
+            userId,
             communityId: index,
-            transactionId: transactionId
+            transactionId
           }
           // console.log('transactionObject')
           // console.log(transactionObject)
@@ -133,7 +133,7 @@ export default {
       }
       // Deduct paid out amount from the users balance.
       const userBalanceObject = {
-        userId: userId,
+        userId,
         rewardToken: openRequest.rewardToken,
         rewardAmount: -openRequest.payoutAmount
       }
@@ -147,7 +147,7 @@ export default {
         date: Date.now(),
         link: '/profile/',
         notificationRead: false,
-        userId: userId
+        userId
       }
       if (index === 'AE' || index === 'ETH') {
         notificationObject.message = `We send ${openRequest.payoutAmount}$ in ${openRequest.rewardToken} token to your wallet. Thank you for your contribution.`

@@ -1,6 +1,6 @@
 
 export default {
-  mode: 'spa',
+  ssr: false,
   /*
   ** Headers of the page
   */
@@ -33,7 +33,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/vee-validate.js' }
+    { src: '~/plugins/vee-validate.js' },
+    '~/plugins/fireauth.js'
   ],
 
   router: {
@@ -53,7 +54,11 @@ export default {
     }],
     'cookie-universal-nuxt',
     ['nuxt-bugsnag', {
-      apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd'
+      apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd',
+      enabledReleaseStages: ['staging', 'production'],
+      reporterOptions: {
+        releaseStage: process.env.NODE_ENV
+      }
     }]
   ],
   bootstrapVue: {
@@ -72,7 +77,8 @@ export default {
       'ImagePlugin',
       'ModalPlugin',
       'NavbarPlugin',
-      'TabsPlugin'
+      'TabsPlugin',
+      'SpinnerPlugin'
     ]
   },
   /*
@@ -82,7 +88,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
+    extend (config, ctx) {
     }
   }
 }

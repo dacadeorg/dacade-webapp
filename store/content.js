@@ -12,26 +12,26 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setCommunityData(state, payload) {
+  setCommunityData (state, payload) {
     state.communityData = payload
   },
-  setCommunityDataPreview(state, payload) {
+  setCommunityDataPreview (state, payload) {
     state.communityDataPreview = payload
   },
-  setSubmissionDisplayName(state, payload) {
+  setSubmissionDisplayName (state, payload) {
     state.submissionDisplayName = payload
   }
 }
 
 export const actions = {
-  getcommunityData({ commit }, payload) {
+  getCommunityData ({ commit }, payload) {
     return db.ref(`communityData/${payload}`).once('value').then((snapShot) => {
       const communityData = snapShot.val()
       commit('setCommunityData', communityData)
     })
   },
-  getCommunityDataPreview({ commit }) {
-    firebase.database().ref(`communityDataPreview`).once('value').then((snapShot) => {
+  getCommunityDataPreview ({ commit }) {
+    return firebase.database().ref('communityDataPreview').once('value').then((snapShot) => {
       const communityDataPreview = snapShot.val()
       commit('setCommunityDataPreview', communityDataPreview)
     })
@@ -39,13 +39,13 @@ export const actions = {
 }
 
 export const getters = {
-  communityData(state) {
+  communityData (state) {
     return state.communityData
   },
-  communityDataPreview(state) {
+  communityDataPreview (state) {
     return state.communityDataPreview
   },
-  submissionDisplayName(state) {
+  submissionDisplayName (state) {
     return state.submissionDisplayName
   }
 }

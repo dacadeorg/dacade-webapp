@@ -19,7 +19,7 @@ export default {
     NavigationInCommunity,
     CommunityNavigation
   },
-  fetch({ store, params }) {
+  fetch ({ store, params }) {
     return firebase.database().ref(`communityData/${params.slug}`).once('value').then((snapShot) => {
       const communityData = snapShot.val()
       store.commit('content/setCommunityData', communityData)

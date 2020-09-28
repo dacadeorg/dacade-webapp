@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 col-xl-6 mx-auto mt-4">
-          <div v-if="userNotifications">
+          <div v-if="notifications">
             <div class="text-center mb-4" />
             <div
               v-for="notification in orderDesc()"
@@ -40,34 +40,34 @@ export default {
   },
   computed: {
     ...mapGetters({
-      userNotifications: 'userNotifications'
+      notifications: 'notification/get'
     })
   },
-  created() {
+  created () {
     setTimeout(this.markNotificationsRead, 5000)
   },
   methods: {
-    markNotificationsRead() {
-      for (let index = 0; index < Object.values(this.userNotifications).length; index++) {
-        if (Object.values(this.userNotifications)[index].notificationRead === false) {
+    markNotificationsRead () {
+      for (let index = 0; index < Object.values(this.notifications).length; index++) {
+        if (Object.values(this.notifications)[index].notificationRead === false) {
           const notificationUpdate = {
-            id: Object.keys(this.userNotifications)[index],
-            userId: Object.values(this.userNotifications)[index].userId
+            id: Object.keys(this.notifications)[index],
+            userId: Object.values(this.notifications)[index].userId
           }
-          this.$store.dispatch('setUserNotificationSeen', notificationUpdate)
+          this.$store.dispatch('notification/markAsRead', notificationUpdate)
         }
       }
     },
-    orderDesc() {
-      return Object.values(this.userNotifications).reverse()
+    orderDesc () {
+      return Object.values(this.notifications).reverse()
     },
-    contentPreview(content) {
+    contentPreview (content) {
       const maxLength = 160
       let trimmedString = content.substr(0, maxLength)
       trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))
       return trimmedString
     },
-    convertDate(date) {
+    convertDate (date) {
       const submissionInputDate = new Date(date)
       const submissionDate = submissionInputDate.toDateString().slice(4, -4)
       let submissionMinutes = submissionInputDate.getMinutes()

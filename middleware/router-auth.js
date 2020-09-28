@@ -3,82 +3,77 @@
 import firebase from '@/plugins/firebase'
 
 export default function ({ store, redirect, route }) {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      const authUser = {
-        id: user.uid,
-        email: user.email,
-        displayName: user.displayName
-      }
-      // Todo: Fix this so we dont have to always make a call if user is admin
-      if (isAdminRoute(route)) {
-        firebase.database().ref(`admin/${authUser.id}`).once('value').then((snapShot) => {
-          if (!snapShot.val()) {
-            store.commit('setForwardRoute', route.path)
-            redirect('/login')
-          }
-        })
-      }
-      if (!store.getters.user) {
-        store.commit('setUser', authUser)
-      }
-      if (!store.getters.userBalance) {
-        store.dispatch('getUserBalance', authUser.id)
-      } else if (store.getters.userBalance['.key'] !== authUser.id) {
-        store.dispatch('getUserBalance', authUser.id)
-      }
-      if (!store.getters.userNotifications) {
-        store.dispatch('getUserNotifications', authUser.id)
-      } else if (store.getters.userNotifications['.key'] !== authUser.id) {
-        store.dispatch('getUserNotifications', authUser.id)
-      }
-      if (!store.getters.userReputation) {
-        store.dispatch('getUserReputation', authUser.id)
-      } else if (store.getters.userReputation['.key'] !== authUser.id) {
-        store.dispatch('getUserReputation', authUser.id)
-      }
-      if (!store.getters.userLearningPoints) {
-        store.dispatch('getUserLearningPoints', authUser.id)
-      } else if (store.getters.userLearningPoints['.key'] !== authUser.id) {
-        store.dispatch('getUserLearningPoints', authUser.id)
-      }
-    } else if (isUserRoute(route) || isAdminRoute(route)) {
+  const authUser = store.getters['user/data']
+  if (authUser) {
+    // Todo: Fix this so we dont have to always make a call if user is admin
+    if (isAdminRoute(route) && !store.getters['admin/get']) {
       store.commit('setForwardRoute', route.path)
-      redirect('/signup')
+      redirect('/login')
     }
-  })
-}
 
-function isAdminRoute(route) {
-  if (route.matched.some(record => record.path === '/admin/evaluations')) {
-    return true
-  } else if (route.matched.some(record => record.path === '/admin')) {
-    return true
-  } else if (route.matched.some(record => record.path === '/admin/evaluation/:id?')) {
-    return true
-  } else if (route.matched.some(record => record.path === '/admin/functions')) {
-    return true
-  } else if (route.matched.some(record => record.path === '/admin/test')) {
-    return true
-  } else if (route.matched.some(record => record.path === '/admin/payments')) {
-    return true
-  } else if (route.matched.some(record => record.path === '/admin/verifications')) {
-    return true
-  } else {
-    return false
+    if (
+      !store.getters['user/balance'] ||
+            store.getters['user/balance']['.key'] !== authUser.id
+    ) {
+      store.dispatch('user/getBalance', authUser.id)
+    }
+    if (
+      !store.getters['notification/get'] ||
+            store.getters['notification/get']['.key'] !== authUser.id
+    ) {
+      store.dispatch('notification/fetch', authUser.id)
+    }
+    if (
+      !store.getters['user/reputation'] ||
+            store.getters['user/reputation']['.key'] !== authUser.id
+    ) {
+      store.dispatch('user/getReputation', authUser.id)
+    }
+    if (!store.getters['user/learningPoints'] || store.getters['user/learningPoints']['.key'] !== authUser.id) {
+      store.dispatch('user/getLearningPoints', authUser.id)
+    }
+    if (isGuestRoute(route)) {
+      redirect('/')
+    }
+  } else if (isUserRoute(route) || isAdminRoute(route)) {
+    store.commit('setForwardRoute', route.path)
+    redirect('/login')
   }
 }
 
-function isUserRoute(route) {
-  if (route.matched.some(record => record.name === 'slug-chapter-id')) {
-    return true
-  } else if (route.matched.some(record => record.name === 'slug-challenge')) {
-    return true
-  } else if (route.matched.some(record => record.name === 'slug-submissions')) {
-    return true
-  } else if (route.matched.some(record => record.name === 'slug-submission-id')) {
-    return true
-  } else {
-    return false
-  }
+function isAdminRoute (route) {
+  return matchesRoutes(route, [
+    '/admin/evaluations',
+    '/admin',
+    '/admin/evaluation/:id?',
+    '/admin/functions',
+    '/admin/test',
+    '/admin/payments',
+    '/admin/verifications'
+  ])
+}
+
+function isUserRoute (route) {
+  return matchesRoutes(route, [
+    'slug-chapter-id',
+    'slug-challenge',
+    'slug-submissions',
+    'slug-submission-id',
+    'bounties',
+    'profile',
+    'notifications'
+  ], 'name')
+}
+
+function isGuestRoute (route) {
+  return matchesRoutes(route, [
+    '/signup',
+    '/login',
+    '/password-reset'
+  ])
+}
+
+function matchesRoutes (route, list, key = 'path') {
+  const matches = list.filter(el => route.matched.some(record => record[key] === el))
+  return matches.length > 0
 }

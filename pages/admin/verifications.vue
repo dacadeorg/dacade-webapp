@@ -54,34 +54,34 @@
 import firebase from '@/plugins/firebase'
 
 export default {
-  data() {
+  data () {
     return {
       verificationRequests: [],
       requestsQueried: false
     }
   },
-  created() {
+  created () {
     this.getVerificationRequests()
   },
   methods: {
-    verifyRequest(userId, request) {
+    verifyRequest (userId, request) {
       const verificationObject = {
-        userId: userId,
+        userId,
         verificationType: Object.keys(request)[0],
         verificationLink: Object.values(request)[0].link
       }
       this.$store.dispatch('admin/deleteVerificationRequest', verificationObject)
       this.$store.dispatch('admin/createUserVerification', verificationObject)
     },
-    deleteVerificationRequest(userId, request) {
+    deleteVerificationRequest (userId, request) {
       const verificationObject = {
-        userId: userId,
+        userId,
         verificationType: Object.keys(request)[0]
       }
       this.$store.dispatch('admin/deleteVerificationRequest', verificationObject)
     },
-    async getVerificationRequests() {
-      await firebase.database().ref(`userVerificationRequest`).once('value').then((snapShot) => {
+    async getVerificationRequests () {
+      await firebase.database().ref('userVerificationRequest').once('value').then((snapShot) => {
         if (snapShot.val()) {
           this.verificationRequests = snapShot.val()
         }

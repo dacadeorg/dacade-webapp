@@ -88,7 +88,7 @@
 import firebase from '@/plugins/firebase'
 
 export default {
-  data() {
+  data () {
     return {
       weekStartDate: this.getPreviousMonday,
       totalSubmissions: null,
@@ -97,22 +97,22 @@ export default {
     }
   },
   computed: {
-    getPreviousMonday() {
+    getPreviousMonday () {
       let prevMonday = new Date()
       prevMonday.setDate(prevMonday.getDate() - (prevMonday.getDay() + 6) % 14)
       return prevMonday
       // return new Date(prevMonday).toISOString().split('T')[0]
     }
   },
-  created() {
+  created () {
     // this.getSubmissions()
     // this.getReviews()
   },
   methods: {
-    back() {
+    back () {
       this.$router.back()
     },
-    async getSubmissions() {
+    async getSubmissions () {
       const communities = ['intro-to-blockchain', 'ae-dev-101', 'web-dev-101', 'eth-dev-101']
       let submissionsLength = []
       const communitySubmissions = []
@@ -138,12 +138,12 @@ export default {
       console.log(communitySubmissions)
       // this.communitySubmissions[communities[index]] = communitySubmissionLength)
     },
-    async getReviews(dateRange) {
+    async getReviews (dateRange) {
       let reviews = 0
       let rewards = 0
       let rewardCount = 0
       const reviewDate = Date.parse(dateRange)
-      await firebase.database().ref(`reviews`).once('value', function (snapshot) {
+      await firebase.database().ref('reviews').once('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
           const element = {}
           element.key = childSnapshot.key
@@ -167,7 +167,7 @@ export default {
       console.log('Feedbacks ' + rewardCount)
       this.totalReviews = reviews
     },
-    async getReviewsForSubmission(elementF) {
+    async getReviewsForSubmission (elementF) {
       // let submissionId = '-LI5aDw8QEVwp9spSTvO'
       let reviewsCount = 0
       let reviewsReward = []
@@ -199,7 +199,7 @@ export default {
       // console.log(reviewsCount)
       return reviewsCount
     },
-    async getSubmissionsSinceDate(dateRange) {
+    async getSubmissionsSinceDate (dateRange) {
       const communities = ['intro-to-blockchain', 'ae-dev-101', 'web-dev-101', 'eth-dev-101']
       let submissionsLength = []
       let reviewsCount = []
@@ -261,7 +261,7 @@ export default {
       this.totalSubmissions = submissionsLength
       // this.communitySubmissions[communities[index]] = communitySubmissionLength)
     },
-    async earnedInCommunity() {
+    async earnedInCommunity () {
       const communities = ['intro-to-blockchain', 'ae-dev-101', 'web-dev-101', 'eth-dev-101']
       let submissionsLength = 0
       for (let index = 0; index < communities.length; index++) {

@@ -76,52 +76,52 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
-    userLoggedIn(params) {
+    userLoggedIn (params) {
       return this.$store.getters.loginStatus
     },
     ...mapGetters({
-      user: 'user',
-      loginStatus: 'loginStatus',
+      user: 'user/data',
+      loginStatus: 'auth/loginStatus',
       communityData: 'content/communityData',
-      userNotifications: 'userNotifications',
-      userBalance: 'userBalance'
+      notifications: 'notification/get',
+      balance: 'user/balance'
     })
   },
   methods: {
-    logOut() {
-      this.$store.dispatch('logOut')
+    logOut () {
+      this.$store.dispatch('auth/logout')
       this.$router.push('/communities')
     },
-    getUnreadNotification() {
+    getUnreadNotification () {
       let notifications = 0
-      if (this.userNotifications) {
-        for (let index = 0; index < Object.values(this.userNotifications).length; index++) {
-          if (!Object.values(this.userNotifications)[index].notificationRead) {
+      if (this.notifications) {
+        for (let index = 0; index < Object.values(this.notifications).length; index++) {
+          if (!Object.values(this.notifications)[index].notificationRead) {
             notifications++
           }
         }
       }
       return notifications
     },
-    getBalance() {
+    getBalance () {
       let balance = 0
-      if (this.user && this.userBalance) {
-        for (const key in this.userBalance) {
+      if (this.user && this.balance) {
+        for (const key in this.balance) {
           if (key !== 'DCN') {
-            balance = balance + this.userBalance[key]
+            balance = balance + this.balance[key]
           }
         }
       }
       return parseFloat(balance).toFixed(0)
     },
-    getDCNBalance() {
+    getDCNBalance () {
       let balance = 0
-      if (this.user && this.userBalance && this.userBalance.DCN) {
-        balance = this.userBalance.DCN
+      if (this.user && this.balance && this.balance.DCN) {
+        balance = this.balance.DCN
       }
       return parseFloat(balance).toFixed(0)
     },
-    getSectionName(route) {
+    getSectionName (route) {
       if (route.name === 'notifications') {
         return 'Notifications'
       }

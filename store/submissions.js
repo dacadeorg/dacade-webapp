@@ -12,35 +12,42 @@ export const state = () => ({
 })
 
 export const actions = {
-  createSubmission({ commit }, payload) {
+  createSubmission ({ commit }, payload) {
     commit('setBusy', true, { root: true })
     commit('clearError', null, { root: true })
-    db.ref(`submissions/${payload.communityId}`).push(payload)
-      .then((snapshot) => {
-        commit('setJobDone', true, { root: true })
-        commit('setBusy', false, { root: true })
-        // console.log(snapshot.key)
-        db.ref(`openSubmissions/${snapshot.key}`).set(payload)
-          .then(() => {
-            commit('setJobDone', true, { root: true })
-            commit('setBusy', false, { root: true })
+    return new Promise((resolve, reject) => {
+      db.ref(`submissions/${payload.communityId}`).push(payload)
+        .then((snapshot) => {
+          commit('setJobDone', true, { root: true })
+          commit('setBusy', false, { root: true })
+          // console.log(snapshot.key)
+          db.ref(`openSubmissions/${snapshot.key}`).set(payload)
+            .then(() => {
+              commit('setJobDone', true, { root: true })
+              commit('setBusy', false, { root: true })
             // console.log('success')
-          }).then(() => {
-            this.$ga.event({
-              eventCategory: 'submission',
-              eventAction: `submissionId:${snapshot.key}`,
-              eventLabel: `${payload.communityId}`
+            }).then(() => {
+              if (process.env.NODE_ENV !== 'development') {
+                this.$ga.event({
+                  eventCategory: 'submission',
+                  eventAction: `submissionId:${snapshot.key}`,
+                  eventLabel: `${payload.communityId}`
+                })
+              }
+              resolve()
             })
-          })
-          .catch((error) => {
-            commit('setBusy', false, { root: true })
-            commit('setError', error, { root: true })
-          })
-      })
-      .catch((error) => {
-        commit('setBusy', false, { root: true })
-        commit('setError', error, { root: true })
-      })
+            .catch((error) => {
+              commit('setBusy', false, { root: true })
+              commit('setError', error, { root: true })
+              reject(error)
+            })
+        })
+        .catch((error) => {
+          commit('setBusy', false, { root: true })
+          commit('setError', error, { root: true })
+          reject(error)
+        })
+    })
   },
   getSubmissions: firebaseAction(({ bindFirebaseRef }) => {
     bindFirebaseRef('submissions', submissionsRef)
@@ -50,10 +57,10 @@ export const actions = {
   })
 }
 export const getters = {
-  submissions(state) {
+  submissions (state) {
     return state.submissions
   },
-  evaluations(state) {
+  evaluations (state) {
     return state.evaluations
   }
 }
