@@ -32,7 +32,7 @@
                   <b-button
                     type="submit"
                     variant="primary"
-                    :disabled="busy"
+                    :disabled="loading"
                     class="mt-4 btn-primary btn-lg"
                   >
                     Submit
@@ -51,7 +51,6 @@
 /* eslint-disable no-console */
 import Navigation from '@/components/Navigation'
 import NotificationBar from '@/components/NotificationBar'
-import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -62,22 +61,19 @@ export default {
     return {
       form: {
         email: ''
-      }
+      },
+      loading: false
     }
-  },
-  computed: {
-    ...mapGetters({
-      busy: 'busy'
-    })
   },
   methods: {
     onPasswordResetRequest () {
       const data = {
         email: this.form.email
       }
+      this.loading = true
       this.$store.dispatch('auth/passwordResetRequest', data).then(() => {
-        this.$router.replace('/login')
-      })
+        this.$router.push('/login')
+      }).catch(() => { this.loading = false })
     }
   }
 }

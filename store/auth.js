@@ -6,46 +6,49 @@ import firebase from '@/plugins/firebase'
 import auth from '@/lib/auth'
 
 export const actions = {
-  signUp ({ dispatch }, payload) {
+  signUp ({ dispatch, commit }, payload) {
     this.commit('setBusy', true)
     this.commit('clearError')
     return new Promise((resolve, reject) => {
       auth
         .signUp(payload)
         .then((user) => {
-          this.commit('setJobDone', true)
-          this.commit('setBusy', false)
           if (process.env.NODE_ENV !== 'development') {
             this.$ga.event({
               eventCategory: 'registration',
               eventAction: `registration userId: ${user.uid}`
             })
           }
+          commit('user/set', user, { root: true })
+          this.commit('setJobDone', true)
+          this.commit('setBusy', false)
           resolve(user)
         })
         .catch((error) => {
+          reject(error)
           this.commit('setBusy', false)
           this.commit('setError', error)
-          reject(error)
         })
     })
   },
 
-  login ({ dispatch }, payload) {
+  login ({ commit }, payload) {
     this.commit('setBusy', true)
     this.commit('clearError')
     return new Promise((resolve, reject) => {
       auth
         .login(payload)
         .then((response) => {
+          commit('user/set', response.user, { root: true })
+          resolve(response)
           this.commit('setJobDone', true)
           this.commit('setBusy', false)
-          resolve(response)
         })
         .catch((error) => {
+          reject(error)
+          commit('user/set', null, { root: true })
           this.commit('setBusy', false)
           this.commit('setError', error)
-          reject(error)
         })
     })
   },
@@ -56,34 +59,35 @@ export const actions = {
       auth
         .passwordResetRequest(payload.email)
         .then((response) => {
+          resolve(response)
           this.commit('setJobDone', true)
           this.commit('setBusy', false)
-          resolve(response)
         })
         .catch((error) => {
+          reject(error)
           this.commit('setBusy', false)
           this.commit('setError', error)
-          reject(error)
         })
     })
   },
-  logout ({ dispatch }) {
+  logout ({ dispatch, commit }) {
     firebase.auth().signOut()
-    this.commit('user/set', null)
+    commit('user/clear', null, { root: true })
+    commit('notification/clear', null, { root: true })
   },
   createVerificationRequest ({ dispatch }, payload) {
     return new Promise((resolve, reject) => {
       auth
         .verify(payload)
         .then((response) => {
+          resolve(response)
           this.commit('setJobDone', true)
           this.commit('setBusy', false)
-          resolve(response)
         })
         .catch((error) => {
+          reject(error)
           this.commit('setBusy', false)
           this.commit('setError', error)
-          reject(error)
         })
     })
   }

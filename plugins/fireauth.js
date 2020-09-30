@@ -5,11 +5,7 @@ export default (context) => {
   return new Promise((resolve, reject) => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        store.commit('user/set', {
-          id: user.uid,
-          email: user.email,
-          displayName: user.displayName
-        })
+        store.commit('user/set', user)
         // fetch the admin data for admin routes
         if (route.path.startsWith('/admin')) {
           store.dispatch('admin/fetch', {
