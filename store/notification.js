@@ -9,8 +9,8 @@ export const state = () => ({
 })
 
 export const mutations = {
-  set (state, payload) {
-    state.user = payload
+  clear (state) {
+    state.userNotifications = null
   },
   ...vuexfireMutations
 }

@@ -58,7 +58,7 @@
                       </div>
                       <b-button
                         type="submit"
-                        :disabled="busy"
+                        :disabled="loading"
                         class="mt-4 btn-primary btn-lg"
                       >
                         Login
@@ -79,7 +79,6 @@
 /* eslint-disable no-console */
 import Navigation from '@/components/Navigation'
 import NotificationBar from '@/components/NotificationBar'
-import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -93,13 +92,9 @@ export default {
         name: '',
         email: '',
         password: ''
-      }
+      },
+      loading: false
     }
-  },
-  computed: {
-    ...mapGetters({
-      busy: 'busy'
-    })
   },
   methods: {
     onLogin () {
@@ -107,9 +102,10 @@ export default {
         email: this.form.email,
         password: this.form.password
       }
+      this.loading = true
       this.$store.dispatch('auth/login', loginData).then(() => {
         this.$router.replace('/bounties')
-      })
+      }).catch(() => { this.loading = false })
     },
     goToSignup () {
       this.$router.push('/signup')

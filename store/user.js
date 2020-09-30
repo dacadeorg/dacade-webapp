@@ -15,7 +15,22 @@ export const state = () => ({
 
 export const mutations = {
   set (state, payload) {
-    state.data = payload
+    if (payload) {
+      state.data = {
+        id: payload.uid,
+        email: payload.email,
+        displayName: payload.displayName
+      }
+    } else {
+      state.data = payload
+    }
+  },
+  clear (state) {
+    state.data = null
+    state.userBalance = null
+    state.userLearningPoints = null
+    state.walletAddress = null
+    state.userReputation = null
   },
   ...vuexfireMutations
 }
@@ -42,6 +57,25 @@ export const actions = {
         commit('setBusy', false)
         commit('setError', error)
       })
+  },
+  fetch ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      firebase
+        .auth()
+        .onAuthStateChanged((user) => {
+          if (user) {
+            commit('set', user)
+            // if routes are not for admin just return the user
+            return resolve(user)
+          } else {
+            commit('set', null)
+            return reject(new Error('Not logged in'))
+          }
+        })
+        .catch((error) => {
+          reject(error)
+        })
+    })
   }
 }
 
