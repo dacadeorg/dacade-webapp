@@ -182,7 +182,6 @@
                     <h5 class="muted-dark">
                       emmanuelJet_
                     </h5>
-                    <b-img rounded alt="Circle image" width="64px" src="img/user_jet.png" class="mt-2 mb-3" />
                   </div>
                 </div>
                 <div class="col-sm mb-4">
@@ -193,7 +192,6 @@
                     <h5 class="muted-dark">
                       susen
                     </h5>
-                    <b-img rounded alt="Circle image" width="64px" src="img/user_susen.png" class="mt-2 mb-3" />
                   </div>
                 </div>
                 <div class="col-sm mb-4">
@@ -205,7 +203,6 @@
                     <h5 class="muted-dark">
                       Labi23
                     </h5>
-                    <b-img rounded alt="Circle image" width="64px" src="img/user_tosin_edit.png" class="mt-2 mb-3" />
                   </div>
                 </div>
               </div>
@@ -273,70 +270,13 @@
             </div>
           </section>
 
-          <section>
-            <div class="mb-6">
-              <h2>
-                Contributors
-              </h2>
-              <p class="lead text-cover mx-auto">
-                Dacade is an open platform, we are always looking for contributers who want to help building a decentralised education system. Here is a selection of them:
-              </p>
-            </div>
-
-            <div class="container">
-              <div class="row">
-                <div class="col-sm mb-4">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/moritz-pic.png" class="mb-3" />
-                  <div>
-                    <h4>Moritz Stellmacher</h4>
-                    <p class="muted-dark">
-                      Founder of dacade
-                    </p>
-                  </div>
-                </div>
-                <div class="col-sm mb-4">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/hannes.png" class="mb-3" />
-                  <div>
-                    <h4>Hannes <br>Klöpper</h4>
-                    <p class="muted-dark">
-                      Former CEO of Iversity, one of europes biggest online education platforms
-                    </p>
-                  </div>
-                </div>
-                <div class="col-sm mb-4">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/alex.jpg" class="mb-3" />
-                  <div>
-                    <h4>Alexandre Peschel</h4>
-                    <p class="muted-dark">
-                      CEO of Ape Unit, Blockchain design and development network
-                    </p>
-                  </div>
-                </div>
-                <div class="col-sm mb-4">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/emin.jpg" class="mb-3" />
-                  <h4>Emin <br> Mahrt</h4>
-                  <p class="muted-dark">
-                    CPO of Æternity, <br> a third generation Blockchain
-                  </p>
-                </div>
-                <div class="col-sm mb-4">
-                  <b-img rounded="circle" alt="Circle image" width="96px" src="/img/add_person2.png" class="mb-3" />
-                  <h4>YOU<br><br></h4>
-                  <p class="muted-dark">
-                    Contribute to dacade and help to create effective change
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
           <!-- Contact -->
           <section>
             <h2 class="mb-2">
               Join our Community
             </h2>
             <p class="lead text-cover mx-auto mb-6">
-              Dacade has an active community with over 350 learners from all over the world in our telegram channel. Join us!
+              Dacade has a community with over 300 learners from all over the world in our telegram channel. Join us!
             </p>
             <a href="https://t.me/dacade" target="_blank" class="btn btn-outline-primary btn-lg">
               On telegram
@@ -349,13 +289,13 @@
                 In Collaboration with
               </h2>
               <p class="lead text-cover mx-auto mb-4">
-                We are looking forward to cooperate with more projects in the future. If this is interesting for you, please get in touch.
+                Dacade is created in collaboration with multiple contributors. If this is interesting for you, please get in touch.
               </p>
             </div>
 
             <div class="container">
               <div class="row">
-                <div class="col-sm-3" />
+                <div class="col-sm-4 mb-4" />
                 <div class="col-sm-2 mb-4">
                   <a target="blank" href="https://apeunit.com">
                     <b-img rounded alt="Circle image" width="100%" src="/img/Ape_Unit_Logo_White.png" />
@@ -364,11 +304,6 @@
                 <div class="col-sm-2 mb-4">
                   <a target="blank" href="https://octan.group">
                     <b-img rounded alt="Circle image" width="100%" src="/img/logo_octan.png" />
-                  </a>
-                </div>
-                <div class="col-sm-2">
-                  <a target="blank" href="https://aeternity.com">
-                    <b-img rounded alt="Circle image" width="100%" src="/img/ae-logo.png" />
                   </a>
                 </div>
               </div>
