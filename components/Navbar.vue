@@ -20,8 +20,8 @@
           <img class="logoImg pointer" src="/img/logo-white.png" height="20" alt="">
         </nuxt-link>
       </b-navbar-brand>
-      <b-nav-text v-if="loginStatus" class="community-title">
-        <span class="nav-divider desktop-only" :class="{'invisible': $route.name === 'index'}" />
+      <b-nav-text class="community-title">
+        <span class="nav-divider desktop-only" :class="{'invisible': (!isCommunity && !getSectionName($route))}" />
         <span v-if="isCommunity">
           {{ communityData.name }}
         </span>
@@ -201,17 +201,17 @@ export default {
       return parseFloat(balance).toFixed(0)
     },
     getSectionName (route) {
-      if (route.name === 'notifications') {
-        return 'Notifications'
-      }
-      if (route.name === 'communities') {
-        return 'Communities'
-      }
-      if (route.name === 'bounties') {
-        return 'Bounties'
-      }
-      if (route.name === 'profile') {
-        return 'Profile'
+      switch (route.name) {
+        case 'notifications':
+          return 'Notifications'
+        case 'communities':
+          return 'Communities'
+        case 'bounties':
+          return 'Bounties'
+        case 'profile':
+          return 'Profile'
+        default:
+          return null
       }
     },
     closeModal () {
