@@ -44,6 +44,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 999;
   text-align: center;
   &__container{
     display: inline-block;
