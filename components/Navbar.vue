@@ -1,7 +1,11 @@
 <template>
   <div>
     <b-navbar
-      :class="{'navbar-green': $route.name === 'index' }"
+      :style="{ background: color }"
+      :class="{
+        'navbar-green': $route.name === 'index',
+        'navbar-black': $route.name === 'communities',
+      }"
       class="navbar-main"
       toggleable="lg"
       type="dark"
@@ -17,52 +21,96 @@
         </nuxt-link>
       </b-navbar-brand>
       <b-nav-text v-if="loginStatus" class="community-title">
-        <span v-if="$route.name === 'index'" />
-        <span v-else class="nav-divider desktop-only" />
-        {{ getSectionName($route) }}
+        <span class="nav-divider desktop-only" :class="{'invisible': $route.name === 'index'}" />
+        <span v-if="isCommunity">
+          {{ communityData.name }}
+        </span>
+        <span v-else>{{ getSectionName($route) }}</span>
       </b-nav-text>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto userPoints">
         <b-nav-item>
-          <b-nav-text v-if="$route.name != 'index'" class="mr-2 muted-dark">
+          <b-nav-text
+            v-if="$route.name != 'index' && user && !isCommunity"
+            class="mr-2 muted-dark no-padding"
+          >
             <b class="dark-white">{{ getDCNBalance() }}</b>
-            <img class="DCN" src="/img/usp_iso_coin_dacade.png" height="22" alt="">
+            <coin />
           </b-nav-text>
-          <i v-b-modal.modal-1 class="fa fa-bars fa-lg" />
+          <b
+            v-if="isCommunity"
+            class="desktop-only mr-2"
+          >{{ getReputation() }} REP</b>
+          <i v-b-modal.modal-1 class="fa fa-bars fa-lg humburger-menu" />
           <b-modal
             id="modal-1"
             title="Menu"
             header-text-variant="light"
             hide-footer
           >
-            <nuxt-link v-if="!loginStatus" class="dropdown-item" to="/signup/">
+            <nuxt-link
+              v-if="!loginStatus"
+              class="dropdown-item"
+              to="/signup/"
+              @click.native="closeModal"
+            >
               Signup
             </nuxt-link>
-            <nuxt-link v-if="!loginStatus" class="dropdown-item" to="/login/">
+            <nuxt-link
+              v-if="!loginStatus"
+              class="dropdown-item"
+              to="/login/"
+              @click.native="closeModal"
+            >
               Login
             </nuxt-link>
-            <nuxt-link v-if="loginStatus" class="dropdown-item" to="/bounties/">
+            <nuxt-link
+              v-if="loginStatus"
+              class="dropdown-item"
+              to="/bounties/"
+              @click.native="closeModal"
+            >
               Bounties
             </nuxt-link>
-            <nuxt-link class="dropdown-item" to="/communities/">
+            <nuxt-link
+              class="dropdown-item"
+              to="/communities/"
+              @click.native="closeModal"
+            >
               Communities
             </nuxt-link>
-            <nuxt-link v-if="loginStatus" class="dropdown-item" to="/notifications/">
+            <nuxt-link
+              v-if="loginStatus"
+              class="dropdown-item"
+              to="/notifications/"
+              @click.native="closeModal"
+            >
               Notifications
-              <b-badge v-if="getUnreadNotification()>0" class="badge-notification-menu">
-                {{ getUnreadNotification() }}
+              <b-badge
+                v-if="getUnreadNotification > 0"
+                class="badge-notification-menu"
+              >
+                {{ getUnreadNotification }}
                 <span v-if="loginStatus" class="sr-only">unread messages</span>
               </b-badge>
             </nuxt-link>
-            <nuxt-link v-if="loginStatus" class="dropdown-item" to="/profile/">
+            <nuxt-link
+              v-if="loginStatus"
+              class="dropdown-item"
+              to="/profile/"
+              @click.native="closeModal"
+            >
               Profile
             </nuxt-link>
             <a v-if="loginStatus" class="dropdown-item" @click="logOut">
               Sign Out
             </a>
           </b-modal>
-          <b-badge v-if="getUnreadNotification()>0" class="badge-notification-nav">
-            {{ getUnreadNotification() }}
+          <b-badge
+            v-if="getUnreadNotification > 0"
+            class="badge-notification-nav"
+          >
+            {{ getUnreadNotification }}
             <span class="sr-only">unread messages</span>
           </b-badge>
         </b-nav-item>
@@ -76,16 +124,43 @@ import { mapGetters } from 'vuex'
 
 export default {
   computed: {
+    color () {
+      if (this.isCommunity) {
+        return this.communityData.gradient
+      }
+      return null
+    },
+    isCommunity () {
+      const array = [
+        'slug-introduction',
+        'slug-challenge',
+        'slug-submissions',
+        'slug-scoreboard',
+        'slug-chapter-id'
+      ]
+      if (array.includes(this.$route.name)) {
+        return true
+      }
+      return false
+    },
     userLoggedIn (params) {
       return this.$store.getters.loginStatus
     },
     ...mapGetters({
-      user: 'user/data',
+      user: 'user/get',
       loginStatus: 'auth/loginStatus',
       communityData: 'content/communityData',
       notifications: 'notification/get',
       balance: 'user/balance'
     })
+  },
+  watch: {
+    $route: {
+      immediate: true,
+      handler (to, from) {
+        this.$forceUpdate()
+      }
+    }
   },
   methods: {
     logOut () {
@@ -95,13 +170,17 @@ export default {
     getUnreadNotification () {
       let notifications = 0
       if (this.notifications) {
-        for (let index = 0; index < Object.values(this.notifications).length; index++) {
+        for (
+          let index = 0;
+          index < Object.values(this.notifications).length;
+          index++
+        ) {
           if (!Object.values(this.notifications)[index].notificationRead) {
             notifications++
           }
         }
       }
-      return notifications
+      return parseFloat(notifications).toFixed(0)
     },
     getBalance () {
       let balance = 0
@@ -134,48 +213,58 @@ export default {
       if (route.name === 'profile') {
         return 'Profile'
       }
+    },
+    closeModal () {
+      this.$bvModal.hide('modal-1')
+    },
+    getReputation () {
+      let reputation = 0
+      if (this.userReputation && this.userReputation[this.communityData.id]) {
+        reputation = this.userReputation[this.communityData.id]
+      }
+      return parseFloat(reputation).toFixed(0)
     }
   }
 }
 </script>
-<style scoped>
-/* .navbar-main{
-  background:#53d1af;
-} */
+<style lang="scss" scoped>
+.navbar-main {
+  z-index: 999;
+}
 
-a:not([href]):not([tabindex]){
-  color: rgba(217,217,217,1.00);
+.no-padding{
+  padding: 0;
+}
+.invisible{
+  visibility: hidden;
+}
+
+a:not([href]):not([tabindex]) {
+  color: rgba(217, 217, 217, 1);
   cursor: pointer;
 }
 
-a:not([href]):not([tabindex]):hover{
+a:not([href]):not([tabindex]):hover {
   color: #53d1af;
 }
 
-.community-title{
+.community-title {
   color: white;
   font-size: 21px;
   font-weight: 700;
 }
+
 .dropdown-item {
   font-size: 19px;
   font-weight: 700;
-  color: rgba(217,217,217,1.00);
+  color: rgba(217, 217, 217, 1);
 }
 
-.dropdown-item a:hover{
+.dropdown-item a:hover {
   color: #53d1af;
 }
 
-.dropdown-item:hover{
-  color: #53d1af;
-  background: none;
-  border-radius: 25px;
-  font-size: 1.3em;
-  margin-left: 0.3em;
-}
-
-a.nuxt-link-active{
+.dropdown-item:hover {
   color: #53d1af;
   background: none;
   border-radius: 25px;
@@ -183,39 +272,51 @@ a.nuxt-link-active{
   margin-left: 0.3em;
 }
 
-a.nuxt-link-active:hover{
+.humburger-menu{
+  outline: none;
+  &:focus,
+  &:hover{
+    outline: none;
+  }
+}
+
+/* a.nuxt-link-active {
+  color: #53d1af;
+  background: none;
+  border-radius: 25px;
+  font-size: 1.3em;
+  margin-left: 0.3em;
+}
+
+a.nuxt-link-active:hover {
   color: #53d1af;
   background: none;
   border-radius: 25px;
   font-size: 1.3em;
   margin-left: 0.3em;
   cursor: default;
-}
-
-.DCN{
-  vertical-align: -4px;
-  margin-left: -4px;
-}
-
-.logoImg{
+} */
+.logoImg {
   vertical-align: unset;
 }
 
-.nav-divider{
+.nav-divider {
   padding-left: 1em;
   margin-left: 10px;
-  border-left: 2px solid rgba(255,255,255,0.5);
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
 }
 
-.navbar-green{
+.navbar-green {
   background: #53d1af;
 }
-
+.navbar-black {
+  background: #343a40;
+}
 .pointer:hover {
   cursor: pointer;
 }
 
-.userPoints{
+.userPoints {
   font-size: 19px;
 }
 </style>

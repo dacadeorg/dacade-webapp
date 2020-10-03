@@ -49,7 +49,7 @@
                 class="ml-2"
               >
                 +{{ submission.submissionReward }}
-                <img class="DCN" src="/img/DCN.png" height="18" alt="">
+                <coin :height="18" />
               </span>
               <span
                 v-else
@@ -156,7 +156,7 @@
                       class="ml-1"
                     >
                       +{{ submission.submissionReward }}
-                      <img class="DCN" src="/img/DCN.png" height="18" alt="">
+                      <coin :height="18" />
                     </span>
                     <span
                       v-else
@@ -268,7 +268,7 @@
                   class="ml-2"
                 >
                   +{{ getReview.rewardAmount }}
-                  <img class="DCN" src="/img/DCN.png" height="18" alt="">
+                  <coin :height="18" />
                 </span>
                 <span
                   v-else

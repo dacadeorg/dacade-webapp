@@ -77,7 +77,7 @@
               <b-form-radio
                 v-for="(rubricRating, indexR) in rubricItem.rubric"
                 :key="indexR"
-                v-model="evaluation.evaluationPoints[rubricItem.name]"
+                v-model="evaluation.points[rubricItem.name]"
                 :name="rubricRating.name"
                 :value="rubricRating.points"
                 class="col-md-3 col-6 mb-2"
@@ -208,20 +208,21 @@ export default {
         submissionId: this.$route.params.id
       },
       evaluation: {
-        evaluationPoints: [],
-        evaluationComment: null
+        points: [],
+        comment: null
       },
+      evaluationComment: null,
       submissionReward: 0
     }
   },
   computed: {
     ...mapGetters({
-      user: 'user'
+      user: 'user/data'
     }),
     sumLearningPoints () {
       let submissionPoints = 0
-      for (const key in this.evaluation.evaluationPoints) {
-        submissionPoints = submissionPoints + parseInt(this.evaluation.evaluationPoints[key])
+      for (const key in this.evaluation.points) {
+        submissionPoints = submissionPoints + parseInt(this.evaluation.points[key])
       }
       return submissionPoints
     },
@@ -267,9 +268,9 @@ export default {
         evaluation.comment = this.evaluationComment
       }
       evaluation['.key'] = key
-      for (const key in this.evaluation.evaluationPoints) {
-        submissionPoints = submissionPoints + parseInt(this.evaluation.evaluationPoints[key])
-        evaluation[key] = parseInt(this.evaluation.evaluationPoints[key])
+      for (const key in this.evaluation.points) {
+        submissionPoints = submissionPoints + parseInt(this.evaluation.points[key])
+        evaluation[key] = parseInt(this.evaluation.points[key])
       }
       const submissionUpdate = {
         displayName: this.submission.displayName,
@@ -316,7 +317,7 @@ export default {
         }
         this.$store.dispatch('admin/createTransaction', transaction)
         this.$store.dispatch('admin/updateBalance', balanceUpdate)
-        this.$store.dispatch('addUserNotification', userNotification)
+        this.$store.dispatch('notification/add', userNotification)
       } else {
         const userNotification = {
           date: Date.now(),
@@ -327,7 +328,7 @@ export default {
           notificationRead: false,
           userId: submissionUpdate.userId
         }
-        this.$store.dispatch('addUserNotification', userNotification)
+        this.$store.dispatch('notification/add', userNotification)
       }
       this.$store.dispatch('admin/createEvaluation', evaluation)
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
@@ -378,7 +379,7 @@ export default {
       this.$store.dispatch('admin/updateBalance', balanceUpdate)
       this.$store.dispatch('admin/createTransaction', transaction)
       this.$store.dispatch('admin/updateReputation', reputationUpdate)
-      this.$store.dispatch('addUserNotification', userNotification)
+      this.$store.dispatch('notification/add', userNotification)
     },
     back () {
       this.$router.back()

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navigation />
     <div
       v-if="Object.keys(communityDataPreview).length != 0 && user"
       class="container"
@@ -31,12 +30,7 @@
                   Dacade coins:
                   <b class="dark-white">
                     {{ parseFloat(balance.DCN).toFixed(0) }}
-                    <img
-                      class="DCN-icon"
-                      src="/img/usp_iso_coin_dacade.png"
-                      height="22"
-                      alt=""
-                    >
+                    <coin />
                   </b>
                 </h4>
               </div>
@@ -293,12 +287,7 @@
                 <span class="dark-white">
                   <b>0</b>
                 </span>
-                <img
-                  class="DCN-icon"
-                  src="/img/usp_iso_coin_dacade.png"
-                  height="22"
-                  alt=""
-                >
+                <coin height="22" />
               </h4>
             </div>
           </section>
@@ -333,7 +322,7 @@
                 </h4>
                 <h4><b class="teaching-color">REPUTATION</b></h4>
                 <h4 class="muted-dark">
-                  {{ communityDataPreview[key].name }}
+                  <no-html :value="communityDataPreview[key].name" />
                 </h4>
               </b-card-text>
             </b-card>
@@ -381,7 +370,7 @@
                   </h4>
                   <h4><b class="learning-color">Points</b></h4>
                   <h4 class="muted-dark">
-                    {{ communityDataPreview[key].name }}
+                    <no-html :value="communityDataPreview[key].name" />
                   </h4>
                 </b-card-text>
               </b-card>
@@ -400,13 +389,9 @@
 <script>
 /* eslint-disable no-console, no-unused-vars, require-await, prefer-const */
 import { mapGetters } from 'vuex'
-import Navigation from '@/components/Navigation'
 import firebase from '@/plugins/firebase'
 
 export default {
-  components: {
-    Navigation
-  },
   data () {
     return {
       addresses: [],

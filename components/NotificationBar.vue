@@ -24,6 +24,17 @@ export default {
       busy: 'busy',
       error: 'error'
     })
+  },
+  watch: {
+    $route: {
+      immediate: true,
+      handler (to, from) {
+        if (this.busy || this.error) {
+          this.$store.commit('setBusy', false)
+          this.$store.commit('setError', null)
+        }
+      }
+    }
   }
 }
 </script>

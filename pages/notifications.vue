@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navigation />
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-8 col-xl-6 mx-auto mt-4">
@@ -31,13 +30,9 @@
 </template>
 <script>
 /* eslint-disable no-console */
-import Navigation from '@/components/Navigation'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: {
-    Navigation
-  },
   computed: {
     ...mapGetters({
       notifications: 'notification/get'

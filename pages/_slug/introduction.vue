@@ -29,7 +29,7 @@
                         <b
                           v-if="communityData.priceFormat === 'DCN'"
                         >
-                          {{ communityData.submissionPrice }}<img class="DCN" src="/img/usp_iso_coin_dacade.png" height="24" alt="">
+                          {{ communityData.submissionPrice }} <coin height="24" />
                         </b>
                         <b
                           v-else
@@ -57,7 +57,7 @@
                         <b
                           v-if="communityData.priceFormat === 'DCN'"
                         >
-                          {{ communityData.feedbackPrice }}<img class="DCN" src="/img/usp_iso_coin_dacade.png" height="24" alt="">
+                          {{ communityData.feedbackPrice }} <coin height="24" />
                         </b>
                         <b
                           v-else

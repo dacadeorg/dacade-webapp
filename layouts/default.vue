@@ -1,9 +1,26 @@
 <template>
-  <div>
-    <nuxt />
+  <div class="relative">
+    <Navbar />
+    <NotificationBar />
+    <div class="relative">
+      <nuxt />
+    </div>
+    <PrivacyPolicyBanner />
   </div>
 </template>
+<script>
+import Navbar from '@/components/Navbar'
+import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
+import NotificationBar from '@/components/NotificationBar'
 
+export default {
+  components: {
+    Navbar,
+    PrivacyPolicyBanner,
+    NotificationBar
+  }
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -51,5 +68,8 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+.relative{
+  position: relative;
 }
 </style>

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navigation />
     <div class="container-fluid">
       <div v-if="learningPoints" class="row">
         <div class="col-md-8 col-xl-6 mx-auto mt-4">
@@ -20,7 +19,7 @@
               </h5>
               <div>
                 <b :style="{ color: openBounty.color }">
-                  {{ openBounty.lcName }}
+                  <no-html :value="openBounty.lcName" />
                 </b>
               </div>
               <div v-if="openBounty.bountyText">
@@ -31,12 +30,7 @@
                 <b class="dark-white">
                   {{ openBounty.reward }}
                 </b>
-                <img
-                  class="DCN"
-                  src="/img/usp_iso_coin_dacade.png"
-                  height="18"
-                  alt=""
-                >
+                <coin height="18" />
               </div>
               <div v-if="openBounty.hoursLeft">
                 <span class="muted-dark">Hours left:</span>
@@ -60,14 +54,10 @@
 </template>
 <script>
 /* eslint-disable no-console, no-unused-vars, require-await, no-unused-expressions */
-import Navigation from '@/components/Navigation'
 import { mapGetters, mapActions, Store } from 'vuex'
 import firebase from '@/plugins/firebase'
 
 export default {
-  components: {
-    Navigation
-  },
   data () {
     return {
       bounties: []
