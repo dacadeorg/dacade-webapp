@@ -13,7 +13,7 @@
       </h5>
       <div>
         <b :style="{ color: bounty.color }">
-          {{ bounty.lcName }}
+          <no-html :value="bounty.lcName" />
         </b>
       </div>
       <div v-if="bounty.bountyText">
@@ -24,7 +24,7 @@
         <b class="dark-white">
           {{ bounty.reward }}
         </b>
-         <coin height="18" />
+        <coin height="18" />
       </div>
       <div v-if="bounty.hoursLeft && countDown">
         <span class="muted-dark">Time left:</span>
