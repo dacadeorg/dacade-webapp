@@ -30,9 +30,9 @@
         <span class="muted-dark">Time left:</span>
         <b v-if="countDown">
           <span v-if="countDown.days">{{ countDown.days }}d</span>
-          <span v-if="countDown.hours">{{ countDown.hours }}h</span>
-          <span v-if="countDown.minutes">{{ countDown.minutes }}m</span>
-          <span v-if="countDown.seconds">{{ countDown.seconds }}s</span>
+          <span v-if="countDown.hours || countDown.days">{{ countDown.hours }}h</span>
+          <span v-if="countDown.minutes || countDown.hours">{{ countDown.minutes }}m</span>
+          <span v-if="countDown.seconds || countDown.minutes">{{ countDown.seconds }}s</span>
         </b>
       </div>
       <div v-if="bounty.typ === 'review'">
