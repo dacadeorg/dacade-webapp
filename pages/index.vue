@@ -1,13 +1,8 @@
 <template>
   <div class="site-wrapper">
     <div class="site-wrapper-inner">
-      <Navigation />
       <div class="container">
         <main>
-          <div>
-            <PrivacyPolicyBanner />
-          </div>
-
           <section>
             <div>
               <div class="img-wrapper">
@@ -343,18 +338,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import Navigation from '@/components/Navigation'
-import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
-
-export default {
-  components: {
-    Navigation,
-    PrivacyPolicyBanner
-  }
-}
-</script>
 
 <style scoped>
 .alert-dismissible {

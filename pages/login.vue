@@ -1,75 +1,71 @@
 <template>
-  <div>
-    <Navigation />
-    <notification-bar />
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <b-card class="bg-dark big-shadow">
-            <b-tabs card align="center">
-              <b-tab title="Signup" @click="goToSignup()" />
-              <b-tab title="Login" active>
-                <div class="p-4">
-                  <ValidationObserver v-slot="{ invalid, passes }">
-                    <b-form @submit.prevent="passes(onLogin)">
-                      <b-form-group id="input-group-1" label-for="input-1">
-                        <label for="input-1">Email address</label>
-                        <ValidationProvider
-                          v-slot="{ errors }"
-                          name="email"
-                          rules="required|email"
-                        >
-                          <b-form-input
-                            id="input-1"
-                            v-model="form.email"
-                            type="email"
-                            required
-                            placeholder="Enter email"
-                          />
-                          <span class="help">{{ errors[0] }}</span>
-                        </ValidationProvider>
-                      </b-form-group>
-
-                      <b-form-group>
-                        <label for="text-password">Password</label>
-                        <ValidationProvider
-                          v-slot="{ errors }"
-                          name="password"
-                          rules="required|min:6"
-                        >
-                          <b-input
-                            id="text-password"
-                            v-model="form.password"
-                            type="password"
-                            placeholder="Enter password"
-                          />
-                          <span class="help">{{ errors[0] }}</span>
-                        </ValidationProvider>
-                      </b-form-group>
-                      <div>
-                        <i class="muted-dark">
-                          <NuxtLink
-                            to="/password-reset"
-                            class="fs-1 dark-white"
-                          >
-                            Forgot password?
-                          </NuxtLink>
-                        </i>
-                      </div>
-                      <b-button
-                        type="submit"
-                        :disabled="loading"
-                        class="mt-4 btn-primary btn-lg"
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <b-card class="bg-dark big-shadow">
+          <b-tabs card align="center">
+            <b-tab title="Signup" @click="goToSignup()" />
+            <b-tab title="Login" active>
+              <div class="p-4">
+                <ValidationObserver v-slot="{ invalid, passes }">
+                  <b-form @submit.prevent="passes(onLogin)">
+                    <b-form-group id="input-group-1" label-for="input-1">
+                      <label for="input-1">Email address</label>
+                      <ValidationProvider
+                        v-slot="{ errors }"
+                        name="email"
+                        rules="required|email"
                       >
-                        Login
-                      </b-button>
-                    </b-form>
-                  </ValidationObserver>
-                </div>
-              </b-tab>
-            </b-tabs>
-          </b-card>
-        </div>
+                        <b-form-input
+                          id="input-1"
+                          v-model="form.email"
+                          type="email"
+                          required
+                          placeholder="Enter email"
+                        />
+                        <span class="help">{{ errors[0] }}</span>
+                      </ValidationProvider>
+                    </b-form-group>
+
+                    <b-form-group>
+                      <label for="text-password">Password</label>
+                      <ValidationProvider
+                        v-slot="{ errors }"
+                        name="password"
+                        rules="required|min:6"
+                      >
+                        <b-input
+                          id="text-password"
+                          v-model="form.password"
+                          type="password"
+                          placeholder="Enter password"
+                        />
+                        <span class="help">{{ errors[0] }}</span>
+                      </ValidationProvider>
+                    </b-form-group>
+                    <div>
+                      <i class="muted-dark">
+                        <NuxtLink
+                          to="/password-reset"
+                          class="fs-1 dark-white"
+                        >
+                          Forgot password?
+                        </NuxtLink>
+                      </i>
+                    </div>
+                    <b-button
+                      type="submit"
+                      :disabled="loading"
+                      class="mt-4 btn-primary btn-lg"
+                    >
+                      Login
+                    </b-button>
+                  </b-form>
+                </ValidationObserver>
+              </div>
+            </b-tab>
+          </b-tabs>
+        </b-card>
       </div>
     </div>
   </div>
@@ -77,14 +73,8 @@
 
 <script>
 /* eslint-disable no-console */
-import Navigation from '@/components/Navigation'
-import NotificationBar from '@/components/NotificationBar'
 
 export default {
-  components: {
-    Navigation,
-    NotificationBar
-  },
   middleware: 'guest',
   data () {
     return {

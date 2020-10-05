@@ -1,57 +1,54 @@
 <template>
   <div>
-    <Navigation />
-    <div>
-      <div class="container">
-        <div v-if="communityDataPreview" class="row">
-          <div
-            v-for="(community) in orderedCommunityDataPreview"
-            :key="community.key"
-            class="col-md-4 mb-4 sel-com"
+    <div class="container">
+      <div v-if="communityDataPreview" class="row">
+        <div
+          v-for="(community) in orderedCommunityDataPreview"
+          :key="community.key"
+          class="col-md-4 mb-4 sel-com"
+        >
+          <nuxt-link
+            :to="{path: communityPath(community.slug) }"
           >
-            <nuxt-link
-              :to="{path: communityPath(community.slug) }"
+            <b-card
+              :img-src="community.imgUrl"
+              img-alt="Image"
+              img-top
+              tag="article"
+              style="max-width: 30rem;"
+              class="mb-2 bg-dark small-shadow"
             >
-              <b-card
-                :img-src="community.imgUrl"
-                img-alt="Image"
-                img-top
-                tag="article"
-                style="max-width: 30rem;"
-                class="mb-2 bg-dark small-shadow"
-              >
-                <div class="text-center">
-                  <h4 class="dark-white">
-                    <b v-html="community.nameDisplay" />
-                  </h4>
+              <div class="text-center">
+                <h4 class="dark-white">
+                  <b v-html="community.nameDisplay" />
+                </h4>
+              </div>
+              <b-card-text class="muted-dark">
+                <div class="muted-dark">
+                  Estimated Time: ~ {{ community.time }}min
                 </div>
-                <b-card-text class="muted-dark">
-                  <div class="muted-dark">
-                    Estimated Time: ~ {{ community.time }}min
-                  </div>
-                  <div class="muted-dark">
-                    Total Submissions: {{ community.submissions }}
-                  </div>
-                  <div class="muted-dark">
-                    Rewards:
-                    <b
-                      v-if="community.rewardToken === 'DCN'"
-                      class="dark-white"
-                    >
-                      {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}
-                      <img class="DCN" src="/img/usp_iso_coin_dacade.png" height="18" alt="">
-                    </b>
-                    <b
-                      v-else
-                      class="earning-color"
-                    >
-                      {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}$
-                    </b>
-                  </div>
-                </b-card-text>
-              </b-card>
-            </nuxt-link>
-          </div>
+                <div class="muted-dark">
+                  Total Submissions: {{ community.submissions }}
+                </div>
+                <div class="muted-dark">
+                  Rewards:
+                  <b
+                    v-if="community.rewardToken === 'DCN'"
+                    class="dark-white"
+                  >
+                    {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}
+                    <coin height="18" />
+                  </b>
+                  <b
+                    v-else
+                    class="earning-color"
+                  >
+                    {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}$
+                  </b>
+                </div>
+              </b-card-text>
+            </b-card>
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -61,12 +58,8 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Navigation from '@/components/Navigation'
 
 export default {
-  components: {
-    Navigation
-  },
   computed: {
     ...mapGetters({
       communityDataPreview: 'content/communityDataPreview'
