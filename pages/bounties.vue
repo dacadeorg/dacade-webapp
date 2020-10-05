@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navigation />
     <div class="container-fluid">
       <div v-if="learningPoints" class="row">
         <div class="col-md-8 col-xl-6 mx-auto mt-4">
@@ -16,14 +15,12 @@
 </template>
 <script>
 /* eslint-disable no-console, no-unused-vars, require-await, no-unused-expressions */
-import Navigation from '@/components/Navigation'
 import { mapGetters, mapActions, Store } from 'vuex'
 import firebase from '@/plugins/firebase'
 import Bounty from '@/components/cards/Bounty'
 
 export default {
   components: {
-    Navigation,
     Bounty
   },
   data () {

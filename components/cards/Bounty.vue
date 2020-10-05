@@ -24,12 +24,7 @@
         <b class="dark-white">
           {{ bounty.reward }}
         </b>
-        <img
-          class="DCN"
-          src="/img/usp_iso_coin_dacade.png"
-          height="18"
-          alt=""
-        >
+         <coin height="18" />
       </div>
       <div v-if="bounty.hoursLeft && countDown">
         <span class="muted-dark">Time left:</span>
@@ -132,10 +127,5 @@ export default {
   cursor: pointer;
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
     0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-}
-
-.DCN {
-  vertical-align: -3px;
-  margin-left: -4px;
 }
 </style>

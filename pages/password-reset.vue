@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Navigation />
-    <notification-bar />
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto">
@@ -49,14 +47,8 @@
 
 <script>
 /* eslint-disable no-console */
-import Navigation from '@/components/Navigation'
-import NotificationBar from '@/components/NotificationBar'
 
 export default {
-  components: {
-    Navigation,
-    NotificationBar
-  },
   data () {
     return {
       form: {

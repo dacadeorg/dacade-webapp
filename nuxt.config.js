@@ -34,7 +34,8 @@ export default {
   */
   plugins: [
     { src: '~/plugins/vee-validate.js' },
-    '~/plugins/fireauth.js'
+    '~/plugins/fireauth.js',
+    '~/plugins/globals.js'
   ],
 
   router: {
@@ -57,8 +58,10 @@ export default {
       apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd',
       enabledReleaseStages: ['staging', 'production'],
       reporterOptions: {
-        releaseStage: process.env.NODE_ENV
-      }
+        releaseStage: process.env.NODE_ENV,
+        autoAssignRelease: true
+      },
+      publishRelease: true
     }]
   ],
   bootstrapVue: {

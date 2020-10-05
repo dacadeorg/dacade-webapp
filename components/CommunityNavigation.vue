@@ -1,62 +1,68 @@
 <template>
-  <div>
-    <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-3 d-none d-md-block sidebar sticky-top">
-          <div>
-            <ul
-              id="menuList"
-              class="nav flex-column noShrink"
-            >
-              <li class="nav-item">
-                <i class="fa fa-sticky-note-o fa-lg mr-1 font-bold" />
-                <nuxt-link :to="{path: communityPath($route.params.slug, 'introduction') }">
-                  Introduction
-                </nuxt-link>
-              </li>
-              <span class="nav-item">
-                <i class="fa fa-folder-open-o fa-lg font-bold" />
-                <span class="chapter-nav-header">Chapter</span>
-              </span>
-              <li v-for="chapter in communityData.chapter" :key="chapter.key" class="nav-item chapter-item">
-                <nuxt-link
-                  :to="{path: chapterPath($route, chapter.chapterId) }"
-                >
-                  {{ chapter.chapterName }}
-                </nuxt-link>
-              </li>
-              <li class="nav-item">
-                <b class="fa fa-flag-o fa-lg mr-1 font-bold" />
-                <nuxt-link :to="{path: communityPath($route.params.slug, 'challenge') }">
-                  Challenge
-                </nuxt-link>
-              </li>
-              <li class="nav-item">
-                <i class="fa fa fa-edit fa-lg mr-1 font-bold" />
-                <nuxt-link :to="{path: communityPath($route.params.slug, 'submissions') }">
-                  Submissions
-                </nuxt-link>
-              </li>
-              <li
-                v-if="$route.name === 'slug-submission-id'"
-                class="nav-item"
-              >
-                <div style="color:#53D1AF; margin-left: 1.8em;">
-                  Submission by {{ submissionDisplayName }}
-                </div>
-              </li>
-              <li class="nav-item">
-                <i class="fa fa fa-star-o fa-lg mr-1 font-bold" />
-                <nuxt-link :to="{path: communityPath($route.params.slug, 'scoreboard') }">
-                  Scoreboard
-                </nuxt-link>
-              </li>
-            </ul>
+  <nav class="col-md-3 d-none d-md-block sidebar sticky-top">
+    <div>
+      <ul id="menuList" class="nav flex-column noShrink">
+        <li class="nav-item">
+          <i class="fa fa-sticky-note-o fa-lg mr-1 font-bold" />
+          <nuxt-link
+            :to="{
+              path: communityPath($route.params.slug, 'introduction'),
+            }"
+          >
+            Introduction
+          </nuxt-link>
+        </li>
+        <span class="nav-item">
+          <i class="fa fa-folder-open-o fa-lg font-bold" />
+          <span class="chapter-nav-header">Chapter</span>
+        </span>
+        <li
+          v-for="chapter in communityData.chapter"
+          :key="chapter.key"
+          class="nav-item chapter-item"
+        >
+          <nuxt-link
+            :to="{ path: chapterPath($route, chapter.chapterId) }"
+          >
+            {{ chapter.chapterName }}
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <b class="fa fa-flag-o fa-lg mr-1 font-bold" />
+          <nuxt-link
+            :to="{ path: communityPath($route.params.slug, 'challenge') }"
+          >
+            Challenge
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <i class="fa fa fa-edit fa-lg mr-1 font-bold" />
+          <nuxt-link
+            :to="{
+              path: communityPath($route.params.slug, 'submissions'),
+            }"
+          >
+            Submissions
+          </nuxt-link>
+        </li>
+        <li v-if="$route.name === 'slug-submission-id'" class="nav-item">
+          <div style="color: #53d1af; margin-left: 1.8em">
+            Submission by {{ submissionDisplayName }}
           </div>
-        </nav>
-      </div>
+        </li>
+        <li class="nav-item">
+          <i class="fa fa fa-star-o fa-lg mr-1 font-bold" />
+          <nuxt-link
+            :to="{
+              path: communityPath($route.params.slug, 'scoreboard'),
+            }"
+          >
+            Scoreboard
+          </nuxt-link>
+        </li>
+      </ul>
     </div>
-  </div>
+  </nav>
 </template>
 <script>
 /* eslint-disable no-console */
@@ -99,21 +105,21 @@ export default {
 }
 </script>
 <style scoped>
-.chapter-item{
+.chapter-item {
   margin-left: 1.8em;
 }
 
 .navLcName {
-  font-weight:700;
+  font-weight: 700;
   font-size: 21px;
 }
 
-.fa{
-  color: rgba(255, 255, 255, .3)
+.fa {
+  color: rgba(255, 255, 255, 0.3);
 }
 
-.font-bold{
-  font-weight:600;
+.font-bold {
+  font-weight: 600;
 }
 
 .sidebar {
@@ -123,43 +129,46 @@ export default {
   right: 0;
   z-index: 1;
   padding: 10px 0 0 10px;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-  background-image: linear-gradient( #2c3238, #22262b);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(#2c3238, #22262b);
 }
 
 .noShrink {
-  margin-top:60px;
+  z-index: 1;
+  display: relative;
+  padding-top: 60px;
 }
 
 .shrink {
-  margin-top:0.5em;
+  z-index: 1;
+  display: relative;
+  padding-top: 0.5em;
 }
 
 .nav-item {
   display: block;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 19px;
   font-weight: 700;
-  color: rgba(255,255,255,.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.nav-item a{
-  color: rgba(255,255,255,.8);
+.nav-item a {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.nav-item a:hover{
-  color: #53d1af!important;
+.nav-item a:hover {
+  color: #53d1af !important;
   /* background: #53d1af13; */
   border-radius: 25px;
   text-decoration: none;
 }
 
-.nav-item a.nuxt-link-active{
+.nav-item a.nuxt-link-active {
   color: #53d1af;
 }
 
-.chapter-nav-header{
-  color:rgba(255,255,255,0.5);
+.chapter-nav-header {
+  color: rgba(255, 255, 255, 0.5);
 }
-
 </style>
