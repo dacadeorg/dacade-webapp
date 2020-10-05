@@ -31,8 +31,8 @@
         <b v-if="countDown">
           <span v-if="countDown.days">{{ countDown.days }}d</span>
           <span v-if="countDown.hours || countDown.days">{{ countDown.hours }}h</span>
-          <span v-if="countDown.minutes || countDown.hours">{{ countDown.minutes }}m</span>
-          <span v-if="countDown.seconds || countDown.minutes">{{ countDown.seconds }}s</span>
+          <span v-if="countDown.minutes || countDown.hours || countDown.days">{{ countDown.minutes }}m</span>
+          <span>{{ countDown.seconds }}s</span>
         </b>
       </div>
       <div v-if="bounty.typ === 'review'">
