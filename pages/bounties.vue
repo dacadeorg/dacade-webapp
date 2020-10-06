@@ -3,50 +3,11 @@
     <div class="container-fluid">
       <div v-if="learningPoints" class="row">
         <div class="col-md-8 col-xl-6 mx-auto mt-4">
-          <div
+          <Bounty
             v-for="openBounty in bounties"
             :key="openBounty.id"
-            class="bounty mb-4"
-          >
-            <nuxt-link :to="openBounty.link">
-              <h5 v-if="openBounty.typ === 'review'" class="dark-white">
-                <b> Feedback for Submission of {{ openBounty.displayName }} </b>
-              </h5>
-              <h5 v-else class="dark-white">
-                <b>
-                  {{ openBounty.typ }}
-                </b>
-              </h5>
-              <div>
-                <b :style="{ color: openBounty.color }">
-                  <no-html :value="openBounty.lcName" />
-                </b>
-              </div>
-              <div v-if="openBounty.bountyText">
-                {{ openBounty.bountyText }}
-              </div>
-              <div>
-                <span class="muted-dark">Reward:</span>
-                <b class="dark-white">
-                  {{ openBounty.reward }}
-                </b>
-                <coin height="18" />
-              </div>
-              <div v-if="openBounty.hoursLeft">
-                <span class="muted-dark">Hours left:</span>
-                <b> -{{ openBounty.hoursLeft }}h </b>
-              </div>
-              <div v-if="openBounty.typ === 'review'">
-                <span class="muted-dark">Feedback:</span>
-                <b v-if="openBounty.reviews">
-                  {{ Object.keys(openBounty.reviews).length }}
-                </b>
-                <b v-else>
-                  0
-                </b>
-              </div>
-            </nuxt-link>
-          </div>
+            :bounty="openBounty"
+          />
         </div>
       </div>
     </div>
@@ -56,8 +17,12 @@
 /* eslint-disable no-console, no-unused-vars, require-await, no-unused-expressions */
 import { mapGetters, mapActions, Store } from 'vuex'
 import firebase from '@/plugins/firebase'
+import Bounty from '@/components/cards/Bounty'
 
 export default {
+  components: {
+    Bounty
+  },
   data () {
     return {
       bounties: []
@@ -140,6 +105,7 @@ export default {
                 element.hoursLeft = Math.round(
                   (endTime - Date.now()) / (1000 * 60 * 60)
                 )
+                element.endTime = endTime
                 // Check if there is still time left for submission
                 if (element.hoursLeft > 0) {
                   bounties.push(element)
@@ -203,40 +169,32 @@ export default {
       this.bounties = Object.values(bounties).sort(function (a, b) {
         return a.hoursLeft - b.hoursLeft
       })
+    },
+    countDown (endTime) {
+      console.log(endTime)
+
+      // Get today's date and time
+      const now = new Date().getTime()
+
+      // Find the distance between now and the count down date
+      const distance = endTime - now
+      let countDown = {}
+      const x = setInterval(function () {
+      // Time calculations for days, hours, minutes and seconds
+        countDown = {
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        }
+        // If the count down is finished, write some text
+        if (distance < 0) {
+          clearInterval(x)
+          countDown = {}
+        }
+      }, 1000)
+      return countDown
     }
   }
 }
 </script>
-
-<style scoped>
-.bounty {
-  border: 1.6px solid #00000000;
-  border-radius: 0.35rem;
-  background: #343b42;
-  padding: 1em;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-    0 2px 1px -1px rgba(0, 0, 0, 0.12);
-}
-
-.bounty a {
-  color: #acb2be;
-}
-
-.bounty a {
-  text-decoration: none;
-}
-
-.bounty:hover {
-  border: 1.6px solid #53d1af;
-  background: #343b42;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-}
-
-.DCN {
-  vertical-align: -3px;
-  margin-left: -4px;
-}
-</style>
