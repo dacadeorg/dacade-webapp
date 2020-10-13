@@ -4,6 +4,7 @@
       :style="{ background: color }"
       :class="{
         'navbar-green': $route.name === 'index',
+        'navbar-business': $route.name === 'protocols',
         'navbar-black': $route.name === 'communities',
       }"
       class="navbar-main"
@@ -31,16 +32,25 @@
       <b-navbar-nav class="ml-auto userPoints">
         <b-nav-item>
           <b-nav-text
-            v-if="$route.name != 'index' && user && !isCommunity"
+            v-if="$route.name != 'index' && user && !isCommunity && $route.name != 'protocols'"
             class="mr-2 muted-dark no-padding"
           >
             <b class="dark-white">{{ getDCNBalance() }}</b>
             <coin />
           </b-nav-text>
+          <nuxt-link
+            v-if="$route.name === 'index'"
+            to="/protocols/"
+            class="business-btn mr-3"
+          >
+            Dacade for Business
+          </nuxt-link>
           <b
             v-if="isCommunity"
             class="desktop-only mr-2"
-          >{{ getReputation() }} REP</b>
+          >
+            {{ getReputation() }} REP
+          </b>
           <i v-b-modal.modal-1 class="fa fa-bars fa-lg humburger-menu" />
           <b-modal
             id="modal-1"
@@ -228,6 +238,20 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.business-btn {
+  border: 1px solid white;
+  border-radius: 0.3rem;
+  color: white;
+  font-size: 0.8em;
+  padding: 0.2rem 0.6rem;
+}
+
+.business-btn:hover{
+  background: white;
+  color: #53d1af;
+  text-decoration: none;
+}
+
 .navbar-main {
   z-index: 999;
 }
@@ -309,9 +333,15 @@ a.nuxt-link-active:hover {
 .navbar-green {
   background: #53d1af;
 }
+
 .navbar-black {
   background: #343a40;
 }
+
+.navbar-business {
+  background: #252830;
+}
+
 .pointer:hover {
   cursor: pointer;
 }
