@@ -43,7 +43,7 @@
             to="/protocols/"
             class="business-btn mr-3"
           >
-            Dacade for Business
+            Become a Partner
           </nuxt-link>
           <b
             v-if="isCommunity"
