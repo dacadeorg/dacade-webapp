@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative">
     <b-navbar
       :style="{ background: color }"
       :class="{
