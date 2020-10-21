@@ -146,7 +146,8 @@ export default {
         'slug-challenge',
         'slug-submissions',
         'slug-scoreboard',
-        'slug-chapter-id'
+        'slug-chapter-id',
+        'slug-submission-id'
       ]
       if (array.includes(this.$route.name)) {
         return true
