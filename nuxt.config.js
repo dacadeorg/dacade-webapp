@@ -11,7 +11,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
       { property: 'og:image', content: 'https://dacade.org/img/dacade_og.png' },
-      { property: 'og:description', content: 'Peer-to-Peer Blockchain Learning' }
+      { property: 'og:description', content: 'Peer-to-Peer Learning' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
