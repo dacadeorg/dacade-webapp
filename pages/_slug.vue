@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <CommunityNavigation />
-    <div class="container">
+  <div class="relative">
+    <div class="container relative">
       <nuxt-child />
     </div>
+    <CommunityNavigation />
   </div>
 </template>
 <script>
