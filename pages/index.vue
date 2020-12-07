@@ -21,7 +21,7 @@
                         class="embed-responsive-item"
                         width="100%"
                         height="100%"
-                        src="https://www.youtube.com/embed/E-Zyi2KDZFU?rel=0"
+                        src="https://www.youtube.com/embed/GmVrQDulaLY?rel=0"
                         frameborder="0"
                         allowfullscreen
                       />
