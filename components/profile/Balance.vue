@@ -293,8 +293,9 @@ export default {
   computed: {
     ...mapGetters({
       user: 'user/data',
-      balance: 'user/balance'
-    //   communityDataPreview: 'content/communityDataPreview'
+      balance: 'user/balance',
+      communityDataPreview: 'content/communityDataPreview'
+
     })
   },
   watch: {

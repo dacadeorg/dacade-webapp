@@ -59,7 +59,7 @@ export default {
     })
   },
   watch: {
-    // When user changes and we have the userdata, we can execute the function.
+  // When user changes and we have the userdata, we can execute the function.
     user (userData) {
       if (userData) {
         this.getUserWalletAddresses()
@@ -111,12 +111,6 @@ export default {
 </script>
 
 <style scoped>
-.bg-rep {
-  border: 4px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.32rem;
-  padding-bottom: 3em;
-}
-
 /* .bg-black {
   background: black;
 }

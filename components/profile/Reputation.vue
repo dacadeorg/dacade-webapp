@@ -40,3 +40,59 @@
     </div>
   </section>
 </template>
+
+<script>
+/* eslint-disable no-console, no-unused-vars, require-await, prefer-const */
+import { mapGetters } from 'vuex'
+import firebase from '@/plugins/firebase'
+
+export default {
+  computed: {
+    ...mapGetters({
+      user: 'user/data',
+      reputation: 'user/reputation',
+      communityDataPreview: 'content/communityDataPreview'
+    })
+  },
+  methods: {
+    jobsDone () {
+      this.removeErrors()
+    }
+  }
+}
+</script>
+
+<style scoped>
+.bg-rep {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.32rem;
+  padding-bottom: 3em;
+}
+
+/* .bg-black {
+  background: black;
+}
+
+/* .DCN-icon {
+  vertical-align: -2px;
+  margin-left: -4px;
+} */
+
+/* .overlay-text {
+  font-size: 1.4em;
+} */
+
+.points {
+  font-style: italic;
+  font-size: 3em;
+}
+
+/* .unread {
+  color: #53d1af;
+  border-color: #53d1af;
+}
+
+.unread a {
+  color: #53d1af;
+} */
+</style>

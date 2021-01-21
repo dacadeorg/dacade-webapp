@@ -58,30 +58,10 @@ export default {
 
   computed: {
     ...mapGetters({
-      user: 'user/data',
       learningPoints: 'user/learningPoints',
       communityDataPreview: 'content/communityDataPreview'
     })
   },
-  //   watch: {
-  // When we have the userdata, we can execute the function.
-  //     user (userData) {
-  //       if (userData) {
-  //         this.getUserWalletAddresses()
-  //         this.getUserVerifications()
-  //       }
-  //     },
-  //     userWalletAddresses () {
-  //       this.getPendingPayoutRequests()
-  //     }
-  //   },
-  //   created () {
-  //     if (this.user) {
-  //       this.getUserWalletAddresses()
-  //       this.getUserVerifications()
-  //       this.$store.dispatch('content/getCommunityDataPreview')
-  //     }
-  //   },
   methods: {
     jobsDone () {
       this.removeErrors()
