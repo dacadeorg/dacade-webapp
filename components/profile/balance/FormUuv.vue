@@ -43,7 +43,29 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
+  props: {
+    method: {
+      type: Function,
+      default () {
+        return 'function'
+      }
+    }
+  },
+
+  data () {
+    return {
+      inputUserVerifications: []
+
+    }
+  },
+  computed: {
+    ...mapGetters({
+      user: 'user/data'
+    })
+  },
   methods: {
     updateUserVerifications (e) {
       this.$emit('submit')

@@ -80,6 +80,7 @@
                 >
                   Cash out
                 </span>
+                <!-- <send-request-modal :method="createPayoutObject" /> -->
                 <b-modal
                   :id="'cash-out-modal' + key"
                   title="Cash Out"
@@ -134,7 +135,7 @@
                   hide-footer
                 >
                   <div>
-                    <form-uuv />
+                    <form-uuv :method="updateUserVerifications" />
                   </div>
                 </b-modal>
               </div>
@@ -190,11 +191,13 @@ import { mapGetters } from 'vuex'
 import firebase from '@/plugins/firebase'
 import FormUuv from '@/components/profile/balance/FormUuv.vue'
 import FormUwa from '@/components/profile/balance/FormUwa.vue'
+// import SendRequestModal from '@/components/profile/balance/SendRequestModal.vue'
 
 export default {
   components: {
     FormUuv,
     FormUwa
+    // SendRequestModal
   },
   data () {
     return {
