@@ -54,32 +54,7 @@
                 hide-footer
               >
                 <div>
-                  <b-form @submit.prevent="updateWalletAddress(key)">
-                    <b-form-group
-                      id="input-group-1"
-                      :label="`New ${key} wallet address:`"
-                      label-for="wallet-address"
-                    >
-                      <b-form-input
-                        id="wallet-address"
-                        v-model="addresses[key]"
-                        type="text"
-                        required
-                        placeholder="Enter new wallet address"
-                      />
-                    </b-form-group>
-                    <div class="text-center">
-                      <b-button
-                        type="submit"
-                        class="btn-add btn mt-2 mb-2 small-shadow"
-                        @click="
-                          $bvModal.hide('add-address-modal2' + key)
-                        "
-                      >
-                        Submit new Address
-                      </b-button>
-                    </div>
-                  </b-form>
+                  <form-uwa :test="`New ${key} wallet address:`" :method="updateWalletAddress" />
                 </div>
               </b-modal>
               <div
@@ -159,47 +134,7 @@
                   hide-footer
                 >
                   <div>
-                    <b-form @submit.prevent="updateUserVerifications()">
-                      <p>
-                        Please make a post with your dacade username on
-                        an active social media account and submit the
-                        link to the post below.
-                      </p>
-                      <b>
-                        Example:
-                      </b>
-                      <div class="social-media-post mb-4">
-                        Verifying my dacade.org username
-                        {{ user.displayName }}.
-                      </div>
-                      <b-form-group
-                        id="input-group-verification"
-                        label-for="wallet-address"
-                      >
-                        <b-form-input
-                          id="wallet-address"
-                          v-model="
-                            inputUserVerifications['socialMedia']
-                          "
-                          type="text"
-                          required
-                          placeholder="Verification Link"
-                        />
-                      </b-form-group>
-                      <div class="text-center">
-                        <b-button
-                          type="submit"
-                          class="btn-add btn mt-2 mb-2 small-shadow"
-                          @click="
-                            $bvModal.hide(
-                              'add-social-media-verification' + key
-                            )
-                          "
-                        >
-                          Submit Verification
-                        </b-button>
-                      </div>
-                    </b-form>
+                    <form-uuv />
                   </div>
                 </b-modal>
               </div>
@@ -227,32 +162,7 @@
                     Please enter the address of your {{ key }} wallet
                     below.
                   </p>
-                  <b-form @submit.prevent="updateWalletAddress(key)">
-                    <b-form-group
-                      id="input-group-1"
-                      :label="key + ' wallet address:'"
-                      label-for="wallet-address"
-                    >
-                      <b-form-input
-                        id="wallet-address"
-                        v-model="addresses[key]"
-                        type="text"
-                        required
-                        placeholder="Enter wallet address"
-                      />
-                    </b-form-group>
-                    <div class="text-center">
-                      <b-button
-                        type="submit"
-                        class="btn-add btn mt-2 mb-2 small-shadow"
-                        @click="
-                          $bvModal.hide('add-address-modal' + key)
-                        "
-                      >
-                        Submit Address
-                      </b-button>
-                    </div>
-                  </b-form>
+                  <form-uwa test="key + ' wallet address:'" />
                 </div>
               </b-modal>
             </div>
@@ -278,8 +188,14 @@
 /* eslint-disable no-console, no-unused-vars, require-await, prefer-const */
 import { mapGetters } from 'vuex'
 import firebase from '@/plugins/firebase'
+import FormUuv from '@/components/profile/balance/FormUuv.vue'
+import FormUwa from '@/components/profile/balance/FormUwa.vue'
 
 export default {
+  components: {
+    FormUuv,
+    FormUwa
+  },
   data () {
     return {
       addresses: [],
@@ -312,6 +228,8 @@ export default {
   },
   created () {
     if (this.user) {
+      // data was sometimes already there, then no watch needed
+      // user or userData?
       this.getUserWalletAddresses()
       this.getUserVerifications()
       this.$store.dispatch('content/getCommunityDataPreview')
@@ -322,6 +240,8 @@ export default {
       this.removeErrors()
     },
     // Create a payout request:
+    // track everything a person was paid for (for ex. for feed back and submissions) , keep track of all the transactions
+    // ledger where all the transactions are noted
     // 1. Get communities with the requested token.
     // 2. Loop over these communties and get the unpaid transactions of the user in these communties.
     // 3. Send the payout request containing the unpaid transactions.
@@ -350,6 +270,7 @@ export default {
         }
         // Because we introduced transactions later not all issued payments have transactions.
         // Thats why we need to create a different payout request for all unaccounted payments.
+        // we could get rid of this and put the already existent accounts in 0
         if (this.balance[token] > totalTransactionPayoutAmount) {
           const unaccountedPayoutAmount = this.balance[token] - totalTransactionPayoutAmount
           const payoutObject = {
@@ -428,6 +349,7 @@ export default {
       // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
       this.$router.go()
     },
+    // maybe get it through the store and not directly from the database?
     async getUserWalletAddresses () {
       await firebase.database().ref(`userWallet/${this.user.id}`).once('value').then((snapShot) => {
         this.userWalletAddresses = snapShot.val()
