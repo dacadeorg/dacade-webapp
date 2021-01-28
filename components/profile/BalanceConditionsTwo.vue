@@ -2,9 +2,6 @@
 /* eslint-disable no-trailing-spaces */
 <template>
   <div>
-    <!-- userWalletAddresses[key] && -->
-    <!-- userVerifications['socialMedia'] -->
-
     <div
       v-if="
         userWalletAddresses &&
@@ -24,16 +21,18 @@
       >
         Change {{ coinName }} Address
       </div>
-      <b-modal
+      <!-- <div> -->
+      <form-user-wallet-address
         :id="'add-address-modal2' + coinName"
-        title="Change Address"
-        header-text-variant="light"
-        hide-footer
-      >
-        <div>
-          <form-uwa :test="`New ${coinName} wallet address:`" :method="updateWalletAddress" />
-        </div>
-      </b-modal>
+        :coin-name="coinName"
+        :coin-name-wallet-address="`New ${coinName} wallet address:`"
+        :on-address-change="updateWalletAddress"
+        :modal="'add-address-modal2' + coinName"
+        class="btn-edit btn mt-2 mb-2 muted-dark small-shadow"
+        :message="`Change ${coinName} Address`"
+        :title="'Change Address'"
+      />
+      <!-- </div> -->
       <div
         v-if="
           payoutRequestsPending && payoutRequestsPending[coinName]
@@ -112,7 +111,7 @@
           hide-footer
         >
           <div>
-            <form-uuv :method="updateUserVerifications" />
+            <form-update-user-verification :method="updateUserVerifications" />
           </div>
         </b-modal>
       </div>
@@ -123,26 +122,16 @@
         !userWalletAddresses || !userWalletAddresses[coinName]
       "
     >
-      <div
-        v-b-modal="'add-address-modal' + coinName"
-        class="btn-add btn mt-2 mb-4 small-shadow"
-      >
-        Add {{ coinName }} Address
-      </div>
-      <b-modal
+      <form-user-wallet-address
         :id="'add-address-modal' + coinName"
+        :coin-name-wallet-address="coinName + ' wallet address:'"
+        :on-address-change="updateWalletAddress"
+        :modal="'add-address-modal' + coinName"
+        :text="`Please enter the address of your ${coinName} wallet below.`"
+        class="btn-add btn mt-2 mb-4 small-shadow"
+        :message="`Add ${coinName} Address`"
         :title="`Add ${coinName} address`"
-        header-text-variant="light"
-        hide-footer
-      >
-        <div>
-          <p>
-            Please enter the address of your {{ coinName }} wallet
-            below.
-          </p>
-          <form-uwa test="coinName + ' wallet address:'" />
-        </div>
-      </b-modal>
+      />
     </div>
   </div>
 </template>
@@ -151,15 +140,13 @@
 /* eslint-disable no-console, no-unused-vars, require-await, prefer-const */
 import { mapGetters } from 'vuex'
 import firebase from '@/plugins/firebase'
-// import BalanceConditions2 from './BalanceConditions2.vue'
-import FormUuv from '@/components/profile/balance/FormUuv.vue'
-import FormUwa from '@/components/profile/balance/FormUwa.vue'
-// import SendRequestModal from '@/components/profile/balance/SendRequestModal.vue'
+import FormUpdateUserVerification from '@/components/profile/balanceConditions/balanceConditionsForms/FormUpdateUserVerification.vue'
+import FormUserWalletAddress from '@/components/profile/balanceConditions/balanceConditionsForms/FormUserWalletAddress.vue'
 
 export default {
   components: {
-    FormUuv,
-    FormUwa
+    FormUserWalletAddress,
+    FormUpdateUserVerification
   },
   props: {
     coinName: {

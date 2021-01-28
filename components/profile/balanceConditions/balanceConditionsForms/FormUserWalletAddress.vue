@@ -1,54 +1,49 @@
 <template>
-  <div>
-    <div
-      :v-b-modal="modal"
-    >
-      {{ message }}
-    </div>
-    <b-modal
-      :id="id"
-      :title="title"
-      header-text-variant="light"
-      hide-footer
-    >
-      <div>
-        <p />
-        <b-form @submit.prevent="updateWalletAddress(key)">
-          <b-form-group
-            id="input-group-1"
-            :label="test"
-            label-for="wallet-address"
+  <!-- <div> -->
+  <b-modal
+    :id="id"
+    :title="title"
+    header-text-variant="light"
+    hide-footer
+  >
+    <div>
+      <p>{{ text }}</p>
+      <b-form @submit.prevent="updateWalletAddress(key)">
+        <b-form-group
+          id="input-group-1"
+          :label="coinNameWalletAddress"
+          label-for="wallet-address"
+        >
+          <b-form-input
+            id="wallet-address"
+            v-model="addresses[coinName]"
+            type="text"
+            required
+            placeholder="Enter new wallet address"
+          />
+        </b-form-group>
+        <div class="text-center">
+          <b-button
+            type="submit"
+            class="btn-add btn mt-2 mb-2 small-shadow"
+            @click="
+              $bvModal.hide('add-address-modal2' + coinName)
+            "
           >
-            <b-form-input
-              id="wallet-address"
-              v-model="addresses[key]"
-              type="text"
-              required
-              placeholder="Enter new wallet address"
-            />
-          </b-form-group>
-          <div class="text-center">
-            <b-button
-              type="submit"
-              class="btn-add btn mt-2 mb-2 small-shadow"
-              @click="
-                $bvModal.hide('add-address-modal2' + key)
-              "
-            >
-              Submit new Address
-            </b-button>
-          </div>
-        </b-form>
-      </div>
-    </b-modal>
-  </div>
+            Submit new Address
+          </b-button>
+        </div>
+      </b-form>
+    </div>
+  </b-modal>
+  <!-- </div> -->
 </template>
 
 <script>
 
 export default {
   props: {
-    test: {
+    coinNameWalletAddress: {
       type: String,
       default: 'idk',
       required: true
@@ -67,15 +62,19 @@ export default {
       type: String,
       required: true
     },
-    className: {
-      type: String,
-      required: true
-    },
+    // className: {
+    //   type: String,
+    //   required: true
+    // },
     message: {
       type: String,
       required: true
     },
     title: {
+      type: String,
+      required: true
+    },
+    text: {
       type: String,
       required: true
     }
