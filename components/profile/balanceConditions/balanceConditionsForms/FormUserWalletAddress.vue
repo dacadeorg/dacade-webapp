@@ -1,14 +1,13 @@
 <template>
-  <!-- <div> -->
   <b-modal
-    :id="id"
+    :id="userId"
     :title="title"
     header-text-variant="light"
     hide-footer
   >
     <div>
       <p>{{ text }}</p>
-      <b-form @submit.prevent="updateWalletAddress(key)">
+      <b-form @submit.prevent="updateWalletAddress(coinName)">
         <b-form-group
           id="input-group-1"
           :label="coinNameWalletAddress"
@@ -30,16 +29,16 @@
               $bvModal.hide('add-address-modal2' + coinName)
             "
           >
-            Submit new Address
+            {{ submissionMessage }}
           </b-button>
         </div>
       </b-form>
     </div>
   </b-modal>
-  <!-- </div> -->
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -48,13 +47,7 @@ export default {
       default: 'idk',
       required: true
     },
-    onAddressChange: {
-      type: Function,
-      default () {
-        return 'function'
-      }
-    },
-    id: {
+    userId: {
       type: String,
       required: true
     },
@@ -62,11 +55,11 @@ export default {
       type: String,
       required: true
     },
-    // className: {
-    //   type: String,
-    //   required: true
-    // },
     message: {
+      type: String,
+      required: true
+    },
+    submissionMessage: {
       type: String,
       required: true
     },
@@ -77,52 +70,47 @@ export default {
     text: {
       type: String,
       required: true
+    },
+    coinName: {
+      type: String,
+      required: true
+    },
+    addresses: {
+      type: Array,
+      required: true
     }
   },
 
-  data () {
-    return {
-      addresses: []
-    }
+  computed: {
+    ...mapGetters({
+      user: 'user/data'
+      // balance: 'user/balance',
+      // communityDataPreview: 'content/communityDataPreview'
+
+    })
   },
 
   methods: {
-    updateWalletAddress (e) {
-      this.$emit('submit')
+    // updateWalletAddress (e) {
+    //   this.$emit('submit')
+    // }
+
+    updateWalletAddress (coinName) {
+      const walletObject = {
+        userId: this.user.id,
+        walletAddress: this.addresses[coinName],
+        token: coinName
+      }
+      this.$store.dispatch('updateWalletAddress', walletObject)
+      // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
+      this.$router.go()
     }
   }
+
 }
 </script>
 
 <style scoped>
-.btn-cash-out {
-  color: black;
-  border: 2px solid #ffcc00;
-  background: #ffcc00;
-  border-radius: 0.35rem;
-  padding: 10px 40px;
-  font-weight: 700;
-}
-
-.btn-cash-out:hover {
-  cursor: pointer;
-  border: 2px solid white;
-}
-
-.btn-edit {
-  color: #64686b;
-  background-color: none;
-  border: 1.6px solid #64686b;
-  border-radius: 0.35rem;
-  padding: 10px 40px;
-  font-weight: 700;
-}
-
-.btn-edit:hover {
-  color: black;
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.3);
-}
 
 .btn-add {
   color: black;
@@ -140,48 +128,4 @@ export default {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.bg-black {
-  background: black;
-}
-
-.DCN-icon {
-  vertical-align: -2px;
-  margin-left: -4px;
-}
-
-.notification {
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  border-left: 6px solid #acb2be;
-  border-radius: 0.35rem;
-  color: rgba(0, 0, 0, 0.7);
-  font-style: italic;
-  font-weight: bold;
-  padding: 1em;
-  padding-right: 2em;
-  display: inline-block;
-}
-
-.overlay-text {
-  font-size: 1.4em;
-}
-
-.social-media-post {
-  border: none;
-  border: 1.6px solid white;
-  border-radius: 0.35rem;
-  color: rgba(255, 255, 255, 1);
-  font-style: italic;
-  font-weight: bold;
-  padding: 0.8em;
-}
-
-.unread {
-  color: #53d1af;
-  border-color: #53d1af;
-}
-
-.unread a {
-  color: #53d1af;
-}
 </style>

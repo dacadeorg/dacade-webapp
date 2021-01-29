@@ -27,7 +27,7 @@
               {{ parseFloat(balances).toFixed(0) }}$
             </b>
           </h4>
-          <balance-conditions-two :coin-name="key" />
+          <balance-conditions :coin-name="key" />
         </div>
       </div>
     </div>
@@ -48,40 +48,17 @@
 <script>
 /* eslint-disable no-console, no-unused-vars, require-await, prefer-const */
 import { mapGetters } from 'vuex'
-// import firebase from '@/plugins/firebase'
-import BalanceConditionsTwo from '@/components/profile/BalanceConditionstwo.vue'
+import BalanceConditions from '@/components/profile/BalanceConditions.vue'
 
 export default {
   components: {
-    BalanceConditionsTwo
+    BalanceConditions
   },
   computed: {
     ...mapGetters({
       user: 'user/data',
       balance: 'user/balance'
-      // communityDataPreview: 'content/communityDataPreview'
     })
-  },
-  watch: {
-    // When we have the userdata, we can execute the function.
-  //   user (userData) {
-  //     if (userData) {
-  //       this.getUserWalletAddresses()
-  //       this.getUserVerifications()
-  //     }
-  //   },
-  //   userWalletAddresses () {
-  //     this.getPendingPayoutRequests()
-  //   }
-  // },
-  // created () {
-    // if (this.user) {
-    // data was sometimes already there, then no watch needed
-    // user or userData?
-    //   this.getUserWalletAddresses()
-    //   this.getUserVerifications()
-    //   this.$store.dispatch('content/getCommunityDataPreview')
-    // }
   },
   methods: {
     jobsDone () {

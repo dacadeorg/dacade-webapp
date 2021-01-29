@@ -32,7 +32,7 @@
         class="btn-add btn mt-2 mb-2 small-shadow"
         @click="
           $bvModal.hide(
-            'add-social-media-verification' + key
+            'add-social-media-verification' + coinName
           )
         "
       >
@@ -47,11 +47,15 @@ import { mapGetters } from 'vuex'
 
 export default {
   props: {
-    onUpdateVerification: {
-      type: Function,
-      default () {
-        return 'function'
-      }
+    // onUpdateVerification: {
+    //   type: Function,
+    //   default () {
+    //     return 'function'
+    //   }
+    // },
+    coinName: {
+      type: String,
+      required: true
     }
   },
 
@@ -67,8 +71,21 @@ export default {
     })
   },
   methods: {
-    updateUserVerifications (e) {
-      this.$emit('submit')
+    // updateUserVerifications (e) {
+    //   this.$emit('submit')
+    // }
+
+    updateUserVerifications () {
+      const verficationObject = {
+        userId: this.user.id,
+        displayName: this.user.displayName,
+        verificationLink: this.inputUserVerifications.socialMedia,
+        verificationType: 'socialMedia'
+      }
+      // console.log(verficationObject)
+      this.$store.dispatch('createVerificationRequest', verficationObject)
+      // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
+      this.$router.go()
     }
 
   }
