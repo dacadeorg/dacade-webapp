@@ -157,6 +157,21 @@ export default {
     userLoggedIn (params) {
       return this.$store.getters.loginStatus
     },
+    getUnreadNotification () {
+      let notifications = 0
+      if (this.notifications) {
+        for (
+          let index = 0;
+          index < Object.values(this.notifications).length;
+          index++
+        ) {
+          if (!Object.values(this.notifications)[index].notificationRead) {
+            notifications++
+          }
+        }
+      }
+      return parseFloat(notifications).toFixed(0)
+    },
     ...mapGetters({
       user: 'user/get',
       loginStatus: 'auth/loginStatus',
@@ -177,21 +192,6 @@ export default {
     logOut () {
       this.$store.dispatch('auth/logout')
       this.$router.push('/communities')
-    },
-    getUnreadNotification () {
-      let notifications = 0
-      if (this.notifications) {
-        for (
-          let index = 0;
-          index < Object.values(this.notifications).length;
-          index++
-        ) {
-          if (!Object.values(this.notifications)[index].notificationRead) {
-            notifications++
-          }
-        }
-      }
-      return parseFloat(notifications).toFixed(0)
     },
     getBalance () {
       let balance = 0
