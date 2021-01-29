@@ -159,6 +159,7 @@ export default {
     },
     ...mapGetters({
       user: 'user/get',
+      userReputation: 'user/reputation',
       loginStatus: 'auth/loginStatus',
       communityData: 'content/communityData',
       notifications: 'notification/get',
@@ -230,6 +231,7 @@ export default {
     },
     getReputation () {
       let reputation = 0
+      console.log(this.userReputation)
       if (this.userReputation && this.userReputation[this.communityData.id]) {
         reputation = this.userReputation[this.communityData.id]
       }
