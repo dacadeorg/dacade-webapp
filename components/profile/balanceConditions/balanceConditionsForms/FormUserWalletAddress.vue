@@ -15,7 +15,7 @@
         >
           <b-form-input
             id="wallet-address"
-            v-model="addresses[coinName]"
+            v-model="address"
             type="text"
             required
             placeholder="Enter new wallet address"
@@ -75,18 +75,21 @@ export default {
       type: String,
       required: true
     },
-    addresses: {
-      type: Array,
+    walletAddress: {
+      type: String,
+      default: '',
       required: true
+    }
+  },
+  data () {
+    return {
+      address: ''
     }
   },
 
   computed: {
     ...mapGetters({
       user: 'user/data'
-      // balance: 'user/balance',
-      // communityDataPreview: 'content/communityDataPreview'
-
     })
   },
 
@@ -95,15 +98,15 @@ export default {
     //   this.$emit('submit')
     // }
 
-    updateWalletAddress (coinName) {
+    async updateWalletAddress (coinName) {
       const walletObject = {
         userId: this.user.id,
-        walletAddress: this.addresses[coinName],
+        walletAddress: this.address,
         token: coinName
       }
-      this.$store.dispatch('updateWalletAddress', walletObject)
-      // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
-      this.$router.go()
+
+      await this.$store.dispatch('user/updateWalletAddress', walletObject)
+      this.$emit('update')
     }
   }
 

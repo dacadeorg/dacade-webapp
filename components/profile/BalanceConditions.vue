@@ -31,8 +31,9 @@
         :submission-message="'Submit new address'"
         :title="'Change Address'"
         :text="''"
-        :addresses="addresses"
-/>
+        :wallet-address="userWalletAddresses[coinName]"
+        @update="getUserWalletAddresses()"
+      />
       <payout
         :coin-name="coinName"
         :user-address="userWalletAddresses"
@@ -66,7 +67,7 @@
         :message="`Add ${coinName} Address`"
         :submission-message="'Submit address'"
         :title="`Add ${coinName} address`"
-        :addresses="addresses"
+        :wallet-address="userWalletAddresses[coinName]"
       />
     </div>
   </div>
@@ -94,7 +95,6 @@ export default {
   },
   data () {
     return {
-      addresses: [],
       inputUserVerifications: [],
       userWalletAddresses: null, // string
       userVerifications: null, //
