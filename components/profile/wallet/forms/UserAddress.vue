@@ -94,9 +94,6 @@ export default {
   },
 
   methods: {
-    // updateWalletAddress (e) {
-    //   this.$emit('submit')
-    // }
 
     async updateWalletAddress (coinName) {
       const walletObject = {

@@ -21,7 +21,7 @@
       >
         Change {{ coinName }} Address
       </div>
-      <form-user-wallet-address
+      <user-address
         :user-id="'add-address-modal2' + coinName"
         :coin-name="coinName"
         :coin-name-wallet-address="`New ${coinName} wallet address:`"
@@ -47,7 +47,7 @@
         !userVerifications || !userVerifications['socialMedia']
       "
     >
-      <user-verification
+      <verification
         :verification-pending="userVerificationPendig"
         :coin-name="coinName"
       />
@@ -58,7 +58,7 @@
         !userWalletAddresses || !userWalletAddresses[coinName]
       "
     >
-      <form-user-wallet-address
+      <user-address
         :id="'add-address-modal' + coinName"
         :coin-name-wallet-address="coinName + ' wallet address:'"
         :modal="'add-address-modal' + coinName"
@@ -77,15 +77,15 @@
 /* eslint-disable no-console, no-unused-vars, require-await, prefer-const */
 import { mapGetters } from 'vuex'
 import firebase from '@/plugins/firebase'
-import FormUserWalletAddress from '@/components/profile/balanceConditions/balanceConditionsForms/FormUserWalletAddress.vue'
-import Payout from '@/components/profile/balanceConditions/Payout.vue'
-import UserVerification from '@/components/profile/balanceConditions/UserVerification.vue'
+import UserAddress from '@/components/profile/wallet/forms/UserAddress.vue'
+import Payout from '@/components/profile/wallet/Payout.vue'
+import Verification from '@/components/profile/wallet/Verification.vue'
 
 export default {
   components: {
-    FormUserWalletAddress,
+    UserAddress,
     Payout,
-    UserVerification
+    Verification
   },
   props: {
     coinName: {

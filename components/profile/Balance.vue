@@ -48,7 +48,7 @@
 <script>
 /* eslint-disable no-console, no-unused-vars, require-await, prefer-const */
 import { mapGetters } from 'vuex'
-import BalanceConditions from '@/components/profile/BalanceConditions.vue'
+import BalanceConditions from '@/components/profile/wallet/index.vue'
 
 export default {
   components: {

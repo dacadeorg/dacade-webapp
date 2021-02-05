@@ -25,7 +25,7 @@
       hide-footer
     >
       <div>
-        <form-update-user-verification
+        <update-verification
           :coin-name="coinName"
         />
       </div>
@@ -35,11 +35,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import FormUpdateUserVerification from '@/components/profile/balanceConditions/balanceConditionsForms/FormUpdateUserVerification.vue'
+import UpdateVerification from '@/components/profile/wallet/forms/UpdateVerification.vue'
 
 export default {
   components: {
-    FormUpdateUserVerification
+    UpdateVerification
   },
   props: {
     verificationPending: {

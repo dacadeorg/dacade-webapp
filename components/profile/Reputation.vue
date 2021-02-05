@@ -44,7 +44,6 @@
 <script>
 /* eslint-disable no-console, no-unused-vars, require-await, prefer-const */
 import { mapGetters } from 'vuex'
-import firebase from '@/plugins/firebase'
 
 export default {
   computed: {
