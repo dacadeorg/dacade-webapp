@@ -45,19 +45,19 @@ export const actions = {
   getReputation: firebaseAction(({ bindFirebaseRef }, uid) => {
     bindFirebaseRef('userReputation', db.ref('reputation').child(uid))
   }),
-  updateWalletAddress ({ commit }, payload) {
-    console.log(payload)
-    db.ref(`userWallet/${payload.userId}/${payload.token}`)
-      .set(`${payload.walletAddress}`)
-      .then(() => {
-        commit('setJobDone', true)
-        commit('setBusy', false)
-      })
-      .catch((error) => {
-        commit('setBusy', false)
-        commit('setError', error)
-      })
+
+  async updateWalletAddress ({ commit }, payload) {
+    try {
+      await db.ref(`userWallet/${payload.userId}/${payload.token}`)
+        .set(`${payload.walletAddress}`)
+      commit('setJobDone', true, { root: true })
+      commit('setBusy', false, { root: true })
+    } catch (error) {
+      commit('setBusy', false, { root: true })
+      commit('setError', error, { root: true })
+    }
   },
+
   fetch ({ commit }, payload) {
     return new Promise((resolve, reject) => {
       firebase
