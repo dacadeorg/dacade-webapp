@@ -94,3 +94,7 @@ firebase.json
 
 # Firebase database
 firebase.js
+
+#storybook
+.nuxt-storybook
+storybook-static
