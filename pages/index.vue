@@ -6,9 +6,15 @@
           <section>
             <div>
               <div class="img-wrapper">
-                <b-img class="img-responsive cover-img" src="/img/hero_img2.png" />
+                <b-img
+                  class="img-responsive cover-img"
+                  src="/img/hero_img2.png"
+                />
                 <div class="img-overlay">
-                  <i v-b-modal.modal-xl class="fa fa-play-circle fa-5x play-button2" />
+                  <i
+                    v-b-modal.modal-xl
+                    class="fa fa-play-circle fa-5x play-button2"
+                  />
                   <b-modal
                     id="modal-xl"
                     title="Dacade in 90 seconds"
@@ -44,6 +50,7 @@
               <nuxt-link class="btn btn-start btn-lg" to="/communities">
                 START
               </nuxt-link>
+              <Button text="welcome" />
             </div>
           </section>
 
@@ -53,27 +60,27 @@
                 <div class="col-sm mb-6">
                   <div>
                     <img src="/img/usp-cap.png" alt="">
-                    <h4>
-                      Learn
-                    </h4>
-                    <p>Learn how to build amazing projects and get feedback from your peers.</p>
+                    <h4>Learn</h4>
+                    <p>
+                      Learn how to build amazing projects and get feedback from
+                      your peers.
+                    </p>
                   </div>
                 </div>
                 <div class="col-sm mb-6">
                   <div>
                     <img src="/img/usp_iso_coin_dacade.png" alt="">
-                    <h4>
-                      Play
-                    </h4>
-                    <p>Earn dacade coins by solving challenges and claiming bounties.</p>
+                    <h4>Play</h4>
+                    <p>
+                      Earn dacade coins by solving challenges and claiming
+                      bounties.
+                    </p>
                   </div>
                 </div>
                 <div class="col-sm">
                   <div>
                     <img src="/img/usp-key.png" alt="">
-                    <h4>
-                      Connect
-                    </h4>
+                    <h4>Connect</h4>
                     <p>Connect with other learners and build together.</p>
                   </div>
                 </div>
@@ -83,18 +90,15 @@
 
           <section>
             <div class="text-cover mx-auto mb-6">
-              <h2>
-                Learning Communities
-              </h2>
+              <h2>Learning Communities</h2>
               <p class="lead">
-                In our learning environments you will work with your peers to learn about new technology. Here is a selection:
+                In our learning environments you will work with your peers to
+                learn about new technology. Here is a selection:
               </p>
             </div>
             <div class="row">
               <div class="col-md-4 mb-4 sel-com">
-                <nuxt-link
-                  to="/intro-to-blockchain/introduction"
-                >
+                <nuxt-link to="/intro-to-blockchain/introduction">
                   <b-card
                     bg-variant="dark"
                     img-src="/img/ITB-Cover.png"
@@ -107,16 +111,15 @@
                         Introduction <br>to Blockchain
                       </h4>
                       <p class="muted-dark">
-                        Learn the most important concepts of blockchain technology.
+                        Learn the most important concepts of blockchain
+                        technology.
                       </p>
                     </b-card-text>
                   </b-card>
                 </nuxt-link>
               </div>
               <div class="col-md-4 mb-4 sel-com">
-                <nuxt-link
-                  to="/ae-dev-101/introduction"
-                >
+                <nuxt-link to="/ae-dev-101/introduction">
                   <b-card
                     bg-variant="dark"
                     img-src="/img/AE-DEV-101-Cover.png"
@@ -126,7 +129,8 @@
                   >
                     <b-card-text>
                       <h4 class="dark-white">
-                        Aeternity <br> Development 101
+                        Aeternity <br>
+                        Development 101
                       </h4>
                       <p class="muted-dark">
                         Learn how to build a voting dApp on top of Aeternity.
@@ -136,9 +140,7 @@
                 </nuxt-link>
               </div>
               <div class="col-md-4 mb-4 sel-com">
-                <nuxt-link
-                  to="/web-dev-101/introduction"
-                >
+                <nuxt-link to="/web-dev-101/introduction">
                   <b-card
                     bg-variant="dark"
                     img-src="/img/WD1_cover.png"
@@ -148,7 +150,8 @@
                   >
                     <b-card-text>
                       <h4 class="dark-white">
-                        Web <br> Development 101
+                        Web <br>
+                        Development 101
                       </h4>
                       <p class="muted-dark">
                         Learn how to build and host a website with bootstrap.
@@ -162,9 +165,7 @@
 
           <section>
             <div class="mb-6">
-              <h2>
-                User Stories
-              </h2>
+              <h2>User Stories</h2>
             </div>
 
             <div class="container">
@@ -172,7 +173,10 @@
                 <div class="col-sm mb-4">
                   <div>
                     <p>
-                      <i>"Thanks for your support, love and care on Dacade(Telegram and Website) it has being an awesome experience. I have learned a lot and I am still learning a lot."</i>
+                      <i>"Thanks for your support, love and care on
+                        Dacade(Telegram and Website) it has being an awesome
+                        experience. I have learned a lot and I am still learning
+                        a lot."</i>
                     </p>
                     <h5 class="muted-dark">
                       emmanuelJet_
@@ -182,7 +186,9 @@
                 <div class="col-sm mb-4">
                   <div>
                     <p>
-                      <i>"Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."</i>
+                      <i>"Dacade is really encouraging, I didn't realize the
+                        little that I know would matter. Thank you for making us
+                        learn more and to make research too."</i>
                     </p>
                     <h5 class="muted-dark">
                       susen
@@ -192,7 +198,9 @@
                 <div class="col-sm mb-4">
                   <div>
                     <p>
-                      <i>"I just made submission of my quote daepp on dacade.org. I'm so excited I took the course, I really enjoyed it and have learned a lot."</i>
+                      <i>"I just made submission of my quote daepp on
+                        dacade.org. I'm so excited I took the course, I really
+                        enjoyed it and have learned a lot."</i>
                       <br><br>
                     </p>
                     <h5 class="muted-dark">
@@ -206,9 +214,7 @@
 
           <section>
             <div class="mb-6">
-              <h2>
-                Stats
-              </h2>
+              <h2>Stats</h2>
             </div>
             <div class="container mb-4">
               <div class="row">
@@ -216,13 +222,15 @@
                   <div>
                     <b-card
                       tag="article"
-                      style="border-bottom-color:#53D1AF"
+                      style="border-bottom-color: #53d1af"
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
                         <h4><b class="learning-color points">4000</b></h4>
                         <h4><b class="learning-color">Learners</b></h4>
-                        <span class="muted-dark">Have already registered on dacade.</span>
+                        <span
+                          class="muted-dark"
+                        >Have already registered on dacade.</span>
                         <br>
                         <br>
                       </b-card-text>
@@ -233,13 +241,16 @@
                   <div>
                     <b-card
                       tag="article"
-                      style="border-bottom-color:#53D1AF"
+                      style="border-bottom-color: #53d1af"
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
                         <h4><b class="learning-color points">1000</b></h4>
                         <h4><b class="learning-color">Submissions</b></h4>
-                        <span class="muted-dark">To the challenges by Learners who finished the community tutorials.</span>
+                        <span
+                          class="muted-dark"
+                        >To the challenges by Learners who finished the
+                          community tutorials.</span>
                       </b-card-text>
                     </b-card>
                   </div>
@@ -248,13 +259,15 @@
                   <div>
                     <b-card
                       tag="article"
-                      style="border-bottom-color:#9c58ff"
+                      style="border-bottom-color: #9c58ff"
                       class="mb-2 small-shadow text-center bg-dark card-stats"
                     >
                       <b-card-text class="text-center mt-4">
                         <h4><b class="teaching-color points">3000</b></h4>
                         <h4><b class="teaching-color">Feedback</b></h4>
-                        <span class="muted-dark">Learners gave to submissions of their peers.</span>
+                        <span
+                          class="muted-dark"
+                        >Learners gave to submissions of their peers.</span>
                         <br>
                         <br>
                       </b-card-text>
@@ -271,9 +284,14 @@
               Join our Community
             </h2>
             <p class="lead text-cover mx-auto mb-6">
-              Dacade has a community with over 300 learners from all over the world in our telegram channel. Join us!
+              Dacade has a community with over 300 learners from all over the
+              world in our telegram channel. Join us!
             </p>
-            <a href="https://t.me/dacade" target="_blank" class="btn btn-outline-primary btn-lg">
+            <a
+              href="https://t.me/dacade"
+              target="_blank"
+              class="btn btn-outline-primary btn-lg"
+            >
               On telegram
             </a>
           </section>
@@ -284,7 +302,8 @@
                 In Collaboration with
               </h2>
               <p class="lead text-cover mx-auto mb-4">
-                Dacade is created in collaboration with multiple contributors. If this is interesting for you, please get in touch.
+                Dacade is created in collaboration with multiple contributors.
+                If this is interesting for you, please get in touch.
               </p>
             </div>
 
@@ -293,12 +312,22 @@
                 <div class="col-sm-4 mb-4" />
                 <div class="col-sm-2 mb-4">
                   <a target="blank" href="https://apeunit.com">
-                    <b-img rounded alt="Circle image" width="100%" src="/img/Ape_Unit_Logo_White.png" />
+                    <b-img
+                      rounded
+                      alt="Circle image"
+                      width="100%"
+                      src="/img/Ape_Unit_Logo_White.png"
+                    />
                   </a>
                 </div>
                 <div class="col-sm-2 mb-4">
                   <a target="blank" href="https://octan.group">
-                    <b-img rounded alt="Circle image" width="100%" src="/img/logo_octan.png" />
+                    <b-img
+                      rounded
+                      alt="Circle image"
+                      width="100%"
+                      src="/img/logo_octan.png"
+                    />
                   </a>
                 </div>
               </div>
@@ -306,29 +335,28 @@
           </section>
 
           <!--<footer class="mastfoot">-->
-          <footer
-            class="mastfoot mx-auto"
-          >
-            <div
-              class="inner"
-            >
-              <div
-                class="impressumLink"
-              >
-                <a
-                  href="http://policy.dacade.org"
-                  target="blank_"
-                >
+          <footer class="mastfoot mx-auto">
+            <div class="inner">
+              <div class="impressumLink">
+                <a href="http://policy.dacade.org" target="blank_">
                   Impressum & Privacy Policy
                 </a>
               </div>
               <a class="socialIcon" href="https://t.me/dacade" target="_blank">
                 <i class="fa fa-telegram fa-2x" />
               </a>
-              <a class="socialIcon" href="https://www.youtube.com/channel/UC08wXfDvuqBJvuZfNZkv3xQ" target="_blank">
+              <a
+                class="socialIcon"
+                href="https://www.youtube.com/channel/UC08wXfDvuqBJvuZfNZkv3xQ"
+                target="_blank"
+              >
                 <i class="fa fa-youtube fa-2x" />
               </a>
-              <a class="socialIcon" href="https://twitter.com/dacadeorg" target="_blank">
+              <a
+                class="socialIcon"
+                href="https://twitter.com/dacadeorg"
+                target="_blank"
+              >
                 <i class="fa fa-twitter fa-2x" />
               </a>
             </div>
@@ -338,88 +366,93 @@
     </div>
   </div>
 </template>
+<script>
+import Button from '@/components/ui/Button'
 
+export default {
+  components: {
+    Button
+  }
+}
+</script>
 <style scoped>
 .alert-dismissible {
   padding-right: 2rem;
 }
 
-b-button{
+b-button {
   background: none;
 }
 
-.btn-primary{
-  color:white;
+.btn-primary {
+  color: white;
 }
 
 .card {
-  max-width:42em;
-  box-shadow:
-    0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-    0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  max-width: 42em;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   border: none;
 }
 
-.card-stats{
-  border:4px solid rgba(255,255,255,.1);
-  border-radius:.32rem;
+.card-stats {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.32rem;
   padding-bottom: 3em;
 }
 
 .card-text {
-  color:#acb2be !important;
+  color: #acb2be !important;
 }
 
-.card:hover{
+.card:hover {
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-      0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-      0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
 .collaboration-card {
-  background-color: #311B58;
+  background-color: #311b58;
   text-align: center;
 }
 
-.collaboration-card img{
+.collaboration-card img {
   width: 10em;
-  padding:2em;
+  padding: 2em;
 }
 
-.collaboration-card img{
+.collaboration-card img {
   width: 10em;
-  padding:2em;
+  padding: 2em;
 }
 
 .community-button {
   text-align: center;
 }
 
-.community-button button{
+.community-button button {
   margin-top: 1em;
-  font-weight:400;
+  font-weight: 400;
 }
 
 .community-carousel {
-  padding:0.25em;
+  padding: 0.25em;
 }
 
-.community-carousel .card-body{
-    color:rgba(0,0,0,.8);
-    text-align:left;
+.community-carousel .card-body {
+  color: rgba(0, 0, 0, 0.8);
+  text-align: left;
 }
 
 .cookieAlert {
   font-size: 1em;
-  position:fixed;
-  z-index:3;
-  right:0;
-  left:0;
-  width:90%;
-  max-width:54rem;
-  margin:0 auto;
-  margin-top:2em;
+  position: fixed;
+  z-index: 3;
+  right: 0;
+  left: 0;
+  width: 90%;
+  max-width: 54rem;
+  margin: 0 auto;
+  margin-top: 2em;
   bottom: 1em;
 }
 
@@ -431,17 +464,17 @@ b-button{
 .cover-img {
   display: block;
   margin: 4em auto 4em auto;
-  max-width:500px;
+  max-width: 500px;
   width: 100%;
 }
 
 .cover .btn-lg {
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   font-weight: 700;
 }
 
 .green-card {
-  background-color: #53D1AF;
+  background-color: #53d1af;
   color: white;
   text-align: center;
 }
@@ -452,15 +485,17 @@ b-button{
   margin-bottom: 1em;
 }
 
-h1{
-  font-size:2em;
+h1 {
+  font-size: 2em;
   font-weight: 600;
-  color:white;
+  color: white;
 }
 
-h2,h3,h4 {
+h2,
+h3,
+h4 {
   font-weight: 700;
-  color:white;
+  color: white;
 }
 
 .img-wrapper {
@@ -477,7 +512,7 @@ h2,h3,h4 {
 }
 
 .img-overlay:before {
-  content: ' ';
+  content: " ";
   display: block;
   /* adjust 'height' to position overlay content vertically */
   height: 30%;
@@ -485,8 +520,8 @@ h2,h3,h4 {
 
 .impressumLink {
   font-size: 19px;
-  color:white;
-  margin-bottom:2em;
+  color: white;
+  margin-bottom: 2em;
   font-weight: 700;
 }
 
@@ -494,27 +529,27 @@ h2,h3,h4 {
   color: white;
 }
 
-.impressumLink a:hover{
-  color: #53D1AF;
+.impressumLink a:hover {
+  color: #53d1af;
   text-decoration: none;
 }
 
 .inner {
-  padding:0.5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .intro-card {
-  color:rgba(0,0,0,.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .intro-card h6 {
-  color:rgba(0,0,0,.2)!important;
-  margin-bottom:-.25rem!important;
+  color: rgba(0, 0, 0, 0.2) !important;
+  margin-bottom: -0.25rem !important;
 }
 
 .intro-card img {
-  width:16px;
-  padding-bottom: .3em;
+  width: 16px;
+  padding-bottom: 0.3em;
 }
 
 .learn-more-button {
@@ -530,29 +565,29 @@ main {
 
 .mastfoot {
   bottom: 0;
-  color: hsla(0,0%,100%,.5);
-  margin-top:4em;
+  color: hsla(0, 0%, 100%, 0.5);
+  margin-top: 4em;
 }
 
 .navbar-landing {
   text-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-  background-color: #53D1AF;
+  background-color: #53d1af;
   margin-bottom: 2em;
 }
 
-.play-button{
+.play-button {
   background-color: transparent;
-  border:none;
+  border: none;
   color: white;
 }
 
-.play-button2{
+.play-button2 {
   text-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   color: white;
 }
 
-.play-button2:hover{
+.play-button2:hover {
   text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -565,51 +600,51 @@ main {
   padding: 0 3em;
 }
 
-section{
+section {
   margin-bottom: 6rem;
 }
 
-.sel-com .card-text{
+.sel-com .card-text {
   padding: 0 1.2rem;
 }
 
-.sel-com article{
+.sel-com article {
   border: 1.6px solid #00000000;
 }
 
-.sel-com article:hover{
+.sel-com article:hover {
   border: 1.6px solid #53d1af;
 }
 
-.sel-com a:hover{
+.sel-com a:hover {
   text-decoration: none;
 }
 
 .socialIcon {
-  color:white;
+  color: white;
   padding: 0.5em;
 }
 
-.site-wrapper{
+.site-wrapper {
   /* color:white; */
   /* background: linear-gradient(0deg,#22262b, #22262b, #658ECB, #53D1AF); */
   background: #22262b;
-  position:relative;
+  position: relative;
 }
 
-.text-cover{
+.text-cover {
   max-width: 42em;
 }
 
-.usp img{
+.usp img {
   margin-bottom: 1em;
   width: 50px;
 }
 
 .video-card {
-  margin-top:4em;
-  padding:0.25em;
-  text-align:left;
+  margin-top: 4em;
+  padding: 0.25em;
+  text-align: left;
 }
 
 @media (max-width: 768px) {
@@ -633,7 +668,7 @@ section{
 
 @media (min-width: 768px) {
   .lead {
-    padding:0 1em;
+    padding: 0 1em;
   }
 
   /* Pull out the header and footer */
@@ -669,7 +704,7 @@ section{
 }
 
 .cover .btn-lg {
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   font-weight: 700;
 }
 
@@ -678,7 +713,7 @@ section{
  */
 
 .mastfoot {
-  color: rgba(255,255,255,.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /*
@@ -692,5 +727,4 @@ section{
     width: 42rem;
   }
 }
-
 </style>
