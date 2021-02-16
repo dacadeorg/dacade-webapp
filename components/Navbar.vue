@@ -1,138 +1,70 @@
 <template>
   <div class="relative">
-    <b-navbar
-      :style="{ background: color }"
-      :class="{
-        'navbar-green': $route.name === 'index',
-        'navbar-business': $route.name === 'protocols',
-        'navbar-black': $route.name === 'communities',
-      }"
-      class="navbar-main"
-      toggleable="lg"
-      type="dark"
-    >
-      <b-navbar-brand class="desktop-only">
-        <nuxt-link to="/">
-          <img class="logoImg pointer" src="/img/logo-white.png" height="20" alt="">
-        </nuxt-link>
-      </b-navbar-brand>
-      <b-navbar-brand v-if="!loginStatus" class="mobile-only">
-        <nuxt-link to="/">
-          <img class="logoImg pointer" src="/img/logo-white.png" height="20" alt="">
-        </nuxt-link>
-      </b-navbar-brand>
-      <b-nav-text class="community-title">
-        <span class="nav-divider desktop-only" :class="{'invisible': (!isCommunity && !getSectionName($route))}" />
-        <span v-if="isCommunity">
-          {{ communityData.name }}
-        </span>
-        <span v-else>{{ getSectionName($route) }}</span>
-      </b-nav-text>
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto userPoints">
-        <b-nav-item>
-          <b-nav-text
-            v-if="$route.name != 'index' && user && !isCommunity && $route.name != 'protocols'"
-            class="mr-2 muted-dark no-padding"
-          >
-            <b class="dark-white">{{ getDCNBalance() }}</b>
-            <coin />
-          </b-nav-text>
-          <nuxt-link
-            v-if="$route.name === 'index'"
-            to="/protocols/"
-            class="business-btn mr-3"
-          >
-            Become a Partner
-          </nuxt-link>
-          <b
-            v-if="isCommunity"
-            class="desktop-only mr-2"
-          >
-            {{ getReputation() }} REP
-          </b>
-          <i v-b-modal.modal-1 class="fa fa-bars fa-lg humburger-menu" />
-          <b-modal
-            id="modal-1"
-            title="Menu"
-            header-text-variant="light"
-            hide-footer
-          >
-            <nuxt-link
-              v-if="!loginStatus"
-              class="dropdown-item"
-              to="/signup/"
-              @click.native="closeModal"
-            >
-              Signup
-            </nuxt-link>
-            <nuxt-link
-              v-if="!loginStatus"
-              class="dropdown-item"
-              to="/login/"
-              @click.native="closeModal"
-            >
-              Login
-            </nuxt-link>
-            <nuxt-link
-              v-if="loginStatus"
-              class="dropdown-item"
-              to="/bounties/"
-              @click.native="closeModal"
-            >
-              Bounties
-            </nuxt-link>
-            <nuxt-link
-              class="dropdown-item"
-              to="/communities/"
-              @click.native="closeModal"
-            >
-              Communities
-            </nuxt-link>
-            <nuxt-link
-              v-if="loginStatus"
-              class="dropdown-item"
-              to="/notifications/"
-              @click.native="closeModal"
-            >
-              Notifications
-              <b-badge
-                v-if="getUnreadNotification > 0"
-                class="badge-notification-menu"
-              >
-                {{ getUnreadNotification }}
-                <span v-if="loginStatus" class="sr-only">unread messages</span>
-              </b-badge>
-            </nuxt-link>
-            <nuxt-link
-              v-if="loginStatus"
-              class="dropdown-item"
-              to="/profile/"
-              @click.native="closeModal"
-            >
-              Profile
-            </nuxt-link>
-            <a v-if="loginStatus" class="dropdown-item" @click="logOut">
-              Sign Out
-            </a>
-          </b-modal>
-          <b-badge
-            v-if="getUnreadNotification > 0"
-            class="badge-notification-nav"
-          >
-            {{ getUnreadNotification }}
-            <span class="sr-only">unread messages</span>
-          </b-badge>
-        </b-nav-item>
-      </b-navbar-nav>
-    </b-navbar>
+    <div class="w-10/12 mx-auto py-12 flex relative">
+      <ul class="relative">
+        <NavItem type="logo">
+          <Logo />
+        </NavItem>
+        <NavItem type="brand">
+          Dacade
+        </NavItem>
+      </ul>
+      <ul v-if="loginStatus" class="relative">
+        <NavItem to="/bounties">
+          {{ $t("nav.bounties") }}
+        </NavItem>
+        <NavItem to="/communities">
+          {{ $t("nav.communities") }}
+        </NavItem>
+      </ul>
+      <ul v-if="!loginStatus" class="ml-auto text-right relative">
+        <NavItem to="/login">
+          {{ $t("nav.login") }}
+        </NavItem>
+        <NavItem to="/signup/">
+          <DAButton :padding="false" type="secondary" class="py-2 px-5">
+            {{ $t("nav.sign-up") }}
+          </DAButton>
+        </NavItem>
+      </ul>
+      <ul v-if="loginStatus" class="ml-auto text-right relative">
+        <li class="inline-block align-middle mr-2">
+          <DAButton :padding="false" type="secondary" class="p-2">
+            <BellIcon />
+            <Badge v-if="unreadNotification>0" :value="unreadNotification" />
+          </DAButton>
+        </li>
+        <li class="inline-block align-middle">
+          <DAButton :padding="false" type="secondary" class="p-0.5 pr-5">
+            <span
+              class="w-9 h-9 bg-gray-200 inline-block align-middle rounded-full"
+            />
+            <span
+              class="align-middle ml-2.5 font-medium text-gray-500"
+            >{{ getBalance() }} DAC</span>
+          </DAButton>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import Logo from '@/components/Logo'
+import NavItem from '@/components/ui/NavItem'
+import DAButton from '@/components/ui/Button'
+import Badge from '@/components/ui/Badge'
+import BellIcon from '~/assets/icons/notification-bell.svg?inline'
 
 export default {
+  components: {
+    Logo,
+    NavItem,
+    DAButton,
+    BellIcon,
+    Badge
+  },
   computed: {
     color () {
       if (this.isCommunity) {
@@ -157,7 +89,7 @@ export default {
     userLoggedIn (params) {
       return this.$store.getters.loginStatus
     },
-    getUnreadNotification () {
+    unreadNotification () {
       let notifications = 0
       if (this.notifications) {
         for (
@@ -240,116 +172,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.business-btn {
-  border: 1px solid white;
-  border-radius: 0.3rem;
-  color: white;
-  font-size: 0.8em;
-  padding: 0.2rem 0.6rem;
-}
-
-.business-btn:hover{
-  background: white;
-  color: #53d1af;
-  text-decoration: none;
-}
-
-.navbar-main {
-  z-index: 999;
-}
-
-.no-padding{
-  padding: 0;
-}
-.invisible{
-  visibility: hidden;
-}
-
-a:not([href]):not([tabindex]) {
-  color: rgba(217, 217, 217, 1);
-  cursor: pointer;
-}
-
-a:not([href]):not([tabindex]):hover {
-  color: #53d1af;
-}
-
-.community-title {
-  color: white;
-  font-size: 21px;
-  font-weight: 700;
-}
-
-.dropdown-item {
-  font-size: 19px;
-  font-weight: 700;
-  color: rgba(217, 217, 217, 1);
-}
-
-.dropdown-item a:hover {
-  color: #53d1af;
-}
-
-.dropdown-item:hover {
-  color: #53d1af;
-  background: none;
-  border-radius: 25px;
-  font-size: 1.3em;
-  margin-left: 0.3em;
-}
-
-.humburger-menu{
-  outline: none;
-  &:focus,
-  &:hover{
-    outline: none;
-  }
-}
-
-/* a.nuxt-link-active {
-  color: #53d1af;
-  background: none;
-  border-radius: 25px;
-  font-size: 1.3em;
-  margin-left: 0.3em;
-}
-
-a.nuxt-link-active:hover {
-  color: #53d1af;
-  background: none;
-  border-radius: 25px;
-  font-size: 1.3em;
-  margin-left: 0.3em;
-  cursor: default;
-} */
-.logoImg {
-  vertical-align: unset;
-}
-
-.nav-divider {
-  padding-left: 1em;
-  margin-left: 10px;
-  border-left: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.navbar-green {
-  background: #53d1af;
-}
-
-.navbar-black {
-  background: #343a40;
-}
-
-.navbar-business {
-  background: #252830;
-}
-
-.pointer:hover {
-  cursor: pointer;
-}
-
-.userPoints {
-  font-size: 19px;
-}
-</style>
