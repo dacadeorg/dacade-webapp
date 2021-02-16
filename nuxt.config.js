@@ -28,7 +28,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/custom.scss', '@/assets/css/main.css'],
+  // css: ['@/assets/css/custom.scss', '@/assets/css/main.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -49,6 +49,7 @@ export default {
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
     '@nuxtjs/eslint-module',
+    '@nuxtjs/svg',
     [
       '@nuxtjs/google-analytics',
       {
@@ -68,9 +69,12 @@ export default {
         },
         publishRelease: true
       }
-    ]
+    ],
+    'nuxt-i18n'
   ],
   bootstrapVue: {
+    bootstrapCSS: false, // Or `css: false`
+    bootstrapVueCSS: false, // Or `bvCSS: false`
     componentPlugins: [
       'AlertPlugin',
       'BadgePlugin',
@@ -106,6 +110,18 @@ export default {
     addons: ['@storybook/addon-controls', '@storybook/addon-notes']
   },
   tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.js'
+  },
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: require('./locales/en.json'),
+        es: require('./locales/es.json')
+      }
+    }
   }
 }

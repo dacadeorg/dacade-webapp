@@ -1,8 +1,9 @@
 <template>
   <button
-    class="py-4 px-7 outline-none focus:outline-none hover:outline-none cursor-pointer"
+    class="outline-none focus:outline-none hover:outline-none cursor-pointer relative"
     :class="{
       'bg-primary text-white': type == 'primary',
+      'py-4 px-7': padding,
       'bg-secondary text-black': type == 'secondary',
       'text-primary border border-solid border-primary bg-transparent hover:bg-primary hover:text-white': type == 'outline-primary',
       'text-secondary border border-solid border-secondary bg-transparent hover:bg-secondary hover:text-black': type == 'outline-secondary',
@@ -10,13 +11,14 @@
       'rounded-full': rounded
     }"
   >
-    {{ text }}
+    <!-- {{ text }} -->
+    <slot />
   </button>
 </template>
 
 <script>
 export default {
-  name: 'Button',
+  name: 'DAButton',
   props: {
     text: {
       default: '',
@@ -29,6 +31,10 @@ export default {
     type: {
       default: 'primary',
       type: String
+    },
+    padding: {
+      default: true,
+      type: Boolean
     }
   }
 }
