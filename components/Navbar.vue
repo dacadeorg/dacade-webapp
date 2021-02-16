@@ -1,12 +1,12 @@
 <template>
   <div class="relative">
-    <div class="w-10/12 mx-auto py-12 flex relative">
+    <div class="content-wrapper py-12 flex relative">
       <ul class="relative">
         <NavItem type="logo">
           <Logo />
         </NavItem>
         <NavItem type="brand">
-          Dacade
+          {{ $t("app.name") }}
         </NavItem>
       </ul>
       <ul v-if="loginStatus" class="relative">
@@ -36,9 +36,7 @@
         </li>
         <li class="inline-block align-middle">
           <DAButton :padding="false" type="secondary" class="p-0.5 pr-5">
-            <span
-              class="w-9 h-9 bg-gray-200 inline-block align-middle rounded-full"
-            />
+            <Avatar :user="user" />
             <span
               class="align-middle ml-2.5 font-medium text-gray-500"
             >{{ getBalance() }} DAC</span>
@@ -53,6 +51,7 @@
 import { mapGetters } from 'vuex'
 import Logo from '@/components/Logo'
 import NavItem from '@/components/ui/NavItem'
+import Avatar from '@/components/ui/Avatar'
 import DAButton from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import BellIcon from '~/assets/icons/notification-bell.svg?inline'
@@ -63,7 +62,8 @@ export default {
     NavItem,
     DAButton,
     BellIcon,
-    Badge
+    Badge,
+    Avatar
   },
   computed: {
     color () {

@@ -1,5 +1,6 @@
 <template>
-  <div class="site-wrapper">
+  <div>
+    <MainSection />
     <div class="site-wrapper-inner">
       <div class="container">
         <main>
@@ -367,11 +368,11 @@
   </div>
 </template>
 <script>
-import Button from '@/components/ui/Button'
+import MainSection from '@/components/sections/homepage/Main'
 
 export default {
   components: {
-    Button
+    MainSection
   }
 }
 </script>
