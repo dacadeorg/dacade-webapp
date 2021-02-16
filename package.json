@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "^2.4.0",
+    "@nuxtjs/svg": "^0.1.12",
     "@storybook/addon-controls": "^6.1.17",
     "@storybook/addon-notes": "^5.3.21",
     "bootstrap": "^4.5.2",
@@ -24,6 +25,7 @@
     "firebase": "^7.20.0",
     "nuxt": "^2.14.5",
     "nuxt-bugsnag": "^4.1.2",
+    "nuxt-i18n": "^6.20.1",
     "vee-validate": "^3.3.11",
     "vuexfire": "^3.2.4"
   },
