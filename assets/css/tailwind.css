@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-item, .nav-logo, .nav-brand {
+  @apply inline-block align-middle text-base;
+}
+
+.nav-item {
+    @apply font-normal mx-3.5 text-gray-500 hover:text-black;
+}
+
+.nav-brand {
+    @apply font-semibold mr-3.5;
+}
