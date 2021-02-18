@@ -13,5 +13,11 @@
     "page.index.main.cards.second.title": "Earn",
     "page.index.main.cards.second.body": "dacade coins by solving challenges and claiming bounties.",
     "page.index.main.cards.third.title": "Connect",
-    "page.index.main.cards.third.body": "with other learners and build together."
+    "page.index.main.cards.third.body": "with other learners and build together.",
+    "page.index.communities.title": "Learning Communities",
+    "page.index.communities.subtitle": "In our learning environments you will work with your peers to learn about new technology",
+    "page.index.communities.partnering.title": "Your community here",
+    "page.index.communities.partnering.subtitle": "We know that in this highly competitive space, developer community growth is a top priority for software projects, thats why we created dacade.",
+    "page.index.communities.partnering.button-text": "Become a partner",
+    "communities.reward": "Rewards"
 }
