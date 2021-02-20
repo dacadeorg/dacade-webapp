@@ -1,32 +1,32 @@
 /* eslint-disable vue/no-v-html */
 <template>
-  <Section padding="pt-20">
+  <Section padding="pt-20" type="secondary-light">
     <div
       class="border-t border-t-solid border-gray-200 flex py-8 text-gray-400 text-base"
     >
       <div class="w-1/2">
         <p class="text-with-links block" v-html="$t('footer.text')" />
-        <div class="mt-8 flex items-center">
+        <div class="mt-8 flex items-center space-x-9">
           <a
             v-for="(partner, i) in partners"
             :key="i"
             :href="partner.url"
             :title="partner.name"
             target="__blank"
-            class="inline-block mr-4.5"
-            :class="{ 'ml-4.5': i > 0 }"
+            class="inline-block"
           >
             <img :src="partner.logo" :alt="partner.name">
           </a>
         </div>
       </div>
       <div class="w-1/2 text-right">
-        <SocialLink
-          v-for="(link, i) in socialLinks"
-          :key="i"
-          :link="link"
-          :last="i === socialLinks.length - 1"
-        />
+        <div class="space-x-2">
+          <SocialLink
+            v-for="(link, i) in socialLinks"
+            :key="i"
+            :link="link"
+          />
+        </div>
         <p class="mt-8.5">
           <a href="http://policy.dacade.org" target="__blank">{{
             $t("footer.privacy-policy")
@@ -42,14 +42,12 @@ import Section from '@/components/ui/Section'
 import SocialLink from '@/components/ui/SocialLink'
 import ApeUnitLogo from '@/assets/icons/partners/apeunit.svg?data'
 import OctanLogo from '@/assets/icons/partners/octan.svg?data'
-// import Button from '@/components/ui/Button'
 
 export default {
   name: 'Footer',
   components: {
     Section,
     SocialLink
-    // Button,
   },
   data () {
     return {

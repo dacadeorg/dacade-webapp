@@ -1,9 +1,11 @@
 <template>
   <div
+    class="relative overflow-hidden"
     :class="{
       'bg-white text-gray-900': type == 'default',
       'bg-primary text-white': type == 'primary',
       'bg-secondary text-gray-900': type == 'secondary',
+      'bg-gray-50 text-gray-900': type == 'secondary-light',
     }"
   >
     <div

@@ -20,6 +20,14 @@
     "page.index.communities.partnering.subtitle": "We know that in this highly competitive space, developer community growth is a top priority for software projects, thats why we created dacade.",
     "page.index.communities.partnering.button-text": "Become a partner",
     "communities.reward": "Rewards",
-    "footer.text": "Dacade is created in collaboration with multiple contributors. If this is interesting for you, please <a href=\"{{url}}\">get in touch.</a>",
+    "testimonials.community.title": "Join our community",
+    "testimonials.community.stats.card-1.title": "Learners",
+    "testimonials.community.stats.card-1.description": "have already registered on dacade.",
+    "testimonials.community.stats.card-2.title": "Submissions",
+    "testimonials.community.stats.card-2.description": "to the challenges by Learners who finished the community tutorials.",
+    "testimonials.community.stats.card-3.title": "Feedbacks,",
+    "testimonials.community.stats.card-3.description": "learners gave to submissions of their peers.",
+    "testimonials.community.join": "{appName} on telegram",
+    "footer.text": "Dacade is created in collaboration with multiple contributors. If this is interesting for you, please <a href=\"{url}\">get in touch.</a>",
     "footer.privacy-policy": "Impressum & Privacy Policy"
 }
