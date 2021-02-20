@@ -15,6 +15,9 @@
     "storybook": "nuxt storybook"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/svg": "^0.1.12",
     "@storybook/addon-controls": "^6.1.17",

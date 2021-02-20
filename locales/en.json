@@ -19,5 +19,7 @@
     "page.index.communities.partnering.title": "Your community here",
     "page.index.communities.partnering.subtitle": "We know that in this highly competitive space, developer community growth is a top priority for software projects, thats why we created dacade.",
     "page.index.communities.partnering.button-text": "Become a partner",
-    "communities.reward": "Rewards"
+    "communities.reward": "Rewards",
+    "footer.text": "Dacade is created in collaboration with multiple contributors. If this is interesting for you, please <a href=\"{{url}}\">get in touch.</a>",
+    "footer.privacy-policy": "Impressum & Privacy Policy"
 }

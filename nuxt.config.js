@@ -24,7 +24,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#1B66F8' },
   /*
    ** Global CSS
    */
@@ -95,7 +95,7 @@ export default {
       'SpinnerPlugin'
     ]
   },
-  buildModules: ['@nuxtjs/tailwindcss'],
+  buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontawesome'],
   /*
    ** Build configuration
    */
@@ -123,6 +123,12 @@ export default {
         en: require('./locales/en.json'),
         es: require('./locales/es.json')
       }
+    }
+  },
+
+  fontawesome: {
+    icons: {
+      brands: ['faTwitter', 'faTelegramPlane', 'faYoutube']
     }
   }
 }
