@@ -6,8 +6,8 @@
     </h3>
     <div class="relative mt-11 mb-5 divide-y divide-white divide-dotted">
       <div v-for="(stat, i) in stats" :key="i" class="py-5">
-        <span class="block text-2xl ">{{ stat.count }}</span>
-        <p class="text-base w-3/4">
+        <span class="block text-2xl mb-2">{{ stat.count }}</span>
+        <p class="text-base w-3/4 m-0">
           <span class="font-medium">{{ stat.title }}</span> {{ stat.description }}
         </p>
       </div>
