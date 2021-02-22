@@ -26,9 +26,11 @@
     "bootstrap-vue": "^2.17.1",
     "cookie-universal-nuxt": "^2.1.4",
     "firebase": "^7.20.0",
+    "lodash.chunk": "^4.2.0",
     "nuxt": "^2.14.5",
     "nuxt-bugsnag": "^4.1.2",
     "nuxt-i18n": "^6.20.1",
+    "v-click-outside": "^3.1.2",
     "vee-validate": "^3.3.11",
     "vuexfire": "^3.2.4"
   },

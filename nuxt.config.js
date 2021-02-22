@@ -36,7 +36,8 @@ export default {
   plugins: [
     { src: '~/plugins/vee-validate.js' },
     '~/plugins/fireauth.js',
-    '~/plugins/globals.js'
+    '~/plugins/globals.js',
+    { src: '~/plugins/vClickOutside.js', ssr: false }
   ],
 
   router: {

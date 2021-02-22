@@ -1,40 +1,74 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <Section padding="py-32" type="secondary-light">
-    <CommunitStats class="w-1/3 z-10" />
-    <div class="absolute w-full h-full -top-10 left-0 z-">
-      <span
-        class="border border-solid boder-gray-200 flex items-center justify-center mx-auto rounded-full"
-        :style="{
-          width: '57vw',
-          height: '57vw'
-        }"
-      >
-        <span
-          class="border border-solid boder-gray-200 block mx-auto rounded-full"
-          :style="{
-            width: '33vw',
-            height: '33vw'
-          }"
-        />
-      </span>
-    </div>
+    <CommunitStats class="w-1/3 z-10 max-w-sm" />
+    <Stories :list="stories" />
   </Section>
 </template>
 
 <script>
 import Section from '@/components/ui/Section'
 import CommunitStats from './partials/testimonials/CommunityStats'
+import Stories from './partials/testimonials/Stories'
 // import Button from '@/components/ui/Button'
 export default {
   name: 'TestimonialsSection',
   components: {
     Section,
-    CommunitStats
+    CommunitStats,
+    Stories
     // Button
   },
   data () {
-    return {}
+    return {
+      stories: [
+        {
+          icon: require('~/assets/img/testimonial-sample.png'),
+          content:
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+        },
+        {
+          icon: require('~/assets/img/testimonial-sample-2.png'),
+          content:
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+        },
+        {
+          icon: require('~/assets/img/testimonial-sample-3.png'),
+          content:
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+        },
+        {
+          icon: require('~/assets/img/testimonial-sample-4.png'),
+          content:
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+        },
+        {
+          icon: require('~/assets/img/testimonial-sample-5.png'),
+          content:
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+        },
+        {
+          icon: require('~/assets/img/testimonial-sample-6.png'),
+          content:
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+        },
+        {
+          icon: require('~/assets/img/testimonial-sample-7.png'),
+          content:
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+        },
+        {
+          icon: require('~/assets/img/testimonial-sample-8.png'),
+          content:
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+        },
+        {
+          icon: require('~/assets/img/testimonial-sample-9.png'),
+          content:
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+        }
+      ]
+    }
   }
 }
 </script>
