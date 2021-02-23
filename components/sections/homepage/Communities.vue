@@ -14,7 +14,11 @@
       </div>
     </div>
     <div class="flex mt-7 flex-wrap justify-between">
-      <CommunityCard v-for="(community, i) in communities" :key="i" :community="community" />
+      <CommunityCard
+        v-for="(community, i) in communities"
+        :key="i"
+        :community="community"
+      />
       <PartneringCard />
     </div>
   </Section>
@@ -37,39 +41,42 @@ export default {
   },
   data () {
     return {
-      communities: [{
-        title: 'Introduction to Blockchain',
-        subtitle: 'Learn the most important concepts of blockchain technology',
-        rewards: 5,
-        icon: BlockchainIcon,
-        colors: {
-          primary: '#01464C',
-          accent: '#34E256'
+      communities: [
+        {
+          title: 'Introduction to Blockchain',
+          subtitle:
+            'Learn the most important concepts of blockchain technology',
+          rewards: 5,
+          icon: BlockchainIcon,
+          colors: {
+            primary: '#01464C',
+            accent: '#34E256'
+          },
+          url: ''
         },
-        url: ''
-      },
-      {
-        title: 'Aeternity Development 101',
-        subtitle: 'Learn how to build a voting dApp on top of Aeternity',
-        rewards: 20,
-        icon: AeternityIcon,
-        colors: {
-          primary: '#FF3A02',
-          accent: '#47110A'
+        {
+          title: 'Aeternity Development 101',
+          subtitle: 'Learn how to build a voting dApp on top of Aeternity',
+          rewards: 20,
+          icon: AeternityIcon,
+          colors: {
+            primary: '#FF3A02',
+            accent: '#47110A'
+          },
+          url: ''
         },
-        url: ''
-      },
-      {
-        title: 'Web Development 101',
-        subtitle: 'Learn how to build and host a website with bootstrap',
-        rewards: 20,
-        icon: WebIcon,
-        colors: {
-          primary: '#381B84',
-          accent: '#24DAD9'
-        },
-        url: ''
-      }]
+        {
+          title: 'Web Development 101',
+          subtitle: 'Learn how to build and host a website with bootstrap',
+          rewards: 20,
+          icon: WebIcon,
+          colors: {
+            primary: '#381B84',
+            accent: '#24DAD9'
+          },
+          url: ''
+        }
+      ]
     }
   }
 }
