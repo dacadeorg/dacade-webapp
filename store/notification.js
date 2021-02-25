@@ -6,7 +6,7 @@ const db = firebase.database()
 
 export const state = () => ({
   userNotifications: null,
-  count: 4
+  count: 0
 })
 
 export const mutations = {
@@ -27,7 +27,7 @@ export const mutations = {
         }
       }
     }
-    state.count = 3
+    state.count = parseFloat(notifications).toFixed(0)
   },
   ...vuexfireMutations
 }
