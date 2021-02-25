@@ -10,6 +10,7 @@
       'text-white border border-solid border-white bg-transparent hover:bg-white hover:text-primary': type == 'outline-white',
       'rounded-full': rounded
     }"
+    v-on="inputListeners"
   >
     <!-- {{ text }} -->
     <slot />
@@ -35,6 +36,25 @@ export default {
     padding: {
       default: true,
       type: Boolean
+    }
+  },
+  computed: {
+    inputListeners () {
+      const vm = this
+      // `Object.assign` merges objects together to form a new object
+      return Object.assign(
+        {},
+        // We add all the listeners from the parent
+        this.$listeners,
+        // Then we can add custom listeners or override the
+        // behavior of some listeners.
+        {
+          // This ensures that the component works with v-model
+          input (event) {
+            vm.$emit('input', event.target.value)
+          }
+        }
+      )
     }
   }
 }

@@ -6,40 +6,35 @@
           <Logo />
         </NavItem>
         <NavItem type="brand">
-          {{ $t("app.name") }}
+          {{ $t('app.name') }}
         </NavItem>
       </ul>
       <ul v-if="loginStatus" class="relative">
         <NavItem to="/bounties">
-          {{ $t("nav.bounties") }}
+          {{ $t('nav.bounties') }}
         </NavItem>
         <NavItem to="/communities">
-          {{ $t("nav.communities") }}
+          {{ $t('nav.communities') }}
         </NavItem>
       </ul>
       <ul v-if="!loginStatus" class="ml-auto text-right relative">
         <NavItem to="/login">
-          {{ $t("nav.login") }}
+          {{ $t('nav.login') }}
         </NavItem>
         <NavItem to="/signup/">
           <DAButton :padding="false" type="secondary" class="py-2 px-5">
-            {{ $t("nav.sign-up") }}
+            {{ $t('nav.sign-up') }}
           </DAButton>
         </NavItem>
       </ul>
       <ul v-if="loginStatus" class="ml-auto text-right relative">
-        <li class="inline-block align-middle mr-2">
-          <DAButton :padding="false" type="secondary" class="p-2">
-            <BellIcon />
-            <Badge v-if="unreadNotification>0" :value="unreadNotification" />
-          </DAButton>
-        </li>
-        <li class="inline-block align-middle">
+        <NotificationPopup />
+        <li class="inline-block align-middle  z-0 relative">
           <DAButton :padding="false" type="secondary" class="p-0.5 pr-5">
             <Avatar :user="user" />
             <span
               class="align-middle ml-2.5 font-medium text-gray-500"
-            >{{ getBalance() }} DAC</span>
+            >{{ getDCNBalance() }} DAC</span>
           </DAButton>
         </li>
       </ul>
@@ -53,17 +48,15 @@ import Logo from '@/components/Logo'
 import NavItem from '@/components/ui/NavItem'
 import Avatar from '@/components/ui/Avatar'
 import DAButton from '@/components/ui/Button'
-import Badge from '@/components/ui/Badge'
-import BellIcon from '~/assets/icons/notification-bell.svg?inline'
+import NotificationPopup from '@/components/popups/Notification'
 
 export default {
   components: {
     Logo,
     NavItem,
     DAButton,
-    BellIcon,
-    Badge,
-    Avatar
+    Avatar,
+    NotificationPopup
   },
   computed: {
     color () {
@@ -89,27 +82,11 @@ export default {
     userLoggedIn (params) {
       return this.$store.getters.loginStatus
     },
-    unreadNotification () {
-      let notifications = 0
-      if (this.notifications) {
-        for (
-          let index = 0;
-          index < Object.values(this.notifications).length;
-          index++
-        ) {
-          if (!Object.values(this.notifications)[index].notificationRead) {
-            notifications++
-          }
-        }
-      }
-      return parseFloat(notifications).toFixed(0)
-    },
     ...mapGetters({
       user: 'user/get',
       userReputation: 'user/reputation',
       loginStatus: 'auth/loginStatus',
       communityData: 'content/communityData',
-      notifications: 'notification/get',
       balance: 'user/balance'
     })
   },

@@ -5,19 +5,36 @@ import { vuexfireMutations, firebaseAction } from 'vuexfire'
 const db = firebase.database()
 
 export const state = () => ({
-  userNotifications: null
+  userNotifications: null,
+  count: 4
 })
 
 export const mutations = {
   clear (state) {
     state.userNotifications = null
   },
+  setCount (state) {
+    console.log('setting count')
+    let notifications = 0
+    if (this.notifications) {
+      for (
+        let index = 0;
+        index < Object.values(this.notifications).length;
+        index++
+      ) {
+        if (!Object.values(this.notifications)[index].notificationRead) {
+          notifications++
+        }
+      }
+    }
+    state.count = 3
+  },
   ...vuexfireMutations
 }
 
 export const actions = {
-  fetch: firebaseAction(({ bindFirebaseRef }, uid) => {
-    bindFirebaseRef('userNotifications', db.ref('notifications').child(uid))
+  fetch: firebaseAction(({ bindFirebaseRef, commit }, uid) => {
+    bindFirebaseRef('userNotifications', db.ref('notifications').child(uid)).then(() => commit('setCount'))
   }),
   markAsRead ({ commit }, payload) {
     db.ref(`notifications/${payload.userId}/${payload.id}/notificationRead`)
@@ -46,5 +63,8 @@ export const actions = {
 export const getters = {
   get (state) {
     return state.userNotifications
+  },
+  count (state) {
+    return state.count
   }
 }
