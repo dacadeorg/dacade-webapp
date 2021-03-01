@@ -39,7 +39,6 @@ export default {
       if (!this.notifications) {
         return []
       }
-      console.log(this.notifications)
       return Object.values(this.notifications).reverse()
     }
   }
