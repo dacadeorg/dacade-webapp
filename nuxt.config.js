@@ -49,7 +49,7 @@ export default {
    */
   modules: [
     // Doc: https://bootstrap-vue.js.org/docs/
-    'bootstrap-vue/nuxt',
+    // 'bootstrap-vue/nuxt',
     '@nuxtjs/eslint-module',
     '@nuxtjs/svg',
     [
@@ -60,18 +60,6 @@ export default {
       }
     ],
     'cookie-universal-nuxt',
-    [
-      'nuxt-bugsnag',
-      {
-        apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd',
-        enabledReleaseStages: ['staging', 'production'],
-        reporterOptions: {
-          releaseStage: process.env.NODE_ENV,
-          autoAssignRelease: true
-        },
-        publishRelease: true
-      }
-    ],
     'nuxt-i18n'
   ],
   bootstrapVue: {
@@ -96,7 +84,22 @@ export default {
       'SpinnerPlugin'
     ]
   },
-  buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontawesome'],
+  buildModules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/fontawesome',
+    [
+      'nuxt-bugsnag',
+      {
+        apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd',
+        enabledReleaseStages: ['staging', 'production'],
+        reporterOptions: {
+          releaseStage: process.env.NODE_ENV,
+          autoAssignRelease: true
+        },
+        publishRelease: true
+      }
+    ]
+  ],
   /*
    ** Build configuration
    */
