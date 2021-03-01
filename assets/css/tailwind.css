@@ -53,3 +53,11 @@ body,
 .text-with-links > a {
   @apply underline;
 }
+
+input {
+  @apply p-2 border border-solid border-gray-200 block mx-auto;
+}
+
+button {
+  @apply bg-primary outline-none focus:outline-none cursor-pointer relative px-4 py-2 text-white rounded-full;
+}

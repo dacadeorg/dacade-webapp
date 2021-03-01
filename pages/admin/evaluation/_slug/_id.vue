@@ -110,13 +110,13 @@
             label="Reward:"
             label-for="input-4"
           >
-            <b-form-input
+            <input
               id="input-4-1"
               v-model="submissionReward"
               type="number"
               required
               placeholder="1"
-            />
+            >
           </b-form-group>
           <b-form-group
             id="input-group-comment"

@@ -156,12 +156,12 @@
                   name="GitHub link"
                   rules="min:7"
                 >
-                  <b-form-input
+                  <input
                     id="input-2"
                     v-model="submission.githubLink"
                     type="text"
                     placeholder="Enter Github Link"
-                  />
+                  >
                   <span class="help">{{ errors[0] }}</span>
                 </ValidationProvider>
               </b-form-group>

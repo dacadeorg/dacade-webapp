@@ -13,13 +13,13 @@
           :label="coinNameWalletAddress"
           label-for="wallet-address"
         >
-          <b-form-input
+          <input
             id="wallet-address"
             v-model="address"
             type="text"
             required
             placeholder="Enter new wallet address"
-          />
+          >
         </b-form-group>
         <div class="text-center">
           <b-button

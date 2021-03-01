@@ -68,7 +68,7 @@
             </div>
             <div>
               <div>
-                <b-form-input v-model="weekStartDate" type="date" placeholder="2019-11-04" />
+                <input v-model="weekStartDate" type="date" placeholder="2019-11-04">
                 <div class="mt-2">
                   Value: {{ weekStartDate }}
                 </div>

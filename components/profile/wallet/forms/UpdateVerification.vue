@@ -16,7 +16,7 @@
       id="input-group-verification"
       label-for="wallet-address"
     >
-      <b-form-input
+      <input
         id="wallet-address"
         v-model="
           inputUserVerifications['socialMedia']
@@ -24,7 +24,7 @@
         type="text"
         required
         placeholder="Verification Link"
-      />
+      >
     </b-form-group>
     <div class="text-center">
       <b-button
