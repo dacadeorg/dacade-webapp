@@ -2,7 +2,7 @@
   <div class="text-left">
     <span
       class="uppercase block text-xs font-semibold text-gray-500 leading-relaxed"
-    >Notifications</span>
+    >{{ $t('nav.notification') }}</span>
     <div class="space-y-4 mt-3">
       <NotificationCard
         v-for="notification in orderedList"
@@ -20,7 +20,7 @@ import { mapGetters } from 'vuex'
 import NotificationCard from '@/components/cards/Notification'
 
 export default {
-  name: 'NotificationListCard',
+  name: 'NotificationList',
   components: {
     NotificationCard
   },

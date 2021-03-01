@@ -25,7 +25,7 @@ import { mapGetters } from 'vuex'
 import vClickOutside from 'v-click-outside'
 
 import Badge from '@/components/ui/Badge'
-import NotificationList from '@/components/cards/NotificationList'
+import NotificationList from '@/components/list/Notification'
 import Button from '@/components/ui/Button'
 import BellIcon from '~/assets/icons/notification-bell.svg?inline'
 

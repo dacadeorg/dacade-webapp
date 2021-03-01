@@ -29,14 +29,7 @@
       </ul>
       <ul v-if="loginStatus" class="ml-auto text-right relative">
         <NotificationPopup />
-        <li class="inline-block align-middle  z-0 relative">
-          <DAButton :padding="false" type="secondary" class="p-0.5 pr-5">
-            <Avatar :user="user" />
-            <span
-              class="align-middle ml-2.5 font-medium text-gray-500"
-            >{{ getDCNBalance() }} DAC</span>
-          </DAButton>
-        </li>
+        <UserPopup />
       </ul>
     </div>
   </div>
@@ -46,17 +39,17 @@
 import { mapGetters } from 'vuex'
 import Logo from '@/components/Logo'
 import NavItem from '@/components/ui/NavItem'
-import Avatar from '@/components/ui/Avatar'
 import DAButton from '@/components/ui/Button'
 import NotificationPopup from '@/components/popups/Notification'
+import UserPopup from '@/components/popups/User'
 
 export default {
   components: {
     Logo,
     NavItem,
     DAButton,
-    Avatar,
-    NotificationPopup
+    NotificationPopup,
+    UserPopup
   },
   computed: {
     color () {
@@ -84,10 +77,8 @@ export default {
     },
     ...mapGetters({
       user: 'user/get',
-      userReputation: 'user/reputation',
       loginStatus: 'auth/loginStatus',
-      communityData: 'content/communityData',
-      balance: 'user/balance'
+      communityData: 'content/communityData'
     })
   },
   watch: {
@@ -102,24 +93,6 @@ export default {
     logOut () {
       this.$store.dispatch('auth/logout')
       this.$router.push('/communities')
-    },
-    getBalance () {
-      let balance = 0
-      if (this.user && this.balance) {
-        for (const key in this.balance) {
-          if (key !== 'DCN') {
-            balance = balance + this.balance[key]
-          }
-        }
-      }
-      return parseFloat(balance).toFixed(0)
-    },
-    getDCNBalance () {
-      let balance = 0
-      if (this.user && this.balance && this.balance.DCN) {
-        balance = this.balance.DCN
-      }
-      return parseFloat(balance).toFixed(0)
     },
     getSectionName (route) {
       switch (route.name) {
@@ -137,14 +110,6 @@ export default {
     },
     closeModal () {
       this.$bvModal.hide('modal-1')
-    },
-    getReputation () {
-      let reputation = 0
-      console.log(this.userReputation)
-      if (this.userReputation && this.userReputation[this.communityData.id]) {
-        reputation = this.userReputation[this.communityData.id]
-      }
-      return parseFloat(reputation).toFixed(0)
     }
   }
 }

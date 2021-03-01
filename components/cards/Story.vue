@@ -2,7 +2,7 @@
 <template>
   <div
     v-click-outside="externalClick"
-    class="absolute border border-solid boder-gray-200 rounded-full p-1 h-14 w-14 top-2/4 left-2/4 -m-7"
+    class="absolute border border-solid boder-gray-200 bg-gray-50 rounded-full p-1 h-14 w-14 top-2/4 left-2/4 -m-7"
     :style="{
       transform: getPosition(),
     }"
