@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <Navbar />
+    <Navbar :settings="navbar" />
     <NotificationBar />
     <div class="relative">
       <nuxt />
@@ -10,6 +10,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
@@ -21,6 +22,11 @@ export default {
     PrivacyPolicyBanner,
     NotificationBar,
     Footer
+  },
+  computed: {
+    ...mapGetters({
+      navbar: 'ui/navbar'
+    })
   }
 }
 </script>

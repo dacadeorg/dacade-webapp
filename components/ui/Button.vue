@@ -10,6 +10,7 @@
       'text-white border border-solid border-white bg-transparent hover:bg-white hover:text-primary': type == 'outline-white',
       'rounded-full': rounded
     }"
+    :style="customStyle"
     v-on="inputListeners"
   >
     <!-- {{ text }} -->
@@ -36,6 +37,10 @@ export default {
     padding: {
       default: true,
       type: Boolean
+    },
+    customStyle: {
+      default: null,
+      type: Object
     }
   },
   computed: {

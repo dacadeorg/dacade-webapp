@@ -35,16 +35,16 @@ export default {
       communities: 'communities/list'
     }),
     reputations () {
-      if (!this.reputationRaw) {
+      if (!this.reputationRaw || !this.communities || !this.communities.length) {
         return []
       }
       return Object.keys(this.reputationRaw).map((communitySlug) => {
-        const { title, colors, icon } = this.communities.find(
+        const { name, colors, icon } = this.communities.find(
           community => community.slug === communitySlug
         )
         return {
           community: {
-            title,
+            name,
             colors,
             icon,
             slug: communitySlug

@@ -26,6 +26,7 @@
     "bootstrap-vue": "^2.17.1",
     "cookie-universal-nuxt": "^2.1.4",
     "firebase": "^7.20.0",
+    "hex-to-rgba": "^2.0.1",
     "lodash.chunk": "^4.2.0",
     "moment": "^2.29.1",
     "nuxt": "^2.14.5",

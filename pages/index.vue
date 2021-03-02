@@ -16,6 +16,9 @@ export default {
     MainSection,
     CommunitiesSection,
     TestimonialsSection
+  },
+  fetch ({ store }) {
+    return store.dispatch('communities/all')
   }
 }
 </script>

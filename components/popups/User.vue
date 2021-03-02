@@ -1,24 +1,32 @@
 <template>
   <span v-click-outside="externalClick">
     <li class="inline-block align-middle  z-0 relative" @click="show = true">
-      <Button :padding="false" type="secondary" class="p-0.5 pr-5">
+      <Button
+        :custom-style="buttonStyles"
+        :padding="false"
+        type="secondary"
+        class="p-0.5 pr-5"
+      >
         <Avatar :user="user" />
         <span
+          :style="{
+            color: buttonStyles.color ? buttonStyles.color : null
+          }"
           class="align-middle ml-2.5 font-medium text-gray-500"
         >{{ getDCNBalance() }} DAC</span>
       </Button>
     </li>
     <div
       v-show="show"
-      class="w-80 absolute top-14 right-0 z-10 bg-secondary rounded-3.5xl "
+      class="w-80 absolute top-14 right-0 z-10 bg-secondary rounded-3.5xl text-gray-900"
     >
       <div class="divide-y divide-gray-200">
         <div class="w-full p-4 text-left flex">
           <div class="pr-3.5"><Avatar :user="user" size="medium" /></div>
           <div class="py-1">
-            <span class="font-medium text-base block leading-normal capitalize">{{
-              user.displayName
-            }}</span>
+            <span
+              class="font-medium text-base block leading-normal capitalize"
+            >{{ user.displayName }}</span>
             <nuxt-link class="text-sm block leading-normal" to="/profile">
               {{ $t('nav.view-profile') }}
             </nuxt-link>
@@ -58,6 +66,12 @@ export default {
     BalanceList,
     ReputationList
     // NotificationList
+  },
+  props: {
+    buttonStyles: {
+      default: null,
+      type: Object
+    }
   },
   data () {
     return {

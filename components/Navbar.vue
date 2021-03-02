@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative text-gray-900" :style="containerStyle">
     <div class="content-wrapper py-12 flex relative">
       <ul class="relative">
         <NavItem type="logo">
@@ -28,13 +28,14 @@
         </NavItem>
       </ul>
       <ul v-if="loginStatus" class="ml-auto text-right relative">
-        <NotificationPopup />
-        <UserPopup />
+        <NotificationPopup :button-styles="buttonStyle" />
+        <UserPopup :button-styles="buttonStyle" />
       </ul>
     </div>
   </div>
 </template>
 <script>
+import hexToRgba from 'hex-to-rgba'
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Logo from '@/components/Logo'
@@ -51,26 +52,32 @@ export default {
     NotificationPopup,
     UserPopup
   },
+  props: {
+    settings: {
+      default: () => {
+        return {}
+      },
+      type: Object
+    }
+  },
   computed: {
-    color () {
-      if (this.isCommunity) {
-        return this.communityData.gradient
+    containerStyle () {
+      if (!this.settings || !this.settings.colors) {
+        return {}
       }
-      return null
+      return {
+        backgroundColor: this.settings.colors.primary,
+        color: this.settings.colors.text
+      }
     },
-    isCommunity () {
-      const array = [
-        'slug-introduction',
-        'slug-challenge',
-        'slug-submissions',
-        'slug-scoreboard',
-        'slug-chapter-id',
-        'slug-submission-id'
-      ]
-      if (array.includes(this.$route.name)) {
-        return true
+    buttonStyle () {
+      if (!this.settings || !this.settings.colors) {
+        return {}
       }
-      return false
+      return {
+        backgroundColor: hexToRgba(this.settings.colors.text, 0.3),
+        color: this.settings.colors.text
+      }
     },
     userLoggedIn (params) {
       return this.$store.getters.loginStatus

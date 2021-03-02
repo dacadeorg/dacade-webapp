@@ -5,6 +5,7 @@
         :padding="false"
         type="secondary"
         class="p-2"
+        :custom-style="buttonStyles"
         @click="show = !show"
       >
         <BellIcon />
@@ -13,7 +14,7 @@
     </li>
     <div
       v-show="show"
-      class="w-80 absolute top-14 right-0 z-10 bg-secondary py-4 px-4.5 rounded-3.5xl"
+      class="w-80 absolute top-14 right-0 z-10 bg-secondary py-4 px-4.5 rounded-3.5xl text-gray-900"
     >
       <NotificationList />
     </div>
@@ -39,6 +40,12 @@ export default {
     BellIcon,
     Badge,
     NotificationList
+  },
+  props: {
+    buttonStyles: {
+      default: null,
+      type: Object
+    }
   },
   data () {
     return {

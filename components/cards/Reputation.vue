@@ -11,7 +11,7 @@
         class="block text-base font-medium leading-normal"
       >{{ details.value }} REP</span>
       <span class="block font-normal text-sm">{{
-        details.community.title
+        details.community.name
       }}</span>
     </div>
   </div>
