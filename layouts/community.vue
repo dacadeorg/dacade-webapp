@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <Navbar :settings="navbar" />
+    <Navbar :settings="settings" />
     <NotificationBar />
     <div class="relative">
       <nuxt />
@@ -25,8 +25,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      navbar: 'ui/navbar'
-    })
+      colors: 'ui/colors'
+    }),
+    settings () {
+      return {
+        colors: this.colors
+      }
+    }
   }
 }
 </script>

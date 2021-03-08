@@ -15,7 +15,7 @@
             {{ community.description || community.summary }}
           </span>
         </div>
-        <div class="relative flex divide-x leading-loose">
+        <div class="relative flex divide-x divide-current leading-loose mt-24">
           <span class="block py-1 px-3">{{ community.submissions }} Submissions</span>
           <span class="block py-1 px-3">{{ community.feedbacks || 0 }} Feedbacks</span>
         </div>

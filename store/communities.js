@@ -28,7 +28,7 @@ export const state = () => ({
       colors: {
         primary: '#FF3A02',
         accent: '#47110A',
-        text: '#fff'
+        text: '#47110A'
       },
       url: ''
     },
@@ -48,6 +48,7 @@ export const state = () => ({
   ],
   list: [],
   count: 0,
+  content: null,
   current: null
 })
 
@@ -55,8 +56,8 @@ export const mutations = {
   setCurrent (state, payload) {
     const { slug, data } = payload
     const current = state.samples.find(community => community.slug === slug)
-    this.commit('ui/setNavbar', {
-      colors: current.colors
+    this.commit('ui/setColors', {
+      ...current.colors
     })
     state.current = {
       ...current,
@@ -74,6 +75,9 @@ export const mutations = {
     })
     console.log(list)
     state.list = list
+  },
+  setContent (state, payload) {
+    state.content = payload
   }
 }
 
@@ -98,6 +102,15 @@ export const actions = {
         const data = snapShot.val()
         commit('setList', data)
       })
+  },
+  content ({ commit }, payload) {
+    return db
+      .ref(`communityData/${payload}`)
+      .once('value')
+      .then((snapShot) => {
+        const communityData = snapShot.val()
+        commit('setContent', communityData)
+      })
   }
 }
 
@@ -107,5 +120,8 @@ export const getters = {
   },
   current (state) {
     return state.current
+  },
+  content (state) {
+    return state.content
   }
 }

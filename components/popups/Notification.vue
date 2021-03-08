@@ -1,6 +1,6 @@
 <template>
   <span v-click-outside="externalClick">
-    <li class="inline-block align-middle mr-2 z-0 relative">
+    <li class="inline-block align-middle mr-2 z-0 relative text-gray-500">
       <Button
         :padding="false"
         type="secondary"
@@ -9,7 +9,7 @@
         @click="show = !show"
       >
         <BellIcon />
-        <Badge v-if="count > 0" :value="count" />
+        <Badge v-if="count > 0" :value="count" :custom-style="badgeStyles" />
       </Button>
     </li>
     <div
@@ -43,6 +43,10 @@ export default {
   },
   props: {
     buttonStyles: {
+      default: null,
+      type: Object
+    },
+    badgeStyles: {
       default: null,
       type: Object
     }

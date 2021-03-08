@@ -9,10 +9,10 @@
           <i class="fa fa-sticky-note-o fa-lg mr-1 font-bold" />
           <nuxt-link
             :to="{
-              path: communityPath($route.params.slug, 'introduction'),
+              path: communityPath($route.params.slug, 'introduction')
             }"
           >
-            Introduction
+            {{ t('community.query') }}
           </nuxt-link>
         </li>
         <span class="nav-item">
@@ -40,7 +40,7 @@
           <i class="fa fa fa-edit fa-lg mr-1 font-bold" />
           <nuxt-link
             :to="{
-              path: communityPath($route.params.slug, 'submissions'),
+              path: communityPath($route.params.slug, 'submissions')
             }"
           >
             Submissions
@@ -55,7 +55,7 @@
           <i class="fa fa fa-star-o fa-lg mr-1 font-bold" />
           <nuxt-link
             :to="{
-              path: communityPath($route.params.slug, 'scoreboard'),
+              path: communityPath($route.params.slug, 'scoreboard')
             }"
           >
             Scoreboard
@@ -139,7 +139,7 @@ export default {
   background-image: linear-gradient(#2c3238, #22262b);
   transition-duration: 125ms;
   transition-timing-function: linear;
-  &__content{
+  &__content {
     padding: 0.5em;
   }
 }

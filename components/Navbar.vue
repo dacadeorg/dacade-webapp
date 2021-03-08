@@ -28,7 +28,10 @@
         </NavItem>
       </ul>
       <ul v-if="loginStatus" class="ml-auto text-right relative">
-        <NotificationPopup :button-styles="buttonStyle" />
+        <NotificationPopup
+          :button-styles="buttonStyle"
+          :badge-styles="badgeStyle"
+        />
         <UserPopup :button-styles="buttonStyle" />
       </ul>
     </div>
@@ -77,6 +80,15 @@ export default {
       return {
         backgroundColor: hexToRgba(this.settings.colors.text, 0.3),
         color: this.settings.colors.text
+      }
+    },
+    badgeStyle () {
+      if (!this.settings || !this.settings.colors) {
+        return {}
+      }
+      return {
+        backgroundColor: this.settings.colors.accent,
+        color: this.settings.colors.primary
       }
     },
     userLoggedIn (params) {
