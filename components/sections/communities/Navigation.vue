@@ -91,7 +91,7 @@ export default {
       return `/communities/${slug}/${link}`
     },
     chapterPath (route, chapterId) {
-      return `/communities/${route.params.slug}/chapter/${chapterId}`
+      return `/communities/${route.params.slug}/chapters/${chapterId}`
     }
   }
 }

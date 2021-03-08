@@ -1,12 +1,14 @@
 <template>
   <div class="relative">
-    <MainHeader />
+    <MainHeaderSection />
     <Section padding="py-14">
       <div class="flex">
         <div class="w-1/4">
           <Navigation />
         </div>
-        <div class="w-3/4" />
+        <div class="w-3/4">
+          <OverviewSection />
+        </div>
       </div>
     </Section>
   </div>
@@ -14,15 +16,17 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import MainHeader from '@/components/sections/communities/MainHeader'
+import MainHeaderSection from '@/components/sections/communities/MainHeader'
 import Navigation from '@/components/sections/communities/Navigation'
+import OverviewSection from '@/components/sections/communities/Overview'
 import Section from '@/components/ui/Section'
 
 export default {
   scrollToTop: true,
   layout: 'community',
   components: {
-    MainHeader,
+    MainHeaderSection,
+    OverviewSection,
     Navigation,
     Section
   },

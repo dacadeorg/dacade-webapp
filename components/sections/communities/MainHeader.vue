@@ -16,8 +16,13 @@
           </span>
         </div>
         <div class="relative flex divide-x divide-current leading-loose mt-24">
-          <span class="block py-1 px-3">{{ community.submissions }} Submissions</span>
-          <span class="block py-1 px-3">{{ community.feedbacks || 0 }} Feedbacks</span>
+          <span
+            class="block py-1 px-3"
+          >{{ community.submissions }}
+            {{ $t('communities.submissions') }}</span>
+          <span
+            class="block py-1 px-3"
+          >{{ community.feedbacks || 0 }} {{ $t('communities.feedbacks') }}</span>
         </div>
       </div>
       <div class="w-4/12 text-right ml-auto">
@@ -29,22 +34,11 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import firebase from '@/plugins/firebase'
 import Section from '../../ui/Section.vue'
 
 export default {
   components: {
     Section
-  },
-  fetch ({ store, params }) {
-    return firebase
-      .database()
-      .ref(`communityData/${params.slug}`)
-      .once('value')
-      .then((snapShot) => {
-        const communityData = snapShot.val()
-        store.commit('content/setCommunityData', communityData)
-      })
   },
   computed: {
     ...mapGetters({
