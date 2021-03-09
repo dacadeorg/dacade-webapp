@@ -10,7 +10,13 @@ export const state = () => ({
       slug: 'intro-to-blockchain',
       name: 'Introduction to Blockchain',
       summary: 'Learn the most important concepts of blockchain technology',
+      description: '',
       icon: require('~/assets/icons/communities/blockchain.svg?data'),
+      trailer: {
+        duration: '',
+        summary: 'In this video, we discuss currencies and the challenges that needing to trust authorities might pose.',
+        video: 'https://www.youtube.com/embed/zh0wuD2dT3Q?showinfo=0&rel=0'
+      },
       colors: {
         primary: '#01464C',
         accent: '#34E256',

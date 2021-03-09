@@ -12,7 +12,7 @@
             {{ community.name }}
           </h1>
           <span class="text-.5xl leading-snug">
-            {{ community.description || community.summary }}
+            {{ htmlTagsCleanup(communityData.introductionText || community.description || community.summary) }}
           </span>
         </div>
         <div class="relative flex divide-x divide-current leading-loose mt-24">
@@ -45,6 +45,11 @@ export default {
       community: 'communities/current',
       communityData: 'communities/content'
     })
+  },
+  methods: {
+    htmlTagsCleanup (value) {
+      return value.replace(/<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;/g, '')
+    }
   }
 }
 </script>
