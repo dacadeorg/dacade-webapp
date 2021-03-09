@@ -23,7 +23,7 @@
           class="block absolute bottom-0 left-0"
           :style="{ color: community.colors.accent }"
         >
-          <span class="font-bold">{{ community.rewards }} DAC</span>
+          <span class="font-bold">{{ rewards }} DAC</span>
           <span class="uppercase">{{ $t('communities.reward') }}</span>
         </div>
       </div>
@@ -43,6 +43,9 @@ export default {
   computed: {
     path () {
       return `/communities/${this.community.slug}`
+    },
+    rewards () {
+      return this.community.rewards.reduce((accumulator, reward) => accumulator.amount + reward.amount)
     }
   }
 }

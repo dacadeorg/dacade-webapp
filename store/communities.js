@@ -10,7 +10,6 @@ export const state = () => ({
       slug: 'intro-to-blockchain',
       name: 'Introduction to Blockchain',
       summary: 'Learn the most important concepts of blockchain technology',
-      rewards: 5,
       icon: require('~/assets/icons/communities/blockchain.svg?data'),
       colors: {
         primary: '#01464C',
@@ -22,33 +21,77 @@ export const state = () => ({
         'Know what Bitcoin is and why it is considered to be so revolutionary.',
         'Have a basic knowledge of how Blockchain technology works',
         'Understand in which cases, other than digital money, Blockchain technology can be applied.'
+      ],
+      rewards: [
+        {
+          amount: 20,
+          denom: 'CGLD',
+          type: 'SUBMISSION'
+        },
+        {
+          amount: 20,
+          denom: 'CGLD',
+          type: 'FEEDBACK'
+        }
       ]
     },
     {
       slug: 'ae-dev-101',
       name: 'Aeternity Development 101',
       summary: 'Learn how to build a voting dApp on top of Aeternity',
-      rewards: 20,
       icon: require('~/assets/icons/communities/aeternity.svg?data'),
       colors: {
         primary: '#FF3A02',
         accent: '#47110A',
         text: '#47110A'
       },
-      url: ''
+      url: '',
+      objectives: [
+        'Know what Bitcoin is and why it is considered to be so revolutionary.',
+        'Have a basic knowledge of how Blockchain technology works',
+        'Understand in which cases, other than digital money, Blockchain technology can be applied.'
+      ],
+      rewards: [
+        {
+          amount: 20,
+          denom: 'CGLD',
+          type: 'SUBMISSION'
+        },
+        {
+          amount: 20,
+          denom: 'CGLD',
+          type: 'FEEDBACK'
+        }
+      ]
     },
     {
       slug: 'web-dev-101',
       name: 'Web Development 101',
       summary: 'Learn how to build and host a website with bootstrap',
-      rewards: 20,
       icon: require('~/assets/icons/communities/web.svg?data'),
       colors: {
         primary: '#381B84',
         accent: '#24DAD9',
         text: '#fff'
       },
-      url: ''
+      url: '',
+      objectives: [
+        'Know what Bitcoin is and why it is considered to be so revolutionary.',
+        'Have a basic knowledge of how Blockchain technology works',
+        'Understand in which cases, other than digital money, Blockchain technology can be applied.'
+      ],
+      rewards: [
+        {
+          amount: 20,
+          denom: 'CGLD',
+          type: 'SUBMISSION'
+        },
+        {
+          amount: 20,
+          denom: 'CGLD',
+          type: 'FEEDBACK'
+        }
+      ]
     }
   ],
   list: [],
