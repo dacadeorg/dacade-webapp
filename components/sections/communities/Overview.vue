@@ -1,28 +1,25 @@
 <template>
-  <div class="py-4">
-    <div class="text-.5xl">
-      <h3 class="font-medium leading-loose">
-        {{ $t('communities.reward') }}
-      </h3>
-      <p class="font-normal leading-loose">
-        {{ $t('communities.overview.subtitle') }}
-      </p>
-    </div>
+  <div class="py-4 flex flex-col divide-y divide-solid divide-gray-200 space-y-8">
+    <RewardsSection />
+    <ObjectivesSection />
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-// import Section from '../../ui/Section.vue'
+import RewardsSection from './partials/overview/Rewards'
+import ObjectivesSection from './partials/overview/Objectives'
 
 export default {
   name: 'OverviewSection',
   components: {
-    // Section
+    ObjectivesSection,
+    RewardsSection
   },
   computed: {
     ...mapGetters({
-      community: 'communities/current'
+      community: 'communities/current',
+      communityData: 'communities/content'
     })
   }
 }

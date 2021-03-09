@@ -17,7 +17,12 @@ export const state = () => ({
         accent: '#34E256',
         text: '#fff'
       },
-      url: ''
+      url: '',
+      objectives: [
+        'Know what Bitcoin is and why it is considered to be so revolutionary.',
+        'Have a basic knowledge of how Blockchain technology works',
+        'Understand in which cases, other than digital money, Blockchain technology can be applied.'
+      ]
     },
     {
       slug: 'ae-dev-101',

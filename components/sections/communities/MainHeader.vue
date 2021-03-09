@@ -22,7 +22,7 @@
             {{ $t('communities.submissions') }}</span>
           <span
             class="block py-1 px-3"
-          >{{ community.feedbacks || 0 }} {{ $t('communities.feedbacks') }}</span>
+          >{{ communityData.totalFeedback || 0 }} {{ $t('communities.feedbacks') }}</span>
         </div>
       </div>
       <div class="w-4/12 text-right ml-auto">
@@ -42,7 +42,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      community: 'communities/current'
+      community: 'communities/current',
+      communityData: 'communities/content'
     })
   }
 }

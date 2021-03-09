@@ -1,6 +1,6 @@
 <template>
   <div class="flex space-x-3 text-left">
-    <Avatar :icon="details.icon" size="medium" />
+    <Coin :denom="details.denom" size="medium" />
     <div class="pt-1">
       <span
         class="block text-base font-medium leading-normal"
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import Avatar from '@/components/ui/Avatar'
+import Coin from '@/components/ui/Coin'
 
 export default {
   name: 'Balance',
   components: {
-    Avatar
+    Coin
   },
   props: {
     user: {
