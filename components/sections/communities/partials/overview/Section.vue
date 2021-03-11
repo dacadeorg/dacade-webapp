@@ -1,6 +1,6 @@
 <template>
-  <div class="text-.5xl py-14">
-    <h3 class="font-medium leading-loose">
+  <div class="text-.5xl py-12">
+    <h3 class="leading-loose text-default capitalize" :class="{'font-medium': titleBold, 'font-normal': !titleBold}">
       {{ title }}
     </h3>
     <p class="font-normal leading-loose">
@@ -20,6 +20,10 @@ export default {
     title: {
       default: null,
       type: String
+    },
+    titleBold: {
+      default: true,
+      type: Boolean
     },
     subtitle: {
       default: null,

@@ -13,7 +13,7 @@
         <NavItem to="/bounties">
           {{ $t('nav.bounties') }}
         </NavItem>
-        <NavItem to="/communities">
+        <NavItem :to="localePath({ path: '/', hash: '#communities' })">
           {{ $t('nav.communities') }}
         </NavItem>
       </ul>

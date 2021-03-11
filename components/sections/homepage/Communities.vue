@@ -1,7 +1,7 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <Section padding="pt-20 pb-24">
-    <div class="flex relative items-end">
+    <div id="communities" class="flex relative items-end">
       <div class="pr-5">
         <p class="uppercase font-semibold leading-none text-base">
           {{ $t('page.index.communities.title') }}

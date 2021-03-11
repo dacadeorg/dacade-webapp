@@ -1,7 +1,7 @@
 <template>
   <Section
-    :title="$t('communities.reward')"
-    :subtitle="$t('communities.overview.subtitle')"
+    :title="$t('communities.overview.reward.title')"
+    :subtitle="$t('communities.overview.reward.subtitle')"
   >
     <div class="grid grid-cols-3">
       <div v-for="(reward, i) in community.rewards" :key="i" class="flex mt-6 items-center">

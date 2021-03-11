@@ -1,9 +1,9 @@
 <template>
   <div class="relative">
     <MainHeaderSection />
-    <Section padding="py-14">
+    <Section padding="py-0">
       <div class="flex">
-        <div class="w-1/4">
+        <div class="w-1/4 py-14">
           <Navigation />
         </div>
         <div class="w-3/4">
