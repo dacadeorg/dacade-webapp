@@ -34,7 +34,7 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Section from '../../ui/Section.vue'
+import Section from '@/components/ui/Section'
 
 export default {
   components: {

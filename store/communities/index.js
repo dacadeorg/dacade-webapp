@@ -12,6 +12,9 @@ export const state = () => ({
       summary: 'Learn the most important concepts of blockchain technology',
       description: '',
       icon: require('~/assets/icons/communities/blockchain.svg?data'),
+      introduction: {
+        text: ''
+      },
       trailer: {
         duration: 300000,
         summary:
@@ -33,11 +36,69 @@ export const state = () => ({
       chapters: [
         {
           title: 'What is Bitcoin?',
+          description: 'Now In this chapter, you will get an introduction to HTML, Atom, Bootstrap and start to build your own website.',
           duration: 600000,
           objectives: [
             'Get to know the challenges that our current financial system is facing.',
             'Understand what Bitcoin is and gain insights into how it works.',
             'Know what advantages Bitcoin has over traditional currencies as well as what challenges it currently faces.'
+          ],
+          materials: [
+            {
+              title: 'Challenges of fiat money',
+              subtitle: 'Youtube Video by dacade',
+              description:
+                'In this video, we discuss currencies and the challenges that needing to trust authorities might pose.',
+              link:
+                'https://www.youtube.com/embed/g4FxZJqA1nw?showinfo=0&rel=0',
+              duration: 180000,
+              type: 'EMBEDDED-VIDEO'
+            },
+            {
+              title: 'Introducing Bitcoin',
+              subtitle: 'Youtube Video by dacade',
+              description:
+                "In this video, we will give you a brief history of Bitcoin and introduce you to the most important concepts of this 'decentralized' currency.",
+              link:
+                'https://www.youtube.com/embed/Nkvetaoa7UY?showinfo=0&rel=0',
+              duration: 180000,
+              type: 'EMBEDDED-VIDEO'
+            },
+            {
+              title: 'Advantages and challenges of Bitcoin',
+              subtitle: 'Youtube Video by dacade',
+              description:
+                'In this video, we discuss the advantage and challenges of Bitcoin.',
+              link:
+                'https://www.youtube.com/embed/0wfoS-3bQC0?showinfo=0&rel=0',
+              duration: 300000,
+              type: 'EMBEDDED-VIDEO'
+            },
+            {
+              type: 'ADDITIONAL',
+              list: [
+                {
+                  title: 'Andreas Antonopoulos explains Bitcoin',
+                  subtitle: 'Video',
+                  link: 'https://www.youtube.com/watch?v=c2CsJ2HMA2I',
+                  duration: 1200000
+
+                },
+                {
+                  title: 'Explain Bitcoin Like I’m Five',
+                  subtitle: 'Text',
+                  link:
+                  'https://medium.freecodecamp.org/explain-bitcoin-like-im-five-73b4257ac833',
+                  duration: 6
+                },
+                {
+                  title: 'Bitcoin Whitepaper annotated',
+                  link: 'http://fermatslibrary.com/s/bitcoin',
+                  subtitle: 'Text',
+                  duration: 30
+                }
+              ]
+            }
           ]
         },
         {
@@ -51,7 +112,7 @@ export const state = () => ({
         },
         {
           title: 'Blockchain applications?',
-          duration: 600000,
+          duration: 600000, // time in milliseconds
           objectives: [
             'Learn what smart contracts are and when they can be used.',
             'Get to know what smart contract platforms like Ethereum or aeternity do.',
@@ -72,6 +133,8 @@ export const state = () => ({
         }
       ],
       challenge: {
+        points: [],
+        format: {},
         description:
           'In the challenge of this community you need to envision a problem that Blockchain technology could solve. You can earn 0$ worth of aeternity Token in this challenge and additional tokens for helping your peers.'
       }

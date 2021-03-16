@@ -10,11 +10,11 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import RewardsSection from './partials/overview/Rewards'
-import ObjectivesSection from './partials/overview/Objectives'
-import TrailerSection from './partials/overview/Trailer'
-import ChaptersSection from './partials/overview/Chapters'
-import ChallengeSection from './partials/overview/Challenge'
+import RewardsSection from './Rewards'
+import ObjectivesSection from './Objectives'
+import TrailerSection from './Trailer'
+import ChaptersSection from './Chapters'
+import ChallengeSection from './Challenge'
 
 export default {
   name: 'OverviewSection',

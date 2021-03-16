@@ -24,7 +24,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import Coin from '@/components/ui/Coin'
-import Section from './Section.vue'
+import Section from '../partials/Section.vue'
 
 export default {
   name: 'OverviewRewards',

@@ -20,7 +20,7 @@
 import { mapGetters } from 'vuex'
 import ObjectiveList from '@/components/list/Objectives'
 import Moment from 'moment'
-import Section from './Section.vue'
+import Section from '../partials/Section.vue'
 
 export default {
   name: 'ChapterSection',

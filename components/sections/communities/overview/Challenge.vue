@@ -8,7 +8,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Section from './Section.vue'
+import Section from '../partials/Section.vue'
 
 export default {
   name: 'OverviewChallenge',

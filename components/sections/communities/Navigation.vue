@@ -1,22 +1,22 @@
 <template>
   <ul class="relateive">
-    <li v-for="(menu, i) in menus" :key="i" class="mb-8 text-gray-500 relative">
-      <span v-if="!menu.hideTitle" class="text-xs uppercase font-semibold relative">{{
-        menu.title
-      }}</span>
+    <li v-for="(menu, i) in menus" :key="i" class="mb-8  relative">
+      <span
+        v-if="!menu.hideTitle"
+        class="text-xs uppercase font-semibold relative"
+      >{{ menu.title }}</span>
       <ul>
         <li
           v-for="(item, k) in menu.items"
           :key="k"
           class="text-sm mt-4 relative"
-          :style="item.active && activeLinkStyle"
+          :style="activeLinkStyle"
         >
-          <nuxt-link :to="item.link" class="relative">
-            <ArrowRightIcon
-              v-if="item.active"
-              class="inline-block absolute -left-6"
-            />
-            <span>{{ item.label }}</span>
+          <nuxt-link :to="item.link" class="relative text-gray-500">
+            <span class="inline-block absolute -left-6 nav-icon">
+              <ArrowRightIcon />
+            </span>
+            <span class="nav-label">{{ item.label }}</span>
           </nuxt-link>
         </li>
       </ul>
@@ -61,9 +61,15 @@ export default {
         },
         {
           title: this.$t('communities.navigation.chapters'),
-          items: this.communityData.chapter.map(chapter => ({
-            label: chapter.chapterName,
-            link: this.chapterPath(this.$route, chapter.chapterId)
+          items: this.community.chapters.map((chapter, i) => ({
+            label: chapter.title,
+            link: this.chapterPath(this.$route, i),
+            items: chapter.materials
+              ? chapter.materials.map(material => ({
+                label: material.title,
+                link: this.chapterPath(this.$route, i)
+              }))
+              : []
           }))
         },
         {
@@ -96,3 +102,17 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.nav-icon {
+  display: none;
+}
+.nuxt-link-active + ul {
+  display: block;
+}
+.nuxt-link-exact-active {
+  color: inherit !important;
+}
+.nuxt-link-exact-active > .nav-icon {
+  display: block;
+}
+</style>

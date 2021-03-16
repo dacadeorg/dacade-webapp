@@ -16,9 +16,9 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import MainHeaderSection from '@/components/sections/communities/MainHeader'
+import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
 import Navigation from '@/components/sections/communities/Navigation'
-import OverviewSection from '@/components/sections/communities/Overview'
+import OverviewSection from '@/components/sections/communities/overview'
 import Section from '@/components/ui/Section'
 
 export default {
