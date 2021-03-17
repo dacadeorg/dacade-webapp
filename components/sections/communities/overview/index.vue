@@ -5,11 +5,13 @@
     <TrailerSection />
     <ChaptersSection />
     <ChallengeSection />
+    <PageNavigation />
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import PageNavigation from '../PageNavigation.vue'
 import RewardsSection from './Rewards'
 import ObjectivesSection from './Objectives'
 import TrailerSection from './Trailer'
@@ -23,7 +25,8 @@ export default {
     RewardsSection,
     TrailerSection,
     ChaptersSection,
-    ChallengeSection
+    ChallengeSection,
+    PageNavigation
   },
   computed: {
     ...mapGetters({

@@ -25,8 +25,8 @@ export default {
   },
   props: {
     objective: {
-      type: Object,
-      default: () => {}
+      type: String,
+      default: null
     }
   },
   computed: {

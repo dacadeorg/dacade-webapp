@@ -14,6 +14,7 @@
             :key="i"
             :material="material"
           />
+          <PageNavigation />
         </div>
       </div>
     </div>
@@ -25,6 +26,7 @@
 /* eslint-disable no-unused-vars */
 import { mapGetters } from 'vuex'
 import Navigation from '@/components/sections/communities/Navigation'
+import PageNavigation from '@/components/sections/communities/PageNavigation.vue'
 import Header from '@/components/sections/communities/chapters/Header'
 import MaterialSection from '@/components/sections/communities/chapters/Material'
 import Section from '@/components/ui/Section'
@@ -34,7 +36,8 @@ export default {
     Navigation,
     Section,
     Header,
-    MaterialSection
+    MaterialSection,
+    PageNavigation
   },
   scrollToTop: true,
   async fetch ({ store, params }) {

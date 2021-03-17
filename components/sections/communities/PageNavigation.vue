@@ -1,36 +1,44 @@
 <template>
-  <ul class="relative">
-    <li v-for="(menu, i) in menus" :key="i" class="mb-8  relative">
-      <span
-        v-if="!menu.hideTitle"
-        class="text-xs uppercase font-semibold relative"
-      >{{ menu.title }}</span>
-      <ul>
-        <li
-          v-for="(item, k) in menu.items"
-          :key="k"
-          class="text-sm mt-4 relative"
-          :style="activeLinkStyle"
+  <Section>
+    <div class="text-center">
+      <nuxt-link v-if="prevUrl" :to="prevUrl">
+        <Button :custom-style="buttonStyle">
+          <span
+            class="flex text-left items-center text-.5xl"
+          ><span class="mr-3 w-3"><ArrowRightIcon class="transform -rotate-180" /></span>
+            Prev
+          </span>
+        </Button>
+      </nuxt-link>
+      <nuxt-link v-if="nextUrl" :to="nextUrl">
+        <Button
+          :class="{ 'w-1/3': !prevUrl }"
+          :custom-style="activeButtonStyle"
         >
-          <nuxt-link :to="item.link" class="relative text-gray-500">
-            <span class="inline-block absolute -left-6 nav-icon">
-              <ChevronRightIcon />
-            </span>
-            <span class="nav-label">{{ item.label }}</span>
-          </nuxt-link>
-        </li>
-      </ul>
-    </li>
-  </ul>
+          <span class="flex text-left items-center text-.5xl">
+            {{ !prevUrl ? 'Start' : 'Next' }}
+            <span
+              class="ml-auto w-3"
+              :class="{ 'ml-7.5': prevUrl }"
+            ><ArrowRightIcon /></span>
+          </span>
+        </Button>
+      </nuxt-link>
+    </div>
+  </Section>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import ChevronRightIcon from '~/assets/icons/chevron-right.svg?inline'
+import Button from '@/components/ui/Button'
+import Section from './partials/Section.vue'
+import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
   components: {
-    ChevronRightIcon
+    ArrowRightIcon,
+    Button,
+    Section
   },
   data () {
     return {}
@@ -41,9 +49,16 @@ export default {
       community: 'communities/current',
       colors: 'ui/colors'
     }),
-    activeLinkStyle () {
+    buttonStyle () {
       return {
-        color: this.colors.textAccent
+        color: this.colors.textAccent,
+        backgroundColor: 'transparent'
+      }
+    },
+    activeButtonStyle () {
+      return {
+        color: this.colors.text,
+        backgroundColor: this.colors.textAccent
       }
     },
     menus () {
@@ -90,6 +105,29 @@ export default {
           ]
         }
       ]
+    },
+    list () {
+      const result = this.menus.map(menu => menu.items).flat()
+      console.log(result)
+      console.log(this.$route)
+      return result
+    },
+    currentIndex () {
+      return this.list.findIndex(el => el.link === this.$route.fullPath)
+    },
+    prevUrl () {
+      const index = this.currentIndex - 1
+      if (index >= 0) {
+        return this.list[index].link
+      }
+      return null
+    },
+    nextUrl () {
+      const index = this.currentIndex + 1
+      if (index < this.list.length - 1) {
+        return this.list[index].link
+      }
+      return null
     }
   },
   methods: {
@@ -102,17 +140,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.nav-icon {
-  display: none;
-}
-.nuxt-link-active + ul {
-  display: block;
-}
-.nuxt-link-exact-active {
-  color: inherit !important;
-}
-.nuxt-link-exact-active > .nav-icon {
-  display: block;
-}
-</style>
