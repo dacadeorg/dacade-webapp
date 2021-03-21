@@ -113,7 +113,8 @@ export default {
       return result
     },
     currentIndex () {
-      return this.list.findIndex(el => el.link === this.$route.fullPath)
+      console.log(this.$route)
+      return this.list.findIndex(el => this.stripTrailingSlash(el.link) === this.stripTrailingSlash(this.$route.fullPath))
     },
     prevUrl () {
       const index = this.currentIndex - 1
@@ -136,6 +137,11 @@ export default {
     },
     chapterPath (route, chapterId) {
       return `/communities/${route.params.slug}/chapters/${chapterId}`
+    },
+    stripTrailingSlash (str) {
+      return str.endsWith('/')
+        ? str.slice(0, -1)
+        : str
     }
   }
 }
