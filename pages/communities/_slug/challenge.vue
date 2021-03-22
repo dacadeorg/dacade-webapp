@@ -8,7 +8,10 @@
         <div
           class="py-4 flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
         >
-          <PageNavigation />
+          <Header />
+          <Rewards />
+          <RatingRubric />
+          <Submission />
         </div>
       </div>
     </div>
@@ -20,14 +23,20 @@
 /* eslint-disable no-unused-vars */
 import { mapGetters } from 'vuex'
 import Navigation from '@/components/sections/communities/Navigation'
-import PageNavigation from '@/components/sections/communities/PageNavigation.vue'
 import Section from '@/components/ui/Section'
+import Header from '@/components/sections/communities/challenge/Header'
+import RatingRubric from '@/components/sections/communities/challenge/Rubric'
+import Rewards from '@/components/sections/communities/challenge/Rewards'
+import Submission from '@/components/sections/communities/challenge/Submission'
 
 export default {
   components: {
     Navigation,
     Section,
-    PageNavigation
+    Header,
+    RatingRubric,
+    Rewards,
+    Submission
   },
   scrollToTop: true,
   async fetch ({ store, params }) {

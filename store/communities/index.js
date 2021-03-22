@@ -36,7 +36,8 @@ export const state = () => ({
       chapters: [
         {
           title: 'What is Bitcoin?',
-          description: 'Now In this chapter, you will get an introduction to HTML, Atom, Bootstrap and start to build your own website.',
+          description:
+            'Now In this chapter, you will get an introduction to HTML, Atom, Bootstrap and start to build your own website.',
           duration: 600000,
           objectives: [
             'Get to know the challenges that our current financial system is facing.',
@@ -82,13 +83,12 @@ export const state = () => ({
                   subtitle: 'Video',
                   link: 'https://www.youtube.com/watch?v=c2CsJ2HMA2I',
                   duration: 1200000
-
                 },
                 {
                   title: 'Explain Bitcoin Like I’m Five',
                   subtitle: 'Text',
                   link:
-                  'https://medium.freecodecamp.org/explain-bitcoin-like-im-five-73b4257ac833',
+                    'https://medium.freecodecamp.org/explain-bitcoin-like-im-five-73b4257ac833',
                   duration: 6
                 },
                 {
@@ -124,7 +124,9 @@ export const state = () => ({
         {
           amount: 20,
           denom: 'CGLD',
-          type: 'SUBMISSION'
+          type: 'SUBMISSION',
+          description:
+            'In order to earn 20 dacade coins you must get at least 14 out of 20 Points in this challenge.'
         },
         {
           amount: 20,
@@ -134,9 +136,83 @@ export const state = () => ({
       ],
       challenge: {
         points: [],
-        format: {},
+        exampleSubmissionId: '"-LI5aM8Ol7E1_SXaMn_o"',
+        format: [{ githubLink: false, text: true }],
+        threshold: 70,
+        hint:
+          'Is there something said that needs to be corrected? Is blockchain necessary to address the mentioned problem? Is the idea original? Do you have something valuable to add?',
+        ratingCriteria: [
+          {
+            name: 'relevance',
+            rubric: [
+              {
+                points: 0,
+                text:
+                  'You didn’t describe the problem in enough detail to make it seem relevant and able to be addressed by blockchain technology.'
+              },
+              {
+                points: 3,
+                text:
+                  'You described a relevant problem that could be addressed using blockchain technology.'
+              },
+              {
+                points: 5,
+                text:
+                  'You convincingly explained why blockchain technology is needed to address a relevant problem.'
+              },
+              {
+                points: 6,
+                text:
+                  'You explained why blockchain technology would be needed to solve a relevant problem and laid out how it could work in practice.'
+              }
+            ]
+          },
+          {
+            name: 'originality',
+            rubric: [
+              {
+                points: 0,
+                text:
+                  'Your use case is mentioned in our learning materials, already addressed by Bitcoin or a very similar idea was just submitted by your peers.'
+              },
+              {
+                points: 1,
+                text:
+                  'You suggested a common use case or it was not explained in enough detail, why blockchain tech has to be used.'
+              },
+              {
+                points: 2,
+                text:
+                  'Your use case is not very common but there are some projects who are trying to do something similar to what you described.'
+              },
+              {
+                points: 3,
+                text:
+                  'Your use case is very original and we have never heard of something like it in the way you described it.'
+              }
+            ]
+          },
+          {
+            name: 'quality',
+            rubric: [
+              {
+                points: 0,
+                text: 'Your submission was hard to read or not in English.'
+              },
+              {
+                points: 1,
+                text: 'Your submission was in English and easy to read.'
+              }
+            ]
+          }
+        ],
         description:
-          'In the challenge of this community you need to envision a problem that Blockchain technology could solve. You can earn 0$ worth of aeternity Token in this challenge and additional tokens for helping your peers.'
+          'Build your own website based on what you learned from our given learning materials.',
+        objectives: [
+          'Build your own original website using the bootstrap framework, with original content, new Bootstrap components and your own styling.',
+          'Write a short sentence that explains your website.',
+          'Submit the link to your GitHub repository (e.g. https://github.com/moritzfelipe/info).'
+        ]
       }
     },
     {
@@ -190,7 +266,9 @@ export const state = () => ({
         {
           amount: 20,
           denom: 'CGLD',
-          type: 'SUBMISSION'
+          type: 'SUBMISSION',
+          description:
+            'In order to earn 20 dacade coins you must get at least 14 out of 20 Points in this challenge.'
         },
         {
           amount: 20,
