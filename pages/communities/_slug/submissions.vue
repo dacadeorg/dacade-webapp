@@ -7,7 +7,12 @@
       <div class="w-3/4">
         <div
           class="py-4 flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
-        />
+        >
+          <Header
+            :title="community.name"
+            :subtitle="$t('communities.submission.title')"
+          />
+        </div>
       </div>
     </div>
   </Section>
@@ -19,11 +24,13 @@
 import { mapGetters } from 'vuex'
 import Navigation from '@/components/sections/communities/Navigation'
 import Section from '@/components/ui/Section'
+import Header from '@/components/sections/communities/partials/Header'
 
 export default {
   components: {
     Navigation,
-    Section
+    Section,
+    Header
   },
   scrollToTop: true,
   async fetch ({ store, params }) {
