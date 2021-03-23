@@ -47,7 +47,8 @@ export default {
     ...mapGetters({
       communityData: 'communities/content',
       community: 'communities/current',
-      colors: 'ui/colors'
+      colors: 'ui/colors',
+      menus: 'communities/navigation'
     }),
     buttonStyle () {
       return {
@@ -61,59 +62,11 @@ export default {
         backgroundColor: this.colors.textAccent
       }
     },
-    menus () {
-      return [
-        {
-          title: 'Introduction',
-          hideTitle: true,
-          items: [
-            {
-              label: this.$t('communities.navigation.overview'),
-              active: true,
-              link: this.communityPath(this.$route.params.slug)
-            }
-          ]
-        },
-        {
-          title: this.$t('communities.navigation.chapters'),
-          items: this.community.chapters.map((chapter, i) => ({
-            label: chapter.title,
-            link: this.chapterPath(this.$route, i),
-            items: chapter.materials
-              ? chapter.materials.map(material => ({
-                label: material.title,
-                link: this.chapterPath(this.$route, i)
-              }))
-              : []
-          }))
-        },
-        {
-          title: this.$t('communities.navigation.bounties'),
-          items: [
-            {
-              label: this.$t('communities.navigation.challenge'),
-              link: this.communityPath(this.$route.params.slug, 'challenge')
-            },
-            {
-              label: this.$t('communities.navigation.submissions'),
-              link: this.communityPath(this.$route.params.slug, 'submissions')
-            },
-            {
-              label: this.$t('communities.navigation.scoreboard'),
-              link: this.communityPath(this.$route.params.slug, 'scoreboard')
-            }
-          ]
-        }
-      ]
-    },
     list () {
       const result = this.menus.map(menu => menu.items).flat()
-      console.log(result)
-      console.log(this.$route)
       return result
     },
     currentIndex () {
-      console.log(this.$route)
       return this.list.findIndex(el => this.stripTrailingSlash(el.link) === this.stripTrailingSlash(this.$route.fullPath))
     },
     prevUrl () {
@@ -132,12 +85,6 @@ export default {
     }
   },
   methods: {
-    communityPath (slug, link = '') {
-      return `/communities/${slug}/${link}`
-    },
-    chapterPath (route, chapterId) {
-      return `/communities/${route.params.slug}/chapters/${chapterId}`
-    },
     stripTrailingSlash (str) {
       return str.endsWith('/')
         ? str.slice(0, -1)

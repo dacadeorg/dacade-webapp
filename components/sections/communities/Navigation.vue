@@ -39,15 +39,27 @@ export default {
     ...mapGetters({
       communityData: 'communities/content',
       community: 'communities/current',
-      colors: 'ui/colors'
+      colors: 'ui/colors',
+      menus: 'communities/navigation'
     }),
     activeLinkStyle () {
       return {
         color: this.colors.textAccent
       }
+    }
+  },
+  created () {
+    this.setNavigationList()
+  },
+  methods: {
+    communityPath (link = '') {
+      return `/communities/${this.$route.params.slug}/${link}`
     },
-    menus () {
-      return [
+    chapterPath (chapterId) {
+      return `/communities/${this.$route.params.slug}/chapters/${chapterId}`
+    },
+    setNavigationList () {
+      const list = [
         {
           title: 'Introduction',
           hideTitle: true,
@@ -55,7 +67,7 @@ export default {
             {
               label: this.$t('communities.navigation.overview'),
               active: true,
-              link: this.communityPath(this.$route.params.slug)
+              link: this.communityPath('')
             }
           ]
         },
@@ -63,11 +75,11 @@ export default {
           title: this.$t('communities.navigation.chapters'),
           items: this.community.chapters.map((chapter, i) => ({
             label: chapter.title,
-            link: this.chapterPath(this.$route, i),
+            link: this.chapterPath(i),
             items: chapter.materials
               ? chapter.materials.map(material => ({
                 label: material.title,
-                link: this.chapterPath(this.$route, i)
+                link: this.chapterPath(i)
               }))
               : []
           }))
@@ -77,27 +89,22 @@ export default {
           items: [
             {
               label: this.$t('communities.navigation.challenge'),
-              link: this.communityPath(this.$route.params.slug, 'challenge')
+              link: this.communityPath('challenge')
             },
             {
               label: this.$t('communities.navigation.submissions'),
-              link: this.communityPath(this.$route.params.slug, 'submissions')
+              link: this.communityPath('submissions')
             },
             {
               label: this.$t('communities.navigation.scoreboard'),
-              link: this.communityPath(this.$route.params.slug, 'scoreboard')
+              link: this.communityPath('scoreboard')
             }
           ]
         }
       ]
-    }
-  },
-  methods: {
-    communityPath (slug, link = '') {
-      return `/communities/${slug}/${link}`
-    },
-    chapterPath (route, chapterId) {
-      return `/communities/${route.params.slug}/chapters/${chapterId}`
+      this.$store.commit('communities/setNavigation', {
+        list
+      })
     }
   }
 }

@@ -41,6 +41,8 @@
   "communities.challenge.criteria.title": "Rating Rubric",
   "communities.challenge.criteria.points": "Points",
   "communities.challenge.submission": "Submission",
+  "communities.challenge.submission.placeholder.text": "Enter Submission Text",
+  "communities.challenge.submission.placeholder.github": "Enter link to GitHub Link",
   "communities.feedbacks": "Feedbacks",
   "communities.navigation.overview": "Overview",
   "communities.navigation.chapters": "Chapters",

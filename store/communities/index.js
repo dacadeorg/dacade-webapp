@@ -137,7 +137,7 @@ export const state = () => ({
       challenge: {
         points: [],
         exampleSubmissionId: '"-LI5aM8Ol7E1_SXaMn_o"',
-        format: [{ githubLink: false, text: true }],
+        format: { githubLink: true, text: true },
         threshold: 70,
         hint:
           'Is there something said that needs to be corrected? Is blockchain necessary to address the mentioned problem? Is the idea original? Do you have something valuable to add?',
@@ -281,7 +281,8 @@ export const state = () => ({
   list: [],
   count: 0,
   content: null,
-  current: null
+  current: null,
+  menus: []
 })
 
 export const mutations = {
@@ -310,6 +311,10 @@ export const mutations = {
   },
   setContent (state, payload) {
     state.content = payload
+  },
+  setNavigation (state, payload) {
+    const { list } = payload
+    state.menus = list
   }
 }
 
@@ -355,5 +360,8 @@ export const getters = {
   },
   content (state) {
     return state.content
+  },
+  navigation (state) {
+    return state.menus
   }
 }
