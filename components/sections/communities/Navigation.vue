@@ -12,7 +12,7 @@
           class="text-sm mt-4 relative"
           :style="activeLinkStyle"
         >
-          <nuxt-link :to="item.link" class="relative text-gray-500">
+          <nuxt-link :to="item.link" class="relative text-gray-500" :class="{'activable-link': !item.exact}">
             <span class="inline-block absolute -left-6 nav-icon">
               <ChevronRightIcon />
             </span>
@@ -66,7 +66,7 @@ export default {
           items: [
             {
               label: this.$t('communities.navigation.overview'),
-              active: true,
+              exact: true,
               link: this.communityPath('')
             }
           ]
@@ -76,10 +76,12 @@ export default {
           items: this.community.chapters.map((chapter, i) => ({
             label: chapter.title,
             link: this.chapterPath(i),
+            exact: false,
             items: chapter.materials
               ? chapter.materials.map(material => ({
                 label: material.title,
-                link: this.chapterPath(i)
+                link: this.chapterPath(i),
+                exact: false
               }))
               : []
           }))
@@ -89,15 +91,18 @@ export default {
           items: [
             {
               label: this.$t('communities.navigation.challenge'),
-              link: this.communityPath('challenge')
+              link: this.communityPath('challenge'),
+              exact: false
             },
             {
               label: this.$t('communities.navigation.submissions'),
-              link: this.communityPath('submissions')
+              link: this.communityPath('submissions'),
+              exact: false
             },
             {
               label: this.$t('communities.navigation.scoreboard'),
-              link: this.communityPath('scoreboard')
+              link: this.communityPath('scoreboard'),
+              exact: false
             }
           ]
         }
@@ -116,10 +121,12 @@ export default {
 .nuxt-link-active + ul {
   display: block;
 }
-.nuxt-link-exact-active {
+.nuxt-link-exact-active,
+.activable-link.nuxt-link-active {
   color: inherit !important;
 }
-.nuxt-link-exact-active > .nav-icon {
+.nuxt-link-exact-active > .nav-icon,
+.activable-link.nuxt-link-active > .nav-icon {
   display: block;
 }
 </style>
