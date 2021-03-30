@@ -136,7 +136,6 @@ export const state = () => ({
       ],
       challenge: {
         points: [],
-        exampleSubmissionId: '"-LI5aM8Ol7E1_SXaMn_o"',
         format: { githubLink: true, text: true },
         threshold: 70,
         hint:
@@ -256,7 +255,6 @@ export const state = () => ({
         textAccent: '#24DAD9',
         text: '#fff'
       },
-      url: '',
       objectives: [
         'Know what Bitcoin is and why it is considered to be so revolutionary.',
         'Have a basic knowledge of how Blockchain technology works',

@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
+import 'firebase/functions'
 
 if (!firebase.apps.length) {
   let config = {}
@@ -22,6 +23,7 @@ if (!firebase.apps.length) {
     }
   }
   firebase.initializeApp(config)
+  firebase.functions().useFunctionsEmulator('http://localhost:5001')
 }
 
 export default firebase

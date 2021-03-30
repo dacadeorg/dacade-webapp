@@ -1,7 +1,16 @@
 <template>
   <div>
     <Section>
-      <SubmissionCard v-for="submission in submissions" :key="submission.id" :submission="submission" />
+      <SubmissionCard
+        v-for="(submission, i) in submissions"
+        :key="submission.id"
+        :stats="true"
+        :link="
+          `/communities/${$route.params.slug}/submissions/${submission.id}`
+        "
+        :submission="submission"
+        :last="i === submissions.length - 1"
+      />
     </Section>
   </div>
 </template>
