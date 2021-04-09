@@ -44,6 +44,8 @@ export default {
     },
     sizeClasses () {
       switch (this.size) {
+        case 'extra':
+          return 'w-32 h-32 text-4xl'
         case 'medium':
           return 'w-15 h-15 text-2xl'
         default:
