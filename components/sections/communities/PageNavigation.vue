@@ -71,14 +71,14 @@ export default {
     },
     prevUrl () {
       const index = this.currentIndex - 1
-      if (index >= 0) {
+      if (index >= 0 && this.list[index]?.link) {
         return this.list[index].link
       }
       return null
     },
     nextUrl () {
       const index = this.currentIndex + 1
-      if (index < this.list.length - 1) {
+      if (index < this.list.length - 1 && this.list[index]?.link) {
         return this.list[index].link
       }
       return null

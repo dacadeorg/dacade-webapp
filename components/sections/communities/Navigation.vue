@@ -73,7 +73,7 @@ export default {
         },
         {
           title: this.$t('communities.navigation.chapters'),
-          items: this.community.chapters.map((chapter, i) => ({
+          items: this.community.chapters?.map((chapter, i) => ({
             label: chapter.title,
             link: this.chapterPath(i),
             exact: false,

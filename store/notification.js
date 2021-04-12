@@ -14,7 +14,6 @@ export const mutations = {
     state.userNotifications = null
   },
   setCount (state) {
-    console.log('setting count')
     let notifications = 0
     if (this.notifications) {
       for (
