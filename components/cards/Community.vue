@@ -4,8 +4,8 @@
     :style="{ backgroundColor: community.colors.primary }"
   >
     <nuxt-link :to="{ path: path }">
-      <div class="flex relative">
-        <div class="w-8/12 text-2xl">
+      <div class="lg:flex xl:flex md:flex my-1 md:my-5 relative p-8">
+        <div class="lg:w-8/12 xl:w-8/12 md:w-8/12 text-2xl">
           <p class="text-white leading-7 font-medium">
             {{ community.name }}
           </p>
@@ -16,11 +16,11 @@
             {{ community.summary }}
           </p>
         </div>
-        <div class="ml-auto">
+        <div class="ml-auto pl-28 lg:pl-0 md:pl-0 sm:pl-0 xl:my-0 lg:my-16 mt-11">
           <img :src="community.icon">
         </div>
         <div
-          class="block absolute bottom-0 left-0"
+          class="block absolute lg:bottom-0 bottom-8 text-sm lg:left-0 left-3 md:left-10"
           :style="{ color: community.colors.accent }"
         >
           <span class="font-bold">{{ rewards }} DAC</span>

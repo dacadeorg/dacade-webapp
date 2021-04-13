@@ -1,19 +1,19 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <Section padding="pt-20 pb-24">
-    <div id="communities" class="flex relative items-end">
+    <div id="communities" class="lg:flex md:flex relative items-end">
       <div class="pr-5">
         <p class="uppercase font-semibold leading-none text-base">
           {{ $t('page.index.communities.title') }}
         </p>
       </div>
-      <div class="pl-7 relative">
+      <div class="pl-7 relative hidden lg:block md:block">
         <div class="message-bubble">
           {{ $t('page.index.communities.subtitle') }}
         </div>
       </div>
     </div>
-    <div class="flex mt-7 flex-wrap justify-between">
+    <div class="lg:flex xl:flex mt-7 flex-wrap justify-between">
       <CommunityCard
         v-for="(community, i) in communities"
         :key="i"
