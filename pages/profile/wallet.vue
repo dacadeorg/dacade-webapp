@@ -6,7 +6,7 @@
 import Wrapper from '@/components/sections/profile/Wrapper'
 
 export default {
-  name: 'Profile',
+  name: 'Wallet',
   components: {
     Wrapper
   }

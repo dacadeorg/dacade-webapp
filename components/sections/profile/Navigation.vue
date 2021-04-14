@@ -55,11 +55,11 @@ export default {
           items: [
             {
               label: 'Notifications',
-              link: '/notifications'
+              link: '/profile/notifications'
             },
             {
               label: 'Wallet',
-              link: '/wallet'
+              link: '/profile/wallet'
             }
           ]
         }
