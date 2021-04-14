@@ -3,7 +3,7 @@
     class="outline-none focus:outline-none hover:outline-none cursor-pointer relative"
     :class="{
       'bg-primary text-white': type == 'primary',
-      'py-4 px-7': padding,
+      'py-4 lg:px-7 px-5': padding,
       'bg-secondary text-gray-900': type == 'secondary',
       'text-primary border border-solid border-primary bg-transparent hover:bg-primary hover:text-white': type == 'outline-primary',
       'text-secondary border border-solid border-secondary bg-transparent hover:bg-secondary hover:text-gray-900': type == 'outline-secondary',
