@@ -1,6 +1,6 @@
 /* eslint-disable vue/no-v-html */
 <template>
-  <Section padding="pt-20 pb-24">
+  <Section padding="pt-20 lg:pb-24 md:pb-24">
     <div id="communities" class="lg:flex md:flex relative items-end">
       <div class="pr-5">
         <p class="uppercase font-semibold leading-none text-base">
