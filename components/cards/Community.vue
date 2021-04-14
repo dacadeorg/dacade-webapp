@@ -4,7 +4,7 @@
     :style="{ backgroundColor: community.colors.primary }"
   >
     <nuxt-link :to="{ path: path }">
-      <div class="lg:flex xl:flex md:flex my-1 md:my-5 relative p-8">
+      <div class="lg:flex xl:flex md:flex my-1 md:my-5 relative lg:p-0 p-8">
         <div class="lg:w-8/12 xl:w-8/12 md:w-8/12 text-2xl">
           <p class="text-white leading-7 font-medium">
             {{ community.name }}
