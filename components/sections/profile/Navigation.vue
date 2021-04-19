@@ -1,5 +1,5 @@
 <template>
-  <ul class="relative">
+  <ul class="relative hidden lg:block xl:block">
     <li v-for="(menu, i) in menus" :key="i" class="mb-8  relative">
       <span
         v-if="!menu.hideTitle"

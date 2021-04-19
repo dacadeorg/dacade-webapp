@@ -1,11 +1,11 @@
 <template>
   <Section padding="py-0">
     <Header />
-    <div class="flex">
-      <div class="w-1/4">
+    <div class="lg:flex">
+      <div class="lg:w-1/4">
         <Navigation />
       </div>
-      <div class="w-3/4">
+      <div class="lg:w-3/4">
         <slot />
       </div>
     </div>
