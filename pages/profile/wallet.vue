@@ -1,6 +1,6 @@
 <template>
   <Wrapper>
-    <WalletCard />
+    <WalletCard :title="text" :amount="price" />
   </Wrapper>
 </template>
 
@@ -10,9 +10,15 @@ import WalletCard from '@/components/cards/Wallet'
 
 export default {
   name: 'Wallet',
+
   components: {
     Wrapper,
     WalletCard
-  }
+  },
+
+  data: () => ({
+    text: 'hello',
+    price: 5.00
+  })
 }
 </script>
