@@ -1,9 +1,6 @@
 <template>
   <div
     class="relative overflow-hidden"
-    :style="{
-      backgroundColor: customColor
-    }"
     :class="{
       'bg-white text-gray-900': type == 'default',
       'bg-primary text-white': type == 'primary',
@@ -30,10 +27,6 @@ export default {
     },
     padding: {
       default: 'py-4',
-      type: String
-    },
-    customColor: {
-      default: null,
       type: String
     }
   }

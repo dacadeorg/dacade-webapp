@@ -27,7 +27,15 @@ module.exports = {
       blue: colors.blue,
       indigo: colors.indigo,
       purple: colors.violet,
-      pink: colors.pink
+      pink: colors.pink,
+      theme: {
+        primary: 'var(--tm-primary)',
+        secondary: 'var(--tm-secondary)',
+        text: 'var(--tm-text)',
+        highlight: 'var(--tm-highlight)',
+        accent: 'var(--tm-accent)',
+        muted: 'var(--tm-muted)'
+      }
     },
     spacing: {
       px: '1px',

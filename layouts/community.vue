@@ -1,13 +1,15 @@
 <template>
-  <div class="relative">
-    <Navbar :settings="settings" />
-    <NotificationBar />
+  <ThemeWrapper :colors="colors">
     <div class="relative">
-      <nuxt />
+      <Navbar :settings="settings" />
+      <NotificationBar />
+      <div class="relative">
+        <nuxt />
+      </div>
+      <Footer />
+      <PrivacyPolicyBanner />
     </div>
-    <Footer />
-    <PrivacyPolicyBanner />
-  </div>
+  </ThemeWrapper>
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -15,9 +17,11 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
 import NotificationBar from '@/components/NotificationBar'
+import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 
 export default {
   components: {
+    ThemeWrapper,
     Navbar,
     PrivacyPolicyBanner,
     NotificationBar,
