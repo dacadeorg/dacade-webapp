@@ -30,16 +30,26 @@
           veniam.
         </p>
       </div>
-      <div
-        class="lg:pt-5 sm:pt-5 md:pt-5 pt-14 absolute text-sm lg:text-gray-700 md:text-gray-700 sm:text-gray-700 cursor-pointer text-primary font-medium lg:font-normal md:font-normal sm:font-normal"
-      >
-        <a href="#">Change Address</a>
+      <div>
+        <Address />
       </div>
       <div class="right-2 absolute bottom-2 mt-5">
-        <Button :padding="false" class="py-2" type="outline-primary">
-          <span class="inline-block text-sm">Cash out </span>
-          <span class="inline-block lg:pl-12 pl-3 align-middle"><ArrowRight /></span>
-        </Button>
+        <div v-if="hasAddress">
+          <Button :padding="false" class="py-2" type="outline-primary">
+            <span class="inline-block text-sm">Cash out </span>
+            <span
+              class="inline-block lg:pl-12 pl-3 align-middle"
+            ><ArrowRight /></span>
+          </Button>
+        </div>
+        <div v-else>
+          <Button :padding="false" class="py-2" type="outline-gray">
+            <span class="inline-block text-sm">Cash out </span>
+            <span
+              class="inline-block lg:pl-12 pl-3 align-middle"
+            ><ArrowRight /></span>
+          </Button>
+        </div>
       </div>
     </div>
   </div>
@@ -49,6 +59,7 @@
 import Coin from '@/components/ui/Coin'
 import Button from '@/components/ui/Button'
 import Tag from '@/components/ui/Tag'
+import Address from '@/components/cards/Address'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
@@ -57,7 +68,8 @@ export default {
     Coin,
     Button,
     ArrowRight,
-    Tag
+    Tag,
+    Address
   },
   props: {
     title: {
@@ -70,6 +82,12 @@ export default {
       type: Number,
       require: true,
       default: null
+    }
+  },
+
+  computed: {
+    hasAddress () {
+      return true
     }
   }
 }
