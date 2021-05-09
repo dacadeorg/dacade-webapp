@@ -8,25 +8,28 @@
     :link="link"
     :bordered="!last"
   >
-    <p class="text-lg leading-normal">
+    <p class="text-base md:text-lg leading-normal">
       {{ evaluation.content }}
     </p>
+    <RatingRubric hide-title />
   </UserCard>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import UserCard from '@/components/cards/User'
+import RatingRubric from '@/components/sections/communities/challenge/Rating'
 
 export default {
   name: 'EvaluationCard',
   components: {
-    UserCard
+    UserCard,
+    RatingRubric
   },
   props: {
     evaluation: {
       default: () => {
-        return {}
+        return { }
       },
       type: Object
     },

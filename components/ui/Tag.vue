@@ -1,14 +1,16 @@
 <template>
-  <span :style="customStyle" :class="[sizeClasses]" class="bg-gray-900 font-semibold text-white leading-none  text-center inline-flex items-center justify-center rounded-full text-xs absolute top-0 -right-1">{{ value }}</span>
+  <div class="px-3 py-1 bg-gray-200 font-medium text-gray-600 leading-none  text-center inline-flex items-center justify-center rounded-full text-md">
+    {{ value }}
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Badge',
+  name: 'Tag',
   props: {
     value: {
-      default: 0,
-      type: [Number, String]
+      default: '',
+      type: String
     },
     size: {
       default: 'small',
@@ -20,9 +22,6 @@ export default {
     }
   },
   computed: {
-    initials () {
-      return this.user.displayName ? this.user.displayName[0] : null
-    },
     sizeClasses () {
       switch (this.size) {
         case 'medium':

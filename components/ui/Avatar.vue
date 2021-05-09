@@ -46,8 +46,10 @@ export default {
       switch (this.size) {
         case 'extra':
           return 'w-32 h-32 text-4xl'
-        case 'medium':
+        case 'large':
           return 'w-15 h-15 text-2xl'
+        case 'medium':
+          return 'w-10 h-10 md:w-15 md:h-15 text-2xl'
         default:
           return 'w-9 h-9 text-lg'
       }

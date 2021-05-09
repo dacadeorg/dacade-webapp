@@ -6,7 +6,7 @@
       class="mt-8"
     >
       <span class="block text-sm capitalize font-medium">{{ criteria.name }}</span>
-      <div class="grid grid-cols-4 mt-3 gap-x-5">
+      <div class="grid grid-cols-1 space-y-4 md:space-y-0  md:grid-cols-2 lg:grid-cols-4 mt-3 gap-y-5 gap-x-5">
         <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm">
           <span
             class="block font-bold leading-normal"

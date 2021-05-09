@@ -1,9 +1,9 @@
 <template>
-  <div class="text-.5xl py-12">
-    <h3 class="leading-loose text-default capitalize" :class="{'font-medium': titleBold, 'font-normal': !titleBold}">
+  <div class="text-xl md:text-.5xl px-0 py-5 md:py-10 md:pb-5">
+    <h3 v-if="title !== ''" class="leading-normal text-default capitalize" :class="{'font-medium': titleBold, 'font-normal': !titleBold}">
       {{ title }}
     </h3>
-    <p class="font-normal leading-loose">
+    <p class="text-base  md:text-.5xl font-normal leading-normal">
       {{ subtitle }}
     </p>
     <div>
@@ -12,7 +12,6 @@
   </div>
 </template>
 <script>
-// import Section from '../../ui/Section.vue'
 
 export default {
   name: 'OverviewRewards',

@@ -8,7 +8,7 @@
     :link="link"
     :bordered="!last"
   >
-    <p class="text-lg leading-normal">
+    <p class="text-base md:text-lg max-w-screen-sm leading-normal">
       {{ review.content }}
     </p>
   </UserCard>

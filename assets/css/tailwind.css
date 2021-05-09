@@ -17,13 +17,14 @@
 }
 
 .content-wrapper {
-  @apply w-10/12 mx-auto;
+  @apply max-w-7xl mx-5 md:mx-auto md:w-10/12;
 }
 
 body,
 .text-default {
   @apply text-gray-900;
   font-family: "Graphik", sans-serif;
+  font-feature-settings: "ss01" 1, "ss02" 1;
 }
 
 body {

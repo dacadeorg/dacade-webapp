@@ -1,9 +1,9 @@
 <template>
-  <ul class="relative">
-    <li v-for="(menu, i) in menus" :key="i" class="mb-8  relative">
+  <ul class="relative border-gray-200 border-b border-t lg:border-0 lg:px-0 lg:pt-0 lg:mb-0 lg:mx-0 px-15 pt-3 -pb-2 mb-12 -mx-15 md:-mx-5">
+    <li v-for="(menu, i) in menus" :key="i" class="mb-6 md:mb-8  relative">
       <span
         v-if="!menu.hideTitle"
-        class="text-xs uppercase font-semibold relative text-gray-500"
+        class="hidden lg:flex -mt-6 lg:mt-0 text-xs uppercase font-semibold relative text-gray-500"
       >{{ menu.title }}</span>
       <ul>
         <li
@@ -47,19 +47,6 @@ export default {
             {
               label: 'Web Development 101',
               link: '/profile/web-dev-101'
-            }
-          ]
-        },
-        {
-          title: 'PROFILE',
-          items: [
-            {
-              label: 'Notifications',
-              link: '/profile/notifications'
-            },
-            {
-              label: 'Wallet',
-              link: '/profile/wallet'
             }
           ]
         }

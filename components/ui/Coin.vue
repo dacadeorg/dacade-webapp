@@ -2,11 +2,11 @@
   <span
     :class="[sizeClasses, shapeClasses]"
     :style="{
-      backgroundColor: coin(denom).color
+      backgroundColor: color || coin(denom).color
     }"
     class="bg-primary inline-flex text-white  items-center justify-center uppercase leading-none"
   >
-    <img v-if="coin(denom).icon" :src="coin(denom).icon" class="p-2">
+    <img v-if="coin(denom).icon" class="p-2" :src="coin(denom).icon">
   </span>
 </template>
 
@@ -14,6 +14,10 @@
 export default {
   name: 'Avatar',
   props: {
+    color: {
+      default: null,
+      type: String
+    },
     denom: {
       default: null,
       type: String
@@ -45,9 +49,11 @@ export default {
     sizeClasses () {
       switch (this.size) {
         case 'medium':
-          return 'w-15 h-15 text-2xl'
+          return 'w-15 h-15 text-2xl p-2'
+        case 'small':
+          return 'w-4 h-4 text-md p-0.5'
         default:
-          return 'w-9 h-9 text-lg'
+          return 'w-9 h-9 text-lg p-4'
       }
     },
     shapeClasses () {

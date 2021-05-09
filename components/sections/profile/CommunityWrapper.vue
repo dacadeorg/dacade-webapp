@@ -3,7 +3,7 @@
     <Header />
     <div class="lg:flex">
       <div class="px-6 w-full lg:w-1/4">
-        <Navigation />
+        <CommunityNavigation hide-title />
       </div>
       <div class="w-full lg:w-3/4">
         <slot />
@@ -14,15 +14,15 @@
 
 <script>
 import Header from '@/components/sections/profile/Header'
-import Navigation from '@/components/sections/profile/Navigation'
+import CommunityNavigation from '@/components/sections/profile/CommunityNavigation'
 import Section from '@/components/ui/Section'
 
 export default {
-  name: 'ProfileWrapper',
+  name: 'CommunityWrapper',
   components: {
     Header,
     Section,
-    Navigation
+    CommunityNavigation
   }
 }
 </script>
