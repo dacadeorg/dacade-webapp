@@ -1,10 +1,13 @@
 <template>
   <Section padding="py-0">
-    <div class="flex">
-      <div class="w-1/4 py-14">
+    <div class="lg:flex">
+      <div class="hidden lg:block w-1/4 py-3 pr-4 lg:py-14">
         <Navigation />
       </div>
-      <div class="w-3/4">
+      <div class="lg:hidden py-4 w-full lg:py-14">
+        <MobileNav />
+      </div>
+      <div class="lg:w-3/4">
         <div class="py-4 flex flex-col space-y-8 text-gray-700">
           <Header
             :title="community.name"
@@ -13,8 +16,6 @@
           <div v-if="submission">
             <SubmissionCard :submission="submission" :buttons="true" />
             <EvaluationCard
-              v-for="(evaluation, i) in submission.evaluations"
-              :key="i"
               :evaluation="evaluation"
             />
             <ReviewCard
@@ -30,9 +31,7 @@
   </Section>
 </template>
 <script>
-/* eslint-disable no-console */
-/* eslint-disable prefer-const */
-/* eslint-disable no-unused-vars */
+
 import { mapGetters } from 'vuex'
 import SubmissionCard from '@/components/cards/Submission'
 import ReviewCard from '@/components/cards/Review'
@@ -40,9 +39,11 @@ import EvaluationCard from '@/components/cards/Evaluation'
 import Navigation from '@/components/sections/communities/Navigation'
 import Section from '@/components/ui/Section'
 import Header from '@/components/sections/communities/partials/Header'
+import MobileNav from '@/components/sections/communities/MobileNav'
 
 export default {
   components: {
+    MobileNav,
     Navigation,
     Section,
     Header,
@@ -51,6 +52,17 @@ export default {
     EvaluationCard
   },
   scrollToTop: true,
+  props: {
+    evaluation: {
+      default: () => {
+        return {
+          content: 'Your website is working great, the only problem is that you didn\'t host it correctly on GitHub, as mentioned by your peers.',
+          user: { displayName: 'hello' }
+        }
+      },
+      type: Object
+    }
+  },
   async fetch ({ store, params }) {
     await store.dispatch('communities/find', params.slug)
     await store.dispatch('communities/content', params.slug)

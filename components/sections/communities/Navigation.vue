@@ -1,19 +1,19 @@
 <template>
   <ul class="relative">
-    <li v-for="(menu, i) in menus" :key="i" class="mb-8  relative">
+    <li v-for="(menu, i) in menus" :key="i" class="relative mb-8">
       <span
         v-if="!menu.hideTitle"
-        class="text-xs uppercase font-semibold relative"
+        class="relative text-xs font-semibold uppercase"
       >{{ menu.title }}</span>
       <ul>
         <li
           v-for="(item, k) in menu.items"
           :key="k"
-          class="text-sm mt-4 relative"
+          class="relative mt-4 text-sm"
           :style="activeLinkStyle"
         >
           <nuxt-link :to="item.link" class="relative text-gray-500" :class="{'activable-link': !item.exact}">
-            <span class="inline-block absolute -left-6 nav-icon">
+            <span class="absolute inline-block -left-6 nav-icon">
               <ChevronRightIcon />
             </span>
             <span class="nav-label">{{ item.label }}</span>

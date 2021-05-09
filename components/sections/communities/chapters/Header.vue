@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header
+      hide-title-on-mobile
       :title="community.name"
       :subtitle="chapter.title"
       :description="chapter.description"

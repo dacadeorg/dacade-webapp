@@ -3,7 +3,7 @@
     v-if="community.challenge"
     :title="$t('communities.overview.challenge')"
   >
-    <span class="block text-lg font-normal mt-3">{{ community.challenge.description }}</span>
+    <span class="block text-base md:text-lg font-normal mt-3">{{ community.challenge.description }}</span>
   </Section>
 </template>
 <script>

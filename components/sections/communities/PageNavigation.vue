@@ -1,10 +1,19 @@
 <template>
   <Section>
-    <div class="text-center">
+    <div
+      class="text-center justify-center space-x-10 pt-3"
+      :class="{ 'flex': prevUrl,
+                'w-full sm:flex': !prevUrl
+      }"
+    >
       <nuxt-link v-if="prevUrl" :to="prevUrl">
-        <Button :custom-style="buttonStyle">
+        <Button
+          class="w-full h-10 min-h-full"
+          padding="py-4 px-4"
+          :custom-style="buttonStyle"
+        >
           <span
-            class="flex text-left items-center text-.5xl"
+            class="w-full md:w-1/3 flex text-left items-center text-sm"
           ><span class="mr-3 w-3"><ArrowRightIcon class="transform -rotate-180" /></span>
             Prev
           </span>
@@ -12,14 +21,21 @@
       </nuxt-link>
       <nuxt-link v-if="nextUrl" :to="nextUrl">
         <Button
-          :class="{ 'w-1/3': !prevUrl }"
+          padding="py-4 px-4"
+          class=" h-10 min-h-full"
+          :class="{ 'w-full min-w-3/4 h-15 min-h-full  sm:w-64 flex-none': !prevUrl }"
           :custom-style="activeButtonStyle"
         >
-          <span class="flex text-left items-center text-.5xl">
+          <span
+            class="pl-2 flex text-left items-center"
+            :class="{ 'text-sm': prevUrl,
+                      'text-lg': !prevUrl
+            }"
+          >
             {{ !prevUrl ? 'Start' : 'Next' }}
             <span
-              class="ml-auto w-3"
-              :class="{ 'ml-7.5': prevUrl }"
+              class="ml-auto pr-5 w-3"
+              :class="{ 'ml-6.5': prevUrl }"
             ><ArrowRightIcon /></span>
           </span>
         </Button>
