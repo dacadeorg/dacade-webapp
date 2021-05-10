@@ -1,7 +1,7 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <Section padding="py-32" type="secondary-light">
-    <CommunitStats class="w-1/3 z-10 max-w-sm" />
+    <CommunitStats class="xl:w-1/3 lg:mt-0 md:mt-0 mt-48 md:w-1/2 z-10 max-w-sm" />
     <Stories :list="stories" />
   </Section>
 </template>

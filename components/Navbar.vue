@@ -1,6 +1,6 @@
 <template>
   <div class="relative text-gray-900" :style="containerStyle">
-    <div class="content-wrapper py-12 flex relative">
+    <div class="content-wrapper lg:py-12 py-5 flex relative">
       <ul class="relative">
         <NavItem type="logo">
           <Logo />
@@ -9,7 +9,7 @@
           {{ $t('app.name') }}
         </NavItem>
       </ul>
-      <ul v-if="loginStatus" class="relative">
+      <ul v-if="loginStatus" class="relative ">
         <NavItem to="/bounties">
           {{ $t('nav.bounties') }}
         </NavItem>
@@ -17,7 +17,13 @@
           {{ $t('nav.communities') }}
         </NavItem>
       </ul>
-      <ul v-if="!loginStatus" class="ml-auto text-right relative">
+      <ul v-if="!loginStatus" class="ml-auto text-right relative lg:hidden md:hidden">
+        <NavItem>
+          <MobileMenuLogo/>
+        </NavItem>
+        </ul>
+
+      <ul v-if="!loginStatus" class="ml-auto text-right relative hidden lg:block md:block">
         <NavItem to="/login">
           {{ $t('nav.login') }}
         </NavItem>
@@ -42,6 +48,7 @@ import hexToRgba from 'hex-to-rgba'
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Logo from '@/components/Logo'
+import MobileMenuLogo from '@/components/MobileMenuLogo'
 import NavItem from '@/components/ui/NavItem'
 import DAButton from '@/components/ui/Button'
 import NotificationPopup from '@/components/popups/Notification'
@@ -52,6 +59,7 @@ export default {
     Logo,
     NavItem,
     DAButton,
+    MobileMenuLogo,
     NotificationPopup,
     UserPopup
   },
