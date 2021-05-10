@@ -16,9 +16,12 @@
   @apply font-semibold mr-3.5;
 }
 
+
 .content-wrapper {
   @apply max-w-7xl mx-5 md:mx-auto md:w-10/12;
 }
+
+
 
 body,
 .text-default {
@@ -49,10 +52,15 @@ body {
   border-bottom: 28px solid #FEFCE8;
 }
 
-.quadratic-card {
-  @apply p-8 mb-5;
-  width: calc(50% - 10px);
+
+
+@media only screen and (min-width: 992px) {
+  .quadratic-card {
+    @apply p-8 mb-5;
+    width: calc(50% - 10px);
+  }
 }
+
 
 .text-with-links > a {
   @apply underline;

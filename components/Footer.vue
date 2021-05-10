@@ -2,11 +2,11 @@
 <template>
   <Section padding="pt-20" type="secondary-light">
     <div
-      class="border-t border-t-solid border-gray-200 flex py-8 text-gray-400 text-base"
+      class="border-t border-t-solid border-gray-200 lg:flex md:flex py-8 text-gray-400 text-base lg:text-left text-center"
     >
-      <div class="w-1/2">
+      <div class="lg:w-1/2 w-full lg:border-none md:border-none border-b border-b-solid border-gray-200">
         <p class="text-with-links block" v-html="$t('footer.text')" />
-        <div class="mt-8 flex items-center space-x-9">
+        <div class="mt-8 mb-12 lg:mb-0 flex justify-center lg:justify-start items-center space-x-9">
           <a
             v-for="(partner, i) in partners"
             :key="i"
@@ -19,7 +19,7 @@
           </a>
         </div>
       </div>
-      <div class="w-1/2 text-right">
+      <div class="lg:w-1/2 w-full mt-6 sm:mt-0 lg:mt-0 lg:text-right">
         <div class="space-x-2">
           <SocialLink
             v-for="(link, i) in socialLinks"
