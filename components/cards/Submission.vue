@@ -8,7 +8,7 @@
     :link="link"
     :bordered="!last"
   >
-    <p class="text-lg leading-normal">
+    <p class="text-base md:text-lg max-w-screen-sm leading-normal text-gray-700">
       {{ submission.text }}
     </p>
     <div v-if="stats" class="flex items-center mt-4">
@@ -21,22 +21,28 @@
       </Badge>
       <span class="ml-3 text-sm">Points</span>
     </div>
-    <div v-if="buttons" class="mt-6 space-x-2">
+    <div v-if="buttons" class="inline-grid space-y-2 md:space-y-5 md:contents  mt-6 space-x-0 md:space-x-2">
       <Button
         :padding="false"
-        class="outline-submission-button py-2 px-5"
+        class="outline-submission-button py-2 px-5  w-44"
         :custom-style="primaryButtonStyles"
         type="outline-primary"
       >
-        GitHub Code
+        <span class="flex text-left items-center">
+          GitHub Code
+          <span class="absolute right-4  w-3"><ArrowRightIcon /></span>
+        </span>
       </Button>
       <Button
         :padding="false"
-        class="outline-submission-button py-2 px-5"
+        class="outline-submission-button py-2 px-5  w-44"
         :custom-style="outlineButtonStyles"
         type="outline-primary"
       >
-        Website
+        <span class="flex text-left items-center">
+          Website
+          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
+        </span>
       </Button>
     </div>
   </UserCard>
@@ -47,12 +53,14 @@ import { mapGetters } from 'vuex'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import UserCard from '@/components/cards/User'
+import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
   name: 'SubmissionCard',
   components: {
     Badge,
     Button,
+    ArrowRightIcon,
     UserCard
   },
   props: {

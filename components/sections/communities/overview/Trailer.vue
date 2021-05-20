@@ -1,11 +1,12 @@
 <template>
   <Section v-if="community.trailer" :title="$t('communities.overview.trailer')">
     <Duration
+      class="-mt-1"
       :text="$t('communities.overview.trailer.video')"
       :value="community.trailer.duration"
     />
-    <span class="block text-lg">{{ community.trailer.summary }}</span>
-    <Video :url="community.trailer.video" />
+    <span class="block text-lg pt-2">{{ community.trailer.summary }}</span>
+    <Video class="w-screen h-full -ml-5 md:w-full md:mx-auto" :url="community.trailer.video" />
   </Section>
 </template>
 <script>

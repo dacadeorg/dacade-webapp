@@ -1,7 +1,7 @@
 <template>
   <Section :title="$t('communities.challenge.submission')">
-    <div class="relative w-full pl-7.5 my-6">
-      <div class="absolute left-0 top-5">
+    <div class="relative w-full md:pl-7.5 my-6">
+      <div class="absolute left-3 md:left-0 top-3">
         <Avatar :user="user" size="medium" />
       </div>
       <textarea
@@ -9,7 +9,7 @@
         v-model="text"
         :placeholder="$t('communities.challenge.submission.placeholder.text')"
         :class="{ 'rounded-b': !community.challenge.format.githubLink }"
-        class="w-full border border-solid border-grey-200 h-56 resize-none m-0 pt-10.5 px-10.75 block text-lg focus:outline-none placeholder-gray-400 placeholder-opacity-100"
+        class="w-full border border-solid border-grey-200 h-56 resize-none m-0 pt-5 md:pt-7.5 pl-15  pr-2 md:px-10.75 block text-lg focus:outline-none placeholder-gray-400 placeholder-opacity-100"
       />
       <div
         v-if="community.challenge.format.githubLink"
@@ -28,8 +28,8 @@
     </div>
     <div class="text-right">
       <Button :custom-style="activeButtonStyle" @click="submit">
-        <span class="flex text-left items-center text-sm">
-          Submit
+        <span class="flex text-left items-center text-sm w-32 h-6">
+          $t('submit')
           <span class="ml-16 w-3"><ArrowRightIcon /></span>
         </span>
       </Button>

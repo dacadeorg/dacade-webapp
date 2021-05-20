@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full pl-7.5 relative">
+  <div class="w-full pl-5 md:pl-7.5 relative">
     <div class="absolute left-0 top-0 z-10">
       <Avatar :user="user" size="medium" />
     </div>
@@ -9,14 +9,14 @@
     >
       <div class="pb-4 pt-2">
         <nuxt-link :to="link">
-          <span class="text-lg leading-normal font-medium">
+          <span class="text-lg leading-loose font-medium">
             {{ user.displayName }}
           </span>
           <span
             class="text-xs px-2.5 bg-secondary leading-none py-1 rounded-full font-medium"
           >45 REP</span>
           <span
-            class="block text-sm leading-snug"
+            class="block text-sm leading-snug text-gray-700"
           >
             {{ timestamp.text }}
             <span

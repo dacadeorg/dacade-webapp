@@ -10,7 +10,7 @@ export const state = () => ({
       slug: 'intro-to-blockchain',
       name: 'Introduction to Blockchain',
       summary: 'Learn the most important concepts of blockchain technology',
-      description: '',
+      description: 'Blockchain, the underlying technology of the Bitcoin currency, is considered by many to be the most important technological innovation since the invention of the Internet. It has the potential to transform how we organize society as a whole in a substantial way.',
       icon: require('~/assets/icons/communities/blockchain.svg?data'),
       introduction: {
         text: ''
@@ -24,6 +24,7 @@ export const state = () => ({
       colors: {
         primary: '#01464C',
         accent: '#34E256',
+        secondary: '#4D7D82',
         textAccent: '#31C24D',
         text: '#fff'
       },
@@ -221,6 +222,7 @@ export const state = () => ({
       icon: require('~/assets/icons/communities/aeternity.svg?data'),
       colors: {
         primary: '#FF3A02',
+        secondary: '#47110A',
         accent: '#47110A',
         textAccent: '#47110A',
         text: '#47110A'
@@ -251,6 +253,7 @@ export const state = () => ({
       icon: require('~/assets/icons/communities/web.svg?data'),
       colors: {
         primary: '#381B84',
+        secondary: '#24DAD9',
         accent: '#24DAD9',
         textAccent: '#24DAD9',
         text: '#fff'

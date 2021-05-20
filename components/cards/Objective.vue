@@ -1,14 +1,17 @@
 <template>
   <div class="flex">
     <div
-      class="mr-2 pt-px mt-px"
-      :style="{
-        color: colors.textAccent
-      }"
+      class="mr-2 py-0 pt-px mt-px"
+      :style="{color: iconcolor || colors.textAccent}"
     >
-      <Checkmark />
+      <div v-if="crossmark">
+        <Crossmark />
+      </div>
+      <div v-else>
+        <Checkmark />
+      </div>
     </div>
-    <div class="text-sm text-gray-700 leading-5">
+    <div class="text-sm font-normal leading-5">
       {{ objective }}
     </div>
   </div>
@@ -17,13 +20,23 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Checkmark from '~/assets/icons/checkmark.svg?inline'
+import Crossmark from '~/assets/icons/crossmark.svg?inline'
 
 export default {
   name: 'ObjectiveCard',
   components: {
-    Checkmark
+    Checkmark,
+    Crossmark
   },
   props: {
+    iconcolor: {
+      type: String,
+      default: ''
+    },
+    crossmark: {
+      type: Boolean,
+      default: false
+    },
     objective: {
       type: String,
       default: null

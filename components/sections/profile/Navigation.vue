@@ -42,11 +42,11 @@ export default {
           items: [
             {
               label: 'Introduction to Blockchain',
-              link: ''
+              link: '/profile/intro-to-blockchain'
             },
             {
               label: 'Web Development 101',
-              link: '/community'
+              link: '/profile/web-dev-101'
             }
           ]
         },

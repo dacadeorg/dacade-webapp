@@ -1,23 +1,29 @@
 <template>
   <div>
-    <h1 class="text-5xl leading-none text-gray-400">
+    <h1
+      class="text-4xl md:text-5xl leading-none text-gray-400"
+      :class="hideTitleOnMobile ? 'hidden md:flex':''"
+    >
       {{ title }}
     </h1>
-    <h2 v-if="subtitle" class="text-5xl leading-none text-default font-normal">
+    <h2 v-if="subtitle" class=" text-4xl md:text-5xl leading-none text-default font-normal">
       {{ subtitle }}
     </h2>
-    <p v-if="description" class="my-5 text-.5xl w-10/12 leading-snug text-gray-700">
+    <p v-if="description" class="my-2 md:my-5 text-base md:text-.5xl w-full md:w-10/12 leading-loose md:leading-snug text-gray-700">
       {{ description }}
     </p>
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
-// import RewardsSection from './partials/overview/Rewards'
 
 export default {
   name: 'Header',
   props: {
+    hideTitleOnMobile: {
+      default: false,
+      type: Boolean
+    },
     title: {
       default: null,
       type: String

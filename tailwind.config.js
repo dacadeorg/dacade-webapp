@@ -27,7 +27,15 @@ module.exports = {
       blue: colors.blue,
       indigo: colors.indigo,
       purple: colors.violet,
-      pink: colors.pink
+      pink: colors.pink,
+      theme: {
+        primary: 'var(--tm-primary)',
+        secondary: 'var(--tm-secondary)',
+        text: 'var(--tm-text)',
+        highlight: 'var(--tm-highlight)',
+        accent: 'var(--tm-accent)',
+        muted: 'var(--tm-muted)'
+      }
     },
     spacing: {
       px: '1px',
@@ -219,6 +227,7 @@ module.exports = {
       '4.5xl': ['2.5rem', { lineHeight: '1' }],
       '5xl': ['3rem', { lineHeight: '1' }],
       '6xl': ['3.75rem', { lineHeight: '1' }],
+      '6.5xl': ['4rem', { lineHeight: '1' }],
       '7xl': ['4.5rem', { lineHeight: '1' }],
       '7.5xl': ['5rem', { lineHeight: '1' }],
       '7.75xl': ['5.75rem', { lineHeight: '1' }],
@@ -719,6 +728,7 @@ module.exports = {
       '8/12': '66.666667%',
       '9/12': '75%',
       '10/12': '83.333333%',
+      '10.5/12': '90%',
       '11/12': '91.666667%',
       full: '100%',
       screen: '100vw',

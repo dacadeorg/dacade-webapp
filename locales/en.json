@@ -43,6 +43,8 @@
   "communities.challenge.submission": "Submission",
   "communities.challenge.submission.placeholder.text": "Enter Submission Text",
   "communities.challenge.submission.placeholder.github": "Enter link to GitHub Link",
+  "communities.challenge.submission.feedback.placeholder.text": "Enter your feedback",
+  "communities.challenge.submission.feedback.placeholder.github": "Enter link to GitHub Pull request",
   "communities.submission.title": "Submissions",
   "communities.feedbacks": "Feedbacks",
   "communities.navigation.overview": "Overview",
@@ -60,5 +62,11 @@
   "testimonials.community.stats.card-3.description": "learners gave to submissions of their peers.",
   "testimonials.community.join": "{appName} on telegram",
   "footer.text": "Dacade is created in collaboration with multiple contributors. If this is interesting for you, please <a href=\"{url}\">get in touch.</a>",
-  "footer.privacy-policy": "Impressum & Privacy Policy"
+  "footer.privacy-policy": "Impressum & Privacy Policy",
+  "feedback.bounty": "Feedback bounty",
+  "feedback.issued": "Issued",
+  "feedback.ends": "ending in ",
+  "feedbacks": "Feedbacks",
+  "communities.submissions.feedback.reward-info": "Feedback Reward Info",
+  "submit": "Submit"
 }
