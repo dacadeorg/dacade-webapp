@@ -18,7 +18,7 @@
 
 
 .content-wrapper {
-  @apply max-w-7xl mx-5 md:mx-auto md:w-10/12;
+  @apply xl:w-10/12 lg:w-10/12 md:w-10/12 sm:w-10/12 w-11/12 mx-auto;
 }
 
 

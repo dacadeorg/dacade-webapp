@@ -2,10 +2,10 @@
   <Section padding="py-0">
     <Header />
     <div class="lg:flex">
-      <div class="px-6 w-full lg:w-1/4">
+      <div class="lg:w-1/4">
         <Navigation />
       </div>
-      <div class="w-full lg:w-3/4">
+      <div class="lg:w-3/4">
         <slot />
       </div>
     </div>

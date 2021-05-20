@@ -3,13 +3,11 @@
     <div class="container">
       <div v-if="communityDataPreview" class="row">
         <div
-          v-for="(community) in orderedCommunityDataPreview"
+          v-for="community in orderedCommunityDataPreview"
           :key="community.key"
           class="col-md-4 mb-4 sel-com"
         >
-          <nuxt-link
-            :to="{path: communityPath(community.slug) }"
-          >
+          <nuxt-link :to="{ path: communityPath(community.slug) }">
             <b-card
               :img-src="community.imgUrl"
               img-alt="Image"
@@ -32,18 +30,14 @@
                 </div>
                 <div class="muted-dark">
                   Rewards:
-                  <b
-                    v-if="community.rewardToken === 'DCN'"
-                    class="dark-white"
-                  >
-                    {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}
+                  <b v-if="community.rewardToken === 'DCN'" class="dark-white">
+                    {{ community.submissionReward
+                    }}<span class="muted-dark">/</span>{{ community.reviewReward }}
                     <coin height="18" />
                   </b>
-                  <b
-                    v-else
-                    class="earning-color"
-                  >
-                    {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}$
+                  <b v-else class="earning-color">
+                    {{ community.submissionReward
+                    }}<span class="muted-dark">/</span>{{ community.reviewReward }}$
                   </b>
                 </div>
               </b-card-text>
@@ -67,7 +61,10 @@ export default {
     orderedCommunityDataPreview () {
       const orderedCommunityDataPreview = this.communityDataPreview
       for (const key in orderedCommunityDataPreview) {
-        if (orderedCommunityDataPreview[key].order === undefined || orderedCommunityDataPreview[key].order === 0) {
+        if (
+          orderedCommunityDataPreview[key].order === undefined ||
+          orderedCommunityDataPreview[key].order === 0
+        ) {
           delete orderedCommunityDataPreview[key]
         }
       }
@@ -77,7 +74,10 @@ export default {
     }
   },
   mounted () {
-    if (!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0) {
+    if (
+      !this.communityDataPreview ||
+      Object.keys(this.communityDataPreview).length === 0
+    ) {
       this.$store.dispatch('content/getCommunityDataPreview')
     }
   },
@@ -89,31 +89,31 @@ export default {
 }
 </script>
 <style scoped>
-  .card-body{
-    padding: 1.5rem 2.1rem;
-  }
-  .card-text{
-    text-align: center;
-    color:#acb2be;
-    font-size: 1.2em;
-  }
-  .card-title{
-    text-align: center;
-  }
-  .container{
-    margin-top:4rem;
-  }
-  .DCN{
-    vertical-align: -2px;
-    margin-left: -4px;
-  }
-  .sel-com article{
-    border: 1.6px solid #00000000;
-  }
-  .sel-com article:hover{
-    border: 1.6px solid #53d1af;
-  }
-  .sel-com a:hover{
-    text-decoration: none;
-  }
+.card-body {
+  padding: 1.5rem 2.1rem;
+}
+.card-text {
+  text-align: center;
+  color: #acb2be;
+  font-size: 1.2em;
+}
+.card-title {
+  text-align: center;
+}
+.container {
+  margin-top: 4rem;
+}
+.DCN {
+  vertical-align: -2px;
+  margin-left: -4px;
+}
+.sel-com article {
+  border: 1.6px solid #00000000;
+}
+.sel-com article:hover {
+  border: 1.6px solid #53d1af;
+}
+.sel-com a:hover {
+  text-decoration: none;
+}
 </style>
