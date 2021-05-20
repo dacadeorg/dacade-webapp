@@ -1,5 +1,18 @@
 <template>
-  <div v-if="objectives" class="grid grid-cols-1  md:grid-cols-3 space-y-3 py-2 md:space-y-0 lg:space-x-5  md:pt-5 md:pb-0 md:mb-0">
+  <div
+    v-if="objectives"
+    class="
+      grid grid-cols-1
+      md:grid-cols-3
+      space-y-3
+      py-2
+      md:space-y-0
+      lg:space-x-5
+      md:pt-5
+      md:pb-0
+      md:mb-0
+    "
+  >
     <Objective
       v-for="(objective, i) in objectives"
       :key="i"
@@ -17,27 +30,27 @@ import Objective from '@/components/cards/Objective'
 export default {
   name: 'ObjectiveList',
   components: {
-    Objective
+    Objective,
   },
   props: {
     iconcolor: {
       type: String,
-      default: ''
+      default: '',
     },
     crossmark: {
       type: Boolean,
-      default: false
+      default: false,
     },
     objectives: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     ...mapGetters({
       community: 'communities/current',
-      colors: 'ui/colors'
-    })
-  }
+      colors: 'ui/colors',
+    }),
+  },
 }
 </script>

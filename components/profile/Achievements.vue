@@ -1,9 +1,7 @@
 <template>
   <section>
     <h2 class="dark-white">
-      <b>
-        Achievements
-      </b>
+      <b> Achievements </b>
     </h2>
     <div
       v-if="learningPoints && Object.keys(learningPoints).length"
@@ -25,12 +23,12 @@
           >
             <b-card-text class="text-center">
               <h4>
-                <b
-                  class="learning-color"
-                >{{ lp
-                }}<span
-                  class="muted-dark"
-                >/{{ communityDataPreview[key].submissionPoints }}</span></b>
+                <b class="learning-color"
+                  >{{ lp
+                  }}<span class="muted-dark"
+                    >/{{ communityDataPreview[key].submissionPoints }}</span
+                  ></b
+                >
               </h4>
               <h4><b class="learning-color">Points</b></h4>
               <h4 class="muted-dark">
@@ -42,9 +40,7 @@
       </div>
     </div>
     <div v-else class="mb-4">
-      <p>
-        You haven't solved a challenge.
-      </p>
+      <p>You haven't solved a challenge.</p>
     </div>
   </section>
 </template>
@@ -54,26 +50,23 @@
 import { mapGetters } from 'vuex'
 
 export default {
-
   computed: {
     ...mapGetters({
       learningPoints: 'user/learningPoints',
-      communityDataPreview: 'content/communityDataPreview'
-    })
+      communityDataPreview: 'content/communityDataPreview',
+    }),
   },
   methods: {
-    jobsDone () {
+    jobsDone() {
       this.removeErrors()
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style scoped>
-
 .points {
   font-style: italic;
   font-size: 3em;
 }
-
 </style>

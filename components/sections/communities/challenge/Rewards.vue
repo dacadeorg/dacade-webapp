@@ -12,16 +12,12 @@
               <Coin :denom="reward.denom" size="medium" />
             </div>
             <div class="text-base flex-none pr-3">
-              <span
-                class="block font-medium"
-              >{{ reward.amount }} {{ reward.denom }}</span>
-              <div
-                class="block text-sm"
+              <span class="block font-medium"
+                >{{ reward.amount }} {{ reward.denom }}</span
               >
+              <div class="block text-sm">
                 Per
-                <span class="capitalize">{{
-                  reward.type.toLowerCase()
-                }}</span>
+                <span class="capitalize">{{ reward.type.toLowerCase() }}</span>
               </div>
             </div>
           </div>
@@ -42,17 +38,16 @@ export default {
   name: 'OverviewRewards',
   components: {
     Section,
-    Coin
+    Coin,
   },
   computed: {
     ...mapGetters({
-      community: 'communities/current'
+      community: 'communities/current',
+      challenge: 'communities/challenges/current',
     }),
-    rewards () {
-      return this.community.rewards.filter(
-        reward => reward.type === 'SUBMISSION'
-      )
-    }
-  }
+    rewards() {
+      return this.challenge.rewards
+    },
+  },
 }
 </script>

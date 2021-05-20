@@ -13,7 +13,7 @@
               img-alt="Image"
               img-top
               tag="article"
-              style="max-width: 30rem;"
+              style="max-width: 30rem"
               class="mb-2 bg-dark small-shadow"
             >
               <div class="text-center">
@@ -32,12 +32,14 @@
                   Rewards:
                   <b v-if="community.rewardToken === 'DCN'" class="dark-white">
                     {{ community.submissionReward
-                    }}<span class="muted-dark">/</span>{{ community.reviewReward }}
+                    }}<span class="muted-dark">/</span
+                    >{{ community.reviewReward }}
                     <coin height="18" />
                   </b>
                   <b v-else class="earning-color">
                     {{ community.submissionReward
-                    }}<span class="muted-dark">/</span>{{ community.reviewReward }}$
+                    }}<span class="muted-dark">/</span
+                    >{{ community.reviewReward }}$
                   </b>
                 </div>
               </b-card-text>
@@ -56,9 +58,9 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      communityDataPreview: 'content/communityDataPreview'
+      communityDataPreview: 'content/communityDataPreview',
     }),
-    orderedCommunityDataPreview () {
+    orderedCommunityDataPreview() {
       const orderedCommunityDataPreview = this.communityDataPreview
       for (const key in orderedCommunityDataPreview) {
         if (
@@ -71,9 +73,9 @@ export default {
       return Object.values(orderedCommunityDataPreview).sort(function (a, b) {
         return a.order - b.order
       })
-    }
+    },
   },
-  mounted () {
+  mounted() {
     if (
       !this.communityDataPreview ||
       Object.keys(this.communityDataPreview).length === 0
@@ -82,10 +84,10 @@ export default {
     }
   },
   methods: {
-    communityPath (slug) {
+    communityPath(slug) {
       return `/${slug}/introduction`
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>
@@ -108,7 +110,7 @@ export default {
   margin-left: -4px;
 }
 .sel-com article {
-  border: 1.6px solid #00000000;
+  border: 1.6px solid #0000;
 }
 .sel-com article:hover {
   border: 1.6px solid #53d1af;

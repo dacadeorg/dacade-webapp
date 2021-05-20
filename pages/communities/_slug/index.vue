@@ -6,7 +6,7 @@
         <div class="hidden lg:block w-1/4 py-3 pr-4 lg:py-14">
           <Navigation />
         </div>
-        <div class="lg:hidden pt-8  pb-0 w-full lg:py-14">
+        <div class="lg:hidden pt-8 pb-0 w-full lg:py-14">
           <MobileNav show-top-border />
         </div>
         <div class="w-full lg:w-3/4">
@@ -17,7 +17,6 @@
   </div>
 </template>
 <script>
-
 import { mapGetters } from 'vuex'
 import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
 import Navigation from '@/components/sections/communities/Navigation'
@@ -33,16 +32,17 @@ export default {
     OverviewSection,
     Navigation,
     MobileNav,
-    Section
+    Section,
   },
-  async fetch ({ store, params }) {
+  async fetch({ store, params }) {
     await store.dispatch('communities/find', params.slug)
-    await store.dispatch('communities/content', params.slug)
+    await store.dispatch('communities/chapters/all', params.slug)
+    await store.dispatch('communities/challenges/all', params.slug)
   },
   computed: {
     ...mapGetters({
-      community: 'communities/current'
-    })
-  }
+      community: 'communities/current',
+    }),
+  },
 }
 </script>

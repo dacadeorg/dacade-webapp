@@ -1,6 +1,6 @@
 <template>
   <Section :title="$t('communities.overview.chapter')" :title-bold="false">
-    <div v-for="(chapter, i) in community.chapters" :key="i" class="mt-4 md:mt-9">
+    <div v-for="(chapter, i) in chapters" :key="i" class="mt-4 md:mt-9">
       <h4 class="font-medium inline-block text-.5xl">
         {{ chapter.title }}
       </h4>
@@ -8,9 +8,10 @@
         v-if="chapter.duration"
         class="text-xs font-semibold whitespace-nowrap"
         :style="{
-          color: colors.textAccent
+          color: colors.textAccent,
         }"
-      >{{ duration(chapter.duration) }}</span>
+        >{{ duration(chapter.duration) }}</span
+      >
       <ObjectiveList :objectives="chapter.objectives" />
     </div>
   </Section>
@@ -26,21 +27,22 @@ export default {
   name: 'ChapterSection',
   components: {
     Section,
-    ObjectiveList
+    ObjectiveList,
   },
   computed: {
     ...mapGetters({
       community: 'communities/current',
-      colors: 'ui/colors'
-    })
+      chapters: 'communities/chapters/list',
+      colors: 'ui/colors',
+    }),
   },
   methods: {
-    duration (value) {
+    duration(value) {
       if (!value) {
         return 0
       }
       return Moment.duration(value).humanize()
-    }
-  }
+    },
+  },
 }
 </script>

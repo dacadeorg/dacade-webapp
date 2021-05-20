@@ -7,8 +7,11 @@
             <b-tabs card align="center">
               <b-tab title="Signup" active>
                 <div class="p-4">
-                  <ValidationObserver v-slot="{ invalid, passes }">
-                    <form class="content-wrapper text-center" @submit.prevent="passes(onSignUp)">
+                  <ValidationObserver v-slot="{ passes }">
+                    <form
+                      class="content-wrapper text-center"
+                      @submit.prevent="passes(onSignUp)"
+                    >
                       <div label-for="input-1">
                         <label for="input-2">Email Address</label>
                         <ValidationProvider
@@ -22,7 +25,7 @@
                             type="email"
                             name="email"
                             placeholder="Enter email"
-                          >
+                          />
                           <span class="help">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
@@ -39,7 +42,7 @@
                             v-model="form.name"
                             name="username"
                             placeholder="Enter name"
-                          >
+                          />
                           <span class="help">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
@@ -57,7 +60,7 @@
                             name="password"
                             type="password"
                             placeholder="Enter password"
-                          >
+                          />
                           <span class="help">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
@@ -98,32 +101,35 @@
 /* eslint-disable no-console */
 
 export default {
-  data () {
+  data() {
     return {
       form: {
         name: '',
         email: '',
-        password: ''
+        password: '',
       },
-      loading: false
+      loading: false,
     }
   },
   methods: {
-    onSignUp () {
+    onSignUp() {
       this.loading = true
       this.$store
         .dispatch('auth/signUp', {
           name: this.form.name,
           email: this.form.email,
-          password: this.form.password
+          password: this.form.password,
         })
         .then(() => {
           this.$router.replace('/notifications')
-        }).catch(() => { this.loading = false })
+        })
+        .catch(() => {
+          this.loading = false
+        })
     },
-    goToLogin () {
+    goToLogin() {
       this.$router.push('/login')
-    }
-  }
+    },
+  },
 }
 </script>

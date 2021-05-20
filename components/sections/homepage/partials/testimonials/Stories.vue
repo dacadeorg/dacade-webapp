@@ -10,7 +10,14 @@
     <span
       v-for="(grid, i) in grids"
       :key="i"
-      class="border border-solid boder-gray-200 m-auto rounded-full absolute inset-0"
+      class="
+        border border-solid
+        boder-gray-200
+        m-auto
+        rounded-full
+        absolute
+        inset-0
+      "
       :style="{
         width: `${getSize(i)}vh`,
         height: `${getSize(i)}vh`,
@@ -40,72 +47,72 @@ export default {
   name: 'TestimonialsSection',
   components: {
     // Button
-    Story
+    Story,
   },
   props: {
     list: {
       default: () => [],
-      type: Array
-    }
+      type: Array,
+    },
   },
-  data () {
+  data() {
     return {
       gridSize: 90,
       maxGridSize: 802,
       showingBubble: {
         card: null,
-        grid: null
+        grid: null,
       },
       positions: [
         {
           left: 'calc(50% - 28px)',
-          top: 'calc(0% - 28px)'
+          top: 'calc(0% - 28px)',
         },
         {
           left: 'calc(0% - 28px)',
-          top: '33.33333%'
+          top: '33.33333%',
         },
         {
           right: 'calc(0% - 28px)',
-          top: '33.33333%'
+          top: '33.33333%',
         },
         {
           left: 'calc(0% - 28px)',
-          top: '70%'
+          top: '70%',
         },
         {
           right: 'calc(0% - 28px)',
-          top: '70%'
-        }
-      ]
+          top: '70%',
+        },
+      ],
     }
   },
   computed: {
-    grids () {
+    grids() {
       return LodashChunk(this.list, 5)
-    }
+    },
   },
   methods: {
-    getSize (i) {
+    getSize(i) {
       return (this.gridSize * (i + 1)) / this.grids.length
     },
-    onBubbleHide (card, grid) {
+    onBubbleHide(card, grid) {
       if (
         this.showingBubble.grid === grid &&
         this.showingBubble.card === card
       ) {
         this.showingBubble = {
           card: null,
-          grid: null
+          grid: null,
         }
       }
     },
-    onBubbleShow (card, grid) {
+    onBubbleShow(card, grid) {
       this.showingBubble = {
         card,
-        grid
+        grid,
       }
-    }
-  }
+    },
+  },
 }
 </script>

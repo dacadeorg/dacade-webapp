@@ -1,13 +1,14 @@
 <template>
   <div v-if="duration">
-    <span
-      class="text-sm text-gray-500"
-    ><span
-       :style="{
-         color: colors.textAccent
-       }"
-     >{{ duration }}</span>
-      {{ text }}</span>
+    <span class="text-sm text-gray-500"
+      ><span
+        :style="{
+          color: colors.textAccent,
+        }"
+        >{{ duration }}</span
+      >
+      {{ text }}</span
+    >
   </div>
 </template>
 <script>
@@ -21,25 +22,25 @@ export default {
   props: {
     text: {
       default: null,
-      type: String
+      type: String,
     },
     value: {
       default: 0,
-      type: [String, Number]
-    }
+      type: [String, Number],
+    },
   },
   computed: {
     ...mapGetters({
       community: 'communities/current',
       communityData: 'communities/content',
-      colors: 'ui/colors'
+      colors: 'ui/colors',
     }),
-    duration () {
+    duration() {
       if (!this.value) {
         return 0
       }
       return Moment.duration(this.value).humanize()
-    }
-  }
+    },
+  },
 }
 </script>

@@ -8,10 +8,7 @@
       'bg-gray-50 text-gray-900': type == 'secondary-light',
     }"
   >
-    <div
-      class="content-wrapper"
-      :class="[padding]"
-    >
+    <div class="content-wrapper" :class="[padding]">
       <slot />
     </div>
   </div>
@@ -23,12 +20,12 @@ export default {
   props: {
     type: {
       default: 'default',
-      type: String
+      type: String,
     },
     padding: {
       default: 'py-4',
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 }
 </script>

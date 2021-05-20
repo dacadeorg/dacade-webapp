@@ -1,10 +1,5 @@
 <template>
-  <b-modal
-    :id="userId"
-    :title="title"
-    header-text-variant="light"
-    hide-footer
-  >
+  <b-modal :id="userId" :title="title" header-text-variant="light" hide-footer>
     <div>
       <p>{{ text }}</p>
       <b-form @submit.prevent="updateWalletAddress(coinName)">
@@ -19,15 +14,13 @@
             type="text"
             required
             placeholder="Enter new wallet address"
-          >
+          />
         </b-form-group>
         <div class="text-center">
           <b-button
             type="submit"
             class="btn-add btn mt-2 mb-2 small-shadow"
-            @click="
-              $bvModal.hide('add-address-modal2' + coinName)
-            "
+            @click="$bvModal.hide('add-address-modal2' + coinName)"
           >
             {{ submissionMessage }}
           </b-button>
@@ -45,73 +38,70 @@ export default {
     coinNameWalletAddress: {
       type: String,
       default: 'idk',
-      required: true
+      required: true,
     },
     userId: {
       type: String,
-      required: true
+      required: true,
     },
     modal: {
       type: String,
-      required: true
+      required: true,
     },
     message: {
       type: String,
-      required: true
+      required: true,
     },
     submissionMessage: {
       type: String,
-      required: true
+      required: true,
     },
     title: {
       type: String,
-      required: true
+      required: true,
     },
     text: {
       type: String,
-      required: true
+      required: true,
     },
     coinName: {
       type: String,
-      required: true
+      required: true,
     },
     walletAddress: {
       type: String,
       default: '',
-      required: true
-    }
+      required: true,
+    },
   },
-  data () {
+  data() {
     return {
-      address: ''
+      address: '',
     }
   },
 
   computed: {
     ...mapGetters({
-      user: 'user/data'
-    })
+      user: 'user/data',
+    }),
   },
 
   methods: {
-
-    async updateWalletAddress (coinName) {
+    async updateWalletAddress(coinName) {
       const walletObject = {
         userId: this.user.id,
         walletAddress: this.address,
-        token: coinName
+        token: coinName,
       }
 
       await this.$store.dispatch('user/updateWalletAddress', walletObject)
       this.$emit('update')
-    }
-  }
-
+    },
+  },
 }
 </script>
 
 <style scoped>
-
 .btn-add {
   color: black;
   border: 2px solid #64686b;
@@ -127,5 +117,4 @@ export default {
   border: 2px solid white;
   background-color: rgba(255, 255, 255, 0.3);
 }
-
 </style>

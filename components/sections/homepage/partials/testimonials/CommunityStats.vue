@@ -8,12 +8,17 @@
       <div v-for="(stat, i) in stats" :key="i" class="py-5">
         <span class="block text-2xl mb-2">{{ stat.count }}</span>
         <p class="text-base w-3/4 m-0">
-          <span class="font-medium">{{ stat.title }}</span> {{ stat.description }}
+          <span class="font-medium">{{ stat.title }}</span>
+          {{ stat.description }}
         </p>
       </div>
     </div>
     <Button type="outline-white">
-      {{ $t('testimonials.community.join', {appName: $t('app.name')}) }} <font-awesome-icon :icon="['fab', 'telegram-plane']" class="ml-3 align-middle text-2xl" />
+      {{ $t('testimonials.community.join', { appName: $t('app.name') }) }}
+      <font-awesome-icon
+        :icon="['fab', 'telegram-plane']"
+        class="ml-3 align-middle text-2xl"
+      />
     </Button>
   </div>
 </template>
@@ -23,28 +28,34 @@ import Button from '@/components/ui/Button'
 export default {
   name: 'CommunityStats',
   components: {
-    Button
+    Button,
   },
-  data () {
+  data() {
     return {
       stats: [
         {
           title: this.$t('testimonials.community.stats.card-1.title'),
-          description: this.$t('testimonials.community.stats.card-1.description'),
-          count: 4000
+          description: this.$t(
+            'testimonials.community.stats.card-1.description'
+          ),
+          count: 4000,
         },
         {
           title: this.$t('testimonials.community.stats.card-2.title'),
-          description: this.$t('testimonials.community.stats.card-2.description'),
-          count: 1000
+          description: this.$t(
+            'testimonials.community.stats.card-2.description'
+          ),
+          count: 1000,
         },
         {
           title: this.$t('testimonials.community.stats.card-3.title'),
-          description: this.$t('testimonials.community.stats.card-3.description'),
-          count: 3000
-        }
-      ]
+          description: this.$t(
+            'testimonials.community.stats.card-3.description'
+          ),
+          count: 3000,
+        },
+      ],
     }
-  }
+  },
 }
 </script>

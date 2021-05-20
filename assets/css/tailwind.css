@@ -26,6 +26,7 @@
 body,
 .text-default {
   @apply text-gray-900;
+
   font-family: "Graphik", sans-serif;
   font-feature-settings: "ss01" 1, "ss02" 1;
 }
@@ -36,6 +37,7 @@ body {
 
 .message-bubble {
   @apply w-72 p-8 rounded-3.5xl relative text-base;
+
   background: #FEFCE8;
   color: #713F12;
 }
@@ -57,6 +59,7 @@ body {
 @media only screen and (min-width: 992px) {
   .quadratic-card {
     @apply p-8 mb-5;
+
     width: calc(50% - 10px);
   }
 }

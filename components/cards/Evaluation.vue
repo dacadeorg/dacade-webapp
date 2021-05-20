@@ -3,7 +3,7 @@
     :user="evaluation.user"
     :timestamp="{
       date: evaluation.date,
-      text: 'Evaluation'
+      text: 'Evaluation',
     }"
     :link="link"
     :bordered="!last"
@@ -11,56 +11,54 @@
     <p class="text-base md:text-lg leading-normal">
       {{ evaluation.content }}
     </p>
-    <RatingRubric hide-title />
+    <slot />
   </UserCard>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import UserCard from '@/components/cards/User'
-import RatingRubric from '@/components/sections/communities/challenge/Rating'
 
 export default {
   name: 'EvaluationCard',
   components: {
     UserCard,
-    RatingRubric
   },
   props: {
     evaluation: {
       default: () => {
-        return { }
+        return {}
       },
-      type: Object
+      type: Object,
     },
     stats: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     link: {
       default: '',
-      type: String
+      type: String,
     },
     buttons: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     last: {
       default: false,
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   computed: {
     ...mapGetters({
       colors: 'ui/colors',
-      community: 'communities/current'
+      community: 'communities/current',
     }),
-    badgeButtonStyles () {
+    badgeButtonStyles() {
       return {
         backgroundColor: this.colors.textAccent,
-        color: this.colors.text
+        color: this.colors.text,
       }
-    }
-  }
+    },
+  },
 }
 </script>

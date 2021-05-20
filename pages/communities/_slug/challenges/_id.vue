@@ -4,16 +4,22 @@
       <div class="hidden lg:block w-1/4 py-3 pr-4 lg:py-14">
         <Navigation />
       </div>
-      <div class=" lg:hidden py-4 w-full">
+      <div class="lg:hidden py-4 w-full">
         <MobileNav />
       </div>
       <div class="lg:w-3/4">
         <div
-          class="py-4 flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
+          class="
+            py-4
+            flex flex-col
+            divide-y divide-solid divide-gray-200
+            space-y-8
+            text-gray-700
+          "
         >
           <Header />
           <Rewards />
-          <RatingRubric />
+          <RatingRubric :rating-criteria="challenge.ratingCriteria" />
           <Submission />
         </div>
       </div>
@@ -21,7 +27,6 @@
   </Section>
 </template>
 <script>
-
 import { mapGetters } from 'vuex'
 import Navigation from '@/components/sections/communities/Navigation'
 import Section from '@/components/ui/Section'
@@ -39,23 +44,23 @@ export default {
     Header,
     RatingRubric,
     Rewards,
-    Submission
+    Submission,
   },
   scrollToTop: true,
-  async fetch ({ store, params }) {
+  async fetch({ store, params }) {
     await store.dispatch('communities/find', params.slug)
-    await store.dispatch('communities/content', params.slug)
+    await store.dispatch('communities/challenges/find', params.id)
   },
   computed: {
     ...mapGetters({
-      communityData: 'content/communityData',
-      community: 'communities/current'
+      community: 'communities/current',
+      challenge: 'communities/challenges/current',
     }),
-    activeLinkStyle () {
+    activeLinkStyle() {
       return {
-        color: this.colors.textAccent
+        color: this.colors.textAccent,
       }
-    }
-  }
+    },
+  },
 }
 </script>

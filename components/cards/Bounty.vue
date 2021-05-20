@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="bounty mb-4"
-  >
+  <div class="bounty mb-4">
     <nuxt-link :to="bounty.link">
       <h5 v-if="bounty.typ === 'review'" class="dark-white">
         <b> Feedback for Submission of {{ bounty.displayName }} </b>
@@ -30,8 +28,12 @@
         <span class="muted-dark">Time left:</span>
         <b v-if="countDown">
           <span v-if="countDown.days">{{ countDown.days }}d</span>
-          <span v-if="countDown.hours || countDown.days">{{ countDown.hours }}h</span>
-          <span v-if="countDown.minutes || countDown.hours || countDown.days">{{ countDown.minutes }}m</span>
+          <span v-if="countDown.hours || countDown.days"
+            >{{ countDown.hours }}h</span
+          >
+          <span v-if="countDown.minutes || countDown.hours || countDown.days"
+            >{{ countDown.minutes }}m</span
+          >
           <span>{{ countDown.seconds }}s</span>
         </b>
       </div>
@@ -40,9 +42,7 @@
         <b v-if="bounty.reviews">
           {{ Object.keys(bounty.reviews).length }}
         </b>
-        <b v-else>
-          0
-        </b>
+        <b v-else> 0 </b>
       </div>
     </nuxt-link>
   </div>
@@ -54,31 +54,31 @@ export default {
   props: {
     bounty: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
-  data () {
+  data() {
     return {
       interval: null,
       countDown: null,
-      seconds: null
+      seconds: null,
     }
   },
   computed: {
-    now () {
+    now() {
       return Date.now()
-    }
+    },
   },
-  created () {
+  created() {
     if (this.bounty && this.bounty.endTime) {
       this.counter()
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     clearInterval(this.interval)
   },
   methods: {
-    counter () {
+    counter() {
       this.interval = setInterval(() => {
         // Get today's date and time
         const now = new Date().getTime()
@@ -87,9 +87,11 @@ export default {
 
         this.countDown = {
           days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          hours: Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          ),
           minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+          seconds: Math.floor((distance % (1000 * 60)) / 1000),
         }
         // If the count down is finished, write some text
         if (distance < 0) {
@@ -97,14 +99,14 @@ export default {
           this.countDown = {}
         }
       }, 1000)
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style scoped>
 .bounty {
-  border: 1.6px solid #00000000;
+  border: 1.6px solid #0000;
   border-radius: 0.35rem;
   background: #343b42;
   padding: 1em;
@@ -114,9 +116,6 @@ export default {
 
 .bounty a {
   color: #acb2be;
-}
-
-.bounty a {
   text-decoration: none;
 }
 

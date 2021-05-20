@@ -6,7 +6,6 @@
   </div>
 </template>
 <script>
-
 import MainSection from '@/components/sections/homepage/Main'
 import CommunitiesSection from '@/components/sections/homepage/Communities'
 import TestimonialsSection from '@/components/sections/homepage/Testimonials'
@@ -16,11 +15,11 @@ export default {
   components: {
     MainSection,
     CommunitiesSection,
-    TestimonialsSection
+    TestimonialsSection,
   },
-  fetch ({ store }) {
+  fetch({ store }) {
     return store.dispatch('communities/all')
-  }
+  },
   // ,
   // mounted () {
   //   const helloWorld = firebase

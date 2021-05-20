@@ -1,63 +1,50 @@
 <template>
   <UserCard
-    :user="review.user"
+    :user="value.user"
     :timestamp="{
-      date: review.date,
-      text: 'Feedback'
+      date: value.created_at,
+      text: 'Feedback',
     }"
     :link="link"
     :bordered="!last"
   >
     <p class="text-base md:text-lg max-w-screen-sm leading-normal">
-      {{ review.content }}
+      {{ value.text }}
     </p>
   </UserCard>
 </template>
 <script>
 /* eslint-disable no-console */
-import { mapGetters } from 'vuex'
 import UserCard from '@/components/cards/User'
 
 export default {
-  name: 'ReviewCard',
+  name: 'FeedbackCard',
   components: {
-    UserCard
+    UserCard,
   },
   props: {
-    review: {
+    value: {
       default: () => {
         return {}
       },
-      type: Object
+      type: Object,
     },
     stats: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     link: {
       default: '',
-      type: String
+      type: String,
     },
     buttons: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     last: {
       default: false,
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
-  computed: {
-    ...mapGetters({
-      colors: 'ui/colors',
-      community: 'communities/current'
-    }),
-    badgeButtonStyles () {
-      return {
-        backgroundColor: this.colors.textAccent,
-        color: this.colors.text
-      }
-    }
-  }
 }
 </script>

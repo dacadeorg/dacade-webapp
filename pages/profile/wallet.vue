@@ -13,12 +13,12 @@ export default {
 
   components: {
     Wrapper,
-    WalletCard
+    WalletCard,
   },
 
   data: () => ({
     text: 'hello',
-    price: 5.00
-  })
+    price: 5.0,
+  }),
 }
 </script>

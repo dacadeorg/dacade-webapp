@@ -1,13 +1,7 @@
 <template>
-  <div
-    v-if="verificationPending === true"
-    class="notification"
-  >
+  <div v-if="verificationPending === true" class="notification">
     <span>
-      <i
-        class="fa fa-clock-o mr-2 color-default"
-        aria-hidden="true"
-      />
+      <i class="fa fa-clock-o mr-2 color-default" aria-hidden="true" />
     </span>
     Social media verification request pending.
   </div>
@@ -25,9 +19,7 @@
       hide-footer
     >
       <div>
-        <update-verification
-          :coin-name="coinName"
-        />
+        <update-verification :coin-name="coinName" />
       </div>
     </b-modal>
   </div>
@@ -39,24 +31,23 @@ import UpdateVerification from '@/components/profile/wallet/forms/UpdateVerifica
 
 export default {
   components: {
-    UpdateVerification
+    UpdateVerification,
   },
   props: {
     verificationPending: {
       type: Boolean,
-      required: true
-
+      required: true,
     },
     coinName: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     ...mapGetters({
-      user: 'user/data'
-    })
-  }
+      user: 'user/data',
+    }),
+  },
 }
 </script>
 
@@ -89,5 +80,4 @@ export default {
   padding-right: 2em;
   display: inline-block;
 }
-
 </style>

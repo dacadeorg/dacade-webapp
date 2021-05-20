@@ -11,15 +11,15 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: process.env.npm_package_description || '',
       },
       { property: 'og:image', content: 'https://dacade.org/img/dacade_og.png' },
-      { property: 'og:description', content: 'Peer-to-Peer Learning' }
+      { property: 'og:description', content: 'Peer-to-Peer Learning' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '/font-awesome.min.css' }
-    ]
+      { rel: 'stylesheet', href: '/font-awesome.min.css' },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -35,13 +35,15 @@ export default {
    */
   plugins: [
     { src: '~/plugins/vee-validate.js' },
-    '~/plugins/fireauth.js',
     '~/plugins/globals.js',
-    { src: '~/plugins/vClickOutside.js', ssr: false }
+    '~/plugins/api.js',
+    '~/plugins/fireauth.js',
+    '~/plugins/highlight',
+    { src: '~/plugins/vClickOutside.js', ssr: false },
   ],
 
   router: {
-    middleware: 'router-auth'
+    middleware: 'router-auth',
   },
   /*
    ** Nuxt.js modules
@@ -49,17 +51,18 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org/docs/
     // 'bootstrap-vue/nuxt',
-    '@nuxtjs/eslint-module',
+    'nuxt-highlightjs',
     '@nuxtjs/svg',
     [
       '@nuxtjs/google-analytics',
       {
         id: 'UA-36567351-2',
-        dev: false
-      }
+        dev: false,
+      },
     ],
     'cookie-universal-nuxt',
-    'nuxt-i18n'
+    'nuxt-i18n',
+    '@nuxtjs/markdownit',
   ],
   bootstrapVue: {
     bootstrapCSS: false, // Or `css: false`
@@ -80,10 +83,13 @@ export default {
       'ModalPlugin',
       'NavbarPlugin',
       'TabsPlugin',
-      'SpinnerPlugin'
-    ]
+      'SpinnerPlugin',
+    ],
   },
   buildModules: [
+    '@nuxtjs/eslint-module',
+    // https://go.nuxtjs.dev/stylelint
+    '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/fontawesome',
     [
@@ -93,11 +99,11 @@ export default {
         enabledReleaseStages: ['staging', 'production'],
         reporterOptions: {
           releaseStage: process.env.NODE_ENV,
-          autoAssignRelease: true
+          autoAssignRelease: true,
         },
-        publishRelease: true
-      }
-    ]
+        publishRelease: true,
+      },
+    ],
   ],
   /*
    ** Build configuration
@@ -106,16 +112,16 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) {}
+    extend(config, ctx) {},
   },
 
   storybook: {
     stories: ['~/stories/**/*.stories.js'],
-    addons: ['@storybook/addon-controls', '@storybook/addon-notes']
+    addons: ['@storybook/addon-controls', '@storybook/addon-notes'],
   },
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config.js'
+    configPath: 'tailwind.config.js',
   },
   i18n: {
     locales: ['en', 'es'],
@@ -124,14 +130,41 @@ export default {
       fallbackLocale: 'en',
       messages: {
         en: require('./locales/en.json'),
-        es: require('./locales/es.json')
-      }
-    }
+        es: require('./locales/es.json'),
+      },
+    },
   },
 
   fontawesome: {
     icons: {
-      brands: ['faTwitter', 'faTelegramPlane', 'faYoutube']
-    }
-  }
+      brands: ['faTwitter', 'faTelegramPlane', 'faYoutube'],
+    },
+  },
+
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    langPrefix: 'language-',
+    typographer: true,
+    highlight: (str, lang) => {
+      const hljs = require('highlight.js')
+      const hljsDefineSolidity = require('highlightjs-solidity')
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return (
+            '<pre class="hljs"><code>' +
+            hljs.highlight(lang, str, true).value +
+            hljsDefineSolidity(hljs) +
+            hljs.initHighlightingOnLoad() +
+            '</code></pre>'
+          )
+        } catch (__) {}
+      }
+
+      return '' // use external default escaping
+    },
+
+    use: ['markdown-it-div', 'markdown-it-attrs'],
+  },
 }

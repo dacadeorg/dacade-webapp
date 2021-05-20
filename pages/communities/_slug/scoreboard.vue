@@ -9,7 +9,13 @@
       </div>
       <div class="lg:w-3/4">
         <div
-          class="py-4 flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
+          class="
+            py-4
+            flex flex-col
+            divide-y divide-solid divide-gray-200
+            space-y-8
+            text-gray-700
+          "
         />
         <Header
           :title="community.name"
@@ -37,18 +43,18 @@ export default {
     Navigation,
     Header,
     Section,
-    List
+    List,
   },
   scrollToTop: true,
-  async fetch ({ store, params }) {
+  async fetch({ store, params }) {
     await store.dispatch('communities/find', params.slug)
     await store.dispatch('communities/content', params.slug)
   },
   computed: {
     ...mapGetters({
       communityData: 'content/communityData',
-      community: 'communities/current'
-    })
-  }
+      community: 'communities/current',
+    }),
+  },
 }
 </script>

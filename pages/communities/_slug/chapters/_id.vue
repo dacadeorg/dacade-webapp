@@ -9,7 +9,13 @@
       </div>
       <div class="lg:w-3/4">
         <div
-          class="py-8 flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
+          class="
+            py-8
+            flex flex-col
+            divide-y divide-solid divide-gray-200
+            space-y-8
+            text-gray-700
+          "
         >
           <Header />
           <MaterialSection
@@ -42,20 +48,19 @@ export default {
     Section,
     Header,
     MaterialSection,
-    PageNavigation
+    PageNavigation,
   },
   scrollToTop: true,
-  async fetch ({ store, params }) {
+  async fetch({ store, params }) {
     await store.dispatch('communities/find', params.slug)
-    await store.dispatch('communities/content', params.slug)
-    store.dispatch('communities/chapters/find', params.id)
+    await store.dispatch('communities/chapters/find', params.id)
   },
   computed: {
     ...mapGetters({
       communityData: 'content/communityData',
       community: 'communities/current',
-      chapter: 'communities/chapters/current'
-    })
-  }
+      chapter: 'communities/chapters/current',
+    }),
+  },
 }
 </script>

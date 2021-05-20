@@ -1,13 +1,21 @@
 <template>
   <div class="text-left">
     <span
-      class="uppercase block text-xs font-semibold text-gray-500 leading-relaxed"
-    >{{ $t('nav.balance') }}</span>
+      class="
+        uppercase
+        block
+        text-xs
+        font-semibold
+        text-gray-500
+        leading-relaxed
+      "
+      >{{ $t('nav.balance') }}</span
+    >
     <div class="space-y-4 mt-3">
       <BalanceCard
-        v-for="balance in balances"
-        :key="balance.denom"
-        :details="balance"
+        v-for="wallet in wallets"
+        :key="wallet.id"
+        :details="wallet"
       />
     </div>
   </div>
@@ -17,36 +25,22 @@
 import { mapGetters } from 'vuex'
 
 import BalanceCard from '@/components/cards/Balance'
-import DacadeLogo from '~/assets/icons/logo.svg?data'
 
 export default {
   name: 'BalanceList',
   components: {
-    BalanceCard
+    BalanceCard,
   },
   props: {
     value: {
       default: 0,
-      type: Number
-    }
+      type: Number,
+    },
   },
   computed: {
     ...mapGetters({
-      balanceRaw: 'user/balance'
+      wallets: 'user/wallets/list',
     }),
-    balances () {
-      if (!this.balanceRaw) {
-        return []
-      }
-
-      const list = Object.keys(this.balanceRaw).map(denom => ({
-        denom: denom === 'DCN' ? 'DAC' : denom,
-        icon: DacadeLogo,
-        amount: this.balanceRaw[denom],
-        description: 'Dacade Points'
-      }))
-      return list.filter(balance => balance.amount)
-    }
-  }
+  },
 }
 </script>

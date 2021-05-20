@@ -35,40 +35,28 @@
               learning outcomes are inaccesible for other learners. They cost a
               high personnel effort and are often very hard to scale.
             </p>
-            <img src="/img/usp-key.png" width="72px" class="mb-4" alt="">
+            <img src="/img/usp-key.png" width="72px" class="mb-4" alt="" />
           </div>
           <div class="col-md-2" />
           <div class="col-md-5">
             <p>Dacade offers:</p>
             <div class="mb-4">
-              <b class="dacade-case">
-                Measurable results
-              </b>
+              <b class="dacade-case"> Measurable results </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Value for money
-              </b>
+              <b class="dacade-case"> Value for money </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Incentives encourage engagement
-              </b>
+              <b class="dacade-case"> Incentives encourage engagement </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Outsourced tasks
-              </b>
+              <b class="dacade-case"> Outsourced tasks </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Scalable model
-              </b>
+              <b class="dacade-case"> Scalable model </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Creating an open learning community
-              </b>
+              <b class="dacade-case"> Creating an open learning community </b>
             </div>
           </div>
         </div>
@@ -85,9 +73,7 @@
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b>
-                  Marketing
-                </b>
+                <b> Marketing </b>
               </div>
               <p>Dacade creates awareness through performance marketing.</p>
             </div>
@@ -95,9 +81,7 @@
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b>
-                  Training
-                </b>
+                <b> Training </b>
               </div>
               <p>
                 Developers learn how to use new technology from curated learning
@@ -108,9 +92,7 @@
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b>
-                  Challenge
-                </b>
+                <b> Challenge </b>
               </div>
               <p>
                 In the challenge, developers apply their new knowledge
@@ -121,9 +103,7 @@
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b>
-                  Feedback
-                </b>
+                <b> Feedback </b>
               </div>
               <p>
                 After they enter their submission, developers receive feedback
@@ -134,9 +114,7 @@
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b>
-                  Community
-                </b>
+                <b> Community </b>
               </div>
               <p>
                 Developers go on to give their peers feedback and are encouraged
@@ -147,12 +125,14 @@
           <div class="col-md-2 mb-4">
             <div
               class="text-white"
-              style="padding: 0.4rem 0.6rem; border:1px solid white; border-radius: 0.35rem;"
+              style="
+                padding: 0.4rem 0.6rem;
+                border: 1px solid white;
+                border-radius: 0.35rem;
+              "
             >
               <div class="text-center mb-1">
-                <b>
-                  Incentives
-                </b>
+                <b> Incentives </b>
               </div>
               <p>
                 Submissions and feedback can be incentivized with crypto tokens
@@ -175,20 +155,16 @@
               isolated experience. Valuable human feedback is expensive and it
               is hard to find oppertunities to apply the new knowledge.
             </p>
-            <img src="/img/usp-cap.png" width="72px" class="mb-2" alt="">
+            <img src="/img/usp-cap.png" width="72px" class="mb-2" alt="" />
           </div>
           <div class="col-md-2" />
           <div class="col-md-5">
             <p>Dacade offers:</p>
             <div class="mb-4">
-              <b class="dacade-case">
-                Focus on practice through tutorials
-              </b>
+              <b class="dacade-case"> Focus on practice through tutorials </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Peer feedback and support
-              </b>
+              <b class="dacade-case"> Peer feedback and support </b>
             </div>
             <div class="mb-4">
               <b class="dacade-case">
@@ -196,9 +172,7 @@
               </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Social engagement with other learners
-              </b>
+              <b class="dacade-case"> Social engagement with other learners </b>
             </div>
           </div>
         </div>
@@ -209,13 +183,9 @@
         <div class="big-shadow carousel mx-auto">
           <b-card class="bg-dark mb-4 small-shadow">
             <h4>
-              <b class="white">
-                Demo
-              </b>
+              <b class="white"> Demo </b>
             </h4>
-            <h6 class="mb-2 white">
-              90 seconds
-            </h6>
+            <h6 class="mb-2 white">90 seconds</h6>
             <div>
               <div class="embed-responsive embed-responsive-16by9">
                 <iframe
@@ -245,17 +215,18 @@
         <div class="row align-items-center">
           <div class="col-md-5">
             <p>
-              <b>
-                Aeternity Development 101:
-              </b>
+              <b> Aeternity Development 101: </b>
             </p>
             <div
-              style="border: 1px solid black; border-radius: 0.35rem; padding: 1.4rem 0.5rem"
+              style="
+                border: 1px solid black;
+                border-radius: 0.35rem;
+                padding: 1.4rem 0.5rem;
+              "
             >
               <ul>
-                <li>
-                  General learning materials about aeternity.
-                </li>
+                <li>General learning materials about aeternity.</li>
+                <li>General learning materials about aeternity.</li>
                 <li>
                   An explicit tutorial on how to build a MemeVoting Application
                   on aeternity.
@@ -268,18 +239,18 @@
             </div>
           </div>
           <div class="col-md-2">
-            <div class="text-center fs-2">
-              →
-            </div>
+            <div class="text-center fs-2">→</div>
           </div>
           <div class="col-md-5">
             <p>
-              <b>
-                Impact:
-              </b>
+              <b> Impact: </b>
             </p>
             <div
-              style="background: #1eecb3ff; border-radius: 0.35rem; padding: 1.4rem 0.5rem;"
+              style="
+                background: #1eecb3ff;
+                border-radius: 0.35rem;
+                padding: 1.4rem 0.5rem;
+              "
             >
               <ul>
                 <li>
@@ -311,10 +282,10 @@
           <div class="col-md-6 mb-4">
             <div class="d-flex justify-content-center">
               <div>
-                <img src="/img/contact_paula.png" width="172" alt="">
+                <img src="/img/contact_paula.png" width="172" alt="" />
                 <p class="lead">
-                  Paula Kühn<br>
-                  Sales Consultant<br>
+                  Paula Kühn<br />
+                  Sales Consultant<br />
                   <u>Paula@dacade.org</u>
                 </p>
               </div>
@@ -323,10 +294,10 @@
           <div class="col-md-6 mb-4">
             <div class="d-flex justify-content-center">
               <div>
-                <img src="/img/contact_paul.png" width="172" alt="">
+                <img src="/img/contact_paul.png" width="172" alt="" />
                 <p class="lead">
-                  Paul Walton<br>
-                  Business Development<br>
+                  Paul Walton<br />
+                  Business Development<br />
                   <u>Paul@dacade.org</u>
                 </p>
               </div>
@@ -340,11 +311,11 @@
 
 <style scoped>
 ul li {
-  padding: 5px 0px;
+  padding: 5px 0;
 }
 
 hr {
-  margin: 0rem;
+  margin: 0;
   border-color: rgb(235, 235, 235);
 }
 

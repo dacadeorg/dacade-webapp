@@ -1,13 +1,12 @@
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable no-trailing-spaces */
+/* eslint-disable no-trailing-spaces */ /* eslint-disable no-trailing-spaces */
 <template>
   <div>
     <div
       v-if="
         userWalletAddresses &&
-          userWalletAddresses[coinName] &&
-          userVerifications &&
-          userVerifications['socialMedia']
+        userWalletAddresses[coinName] &&
+        userVerifications &&
+        userVerifications['socialMedia']
       "
     >
       <!-- If the user entered a wallet address for the token and is verified
@@ -42,22 +41,14 @@
       />
     </div>
     <!-- If the user isn't verified, they can add a verification request -->
-    <div
-      v-else-if="
-        !userVerifications || !userVerifications['socialMedia']
-      "
-    >
+    <div v-else-if="!userVerifications || !userVerifications['socialMedia']">
       <verification
         :verification-pending="userVerificationPendig"
         :coin-name="coinName"
       />
     </div>
     <!-- If the user didn't enter a wallet address for the token, they can add a new address -->
-    <div
-      v-else-if="
-        !userWalletAddresses || !userWalletAddresses[coinName]
-      "
-    >
+    <div v-else-if="!userWalletAddresses || !userWalletAddresses[coinName]">
       <user-address
         :id="'add-address-modal' + coinName"
         :coin-name-wallet-address="coinName + ' wallet address:'"
@@ -85,44 +76,43 @@ export default {
   components: {
     UserAddress,
     Payout,
-    Verification
+    Verification,
   },
   props: {
     coinName: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
-  data () {
+  data() {
     return {
       inputUserVerifications: [],
       userWalletAddresses: null, // string
       userVerifications: null, //
       userVerificationPendig: false,
-      payoutRequestsPending: null //
+      payoutRequestsPending: null, //
     }
   },
   computed: {
     ...mapGetters({
       user: 'user/data',
       balance: 'user/balance',
-      communityDataPreview: 'content/communityDataPreview'
-
-    })
+      communityDataPreview: 'content/communityDataPreview',
+    }),
   },
   watch: {
     // When we have the userdata, we can execute the function.
-    user (userData) {
+    user(userData) {
       if (userData) {
         this.getUserWalletAddresses()
         this.getUserVerifications()
       }
     },
-    userWalletAddresses () {
+    userWalletAddresses() {
       this.getPendingPayoutRequests()
-    }
+    },
   },
-  created () {
+  created() {
     if (this.user) {
       // data was sometimes already there, then no watch needed
       this.getUserWalletAddresses()
@@ -131,41 +121,56 @@ export default {
     }
   },
   methods: {
-    jobsDone () {
+    jobsDone() {
       this.removeErrors()
     },
     // maybe get it through the store and not directly from the database?
-    async getUserWalletAddresses () {
-      await firebase.database().ref(`userWallet/${this.user.id}`).once('value').then((snapShot) => {
-        this.userWalletAddresses = snapShot.val()
-      })
+    async getUserWalletAddresses() {
+      await firebase
+        .database()
+        .ref(`userWallet/${this.user.id}`)
+        .once('value')
+        .then((snapShot) => {
+          this.userWalletAddresses = snapShot.val()
+        })
     },
-    async getPendingPayoutRequests () {
-      await firebase.database().ref(`payoutRequestsPending/${this.user.id}`).once('value').then((snapShot) => {
-        this.payoutRequestsPending = snapShot.val()
-      })
+    async getPendingPayoutRequests() {
+      await firebase
+        .database()
+        .ref(`payoutRequestsPending/${this.user.id}`)
+        .once('value')
+        .then((snapShot) => {
+          this.payoutRequestsPending = snapShot.val()
+        })
     },
-    async getUserVerifications () {
-      await firebase.database().ref(`userVerifications/${this.user.id}`).once('value').then((snapShot) => {
-        this.userVerifications = snapShot.val()
-      })
+    async getUserVerifications() {
+      await firebase
+        .database()
+        .ref(`userVerifications/${this.user.id}`)
+        .once('value')
+        .then((snapShot) => {
+          this.userVerifications = snapShot.val()
+        })
       if (this.userVerifications === null) {
         await this.getUserVerificationRequest()
       }
     },
-    async getUserVerificationRequest () {
-      await firebase.database().ref(`userVerificationRequest/${this.user.id}/socialMedia`).once('value').then((snapShot) => {
-        if (snapShot.val()) {
-          this.userVerificationPendig = true
-        }
-      })
-    }
-  }
+    async getUserVerificationRequest() {
+      await firebase
+        .database()
+        .ref(`userVerificationRequest/${this.user.id}/socialMedia`)
+        .once('value')
+        .then((snapShot) => {
+          if (snapShot.val()) {
+            this.userVerificationPendig = true
+          }
+        })
+    },
+  },
 }
 </script>
 
 <style scoped>
-
 .btn-edit {
   color: #64686b;
   background-color: none;
@@ -196,5 +201,4 @@ export default {
   border: 2px solid white;
   background-color: rgba(255, 255, 255, 0.3);
 }
-
 </style>

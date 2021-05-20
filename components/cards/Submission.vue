@@ -2,13 +2,15 @@
   <UserCard
     :user="submission.user"
     :timestamp="{
-      date: submission.date,
-      text: 'Submitted'
+      date: submission.created_at,
+      text: 'Submitted',
     }"
     :link="link"
     :bordered="!last"
   >
-    <p class="text-base md:text-lg max-w-screen-sm leading-normal text-gray-700">
+    <p
+      class="text-base md:text-lg max-w-screen-sm leading-normal text-gray-700"
+    >
       {{ submission.text }}
     </p>
     <div v-if="stats" class="flex items-center mt-4">
@@ -21,21 +23,32 @@
       </Badge>
       <span class="ml-3 text-sm">Points</span>
     </div>
-    <div v-if="buttons" class="inline-grid space-y-2 md:space-y-5 md:contents  mt-6 space-x-0 md:space-x-2">
+    <div
+      v-if="buttons"
+      class="
+        inline-grid
+        space-y-2
+        md:space-y-5
+        md:contents
+        mt-6
+        space-x-0
+        md:space-x-2
+      "
+    >
       <Button
         :padding="false"
-        class="outline-submission-button py-2 px-5  w-44"
+        class="outline-submission-button py-2 px-5 w-44"
         :custom-style="primaryButtonStyles"
         type="outline-primary"
       >
         <span class="flex text-left items-center">
           GitHub Code
-          <span class="absolute right-4  w-3"><ArrowRightIcon /></span>
+          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
         </span>
       </Button>
       <Button
         :padding="false"
-        class="outline-submission-button py-2 px-5  w-44"
+        class="outline-submission-button py-2 px-5 w-44"
         :custom-style="outlineButtonStyles"
         type="outline-primary"
       >
@@ -61,63 +74,63 @@ export default {
     Badge,
     Button,
     ArrowRightIcon,
-    UserCard
+    UserCard,
   },
   props: {
     submission: {
       default: () => {
         return {}
       },
-      type: Object
+      type: Object,
     },
     stats: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     link: {
       default: '',
-      type: String
+      type: String,
     },
     buttons: {
       default: false,
-      type: Boolean
+      type: Boolean,
     },
     last: {
       default: false,
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   computed: {
     ...mapGetters({
       colors: 'ui/colors',
-      community: 'communities/current'
+      community: 'communities/current',
     }),
-    badgeButtonStyles () {
+    badgeButtonStyles() {
       return {
         backgroundColor: this.colors.textAccent,
-        color: this.colors.text
+        color: this.colors.text,
       }
     },
-    primaryButtonStyles () {
+    primaryButtonStyles() {
       return {
         borderColor: this.colors.textAccent,
         color: this.colors.text,
         backgroundColor: this.colors.textAccent,
         '--button-color--hover': this.colors.text,
         '--button-background-color--hover': this.colors.accent,
-        '--button-border-color--hover': this.colors.accent
+        '--button-border-color--hover': this.colors.accent,
       }
     },
-    outlineButtonStyles () {
+    outlineButtonStyles() {
       return {
         borderColor: this.colors.textAccent,
         color: this.colors.textAccent,
         '--button-color--hover': this.colors.text,
         '--button-background-color--hover': this.colors.textAccent,
-        '--button-border-color--hover': this.colors.textAccent
+        '--button-border-color--hover': this.colors.textAccent,
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

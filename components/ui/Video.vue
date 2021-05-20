@@ -2,7 +2,7 @@
   <div
     class="w-full relative mt-7 w-screen md:w-full -ml-5 md:ml-auto"
     :style="{
-      paddingTop: '50%'
+      paddingTop: '50%',
     }"
   >
     <iframe
@@ -20,8 +20,8 @@ export default {
   props: {
     url: {
       default: null,
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 }
 </script>

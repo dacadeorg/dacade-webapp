@@ -2,20 +2,20 @@
 /* eslint-disable no-unused-vars */
 
 export const state = () => ({
-  colors: {}
+  colors: {},
 })
 
 export const mutations = {
-  setColors (state, payload) {
+  setColors(state, payload) {
     state.colors = {
       ...state.colors,
-      ...payload
+      ...payload,
     }
-  }
+  },
 }
 
 export const getters = {
-  colors (state) {
+  colors(state) {
     return state.colors
-  }
+  },
 }

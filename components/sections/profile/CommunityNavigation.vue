@@ -1,10 +1,37 @@
 <template>
-  <ul class="relative border-gray-200 border-b border-t lg:border-0 lg:px-0 lg:pt-0 lg:mb-0 lg:mx-0 px-15 pt-3 -pb-2 mb-12 -mx-15 md:-mx-5">
-    <li v-for="(menu, i) in menus" :key="i" class="mb-6 md:mb-8  relative">
+  <ul
+    class="
+      relative
+      border-gray-200 border-b border-t
+      lg:border-0
+      lg:px-0
+      lg:pt-0
+      lg:mb-0
+      lg:mx-0
+      px-15
+      pt-3
+      -pb-2
+      mb-12
+      -mx-15
+      md:-mx-5
+    "
+  >
+    <li v-for="(menu, i) in menus" :key="i" class="mb-6 md:mb-8 relative">
       <span
         v-if="!menu.hideTitle"
-        class="hidden lg:flex -mt-6 lg:mt-0 text-xs uppercase font-semibold relative text-gray-500"
-      >{{ menu.title }}</span>
+        class="
+          hidden
+          lg:flex
+          -mt-6
+          lg:mt-0
+          text-xs
+          uppercase
+          font-semibold
+          relative
+          text-gray-500
+        "
+        >{{ menu.title }}</span
+      >
       <ul>
         <li
           v-for="(item, k) in menu.items"
@@ -32,9 +59,9 @@ import ChevronRightIcon from '~/assets/icons/chevron-right.svg?inline'
 
 export default {
   components: {
-    ChevronRightIcon
+    ChevronRightIcon,
   },
-  data () {
+  data() {
     return {
       menus: [
         {
@@ -42,17 +69,17 @@ export default {
           items: [
             {
               label: 'Introduction to Blockchain',
-              link: '/profile/intro-to-blockchain'
+              link: '/profile/intro-to-blockchain',
             },
             {
               label: 'Web Development 101',
-              link: '/profile/web-dev-101'
-            }
-          ]
-        }
-      ]
+              link: '/profile/web-dev-101',
+            },
+          ],
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 <style lang="scss" scoped>

@@ -2,9 +2,9 @@
   <div class="flex space-x-3 text-left">
     <Coin :denom="details.denom" size="medium" />
     <div class="pt-1">
-      <span
-        class="block text-base font-medium leading-normal"
-      >{{ details.amount }} {{ details.denom }}</span>
+      <span class="block text-base font-medium leading-normal"
+        >{{ details.balance }} {{ details.denom }}</span
+      >
       <span class="block font-normal text-sm">{{ details.description }}</span>
     </div>
   </div>
@@ -16,21 +16,21 @@ import Coin from '@/components/ui/Coin'
 export default {
   name: 'Balance',
   components: {
-    Coin
+    Coin,
   },
   props: {
     user: {
       default: () => {
         return {}
       },
-      type: Object
+      type: Object,
     },
     details: {
       default: () => {
         return {}
       },
-      type: Object
-    }
-  }
+      type: Object,
+    },
+  },
 }
 </script>

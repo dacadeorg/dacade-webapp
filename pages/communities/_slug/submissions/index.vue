@@ -8,52 +8,44 @@
         <MobileNav />
       </div>
       <div class="lg:w-3/4">
-        <div
-          class="py-4 flex flex-col space-y-8 text-gray-700"
-        >
+        <div class="py-4 flex flex-col space-y-8 text-gray-700">
           <Header
             :title="community.name"
             :subtitle="$t('communities.submission.title')"
           />
           <List />
-          <Feedback />
         </div>
       </div>
     </div>
   </Section>
 </template>
 <script>
-
 import { mapGetters } from 'vuex'
 import Navigation from '@/components/sections/communities/Navigation'
 import Section from '@/components/ui/Section'
 
 import Header from '@/components/sections/communities/partials/Header'
 import List from '@/components/sections/communities/submissions/List'
-import Feedback from '@/components/sections/communities/submissions/Feedback'
 import MobileNav from '@/components/sections/communities/MobileNav'
 
 export default {
   components: {
-    Feedback,
     MobileNav,
     Navigation,
     Section,
     Header,
-    List
+    List,
   },
   scrollToTop: true,
-  async fetch ({ store, params }) {
+  async fetch({ store, params }) {
     await store.dispatch('communities/find', params.slug)
-    await store.dispatch('communities/content', params.slug)
-    await store.dispatch('communities/submissions/fetch', params.slug)
+    await store.dispatch('communities/submissions/all', params.slug)
   },
   computed: {
     ...mapGetters({
-      communityData: 'content/communityData',
       community: 'communities/current',
-      submissions: 'communities/submissions/list'
-    })
-  }
+      submissions: 'communities/submissions/list',
+    }),
+  },
 }
 </script>

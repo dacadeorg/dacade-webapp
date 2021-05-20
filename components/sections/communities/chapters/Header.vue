@@ -27,14 +27,14 @@ export default {
   components: {
     Section,
     ObjectiveList,
-    Header
+    Header,
   },
   computed: {
     ...mapGetters({
       community: 'communities/current',
       communityData: 'communities/content',
-      chapter: 'communities/chapters/current'
-    })
-  }
+      chapter: 'communities/chapters/current',
+    }),
+  },
 }
 </script>

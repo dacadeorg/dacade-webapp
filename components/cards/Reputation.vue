@@ -7,9 +7,9 @@
       shape="rounded"
     />
     <div class="pt-1">
-      <span
-        class="block text-base font-medium leading-normal"
-      >{{ details.value }} REP</span>
+      <span class="block text-base font-medium leading-normal"
+        >{{ details.score }} REP</span
+      >
       <span class="block font-normal text-sm">{{
         details.community.name
       }}</span>
@@ -23,21 +23,21 @@ import Avatar from '@/components/ui/Avatar'
 export default {
   name: 'ReputationCard',
   components: {
-    Avatar
+    Avatar,
   },
   props: {
     user: {
       default: () => {
         return {}
       },
-      type: Object
+      type: Object,
     },
     details: {
       default: () => {
         return {}
       },
-      type: Object
-    }
-  }
+      type: Object,
+    },
+  },
 }
 </script>
