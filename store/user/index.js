@@ -42,7 +42,7 @@ export const actions = {
           })
         } else {
           commit('set', null)
-          return reject(new Error('Not logged in'))
+          return resolve(null)
         }
       })
     })
