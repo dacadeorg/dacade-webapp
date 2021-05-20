@@ -10,9 +10,7 @@
           <h1>Oops!</h1>
           <p>An error occured and your request couldn't be completed.</p>
         </div>
-        <n-link to="/">
-          Home page
-        </n-link>
+        <n-link to="/"> Home page </n-link>
       </div>
     </div>
   </div>
@@ -23,14 +21,14 @@ export default {
   props: {
     error: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
-  layout: 'default' // If you prefers you can set a custom layout for the error page
+  layout: 'default', // If you prefers you can set a custom layout for the error page
 }
 </script>
 <style lang="scss" scoped>
-.error-page-container{
-    min-height: 80vh;
+.error-page-container {
+  min-height: 80vh;
 }
 </style>

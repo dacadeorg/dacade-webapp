@@ -1,10 +1,11 @@
 <template>
   <ul class="relative hidden lg:block xl:block">
-    <li v-for="(menu, i) in menus" :key="i" class="mb-8  relative">
+    <li v-for="(menu, i) in menus" :key="i" class="mb-8 relative">
       <span
         v-if="!menu.hideTitle"
         class="text-xs uppercase font-semibold relative text-gray-500"
-      >{{ menu.title }}</span>
+        >{{ menu.title }}</span
+      >
       <ul>
         <li
           v-for="(item, k) in menu.items"
@@ -32,9 +33,9 @@ import ChevronRightIcon from '~/assets/icons/chevron-right.svg?inline'
 
 export default {
   components: {
-    ChevronRightIcon
+    ChevronRightIcon,
   },
-  data () {
+  data() {
     return {
       menus: [
         {
@@ -42,30 +43,30 @@ export default {
           items: [
             {
               label: 'Introduction to Blockchain',
-              link: '/profile/intro-to-blockchain'
+              link: '/profile/intro-to-blockchain',
             },
             {
               label: 'Web Development 101',
-              link: '/profile/web-dev-101'
-            }
-          ]
+              link: '/profile/web-dev-101',
+            },
+          ],
         },
         {
           title: 'PROFILE',
           items: [
             {
               label: 'Notifications',
-              link: '/profile/notifications'
+              link: '/profile/notifications',
             },
             {
               label: 'Wallet',
-              link: '/profile/wallet'
-            }
-          ]
-        }
-      ]
+              link: '/profile/wallet',
+            },
+          ],
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 <style lang="scss" scoped>

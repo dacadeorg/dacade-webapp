@@ -1,7 +1,14 @@
 <template>
-  <div class="flex flex-col ">
+  <div class="flex flex-col">
     <DescriptionSection />
-    <div class="divide-y divide-solid divide-gray-200 lg:py-5 space-y-8 text-gray-700">
+    <div
+      class="
+        divide-y divide-solid divide-gray-200
+        lg:py-5
+        space-y-8
+        text-gray-700
+      "
+    >
       <RewardsSection />
       <ObjectivesSection />
       <TrailerSection />
@@ -31,13 +38,13 @@ export default {
     ChaptersSection,
     ChallengeSection,
     DescriptionSection,
-    PageNavigation
+    PageNavigation,
   },
   computed: {
     ...mapGetters({
       community: 'communities/current',
-      communityData: 'communities/content'
-    })
-  }
+      communityData: 'communities/content',
+    }),
+  },
 }
 </script>

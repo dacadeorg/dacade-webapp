@@ -2,27 +2,45 @@
 <template>
   <Section padding="p-0">
     <div class="lg:w-3/4 lg:py-24 pt-24 pb-8">
-      <h1 class="lg:text-8xl md:text-6xl text-5xl leading-none tracking-tighter">
-        {{ $t("page.index.main.title") }}
+      <h1
+        class="lg:text-8xl md:text-6xl text-5xl leading-none tracking-tighter"
+      >
+        {{ $t('page.index.main.title') }}
       </h1>
-      <p class="lg:text-8xl md:text-6xl text-2xl py-2 lg:py-0 md:py-0 sm:py-0 text-black lg:text-gray-400 md:text-gray-400 sm:text-gray-400 leading-none tracking-tighter">
-        {{ $t("page.index.main.subtitle") }}
+      <p
+        class="
+          lg:text-8xl
+          md:text-6xl
+          text-2xl
+          py-2
+          lg:py-0
+          md:py-0
+          sm:py-0
+          text-black
+          lg:text-gray-400
+          md:text-gray-400
+          sm:text-gray-400
+          leading-none
+          tracking-tighter
+        "
+      >
+        {{ $t('page.index.main.subtitle') }}
       </p>
     </div>
     <div class="lg:flex md:flex">
       <div class="w-2/5 hidden lg:block">
         <Button :padding="false" class="pl-7.5">
           <span class="py-4 inline-block align-middle pr-5.75">{{
-            $t("page.index.main.button")
+            $t('page.index.main.button')
           }}</span>
           <span class="inline-block py-3 pr-3 align-middle">
             <PlayIcon />
           </span>
         </Button>
         <span class="block text-primary-dark mt-4.5 text-base">
-          <span class="font-medium">{{ $t("app.name") }}</span>
+          <span class="font-medium">{{ $t('app.name') }}</span>
           <span class="font-light">{{
-            $t("page.index.main.button.description")
+            $t('page.index.main.button.description')
           }}</span>
         </span>
       </div>
@@ -36,21 +54,21 @@
     </div>
 
     <div class="lg:hidden pt-10">
-        <Button :padding="false" class="pl-7.5">
-          <span class="py-4 inline-block text-lg align-middle pr-5.75">{{
-            $t("page.index.main.button")
-          }}</span>
-          <span class="inline-block py-3 pr-3 align-middle">
-            <PlayIcon />
-          </span>
-        </Button>
-        <span class="lg:block md:block hidden text-primary-dark mt-4.5 text-base">
-          <span class="font-medium">{{ $t("app.name") }}</span>
-          <span class="font-light">{{
-            $t("page.index.main.button.description")
-          }}</span>
+      <Button :padding="false" class="pl-7.5">
+        <span class="py-4 inline-block text-lg align-middle pr-5.75">{{
+          $t('page.index.main.button')
+        }}</span>
+        <span class="inline-block py-3 pr-3 align-middle">
+          <PlayIcon />
         </span>
-      </div>
+      </Button>
+      <span class="lg:block md:block hidden text-primary-dark mt-4.5 text-base">
+        <span class="font-medium">{{ $t('app.name') }}</span>
+        <span class="font-light">{{
+          $t('page.index.main.button.description')
+        }}</span>
+      </span>
+    </div>
   </Section>
 </template>
 
@@ -65,25 +83,25 @@ export default {
     Section,
     Button,
     PlayIcon,
-    NumberedCard
+    NumberedCard,
   },
-  data () {
+  data() {
     return {
       cards: [
         {
           title: 'page.index.main.cards.first.title',
-          body: 'page.index.main.cards.first.body'
+          body: 'page.index.main.cards.first.body',
         },
         {
           title: 'page.index.main.cards.second.title',
-          body: 'page.index.main.cards.second.body'
+          body: 'page.index.main.cards.second.body',
         },
         {
           title: 'page.index.main.cards.third.title',
-          body: 'page.index.main.cards.third.body'
-        }
-      ]
+          body: 'page.index.main.cards.third.body',
+        },
+      ],
     }
-  }
+  },
 }
 </script>

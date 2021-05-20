@@ -1,15 +1,25 @@
 <template>
   <button
-    class="outline-none focus:outline-none hover:outline-none cursor-pointer relative"
+    class="
+      outline-none
+      focus:outline-none
+      hover:outline-none
+      cursor-pointer
+      relative
+    "
     :class="{
       'bg-primary text-white': type == 'primary',
       'py-4 lg:px-7 px-5': padding,
       'bg-secondary text-gray-900': type == 'secondary',
-      'text-primary border border-solid border-primary bg-transparent hover:bg-primary hover:text-white': type == 'outline-primary',
-      'text-secondary border border-solid border-secondary bg-transparent hover:bg-secondary hover:text-gray-900': type == 'outline-secondary',
-      'text-white border border-solid border-white bg-transparent hover:bg-white hover:text-primary': type == 'outline-white',
-      'text-gray-400 border border-solid border-gray-400 bg-transparent hover:bg-gray-500 hover:text-gray-200': type == 'outline-gray',
-      'rounded-full': rounded
+      'text-primary border border-solid border-primary bg-transparent hover:bg-primary hover:text-white':
+        type == 'outline-primary',
+      'text-secondary border border-solid border-secondary bg-transparent hover:bg-secondary hover:text-gray-900':
+        type == 'outline-secondary',
+      'text-white border border-solid border-white bg-transparent hover:bg-white hover:text-primary':
+        type == 'outline-white',
+      'text-gray-400 border border-solid border-gray-400 bg-transparent hover:bg-gray-500 hover:text-gray-200':
+        type == 'outline-gray',
+      'rounded-full': rounded,
     }"
     :padding="[padding]"
     :style="customStyle"
@@ -26,27 +36,27 @@ export default {
   props: {
     text: {
       default: '',
-      type: [Number, String]
+      type: [Number, String],
     },
     rounded: {
       default: true,
-      type: Boolean
+      type: Boolean,
     },
     type: {
       default: 'primary',
-      type: String
+      type: String,
     },
     padding: {
       default: true,
-      type: Boolean
+      type: Boolean,
     },
     customStyle: {
       default: null,
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
-    inputListeners () {
+    inputListeners() {
       const vm = this
       // `Object.assign` merges objects together to form a new object
       return Object.assign(
@@ -57,12 +67,12 @@ export default {
         // behavior of some listeners.
         {
           // This ensures that the component works with v-model
-          input (event) {
+          input(event) {
             vm.$emit('input', event.target.value)
-          }
+          },
         }
       )
-    }
-  }
+    },
+  },
 }
 </script>

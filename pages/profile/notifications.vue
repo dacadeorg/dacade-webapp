@@ -1,6 +1,6 @@
 <template>
   <Wrapper>
-    <NotificationList />
+    <NotificationList extended />
   </Wrapper>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   name: 'Notifications',
   components: {
     Wrapper,
-    NotificationList
-  }
+    NotificationList,
+  },
 }
 </script>

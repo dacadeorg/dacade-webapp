@@ -15,15 +15,14 @@
           />
           <div v-if="submission">
             <SubmissionCard :submission="submission" :buttons="true" />
-            <EvaluationCard
-              :evaluation="evaluation"
-            />
-            <ReviewCard
-              v-for="(feedback, k) in submission.feedbacks"
-              :key="feedback.id"
-              :review="feedback"
-              :last="k === submission.feedbacks.length - 1"
-            />
+            <EvaluationCard :evaluation="evaluation">
+              <RatingRubric
+                v-if="submission.challenge"
+                hide-title
+                :rating-criteria="submission.challenge.ratingCriteria"
+              />
+            </EvaluationCard>
+            <Feedback />
           </div>
         </div>
       </div>
@@ -31,15 +30,16 @@
   </Section>
 </template>
 <script>
-
 import { mapGetters } from 'vuex'
 import SubmissionCard from '@/components/cards/Submission'
-import ReviewCard from '@/components/cards/Review'
+
+import RatingRubric from '@/components/sections/communities/challenge/Rubric'
 import EvaluationCard from '@/components/cards/Evaluation'
 import Navigation from '@/components/sections/communities/Navigation'
 import Section from '@/components/ui/Section'
 import Header from '@/components/sections/communities/partials/Header'
 import MobileNav from '@/components/sections/communities/MobileNav'
+import Feedback from '@/components/sections/communities/submissions/feedback'
 
 export default {
   components: {
@@ -48,35 +48,33 @@ export default {
     Section,
     Header,
     SubmissionCard,
-    ReviewCard,
-    EvaluationCard
+    EvaluationCard,
+    RatingRubric,
+    Feedback,
   },
   scrollToTop: true,
   props: {
     evaluation: {
       default: () => {
         return {
-          content: 'Your website is working great, the only problem is that you didn\'t host it correctly on GitHub, as mentioned by your peers.',
-          user: { displayName: 'hello' }
+          content:
+            "Your website is working great, the only problem is that you didn't host it correctly on GitHub, as mentioned by your peers.",
+          user: { displayName: 'Moritz Felipe' },
         }
       },
-      type: Object
-    }
+      type: Object,
+    },
   },
-  async fetch ({ store, params }) {
+  async fetch({ store, params }) {
     await store.dispatch('communities/find', params.slug)
-    await store.dispatch('communities/content', params.slug)
-    await store.dispatch('communities/submissions/find', {
-      communitySlug: params.slug,
-      id: params.id
-    })
+    await store.dispatch('communities/submissions/find', params.id)
   },
   computed: {
     ...mapGetters({
       communityData: 'content/communityData',
       community: 'communities/current',
-      submission: 'communities/submissions/current'
-    })
-  }
+      submission: 'communities/submissions/current',
+    }),
+  },
 }
 </script>

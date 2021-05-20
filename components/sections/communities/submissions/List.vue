@@ -5,9 +5,7 @@
         v-for="(submission, i) in submissions"
         :key="submission.id"
         :stats="true"
-        :link="
-          `/communities/${$route.params.slug}/submissions/${submission.id}`
-        "
+        :link="`/communities/${$route.params.slug}/submissions/${submission.id}`"
         :submission="submission"
         :last="i === submissions.length - 1"
       />
@@ -25,12 +23,12 @@ export default {
   name: 'SubmissionList',
   components: {
     Section,
-    SubmissionCard
+    SubmissionCard,
   },
   computed: {
     ...mapGetters({
-      submissions: 'communities/submissions/list'
-    })
-  }
+      submissions: 'communities/submissions/list',
+    }),
+  },
 }
 </script>

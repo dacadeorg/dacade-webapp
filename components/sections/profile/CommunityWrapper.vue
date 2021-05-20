@@ -22,7 +22,7 @@ export default {
   components: {
     Header,
     Section,
-    CommunityNavigation
-  }
+    CommunityNavigation,
+  },
 }
 </script>

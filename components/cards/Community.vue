@@ -16,11 +16,22 @@
             {{ community.summary }}
           </p>
         </div>
-        <div class="ml-auto pl-28 lg:pl-0 md:pl-0 sm:pl-0 xl:my-0 lg:my-16 mt-11">
-          <img :src="community.icon">
+        <div
+          class="ml-auto pl-28 lg:pl-0 md:pl-0 sm:pl-0 xl:my-0 lg:my-16 mt-11"
+        >
+          <img :src="community.icon" />
         </div>
         <div
-          class="block absolute lg:bottom-0 bottom-8 text-sm lg:left-0 left-3 md:left-10"
+          class="
+            block
+            absolute
+            lg:bottom-0
+            bottom-8
+            text-sm
+            lg:left-0
+            left-3
+            md:left-10
+          "
           :style="{ color: community.colors.accent }"
         >
           <span class="font-bold">{{ rewards }} DAC</span>
@@ -37,16 +48,21 @@ export default {
   props: {
     community: {
       default: () => {},
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
-    path () {
+    path() {
       return `/communities/${this.community.slug}`
     },
-    rewards () {
-      return this.community.rewards.reduce((accumulator, reward) => accumulator.amount + reward.amount)
-    }
-  }
+    rewards() {
+      if (!this.community.rewards || !this.community.rewards.length) {
+        return 0
+      }
+      return this.community.rewards?.reduce(
+        (accumulator, reward) => accumulator.amount + reward.amount
+      )
+    },
+  },
 }
 </script>

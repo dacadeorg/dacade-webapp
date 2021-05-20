@@ -1,9 +1,19 @@
 <template>
   <div
-    class="bg-gray-100 lg:w-9/12 xl:w-2/3 relative lg:flex md:flex sm:flex rounded-3.5xl mb-7"
+    class="
+      bg-gray-100
+      lg:w-9/12
+      xl:w-2/3
+      relative
+      lg:flex
+      md:flex
+      sm:flex
+      rounded-3.5xl
+      mb-7
+    "
   >
     <div class="bg-gray-50 lg:w-60 md:w-60 sm:w-60 rounded-3.5xl">
-      <div class="p-6 ">
+      <div class="p-6">
         <div class="border-b border-dotted border-gray-900">
           <h1 class="text-2xl">
             {{ title }}
@@ -37,17 +47,17 @@
         <div v-if="hasAddress">
           <Button :padding="false" class="py-2" type="outline-primary">
             <span class="inline-block text-sm">Cash out </span>
-            <span
-              class="inline-block lg:pl-12 pl-3 align-middle"
-            ><ArrowRight /></span>
+            <span class="inline-block lg:pl-12 pl-3 align-middle"
+              ><ArrowRight
+            /></span>
           </Button>
         </div>
         <div v-else>
           <Button :padding="false" class="py-2" type="outline-gray">
             <span class="inline-block text-sm">Cash out </span>
-            <span
-              class="inline-block lg:pl-12 pl-3 align-middle"
-            ><ArrowRight /></span>
+            <span class="inline-block lg:pl-12 pl-3 align-middle"
+              ><ArrowRight
+            /></span>
           </Button>
         </div>
       </div>
@@ -69,26 +79,26 @@ export default {
     Button,
     ArrowRight,
     Tag,
-    Address
+    Address,
   },
   props: {
     title: {
       type: String,
       require: true,
-      default: ''
+      default: '',
     },
 
     amount: {
       type: Number,
       require: true,
-      default: null
-    }
+      default: null,
+    },
   },
 
   computed: {
-    hasAddress () {
+    hasAddress() {
       return true
-    }
-  }
+    },
+  },
 }
 </script>

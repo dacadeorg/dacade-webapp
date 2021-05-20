@@ -14,7 +14,18 @@
     </li>
     <div
       v-show="show"
-      class="w-80 absolute top-14 right-0 z-10 bg-secondary py-4 px-4.5 rounded-3.5xl text-gray-900"
+      class="
+        w-80
+        absolute
+        top-14
+        right-0
+        z-10
+        bg-secondary
+        py-4
+        px-4.5
+        rounded-3.5xl
+        text-gray-900
+      "
     >
       <NotificationList />
     </div>
@@ -33,40 +44,44 @@ import BellIcon from '~/assets/icons/notification-bell.svg?inline'
 export default {
   name: 'NotificationPopup',
   directives: {
-    clickOutside: vClickOutside.directive
+    clickOutside: vClickOutside.directive,
   },
   components: {
     Button,
     BellIcon,
     Badge,
-    NotificationList
+    NotificationList,
   },
   props: {
     buttonStyles: {
       default: null,
-      type: Object
+      type: Object,
     },
     badgeStyles: {
       default: null,
-      type: Object
-    }
+      type: Object,
+    },
   },
-  data () {
+  fetchOnServer: false,
+  data() {
     return {
-      show: false
+      show: false,
     }
   },
   computed: {
     ...mapGetters({
-      count: 'notification/count'
-    })
+      count: 'user/notifications/count',
+    }),
+  },
+  created() {
+    this.$store.dispatch('user/notifications/all')
   },
   methods: {
-    externalClick (event) {
+    externalClick(event) {
       if (this.show) {
         this.show = false
       }
-    }
-  }
+    },
+  },
 }
 </script>

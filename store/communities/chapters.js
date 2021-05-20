@@ -1,30 +1,40 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import firebase from '@/plugins/firebase'
-
-const db = firebase.database()
 
 export const state = () => ({
-  current: null
+  current: null,
 })
 
 export const mutations = {
-  setCurrent (state, payload) {
+  setCurrent(state, payload) {
     state.current = payload
-  }
+  },
+  setList(state, payload) {
+    state.list = payload
+  },
 }
 
 export const actions = {
-  find ({ rootGetters, commit }, id) {
-    const community = rootGetters['communities/current']
-    const chapter = community.chapters[id]
-    console.log(chapter)
-    commit('setCurrent', chapter)
-  }
+  async find({ commit }, id) {
+    const { data } = await this.$apiClient('chapters-show', {
+      id,
+    })
+    commit('setCurrent', data)
+  },
+  async all({ commit }, slug) {
+    const { data } = await this.$apiClient('chapters-list', {
+      slug,
+    })
+    console.log(data)
+    commit('setList', data)
+  },
 }
 
 export const getters = {
-  current (state) {
+  current(state) {
     return state.current
-  }
+  },
+  list(state) {
+    return state.list
+  },
 }

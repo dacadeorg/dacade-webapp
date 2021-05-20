@@ -20,7 +20,7 @@ export default {
     Navbar,
     PrivacyPolicyBanner,
     NotificationBar,
-    Footer
-  }
+    Footer,
+  },
 }
 </script>

@@ -21,21 +21,21 @@ import Bounty from '@/components/cards/Bounty'
 
 export default {
   components: {
-    Bounty
+    Bounty,
   },
-  data () {
+  data() {
     return {
-      bounties: []
+      bounties: [],
     }
   },
   computed: {
     ...mapGetters({
       user: 'user/data',
       learningPoints: 'user/learningPoints',
-      communityDataPreview: 'content/communityDataPreview'
-    })
+      communityDataPreview: 'content/communityDataPreview',
+    }),
   },
-  async asyncData ({ params }) {
+  async asyncData({ params }) {
     let submissions, bountiesDb
     await firebase
       .database()
@@ -53,7 +53,7 @@ export default {
       })
     return { submissions, bountiesDb }
   },
-  created () {
+  created() {
     this.getCommunityDataPreview().then(() => {
       this.getCommunityDataPreview().then(() => {
         this.getOpenBounties()
@@ -62,9 +62,9 @@ export default {
   },
   methods: {
     ...mapActions({
-      getCommunityDataPreview: 'content/getCommunityDataPreview'
+      getCommunityDataPreview: 'content/getCommunityDataPreview',
     }),
-    getOpenBounties () {
+    getOpenBounties() {
       // Todo: Exlude submission if user hasn't made a submission to the community yet
       const bounties = []
       const userSubmissions = []
@@ -170,7 +170,7 @@ export default {
         return a.hoursLeft - b.hoursLeft
       })
     },
-    countDown (endTime) {
+    countDown(endTime) {
       console.log(endTime)
 
       // Get today's date and time
@@ -180,12 +180,14 @@ export default {
       const distance = endTime - now
       let countDown = {}
       const x = setInterval(function () {
-      // Time calculations for days, hours, minutes and seconds
+        // Time calculations for days, hours, minutes and seconds
         countDown = {
           days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          hours: Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          ),
           minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+          seconds: Math.floor((distance % (1000 * 60)) / 1000),
         }
         // If the count down is finished, write some text
         if (distance < 0) {
@@ -194,7 +196,7 @@ export default {
         }
       }, 1000)
       return countDown
-    }
-  }
+    },
+  },
 }
 </script>

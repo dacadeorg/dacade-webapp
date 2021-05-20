@@ -25,17 +25,17 @@ export default {
     Navbar,
     PrivacyPolicyBanner,
     NotificationBar,
-    Footer
+    Footer,
   },
   computed: {
     ...mapGetters({
-      colors: 'ui/colors'
+      colors: 'ui/colors',
     }),
-    settings () {
+    settings() {
       return {
-        colors: this.colors
+        colors: this.colors,
       }
-    }
-  }
+    },
+  },
 }
 </script>

@@ -12,12 +12,12 @@ export default {
   props: {
     type: {
       default: 'item',
-      type: String
+      type: String,
     },
     to: {
       default: '/',
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 }
 </script>

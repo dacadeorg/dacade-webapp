@@ -6,20 +6,26 @@ export default {
     type: {
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'outline-primary', 'outline-secondary', 'outline-white']
+        options: [
+          'primary',
+          'secondary',
+          'outline-primary',
+          'outline-secondary',
+          'outline-white',
+        ],
       },
-      defaultValue: 'primary'
+      defaultValue: 'primary',
     },
     rounded: { control: 'boolean' },
     text: {
       control: 'text',
-      defaultValue: 'Awesome Button'
-    }
-  }
+      defaultValue: 'Awesome Button',
+    },
+  },
 }
 
 export const Button = (arg, { argTypes }) => ({
   components: { MyButton },
   props: Object.keys(argTypes),
-  template: '<MyButton v-bind="$props" />'
+  template: '<MyButton v-bind="$props" />',
 })

@@ -2,51 +2,59 @@
   <span
     :class="[sizeClasses, shapeClasses]"
     :style="{
-      backgroundColor: color || coin(denom).color
+      backgroundColor: color || coin(denom).color,
     }"
-    class="bg-primary inline-flex text-white  items-center justify-center uppercase leading-none"
+    class="
+      bg-primary
+      inline-flex
+      text-white
+      items-center
+      justify-center
+      uppercase
+      leading-none
+    "
   >
-    <img v-if="coin(denom).icon" class="p-2" :src="coin(denom).icon">
+    <img v-if="coin(denom).icon" class="p-2" :src="coin(denom).icon" />
   </span>
 </template>
 
 <script>
 export default {
-  name: 'Avatar',
+  name: 'Coin',
   props: {
     color: {
       default: null,
-      type: String
+      type: String,
     },
     denom: {
       default: null,
-      type: String
+      type: String,
     },
     size: {
       default: 'small',
-      type: String
+      type: String,
     },
     shape: {
       default: 'circular',
-      type: String
-    }
+      type: String,
+    },
   },
-  data () {
+  data() {
     return {
       coins: {
         DCN: {
           icon: require('~/assets/icons/logo.svg?data'),
-          color: '#1B66F8'
+          color: '#1B66F8',
         },
         CGLD: {
           icon: require('~/assets/icons/logo.svg?data'),
-          color: '#34E256'
-        }
-      }
+          color: '#34E256',
+        },
+      },
     }
   },
   computed: {
-    sizeClasses () {
+    sizeClasses() {
       switch (this.size) {
         case 'medium':
           return 'w-15 h-15 text-2xl p-2'
@@ -56,7 +64,7 @@ export default {
           return 'w-9 h-9 text-lg p-4'
       }
     },
-    shapeClasses () {
+    shapeClasses() {
       switch (this.shape) {
         case 'rounded':
           return 'rounded-xl'
@@ -65,12 +73,12 @@ export default {
         default:
           return 'rounded-full'
       }
-    }
+    },
   },
   methods: {
-    coin (denom) {
+    coin(denom) {
       return this.coins[denom] ? this.coins[denom] : this.coins.DCN
-    }
-  }
+    },
+  },
 }
 </script>

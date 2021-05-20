@@ -1,14 +1,23 @@
 <template>
   <div class="text-left">
     <span
-      class="uppercase block text-xs font-semibold text-gray-500 leading-relaxed"
-    >{{ $t('nav.notification') }}</span>
-    <div class="space-y-4 mt-3">
+      class="
+        uppercase
+        block
+        text-xs
+        font-semibold
+        text-gray-500
+        leading-relaxed
+      "
+      >{{ $t('nav.notification') }}</span
+    >
+    <div :class="{ 'space-y-4 mt-3': !extended, 'space-y-16 mt-4': extended }">
       <NotificationCard
-        v-for="notification in orderedList"
+        v-for="notification in notifications"
         :key="notification.id"
         :user="user"
         :details="notification"
+        :extended="extended"
       />
     </div>
   </div>
@@ -22,25 +31,23 @@ import NotificationCard from '@/components/cards/Notification'
 export default {
   name: 'NotificationList',
   components: {
-    NotificationCard
+    NotificationCard,
   },
   props: {
     value: {
       default: 0,
-      type: Number
-    }
+      type: Number,
+    },
+    extended: {
+      default: false,
+      type: Boolean,
+    },
   },
   computed: {
     ...mapGetters({
-      notifications: 'notification/get',
-      user: 'user/get'
+      notifications: 'user/notifications/get',
+      user: 'user/get',
     }),
-    orderedList () {
-      if (!this.notifications) {
-        return []
-      }
-      return Object.values(this.notifications).reverse()
-    }
-  }
+  },
 }
 </script>

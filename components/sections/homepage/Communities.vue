@@ -36,12 +36,12 @@ export default {
   components: {
     Section,
     CommunityCard,
-    PartneringCard
+    PartneringCard,
   },
   computed: {
     ...mapGetters({
-      communities: 'communities/list'
-    })
-  }
+      communities: 'communities/list',
+    }),
+  },
 }
 </script>

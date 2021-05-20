@@ -1,7 +1,9 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <Section padding="py-32" type="secondary-light">
-    <CommunitStats class="xl:w-1/3 lg:mt-0 md:mt-0 mt-48 md:w-1/2 z-10 max-w-sm" />
+    <CommunitStats
+      class="xl:w-1/3 lg:mt-0 md:mt-0 mt-48 md:w-1/2 z-10 max-w-sm"
+    />
     <Stories :list="stories" />
   </Section>
 </template>
@@ -16,59 +18,59 @@ export default {
   components: {
     Section,
     CommunitStats,
-    Stories
+    Stories,
     // Button
   },
-  data () {
+  data() {
     return {
       stories: [
         {
           icon: require('~/assets/img/testimonial-sample.png'),
           content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-2.png'),
           content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-3.png'),
           content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-4.png'),
           content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-5.png'),
           content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-6.png'),
           content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-7.png'),
           content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-8.png'),
           content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-9.png'),
           content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too."
-        }
-      ]
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+        },
+      ],
     }
-  }
+  },
 }
 </script>

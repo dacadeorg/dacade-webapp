@@ -40,37 +40,37 @@ export default {
   components: {
     Balance,
     Achievements,
-    Reputation
+    Reputation,
   },
-  data () {
+  data() {
     return {
       addresses: [],
       inputUserVerifications: [],
       userWalletAddresses: null,
       userVerifications: null,
       userVerificationPendig: false,
-      payoutRequestsPending: null
+      payoutRequestsPending: null,
     }
   },
   computed: {
     ...mapGetters({
       user: 'user/data',
-      communityDataPreview: 'content/communityDataPreview'
-    })
+      communityDataPreview: 'content/communityDataPreview',
+    }),
   },
   watch: {
-  // When user changes and we have the userdata, we can execute the function.
-    user (userData) {
+    // When user changes and we have the userdata, we can execute the function.
+    user(userData) {
       if (userData) {
         this.getUserWalletAddresses()
         this.getUserVerifications()
       }
     },
-    userWalletAddresses () {
+    userWalletAddresses() {
       this.getPendingPayoutRequests()
-    }
+    },
   },
-  created () {
+  created() {
     if (this.user) {
       this.getUserWalletAddresses()
       this.getUserVerifications()
@@ -78,35 +78,51 @@ export default {
     }
   },
   methods: {
-    jobsDone () {
+    jobsDone() {
       this.removeErrors()
     },
-    async getUserWalletAddresses () {
-      await firebase.database().ref(`userWallet/${this.user.id}`).once('value').then((snapShot) => {
-        this.userWalletAddresses = snapShot.val()
-      })
+    async getUserWalletAddresses() {
+      await firebase
+        .database()
+        .ref(`userWallet/${this.user.id}`)
+        .once('value')
+        .then((snapShot) => {
+          this.userWalletAddresses = snapShot.val()
+        })
     },
-    async getPendingPayoutRequests () {
-      await firebase.database().ref(`payoutRequestsPending/${this.user.id}`).once('value').then((snapShot) => {
-        this.payoutRequestsPending = snapShot.val()
-      })
+    async getPendingPayoutRequests() {
+      await firebase
+        .database()
+        .ref(`payoutRequestsPending/${this.user.id}`)
+        .once('value')
+        .then((snapShot) => {
+          this.payoutRequestsPending = snapShot.val()
+        })
     },
-    async getUserVerifications () {
-      await firebase.database().ref(`userVerifications/${this.user.id}`).once('value').then((snapShot) => {
-        this.userVerifications = snapShot.val()
-      })
+    async getUserVerifications() {
+      await firebase
+        .database()
+        .ref(`userVerifications/${this.user.id}`)
+        .once('value')
+        .then((snapShot) => {
+          this.userVerifications = snapShot.val()
+        })
       if (this.userVerifications === null) {
         await this.getUserVerificationRequest()
       }
     },
-    async getUserVerificationRequest () {
-      await firebase.database().ref(`userVerificationRequest/${this.user.id}/socialMedia`).once('value').then((snapShot) => {
-        if (snapShot.val()) {
-          this.userVerificationPendig = true
-        }
-      })
-    }
-  }
+    async getUserVerificationRequest() {
+      await firebase
+        .database()
+        .ref(`userVerificationRequest/${this.user.id}/socialMedia`)
+        .once('value')
+        .then((snapShot) => {
+          if (snapShot.val()) {
+            this.userVerificationPendig = true
+          }
+        })
+    },
+  },
 }
 </script>
 

@@ -6,7 +6,7 @@ import firebase from '@/plugins/firebase'
 import auth from '@/lib/auth'
 
 export const actions = {
-  signUp ({ dispatch, commit }, payload) {
+  signUp({ dispatch, commit }, payload) {
     this.commit('setBusy', true)
     this.commit('clearError')
     return new Promise((resolve, reject) => {
@@ -16,7 +16,7 @@ export const actions = {
           if (process.env.NODE_ENV !== 'development') {
             this.$ga.event({
               eventCategory: 'registration',
-              eventAction: `registration userId: ${user.uid}`
+              eventAction: `registration userId: ${user.uid}`,
             })
           }
           commit('user/set', user, { root: true })
@@ -32,7 +32,7 @@ export const actions = {
     })
   },
 
-  login ({ commit }, payload) {
+  login({ commit }, payload) {
     this.commit('setBusy', true)
     this.commit('clearError')
     return new Promise((resolve, reject) => {
@@ -52,7 +52,7 @@ export const actions = {
         })
     })
   },
-  passwordResetRequest ({ dispatch }, payload) {
+  passwordResetRequest({ dispatch }, payload) {
     this.commit('setBusy', true)
     this.commit('clearError')
     return new Promise((resolve, reject) => {
@@ -70,12 +70,12 @@ export const actions = {
         })
     })
   },
-  logout ({ dispatch, commit }) {
+  logout({ dispatch, commit }) {
     firebase.auth().signOut()
     commit('user/clear', null, { root: true })
-    commit('notification/clear', null, { root: true })
+    commit('user/notifications/clear', null, { root: true })
   },
-  createVerificationRequest ({ dispatch }, payload) {
+  createVerificationRequest({ dispatch }, payload) {
     return new Promise((resolve, reject) => {
       auth
         .verify(payload)
@@ -90,11 +90,11 @@ export const actions = {
           this.commit('setError', error)
         })
     })
-  }
+  },
 }
 
 export const getters = {
-  loginStatus (state, getters, rootState, rootGetters) {
+  loginStatus(state, getters, rootState, rootGetters) {
     return rootState.user.data !== null && rootState.user.data !== undefined
-  }
+  },
 }

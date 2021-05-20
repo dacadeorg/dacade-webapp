@@ -7,8 +7,11 @@
             <b-tab title="Signup" @click="goToSignup()" />
             <b-tab title="Login" active>
               <div class="p-4">
-                <ValidationObserver v-slot="{ invalid, passes }">
-                  <form class="content-wrapper text-center" @submit.prevent="passes(onLogin)">
+                <ValidationObserver v-slot="{ passes }">
+                  <form
+                    class="content-wrapper text-center"
+                    @submit.prevent="passes(onLogin)"
+                  >
                     <div label-for="input-1">
                       <label for="input-1">Email address</label>
                       <ValidationProvider
@@ -22,7 +25,7 @@
                           type="email"
                           required
                           placeholder="Enter email"
-                        >
+                        />
                         <span class="help">{{ errors[0] }}</span>
                       </ValidationProvider>
                     </div>
@@ -39,16 +42,13 @@
                           v-model="form.password"
                           type="password"
                           placeholder="Enter password"
-                        >
+                        />
                         <span class="help">{{ errors[0] }}</span>
                       </ValidationProvider>
                     </div>
                     <div>
                       <i class="muted-dark">
-                        <NuxtLink
-                          to="/password-reset"
-                          class="fs-1 dark-white"
-                        >
+                        <NuxtLink to="/password-reset" class="fs-1 dark-white">
                           Forgot password?
                         </NuxtLink>
                       </i>
@@ -76,30 +76,35 @@
 
 export default {
   middleware: 'guest',
-  data () {
+  data() {
     return {
       form: {
         name: '',
         email: '',
-        password: ''
+        password: '',
       },
-      loading: false
+      loading: false,
     }
   },
   methods: {
-    onLogin () {
+    onLogin() {
       const loginData = {
         email: this.form.email,
-        password: this.form.password
+        password: this.form.password,
       }
       this.loading = true
-      this.$store.dispatch('auth/login', loginData).then(() => {
-        this.$router.replace('/bounties')
-      }).catch(() => { this.loading = false })
+      this.$store
+        .dispatch('auth/login', loginData)
+        .then(() => {
+          this.$router.replace('/bounties')
+        })
+        .catch(() => {
+          this.loading = false
+        })
     },
-    goToSignup () {
+    goToSignup() {
       this.$router.push('/signup')
-    }
-  }
+    },
+  },
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <Section padding="py-0">
+  <Section padding="py-12">
     <Header />
     <div class="lg:flex">
       <div class="lg:w-1/4">
@@ -22,7 +22,7 @@ export default {
   components: {
     Header,
     Section,
-    Navigation
-  }
+    Navigation,
+  },
 }
 </script>

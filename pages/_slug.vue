@@ -14,13 +14,17 @@ import CommunityNavigation from '@/components/CommunityNavigation'
 export default {
   scrollToTop: true,
   components: {
-    CommunityNavigation
+    CommunityNavigation,
   },
-  fetch ({ store, params }) {
-    return firebase.database().ref(`communityData/${params.slug}`).once('value').then((snapShot) => {
-      const communityData = snapShot.val()
-      store.commit('content/setCommunityData', communityData)
-    })
-  }
+  fetch({ store, params }) {
+    return firebase
+      .database()
+      .ref(`communityData/${params.slug}`)
+      .once('value')
+      .then((snapShot) => {
+        const communityData = snapShot.val()
+        store.commit('content/setCommunityData', communityData)
+      })
+  },
 }
 </script>

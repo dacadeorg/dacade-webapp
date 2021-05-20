@@ -9,7 +9,7 @@
           {{ $t('app.name') }}
         </NavItem>
       </ul>
-      <ul v-if="loginStatus" class="relative ">
+      <ul v-if="loginStatus" class="relative">
         <NavItem to="/bounties">
           {{ $t('nav.bounties') }}
         </NavItem>
@@ -17,13 +17,19 @@
           {{ $t('nav.communities') }}
         </NavItem>
       </ul>
-      <ul v-if="!loginStatus" class="ml-auto text-right relative lg:hidden md:hidden">
+      <ul
+        v-if="!loginStatus"
+        class="ml-auto text-right relative lg:hidden md:hidden"
+      >
         <NavItem>
-          <MobileMenuLogo/>
+          <MobileMenuLogo />
         </NavItem>
-        </ul>
+      </ul>
 
-      <ul v-if="!loginStatus" class="ml-auto text-right relative hidden lg:block md:block">
+      <ul
+        v-if="!loginStatus"
+        class="ml-auto text-right relative hidden lg:block md:block"
+      >
         <NavItem to="/login">
           {{ $t('nav.login') }}
         </NavItem>
@@ -61,67 +67,67 @@ export default {
     DAButton,
     MobileMenuLogo,
     NotificationPopup,
-    UserPopup
+    UserPopup,
   },
   props: {
     settings: {
       default: () => {
         return {}
       },
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
-    containerStyle () {
+    containerStyle() {
       if (!this.settings || !this.settings.colors) {
         return {}
       }
       return {
         backgroundColor: this.settings.colors.primary,
-        color: this.settings.colors.text
+        color: this.settings.colors.text,
       }
     },
-    buttonStyle () {
+    buttonStyle() {
       if (!this.settings || !this.settings.colors) {
         return {}
       }
       return {
         backgroundColor: hexToRgba(this.settings.colors.text, 0.3),
-        color: this.settings.colors.text
+        color: this.settings.colors.text,
       }
     },
-    badgeStyle () {
+    badgeStyle() {
       if (!this.settings || !this.settings.colors) {
         return {}
       }
       return {
         backgroundColor: this.settings.colors.accent,
-        color: this.settings.colors.primary
+        color: this.settings.colors.primary,
       }
     },
-    userLoggedIn (params) {
+    userLoggedIn(params) {
       return this.$store.getters.loginStatus
     },
     ...mapGetters({
       user: 'user/get',
       loginStatus: 'auth/loginStatus',
-      communityData: 'content/communityData'
-    })
+      communityData: 'content/communityData',
+    }),
   },
   watch: {
     $route: {
       immediate: true,
-      handler (to, from) {
+      handler(to, from) {
         this.$forceUpdate()
-      }
-    }
+      },
+    },
   },
   methods: {
-    logOut () {
+    logOut() {
       this.$store.dispatch('auth/logout')
       this.$router.push('/communities')
     },
-    getSectionName (route) {
+    getSectionName(route) {
       switch (route.name) {
         case 'notifications':
           return 'Notifications'
@@ -135,9 +141,9 @@ export default {
           return null
       }
     },
-    closeModal () {
+    closeModal() {
       this.$bvModal.hide('modal-1')
-    }
-  }
+    },
+  },
 }
 </script>

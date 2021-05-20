@@ -9,6 +9,7 @@
       material.description
     }}</span>
     <Video v-if="material.type === 'EMBEDDED-VIDEO'" :url="material.link" />
+    <Markdown v-if="material.type === 'MARKDOWN'" :url="material.link" />
     <div v-if="isAdditional">
       <a
         v-for="(item, i) in material.list"
@@ -34,31 +35,33 @@ import { mapGetters } from 'vuex'
 import Video from '@/components/ui/Video'
 import Section from '../partials/Section.vue'
 import Duration from '../partials/Duration.vue'
+import Markdown from '../partials/Markdown.vue'
 
 export default {
   name: 'MaterialSection',
   components: {
     Section,
     Duration,
-    Video
+    Video,
+    Markdown,
   },
   props: {
     material: {
       default: () => {
         return {}
       },
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
     ...mapGetters({
       community: 'communities/current',
       communityData: 'communities/content',
-      chapter: 'communities/chapters/current'
+      chapter: 'communities/chapters/current',
     }),
-    isAdditional () {
+    isAdditional() {
       return this.material.type === 'ADDITIONAL'
-    }
-  }
+    },
+  },
 }
 </script>

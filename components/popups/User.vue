@@ -1,6 +1,6 @@
 <template>
   <span v-click-outside="externalClick">
-    <li class="inline-block align-middle  z-0 relative" @click="show = true">
+    <li class="inline-block align-middle z-0 relative" @click="show = true">
       <Button
         :custom-style="buttonStyles"
         :padding="false"
@@ -9,16 +9,27 @@
       >
         <Avatar :user="user" />
         <span
+          v-if="mainWallet && mainWallet.balance"
           :style="{
-            color: buttonStyles.color ? buttonStyles.color : null
+            color: buttonStyles.color ? buttonStyles.color : null,
           }"
           class="align-middle ml-2.5 font-medium text-gray-500"
-        >{{ getDCNBalance() }} DAC</span>
+          >{{ mainWallet.balance }} {{ mainWallet.denom }}</span
+        >
       </Button>
     </li>
     <div
       v-show="show"
-      class="w-80 absolute top-14 right-0 z-10 bg-secondary rounded-3.5xl text-gray-900"
+      class="
+        w-80
+        absolute
+        top-14
+        right-0
+        z-10
+        bg-secondary
+        rounded-3.5xl
+        text-gray-900
+      "
     >
       <div class="divide-y divide-gray-200">
         <div class="w-full p-4 text-left flex">
@@ -26,16 +37,17 @@
           <div class="py-1">
             <span
               class="font-medium text-base block leading-normal capitalize"
-            >{{ user.displayName }}</span>
+              >{{ user.displayName }}</span
+            >
             <nuxt-link class="text-sm block leading-normal" to="/profile">
               {{ $t('nav.view-profile') }}
             </nuxt-link>
           </div>
         </div>
-        <div class="p-4">
+        <div v-if="wallets && wallets.length" class="p-4">
           <BalanceList />
         </div>
-        <div class="p-4">
+        <div v-if="reputations && reputations.length" class="p-4">
           <ReputationList />
         </div>
         <div class="p-4 text-center font-normal cursor-pointer" @click="logout">
@@ -58,67 +70,47 @@ import Button from '@/components/ui/Button'
 export default {
   name: 'UserPopup',
   directives: {
-    clickOutside: vClickOutside.directive
+    clickOutside: vClickOutside.directive,
   },
   components: {
     Avatar,
     Button,
     BalanceList,
-    ReputationList
-    // NotificationList
+    ReputationList,
   },
   props: {
     buttonStyles: {
       default: null,
-      type: Object
-    }
+      type: Object,
+    },
   },
-  data () {
+  data() {
     return {
-      show: false
+      show: false,
     }
   },
   computed: {
     ...mapGetters({
-      balance: 'user/balance',
-      user: 'user/get'
-    })
+      mainWallet: 'user/wallets/main',
+      wallets: 'user/wallets/list',
+      reputations: 'user/reputations/list',
+      user: 'user/get',
+    }),
+  },
+  created() {
+    this.$store.dispatch('user/wallets/all')
+    this.$store.dispatch('user/reputations/all')
   },
   methods: {
-    externalClick (event) {
+    externalClick(event) {
       if (this.show) {
         this.show = false
       }
     },
-    logout () {
+    logout() {
       this.$store.dispatch('auth/logout')
       this.$router.push('/communities')
     },
-    getBalance () {
-      let balance = 0
-      if (this.user && this.balance) {
-        for (const key in this.balance) {
-          if (key !== 'DCN') {
-            balance = balance + this.balance[key]
-          }
-        }
-      }
-      return parseFloat(balance).toFixed(0)
-    },
-    getDCNBalance () {
-      let balance = 0
-      if (this.user && this.balance && this.balance.DCN) {
-        balance = this.balance.DCN
-      }
-      return parseFloat(balance).toFixed(0)
-    },
-    getReputation () {
-      let reputation = 0
-      if (this.userReputation && this.userReputation[this.communityData.id]) {
-        reputation = this.userReputation[this.communityData.id]
-      }
-      return parseFloat(reputation).toFixed(0)
-    }
-  }
+  },
 }
 </script>

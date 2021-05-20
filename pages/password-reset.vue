@@ -5,11 +5,12 @@
         <div class="col-md-6 mx-auto">
           <b-card class="bg-dark big-shadow">
             <div class="p-4">
-              <ValidationObserver v-slot="{ invalid, passes }">
-                <form class="content-wrapper text-center" @submit.prevent="passes(onPasswordResetRequest)">
-                  <h3 class="mb-5">
-                    Password reset
-                  </h3>
+              <ValidationObserver v-slot="{ passes }">
+                <form
+                  class="content-wrapper text-center"
+                  @submit.prevent="passes(onPasswordResetRequest)"
+                >
+                  <h3 class="mb-5">Password reset</h3>
                   <div label-for="input-1">
                     <label for="input-2">Email Address</label>
                     <ValidationProvider
@@ -23,7 +24,7 @@
                         type="email"
                         name="email"
                         placeholder="Enter email"
-                      >
+                      />
                       <span class="help">{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
@@ -49,24 +50,29 @@
 /* eslint-disable no-console */
 
 export default {
-  data () {
+  data() {
     return {
       form: {
-        email: ''
+        email: '',
       },
-      loading: false
+      loading: false,
     }
   },
   methods: {
-    onPasswordResetRequest () {
+    onPasswordResetRequest() {
       const data = {
-        email: this.form.email
+        email: this.form.email,
       }
       this.loading = true
-      this.$store.dispatch('auth/passwordResetRequest', data).then(() => {
-        this.$router.push('/login')
-      }).catch(() => { this.loading = false })
-    }
-  }
+      this.$store
+        .dispatch('auth/passwordResetRequest', data)
+        .then(() => {
+          this.$router.push('/login')
+        })
+        .catch(() => {
+          this.loading = false
+        })
+    },
+  },
 }
 </script>

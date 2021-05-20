@@ -2,7 +2,7 @@
   <div class="flex">
     <div
       class="mr-2 py-0 pt-px mt-px"
-      :style="{color: iconcolor || colors.textAccent}"
+      :style="{ color: iconcolor || colors.textAccent }"
     >
       <div v-if="crossmark">
         <Crossmark />
@@ -26,26 +26,26 @@ export default {
   name: 'ObjectiveCard',
   components: {
     Checkmark,
-    Crossmark
+    Crossmark,
   },
   props: {
     iconcolor: {
       type: String,
-      default: ''
+      default: '',
     },
     crossmark: {
       type: Boolean,
-      default: false
+      default: false,
     },
     objective: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     ...mapGetters({
-      colors: 'ui/colors'
-    })
-  }
+      colors: 'ui/colors',
+    }),
+  },
 }
 </script>

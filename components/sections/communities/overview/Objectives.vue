@@ -16,13 +16,13 @@ export default {
   name: 'OverviewSection',
   components: {
     Section,
-    ObjectiveList
+    ObjectiveList,
   },
   computed: {
     ...mapGetters({
       community: 'communities/current',
-      colors: 'ui/colors'
-    })
-  }
+      colors: 'ui/colors',
+    }),
+  },
 }
 </script>

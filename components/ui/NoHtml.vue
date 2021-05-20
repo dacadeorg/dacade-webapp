@@ -8,13 +8,13 @@ export default {
   props: {
     value: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
-    processedString () {
+    processedString() {
       return this.value.replace(/(<([^>]+)>)/gi, '')
-    }
-  }
+    },
+  },
 }
 </script>
