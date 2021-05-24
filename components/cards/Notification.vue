@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <div class="flex-grow mr-2">
+    <div class="flex mr-2">
       <Avatar :user="user" class="w-10 h-10" />
     </div>
     <div class="pt-1 -mt-2">

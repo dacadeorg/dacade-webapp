@@ -23,11 +23,12 @@
       <div
         v-show="show"
         :style="{
-          width: 'calc(100vw - 40px)',
+          width: 'calc(100vw - 110px)',
           maxHeight: 'calc(100vh - 110px)',
           overflow: 'hidden scroll',
         }"
         class="
+          no-scrollbar
           md:max-w-sidebar
           absolute
           top-10
@@ -133,8 +134,6 @@
           </div>
           <div v-if="loginStatus" class="px-3 py-2 h-full">
             <NotificationList />
-            <!-- <NotificationList />
-            <NotificationList /> -->
           </div>
           <div v-if="!loginStatus" class="w-full h-15 p-2 flex">
             <Button
@@ -263,31 +262,6 @@ export default {
     logout() {
       this.$store.dispatch('auth/logout')
       this.$router.push('/communities')
-    },
-    getBalance() {
-      let balance = 0
-      if (this.user && this.balance) {
-        for (const key in this.balance) {
-          if (key !== 'DCN') {
-            balance = balance + this.balance[key]
-          }
-        }
-      }
-      return parseFloat(balance).toFixed(0)
-    },
-    getDCNBalance() {
-      let balance = 0
-      if (this.user && this.balance && this.balance.DCN) {
-        balance = this.balance.DCN
-      }
-      return parseFloat(balance).toFixed(0)
-    },
-    getReputation() {
-      let reputation = 0
-      if (this.userReputation && this.userReputation[this.communityData.id]) {
-        reputation = this.userReputation[this.communityData.id]
-      }
-      return parseFloat(reputation).toFixed(0)
     },
   },
 }

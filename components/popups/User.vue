@@ -37,6 +37,7 @@
           z-40
           bg-secondary
           rounded-3.5xl
+          no-scrollbar
           text-gray-900
         "
       >
@@ -161,6 +162,13 @@ export default {
     logout() {
       this.$store.dispatch('auth/logout')
       this.$router.push('/communities')
+    },
+    getDCNBalance() {
+      let balance = 0
+      if (this.user && this.balance && this.balance.DCN) {
+        balance = this.balance.DCN
+      }
+      return parseFloat(balance).toFixed(0)
     },
   },
 }

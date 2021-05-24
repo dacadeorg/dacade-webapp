@@ -76,3 +76,17 @@ input {
 button {
   @apply bg-primary outline-none focus:outline-none cursor-pointer relative px-4 py-2 text-white rounded-full;
 }
+
+@layer utilities {
+  @variants responsive {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  }
+}
