@@ -39,8 +39,6 @@
         "
       >
         <NotificationList />
-        <NotificationList />
-        <NotificationList />
       </div>
     </span>
     <div v-if="show" class="opacity-25 fixed inset-0 z-30 bg-black" />
