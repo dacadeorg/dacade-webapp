@@ -1,19 +1,11 @@
 <template>
   <div class="flex">
-    <div class="flex-none mr-3">
-      <Avatar :user="user" size="medium" />
+    <div class="flex-grow mr-2">
+      <Avatar :user="user" class="w-10 h-10" />
     </div>
-    <div class="pt-1 font-normal">
-      <span
-        class="flex-grow block"
-        :class="{ 'text-sm': !extended, 'text-lg': extended }"
-        >{{ details.message }}</span
-      >
-      <span
-        class="block text-primary mt-1.5"
-        :class="{ 'text-xs': !extended, 'text-sm': extended }"
-        >{{ date }}</span
-      >
+    <div class="pt-1 -mt-2">
+      <span class="block text-base text-gray-700">{{ details.message }}</span>
+      <span class="block text-gray-900 font-medium text-sm">{{ date }}</span>
     </div>
   </div>
 </template>
