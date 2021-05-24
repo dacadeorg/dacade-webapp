@@ -216,7 +216,7 @@ export const state = () => ({
         secondary: '#47110A',
         accent: '#47110A',
         textAccent: '#47110A',
-        text: '#47110A',
+        text: '#FFF',
       },
       url: '',
       objectives: [

@@ -1,6 +1,6 @@
 <template>
   <div class="relative text-gray-900" :style="containerStyle">
-    <div class="content-wrapper lg:py-12 py-5 flex relative">
+    <div class="content-wrapper lg:py-12 py-6 flex relative">
       <ul class="relative">
         <NavItem type="logo">
           <Logo />
@@ -9,26 +9,20 @@
           {{ $t('app.name') }}
         </NavItem>
       </ul>
-      <ul v-if="loginStatus" class="relative">
+      <ul v-if="loginStatus" class="hidden lg:block relative">
         <NavItem to="/bounties">
           {{ $t('nav.bounties') }}
         </NavItem>
-        <NavItem :to="localePath({ path: '/', hash: '#communities' })">
+        <NavItem :to="localePath({ path: '/communities' })">
           {{ $t('nav.communities') }}
         </NavItem>
       </ul>
-      <ul
-        v-if="!loginStatus"
-        class="ml-auto text-right relative lg:hidden md:hidden"
-      >
-        <NavItem>
-          <MobileMenuLogo />
-        </NavItem>
+      <ul class="ml-auto text-right relative flex lg:hidden">
+        <Sidebar />
       </ul>
-
       <ul
         v-if="!loginStatus"
-        class="ml-auto text-right relative hidden lg:block md:block"
+        class="ml-auto text-right relative hidden lg:block"
       >
         <NavItem to="/login">
           {{ $t('nav.login') }}
@@ -39,7 +33,7 @@
           </DAButton>
         </NavItem>
       </ul>
-      <ul v-if="loginStatus" class="ml-auto text-right relative">
+      <ul v-if="loginStatus" class="hidden lg:flex ml-auto text-right relative">
         <NotificationPopup
           :button-styles="buttonStyle"
           :badge-styles="badgeStyle"
@@ -54,7 +48,7 @@ import hexToRgba from 'hex-to-rgba'
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Logo from '@/components/Logo'
-import MobileMenuLogo from '@/components/MobileMenuLogo'
+import Sidebar from '@/components/popups/Sidebar'
 import NavItem from '@/components/ui/NavItem'
 import DAButton from '@/components/ui/Button'
 import NotificationPopup from '@/components/popups/Notification'
@@ -65,7 +59,7 @@ export default {
     Logo,
     NavItem,
     DAButton,
-    MobileMenuLogo,
+    Sidebar,
     NotificationPopup,
     UserPopup,
   },

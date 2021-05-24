@@ -23,7 +23,7 @@ module.exports = {
       gray: colors.coolGray,
       red: colors.red,
       yellow: colors.amber,
-      green: colors.emerald,
+      green: colors.green,
       blue: colors.blue,
       indigo: colors.indigo,
       purple: colors.violet,
@@ -498,6 +498,7 @@ module.exports = {
       min: 'min-content',
       max: 'max-content',
       prose: '65ch',
+      sidebar: '340px',
       ...breakpoints(theme('screens')),
     }),
     minHeight: {
