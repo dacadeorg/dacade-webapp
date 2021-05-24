@@ -36,6 +36,7 @@
           px-4.5
           rounded-3.5xl
           text-gray-900
+          no-scrollbar
         "
       >
         <NotificationList />
