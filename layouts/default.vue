@@ -1,12 +1,16 @@
 <template>
-  <div class="relative">
-    <Navbar />
-    <NotificationBar />
-    <div class="relative">
+  <div class="relative min-h-screen flex flex-col">
+    <div class="relative flex-grow-0">
+      <Navbar />
+      <NotificationBar />
+    </div>
+    <div class="relative flex-grow">
       <nuxt />
     </div>
-    <Footer />
-    <PrivacyPolicyBanner />
+    <div class="relative flex-grow-0">
+      <Footer />
+      <PrivacyPolicyBanner />
+    </div>
   </div>
 </template>
 <script>
