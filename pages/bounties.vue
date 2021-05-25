@@ -1,4 +1,18 @@
 <template>
+  <div class="flex flex-col justify-center content-wrapper">
+    <h1 class="text-4xl sm:text-5xl pt-10 md:pt-20 pb-10">Bounties</h1>
+    <div class="bg-gray-300">Hello</div>
+    <!-- <BountyList /> -->
+    <!-- <div v-if="communities" class="row w-full">
+      <div
+        v-for="community in communities"
+        :key="community.key"
+        class="flex pb-4"
+      >
+        <CommunityView :community="community" />
+      </div>
+    </div>
+  </div>
   <div>
     <div class="container-fluid">
       <div v-if="learningPoints" class="row">
@@ -10,30 +24,19 @@
           />
         </div>
       </div>
-    </div>
+        Hello
+    </div> -->
   </div>
 </template>
 <script>
 /* eslint-disable no-console, no-unused-vars, require-await, no-unused-expressions */
 import { mapGetters, mapActions, Store } from 'vuex'
 import firebase from '@/plugins/firebase'
-import Bounty from '@/components/cards/Bounty'
+// import BountyList from '@/components/lists/Bounty'
 
 export default {
   components: {
-    Bounty,
-  },
-  data() {
-    return {
-      bounties: [],
-    }
-  },
-  computed: {
-    ...mapGetters({
-      user: 'user/data',
-      learningPoints: 'user/learningPoints',
-      communityDataPreview: 'content/communityDataPreview',
-    }),
+    // BountyList,
   },
   async asyncData({ params }) {
     let submissions, bountiesDb
@@ -52,6 +55,18 @@ export default {
         bountiesDb = snapShot.val()
       })
     return { submissions, bountiesDb }
+  },
+  data() {
+    return {
+      bounties: [],
+    }
+  },
+  computed: {
+    ...mapGetters({
+      user: 'user/data',
+      learningPoints: 'user/learningPoints',
+      communityDataPreview: 'content/communityDataPreview',
+    }),
   },
   created() {
     this.getCommunityDataPreview().then(() => {
