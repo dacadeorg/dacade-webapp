@@ -1,81 +1,92 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 mx-auto">
-        <b-card class="bg-dark big-shadow">
-          <b-tabs card align="center">
-            <b-tab title="Signup" @click="goToSignup()" />
-            <b-tab title="Login" active>
-              <div class="p-4">
-                <ValidationObserver v-slot="{ passes }">
-                  <form
-                    class="content-wrapper text-center"
-                    @submit.prevent="passes(onLogin)"
-                  >
-                    <div label-for="input-1">
-                      <label for="input-1">Email address</label>
-                      <ValidationProvider
-                        v-slot="{ errors }"
-                        name="email"
-                        rules="required|email"
-                      >
-                        <input
-                          id="input-1"
-                          v-model="form.email"
-                          type="email"
-                          required
-                          placeholder="Enter email"
-                        />
-                        <span class="help">{{ errors[0] }}</span>
-                      </ValidationProvider>
-                    </div>
+  <ValidationObserver
+    v-slot="{ passes }"
+    class="absolute w-full top-0 min-h-screen flex items-center"
+  >
+    <form class="content-wrapper" @submit.prevent="passes(onLogin)">
+      <div class="lg:w-98 xl:w-98 mx-auto">
+        <div>
+          <h1 class="text-5xl my-5">{{ $t('login-page.signin.title') }}</h1>
+        </div>
+        <div label-for="input-1" class="mb-5 relative">
+          <ValidationProvider
+            v-slot="{ errors }"
+            name="email"
+            rules="required|email"
+          >
+            <div>
+              <Input
+                id="input-1"
+                v-model="form.email"
+                required
+                type="email"
+                :placeholder="$t('login-page.email.placeholder')"
+                :label="$t('login-page.email.label')"
+                :error="errors[0]"
+              />
+            </div>
+          </ValidationProvider>
+        </div>
 
-                    <div>
-                      <label for="text-password">Password</label>
-                      <ValidationProvider
-                        v-slot="{ errors }"
-                        name="password"
-                        rules="required|min:6"
-                      >
-                        <input
-                          id="text-password"
-                          v-model="form.password"
-                          type="password"
-                          placeholder="Enter password"
-                        />
-                        <span class="help">{{ errors[0] }}</span>
-                      </ValidationProvider>
-                    </div>
-                    <div>
-                      <i class="muted-dark">
-                        <NuxtLink to="/password-reset" class="fs-1 dark-white">
-                          Forgot password?
-                        </NuxtLink>
-                      </i>
-                    </div>
-                    <button
-                      type="submit"
-                      :disabled="loading"
-                      class="mt-4 btn-primary btn-lg"
-                    >
-                      Login
-                    </button>
-                  </form>
-                </ValidationObserver>
-              </div>
-            </b-tab>
-          </b-tabs>
-        </b-card>
+        <div class="">
+          <ValidationProvider
+            v-slot="{ errors }"
+            name="password"
+            rules="required|min:6"
+          >
+            <div class="">
+              <Input
+                id="text-password"
+                v-model="form.password"
+                type="password"
+                :placeholder="$t('login-page.password.placeholder')"
+                :label="$t('login-page.password.label')"
+                :error="errors[0]"
+              />
+            </div>
+          </ValidationProvider>
+        </div>
+        <div class="mt-4">
+          <span class="text-primary text-sm">
+            <NuxtLink to="/password-reset" class="fs-1 dark-white">
+              {{ $t('login-page.forget-password') }}
+            </NuxtLink>
+          </span>
+        </div>
+        <div class="text-right">
+          <Button
+            :padding="false"
+            :disabled="loading"
+            class="btn-primary btn-lg py-2 px-5"
+          >
+            <span class="inline-block text-sm">{{
+              $t('login-page.signin.button')
+            }}</span>
+            <span class="inline-block text-white lg:pl-12 pl-8"
+              ><ArrowRight
+            /></span>
+          </Button>
+        </div>
       </div>
-    </div>
-  </div>
+    </form>
+  </ValidationObserver>
 </template>
 
 <script>
+import Button from '@/components/ui/Button'
+import Input from '@/components/ui/Input'
+import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 /* eslint-disable no-console */
 
 export default {
+  components: {
+    Button,
+    Input,
+    ArrowRight,
+  },
+  layout: 'withoutFooter',
   middleware: 'guest',
+
   data() {
     return {
       form: {
@@ -86,6 +97,11 @@ export default {
       loading: false,
     }
   },
+
+  created() {
+    console.log(this.$router)
+  },
+
   methods: {
     onLogin() {
       const loginData = {

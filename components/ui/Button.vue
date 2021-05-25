@@ -7,6 +7,7 @@
       cursor-pointer
       relative
     "
+    type="submit"
     :class="{
       'bg-primary text-white': type == 'primary',
       'lg:px-7 px-5': padding,
@@ -17,6 +18,9 @@
         type == 'outline-secondary',
       'text-white border border-solid border-white bg-transparent hover:bg-white hover:text-primary':
         type == 'outline-white',
+      'text-gray-400 border border-solid border-gray-400 bg-transparent hover:bg-gray-500 hover:text-gray-200':
+        type == 'outline-gray',
+      'bg-transparent text-primary': type == 'link',
       'rounded-full': rounded,
     }"
     :padding="[padding]"

@@ -16,11 +16,11 @@
       <div class="p-6">
         <div class="border-b border-dotted border-gray-900">
           <h1 class="text-2xl">
-            {{ title }}
+            {{ details.title }}
           </h1>
-          <Tag value="CUSD" />
+          <Tag :value="details.denom" />
           <div class="text-right mb-4">
-            <Coin size="medium" />
+            <Coin size="medium" :denom="details.denom" />
           </div>
         </div>
         <div class="flex">
@@ -28,7 +28,7 @@
             <h1>Balance</h1>
           </div>
           <div class="w-1/2 pt-3.5 text-right text-2xl font-medium">
-            <h1>{{ amount }}</h1>
+            <h1>{{ (details.balance || 0).toFixed(2) }}</h1>
           </div>
         </div>
       </div>
@@ -36,8 +36,7 @@
     <div class="px-7 pt-6 lg:w-96.5 md:w-8/12 sm:w-8/12 pb-24 lg:pb-24">
       <div class="xl:w-72 md:w-72 lg:w-full text-sm text-gray-700">
         <p>
-          Laborum soluta distinctio laborum laudantium velit asperiores autem
-          veniam.
+          {{ details.address || details.description }}
         </p>
       </div>
       <div>
@@ -82,16 +81,12 @@ export default {
     Address,
   },
   props: {
-    title: {
-      type: String,
+    details: {
+      type: Object,
       require: true,
-      default: '',
-    },
-
-    amount: {
-      type: Number,
-      require: true,
-      default: null,
+      default: () => {
+        return {}
+      },
     },
   },
 

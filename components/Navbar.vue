@@ -24,14 +24,40 @@
         v-if="!loginStatus"
         class="ml-auto text-right relative hidden lg:block"
       >
-        <NavItem to="/login">
-          {{ $t('nav.login') }}
-        </NavItem>
-        <NavItem to="/signup/">
-          <DAButton :padding="false" type="secondary" class="py-2 px-5">
-            {{ $t('nav.sign-up') }}
-          </DAButton>
-        </NavItem>
+        <div
+          v-if="$router.history.current.path !== '/login'"
+          class="inline-block"
+        >
+          <span
+            v-if="$router.history.current.path === '/signup'"
+            class="text-sm"
+            >{{ $t('nav.signup.already-exist') }}</span
+          >
+          <NavItem to="/login">
+            <a class="py-2 text-sm text-primary">{{ $t('nav.login') }}</a>
+          </NavItem>
+        </div>
+        <div
+          v-if="$router.history.current.path !== '/signup'"
+          class="inline-block"
+        >
+          <span
+            v-if="$router.history.current.path === '/login'"
+            class="text-sm"
+            >{{ $t('nav.signin.new-accout') }}</span
+          >
+          <NavItem to="/signup">
+            <Button
+              :type="
+                $router.history.current.path === '/login' ? 'link' : 'secondary'
+              "
+              :padding="false"
+              class="text-sm py-2 px-5"
+            >
+              {{ $t('nav.sign-up') }}
+            </Button>
+          </NavItem>
+        </div>
       </ul>
       <ul v-if="loginStatus" class="hidden lg:flex ml-auto text-right relative">
         <NotificationPopup
@@ -50,19 +76,20 @@ import { mapGetters } from 'vuex'
 import Logo from '@/components/Logo'
 import Sidebar from '@/components/popups/Sidebar'
 import NavItem from '@/components/ui/NavItem'
-import DAButton from '@/components/ui/Button'
 import NotificationPopup from '@/components/popups/Notification'
 import UserPopup from '@/components/popups/User'
+import Button from '@/components/ui/Button'
 
 export default {
   components: {
     Logo,
     NavItem,
-    DAButton,
+    Button,
     Sidebar,
     NotificationPopup,
     UserPopup,
   },
+
   props: {
     settings: {
       default: () => {
