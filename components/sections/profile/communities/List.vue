@@ -6,66 +6,45 @@
         v-for="(submission, i) in submissions"
         :key="submission.id"
         :stats="true"
-        :link="`/communities/${$route.params.slug}/submissions/${submission.id}`"
+        :link="`/communities/${community.slug}/submissions/${submission.id}`"
         :submission="submission"
         :last="i === submissions.length - 1"
       />
     </div>
     <div class="py-10">
       <p class="font-medium text-xs text-gray-600">FEEDBACKS</p>
-      <div class="py-5">
+      <div v-for="feedback in feedbacks" :key="feedback.id" class="py-5">
         <SubmissionCard
-          v-for="(submission, i) in feedbacks"
-          :key="submission.id"
           :stats="true"
-          :link="`/communities/${$route.params.slug}/submissions/${submission.id}`"
-          :submission="submission"
-          :last="i === feedbacks.length - 1"
+          :link="`/communities/${community.slug}/submissions/${community.id}`"
+          :submission="feedback.submission"
+          :last="false"
         />
-      </div>
-      <div class="py-5">
-        <SubmissionCard
-          v-for="(submission, i) in feedbacks"
-          :key="submission.id"
-          :stats="true"
-          :link="`/communities/${$route.params.slug}/submissions/${submission.id}`"
-          :submission="submission"
-          :last="i === feedbacks.length - 1"
-        />
+        <FeedbackCard :stats="true" :value="feedback" :last="true" />
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import SubmissionCard from '@/components/cards/Submission'
+import FeedbackCard from '@/components/cards/Feedback'
 
 export default {
   name: 'SubmissionList',
   components: {
     // Section,
+    FeedbackCard,
     SubmissionCard,
   },
   computed: {
-    submissions() {
-      return [
-        {
-          user: { userId: 1, displayName: 'user1' },
-          text: 'AEQuiz is a web æpp that engages the audience in a unique and fun way and connects them to the learning material. It also gives immediate results to participants.',
-        },
-      ]
-    },
-    feedbacks() {
-      return [
-        {
-          user: { userId: 1, displayName: 'user1' },
-          text: 'AEQuiz is a web æpp that engages the audience in a unique and fun way and connects them to the learning material. It also gives immediate results to participants.',
-        },
-        {
-          user: { userId: 1, displayName: 'user1' },
-          text: 'AEQuiz is a web æpp that engages the audience in a unique and fun way and connects them to the learning material. It also gives immediate results to participants.',
-        },
-      ]
-    },
+    ...mapGetters({
+      colors: 'ui/colors',
+      community: 'user/communities/current',
+      feedbacks: 'user/communities/feedbacks',
+      submissions: 'user/communities/submissions',
+      reputation: 'user/communities/reputation',
+    }),
   },
 }
 </script>

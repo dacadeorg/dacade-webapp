@@ -29,27 +29,28 @@
 </template>
 <script>
 /* eslint-disable no-console */
+import { mapGetters } from 'vuex'
 import ChevronRightIcon from '~/assets/icons/chevron-right.svg?inline'
 
 export default {
   components: {
     ChevronRightIcon,
   },
-  data() {
-    return {
-      menus: [
+  fetch() {
+    return this.$store.dispatch('user/communities/all')
+  },
+  computed: {
+    ...mapGetters({
+      communities: 'user/communities/list',
+    }),
+    menus() {
+      return [
         {
           title: 'COMMUNITIES',
-          items: [
-            {
-              label: 'Introduction to Blockchain',
-              link: '/profile/intro-to-blockchain',
-            },
-            {
-              label: 'Web Development 101',
-              link: '/profile/web-dev-101',
-            },
-          ],
+          items: this.communities?.map((community) => ({
+            label: community.name,
+            link: `/profile/${community.slug}`,
+          })),
         },
         {
           title: 'PROFILE',
@@ -64,8 +65,8 @@ export default {
             },
           ],
         },
-      ],
-    }
+      ]
+    },
   },
 }
 </script>

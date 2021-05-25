@@ -5,7 +5,7 @@
       <span class="block text-base font-medium leading-normal"
         >{{ details.balance }} {{ details.denom }}</span
       >
-      <span class="block font-normal text-sm">{{ details.description }}</span>
+      <span class="block font-normal text-sm">{{ details.title }}</span>
     </div>
   </div>
 </template>
