@@ -15,28 +15,11 @@
               <span class="font-light"> Estimated Time </span>
               <span class="font-medium"> {{ community.time }} min </span>
             </div>
-            <div class="flex space-x-2">
+            <div class="flex space-x-3">
               <div v-for="(reward, i) in community.rewards" :key="i">
                 <Reward :reward="reward" />
               </div>
             </div>
-
-            <!-- <div class="">
-              Rewards:
-              <b
-                v-if="community.rewardToken === 'DCN'"
-                class="dark-white"
-              >
-                {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}
-                <coin height="18" />
-              </b>
-              <b
-                v-else
-                class="earning-color"
-              >
-                {{ community.submissionReward }}<span class="muted-dark">/</span>{{ community.reviewReward }}$
-              </b>
-            </div> -->
           </div>
         </div>
       </div>
@@ -46,7 +29,6 @@
 <script>
 import Reward from '@/components/ui/Reward'
 
-// import { mapGetters } from 'vuex'
 import CommunityVisual from '@/components/cards/CommunityCard/CommunityVisual'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 export default {
