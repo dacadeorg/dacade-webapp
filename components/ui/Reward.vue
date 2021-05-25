@@ -13,14 +13,11 @@
   </div>
 </template>
 <script>
-// import { mapGetters } from 'vuex'
 import Coin from '@/components/ui/Coin'
-// import Section from '../partials/Section.vue'
 
 export default {
   name: 'OverviewRewards',
   components: {
-    // Section,
     Coin,
   },
   props: {
