@@ -9,19 +9,18 @@
     "
     :class="{
       'bg-primary text-white': type == 'primary',
-      'py-4 lg:px-7 px-5': padding,
-      'bg-secondary text-gray-900': type == 'secondary',
+      'lg:px-7 px-5': padding,
+      'bg-secondary text-primary': type == 'secondary',
       'text-primary border border-solid border-primary bg-transparent hover:bg-primary hover:text-white':
         type == 'outline-primary',
       'text-secondary border border-solid border-secondary bg-transparent hover:bg-secondary hover:text-gray-900':
         type == 'outline-secondary',
       'text-white border border-solid border-white bg-transparent hover:bg-white hover:text-primary':
         type == 'outline-white',
-      'text-gray-400 border border-solid border-gray-400 bg-transparent hover:bg-gray-500 hover:text-gray-200':
-        type == 'outline-gray',
       'rounded-full': rounded,
     }"
     :padding="[padding]"
+    :margin="[margin]"
     :style="customStyle"
     v-on="inputListeners"
   >
@@ -49,6 +48,10 @@ export default {
     padding: {
       default: true,
       type: Boolean,
+    },
+    margin: {
+      default: '',
+      type: String,
     },
     customStyle: {
       default: null,
