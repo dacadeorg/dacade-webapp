@@ -46,14 +46,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      communityData: 'communities/content',
       community: 'communities/current',
       colors: 'ui/colors',
       menus: 'communities/navigation',
     }),
     activeLinkStyle() {
       return {
-        color: this.community.colors.accent,
+        color: this.colors.accent,
       }
     },
   },
@@ -84,7 +83,7 @@ export default {
           title: this.$t('communities.navigation.chapters'),
           items: this.community.chapters?.map((chapter, i) => ({
             label: chapter.title,
-            link: this.chapterPath(i),
+            link: this.chapterPath(chapter.id),
             exact: false,
             items: chapter.materials
               ? chapter.materials.map((material) => ({
@@ -97,28 +96,38 @@ export default {
         },
         {
           title: this.$t('communities.navigation.bounties'),
-          items: [
-            {
-              label: this.$t('communities.navigation.challenge'),
-              link: this.communityPath('challenge'),
-              exact: false,
-            },
-            {
-              label: this.$t('communities.navigation.submissions'),
-              link: this.communityPath('submissions'),
-              exact: false,
-            },
-            {
-              label: this.$t('communities.navigation.scoreboard'),
-              link: this.communityPath('scoreboard'),
-              exact: false,
-            },
-          ],
+          items: this.bountyLinks(),
         },
       ]
       this.$store.commit('communities/setNavigation', {
         list,
       })
+    },
+    bountyLinks() {
+      const links = []
+
+      if (this.community.challenges?.length) {
+        links.push({
+          label: this.$t('communities.navigation.challenge'),
+          link: this.communityPath(
+            `challenges/${this.community.challenges[0].id}`
+          ),
+          exact: false,
+        })
+
+        links.push({
+          label: this.$t('communities.navigation.submissions'),
+          link: this.communityPath('submissions'),
+          exact: false,
+        })
+      }
+
+      links.push({
+        label: this.$t('communities.navigation.scoreboard'),
+        link: this.communityPath('scoreboard'),
+        exact: false,
+      })
+      return links
     },
   },
 }
