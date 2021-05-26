@@ -35,7 +35,6 @@ export const actions = {
     const { data } = await this.$apiClient('profile-community', {
       slug,
     })
-    console.log(data)
     commit('setCurrent', data.community)
     commit('setFeedbacks', data.feedbacks)
     commit('setSubmissions', data.submissions)

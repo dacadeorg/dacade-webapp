@@ -25,7 +25,6 @@ export const actions = {
     const { data } = await this.$apiClient('chapters-list', {
       slug,
     })
-    console.log(data)
     commit('setList', data)
   },
 }

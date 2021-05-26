@@ -36,9 +36,6 @@ export default {
   components: {
     ChevronRightIcon,
   },
-  fetch() {
-    return this.$store.dispatch('user/communities/all')
-  },
   computed: {
     ...mapGetters({
       communities: 'user/communities/list',

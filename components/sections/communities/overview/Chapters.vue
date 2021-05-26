@@ -1,6 +1,10 @@
 <template>
   <Section :title="$t('communities.overview.chapter')" :title-bold="false">
-    <div v-for="(chapter, i) in chapters" :key="i" class="mt-4 md:mt-9">
+    <div
+      v-for="(chapter, i) in community.chapters"
+      :key="i"
+      class="mt-4 md:mt-9"
+    >
       <h4 class="font-medium inline-block text-.5xl">
         {{ chapter.title }}
       </h4>
@@ -32,7 +36,6 @@ export default {
   computed: {
     ...mapGetters({
       community: 'communities/current',
-      chapters: 'communities/chapters/list',
       colors: 'ui/colors',
     }),
   },

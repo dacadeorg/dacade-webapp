@@ -25,8 +25,6 @@ import Section from '@/components/ui/Section'
 import MobileNav from '@/components/sections/communities/MobileNav'
 
 export default {
-  scrollToTop: true,
-  layout: 'community',
   components: {
     MainHeaderSection,
     OverviewSection,
@@ -34,10 +32,10 @@ export default {
     MobileNav,
     Section,
   },
+  layout: 'community',
+  scrollToTop: true,
   async fetch({ store, params }) {
     await store.dispatch('communities/find', params.slug)
-    await store.dispatch('communities/chapters/all', params.slug)
-    await store.dispatch('communities/challenges/all', params.slug)
   },
   computed: {
     ...mapGetters({
