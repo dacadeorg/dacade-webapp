@@ -9,7 +9,7 @@
           {{ $t('app.name') }}
         </NavItem>
       </ul>
-      <ul v-if="loginStatus" class="hidden lg:block relative">
+      <ul v-if="isAuthenticated" class="hidden lg:block relative">
         <NavItem to="/bounties">
           {{ $t('nav.bounties') }}
         </NavItem>
@@ -21,7 +21,7 @@
         <Sidebar />
       </ul>
       <ul
-        v-if="!loginStatus"
+        v-if="!isAuthenticated"
         class="ml-auto text-right relative hidden lg:block"
       >
         <div
@@ -59,7 +59,10 @@
           </NavItem>
         </div>
       </ul>
-      <ul v-if="loginStatus" class="hidden lg:flex ml-auto text-right relative">
+      <ul
+        v-if="isAuthenticated"
+        class="hidden lg:flex ml-auto text-right relative"
+      >
         <NotificationPopup
           :button-styles="buttonStyle"
           :badge-styles="badgeStyle"
@@ -126,12 +129,9 @@ export default {
         color: this.settings.colors.primary,
       }
     },
-    userLoggedIn(params) {
-      return this.$store.getters.loginStatus
-    },
     ...mapGetters({
       user: 'user/get',
-      loginStatus: 'auth/loginStatus',
+      isAuthenticated: 'auth/check',
       communityData: 'content/communityData',
     }),
   },

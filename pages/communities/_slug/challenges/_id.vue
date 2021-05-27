@@ -20,7 +20,7 @@
           <Header />
           <Rewards />
           <RatingRubric :rating-criteria="challenge.ratingCriteria" />
-          <Submission />
+          <Submission v-if="isAuthenticated" />
         </div>
       </div>
     </div>
@@ -55,6 +55,7 @@ export default {
     ...mapGetters({
       community: 'communities/current',
       challenge: 'communities/challenges/current',
+      isAuthenticated: 'auth/check',
     }),
     activeLinkStyle() {
       return {

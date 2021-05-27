@@ -81,7 +81,7 @@
                 </nuxt-link>
               </div>
             </div>
-            <div v-if="loginStatus" class="flex">
+            <div v-if="isAuthenticated" class="flex">
               <div class="w-10 h-10 ml-3 mr-2 my-3 rounded-full bg-red-500">
                 <WalletIcon class="m-2" />
               </div>
@@ -95,7 +95,7 @@
               </div>
             </div>
             <div
-              v-if="loginStatus"
+              v-if="isAuthenticated"
               class="w-full px-3 py-3 text-left flex justify-between"
             >
               <div @click="toggle">
@@ -132,10 +132,10 @@
               </div>
             </div>
           </div>
-          <div v-if="loginStatus" class="px-3 py-2 h-full">
+          <div v-if="isAuthenticated" class="px-3 py-2 h-full">
             <NotificationList />
           </div>
-          <div v-if="!loginStatus" class="w-full h-15 p-2 flex">
+          <div v-if="!isAuthenticated" class="w-full h-15 p-2 flex">
             <Button
               :padding="false"
               type="secondary"
@@ -210,11 +210,11 @@ export default {
     }
   },
   userLoggedIn(params) {
-    return this.$store.getters.loginStatus
+    return this.$store.getters.isAuthenticated
   },
   computed: {
     ...mapGetters({
-      loginStatus: 'auth/loginStatus',
+      isAuthenticated: 'auth/check',
       communityData: 'content/communityData',
       balance: 'user/balance',
       user: 'user/get',

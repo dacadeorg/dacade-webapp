@@ -5,6 +5,13 @@
 import firebase from '@/plugins/firebase'
 import auth from '@/lib/auth'
 
+export const state = () => ({
+  data: null,
+  userBalance: null,
+  balance: null,
+  walletAddresses: null,
+})
+
 export const actions = {
   signUp({ dispatch, commit }, payload) {
     this.commit('setBusy', true)
@@ -94,7 +101,7 @@ export const actions = {
 }
 
 export const getters = {
-  loginStatus(state, getters, rootState, rootGetters) {
+  check(state, getters, rootState, rootGetters) {
     return rootState.user.data !== null && rootState.user.data !== undefined
   },
 }
