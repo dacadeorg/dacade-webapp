@@ -80,6 +80,7 @@
   "login-page.email.label": "Email or username",
   "login-page.username.label": "Username",
   "login-page.password.label": "Password",
+  "login-page.new-password.label": "Confirm new password",
   "login-page.forget-password": "Forgot password?",
   "login-page.signin.button": "Log in",
   "login-page.signup.button": "Sign up",
