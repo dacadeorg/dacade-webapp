@@ -101,7 +101,7 @@ export const actions = {
 }
 
 export const getters = {
-  loginStatus(state, getters, rootState, rootGetters) {
+  check(state, getters, rootState, rootGetters) {
     return rootState.user.data !== null && rootState.user.data !== undefined
   },
   check(state, getters, rootState, rootGetters) {

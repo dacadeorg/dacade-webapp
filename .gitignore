@@ -97,3 +97,4 @@ firebase.js
 #storybook
 .nuxt-storybook
 storybook-static
+components/sections/communities/chapters/Header.vue
