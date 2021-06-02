@@ -18,7 +18,7 @@
             {{ community.name }}
           </h1>
           <p class="tracking-tight md:max-w-text-md text-theme-accent">
-            {{ htmlTagsCleanup(community.summary) }}
+            {{ community.description || community.summary }}
           </p>
         </div>
         <div class="self-end w-auto sm:h-full sm:-mb-6 md:mb-2 md:h-auto">
@@ -72,14 +72,6 @@ export default {
     community: {
       default: () => {},
       type: Object,
-    },
-  },
-  methods: {
-    htmlTagsCleanup(value) {
-      return value.replace(
-        /<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;/g,
-        ''
-      )
     },
   },
 }
