@@ -32,13 +32,15 @@
         {{ $t('page.index.communities.partnering.subtitle') }}
       </p>
       <div class="block absolute lg:bottom-0 lg:left-0 bottom-10 left-9">
-        <Button
-          class="leading-relaxed px-6 py-2"
-          type="outline-primary"
-          :padding="false"
-        >
-          {{ $t('page.index.communities.partnering.button-text') }}
-        </Button>
+        <a href="mailto:moritz@dacade.org">
+          <Button
+            class="leading-relaxed px-6 py-2"
+            type="outline-primary"
+            :padding="false"
+          >
+            {{ $t('page.index.communities.partnering.button-text') }}
+          </Button>
+        </a>
       </div>
     </div>
     <span

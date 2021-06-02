@@ -29,14 +29,7 @@
     </div>
     <div class="lg:flex md:flex">
       <div class="w-2/5 hidden lg:block">
-        <Button :padding="false" class="pl-7.5">
-          <span class="py-4 inline-block align-middle pr-5.75">{{
-            $t('page.index.main.button')
-          }}</span>
-          <span class="inline-block py-3 pr-3 align-middle">
-            <PlayIcon />
-          </span>
-        </Button>
+        <VideoPopup />
         <span class="block text-primary-dark mt-4.5 text-base">
           <span class="font-medium">{{ $t('app.name') }}</span>
           <span class="font-light">{{
@@ -76,13 +69,15 @@
 import Section from '@/components/ui/Section'
 import Button from '@/components/ui/Button'
 import NumberedCard from '@/components/cards/Numbered'
-import PlayIcon from '~/assets/icons/play.svg?inline'
+import VideoPopup from '@/components/popups/Video'
+// import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
+
 export default {
   name: 'MainSection',
   components: {
     Section,
     Button,
-    PlayIcon,
+    VideoPopup,
     NumberedCard,
   },
   data() {
