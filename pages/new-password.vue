@@ -1,15 +1,18 @@
 <template>
-  <div class="content-wrapper">
-    <ValidationObserver v-slot="{ passes }">
-      <form class="mb-24" @submit.prevent="passes(onPasswordResetRequest)">
+  <div>
+    <ValidationObserver
+      v-slot="{ passes }"
+      class="absolute w-full top-0 min-h-screen flex items-center"
+    >
+      <form
+        class="content-wrapper"
+        @submit.prevent="passes(onPasswordResetRequest)"
+      >
         <div class="lg:w-98 xl:w-98 mx-auto">
           <h3 class="text-5xl my-5">
             {{ $t('login-page.password-reset.title') }}
           </h3>
           <div label-for="input-1">
-            <label for="input-2" class="text-sm">{{
-              $t('login-page.password-reset.Description')
-            }}</label>
             <ValidationProvider
               v-slot="{ errors }"
               name="email"
@@ -19,9 +22,48 @@
                 id="input-1"
                 v-model="form.email"
                 required
+                disabled
                 type="email"
                 :placeholder="$t('login-page.email.placeholder')"
                 :label="$t('login-page.email.label')"
+                class="mb-5"
+                :error="errors[0]"
+              />
+            </ValidationProvider>
+          </div>
+
+          <div>
+            <ValidationProvider
+              v-slot="{ errors }"
+              name="password"
+              rules="required|min:6"
+            >
+              <Input
+                id="text-password"
+                v-model="form.password"
+                name="password"
+                type="password"
+                :placeholder="$t('login-page.password.placeholder')"
+                :label="$t('login-page.password.label')"
+                class="mb-5"
+                :error="errors[0]"
+              />
+            </ValidationProvider>
+          </div>
+
+          <div>
+            <ValidationProvider
+              v-slot="{ errors }"
+              name="password"
+              rules="required|min:6"
+            >
+              <Input
+                id="text-password"
+                v-model="form.password"
+                name="password"
+                type="password"
+                :placeholder="$t('login-page.password.placeholder')"
+                :label="$t('login-page.new-password.label')"
                 class="mb-5"
                 :error="errors[0]"
               />
@@ -56,13 +98,12 @@ import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
-  layout: 'withoutFooter',
-
   components: {
     Button,
     Input,
     ArrowRight,
   },
+  layout: 'withoutFooter',
 
   data() {
     return {
