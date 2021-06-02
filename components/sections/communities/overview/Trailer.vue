@@ -1,5 +1,8 @@
 <template>
-  <Section v-if="community.trailer" :title="$t('communities.overview.trailer')">
+  <Section
+    v-if="community.trailer && community.trailer.video"
+    :title="$t('communities.overview.trailer')"
+  >
     <Duration
       class="-mt-1"
       :text="$t('communities.overview.trailer.video')"

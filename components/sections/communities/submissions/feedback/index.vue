@@ -6,7 +6,7 @@
       :value="feedback"
       :last="k === feedbacks.length - 1"
     />
-    <Section>
+    <Section v-if="isAuthenticated">
       <Criteria />
       <Form @save="fetchList()" />
     </Section>
@@ -31,6 +31,7 @@ export default {
     ...mapGetters({
       submission: 'communities/submissions/current',
       feedbacks: 'communities/submissions/feedbacks/list',
+      isAuthenticated: 'auth/check',
     }),
   },
   created() {

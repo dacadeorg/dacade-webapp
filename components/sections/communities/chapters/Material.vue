@@ -19,10 +19,10 @@
         class="mt-3 flex flex-wrap items-center"
       >
         <p class="text-lg font-normal leading-normal">
-          {{ item.title }}
+          {{ material.title }}
         </p>
         <span class="ml-2 leading-normal">
-          <Duration :value="item.duration" />
+          <Duration :value="material.duration" />
         </span>
       </a>
     </div>

@@ -19,10 +19,11 @@
         >
           <Header />
           <MaterialSection
-            v-for="(material, i) in chapter.materials"
+            v-for="(material, i) in materials"
             :key="i"
             :material="material"
           />
+          <AdditionalMaterialsSection :materials="additionalMaterials" />
           <PageNavigation />
         </div>
       </div>
@@ -39,6 +40,7 @@ import MobileNav from '@/components/sections/communities/MobileNav'
 import PageNavigation from '@/components/sections/communities/PageNavigation.vue'
 import Header from '@/components/sections/communities/chapters/Header'
 import MaterialSection from '@/components/sections/communities/chapters/Material'
+import AdditionalMaterialsSection from '@/components/sections/communities/chapters/AdditionalMaterials'
 import Section from '@/components/ui/Section'
 
 export default {
@@ -49,6 +51,7 @@ export default {
     Header,
     MaterialSection,
     PageNavigation,
+    AdditionalMaterialsSection,
   },
   scrollToTop: true,
   async fetch({ store, params }) {
@@ -61,6 +64,20 @@ export default {
       community: 'communities/current',
       chapter: 'communities/chapters/current',
     }),
+    materials() {
+      if (!this.chapter?.materials) return []
+
+      return this.chapter.materials.filter(
+        (material) => material.type !== 'ADDITIONAL'
+      )
+    },
+    additionalMaterials() {
+      if (!this.chapter?.materials) return []
+
+      return this.chapter.materials.filter(
+        (material) => material.type === 'ADDITIONAL'
+      )
+    },
   },
 }
 </script>

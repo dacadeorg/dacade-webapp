@@ -19,7 +19,7 @@
         <div
           class="ml-auto pl-28 lg:pl-0 md:pl-0 sm:pl-0 xl:my-0 lg:my-16 mt-11"
         >
-          <img :src="community.icon" />
+          <img :src="`${community.icon}`" />
         </div>
         <div
           class="

@@ -22,7 +22,7 @@
                 :rating-criteria="submission.challenge.ratingCriteria"
               />
             </EvaluationCard>
-            <Feedback v-if="isAuthenticated" />
+            <Feedback />
           </div>
         </div>
       </div>
@@ -74,7 +74,6 @@ export default {
       communityData: 'content/communityData',
       community: 'communities/current',
       submission: 'communities/submissions/current',
-      isAuthenticated: 'auth/check',
     }),
   },
 }

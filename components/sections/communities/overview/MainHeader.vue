@@ -35,7 +35,7 @@
               lg:hidden
             "
           >
-            {{ htmlTagsCleanup(community.summary) }}
+            {{ community.description || community.summary }}
           </p>
           <p
             class="
@@ -49,7 +49,7 @@
               lg:block
             "
           >
-            {{ htmlTagsCleanup(community.description || community.summary) }}
+            {{ community.description || community.summary }}
           </p>
         </div>
         <div class="self-end w-36 md:w-1/2 max-w-lg">
