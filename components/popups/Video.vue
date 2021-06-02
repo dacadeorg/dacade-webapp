@@ -2,18 +2,23 @@
   <div>
     <span v-click-outside="externalClick">
       <li
-        :class="[show === true ? 'z-0' : 'z-10']"
-        class="inline-block align-middle mr-2 relative text-gray-500"
+        class="
+          inline-block
+          align-middle
+          mr-2
+          relative
+          text-gray-500
+          cursor-pointer
+        "
         @click="toggle"
       >
-        <Button :padding="false" class="pl-7.5">
-          <span class="py-4 inline-block align-middle pr-5.75">{{
-            $t('page.index.main.button')
+        <span class="flex space-x-1 text-primary-dark mt-3 text-base">
+          <PlayIcon class="-mt-1" fill="#236BF4" />
+          <span class="font-medium">{{ $t('app.name') }}</span>
+          <span class="font-light">{{
+            $t('page.index.main.button.description')
           }}</span>
-          <span class="inline-block py-3 pr-3 align-middle">
-            <ArrowRightIcon />
-          </span>
-        </Button>
+        </span>
       </li>
       <div
         v-show="show"
@@ -32,21 +37,23 @@
         "
       >
         <Video
-          class="z-50 content-wrapper max-w-3xl max-h-1xl"
-          url="https://youtu.be/GmVrQDulaLY"
+          class="-mt-24 z-50 content-wrapper max-w-3xl max-h-1xl mx-auto"
+          url="https://youtube.com/embed/GmVrQDulaLY"
         />
       </div>
     </span>
-    <div v-if="show" class="opacity-25 fixed inset-0 z-30 bg-black" />
+    <div v-if="show" class="opacity-25 fixed inset-0 z-30 bg-transparent" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import vClickOutside from 'v-click-outside'
-import Button from '@/components/ui/Button'
+// import Button from '@/components/ui/Button'
 import Video from '@/components/ui/Video'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
+import PlayIcon from '~/assets/icons/play.svg?inline'
+
+// import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 // import Badge from '@/components/ui/Badge'
 // import NotificationList from '@/components/list/Notification'
@@ -58,9 +65,9 @@ export default {
     clickOutside: vClickOutside.directive,
   },
   components: {
-    Button,
+    // Button,
+    PlayIcon,
     Video,
-    ArrowRightIcon,
   },
   props: {
     buttonStyles: {
