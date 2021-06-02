@@ -18,15 +18,21 @@
         "
       >
         <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm">
-          <span
-            class="block font-bold leading-normal"
-            :style="{
-              color: colors.textAccent,
+          <div
+            :class="{
+              'opacity-40': k !== 1,
             }"
-            >{{ rubric.points }}
-            {{ $t('communities.challenge.criteria.points') }}</span
           >
-          <span class="block leading-normal">{{ rubric.text }}</span>
+            <span
+              class="block font-bold leading-normal"
+              :style="{
+                color: colors.textAccent,
+              }"
+              >{{ rubric.points }}
+              {{ $t('communities.challenge.criteria.points') }}</span
+            >
+            <span class="block leading-normal">{{ rubric.text }}</span>
+          </div>
         </div>
       </div>
     </div>
