@@ -19,7 +19,10 @@
         >
           <Header />
           <Rewards />
-          <RatingRubric :rating-criteria="challenge.ratingCriteria" />
+          <RatingRubric
+            :rating-criteria="challenge.ratingCriteria"
+            :active="true"
+          />
           <Submission v-if="isAuthenticated" />
         </div>
       </div>
