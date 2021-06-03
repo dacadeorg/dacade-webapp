@@ -42,7 +42,7 @@
         />
       </div>
     </span>
-    <div v-if="show" class="opacity-25 fixed inset-0 z-30 bg-transparent" />
+    <div v-if="show" class="opacity-25 fixed inset-0 z-30 bg-black" />
   </div>
 </template>
 
