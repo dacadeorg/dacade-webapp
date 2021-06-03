@@ -1,7 +1,7 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <div
-    class="absolute w-full left-0 z-0"
+    class="absolute w-full left-0 z-0 hidden md:block"
     :style="{
       top: '-3vh',
       height: `${gridSize}vh`,

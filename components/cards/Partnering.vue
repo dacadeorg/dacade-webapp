@@ -19,7 +19,6 @@
         lg:pb-0
         lg:pt-9
         p-8
-        pb-24
         w-11/12
         text-primary
         h-full
@@ -31,7 +30,7 @@
       <p class="text-base mt-0 mb-20 lg:mb-0 leading-normal">
         {{ $t('page.index.communities.partnering.subtitle') }}
       </p>
-      <div class="block absolute lg:bottom-0 lg:left-0 bottom-10 left-9">
+      <div class="mt-24 lg:bottom-0 lg:left-0 bottom-10 left-9">
         <a href="mailto:moritz@dacade.org">
           <Button
             class="leading-relaxed px-6 py-2"
