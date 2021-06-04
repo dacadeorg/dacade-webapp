@@ -18,7 +18,7 @@
             {{ community.name }}
           </h1>
           <p class="tracking-tight md:max-w-text-md text-theme-accent">
-            {{ community.description || community.summary }}
+            {{ community.description }}
           </p>
         </div>
         <div class="self-end w-auto sm:h-full sm:-mb-6 md:mb-2 md:h-auto">
