@@ -28,7 +28,7 @@
       </p>
     </div>
     <div class="lg:flex md:flex">
-      <div class="w-2/5 hidden lg:block">
+      <div class="w-full md:w-2/5 hidden lg:block">
         <nuxt-link to="/communities">
           <Button :padding="false" class="pl-7.5">
             <span class="py-2 inline-block align-middle pr-5.75">{{
@@ -50,24 +50,26 @@
       </div>
     </div>
 
-    <!-- <div class="lg:hidden pt-10">
+    <div class="lg:hidden pt-10">
       <nuxt-link to="/communities">
         <Button :padding="false" class="pl-7.5">
-          <span class="py-4 inline-block text-lg align-middle pr-5.75">{{
+          <span class="py-2 inline-block align-middle pr-5.75">{{
             $t('page.index.main.button')
           }}</span>
-          <span class="inline-block py-3 pr-3 align-middle">
-            <PlayIcon />
+          <span class="inline-block -py-1 pr-3 align-middle">
+            <ArrowRightIcon class="ml-17" />
           </span>
         </Button>
       </nuxt-link>
-      <span class="lg:block md:block hidden text-primary-dark mt-4.5 text-base">
+      <VideoPopup />
+
+      <!-- <span class="lg:block md:block hidden text-primary-dark mt-4.5 text-base">
         <span class="font-medium">{{ $t('app.name') }}</span>
         <span class="font-light">{{
           $t('page.index.main.button.description')
         }}</span>
-      </span>
-    </div> -->
+      </span> -->
+    </div>
   </Section>
 </template>
 

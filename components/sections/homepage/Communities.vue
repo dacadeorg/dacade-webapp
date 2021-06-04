@@ -14,11 +14,19 @@
       </div>
     </div>
     <div class="lg:flex xl:flex mt-7 flex-wrap justify-between">
-      <CommunityCard
+      <!-- <CommunityCard
         v-for="(community, i) in communities"
         :key="i"
         :community="community"
-      />
+      /> -->
+      <div
+        v-for="community in communities"
+        :key="community.key"
+        class="flex pb-4"
+      >
+        <CommunityVisual :community="community" />
+      </div>
+
       <PartneringCard />
     </div>
   </Section>
@@ -28,15 +36,19 @@
 import { mapGetters } from 'vuex'
 
 import Section from '@/components/ui/Section'
-import CommunityCard from '@/components/cards/Community'
+// import CommunityCard from '@/components/cards/Community'
 import PartneringCard from '@/components/cards/Partnering'
+import CommunityVisual from '@/components/cards/CommunityCard/CommunityVisual'
 
 export default {
   name: 'CommunitiesSection',
   components: {
     Section,
-    CommunityCard,
+    CommunityVisual,
     PartneringCard,
+  },
+  fetch({ store }) {
+    return store.dispatch('communities/all')
   },
   computed: {
     ...mapGetters({
