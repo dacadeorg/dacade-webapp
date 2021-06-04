@@ -17,7 +17,7 @@
         {{ index }}
       </div>
     </div>
-    <div
+    <!-- <div
       class="
         py-4.5
         text-base
@@ -25,9 +25,9 @@
         lg:border-none
         md:border-none
       "
-    >
-      <span class="font-medium">{{ title }}</span> <span>{{ text }}</span>
-    </div>
+    > -->
+    <span class="font-medium">{{ title }}</span> <span>{{ text }}</span>
+    <!-- </div> -->
   </div>
 </template>
 

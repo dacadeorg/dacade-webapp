@@ -41,12 +41,22 @@
         </nuxt-link>
         <VideoPopup />
       </div>
-      <div v-for="(card, i) in cards" :key="i" class="lg:w-1/5 pr-8.5">
-        <NumberedCard
-          :index="i + 1"
-          :title="$t(card.title)"
-          :text="$t(card.body)"
-        />
+      <div
+        class="
+          flex flex-col
+          md:flex-row
+          divide-y divide-y-gray-900 divide-dotted
+          space-y-5
+        "
+      >
+        <div v-for="(card, i) in cards" :key="i" class="lg:w-1/5 pr-8.5">
+          <NumberedCard
+            class="mt-5"
+            :index="i + 1"
+            :title="$t(card.title)"
+            :text="$t(card.body)"
+          />
+        </div>
       </div>
     </div>
 
