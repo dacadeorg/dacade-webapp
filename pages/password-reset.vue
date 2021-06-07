@@ -56,13 +56,12 @@ import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
-  layout: 'withoutFooter',
-
   components: {
     Button,
     Input,
     ArrowRight,
   },
+  layout: 'withoutFooter',
 
   data() {
     return {

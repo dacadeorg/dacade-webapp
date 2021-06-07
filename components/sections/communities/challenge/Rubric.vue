@@ -18,11 +18,7 @@
         "
       >
         <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm">
-          <div
-            :class="{
-              'opacity-40': k !== 1,
-            }"
-          >
+          <div :class="!active && k !== 1 ? 'opacity-40' : ''">
             <span
               class="block font-bold leading-normal"
               :style="{
@@ -53,6 +49,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    active: {
+      default: false,
+      type: Boolean,
+    },
     hideTitle: {
       default: false,
       type: Boolean,
@@ -63,6 +63,9 @@ export default {
       community: 'communities/current',
       colors: 'ui/colors',
     }),
+  },
+  created() {
+    console.log(this.$router)
   },
 }
 </script>
