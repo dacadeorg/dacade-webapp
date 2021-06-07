@@ -76,5 +76,8 @@ export default {
       submission: 'communities/submissions/current',
     }),
   },
+  created() {
+    console.log(this.submission)
+  },
 }
 </script>

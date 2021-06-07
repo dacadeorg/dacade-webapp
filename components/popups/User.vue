@@ -19,7 +19,7 @@
               color: buttonStyles.color ? buttonStyles.color : null,
             }"
             class="align-middle ml-2.5 font-medium text-gray-500"
-            >{{ mainWallet.balance }} {{ mainWallet.denom }}</span
+            >{{ mainWallet.balance }} {{ mainWallet.token }}</span
           >
         </Button>
       </li>

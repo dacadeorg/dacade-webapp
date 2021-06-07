@@ -34,7 +34,7 @@
           <div>
             <div v-if="reward" class="font-medium text-lg">
               {{ reward.amount }}
-              {{ reward.denom }}
+              {{ reward.token }}
             </div>
             <div class="text-sm md">
               {{ $t('feedback.bounty') }}

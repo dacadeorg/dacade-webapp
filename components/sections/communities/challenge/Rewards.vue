@@ -9,11 +9,11 @@
         <div class="sm:flex space-x-3 items-center">
           <div class="flex sm:flex-none space-x-5 pb-3 md:w-1/2">
             <div class="flex-none">
-              <Coin :denom="reward.denom" size="medium" />
+              <Coin :token="reward.token" size="medium" />
             </div>
             <div class="text-base flex-none pr-3">
               <span class="block font-medium"
-                >{{ reward.amount }} {{ reward.denom }}</span
+                >{{ reward.amount }} {{ reward.token }}</span
               >
               <div class="block text-sm">
                 Per

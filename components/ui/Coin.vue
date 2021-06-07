@@ -2,7 +2,7 @@
   <span
     :class="[sizeClasses, shapeClasses]"
     :style="{
-      backgroundColor: color || coin(denom).color,
+      backgroundColor: color || coin(token).color,
     }"
     class="
       bg-primary
@@ -14,7 +14,7 @@
       leading-none
     "
   >
-    <img v-if="coin(denom).icon" class="p-2" :src="coin(denom).icon" />
+    <img v-if="coin(token).icon" class="p-2" :src="coin(token).icon" />
   </span>
 </template>
 
@@ -26,7 +26,7 @@ export default {
       default: null,
       type: String,
     },
-    denom: {
+    token: {
       default: null,
       type: String,
     },
@@ -76,8 +76,8 @@ export default {
     },
   },
   methods: {
-    coin(denom) {
-      return this.coins[denom] ? this.coins[denom] : this.coins.DCN
+    coin(token) {
+      return this.coins[token] ? this.coins[token] : this.coins.DCN
     },
   },
 }
