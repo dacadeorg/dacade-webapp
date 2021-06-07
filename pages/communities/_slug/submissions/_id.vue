@@ -15,11 +15,15 @@
           />
           <div v-if="submission">
             <SubmissionCard :submission="submission" :buttons="true" />
-            <EvaluationCard :evaluation="evaluation">
+            <EvaluationCard
+              v-if="this.submission.evaluation"
+              :evaluation="this.submission.evaluation"
+            >
               <RatingRubric
                 v-if="submission.challenge"
                 hide-title
                 :rating-criteria="submission.challenge.ratingCriteria"
+                :selected="submission.evaluation.criteria"
               />
             </EvaluationCard>
             <Feedback />

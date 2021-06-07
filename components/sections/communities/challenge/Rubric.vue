@@ -18,7 +18,13 @@
         "
       >
         <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm">
-          <div :class="!active && k !== 1 ? 'opacity-40' : ''">
+          <div
+            :class="
+              selected.length && !selected.includes(rubric.ref)
+                ? 'opacity-40'
+                : ''
+            "
+          >
             <span
               class="block font-bold leading-normal"
               :style="{
@@ -49,9 +55,9 @@ export default {
       type: Array,
       default: () => [],
     },
-    active: {
-      default: false,
-      type: Boolean,
+    selected: {
+      default: () => [],
+      type: Array,
     },
     hideTitle: {
       default: false,
