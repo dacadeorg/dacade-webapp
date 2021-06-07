@@ -50,6 +50,10 @@ export default {
           icon: require('~/assets/icons/logo.svg?data'),
           color: '#34E256',
         },
+        cUSD: {
+          icon: require('~/assets/icons/logo.svg?data'),
+          color: '#34E256',
+        },
       },
     }
   },
