@@ -3,7 +3,7 @@
     :style="customStyle"
     :class="[sizeClasses]"
     class="
-      bg-gray-900
+      badget-color
       font-semibold
       text-white
       leading-none

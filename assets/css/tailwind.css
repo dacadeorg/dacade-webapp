@@ -92,4 +92,8 @@ button {
       scrollbar-width: none; /* Firefox */
     }
   }
+  .badget-color{
+    background-color:rgba(114, 70, 231, 1);
+
+  }
 }
