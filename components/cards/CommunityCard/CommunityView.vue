@@ -4,7 +4,7 @@
       <div
         class="w-full bg-gray-200 lg:flex min-w-full mx-0 rounded-3xl relative"
       >
-        <CommunityVisual :community="community" />
+        <CommunityVisual :community="community" :show-submissions="true" />
         <div class="flex-col justify-between flex p-3 md:p-7 text-gray-700">
           <div class="w-full">
             <div class="xl:pr-52 w-full text-lg pb-10">

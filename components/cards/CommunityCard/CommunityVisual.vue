@@ -5,7 +5,7 @@
         p-6
         bg-theme-primary
         text-theme-text
-        min-w-96 min-h-96
+        lg:min-w-md lg:min-h-md
         lg:h-96
         md:w-full
         md:h-60
@@ -21,7 +21,7 @@
               {{ community.name }}
             </h1>
             <p class="tracking-tight md:max-w-text-md text-theme-accent">
-              {{ community.summary || '' }}
+              {{ community.description || '' }}
             </p>
           </div>
           <div class="self-end w-auto sm:h-full sm:-mb-6 md:mb-2 md:h-auto">
@@ -36,53 +36,28 @@
             justify-start
             flex-col
             max-w-xs
-            -mt-14
-            sm:-mt-10
-            lg:-mt-15
+            -mt-4
+            md:-mt-7
             md:max-w-lg
             items-start
           "
         >
-          <div class="flex h-10 mr-4">
-            <img
-              class="
-                w-10
-                h-10
-                -mr-3
-                border-2
-                rounded-full
-                border-theme-secondary
-              "
-              src="~assets/img/testimonial-sample-2.png"
-              alt=""
-            />
-            <img
-              class="
-                w-10
-                h-10
-                -mr-3
-                border-2
-                rounded-full
-                border-theme-secondary
-              "
-              src="~assets/img/testimonial-sample-5.png"
-              alt=""
-            />
-            <img
-              class="
-                w-10
-                h-10
-                -mr-3
-                border-2
-                rounded-full
-                border-theme-secondary
-              "
-              src="~assets/img/testimonial-sample-2.png"
-              alt=""
-            />
+          <div v-if="submissions && showSubmissions" class="text-sm">
+            <span
+              ><strong v-if="submissions && showSubmissions">{{
+                submissions.length
+              }}</strong>
+              {{ $t('communities.submissions') }}</span
+            >
+            <div />
           </div>
-          <div class="my-2 text-sm">
-            <span><strong>125</strong> Members</span>
+          <div v-if="submissions && showSubmissions" class="text-sm">
+            <span
+              ><strong v-if="submissions && showSubmissions">{{
+                submissions.length
+              }}</strong>
+              {{ $t('communities.submissions') }}</span
+            >
             <div />
           </div>
         </div>
@@ -97,6 +72,18 @@ export default {
   name: 'CommunityVisual',
   components: { ThemeWrapper },
   props: {
+    showSubmissions: {
+      default: () => false,
+      type: Boolean,
+    },
+    showRewards: {
+      default: () => false,
+      type: Boolean,
+    },
+    submissions: {
+      default: () => [1, 2, 3],
+      type: Array,
+    },
     community: {
       default: () => {},
       type: Object,

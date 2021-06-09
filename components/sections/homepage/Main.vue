@@ -1,7 +1,7 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <Section padding="p-0">
-    <div class="lg:w-3/4 lg:py-24 pt-24 pb-8">
+    <div class="w-full lg:py-24 pt-24 pb-8">
       <h1
         class="lg:text-8xl md:text-6xl text-5xl leading-none tracking-tighter"
       >
@@ -27,8 +27,8 @@
         {{ $t('page.index.main.subtitle') }}
       </p>
     </div>
-    <div class="lg:flex md:flex">
-      <div class="w-full md:w-2/5 hidden lg:block">
+    <div class="flex justify-between">
+      <div class="w-full max-w-xs hidden lg:block">
         <nuxt-link to="/communities">
           <Button :padding="false" class="pl-7.5">
             <span class="py-2 inline-block align-middle pr-5.75">{{
@@ -45,13 +45,21 @@
         class="
           flex flex-col
           md:flex-row
-          divide-y divide-y-gray-900 divide-dotted
+          md:divide-y-0
+          divide-y divide-y-text-primary divide-dotted
           space-y-5
+          md:space-y-0
+          space-x-0
+          md:space-x-5
+          justify-end
         "
       >
-        <div v-for="(card, i) in cards" :key="i" class="lg:w-1/5 pr-8.5">
+        <div
+          v-for="(card, i) in cards"
+          :key="i"
+          class="w-full lg:max-w-.5xs pt-5 md:pt-0"
+        >
           <NumberedCard
-            class="mt-5"
             :index="i + 1"
             :title="$t(card.title)"
             :text="$t(card.body)"

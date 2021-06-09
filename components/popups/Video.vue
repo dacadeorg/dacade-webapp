@@ -3,9 +3,11 @@
     <span v-click-outside="externalClick">
       <li
         class="
+          content-wrapper
           inline-block
           align-middle
           mr-2
+          max-w-xl
           relative
           text-gray-500
           cursor-pointer
@@ -23,23 +25,20 @@
       <div
         v-show="show"
         class="
-          h-full
+          mt-0
           w-full
           absolute
           top-0
           left-0
           bg-white
-          py-4
           px-4.5
           rounded-3.5xl
           text-gray-900
           no-scrollbar
         "
       >
-        <Video
-          class="-mt-24 z-50 content-wrapper max-w-3xl max-h-1xl mx-auto"
-          url="https://youtube.com/embed/GmVrQDulaLY"
-        />
+        <Video class="z-50" url="https://youtube.com/embed/GmVrQDulaLY" />
+        <!-- class="z-50 content-wrapper max-w-3xl max-h-1xl mx-auto" -->
       </div>
     </span>
     <div v-if="show" class="opacity-25 fixed inset-0 z-30 bg-black" />
@@ -102,9 +101,9 @@ export default {
         body.style.width = '100%'
       } else {
         const body = document.body
-        const scrollY = body.style.top
         body.style.position = 'relative'
         body.style.top = ''
+        const scrollY = body.style.top
         window.scrollTo(0, parseInt(scrollY || '0') * -1)
       }
     },
