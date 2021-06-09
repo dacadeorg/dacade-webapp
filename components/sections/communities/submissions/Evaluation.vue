@@ -23,7 +23,7 @@
           :style="{
             color: colors.textAccent,
           }"
-          >{{ evaluation.points }}/{{ totalPoints }} Points</span
+          >{{ evaluation.points }}/{{ evaluation.totalPoints }} Points</span
         >
       </div>
       <div v-if="evaluation.reward" class="text-sm">
