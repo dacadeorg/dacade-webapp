@@ -5,8 +5,8 @@
       <span class="block font-medium"
         >{{ reward.amount }} {{ reward.denom }}</span
       >
-      <span class="block text-sm"
-        >Per
+      <span class="block text-sm">
+        {{ $t('communities.rewards.per') }}
         <span class="capitalize">{{ reward.type.toLowerCase() }}</span></span
       >
     </div>

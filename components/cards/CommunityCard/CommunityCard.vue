@@ -61,11 +61,7 @@
             "
           >
             <div v-if="community.rewards && showRewards" class="text-sm">
-              <Reward
-                :reward="
-                  community.rewards.filter((r) => r.type === 'SUBMISSION')[0]
-                "
-              />
+              <Reward :reward="reward" />
               <div />
             </div>
           </div>
@@ -75,10 +71,12 @@
           class="mt-4 flex justify-between"
         >
           <div class="flex flex-col space-y-0">
-            <div class="mt-4 font-light text-theme-accent">Estimated Time</div>
+            <div class="mt-4 font-light text-theme-accent">
+              {{ $t('communities.card.estimated') }}
+            </div>
             <div class="mt-4 font-medium text-theme-accent">
               {{ duration }}
-              min
+              {{ $t('communities.card.minutes') }}
             </div>
           </div>
           <div class="mt-4 align-middle">
@@ -107,7 +105,6 @@
                 </span>
               </Button>
             </nuxt-link>
-            <!-- <Button>Get started</Button> -->
           </div>
         </div>
       </div>
@@ -147,20 +144,15 @@ export default {
         (accumulator, reward) => accumulator.amount + reward.amount
       )
     },
+    reward() {
+      return this.community.rewards.filter((r) => r.type === 'SUBMISSION')[0]
+    },
     duration() {
       return Moment.duration(
         this.community.duration,
         'milliseconds'
       ).asMinutes()
     },
-  },
-  mounted() {
-    // eslint-disable-next-line no-console
-    console.log(this.community)
-    const rewards = this.community.rewards
-    const submission = rewards.filter((r) => r.type === 'SUBMISSION')[0].value
-    // eslint-disable-next-line no-console
-    console.log(submission)
   },
 }
 </script>

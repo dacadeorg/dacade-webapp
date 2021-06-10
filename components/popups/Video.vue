@@ -14,8 +14,17 @@
         "
         @click="toggle"
       >
-        <span class="flex space-x-1 text-primary-dark mt-3 text-base">
-          <PlayIcon class="-mt-1" fill="#236BF4" />
+        <span
+          class="
+            flex
+            space-x-1
+            text-primary
+            hover:text-primary-dark
+            mt-3
+            text-base
+          "
+        >
+          <PlayIcon class="-mt-1" fill="white" />
           <span class="font-medium">{{ $t('app.name') }}</span>
           <span class="font-light">{{
             $t('page.index.main.button.description')
