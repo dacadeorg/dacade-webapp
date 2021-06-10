@@ -1,5 +1,6 @@
 <template>
   <span
+    :v-if="reward"
     class="
       bg-gray-200
       font-semibold
@@ -16,9 +17,9 @@
       space-x-2
     "
   >
-    <Coin :denom="denom" size="small" />
+    <Coin :denom="reward.token" size="small" />
     <div class="text-gray-500 font-medium pl-0 pr-2">
-      {{ value }}{{ denom }}
+      {{ reward.amount }}{{ reward.token }}
     </div>
   </span>
 </template>
@@ -34,13 +35,11 @@ export default {
     Coin,
   },
   props: {
-    value: {
-      default: 0,
-      type: Number,
-    },
-    denom: {
-      default: null,
-      type: String,
+    reward: {
+      default: () => {
+        return {}
+      },
+      type: Object,
     },
   },
 }

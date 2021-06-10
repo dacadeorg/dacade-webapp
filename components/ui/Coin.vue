@@ -5,7 +5,6 @@
       backgroundColor: color || coin(denom).color,
     }"
     class="
-      bg-primary
       inline-flex
       text-white
       items-center

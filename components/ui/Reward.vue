@@ -1,6 +1,6 @@
 <template>
   <div :v-if="reward" class="flex mt-3 md:mt-6 items-center">
-    <Coin :denom="reward.denom" class="w-10 h-10 md:w-15 md:h-15" />
+    <Coin :denom="reward.denom" size="medium" />
     <div class="text-base pl-3">
       <span class="block font-medium"
         >{{ reward.amount }} {{ reward.denom }}</span

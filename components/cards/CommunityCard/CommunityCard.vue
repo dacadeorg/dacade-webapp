@@ -1,14 +1,21 @@
 <template>
   <ThemeWrapper :colors="community.colors">
-    <div class="p-6 bg-theme-primary text-theme-text">
+    <div
+      class="
+        p-6
+        bg-theme-primary
+        text-theme-text
+        space-y-5
+        divide-y-2 divide-y divide-dotted divide-theme-accent
+      "
+    >
       <div class="mx-auto h-full">
         <div
-          :class="showSubmissions ? 'max-w-md' : ''"
           class="
             flex flex-col
             sm:flex-row
-            md:flex-col
-            lg:flex-row
+            lg:flex-col
+            2xl:flex-row
             justify-between
             space-y-5
           "
@@ -20,7 +27,7 @@
               max-w-sm
               min-h-2xs
               md:min-h-3xs
-              lg:min-h-xs
+              lg:min-h-2xs
               xl:min-h-2xs
               font-medium
               pb-5
@@ -33,18 +40,8 @@
               {{ community.description || '' }}
             </p>
           </div>
-          <div
-            class="
-              self-end
-              max-w-lg
-              sm:h-full
-              sm:-mb-0
-              md:mb-2
-              lg:mb-6
-              md:h-auto
-            "
-          >
-            <img :src="community.icon" class="relative h-36 sm:h-42 w-full" />
+          <div class="self-end max-w-lg sm:h-full sm:-mb-0 md:mb-2 md:h-auto">
+            <img :src="community.icon" class="relative h-42 w-full lg:mb-5" />
           </div>
         </div>
         <div
@@ -61,44 +58,62 @@
             items-start
           "
         >
-          <div v-if="submissions && showSubmissions" class="text-sm">
-            <span
-              ><strong v-if="submissions && showSubmissions">{{
-                submissions.length
-              }}</strong>
-              {{ $t('communities.submissions') }}</span
-            >
-            <div />
-          </div>
           <div v-if="community.rewards && showRewards" class="text-sm">
             <Reward
-              :value="
+              :reward="
                 community.rewards.filter((r) => r.type === 'SUBMISSION')[0]
-                  .amount
-              "
-              :denom="
-                community.rewards.filter((r) => r.type === 'SUBMISSION')[0]
-                  .token
               "
             />
             <div />
           </div>
         </div>
       </div>
+      <div
+        v-if="community.rewards && showRewards"
+        class="mt-4 flex justify-between"
+      >
+        <div class="flex flex-col space-y-0">
+          <div class="mt-4 font-light text-theme-accent">Estimated Time</div>
+          <div class="mt-4 font-medium text-theme-accent">
+            {{ duration }}
+            min
+          </div>
+        </div>
+        <div class="mt-4 align-middle">
+          <nuxt-link :to="path">
+            <Button
+              class="
+                bg-theme-secondary
+                border
+                text-theme-accent
+                border-theme-accent
+              "
+            >
+              <span class="py-2 inline-block align-middle">{{
+                $t('page.index.main.button')
+              }}</span>
+              <span class="inline-block align-middle">
+                <ArrowRightIcon class="ml-4" />
+              </span>
+            </Button>
+          </nuxt-link>
+          <!-- <Button>Get started</Button> -->
+        </div>
+      </div>
     </div>
   </ThemeWrapper>
 </template>
 <script>
+import Moment from 'moment'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 import Reward from '@/components/badges/Reward'
+import Button from '@/components/ui/Button'
+import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
+
 export default {
   name: 'CommunityCard',
-  components: { ThemeWrapper, Reward },
+  components: { ThemeWrapper, Reward, Button, ArrowRightIcon },
   props: {
-    showSubmissions: {
-      default: () => false,
-      type: Boolean,
-    },
     showRewards: {
       default: () => true,
       type: Boolean,
@@ -110,6 +125,22 @@ export default {
     community: {
       default: () => {},
       type: Object,
+    },
+  },
+  computed: {
+    path() {
+      return `/communities/${this.community.slug}`
+    },
+    rewards() {
+      return this.community.rewards.reduce(
+        (accumulator, reward) => accumulator.amount + reward.amount
+      )
+    },
+    duration() {
+      return Moment.duration(
+        this.community.duration,
+        'milliseconds'
+      ).asMinutes()
     },
   },
   mounted() {
