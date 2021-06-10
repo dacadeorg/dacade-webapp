@@ -1,13 +1,16 @@
 <template>
   <Section :title="isAdditional ? 'Additional Material' : material.title">
-    <Duration
-      v-if="!isAdditional"
-      :text="material.subtitle"
-      :value="material.duration"
-    />
-    <span v-if="!isAdditional" class="block text-lg">{{
-      material.description
-    }}</span>
+    <a :href="material.link" target="__blank">
+      <Duration
+        v-if="!isAdditional"
+        :text="material.subtitle"
+        :value="material.duration"
+      />
+      <span v-if="!isAdditional" class="block text-lg">{{
+        material.description
+      }}</span>
+    </a>
+
     <Video v-if="material.type === 'EMBEDDED-VIDEO'" :url="material.link" />
     <Markdown v-if="material.type === 'MARKDOWN'" :url="material.link" />
     <div v-if="isAdditional">
