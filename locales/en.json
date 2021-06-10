@@ -77,7 +77,7 @@
   "login-page.signup.upload-title": "Profile picture",
   "login-page.email.placeholder": "Enter email",
   "login-page.password.placeholder": "Enter password",
-  "login-page.email.label": "Email or username",
+  "login-page.email.label": "Email",
   "login-page.username.label": "Username",
   "login-page.password.label": "Password",
   "login-page.new-password.label": "Confirm new password",
