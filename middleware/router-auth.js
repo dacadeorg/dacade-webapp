@@ -46,7 +46,7 @@ function isUserRoute(route) {
       'slug-submission-id',
       'bounties',
       'profile',
-      'notifications',
+      'profile/notifications',
     ],
     'name'
   )

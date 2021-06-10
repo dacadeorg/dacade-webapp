@@ -4,9 +4,12 @@ export default ({ app, store }, inject) => {
   inject('apiClient', async (functionName, data = {}) => {
     const token = await store.dispatch('user/getToken')
     const cloudFunction = firebase.functions().httpsCallable(functionName)
-    return cloudFunction({
+    const payload = {
       ...data,
-      user_token: token,
-    })
+    }
+    if (token) {
+      payload.user_token = token
+    }
+    return cloudFunction(payload)
   })
 }

@@ -1,5 +1,6 @@
 <template>
   <ValidationObserver
+    ref="form"
     v-slot="{ passes }"
     class="absolute w-full top-0 min-h-screen flex items-center"
   >
@@ -62,13 +63,14 @@
             <div>
               <Input
                 id="input-1"
-                v-model="form.email"
                 required
                 type="email"
                 :placeholder="$t('login-page.email.placeholder')"
                 :label="$t('login-page.email.label')"
                 class="mb-5"
                 :error="errors[0]"
+                :value="form.email"
+                @input="form.email = $event"
               />
             </div>
           </ValidationProvider>
@@ -82,12 +84,13 @@
           >
             <Input
               id="input-2"
-              v-model="form.name"
               name="username"
               :placeholder="$t('login-page.username.placeholder')"
               :label="$t('login-page.username.label')"
               class="mb-5"
               :error="errors[0]"
+              :value="form.username"
+              @input="form.username = $event"
             />
           </ValidationProvider>
         </div>
@@ -100,13 +103,14 @@
           >
             <Input
               id="text-password"
-              v-model="form.password"
               name="password"
               type="password"
               :placeholder="$t('login-page.password.placeholder')"
               :label="$t('login-page.password.label')"
               class="mb-5"
               :error="errors[0]"
+              :value="form.password"
+              @input="form.password = $event"
             />
           </ValidationProvider>
         </div>
@@ -148,7 +152,7 @@ export default {
   data() {
     return {
       form: {
-        name: '',
+        username: '',
         email: '',
         password: '',
       },
@@ -160,15 +164,18 @@ export default {
       this.loading = true
       this.$store
         .dispatch('auth/signUp', {
-          name: this.form.name,
+          username: this.form.username,
           email: this.form.email,
           password: this.form.password,
         })
         .then(() => {
-          this.$router.replace('/notifications')
+          this.$router.replace('/profile/notifications')
         })
-        .catch(() => {
+        .catch((error) => {
           this.loading = false
+          if (error.details) {
+            this.$refs.form.setErrors(error.details)
+          }
         })
     },
     goToLogin() {

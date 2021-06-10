@@ -1,4 +1,10 @@
+import firebase from '@/plugins/firebase'
+
 export default (context) => {
   const { store } = context
-  return store.dispatch('user/fetch')
+  return new Promise((resolve, reject) => {
+    return firebase.auth().onAuthStateChanged((user) => {
+      resolve(store.dispatch('user/fetch', user))
+    })
+  })
 }
