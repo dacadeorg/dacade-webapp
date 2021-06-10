@@ -51,13 +51,8 @@
             >
             <div />
           </div>
-          <div v-if="submissions && showSubmissions" class="text-sm">
-            <span
-              ><strong v-if="submissions && showSubmissions">{{
-                submissions.length
-              }}</strong>
-              {{ $t('communities.submissions') }}</span
-            >
+          <div v-if="community.rewards && showRewards" class="text-sm">
+            <Reward />
             <div />
           </div>
         </div>
@@ -67,10 +62,10 @@
 </template>
 <script>
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
-
+import Reward from '@/components/badges/Reward'
 export default {
   name: 'CommunityVisual',
-  components: { ThemeWrapper },
+  components: { ThemeWrapper, Reward },
   props: {
     showSubmissions: {
       default: () => false,

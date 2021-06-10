@@ -14,7 +14,7 @@
       leading-none
     "
   >
-    <img v-if="coin(denom).icon" class="p-2" :src="coin(denom).icon" />
+    <img v-if="coin(denom).icon" :src="coin(denom).icon" />
   </span>
 </template>
 

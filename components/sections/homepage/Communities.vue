@@ -13,18 +13,22 @@
         </div>
       </div>
     </div>
-    <div class="lg:flex xl:flex mt-7 flex-wrap justify-between">
+    <div
+      class="
+        mt-7
+        grid grid-cols-1
+        lg:grid-cols-2
+        gap-x-5 gap-y-5
+        justify-stretch-items
+      "
+    >
       <!-- <CommunityCard
         v-for="(community, i) in communities"
         :key="i"
         :community="community"
       /> -->
-      <div
-        v-for="community in communities"
-        :key="community.key"
-        class="flex pb-4"
-      >
-        <CommunityVisual :community="community" />
+      <div v-for="community in communities" :key="community.key">
+        <CommunityCard :community="community" />
       </div>
 
       <PartneringCard />
@@ -38,13 +42,13 @@ import { mapGetters } from 'vuex'
 import Section from '@/components/ui/Section'
 // import CommunityCard from '@/components/cards/Community'
 import PartneringCard from '@/components/cards/Partnering'
-import CommunityVisual from '@/components/cards/CommunityCard/CommunityVisual'
+import CommunityCard from '@/components/cards/CommunityCard/CommunityCard'
 
 export default {
   name: 'CommunitiesSection',
   components: {
     Section,
-    CommunityVisual,
+    CommunityCard,
     PartneringCard,
   },
   fetch({ store }) {
