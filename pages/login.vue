@@ -13,6 +13,7 @@
             v-slot="{ errors }"
             name="email"
             rules="required|email"
+            mode="passive"
           >
             <div>
               <Input
@@ -33,6 +34,7 @@
             v-slot="{ errors }"
             name="password"
             rules="required|min:6"
+            mode="passive"
           >
             <div class="">
               <Input
