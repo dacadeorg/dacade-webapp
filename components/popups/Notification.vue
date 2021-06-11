@@ -15,7 +15,12 @@
         >
           <!-- @click="show = !show" -->
           <BellIcon />
-          <Badge v-if="count > 0" :value="count" :custom-style="badgeStyles" />
+          <Badge
+            v-if="count > 0"
+            :value="count"
+            class="top-0 -right-1"
+            :custom-style="badgeStyles"
+          />
         </Button>
       </li>
       <div

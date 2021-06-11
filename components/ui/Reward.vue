@@ -6,7 +6,7 @@
         >{{ reward.amount }} {{ reward.token }}</span
       >
       <span class="block text-sm"
-        >Per
+        >{{ $t('reward.type.prefix') }}
         <span class="capitalize">{{ reward.type.toLowerCase() }}</span></span
       >
     </div>
