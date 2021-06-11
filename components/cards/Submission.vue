@@ -35,18 +35,21 @@
         md:space-x-2
       "
     >
-      <Button
-        :padding="false"
-        class="outline-submission-button py-2 px-5 w-44"
-        :custom-style="primaryButtonStyles"
-        type="outline-primary"
-      >
-        <span class="flex text-left items-center">
-          GitHub Code
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-        </span>
-      </Button>
-      <Button
+      <a v-if="submission.link" :href="submission.link" target="__blank">
+        <Button
+          :padding="false"
+          class="outline-submission-button py-2 px-5 w-44"
+          :custom-style="primaryButtonStyles"
+          type="outline-primary"
+        >
+          <span class="flex text-left items-center">
+            GitHub Code
+            <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
+          </span>
+        </Button>
+      </a>
+
+      <!-- <Button
         :padding="false"
         class="outline-submission-button py-2 px-5 w-44"
         :custom-style="outlineButtonStyles"
@@ -56,7 +59,7 @@
           Website
           <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
         </span>
-      </Button>
+      </Button> -->
     </div>
   </UserCard>
 </template>
