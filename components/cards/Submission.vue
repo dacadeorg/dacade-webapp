@@ -37,7 +37,7 @@
     >
       <Button
         :padding="false"
-        class="outline-submission-button py-2 px-5 w-44"
+        class="action-button py-2 px-5 w-44"
         :custom-style="primaryButtonStyles"
         type="outline-primary"
       >
@@ -48,7 +48,7 @@
       </Button>
       <Button
         :padding="false"
-        class="outline-submission-button py-2 px-5 w-44"
+        class="action-button py-2 px-5 w-44"
         :custom-style="outlineButtonStyles"
         type="outline-primary"
       >
@@ -133,12 +133,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.outline-submission-button:hover,
-.outline-submission-button:focus {
-  color: var(--button-color--hover) !important;
-  background-color: var(--button-background-color--hover) !important;
-  border-color: var(--button-border-color--hover) !important;
-}
-</style>
