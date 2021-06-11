@@ -11,7 +11,7 @@
       "
       >{{ $t('nav.balance') }}</span
     >
-    <div class="space-y-4 mt-3">
+    <div class="space-y-4 mt-2">
       <BalanceCard
         v-for="wallet in wallets"
         :key="wallet.id"
