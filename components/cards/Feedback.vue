@@ -25,7 +25,7 @@
       <a :href="value.link" target="__blank" class="mt-6 block">
         <Button
           :padding="false"
-          class="outline-submission-button py-2 px-5 w-44"
+          class="action-button py-2 px-5 w-44"
           :custom-style="primaryButtonStyles"
           type="outline-primary"
         >
@@ -36,7 +36,7 @@
         </Button>
         <!-- <Button
         :padding="false"
-        class="outline-submission-button py-2 px-5 w-44"
+        class="action-button py-2 px-5 w-44"
         :custom-style="outlineButtonStyles"
         type="outline-primary"
       >

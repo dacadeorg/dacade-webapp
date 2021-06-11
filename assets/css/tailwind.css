@@ -97,6 +97,12 @@ button {
 
   }
 }
+.action-button:hover,
+.action-button:focus {
+  color: var(--button-color--hover) !important;
+  background-color: var(--button-background-color--hover) !important;
+  border-color: var(--button-border-color--hover) !important;
+}
 
 .upload-icon{
   margin-top: 0.625rem;
