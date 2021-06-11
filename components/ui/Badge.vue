@@ -3,7 +3,7 @@
     :style="customStyle"
     :class="[sizeClasses]"
     class="
-      bg-gray-900
+      badget-color
       font-semibold
       text-white
       leading-none
@@ -14,8 +14,6 @@
       rounded-full
       text-xs
       absolute
-      top-0
-      -right-1
     "
     >{{ value }}</span
   >

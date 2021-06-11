@@ -35,20 +35,23 @@
         md:space-x-2
       "
     >
-      <Button
+      <a v-if="submission.link" :href="submission.link" target="__blank">
+        <Button
+          :padding="false"
+          class="action-button py-2 px-5 w-44"
+          :custom-style="primaryButtonStyles"
+          type="outline-primary"
+        >
+          <span class="flex text-left items-center">
+            GitHub Code
+            <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
+          </span>
+        </Button>
+      </a>
+
+      <!-- <Button
         :padding="false"
-        class="outline-submission-button py-2 px-5 w-44"
-        :custom-style="primaryButtonStyles"
-        type="outline-primary"
-      >
-        <span class="flex text-left items-center">
-          GitHub Code
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-        </span>
-      </Button>
-      <Button
-        :padding="false"
-        class="outline-submission-button py-2 px-5 w-44"
+       class="action-button py-2 px-5 w-44"
         :custom-style="outlineButtonStyles"
         type="outline-primary"
       >
@@ -56,7 +59,7 @@
           Website
           <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
         </span>
-      </Button>
+      </Button> -->
     </div>
   </UserCard>
 </template>
@@ -133,12 +136,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.outline-submission-button:hover,
-.outline-submission-button:focus {
-  color: var(--button-color--hover) !important;
-  background-color: var(--button-background-color--hover) !important;
-  border-color: var(--button-border-color--hover) !important;
-}
-</style>

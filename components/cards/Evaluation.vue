@@ -1,15 +1,15 @@
 <template>
   <UserCard
-    :user="evaluation.user"
+    :user="evaluation.evaluator"
     :timestamp="{
-      date: evaluation.date,
-      text: 'Evaluation',
+      date: evaluation.created_at,
+      text: 'Evaluatted',
     }"
     :link="link"
     :bordered="!last"
   >
     <p class="text-base md:text-lg leading-normal">
-      {{ evaluation.content }}
+      {{ evaluation.comment }}
     </p>
     <slot />
   </UserCard>

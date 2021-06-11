@@ -14,6 +14,7 @@
               v-slot="{ errors }"
               name="email"
               rules="required|email"
+              mode="passive"
             >
               <Input
                 id="input-1"
@@ -56,13 +57,12 @@ import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
-  layout: 'withoutFooter',
-
   components: {
     Button,
     Input,
     ArrowRight,
   },
+  layout: 'withoutFooter',
 
   data() {
     return {

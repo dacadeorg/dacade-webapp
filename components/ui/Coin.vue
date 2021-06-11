@@ -2,7 +2,7 @@
   <span
     :class="[sizeClasses, shapeClasses]"
     :style="{
-      backgroundColor: color || coin(denom).color,
+      backgroundColor: color || coin(token).color,
     }"
     class="
       inline-flex
@@ -25,7 +25,7 @@ export default {
       default: null,
       type: String,
     },
-    denom: {
+    token: {
       default: null,
       type: String,
     },
@@ -46,6 +46,10 @@ export default {
           color: '#1B66F8',
         },
         CGLD: {
+          icon: require('~/assets/icons/logo.svg?data'),
+          color: '#34E256',
+        },
+        cUSD: {
           icon: require('~/assets/icons/logo.svg?data'),
           color: '#34E256',
         },
@@ -75,8 +79,8 @@ export default {
     },
   },
   methods: {
-    coin(denom) {
-      return this.coins[denom] ? this.coins[denom] : this.coins.DCN
+    coin(token) {
+      return this.coins[token] ? this.coins[token] : this.coins.DCN
     },
   },
 }

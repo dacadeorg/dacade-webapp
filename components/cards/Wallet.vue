@@ -18,9 +18,9 @@
           <h1 class="text-2xl">
             {{ details.title }}
           </h1>
-          <Tag :value="details.denom" />
+          <Tag :value="details.token" />
           <div class="text-right mb-4">
-            <Coin size="medium" :denom="details.denom" />
+            <Coin size="medium" :token="details.token" />
           </div>
         </div>
         <div class="flex">

@@ -25,8 +25,6 @@
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
-
 import Coin from '@/components/ui/Coin'
 
 export default {

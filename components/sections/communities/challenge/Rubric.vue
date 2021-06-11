@@ -19,16 +19,20 @@
       >
         <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm">
           <div
-            :class="{
-              'opacity-40': k !== 1,
-            }"
+            :class="
+              selected.length && !selectedRubric(rubric.id) ? 'opacity-40' : ''
+            "
           >
             <span
               class="block font-bold leading-normal"
               :style="{
                 color: colors.textAccent,
               }"
-              >{{ rubric.points }}
+              >{{
+                selectedRubric(rubric.id)
+                  ? selectedRubric(rubric.id).points
+                  : rubric.points
+              }}
               {{ $t('communities.challenge.criteria.points') }}</span
             >
             <span class="block leading-normal">{{ rubric.text }}</span>
@@ -53,6 +57,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    selected: {
+      default: () => [],
+      type: Array,
+    },
     hideTitle: {
       default: false,
       type: Boolean,
@@ -63,6 +71,14 @@ export default {
       community: 'communities/current',
       colors: 'ui/colors',
     }),
+  },
+  created() {
+    console.log(this.$router)
+  },
+  methods: {
+    selectedRubric(id) {
+      return this.selected.find((rubric) => rubric.id === id)
+    },
   },
 }
 </script>

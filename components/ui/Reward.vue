@@ -3,10 +3,10 @@
     <Coin :denom="reward.denom" size="medium" />
     <div class="text-base pl-3">
       <span class="block font-medium"
-        >{{ reward.amount }} {{ reward.denom }}</span
+        >{{ reward.amount }} {{ reward.token }}</span
       >
-      <span class="block text-sm">
-        {{ $t('communities.rewards.per') }}
+      <span class="block text-sm"
+        >{{ $t('reward.type.prefix') }}
         <span class="capitalize">{{ reward.type.toLowerCase() }}</span></span
       >
     </div>

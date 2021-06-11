@@ -13,7 +13,7 @@
             :style="{ color: community.colors.accent }"
             class="leading-7 font-medium"
           >
-            {{ community.summary || community.description }}
+            {{ community.description }}
           </p>
         </div>
         <div

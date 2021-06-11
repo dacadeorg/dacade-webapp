@@ -1,7 +1,7 @@
 <template>
   <Section v-if="materials && materials.length" :title="'Additional Material'">
     <a
-      v-for="(item, i) in materials"
+      v-for="(material, i) in materials"
       :key="i"
       :href="material.link"
       target="__blank"

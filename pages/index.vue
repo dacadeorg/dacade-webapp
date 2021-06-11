@@ -12,6 +12,7 @@ import TestimonialsSection from '@/components/sections/homepage/Testimonials'
 // import firebase from '@/plugins/firebase'
 
 export default {
+  ssr: true,
   components: {
     MainSection,
     CommunitiesSection,

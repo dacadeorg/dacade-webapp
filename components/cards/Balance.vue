@@ -1,9 +1,9 @@
 <template>
   <div class="flex space-x-3 text-left">
-    <Coin :denom="details.denom" size="medium" />
+    <Coin :token="details.token" size="medium" />
     <div class="pt-1">
       <span class="block text-base font-medium leading-normal"
-        >{{ details.balance }} {{ details.denom }}</span
+        >{{ details.balance }} {{ details.token }}</span
       >
       <span class="block font-normal text-sm">{{ details.title }}</span>
     </div>

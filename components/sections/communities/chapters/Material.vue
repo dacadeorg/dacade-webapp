@@ -1,5 +1,8 @@
 <template>
-  <Section :title="isAdditional ? 'Additional Material' : material.title">
+  <Section
+    v-if="material.type"
+    :title="isAdditional ? 'Additional Material' : material.title"
+  >
     <Duration
       v-if="!isAdditional"
       :text="material.subtitle"
@@ -8,6 +11,7 @@
     <span v-if="!isAdditional" class="block text-lg">{{
       material.description
     }}</span>
+
     <Video v-if="material.type === 'EMBEDDED-VIDEO'" :url="material.link" />
     <Markdown v-if="material.type === 'MARKDOWN'" :url="material.link" />
     <div v-if="isAdditional">
@@ -26,6 +30,27 @@
         </span>
       </a>
     </div>
+    <a
+      v-if="
+        (material.type === 'TEXT' || material.type === 'ARTICLE') &&
+        material.link
+      "
+      :href="material.link"
+      target="__blank"
+      class="mt-4 block"
+    >
+      <Button
+        :padding="false"
+        class="action-button py-2 px-5"
+        :custom-style="outlineButtonStyles"
+        type="outline-primary"
+      >
+        <span class="flex text-left items-center text-sm pr-6">
+          {{ material.type === 'TEXT' ? 'Open Lesson' : 'Open Article' }}
+          <span class="absolute right-5 w-3"><ArrowRightIcon /></span>
+        </span>
+      </Button>
+    </a>
   </Section>
 </template>
 <script>
@@ -33,9 +58,11 @@
 import { mapGetters } from 'vuex'
 // import RewardsSection from './partials/overview/Rewards'
 import Video from '@/components/ui/Video'
+import Button from '@/components/ui/Button'
 import Section from '../partials/Section.vue'
 import Duration from '../partials/Duration.vue'
 import Markdown from '../partials/Markdown.vue'
+import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
   name: 'MaterialSection',
@@ -44,6 +71,8 @@ export default {
     Duration,
     Video,
     Markdown,
+    Button,
+    ArrowRightIcon,
   },
   props: {
     material: {
@@ -55,6 +84,7 @@ export default {
   },
   computed: {
     ...mapGetters({
+      colors: 'ui/colors',
       community: 'communities/current',
       communityData: 'communities/content',
       chapter: 'communities/chapters/current',
@@ -62,6 +92,18 @@ export default {
     isAdditional() {
       return this.material.type === 'ADDITIONAL'
     },
+    outlineButtonStyles() {
+      return {
+        borderColor: this.colors.textAccent,
+        color: this.colors.textAccent,
+        '--button-color--hover': this.colors.text,
+        '--button-background-color--hover': this.colors.textAccent,
+        '--button-border-color--hover': this.colors.textAccent,
+      }
+    },
+  },
+  created() {
+    console.log(this.material)
   },
 }
 </script>

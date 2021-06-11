@@ -15,13 +15,7 @@
           />
           <div v-if="submission">
             <SubmissionCard :submission="submission" :buttons="true" />
-            <EvaluationCard :evaluation="evaluation">
-              <RatingRubric
-                v-if="submission.challenge"
-                hide-title
-                :rating-criteria="submission.challenge.ratingCriteria"
-              />
-            </EvaluationCard>
+            <Evaluation v-if="submission.evaluation" />
             <Feedback />
           </div>
         </div>
@@ -33,13 +27,12 @@
 import { mapGetters } from 'vuex'
 import SubmissionCard from '@/components/cards/Submission'
 
-import RatingRubric from '@/components/sections/communities/challenge/Rubric'
-import EvaluationCard from '@/components/cards/Evaluation'
 import Navigation from '@/components/sections/communities/Navigation'
 import Section from '@/components/ui/Section'
 import Header from '@/components/sections/communities/partials/Header'
 import MobileNav from '@/components/sections/communities/MobileNav'
 import Feedback from '@/components/sections/communities/submissions/feedback'
+import Evaluation from '@/components/sections/communities/submissions/Evaluation'
 
 export default {
   components: {
@@ -48,9 +41,8 @@ export default {
     Section,
     Header,
     SubmissionCard,
-    EvaluationCard,
-    RatingRubric,
     Feedback,
+    Evaluation,
   },
   scrollToTop: true,
   props: {
@@ -75,6 +67,9 @@ export default {
       community: 'communities/current',
       submission: 'communities/submissions/current',
     }),
+  },
+  created() {
+    console.log(this.submission)
   },
 }
 </script>

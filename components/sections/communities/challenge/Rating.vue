@@ -66,7 +66,7 @@
         <div class="md:w-1/4 w-full">
           <div class="text-sm leading-loose text-gray-900">Reward</div>
           <div class="text-theme-accent">
-            <Coin denom="CGLD" size="small" class="-ml-5" />
+            <Coin token="CGLD" size="small" class="-ml-5" />
             <span class="text-xl">5</span>
             CGLD
           </div>
