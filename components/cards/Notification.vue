@@ -44,9 +44,5 @@ export default {
       return moment(this.details.created_at).fromNow()
     },
   },
-  mounted() {
-    // eslint-disable-next-line no-console
-    console.log(this.details)
-  },
 }
 </script>
