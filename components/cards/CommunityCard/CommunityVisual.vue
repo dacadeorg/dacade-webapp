@@ -58,7 +58,7 @@
           />
         </div>
         <div class="my-2 text-sm">
-          <span><strong>125</strong> Members</span>
+          <span><strong>125</strong> {{ $t('communities.card.members') }}</span>
           <div />
         </div>
       </div>

@@ -14,8 +14,6 @@
       rounded-full
       text-xs
       absolute
-      top-0
-      -right-1
     "
     >{{ value }}</span
   >
