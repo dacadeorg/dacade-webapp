@@ -58,6 +58,7 @@
             v-slot="{ errors }"
             name="email"
             rules="required|email"
+            mode="passive"
           >
             <div>
               <Input
@@ -79,6 +80,7 @@
             v-slot="{ errors }"
             name="username"
             rules="required|min:4"
+            mode="passive"
           >
             <Input
               id="input-2"
@@ -97,6 +99,7 @@
             v-slot="{ errors }"
             name="password"
             rules="required|min:6"
+            mode="passive"
           >
             <Input
               id="text-password"

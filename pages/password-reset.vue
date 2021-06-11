@@ -14,6 +14,7 @@
               v-slot="{ errors }"
               name="email"
               rules="required|email"
+              mode="passive"
             >
               <Input
                 id="input-1"
