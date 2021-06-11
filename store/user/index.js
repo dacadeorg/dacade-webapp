@@ -32,20 +32,21 @@ export const actions = {
     // }
   },
 
-  fetch({ commit }, payload) {
-    return new Promise((resolve, reject) => {
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          return this.$apiClient('users-current').then(({ data }) => {
-            commit('set', data)
-            return resolve(user)
-          })
-        } else {
-          commit('set', null)
-          return resolve(null)
-        }
-      })
-    })
+  async fetch({ commit, dispatch }, payload) {
+    const user = firebase.auth().currentUser
+    if (!user) {
+      commit('set', null)
+      return null
+    }
+
+    try {
+      const { data } = await this.$apiClient('users-current')
+      commit('set', data)
+      return data
+    } catch (e) {
+      console.log(e)
+      return null
+    }
   },
 
   async getToken({ commit }, payload) {
