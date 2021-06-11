@@ -5,10 +5,7 @@
       :subtitle="$t('communities.challenge.title')"
       :description="challenge.description"
     />
-    <Section
-      :title="$t('communities.overview.objective.title')"
-      :subtitle="`${$t('communities.chapter.objective.subtitle')}:`"
-    >
+    <Section>
       <ObjectiveList :objectives="challenge.objectives" />
     </Section>
     <div
