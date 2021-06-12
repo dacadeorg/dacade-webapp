@@ -2,15 +2,14 @@
 <template>
   <div
     v-if="bounties"
+    :class="bounties.length > 1 ? 'divide-y' : ''"
     class="
-      pb-5
       bg-gray-50
       rounded-3xl
-      divide-y
-      space-y-4
-      divide-y-gray-500
+      space-y-0
+      divide-y divide-y-gray-500
       px-0
-      mb-4
+      mb-10
       relative
       w-full
       lg:max-w-2xl
