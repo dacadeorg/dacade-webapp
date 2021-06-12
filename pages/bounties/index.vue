@@ -29,8 +29,5 @@ export default {
       isAuthenticated: 'auth/check',
     }),
   },
-  mounted() {
-    console.log(this.bounties)
-  },
 }
 </script>

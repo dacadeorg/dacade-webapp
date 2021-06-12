@@ -18,7 +18,8 @@
   >
     <div
       class="
-        bg-theme-accentflex-col
+        bg-theme-accent
+        flex-col
         w-full
         h-full
         justify-between
@@ -88,7 +89,8 @@
               </div>
             </div>
             <div class="text-gray-500 text-base font-normal">
-              closes {{ convertDate(submission.reviewDeadline) }}
+              {{ $t('rewards.prefix.closes') }}
+              {{ convertDate(submission.reviewDeadline) }}
             </div>
           </div>
         </nuxt-link>

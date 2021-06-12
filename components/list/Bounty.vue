@@ -2,8 +2,8 @@
 <template>
   <div
     v-if="bounties"
-    :class="bounties.length > 1 ? 'divide-y' : ''"
     class="
+      divide-y
       bg-gray-50
       rounded-3xl
       space-y-0
