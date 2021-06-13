@@ -2,7 +2,7 @@
   <span
     :v-if="reward"
     class="
-      bg-gray-200
+      bg-white bg-opacity-25
       font-semibold
       text-white
       leading-none
@@ -18,7 +18,7 @@
     "
   >
     <Coin :denom="reward.token" size="small" />
-    <div class="text-gray-500 font-medium pl-0 pr-2">
+    <div class="font-medium pl-0 pr-2">
       {{ reward.amount }}{{ reward.token }}
     </div>
   </span>
