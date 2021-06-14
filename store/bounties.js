@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import firebase from '@/plugins/firebase'
 
 export const state = () => ({
   list: [],
@@ -17,16 +16,14 @@ export const mutations = {
 }
 
 export const actions = {
-  async findAll({ commit }, slug) {
-    let { data } = await this.$apiClient('bounties-list')
-    console.log(data)
-    commit('setList', data)
+  async findAll({ commit, dispatch, getters }, slug) {
+    await dispatch('all')
+    let data = getters.list
     data = data.filter((b) => b.slug === slug)
-    console.log(data)
     commit('setFilteredList', data)
   },
   async all({ commit }) {
-    const { data } = await this.$apiClient('bounties-list')
+    const { data } = await this.$api.get('bounties/list')
     commit('setList', data)
   },
 }

@@ -7,6 +7,7 @@ export const state = () => ({
   userBalance: null,
   balance: null,
   walletAddresses: null,
+  token: null,
 })
 
 export const mutations = {
@@ -15,6 +16,9 @@ export const mutations = {
   },
   clear(state) {
     state.data = null
+  },
+  setToken(state, payload) {
+    state.token = payload
   },
 }
 
@@ -40,7 +44,8 @@ export const actions = {
     }
 
     try {
-      const { data } = await this.$apiClient('users-current')
+      await dispatch('getToken')
+      const { data } = await this.$api.get('users/current')
       commit('set', data)
       return data
     } catch (e) {
@@ -53,6 +58,7 @@ export const actions = {
     const user = firebase.auth().currentUser
     if (user) {
       const token = await user.getIdToken()
+      commit('setToken', token)
       return token
     }
     return null
@@ -65,6 +71,9 @@ export const getters = {
   },
   data(state) {
     return state.data
+  },
+  token(state) {
+    return state.token
   },
   balance(state) {
     return state.data?.balance

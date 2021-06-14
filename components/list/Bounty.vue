@@ -30,7 +30,7 @@ export default {
       default: 0,
       type: Number,
     },
-    denom: {
+    token: {
       default: null,
       type: String,
     },

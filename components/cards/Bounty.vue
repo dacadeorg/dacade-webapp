@@ -55,7 +55,7 @@
           {{ type }}
         </div>
         <div>
-          <Reward :value="reward.amount" :denom="reward.token" />
+          <Reward :value="reward.amount" :token="reward.token" />
         </div>
       </div>
       <div
