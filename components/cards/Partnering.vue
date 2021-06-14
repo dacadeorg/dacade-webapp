@@ -14,7 +14,10 @@
       class="
         relative
         z-10
-        lg:w-8/12 lg:p-0 lg:pb-0 lg:pt-9
+        lg:w-8/12
+        lg:p-0
+        lg:pb-0
+        lg:pt-9
         p-8
         pb-24
         w-11/12
