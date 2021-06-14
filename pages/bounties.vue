@@ -1,49 +1,33 @@
 <template>
-  <div class="flex flex-col justify-center content-wrapper">
-    <h1 class="text-4xl sm:text-5xl pt-10 md:pt-20 pb-10">Bounties</h1>
-    <div class="bg-gray-300">Hello</div>
-    <!-- <BountyList /> -->
-    <!-- <div v-if="communities" class="row w-full">
-      <div
-        v-for="community in communities"
-        :key="community.key"
-        class="flex pb-4"
-      >
-        <CommunityView :community="community" />
-      </div>
+  <div class="flex justify-center content-wrapper">
+    <div class="hidden lg:block w-1/4 mt-28 py-3 pr-10 lg:py-14">
+      <Navigation />
     </div>
-  </div>
-  <div>
-    <div class="container-fluid">
-      <div v-if="learningPoints" class="row">
-        <div class="col-md-8 col-xl-6 mx-auto mt-4">
-          <Bounty
-            v-for="openBounty in bounties"
-            :key="openBounty.id"
-            :bounty="openBounty"
-          />
-        </div>
-      </div>
-        Hello
-    </div> -->
+    <div class="flex-col w-full">
+      <h1 class="text-4xl sm:text-5xl pt-10 md:pt-20 pb-10">
+        {{ $t('nav.bounties') }}
+      </h1>
+      <BountyList :bounties="bounties" />
+    </div>
   </div>
 </template>
 <script>
 /* eslint-disable no-console, no-unused-vars, require-await, no-unused-expressions */
 import { mapGetters } from 'vuex'
-import firebase from '@/plugins/firebase'
+// import firebase from '@/plugins/firebase'
+import Navigation from '@/components/sections/bounties/Navigation'
+import BountyList from '@/components/list/Bounty'
 
 export default {
+  components: { Navigation, BountyList },
   fetch({ store }) {
     return store.dispatch('bounties/all')
   },
   computed: {
     ...mapGetters({
       bounties: 'bounties/list',
+      isAuthenticated: 'auth/check',
     }),
-  },
-  mounted() {
-    console.log(this.bounties)
   },
 }
 </script>
