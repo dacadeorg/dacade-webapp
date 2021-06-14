@@ -1,20 +1,22 @@
 <template>
-  <div class="flex space-x-3 text-left hover:bg-gray-50 py-3 -mx-5 px-5">
-    <Avatar
-      :icon="details.community.icon"
-      :color="details.community.colors.primary"
-      size="medium"
-      shape="rounded"
-    />
-    <div class="pt-1">
-      <span class="block text-base font-medium leading-normal"
-        >{{ details.score }} REP</span
-      >
-      <span class="block font-normal text-sm">{{
-        details.community.name
-      }}</span>
+  <nuxt-link :to="`/communities/${details.community.slug}`">
+    <div class="flex space-x-3 text-left hover:bg-gray-50 py-3 -mx-5 px-5">
+      <Avatar
+        :icon="details.community.icon"
+        :color="details.community.colors.primary"
+        size="medium"
+        shape="rounded"
+      />
+      <div class="pt-1">
+        <span class="block text-base font-medium leading-normal"
+          >{{ details.score }} REP</span
+        >
+        <span class="block font-normal text-sm">{{
+          details.community.name
+        }}</span>
+      </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
