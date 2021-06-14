@@ -20,9 +20,20 @@
         <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm">
           <div
             :class="
-              selected.length && !selectedRubric(rubric.id) ? 'opacity-40' : ''
+              selected.length && !selectedRubric(rubric.id)
+                ? 'opacity-40'
+                : 'relative'
             "
           >
+            <span
+              v-if="!(selected.length && !selectedRubric(rubric.id))"
+              class="absolute -left-6 top-1 w-3"
+              fill="currentColor"
+              :style="{
+                color: colors.textAccent,
+              }"
+              ><Checkmark
+            /></span>
             <span
               class="block font-bold leading-normal"
               :style="{
@@ -46,11 +57,13 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Section from '../partials/Section.vue'
+import Checkmark from '~/assets/icons/checkmark.svg?inline'
 
 export default {
   name: 'RubricHeader',
   components: {
     Section,
+    Checkmark,
   },
   props: {
     ratingCriteria: {
