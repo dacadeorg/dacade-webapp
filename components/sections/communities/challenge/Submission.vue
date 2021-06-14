@@ -123,11 +123,12 @@ export default {
     submit() {
       if (!this.submitting) {
         this.submitting = true
-        this.$apiClient('submissions-create', {
-          challenge_id: this.challenge.id,
-          text: this.text,
-          link: this.githubLink,
-        })
+        this.$api
+          .post('submissions/create', {
+            challenge_id: this.challenge.id,
+            text: this.text,
+            link: this.githubLink,
+          })
           .then((response) => {
             this.text = ''
             this.githubLink = ''

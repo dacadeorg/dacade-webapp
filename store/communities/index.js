@@ -33,13 +33,11 @@ export const mutations = {
 
 export const actions = {
   async find({ commit }, slug) {
-    const { data } = await this.$apiClient('communities-show', {
-      slug,
-    })
+    const { data } = await this.$api.get(`communities/show/${slug}`)
     commit('setCurrent', data)
   },
   async all({ commit }) {
-    const { data } = await this.$apiClient('communities-list')
+    const { data } = await this.$api.get('communities/list')
     commit('setList', data)
   },
   content({ commit }, payload) {

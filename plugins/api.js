@@ -1,8 +1,8 @@
 import firebase from '@/plugins/firebase'
 
 export default ({ app, store }, inject) => {
-  inject('apiClient', async (functionName, data = {}) => {
-    const token = await store.dispatch('user/getToken')
+  inject('apiClient', (functionName, data = {}) => {
+    const token = store.getters['user/token']
     const cloudFunction = firebase.functions().httpsCallable(functionName)
     const payload = {
       ...data,

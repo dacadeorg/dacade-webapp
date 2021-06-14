@@ -36,6 +36,7 @@ export default {
   plugins: [
     { src: '~/plugins/vee-validate.js' },
     '~/plugins/globals.js',
+    '~/plugins/axios',
     '~/plugins/api.js',
     '~/plugins/fireauth.js',
     '~/plugins/highlight',
@@ -63,6 +64,7 @@ export default {
     'cookie-universal-nuxt',
     'nuxt-i18n',
     '@nuxtjs/markdownit',
+    '@nuxtjs/axios',
   ],
   bootstrapVue: {
     bootstrapCSS: false, // Or `css: false`

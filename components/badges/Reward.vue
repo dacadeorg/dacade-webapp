@@ -16,9 +16,9 @@
       space-x-2
     "
   >
-    <Coin denom="CGLD" size="small" />
+    <Coin :token="token" size="small" />
     <div class="text-gray-500 font-medium pl-0 pr-2">
-      {{ value }}{{ denom }}
+      {{ value }}{{ token }}
     </div>
   </span>
 </template>
@@ -38,7 +38,7 @@ export default {
       default: 0,
       type: Number,
     },
-    denom: {
+    token: {
       default: null,
       type: String,
     },
