@@ -158,9 +158,6 @@ export default {
       lang = lang || 'js'
 
       const hljs = require('highlight.js')
-      const hljsDefineSolidity = require('highlightjs-solidity')
-      hljsDefineSolidity(hljs)
-      hljs.initHighlightingOnLoad()
       try {
         return (
           '<pre class="hljs"><code>' +
