@@ -5,11 +5,7 @@
       :class="{ flex: prevUrl, 'w-full sm:flex': !prevUrl }"
     >
       <nuxt-link v-if="prevUrl" :to="prevUrl">
-        <Button
-          class="w-full h-10 min-h-full"
-          padding="py-4 px-4"
-          :custom-style="buttonStyle"
-        >
+        <Button class="p-4 w-full h-10 min-h-full" :custom-style="buttonStyle">
           <span class="w-full md:w-1/3 flex text-left items-center text-sm"
             ><span class="mr-3 w-3"
               ><ArrowRightIcon class="transform -rotate-180"
@@ -20,7 +16,7 @@
       </nuxt-link>
       <nuxt-link v-if="nextUrl" :to="nextUrl">
         <Button
-          padding="py-4 px-4"
+          padding="p-4"
           class="h-10 min-h-full"
           :class="{
             'w-full min-w-3/4 h-15 min-h-full  sm:w-64 flex-none': !prevUrl,
