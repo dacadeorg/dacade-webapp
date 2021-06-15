@@ -144,6 +144,7 @@ export default {
 
   fontawesome: {
     icons: {
+      solid: ['faSpinner'],
       brands: ['faTwitter', 'faTelegramPlane', 'faYoutube', 'faDiscord'],
     },
   },

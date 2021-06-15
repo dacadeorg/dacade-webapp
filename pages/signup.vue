@@ -117,20 +117,42 @@
             />
           </ValidationProvider>
         </div>
-
-        <div class="text-right">
-          <Button
-            :padding="false"
-            :disabled="loading"
-            class="mt-4 btn-primary btn-lg"
-          >
-            <span class="inline-block text-sm">{{
-              $t('login-page.signup.button')
-            }}</span>
-            <span class="inline-block text-white lg:pl-12 pl-8"
-              ><ArrowRight
-            /></span>
-          </Button>
+        <div class="flex justify-between mt-4">
+          <div class="flex flex-row max-w-xs space-x-3">
+            <input
+              id="agree"
+              class="w-5 h-5"
+              name="agree"
+              required
+              size="small"
+              type="checkbox"
+            />
+            <span class="max-w-2xs">
+              I agree to dacade's
+              <nuxt-link class="underline" to="/terms/privacy"
+                >Privacy Policy</nuxt-link
+              ></span
+            >
+          </div>
+          <div class="flex text-right self-end">
+            <Button
+              :loading="loading"
+              :padding="false"
+              :disabled="loading"
+              class="flex btn-primary btn-lg py-2 px-5 align-middle"
+            >
+              <span class="text-sm">{{ $t('login-page.signup.button') }}</span>
+              <span
+                v-if="loading === false"
+                class="text-white mt-0.5 lg:pl-12 pl-8"
+              >
+                <ArrowRight />
+              </span>
+              <span v-else class="text-white lg:pl-12 pl-8">
+                <Spinner class="animate-spin" />
+              </span>
+            </Button>
+          </div>
         </div>
       </div>
     </form>
@@ -143,12 +165,14 @@ import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 // import Upload from '~/assets/icons/upload.svg?inline'
+import Spinner from '~/assets/icons/spinner.svg?inline'
 
 export default {
   components: {
     Button,
     Input,
     ArrowRight,
+    Spinner,
     // Upload,
   },
   layout: 'withoutFooter',
