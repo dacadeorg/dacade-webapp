@@ -14,13 +14,16 @@
     >
       {{ submission.text }}
     </p>
-    <div v-if="stats" class="flex items-center mt-4">
+    <div
+      v-if="stats && submission.metadata && submission.metadata.evaluation"
+      class="flex items-center mt-4"
+    >
       <Badge
         :custom-style="badgeButtonStyles"
         size="medium"
         class="relative left-0"
+        :value="submission.metadata.evaluation.points"
       >
-        {{ submission.points }}
       </Badge>
       <span class="ml-3 text-sm">Points</span>
     </div>

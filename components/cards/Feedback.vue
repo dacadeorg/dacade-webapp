@@ -11,18 +11,30 @@
     <p class="text-base md:text-lg max-w-screen-sm leading-normal relative">
       {{ value.text }}
     </p>
-    <div class="mt-5">
-      <div class="bg-gray-100 inline-block rounded-2xl relative px-2">
-        <span class="absolute top-0.5"> <Coin /></span>
+    <div
+      v-if="
+        value.metadata &&
+        value.metadata.evaluation &&
+        value.metadata.evaluation.points
+      "
+      class="mt-5"
+    >
+      <div
+        v-if="value.metadata.evaluation.reward"
+        class="bg-gray-100 inline-block rounded-2xl relative px-2"
+      >
+        <span class="absolute top-0.5">
+          <Coin :token="value.metadata.evaluation.reward.token"
+        /></span>
         <Tag
-          :value="tag.reputation"
+          :value="`${value.metadata.evaluation.reward.amount} ${value.metadata.evaluation.reward.token}`"
           class="text-sm font-bold text-gray-500 mt-0 ml-4"
           style="background-color: transparent; margin-top: 0"
         />
       </div>
       <div class="bg-gray-100 inline-block rounded-2xl w-16 text-center">
         <Tag
-          :value="tag.reputation2"
+          :value="`${value.metadata.evaluation.points} REP`"
           class="text-sm font-bold text-gray-500"
           style="background-color: transparent; margin-top: 0"
         />
@@ -107,10 +119,6 @@ export default {
   },
   data() {
     return {
-      tag: {
-        reputation: '5 CUSD',
-        reputation2: '5 REP',
-      },
       loading: false,
     }
   },
