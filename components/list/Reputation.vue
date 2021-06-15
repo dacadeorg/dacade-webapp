@@ -11,7 +11,7 @@
       "
       >{{ $t('nav.reputation') }}</span
     >
-    <div class="space-y-4 mt-3">
+    <div class="space-y-4 mt-2">
       <ReputationCard
         v-for="reputation in reputations"
         :key="reputation.id"

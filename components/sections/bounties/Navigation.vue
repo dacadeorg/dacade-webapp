@@ -1,6 +1,6 @@
 <template>
   <ThemeWrapper :colors="colors">
-    <ul class="relative">
+    <ul class="sticky top-10">
       <li v-for="(menu, i) in menus" :key="i" class="relative mb-8">
         <span
           v-if="!menu.hideTitle"

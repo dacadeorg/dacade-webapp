@@ -31,6 +31,7 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/markdownit": "^2.0.0",
@@ -38,6 +39,7 @@
     "@storybook/addon-controls": "^6.1.17",
     "@storybook/addon-notes": "^5.3.21",
     "cookie-universal-nuxt": "^2.1.4",
+    "core-js": "^3.9.1",
     "firebase": "^7.20.0",
     "gray-matter": "^4.0.3",
     "hex-to-rgba": "^2.0.1",
@@ -48,15 +50,14 @@
     "markdown-it-attrs": "^4.0.0",
     "markdown-it-div": "^1.1.0",
     "moment": "^2.29.1",
-    "core-js": "^3.9.1",
     "nuxt": "^2.15.3",
     "nuxt-bugsnag": "^4.1.2",
     "nuxt-highlightjs": "^1.0.1",
     "nuxt-i18n": "^6.20.1",
     "v-click-outside": "^3.1.2",
     "vee-validate": "^3.3.11",
-    "vuelidate": "^0.7.6",
     "vue-highlight.js": "^4.0.1-beta",
+    "vuelidate": "^0.7.6",
     "vuexfire": "^3.2.4"
   },
   "devDependencies": {

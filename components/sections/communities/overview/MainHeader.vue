@@ -67,8 +67,7 @@
           sm:-mt-15
           lg:-mt-8
           md:max-w-xl
-          lg:flex-row
-          lg:items-center
+          lg:flex-row lg:items-center
         "
       >
         <div class="flex h-10 mr-5">
@@ -89,9 +88,11 @@
           />
         </div>
         <div class="my-2 text-sm">
-          <span><strong>48</strong> Submissions</span>
+          <span
+            ><strong>{{ community.submissions }}</strong> Submissions</span
+          >
           <span class="p-2 md:border-l md:ml-2"
-            ><strong>157</strong> Feedbacks</span
+            ><strong>{{ community.feedbacks }}</strong> Feedbacks</span
           >
           <div />
         </div>

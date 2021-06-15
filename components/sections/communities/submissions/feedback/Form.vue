@@ -148,11 +148,12 @@ export default {
       console.log('saving', this.saving)
       if (!this.saving) {
         this.saving = true
-        this.$apiClient('feedbacks-create', {
-          submission_id: this.submission.id,
-          text: this.text,
-          link: this.githubLink,
-        })
+        this.$api
+          .post(`feedbacks/create/`, {
+            submission_id: this.submission.id,
+            text: this.text,
+            link: this.githubLink,
+          })
           .then((response) => {
             this.text = ''
             this.githubLink = ''

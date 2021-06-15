@@ -10,8 +10,7 @@
       class="
         grid grid-cols-1
         space-y-4
-        md:space-y-0
-        md:grid-cols-2
+        md:space-y-0 md:grid-cols-2
         lg:grid-cols-4
         mt-3
         gap-y-5 gap-x-5
@@ -20,15 +19,24 @@
       <div class="text-sm">
         <span class="block font-medium">Total</span>
         <span
+          class="text-xl"
           :style="{
             color: colors.textAccent,
           }"
-          >{{ evaluation.points }}/{{ evaluation.totalPoints }} Points</span
+          >{{ evaluation.points }}</span
+        >
+        <span
+          :style="{
+            color: colors.textAccent,
+          }"
+          >/{{ evaluation.totalPoints }} Points</span
         >
       </div>
-      <div v-if="evaluation.reward" class="text-sm">
+      <div v-if="evaluation.reward" class="text-sm relative">
         <span class="block font-medium">Total</span>
-        <Coin :token="evaluation.reward.token" size="small" />
+        <div class="absolute -left-5 top-7">
+          <Coin :token="evaluation.reward.token" size="small" />
+        </div>
         <div
           class="inline-block font-medium"
           :style="{

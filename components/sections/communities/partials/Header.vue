@@ -15,6 +15,7 @@
     <p
       v-if="description"
       class="
+        lg:w-7/12
         my-2
         md:my-5
         text-base

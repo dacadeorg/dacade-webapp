@@ -17,15 +17,11 @@ export const mutations = {
 
 export const actions = {
   async find({ commit }, id) {
-    const { data } = await this.$apiClient('challenges-show', {
-      id,
-    })
+    const { data } = await this.$api.get(`challenges/show/${id}`)
     commit('setCurrent', data)
   },
   async all({ commit }, slug) {
-    const { data } = await this.$apiClient('challenges-list', {
-      slug,
-    })
+    const { data } = await this.$api.get(`challenges/list/${slug}`)
     commit('setList', data)
   },
 }

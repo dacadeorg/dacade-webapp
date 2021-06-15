@@ -17,8 +17,8 @@
       space-x-2
     "
   >
-    <Coin :denom="reward.token" size="small" />
-    <div class="font-medium pl-0 pr-2">
+    <Coin :token="reward.token" size="small" />
+    <div class="text-gray-500 font-medium pl-0 pr-2">
       {{ reward.amount }}{{ reward.token }}
     </div>
   </span>

@@ -36,14 +36,14 @@
           top-14
           right-0
           z-40
-          bg-secondary
+          bg-white
           rounded-3.5xl
           no-scrollbar
           text-gray-900
         "
       >
         <div class="divide-y divide-gray-200">
-          <div class="flex justify-between">
+          <div class="flex justify-between hover:bg-gray-50">
             <div class="w-full p-4 text-left flex">
               <div class="pr-3.5"><Avatar :user="user" size="medium" /></div>
               <div class="pt-2">

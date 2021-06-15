@@ -13,7 +13,7 @@
       leading-none
     "
   >
-    <img v-if="coin(denom).icon" :src="coin(denom).icon" />
+    <img v-if="coin(token).icon" :src="coin(token).icon" />
   </span>
 </template>
 
