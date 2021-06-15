@@ -52,7 +52,12 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org/docs/
     // 'bootstrap-vue/nuxt',
-    'nuxt-highlightjs',
+    [
+      'nuxt-highlightjs',
+      {
+        style: 'obsidian',
+      },
+    ],
     '@nuxtjs/svg',
     [
       '@nuxtjs/google-analytics',
@@ -150,21 +155,21 @@ export default {
     langPrefix: 'language-',
     typographer: true,
     highlight: (str, lang) => {
+      lang = lang || 'js'
+
       const hljs = require('highlight.js')
       const hljsDefineSolidity = require('highlightjs-solidity')
-      if (lang && hljs.getLanguage(lang)) {
-        try {
-          return (
-            '<pre class="hljs"><code>' +
-            hljs.highlight(lang, str, true).value +
-            hljsDefineSolidity(hljs) +
-            hljs.initHighlightingOnLoad() +
-            '</code></pre>'
-          )
-        } catch (__) {}
+      hljsDefineSolidity(hljs)
+      hljs.initHighlightingOnLoad()
+      try {
+        return (
+          '<pre class="hljs"><code>' +
+          hljs.highlight(lang, str, true).value +
+          '</code></pre>'
+        )
+      } catch (__) {
+        return ''
       }
-
-      return '' // use external default escaping
     },
 
     use: ['markdown-it-div', 'markdown-it-attrs'],
