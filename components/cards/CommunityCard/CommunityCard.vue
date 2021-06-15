@@ -55,8 +55,7 @@
               flex-col
               max-w-xs
               -mt-4
-              md:-mt-7
-              md:max-w-lg
+              md:-mt-7 md:max-w-lg
               items-start
             "
           >
@@ -125,10 +124,6 @@ export default {
     showRewards: {
       default: () => true,
       type: Boolean,
-    },
-    submissions: {
-      default: () => [1, 2, 3],
-      type: Array,
     },
     community: {
       default: () => {},

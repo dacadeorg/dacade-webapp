@@ -5,10 +5,8 @@
         p-6
         bg-theme-primary
         text-theme-text
-        lg:min-w-md lg:min-h-md
-        lg:h-96
-        md:w-full
-        md:h-60
+        lg:min-w-md lg:min-h-md lg:h-96
+        md:w-full md:h-60
         lg:max-w-sm
       "
     >
@@ -37,8 +35,7 @@
             flex-col
             max-w-xs
             -mt-4
-            md:-mt-7
-            md:max-w-lg
+            md:-mt-7 md:max-w-lg
             items-start
           "
         >
@@ -51,10 +48,6 @@
             >
             <div />
           </div>
-          <div v-if="community.rewards && showRewards" class="text-sm">
-            <Reward />
-            <div />
-          </div>
         </div>
       </div>
     </div>
@@ -62,19 +55,11 @@
 </template>
 <script>
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
-import Reward from '@/components/badges/Reward'
+
 export default {
   name: 'CommunityVisual',
-  components: { ThemeWrapper, Reward },
+  components: { ThemeWrapper },
   props: {
-    showSubmissions: {
-      default: () => false,
-      type: Boolean,
-    },
-    showRewards: {
-      default: () => false,
-      type: Boolean,
-    },
     submissions: {
       default: () => [1, 2, 3],
       type: Array,

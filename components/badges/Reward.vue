@@ -17,9 +17,9 @@
       space-x-2
     "
   >
-    <Coin :token="reward.token" size="small" />
-    <div class="text-gray-500 font-medium pl-0 pr-2">
-      {{ reward.amount }}{{ reward.token }}
+    <Coin :v-if="token" :token="token" size="small" />
+    <div :v-if="token" class="text-gray-500 font-medium pl-0 pr-2">
+      {{ amount }}{{ token }}
     </div>
   </span>
 </template>
@@ -34,10 +34,16 @@ export default {
   },
   props: {
     reward: {
-      default: () => {
-        return {}
-      },
+      default: () => {},
       type: Object,
+    },
+  },
+  computed: {
+    token() {
+      return this.reward?.token
+    },
+    amount() {
+      return this.reward?.amount
     },
   },
 }
