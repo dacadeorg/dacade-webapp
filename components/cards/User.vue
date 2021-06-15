@@ -1,14 +1,17 @@
 <template>
-  <div class="w-full pl-5 md:pl-7.5 relative">
-    <div class="absolute left-0 top-0 z-10">
-      <Avatar :user="user" size="medium" />
-    </div>
-    <div
-      class="relative pl-10.5 z-0 pb-24"
-      :class="{ 'border-l border-solid border-grey-200': bordered }"
-    >
-      <div class="pb-4 pt-2">
-        <nuxt-link :to="link">
+  <div class="group bg-gradient-to-trw-full pl-5 md:pl-7.5 relative">
+    <nuxt-link :to="link">
+      <div class="absolute left-1 top-1 z-10">
+        <Avatar :user="user" size="medium" />
+      </div>
+      <div
+        class="relative pl-10.5 z-0 pb-12"
+        :class="{
+          'group-hover:border-gray-50 border-l border-solid border-gray-200':
+            bordered,
+        }"
+      >
+        <div class="pb-4 pt-2">
           <span class="text-lg leading-loose font-medium">
             {{ user.displayName }}
           </span>
@@ -27,17 +30,17 @@
           <span class="block text-sm leading-snug text-gray-700">
             {{ timestamp.text }}
             <span
-              class="font-semi-bold"
+              class="font-medium"
               :style="{
                 color: colors.textAccent,
               }"
               >{{ date }}</span
             >
           </span>
-        </nuxt-link>
+        </div>
+        <slot />
       </div>
-      <slot />
-    </div>
+    </nuxt-link>
   </div>
 </template>
 <script>
