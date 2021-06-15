@@ -55,7 +55,7 @@
           {{ type }}
         </div>
         <div>
-          <Reward :reward="reward" />
+          <Reward type="gray" :reward="reward" />
         </div>
       </div>
       <div

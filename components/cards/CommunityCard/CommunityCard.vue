@@ -60,16 +60,13 @@
               items-start
             "
           >
-            <div v-if="community.rewards && showRewards" class="text-sm">
+            <div v-if="reward" class="text-sm">
               <Reward :reward="reward" />
               <div />
             </div>
           </div>
         </div>
-        <div
-          v-if="community.rewards && showRewards"
-          class="mt-4 flex justify-between"
-        >
+        <div v-if="duration" class="mt-4 flex justify-between">
           <div class="flex flex-col space-y-0">
             <div class="mt-4 font-light text-theme-accent">
               {{ $t('communities.card.estimated') }}
