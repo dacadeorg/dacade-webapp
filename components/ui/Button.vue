@@ -9,7 +9,7 @@
     "
     type="submit"
     :class="{
-      'bg-primary text-white': type == 'primary',
+      'bg-primary hover:bg-primary-dark  text-white': type == 'primary',
       'lg:px-7 px-5': padding,
       'bg-secondary text-primary': type == 'secondary',
       'text-primary border border-solid border-primary bg-transparent hover:bg-primary hover:text-white':
@@ -28,7 +28,6 @@
     :style="customStyle"
     v-on="inputListeners"
   >
-    <!-- {{ text }} -->
     <slot />
   </button>
 </template>

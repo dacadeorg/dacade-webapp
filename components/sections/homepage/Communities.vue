@@ -1,7 +1,7 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <Section padding="pt-20 lg:pb-24 md:pb-24">
-    <div id="communities" class="lg:flex md:flex relative items-end">
+    <div id="communities" class="md:flex relative items-end">
       <div class="pr-5">
         <p class="uppercase font-semibold leading-none text-base">
           {{ $t('page.index.communities.title') }}
@@ -13,12 +13,24 @@
         </div>
       </div>
     </div>
-    <div class="lg:flex xl:flex mt-7 flex-wrap justify-between">
-      <CommunityCard
+    <div
+      class="
+        mt-7
+        grid grid-cols-1
+        lg:grid-cols-2
+        gap-x-5 gap-y-5
+        justify-stretch-items
+      "
+    >
+      <!-- <CommunityCard
         v-for="(community, i) in communities"
         :key="i"
         :community="community"
-      />
+      /> -->
+      <div v-for="community in communities" :key="community.key">
+        <CommunityCard :community="community" />
+      </div>
+
       <PartneringCard />
     </div>
   </Section>
@@ -28,8 +40,9 @@
 import { mapGetters } from 'vuex'
 
 import Section from '@/components/ui/Section'
-import CommunityCard from '@/components/cards/Community'
+// import CommunityCard from '@/components/cards/Community'
 import PartneringCard from '@/components/cards/Partnering'
+import CommunityCard from '@/components/cards/CommunityCard/CommunityCard'
 
 export default {
   name: 'CommunitiesSection',
@@ -37,6 +50,9 @@ export default {
     Section,
     CommunityCard,
     PartneringCard,
+  },
+  fetch({ store }) {
+    return store.dispatch('communities/all')
   },
   computed: {
     ...mapGetters({

@@ -1,7 +1,8 @@
 <template>
   <span
+    :v-if="reward"
     class="
-      bg-gray-200
+      bg-white bg-opacity-25
       font-semibold
       text-white
       leading-none
@@ -16,16 +17,14 @@
       space-x-2
     "
   >
-    <Coin :token="token" size="small" />
-    <div class="text-gray-500 font-medium pl-0 pr-2">
-      {{ value }}{{ token }}
+    <Coin :v-if="token" :token="token" size="small" />
+    <div :v-if="token" class="text-gray-500 font-medium pl-0 pr-2">
+      {{ amount }}{{ token }}
     </div>
   </span>
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
-
 import Coin from '@/components/ui/Coin'
 
 export default {
@@ -34,13 +33,17 @@ export default {
     Coin,
   },
   props: {
-    value: {
-      default: 0,
-      type: Number,
+    reward: {
+      default: () => {},
+      type: Object,
     },
-    token: {
-      default: null,
-      type: String,
+  },
+  computed: {
+    token() {
+      return this.reward?.token
+    },
+    amount() {
+      return this.reward?.amount
     },
   },
 }

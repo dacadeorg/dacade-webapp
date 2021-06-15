@@ -1,6 +1,6 @@
 <template>
   <div :v-if="reward" class="flex mt-3 md:mt-6 items-center">
-    <Coin :token="reward.token" class="w-10 h-10 md:w-15 md:h-15" />
+    <Coin :token="reward.token" size="medium" />
     <div class="text-base pl-3">
       <span class="block font-medium"
         >{{ reward.amount }} {{ reward.token }}</span
@@ -27,6 +27,10 @@ export default {
       },
       type: Object,
     },
+  },
+  mounted() {
+    // eslint-disable-next-line no-console
+    console.log(this.reward)
   },
 }
 </script>

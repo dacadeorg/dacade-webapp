@@ -13,13 +13,15 @@
         </p>
       </div>
     </div>
-    <Button type="outline-white">
-      {{ $t('testimonials.community.join', { appName: $t('app.name') }) }}
-      <font-awesome-icon
-        :icon="['fab', 'telegram-plane']"
-        class="ml-3 align-middle text-2xl"
-      />
-    </Button>
+    <a target="_blank" href="https://discord.gg/U38KQHDtHe">
+      <Button type="outline-white">
+        {{ $t('testimonials.community.join', { appName: $t('app.name') }) }}
+        <font-awesome-icon
+          :icon="['fab', 'discord']"
+          class="ml-3 align-middle text-2xl"
+        />
+      </Button>
+    </a>
   </div>
 </template>
 

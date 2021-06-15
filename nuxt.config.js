@@ -144,7 +144,7 @@ export default {
 
   fontawesome: {
     icons: {
-      brands: ['faTwitter', 'faTelegramPlane', 'faYoutube'],
+      brands: ['faTwitter', 'faTelegramPlane', 'faYoutube', 'faDiscord'],
     },
   },
 
