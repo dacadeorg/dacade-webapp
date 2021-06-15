@@ -2,9 +2,7 @@
   <span
     :v-if="reward"
     class="
-      bg-white bg-opacity-25
       font-semibold
-      text-white
       leading-none
       text-center
       inline-flex
@@ -16,9 +14,13 @@
       h-5
       space-x-2
     "
+    :class="{
+      'bg-white bg-opacity-25 text-white': type == 'transparent',
+      'bg-gray-200 text-gray-500': type == 'gray',
+    }"
   >
     <Coin :v-if="token" :token="token" size="small" />
-    <div :v-if="token" class="text-gray-500 font-medium pl-0 pr-2">
+    <div :v-if="amount" class="font-medium pl-0 pr-2">
       {{ amount }}{{ token }}
     </div>
   </span>
@@ -36,6 +38,10 @@ export default {
     reward: {
       default: () => {},
       type: Object,
+    },
+    type: {
+      default: 'transparent',
+      type: String,
     },
   },
   computed: {
