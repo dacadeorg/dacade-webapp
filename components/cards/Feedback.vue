@@ -11,6 +11,24 @@
     <p class="text-base md:text-lg max-w-screen-sm leading-normal relative">
       {{ value.text }}
     </p>
+    <div class="mt-5">
+      <div class="bg-gray-100 inline-block rounded-2xl relative px-2">
+        <span class="absolute top-0.5"> <Coin /></span>
+        <Tag
+          :value="tag.reputation"
+          class="text-sm font-bold text-gray-500 mt-0 ml-4"
+          style="background-color: transparent; margin-top: 0"
+        />
+      </div>
+      <div class="bg-gray-100 inline-block rounded-2xl w-16 text-center">
+        <Tag
+          :value="tag.reputation2"
+          class="text-sm font-bold text-gray-500"
+          style="background-color: transparent; margin-top: 0"
+        />
+      </div>
+    </div>
+
     <div
       v-if="value.link"
       class="
@@ -54,6 +72,8 @@ import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import UserCard from '@/components/cards/User'
 import Button from '@/components/ui/Button'
+import Coin from '@/components/ui/Coin'
+import Tag from '@/components/ui/Tag'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
@@ -61,6 +81,8 @@ export default {
   components: {
     UserCard,
     Button,
+    Coin,
+    Tag,
     ArrowRightIcon,
   },
   props: {
@@ -83,6 +105,16 @@ export default {
       type: Boolean,
     },
   },
+  data() {
+    return {
+      tag: {
+        reputation: '5 CUSD',
+        reputation2: '5 REP',
+      },
+      loading: false,
+    }
+  },
+
   computed: {
     ...mapGetters({
       colors: 'ui/colors',
