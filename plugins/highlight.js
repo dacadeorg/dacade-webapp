@@ -6,7 +6,7 @@ import scss from 'highlight.js/lib/languages/scss'
 import xml from 'highlight.js/lib/languages/xml'
 // import solidity from 'highlight.js/lib/languages/rust'
 
-import 'highlight.js/styles/tomorrow-night-blue.css'
+import 'highlight.js/styles/atom-one-dark.css'
 
 Vue.use(VueHighlightJS, {
   languages: {

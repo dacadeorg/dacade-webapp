@@ -67,7 +67,8 @@
           sm:-mt-15
           lg:-mt-8
           md:max-w-xl
-          lg:flex-row lg:items-center
+          lg:flex-row
+          lg:items-center
         "
       >
         <div class="flex h-10 mr-5">
