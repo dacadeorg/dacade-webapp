@@ -126,9 +126,6 @@ export default {
     Badge,
     Section,
   },
-  async fetch({ store, params }) {
-    await store.dispatch('communities/find', params.slug)
-  },
   props: {
     badgeStyles: {
       default: () => {
@@ -159,6 +156,10 @@ export default {
       loading: false,
     }
   },
+  async fetch({ store, params }) {
+    await store.dispatch('communities/find', params.slug)
+  },
+
   computed: {
     ...mapGetters({
       colors: 'ui/colors',

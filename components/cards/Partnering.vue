@@ -1,6 +1,30 @@
 <template>
-  <div class="relative p-5 rounded-3.5xl overflow-hidden">
-    <div class="relative z-10 text-primary h-full">
+  <div
+    class="
+      quadratic-card
+      relative
+      mt-5
+      lg:mt-0
+      xl:pt-0
+      rounded-3.5xl
+      overflow-hidden
+    "
+  >
+    <div
+      class="
+        relative
+        z-10
+        lg:w-8/12
+        lg:p-0
+        lg:pb-0
+        lg:pt-9
+        p-8
+        pb-24
+        w-11/12
+        text-primary
+        h-full
+      "
+    >
       <p class="text-2xl font-medium mb-2.5 leading-none">
         {{ $t('page.index.communities.partnering.title') }}
       </p>
