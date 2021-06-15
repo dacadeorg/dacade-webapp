@@ -48,26 +48,33 @@
             </div>
           </ValidationProvider>
         </div>
-        <div class="mt-4">
-          <span class="text-primary text-sm">
-            <NuxtLink to="/password-reset" class="fs-1 dark-white">
-              {{ $t('login-page.forget-password') }}
-            </NuxtLink>
-          </span>
-        </div>
-        <div class="text-right">
-          <Button
-            :padding="false"
-            :disabled="loading"
-            class="btn-primary btn-lg py-2 px-5"
-          >
-            <span class="inline-block text-sm">{{
-              $t('login-page.signin.button')
-            }}</span>
-            <span class="inline-block text-white lg:pl-12 pl-8"
-              ><ArrowRight
-            /></span>
-          </Button>
+        <div class="flex flex-col justify-between mt-4">
+          <div>
+            <span class="text-primary text-sm">
+              <NuxtLink to="/password-reset" class="fs-1 dark-white">
+                {{ $t('login-page.forget-password') }}
+              </NuxtLink>
+            </span>
+          </div>
+          <div class="text-right self-end">
+            <Button
+              :loading="loading"
+              :padding="false"
+              :disabled="loading"
+              class="flex btn-primary btn-lg py-2 px-5 align-middle"
+            >
+              <span class="text-sm">{{ $t('login-page.signin.button') }}</span>
+              <span
+                v-if="loading === false"
+                class="text-white mt-0.5 lg:pl-12 pl-8"
+              >
+                <ArrowRight />
+              </span>
+              <span v-else class="text-white lg:pl-12 pl-8">
+                <Spinner class="animate-spin" />
+              </span>
+            </Button>
+          </div>
         </div>
       </div>
     </form>
@@ -78,6 +85,7 @@
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
+import Spinner from '~/assets/icons/spinner.svg?inline'
 /* eslint-disable no-console */
 
 export default {
@@ -85,6 +93,7 @@ export default {
     Button,
     Input,
     ArrowRight,
+    Spinner,
   },
   layout: 'withoutFooter',
   middleware: 'guest',

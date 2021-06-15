@@ -39,7 +39,7 @@
         :value="value"
         :type="type"
         :placeholder="placeholder"
-        class="focus:outline-none focus:shadow-sm text-lg"
+        class="rounded-md focus:outline-none focus:shadow-sm text-lg"
         autocomplete="off"
         :disabled="disabled"
         @focus="isFocused = true"

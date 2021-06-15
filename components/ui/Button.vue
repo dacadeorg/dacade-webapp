@@ -40,6 +40,10 @@ export default {
       default: '',
       type: [Number, String],
     },
+    loading: {
+      default: false,
+      type: Boolean,
+    },
     rounded: {
       default: true,
       type: Boolean,
