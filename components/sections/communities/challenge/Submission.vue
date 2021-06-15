@@ -123,9 +123,9 @@ export default {
     submit() {
       if (!this.submitting) {
         this.submitting = true
-        this.$api
-          .post('submissions/create', {
-            challenge_id: this.challenge.id,
+        this.$store
+          .dispatch('communities/submissions/create', {
+            challengeId: this.challenge.id,
             text: this.text,
             link: this.githubLink,
           })
@@ -133,8 +133,6 @@ export default {
             this.text = ''
             this.githubLink = ''
             this.submitting = false
-            console.log(response)
-            alert('Submission saved')
           })
           .catch((error) => {
             console.log(error)

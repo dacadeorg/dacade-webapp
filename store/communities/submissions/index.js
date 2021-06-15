@@ -24,6 +24,15 @@ export const actions = {
     const { data } = await this.$api.get(`submissions/list/${slug}`)
     commit('setList', data)
   },
+  async create({ commit }, { text, link, challengeId }) {
+    const { data } = await this.$api.post('submissions/create', {
+      challenge_id: challengeId,
+      text,
+      link,
+    })
+    this.commit('communities/challenges/setSubmission', data)
+    return data
+  },
 }
 
 export const getters = {

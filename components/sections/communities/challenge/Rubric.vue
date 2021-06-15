@@ -26,7 +26,7 @@
             "
           >
             <span
-              v-if="!(selected.length && !selectedRubric(rubric.id))"
+              v-if="selectedRubric(rubric.id)"
               class="absolute -left-6 top-1 w-3"
               fill="currentColor"
               :style="{

@@ -20,7 +20,15 @@
           <Header />
           <Rewards />
           <RatingRubric :rating-criteria="challenge.ratingCriteria" />
-          <Submission v-if="isAuthenticated" />
+          <div v-if="isAuthenticated">
+            <div v-if="submission" class="mt-8">
+              <h4 class="my-8 text-.5xl font-medium">
+                {{ $t('communities.challenge.your-submission') }}
+              </h4>
+              <SubmissionCard :submission="submission" :last="true" />
+            </div>
+            <SubmissionForm v-else />
+          </div>
         </div>
       </div>
     </div>
@@ -33,7 +41,8 @@ import Section from '@/components/ui/Section'
 import Header from '@/components/sections/communities/challenge/Header'
 import RatingRubric from '@/components/sections/communities/challenge/Rubric'
 import Rewards from '@/components/sections/communities/challenge/Rewards'
-import Submission from '@/components/sections/communities/challenge/Submission'
+import SubmissionForm from '@/components/sections/communities/challenge/Submission'
+import SubmissionCard from '@/components/cards/Submission'
 import MobileNav from '@/components/sections/communities/MobileNav'
 
 export default {
@@ -44,7 +53,8 @@ export default {
     Header,
     RatingRubric,
     Rewards,
-    Submission,
+    SubmissionForm,
+    SubmissionCard,
   },
   scrollToTop: true,
   async fetch({ store, params }) {
@@ -55,6 +65,7 @@ export default {
     ...mapGetters({
       community: 'communities/current',
       challenge: 'communities/challenges/current',
+      submission: 'communities/challenges/submission',
       isAuthenticated: 'auth/check',
     }),
     activeLinkStyle() {
