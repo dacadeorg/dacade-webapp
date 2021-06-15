@@ -6,7 +6,7 @@
   >
     <form class="content-wrapper pt-24" @submit.prevent="passes(onSignUp)">
       <div class="lg:w-98 xl:w-98 mx-auto">
-        <div
+        <!-- <div
           class="
             w-32
             h-32
@@ -48,7 +48,7 @@
               <Upload />
             </div>
           </a>
-        </div>
+        </div> -->
         <div>
           <h1 class="text-5xl my-5">
             {{ $t('login-page.signup.title') }}
@@ -142,14 +142,14 @@
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
-import Upload from '~/assets/icons/upload.svg?inline'
+// import Upload from '~/assets/icons/upload.svg?inline'
 
 export default {
   components: {
     Button,
     Input,
     ArrowRight,
-    Upload,
+    // Upload,
   },
   layout: 'withoutFooter',
   data() {
