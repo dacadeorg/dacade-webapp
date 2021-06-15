@@ -76,9 +76,9 @@ export default {
     return {
       socialLinks: [
         {
-          title: 'Telegram',
-          url: 'https://t.me/dacade',
-          icon: 'telegram-plane',
+          title: 'Discord',
+          url: 'https://discord.gg/U38KQHDtHe',
+          icon: 'discord',
         },
         {
           title: 'Twitter',

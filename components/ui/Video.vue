@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full relative mt-7 w-screen md:w-full -ml-5 md:ml-auto"
+    class="relative mt-7 w-screen md:w-full -ml-5 md:ml-auto"
     :style="{
       paddingTop: '50%',
     }"
