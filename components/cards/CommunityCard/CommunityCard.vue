@@ -55,8 +55,7 @@
               flex-col
               max-w-xs
               -mt-4
-              md:-mt-7
-              md:max-w-lg
+              md:-mt-7 md:max-w-lg
               items-start
             "
           >
@@ -84,7 +83,7 @@
               <Button
                 class="
                   group-hover:bg-theme-accent
-                  bg-theme-secondary
+                  bg-theme-primary
                   border
                   text-theme-accent
                   group-hover:text-theme-primary
@@ -93,7 +92,7 @@
               >
                 <span
                   class="
-                    group-hover:text-theme-secondary
+                    group-hover:text-theme-primary
                     py-2
                     inline-block
                     align-middle
