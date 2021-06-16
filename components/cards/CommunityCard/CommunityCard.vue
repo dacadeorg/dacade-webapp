@@ -55,8 +55,7 @@
               flex-col
               max-w-xs
               -mt-4
-              md:-mt-7
-              md:max-w-lg
+              md:-mt-7 md:max-w-lg
               items-start
             "
           >

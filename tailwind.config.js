@@ -1,5 +1,6 @@
 const colors = require('tailwindcss/colors')
 const typography = require('@tailwindcss/typography')
+const aspectRatio = require('@tailwindcss/aspect-ratio')
 
 module.exports = {
   purge: [],
@@ -980,5 +981,5 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [typography],
+  plugins: [typography, aspectRatio],
 }

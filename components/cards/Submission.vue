@@ -32,8 +32,7 @@
       class="
         inline-grid
         space-y-2
-        md:space-y-5
-        md:contents
+        md:space-y-5 md:contents
         mt-6
         space-x-0
         md:space-x-2
