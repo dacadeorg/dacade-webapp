@@ -9,7 +9,7 @@
           {{ $t('app.name') }}
         </NavItem>
       </ul>
-      <ul v-if="isAuthenticated" class="hidden lg:block relative">
+      <ul v-if="isAuthenticated" class="hidden lg:block relative self-center">
         <NavItem to="/bounties">
           {{ $t('nav.bounties') }}
         </NavItem>
