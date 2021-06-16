@@ -9,10 +9,7 @@
       :value="community.trailer.duration"
     />
     <span class="block text-lg pt-2">{{ community.trailer.summary }}</span>
-    <Video
-      class="w-screen h-full -ml-5 md:w-full md:mx-auto"
-      :url="community.trailer.video"
-    />
+    <Video class="-mx-0 md:w-full md:mx-auto" :url="community.trailer.video" />
   </Section>
 </template>
 <script>

@@ -1,12 +1,9 @@
-/* eslint-disable vue/no-v-html */
 <template>
-  <div v-if="markdown" class="prose">
+  <div v-if="markdown" :style="themeStyles" class="prose">
     <h2 v-if="markdown.data.title">{{ markdown.data.title }}</h2>
-    <div
-      class="markdown-content"
-      :style="themeStyles"
-      v-html="$md.render(markdown.content)"
-    />
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div class="markdown-content" v-html="$md.render(markdown.content)" />
+    <!-- :style="themeStyles" -->
   </div>
 </template>
 

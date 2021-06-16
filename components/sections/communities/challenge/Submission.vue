@@ -135,6 +135,7 @@ export default {
             this.submitting = false
           })
           .catch((error) => {
+            // eslint-disable-next-line no-console
             console.log(error)
             this.submitting = false
           })

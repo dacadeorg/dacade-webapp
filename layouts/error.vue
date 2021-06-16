@@ -18,13 +18,13 @@
 
 <script>
 export default {
+  layout: 'default',
   props: {
     error: {
       type: Object,
       default: () => {},
     },
-  },
-  layout: 'default', // If you prefers you can set a custom layout for the error page
+  }, // If you prefers you can set a custom layout for the error page
 }
 </script>
 <style lang="scss" scoped>

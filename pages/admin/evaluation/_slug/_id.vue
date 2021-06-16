@@ -187,6 +187,39 @@ import firebase from '@/plugins/firebase'
 import { mapGetters } from 'vuex'
 
 export default {
+  // This may need to be changed to be more dynamic
+  async asyncData({ params }) {
+    let submission, communityDataPreview, communityData, feedback
+    await firebase
+      .database()
+      .ref(`submissions/${params.slug}/${params.id}`)
+      .once('value')
+      .then((snapShot) => {
+        submission = snapShot.val()
+      })
+    await firebase
+      .database()
+      .ref('communityDataPreview')
+      .once('value')
+      .then((snapShot) => {
+        communityDataPreview = snapShot.val()
+      })
+    await firebase
+      .database()
+      .ref(`communityData/${params.slug}`)
+      .once('value')
+      .then((snapShot) => {
+        communityData = snapShot.val()
+      })
+    await firebase
+      .database()
+      .ref(`reviews/${params.id}`)
+      .once('value')
+      .then((snapShot) => {
+        feedback = snapShot.val()
+      })
+    return { submission, communityDataPreview, communityData, feedback }
+  },
   data() {
     return {
       review: {
@@ -230,39 +263,6 @@ export default {
       ]
       return feedbackPrices
     },
-  },
-  // This may need to be changed to be more dynamic
-  async asyncData({ params }) {
-    let submission, communityDataPreview, communityData, feedback
-    await firebase
-      .database()
-      .ref(`submissions/${params.slug}/${params.id}`)
-      .once('value')
-      .then((snapShot) => {
-        submission = snapShot.val()
-      })
-    await firebase
-      .database()
-      .ref('communityDataPreview')
-      .once('value')
-      .then((snapShot) => {
-        communityDataPreview = snapShot.val()
-      })
-    await firebase
-      .database()
-      .ref(`communityData/${params.slug}`)
-      .once('value')
-      .then((snapShot) => {
-        communityData = snapShot.val()
-      })
-    await firebase
-      .database()
-      .ref(`reviews/${params.id}`)
-      .once('value')
-      .then((snapShot) => {
-        feedback = snapShot.val()
-      })
-    return { submission, communityDataPreview, communityData, feedback }
   },
   methods: {
     communityPath(slug) {
@@ -324,14 +324,14 @@ export default {
           link: `/${this.submission.communityId}/submission/${key}`,
           message: `Hello, ${submissionUpdate.displayName}! You received: ${
             addLearningPoints.learningPoints
-          } 
+          }
           of ${
             this.communityDataPreview[this.submission.communityId]
               .submissionPoints
           } Learning Points for your submission in the
           Learning Community '${
             this.communityDataPreview[this.submission.communityId].name
-          }'. 
+          }'.
           This means you earned a reward of ${
             balanceUpdate.rewardAmount
           } dacade coins.`,
@@ -347,7 +347,7 @@ export default {
           link: `/${this.submission.communityId}/submission/${key}`,
           message: `Hello, ${submissionUpdate.displayName}! You received: ${
             addLearningPoints.learningPoints
-          } 
+          }
           of ${
             this.communityDataPreview[this.submission.communityId]
               .submissionPoints
@@ -393,8 +393,8 @@ export default {
         link: `/${this.submission.communityId}/submission/${reviewUpdate.submissionId}`,
         message: `Good job, ${reviewUpdate.reviewDisplayName}. You received: ${
           balanceUpdate.rewardAmount
-        } 
-        dacade coins and ${balanceUpdate.rewardAmount} Reputation, 
+        }
+        dacade coins and ${balanceUpdate.rewardAmount} Reputation,
           for your Feedback: "${this.contentPreview(review.content)}.."`,
         notificationRead: false,
         userId: review.reviewUserId,

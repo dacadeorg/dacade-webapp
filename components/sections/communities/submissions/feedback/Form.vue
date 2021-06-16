@@ -145,6 +145,7 @@ export default {
   },
   methods: {
     submit() {
+      // eslint-disable-next-line no-console
       console.log('saving', this.saving)
       if (!this.saving) {
         this.saving = true
@@ -159,14 +160,15 @@ export default {
             this.githubLink = ''
             this.saving = false
             this.$emit('save', response)
+            // eslint-disable-next-line no-console
             console.log(response)
             alert('Feedback saved')
           })
           .catch((error) => {
-            console.log(error)
             this.errors = error.details
-            console.log(error.details)
             this.saving = false
+            // eslint-disable-next-line no-console
+            console.log(error, error.details)
           })
       }
     },

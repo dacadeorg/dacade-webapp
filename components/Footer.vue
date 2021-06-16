@@ -1,4 +1,3 @@
-/* eslint-disable vue/no-v-html */
 <template>
   <Section padding="pt-20" type="secondary-light">
     <div
@@ -21,6 +20,7 @@
           border-b border-b-solid border-gray-200
         "
       >
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <p class="text-with-links block" v-html="$t('footer.text')" />
         <div
           class="
