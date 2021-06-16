@@ -31,43 +31,43 @@ export default {
         },
         {
           icon: require('~/assets/img/testimonial-sample-2.png'),
-          content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          // content:
+          //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-3.png'),
-          content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          // content:
+          //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-4.png'),
-          content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          // content:
+          //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-5.png'),
-          content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          // content:
+          //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-6.png'),
-          content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          // content:
+          //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-7.png'),
-          content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          // content:
+          //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-8.png'),
-          content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          // content:
+          //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-9.png'),
-          content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          // content:
+          //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
       ],
     }
