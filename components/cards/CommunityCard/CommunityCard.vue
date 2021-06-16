@@ -5,6 +5,7 @@
         class="
           group
           p-6
+          pb-3
           bg-theme-primary
           text-theme-text
           space-y-5
@@ -91,7 +92,7 @@
                 <span
                   class="
                     group-hover:text-theme-primary
-                    py-2
+                    py-0
                     inline-block
                     align-middle
                   "
