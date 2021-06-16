@@ -1,5 +1,5 @@
 <template>
-  <div class="relative mt-5 lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
+  <div class="relative my-7 lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
     <div
       class="
         relative
