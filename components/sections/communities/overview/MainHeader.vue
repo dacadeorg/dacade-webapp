@@ -60,7 +60,7 @@
         class="
           flex flex-col
           max-w-xs
-          -mt-10
+          mt-0
           sm:-mt-15
           lg:-mt-8
           md:max-w-xl
