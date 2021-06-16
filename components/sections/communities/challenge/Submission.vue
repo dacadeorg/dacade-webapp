@@ -7,15 +7,15 @@
             <Avatar :user="user" size="medium" />
           </div>
 
-          <div label-for="input-2">
+          <div label-for="input-text">
             <ValidationProvider
               v-slot="{ errors }"
-              name="text"
+              name="input-text"
               rules="required|length:100"
               mode="passive"
             >
               <TextInput
-                id="input-2"
+                id="input-text"
                 name="text"
                 :placeholder="
                   $t('communities.challenge.submission.placeholder.text')
@@ -41,18 +41,18 @@
             "
             :class="{ 'border-t-0': challenge.format.text }"
           >
-            <div label-for="input-2">
+            <div label-for="input-github">
               <ValidationProvider
                 v-slot="{ errors }"
-                name="input-2"
+                name="input-github"
                 class="flex w-full"
-                rules="required|length:10|"
+                rules="required|url"
                 mode="passive"
               >
                 <!-- <GithubIcon class="flex-none text-gray-400 m-0 p-0 block" /> -->
 
                 <GithubLinkInput
-                  id="input-2"
+                  id="input-github"
                   name="githubLink"
                   is-github-link
                   :error="errors[0]"
