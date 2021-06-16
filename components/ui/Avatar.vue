@@ -1,0 +1,88 @@
+<template>
+  <span
+    :class="[sizeClasses, shapeClasses]"
+    :style="{
+      backgroundColor: color,
+    }"
+    class="
+      bg-primary
+      inline-flex
+      text-white
+      items-center
+      justify-center
+      uppercase
+      leading-none
+    "
+  >
+    {{ user && initials }}
+    <img v-if="icon" :src="icon" class="p-2" />
+    <img v-if="image" :src="image" class="p-0" />
+  </span>
+</template>
+
+<script>
+export default {
+  name: 'Avatar',
+  props: {
+    icon: {
+      default: null,
+      type: String,
+    },
+    image: {
+      default: null,
+      type: String,
+    },
+    color: {
+      default: null,
+      type: String,
+    },
+    user: {
+      default: () => {
+        return {}
+      },
+      type: Object,
+    },
+    size: {
+      default: 'small',
+      type: String,
+    },
+    shape: {
+      default: 'circular',
+      type: String,
+    },
+  },
+  computed: {
+    initials() {
+      return this.user.displayName ? this.user.displayName[0] : null
+    },
+    sizeClasses() {
+      switch (this.size) {
+        case 'extra':
+          return 'w-32 h-32 text-4xl'
+        case 'large':
+          return 'w-15 h-15 text-2xl'
+        case 'medium':
+          return 'w-10 h-10 md:w-15 md:h-15 text-2xl'
+        case 'medium-fixed':
+          return 'w-10 h-10 text-2xl'
+        case 'mini':
+          return 'w-5 h-5 text-xl'
+        default:
+          return 'w-9 h-9 text-lg'
+      }
+    },
+    shapeClasses() {
+      switch (this.shape) {
+        case 'rounded':
+          return 'rounded-xl'
+        case 'full':
+          return 'rounded-full'
+        case 'squared':
+          return 'rounded-none'
+        default:
+          return 'rounded-full'
+      }
+    },
+  },
+}
+</script>

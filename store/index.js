@@ -5,42 +5,42 @@ export const state = () => ({
   busy: false,
   jobDone: false,
   forwardRoute: null,
-  communityDataPreview: null
+  communityDataPreview: null,
 })
 
 export const mutations = {
-  setError (state, payload) {
+  setError(state, payload) {
     state.error = payload
   },
-  clearError (state) {
+  clearError(state) {
     state.error = null
   },
-  setBusy (state, payload) {
+  setBusy(state, payload) {
     state.busy = payload
   },
-  setJobDone (state, payload) {
+  setJobDone(state, payload) {
     state.jobDone = payload
   },
-  setForwardRoute (state, payload) {
+  setForwardRoute(state, payload) {
     state.forwardRoute = payload
   },
-  ...vuexfireMutations
+  ...vuexfireMutations,
 }
 
 export const getters = {
-  user (state) {
+  user(state) {
     return this.state.user.data
   },
-  error (state) {
+  error(state) {
     return state.error
   },
-  busy (state) {
+  busy(state) {
     return state.busy
   },
-  jobDone (state) {
+  jobDone(state) {
     return state.jobDone
   },
-  forwardRoute (state) {
+  forwardRoute(state) {
     return state.forwardRoute
-  }
+  },
 }

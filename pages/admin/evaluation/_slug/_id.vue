@@ -3,9 +3,7 @@
     <div class="offset-md-3 col-lg-6">
       <div class="mb-4">
         <h1>
-          <b>
-            SUBMISSIONS > SUBMISSION
-          </b>
+          <b> SUBMISSIONS > SUBMISSION </b>
         </h1>
       </div>
       <div class="mb-4">
@@ -17,9 +15,7 @@
     <div class="offset-md-3 col-lg-6">
       <!-- Submission -->
       <section>
-        <h2>
-          Submission
-        </h2>
+        <h2>Submission</h2>
         <div>
           <b-card
             class="mb-4"
@@ -57,11 +53,10 @@
       </section>
       <!-- Evaluation -->
       <section>
-        <h2 class="mt-4">
-          Evaluation
-        </h2>
+        <h2 class="mt-4">Evaluation</h2>
         <span class="muted">
-          Total LearningPoints: {{ communityDataPreview[$route.params.slug].submissionPoints }}
+          Total LearningPoints:
+          {{ communityDataPreview[$route.params.slug].submissionPoints }}
         </span>
         <b-form @submit.prevent="submitSubmissionEvaluation">
           <b-form-group
@@ -92,25 +87,24 @@
             </div>
           </b-form-group>
           <div class="mb-4">
-            <h5 class="font-bold dark-white">
-              Total
-            </h5>
-            <b class="learning-color">
-              {{ sumLearningPoints }}LP
-            </b>
+            <h5 class="font-bold dark-white">Total</h5>
+            <b class="learning-color"> {{ sumLearningPoints }}LP </b>
           </div>
           <div
-            v-if="((communityData.challengeThreshold * 0.01) * communityData.challengePoints).toFixed(0) <= sumLearningPoints"
+            v-if="
+              (
+                communityData.challengeThreshold *
+                0.01 *
+                communityData.challengePoints
+              ).toFixed(0) <= sumLearningPoints
+            "
             class="muted"
           >
-            User gets reward of {{ communityDataPreview[$route.params.slug].submissionReward }}
+            User gets reward of
+            {{ communityDataPreview[$route.params.slug].submissionReward }}
           </div>
-          <b-form-group
-            id="input-group-4"
-            label="Reward:"
-            label-for="input-4"
-          >
-            <b-form-input
+          <b-form-group id="input-group-4" label="Reward:" label-for="input-4">
+            <input
               id="input-4-1"
               v-model="submissionReward"
               type="number"
@@ -137,11 +131,9 @@
         </b-form>
       </section>
 
-      <h2 class="mt-4">
-        Feedback
-      </h2>
+      <h2 class="mt-4">Feedback</h2>
       <b-card
-        v-for="( getReview, key ) in feedback"
+        v-for="(getReview, key) in feedback"
         :key="key"
         class="mb-4"
         bg-variant="dark"
@@ -165,12 +157,8 @@
             </a>
           </div>
           <div v-if="getReview.rewardAmount" class="mt-2">
-            <b class="teaching-color">
-              + {{ getReview.rewardAmount }} REP
-            </b>
-            <b class="earning-color">
-              + {{ getReview.rewardAmount }} $
-            </b>
+            <b class="teaching-color"> + {{ getReview.rewardAmount }} REP </b>
+            <b class="earning-color"> + {{ getReview.rewardAmount }} $ </b>
           </div>
         </b-card-text>
         <b-form @submit.prevent="submitReviewEvaluation(getReview, key)">
@@ -187,9 +175,7 @@
               :options="getFeedbackPrices"
             />
           </b-form-group>
-          <b-button type="submit" variant="primary">
-            Submit
-          </b-button>
+          <b-button type="submit" variant="primary"> Submit </b-button>
         </b-form>
       </b-card>
     </div>
@@ -201,75 +187,102 @@ import firebase from '@/plugins/firebase'
 import { mapGetters } from 'vuex'
 
 export default {
-  data () {
+  // This may need to be changed to be more dynamic
+  async asyncData({ params }) {
+    let submission, communityDataPreview, communityData, feedback
+    await firebase
+      .database()
+      .ref(`submissions/${params.slug}/${params.id}`)
+      .once('value')
+      .then((snapShot) => {
+        submission = snapShot.val()
+      })
+    await firebase
+      .database()
+      .ref('communityDataPreview')
+      .once('value')
+      .then((snapShot) => {
+        communityDataPreview = snapShot.val()
+      })
+    await firebase
+      .database()
+      .ref(`communityData/${params.slug}`)
+      .once('value')
+      .then((snapShot) => {
+        communityData = snapShot.val()
+      })
+    await firebase
+      .database()
+      .ref(`reviews/${params.id}`)
+      .once('value')
+      .then((snapShot) => {
+        feedback = snapShot.val()
+      })
+    return { submission, communityDataPreview, communityData, feedback }
+  },
+  data() {
     return {
       review: {
         rewardAmount: 0,
-        submissionId: this.$route.params.id
+        submissionId: this.$route.params.id,
       },
       evaluation: {
         points: [],
-        comment: null
+        comment: null,
       },
       evaluationComment: null,
-      submissionReward: 0
+      submissionReward: 0,
     }
   },
   computed: {
     ...mapGetters({
-      user: 'user/data'
+      user: 'user/data',
     }),
-    sumLearningPoints () {
+    sumLearningPoints() {
       let submissionPoints = 0
       for (const key in this.evaluation.points) {
-        submissionPoints = submissionPoints + parseInt(this.evaluation.points[key])
+        submissionPoints =
+          submissionPoints + parseInt(this.evaluation.points[key])
       }
       return submissionPoints
     },
-    getFeedbackPrices () {
+    getFeedbackPrices() {
       const feedbackPrices = [
-        { text: `1st ${0.60 * this.communityData.feedbackPrice}`, value: 0.60 * this.communityData.feedbackPrice },
-        { text: `2nd ${0.30 * this.communityData.feedbackPrice}`, value: 0.30 * this.communityData.feedbackPrice },
-        { text: `3rd ${0.10 * this.communityData.feedbackPrice}`, value: 0.10 * this.communityData.feedbackPrice }
+        {
+          text: `1st ${0.6 * this.communityData.feedbackPrice}`,
+          value: 0.6 * this.communityData.feedbackPrice,
+        },
+        {
+          text: `2nd ${0.3 * this.communityData.feedbackPrice}`,
+          value: 0.3 * this.communityData.feedbackPrice,
+        },
+        {
+          text: `3rd ${0.1 * this.communityData.feedbackPrice}`,
+          value: 0.1 * this.communityData.feedbackPrice,
+        },
       ]
       return feedbackPrices
-    }
-  },
-  // This may need to be changed to be more dynamic
-  async asyncData ({ params }) {
-    let submission, communityDataPreview, communityData, feedback
-    await firebase.database().ref(`submissions/${params.slug}/${params.id}`).once('value').then((snapShot) => {
-      submission = snapShot.val()
-    })
-    await firebase.database().ref('communityDataPreview').once('value').then((snapShot) => {
-      communityDataPreview = snapShot.val()
-    })
-    await firebase.database().ref(`communityData/${params.slug}`).once('value').then((snapShot) => {
-      communityData = snapShot.val()
-    })
-    await firebase.database().ref(`reviews/${params.id}`).once('value').then((snapShot) => {
-      feedback = snapShot.val()
-    })
-    return { submission, communityDataPreview, communityData, feedback }
+    },
   },
   methods: {
-    communityPath (slug) {
+    communityPath(slug) {
       return `/${slug}/submissions`
     },
-    submitSubmissionEvaluation () {
+    submitSubmissionEvaluation() {
       const key = this.$route.params.id
       let submissionPoints = 0
       const evaluation = {
         date: Date.now(),
         evaluationUserId: this.user.id,
-        evaluationDisplayName: this.user.displayName
+        evaluationDisplayName: this.user.displayName,
       }
       if (this.evaluationComment) {
         evaluation.comment = this.evaluationComment
       }
       evaluation['.key'] = key
       for (const key in this.evaluation.points) {
-        submissionPoints = submissionPoints + parseInt(this.evaluation.points[key])
+        submissionPoints =
+          submissionPoints + parseInt(this.evaluation.points[key])
         evaluation[key] = parseInt(this.evaluation.points[key])
       }
       const submissionUpdate = {
@@ -279,7 +292,7 @@ export default {
         userId: this.submission.userId,
         date: this.submission.date,
         submissionPoints,
-        submissionReward: parseInt(this.submissionReward, 10)
+        submissionReward: parseInt(this.submissionReward, 10),
       }
       if (this.submission.githubLink) {
         submissionUpdate.githubLink = this.submission.githubLink
@@ -288,7 +301,7 @@ export default {
       const addLearningPoints = {
         userId: submissionUpdate.userId,
         learningPoints: submissionUpdate.submissionPoints,
-        communityId: submissionUpdate.communityId
+        communityId: submissionUpdate.communityId,
       }
       if (this.submissionReward > 0) {
         const transaction = {
@@ -298,22 +311,32 @@ export default {
           paid: false,
           type: 'submission',
           contentId: this.$route.params.id,
-          date: Date.now()
+          date: Date.now(),
         }
         const balanceUpdate = {
           userId: submissionUpdate.userId,
           rewardAmount: submissionUpdate.submissionReward,
-          rewardToken: this.communityDataPreview[this.submission.communityId].rewardToken
+          rewardToken:
+            this.communityDataPreview[this.submission.communityId].rewardToken,
         }
         const userNotification = {
           date: Date.now(),
           link: `/${this.submission.communityId}/submission/${key}`,
-          message: `Hello, ${submissionUpdate.displayName}! You received: ${addLearningPoints.learningPoints} 
-          of ${this.communityDataPreview[this.submission.communityId].submissionPoints} Learning Points for your submission in the
-          Learning Community '${this.communityDataPreview[this.submission.communityId].name}'. 
-          This means you earned a reward of ${balanceUpdate.rewardAmount} dacade coins.`,
+          message: `Hello, ${submissionUpdate.displayName}! You received: ${
+            addLearningPoints.learningPoints
+          }
+          of ${
+            this.communityDataPreview[this.submission.communityId]
+              .submissionPoints
+          } Learning Points for your submission in the
+          Learning Community '${
+            this.communityDataPreview[this.submission.communityId].name
+          }'.
+          This means you earned a reward of ${
+            balanceUpdate.rewardAmount
+          } dacade coins.`,
           notificationRead: false,
-          userId: submissionUpdate.userId
+          userId: submissionUpdate.userId,
         }
         this.$store.dispatch('admin/createTransaction', transaction)
         this.$store.dispatch('admin/updateBalance', balanceUpdate)
@@ -322,11 +345,18 @@ export default {
         const userNotification = {
           date: Date.now(),
           link: `/${this.submission.communityId}/submission/${key}`,
-          message: `Hello, ${submissionUpdate.displayName}! You received: ${addLearningPoints.learningPoints} 
-          of ${this.communityDataPreview[this.submission.communityId].submissionPoints} Learning Points for your submission in the
-          Learning Community '${this.communityDataPreview[this.submission.communityId].name}'.`,
+          message: `Hello, ${submissionUpdate.displayName}! You received: ${
+            addLearningPoints.learningPoints
+          }
+          of ${
+            this.communityDataPreview[this.submission.communityId]
+              .submissionPoints
+          } Learning Points for your submission in the
+          Learning Community '${
+            this.communityDataPreview[this.submission.communityId].name
+          }'.`,
           notificationRead: false,
-          userId: submissionUpdate.userId
+          userId: submissionUpdate.userId,
         }
         this.$store.dispatch('notification/add', userNotification)
       }
@@ -334,14 +364,14 @@ export default {
       this.$store.dispatch('admin/updateSubmission', submissionUpdate)
       this.$store.dispatch('admin/addLearningPoints', addLearningPoints)
     },
-    submitReviewEvaluation (review, key) {
+    submitReviewEvaluation(review, key) {
       const reviewUpdate = {
         content: review.content,
         submissionId: this.$route.params.id,
         reviewDisplayName: review.reviewDisplayName,
         reviewUserId: review.reviewUserId,
         date: review.date,
-        rewardAmount: parseFloat(this.review.rewardAmount)
+        rewardAmount: parseFloat(this.review.rewardAmount),
       }
       if (review.reviewCodeLink) {
         reviewUpdate.reviewCodeLink = review.reviewCodeLink
@@ -350,21 +380,24 @@ export default {
       const reputationUpdate = {
         userId: review.reviewUserId,
         rewardAmount: parseFloat(this.review.rewardAmount),
-        communityId: this.submission.communityId
+        communityId: this.submission.communityId,
       }
       const balanceUpdate = {
         userId: reviewUpdate.reviewUserId,
         rewardAmount: reviewUpdate.rewardAmount,
-        rewardToken: this.communityDataPreview[this.submission.communityId].rewardToken
+        rewardToken:
+          this.communityDataPreview[this.submission.communityId].rewardToken,
       }
       const userNotification = {
         date: Date.now(),
         link: `/${this.submission.communityId}/submission/${reviewUpdate.submissionId}`,
-        message: `Good job, ${reviewUpdate.reviewDisplayName}. You received: ${balanceUpdate.rewardAmount} 
-        dacade coins and ${balanceUpdate.rewardAmount} Reputation, 
+        message: `Good job, ${reviewUpdate.reviewDisplayName}. You received: ${
+          balanceUpdate.rewardAmount
+        }
+        dacade coins and ${balanceUpdate.rewardAmount} Reputation,
           for your Feedback: "${this.contentPreview(review.content)}.."`,
         notificationRead: false,
-        userId: review.reviewUserId
+        userId: review.reviewUserId,
       }
       const transaction = {
         communityId: this.submission.communityId,
@@ -373,7 +406,7 @@ export default {
         paid: false,
         type: 'review',
         contentId: this.$route.params.id,
-        date: Date.now()
+        date: Date.now(),
       }
       this.$store.dispatch('admin/updateReview', reviewUpdate)
       this.$store.dispatch('admin/updateBalance', balanceUpdate)
@@ -381,10 +414,10 @@ export default {
       this.$store.dispatch('admin/updateReputation', reputationUpdate)
       this.$store.dispatch('notification/add', userNotification)
     },
-    back () {
+    back() {
       this.$router.back()
     },
-    convertDate (date) {
+    convertDate(date) {
       const submissionInputDate = new Date(date)
       const submissionDate = submissionInputDate.toDateString().slice(4, -4)
       let submissionMinutes = submissionInputDate.getMinutes()
@@ -399,13 +432,16 @@ export default {
       const submissionTimeAndDate = submissionDate + ' ' + submissionTime
       return submissionTimeAndDate
     },
-    contentPreview (content) {
+    contentPreview(content) {
       const maxLength = 160
       let trimmedString = content.substr(0, maxLength)
-      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(' ')))
+      trimmedString = trimmedString.substr(
+        0,
+        Math.min(trimmedString.length, trimmedString.lastIndexOf(' '))
+      )
       return trimmedString
     },
-    getGithubUrl () {
+    getGithubUrl() {
       let newUrl = null
       const str = this.submission.githubLink
       if (str.includes('https://github.com/')) {
@@ -414,7 +450,7 @@ export default {
         newUrl = 'https://' + urlsplit2[0] + '.github.io/' + urlsplit2[1]
       }
       return newUrl
-    }
-  }
+    },
+  },
 }
 </script>

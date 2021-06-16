@@ -1,14 +1,9 @@
 <template>
   <section>
     <h2 class="dark-white">
-      <b>
-        Reputation
-      </b>
+      <b> Reputation </b>
     </h2>
-    <div
-      v-if="reputation && Object.keys(reputation).length"
-      class="row mt-4"
-    >
+    <div v-if="reputation && Object.keys(reputation).length" class="row mt-4">
       <div
         v-for="(rep, key) in reputation"
         :key="rep.key"
@@ -34,9 +29,7 @@
       </div>
     </div>
     <div v-else class="mb-4">
-      <p>
-        You didn't earn any reputation in a community yet.
-      </p>
+      <p>You didn't earn any reputation in a community yet.</p>
     </div>
   </section>
 </template>
@@ -50,14 +43,14 @@ export default {
     ...mapGetters({
       user: 'user/data',
       reputation: 'user/reputation',
-      communityDataPreview: 'content/communityDataPreview'
-    })
+      communityDataPreview: 'content/communityDataPreview',
+    }),
   },
   methods: {
-    jobsDone () {
+    jobsDone() {
       this.removeErrors()
-    }
-  }
+    },
+  },
 }
 </script>
 

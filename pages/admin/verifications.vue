@@ -4,42 +4,52 @@
       <div class="offset-md-3 col-lg-6">
         <div class="mb-4">
           <h1>
-            <b>
-              Verification Requests
-            </b>
+            <b> Verification Requests </b>
           </h1>
         </div>
         <div class="mb-4">
-          <nuxt-link to="/admin/" class="btn btn-secondary">
-            BACK
-          </nuxt-link>
+          <nuxt-link to="/admin/" class="btn btn-secondary"> BACK </nuxt-link>
         </div>
       </div>
       <div v-if="requestsQueried" class="offset-md-3 col-lg-6">
         <div>
           <b-card
-            v-for="( openRequest, index ) in Object.values(verificationRequests)"
+            v-for="(openRequest, index) in Object.values(verificationRequests)"
             :key="index"
             class="mb-4"
             bg-variant="dark"
             text-variant="white"
           >
             <div>
-              <a :href="openRequest[Object.keys(openRequest)].link" target="_blank">
+              <a
+                :href="openRequest[Object.keys(openRequest)].link"
+                target="_blank"
+              >
                 <h3>
-                  Verification Link for {{ openRequest[Object.keys(openRequest)].displayName }}
+                  Verification Link for
+                  {{ openRequest[Object.keys(openRequest)].displayName }}
                 </h3>
               </a>
             </div>
             <div
               class="btn-cash-out pointer btn mt-2 mb-4 mr-2"
-              @click="verifyRequest(Object.keys(verificationRequests)[index], openRequest)"
+              @click="
+                verifyRequest(
+                  Object.keys(verificationRequests)[index],
+                  openRequest
+                )
+              "
             >
               Verify
             </div>
             <div
               class="btn-cash-out pointer btn mt-2 mb-4"
-              @click="deleteVerificationRequest(Object.keys(verificationRequests)[index], openRequest)"
+              @click="
+                deleteVerificationRequest(
+                  Object.keys(verificationRequests)[index],
+                  openRequest
+                )
+              "
             >
               Delete request
             </div>
@@ -54,41 +64,51 @@
 import firebase from '@/plugins/firebase'
 
 export default {
-  data () {
+  data() {
     return {
       verificationRequests: [],
-      requestsQueried: false
+      requestsQueried: false,
     }
   },
-  created () {
+  created() {
     this.getVerificationRequests()
   },
   methods: {
-    verifyRequest (userId, request) {
+    verifyRequest(userId, request) {
       const verificationObject = {
         userId,
         verificationType: Object.keys(request)[0],
-        verificationLink: Object.values(request)[0].link
+        verificationLink: Object.values(request)[0].link,
       }
-      this.$store.dispatch('admin/deleteVerificationRequest', verificationObject)
+      this.$store.dispatch(
+        'admin/deleteVerificationRequest',
+        verificationObject
+      )
       this.$store.dispatch('admin/createUserVerification', verificationObject)
     },
-    deleteVerificationRequest (userId, request) {
+    deleteVerificationRequest(userId, request) {
       const verificationObject = {
         userId,
-        verificationType: Object.keys(request)[0]
+        verificationType: Object.keys(request)[0],
       }
-      this.$store.dispatch('admin/deleteVerificationRequest', verificationObject)
+      this.$store.dispatch(
+        'admin/deleteVerificationRequest',
+        verificationObject
+      )
     },
-    async getVerificationRequests () {
-      await firebase.database().ref('userVerificationRequest').once('value').then((snapShot) => {
-        if (snapShot.val()) {
-          this.verificationRequests = snapShot.val()
-        }
-      })
+    async getVerificationRequests() {
+      await firebase
+        .database()
+        .ref('userVerificationRequest')
+        .once('value')
+        .then((snapShot) => {
+          if (snapShot.val()) {
+            this.verificationRequests = snapShot.val()
+          }
+        })
       this.requestsQueried = true
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>
@@ -101,7 +121,7 @@ export default {
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: grey;
   border: 1.6px solid grey;
-  border-radius: .35rem;
+  border-radius: 0.35rem;
   padding: 10px 40px;
   font-weight: 700;
 }

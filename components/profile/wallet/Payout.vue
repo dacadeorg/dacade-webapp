@@ -1,18 +1,10 @@
 <template>
-  <div
-    v-if="
-      pendingRequest && pendingRequest[coinName]
-    "
-  >
+  <div v-if="pendingRequest && pendingRequest[coinName]">
     <div class="notification mt-2">
       <span>
-        <i
-          class="fa fa-clock-o mr-2 color-default"
-          aria-hidden="true"
-        />
+        <i class="fa fa-clock-o mr-2 color-default" aria-hidden="true" />
       </span>
-      Payout request for {{ pendingRequest[coinName] }}
-      {{ coinName }} pending.
+      Payout request for {{ pendingRequest[coinName] }} {{ coinName }} pending.
     </div>
   </div>
   <div v-else>
@@ -28,14 +20,14 @@
       header-text-variant="light"
       hide-footer
     >
-      Request to payout {{ balance }}$ in {{ coinName }} token to
-      the {{ coinName }} address: {{ userAddress[coinName] }}
+      Request to payout {{ balance }}$ in {{ coinName }} token to the
+      {{ coinName }} address: {{ userAddress[coinName] }}
       <div class="text-center">
         <div
           class="btn-cash-out btn mt-4 mb-2 small-shadow"
           @click="
             createPayoutObject(coinName),
-            $bvModal.hide('cash-out-modal' + coinName)
+              $bvModal.hide('cash-out-modal' + coinName)
           "
         >
           Send request
@@ -54,63 +46,75 @@ export default {
   props: {
     coinName: {
       type: String,
-      required: true
+      required: true,
     },
     onUpdateVerification: {
       type: Function,
-      default () {
+      default() {
         return 'function'
-      }
+      },
     },
     userAddress: {
       type: Object,
-      default () {
+      default() {
         return { message: 'hello' }
-      }
+      },
     },
     onGetUserAddress: {
       type: Function,
-      default () {
+      default() {
         return 'function'
-      }
+      },
     },
     pendingRequest: {
       type: Object,
-      default () {
+      default() {
         return { message: 'hello' }
-      }
-    }
+      },
+    },
   },
   computed: {
     ...mapGetters({
-      balance: 'user/balance'
-    })
+      balance: 'user/balance',
+    }),
   },
   methods: {
-  // Create a payout request:
+    // Create a payout request:
     // track everything a person was paid for (for ex. for feed back and submissions) , keep track of all the transactions
     // ledger where all the transactions are noted
     // 1. Get communities with the requested token.
     // 2. Loop over these communties and get the unpaid transactions of the user in these communties.
     // 3. Send the payout request containing the unpaid transactions.
-    async createPayoutObject (token) {
+    async createPayoutObject(token) {
       if (this.user) {
-        const communitiesWithPayoutToken = this.getCommunitiesWithPayoutToken(token, this.communityDataPreview)
+        const communitiesWithPayoutToken = this.getCommunitiesWithPayoutToken(
+          token,
+          this.communityDataPreview
+        )
         let totalTransactionPayoutAmount = 0
         for (const community in communitiesWithPayoutToken) {
-          const unpaidCommunityTransactions = await this.getUnpaidTransactionsOfUserInCommunity(communitiesWithPayoutToken[community], this.user.id)
-          const transactionsAmountAndTransactionIds = this.getTransactionIdssAndAmount(unpaidCommunityTransactions)
-          totalTransactionPayoutAmount = totalTransactionPayoutAmount + transactionsAmountAndTransactionIds.transactionsAmount
+          const unpaidCommunityTransactions =
+            await this.getUnpaidTransactionsOfUserInCommunity(
+              communitiesWithPayoutToken[community],
+              this.user.id
+            )
+          const transactionsAmountAndTransactionIds =
+            this.getTransactionIdssAndAmount(unpaidCommunityTransactions)
+          totalTransactionPayoutAmount =
+            totalTransactionPayoutAmount +
+            transactionsAmountAndTransactionIds.transactionsAmount
           if (transactionsAmountAndTransactionIds.transactionsAmount > 0) {
             const payoutObject = {
               communityId: communitiesWithPayoutToken[community],
               userId: this.user.id,
-              payoutAmount: transactionsAmountAndTransactionIds.transactionsAmount,
+              payoutAmount:
+                transactionsAmountAndTransactionIds.transactionsAmount,
               userWallet: this.userWalletAddresses[token],
-              transactionIds: transactionsAmountAndTransactionIds.transactionIds,
+              transactionIds:
+                transactionsAmountAndTransactionIds.transactionIds,
               date: Date.now(),
               rewardToken: token,
-              paid: false
+              paid: false,
             }
             // console.log(payoutObject)
             this.$store.dispatch('payouts/createPayoutRequest', payoutObject)
@@ -120,7 +124,8 @@ export default {
         // Thats why we need to create a different payout request for all unaccounted payments.
         // we could get rid of this and put the already existent accounts in 0
         if (this.balance[token] > totalTransactionPayoutAmount) {
-          const unaccountedPayoutAmount = this.balance[token] - totalTransactionPayoutAmount
+          const unaccountedPayoutAmount =
+            this.balance[token] - totalTransactionPayoutAmount
           const payoutObject = {
             communityId: token,
             userId: this.user.id,
@@ -128,7 +133,7 @@ export default {
             userWallet: this.userWalletAddresses[token],
             date: Date.now(),
             rewardToken: token,
-            paid: false
+            paid: false,
           }
           // console.log(payoutObject)
           this.$store.dispatch('payouts/createPayoutRequest', payoutObject)
@@ -136,15 +141,18 @@ export default {
         const payoutPendingObject = {
           userId: this.user.id,
           payoutAmount: parseFloat(this.balance[token].toFixed(1)),
-          tokenFormat: token
+          tokenFormat: token,
         }
         // console.log(payoutPendingObject)
-        this.$store.dispatch('payouts/setPayoutRequestPending', payoutPendingObject)
+        this.$store.dispatch(
+          'payouts/setPayoutRequestPending',
+          payoutPendingObject
+        )
         // This should be optimized it shouldnt have to reload the page to display the new result, but get it from the state.
         this.$router.go()
       }
     },
-    getCommunitiesWithPayoutToken (token, communities) {
+    getCommunitiesWithPayoutToken(token, communities) {
       const communitiesWithPayoutToken = []
       for (let index = 0; index < Object.values(communities).length; index++) {
         const element = Object.values(communities)[index].rewardToken
@@ -154,36 +162,47 @@ export default {
       }
       return communitiesWithPayoutToken
     },
-    async getUnpaidTransactionsOfUserInCommunity (communityId, userId) {
+    async getUnpaidTransactionsOfUserInCommunity(communityId, userId) {
       let transactions = []
-      await firebase.database().ref(`transactions/${communityId}/${userId}`).orderByChild('paid').equalTo(false).once('value').then((snapShot) => {
-        transactions = snapShot.val()
-      })
+      await firebase
+        .database()
+        .ref(`transactions/${communityId}/${userId}`)
+        .orderByChild('paid')
+        .equalTo(false)
+        .once('value')
+        .then((snapShot) => {
+          transactions = snapShot.val()
+        })
       return transactions
     },
-    getTransactionIdssAndAmount (transactions) {
+    getTransactionIdssAndAmount(transactions) {
       let transactionsAmount = 0
       const transactionIds = []
       if (transactions && Object.values(transactions).length) {
-        for (let index = 0; index < Object.values(transactions).length; index++) {
+        for (
+          let index = 0;
+          index < Object.values(transactions).length;
+          index++
+        ) {
           transactionIds.push(Object.keys(transactions)[index])
-          transactionsAmount = transactionsAmount + Object.values(transactions)[index].amount
+          transactionsAmount =
+            transactionsAmount + Object.values(transactions)[index].amount
         }
       }
       return {
         transactionsAmount,
-        transactionIds
+        transactionIds,
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style scoped>
 .btn-cash-out {
   color: black;
-  border: 2px solid #ffcc00;
-  background: #ffcc00;
+  border: 2px solid #fc0;
+  background: #fc0;
   border-radius: 0.35rem;
   padding: 10px 40px;
   font-weight: 700;

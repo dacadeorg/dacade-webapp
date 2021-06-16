@@ -79,7 +79,6 @@ dist
 
 # IDE / Editor
 .idea
-.editorconfig
 
 # Service worker
 sw.*
@@ -94,3 +93,8 @@ firebase.json
 
 # Firebase database
 firebase.js
+
+#storybook
+.nuxt-storybook
+storybook-static
+components/sections/communities/chapters/Header.vue

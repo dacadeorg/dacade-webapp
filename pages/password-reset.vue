@@ -1,109 +1,92 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <b-card class="bg-dark big-shadow">
-            <div class="p-4">
-              <ValidationObserver v-slot="{ invalid, passes }">
-                <b-form @submit.prevent="passes(onPasswordResetRequest)">
-                  <h3 class="mb-5">
-                    Password reset
-                  </h3>
-                  <b-form-group id="input-group-1" label-for="input-1">
-                    <label for="input-2">Email Address</label>
-                    <ValidationProvider
-                      v-slot="{ errors }"
-                      name="email"
-                      rules="required|email"
-                    >
-                      <b-form-input
-                        id="input-1"
-                        v-model="form.email"
-                        type="email"
-                        name="email"
-                        placeholder="Enter email"
-                      />
-                      <span class="help">{{ errors[0] }}</span>
-                    </ValidationProvider>
-                  </b-form-group>
-                  <b-button
-                    type="submit"
-                    variant="primary"
-                    :disabled="loading"
-                    class="mt-4 btn-primary btn-lg"
-                  >
-                    Submit
-                  </b-button>
-                </b-form>
-              </ValidationObserver>
-            </div>
-          </b-card>
+  <div class="content-wrapper">
+    <ValidationObserver v-slot="{ passes }">
+      <form class="mb-24" @submit.prevent="passes(onPasswordResetRequest)">
+        <div class="lg:w-98 xl:w-98 mx-auto">
+          <h3 class="text-5xl my-5">
+            {{ $t('login-page.password-reset.title') }}
+          </h3>
+          <div label-for="input-1">
+            <label for="input-2" class="text-sm">{{
+              $t('login-page.password-reset.Description')
+            }}</label>
+            <ValidationProvider
+              v-slot="{ errors }"
+              name="email"
+              rules="required|email"
+              mode="passive"
+            >
+              <Input
+                id="input-1"
+                v-model="form.email"
+                required
+                type="email"
+                :placeholder="$t('login-page.email.placeholder')"
+                :label="$t('login-page.email.label')"
+                class="mb-5"
+                :error="errors[0]"
+              />
+            </ValidationProvider>
+          </div>
+          <div class="text-right">
+            <Button
+              :padding="false"
+              type="submit"
+              :disabled="loading"
+              class="btn-primary btn-lg py-2 px-5"
+            >
+              <span class="inline-block text-sm">{{
+                $t('login-page.signin.button')
+              }}</span>
+              <span class="inline-block text-white lg:pl-12 pl-8"
+                ><ArrowRight
+              /></span>
+            </Button>
+          </div>
         </div>
-      </div>
-    </div>
+      </form>
+    </ValidationObserver>
   </div>
 </template>
 
 <script>
 /* eslint-disable no-console */
 
+import Button from '@/components/ui/Button'
+import Input from '@/components/ui/Input'
+import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
+
 export default {
-  data () {
+  components: {
+    Button,
+    Input,
+    ArrowRight,
+  },
+  layout: 'withoutFooter',
+
+  data() {
     return {
       form: {
-        email: ''
+        email: '',
       },
-      loading: false
+      loading: false,
     }
   },
   methods: {
-    onPasswordResetRequest () {
+    onPasswordResetRequest() {
       const data = {
-        email: this.form.email
+        email: this.form.email,
       }
       this.loading = true
-      this.$store.dispatch('auth/passwordResetRequest', data).then(() => {
-        this.$router.push('/login')
-      }).catch(() => { this.loading = false })
-    }
-  }
+      this.$store
+        .dispatch('auth/passwordResetRequest', data)
+        .then(() => {
+          this.$router.push('/login')
+        })
+        .catch(() => {
+          this.loading = false
+        })
+    },
+  },
 }
 </script>
-<style scoped>
-a {
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 19px;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #53d1af;
-  font-size: 19px;
-  font-weight: 700;
-}
-
-.card {
-  border: none;
-}
-
-.card-body {
-  padding: 0rem;
-}
-
-.container {
-  padding-top: 4em;
-}
-
-form {
-  margin: 2em 0;
-}
-
-label {
-  font-size: 19px;
-}
-
-.p-4 {
-  padding: 0 1.5rem !important;
-}
-</style>

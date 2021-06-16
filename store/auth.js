@@ -5,54 +5,46 @@
 import firebase from '@/plugins/firebase'
 import auth from '@/lib/auth'
 
-export const actions = {
-  signUp ({ dispatch, commit }, payload) {
-    this.commit('setBusy', true)
-    this.commit('clearError')
-    return new Promise((resolve, reject) => {
-      auth
-        .signUp(payload)
-        .then((user) => {
-          if (process.env.NODE_ENV !== 'development') {
-            this.$ga.event({
-              eventCategory: 'registration',
-              eventAction: `registration userId: ${user.uid}`
-            })
-          }
-          commit('user/set', user, { root: true })
-          this.commit('setJobDone', true)
-          this.commit('setBusy', false)
-          resolve(user)
-        })
-        .catch((error) => {
-          reject(error)
-          this.commit('setBusy', false)
-          this.commit('setError', error)
-        })
-    })
-  },
+export const state = () => ({
+  data: null,
+  userBalance: null,
+  balance: null,
+  walletAddresses: null,
+})
 
-  login ({ commit }, payload) {
+export const actions = {
+  async signUp({ dispatch, commit }, payload) {
     this.commit('setBusy', true)
     this.commit('clearError')
-    return new Promise((resolve, reject) => {
-      auth
-        .login(payload)
-        .then((response) => {
-          commit('user/set', response.user, { root: true })
-          resolve(response)
-          this.commit('setJobDone', true)
-          this.commit('setBusy', false)
-        })
-        .catch((error) => {
-          reject(error)
-          commit('user/set', null, { root: true })
-          this.commit('setBusy', false)
-          this.commit('setError', error)
-        })
-    })
+    try {
+      await this.$api.post('auth/signup', payload)
+      return dispatch('login', {
+        email: payload.email,
+        password: payload.password,
+      })
+    } catch (error) {
+      /* handle error */
+      this.commit('setError', error)
+      this.commit('setBusy', false)
+      throw error
+    }
   },
-  passwordResetRequest ({ dispatch }, payload) {
+  async login({ commit }, { email, password }) {
+    this.commit('setBusy', true)
+    this.commit('clearError')
+    try {
+      await firebase.auth().signInWithEmailAndPassword(email, password)
+      await this.dispatch('user/fetch')
+      this.commit('setJobDone', true)
+      this.commit('setBusy', false)
+    } catch (error) {
+      this.commit('user/set', null)
+      this.commit('setBusy', false)
+      this.commit('setError', error)
+      throw error
+    }
+  },
+  passwordResetRequest({ dispatch }, payload) {
     this.commit('setBusy', true)
     this.commit('clearError')
     return new Promise((resolve, reject) => {
@@ -70,12 +62,12 @@ export const actions = {
         })
     })
   },
-  logout ({ dispatch, commit }) {
+  logout() {
     firebase.auth().signOut()
-    commit('user/clear', null, { root: true })
-    commit('notification/clear', null, { root: true })
+    this.commit('user/clear', null)
+    this.commit('user/notifications/clear', null)
   },
-  createVerificationRequest ({ dispatch }, payload) {
+  createVerificationRequest({ dispatch }, payload) {
     return new Promise((resolve, reject) => {
       auth
         .verify(payload)
@@ -90,11 +82,11 @@ export const actions = {
           this.commit('setError', error)
         })
     })
-  }
+  },
 }
 
 export const getters = {
-  loginStatus (state, getters, rootState, rootGetters) {
+  check(state, getters, rootState, rootGetters) {
     return rootState.user.data !== null && rootState.user.data !== undefined
-  }
+  },
 }

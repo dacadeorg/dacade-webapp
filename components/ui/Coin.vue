@@ -1,23 +1,87 @@
 <template>
-  <img class="DCN" src="/img/usp_iso_coin_dacade.png" :height="height" alt="coin">
+  <span
+    :class="[sizeClasses, shapeClasses]"
+    :style="{
+      backgroundColor: color || coin(token).color,
+    }"
+    class="
+      inline-flex
+      text-white
+      items-center
+      justify-center
+      uppercase
+      leading-none
+    "
+  >
+    <img v-if="coin(token).icon" :src="coin(token).icon" />
+  </span>
 </template>
 
 <script>
-
 export default {
   name: 'Coin',
   props: {
-    height: {
-      default: 22,
-      type: [Number, String]
+    color: {
+      default: null,
+      type: String,
+    },
+    token: {
+      default: null,
+      type: String,
+    },
+    size: {
+      default: 'small',
+      type: String,
+    },
+    shape: {
+      default: 'circular',
+      type: String,
+    },
+  },
+  data() {
+    return {
+      coins: {
+        DCN: {
+          icon: require('~/assets/icons/logo.svg?data'),
+          color: '#1B66F8',
+        },
+        CGLD: {
+          icon: require('~/assets/icons/logo.svg?data'),
+          color: '#34E256',
+        },
+        cUSD: {
+          icon: require('~/assets/icons/logo.svg?data'),
+          color: '#34E256',
+        },
+      },
     }
-  }
+  },
+  computed: {
+    sizeClasses() {
+      switch (this.size) {
+        case 'medium':
+          return 'w-15 h-15 text-2xl p-2'
+        case 'small':
+          return 'w-4 h-4 text-md p-0.5'
+        default:
+          return 'w-9 h-9 text-lg p-4'
+      }
+    },
+    shapeClasses() {
+      switch (this.shape) {
+        case 'rounded':
+          return 'rounded-xl'
+        case 'squared':
+          return 'rounded-none'
+        default:
+          return 'rounded-full'
+      }
+    },
+  },
+  methods: {
+    coin(token) {
+      return this.coins[token] ? this.coins[token] : this.coins.DCN
+    },
+  },
 }
 </script>
-
-<style scoped>
-.DCN {
-  vertical-align: -4px;
-  margin-left: -4px;
-}
-</style>

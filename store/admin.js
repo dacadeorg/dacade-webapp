@@ -7,20 +7,23 @@ const db = firebase.database()
 
 export const state = () => ({
   groups: [],
-  data: null
+  data: null,
 })
 
 export const mutations = {
-  set (state, payload) {
+  set(state, payload) {
     state.data = payload
-  }
+  },
 }
 
 export const actions = {
-  createEvaluation ({ commit }, payload) {
+  createEvaluation({ commit }, payload) {
     const key = payload['.key']
     delete payload['.key']
-    firebase.database().ref(`evaluations/${key}`).set(payload)
+    firebase
+      .database()
+      .ref(`evaluations/${key}`)
+      .set(payload)
       .then(() => {
         console.log('success')
       })
@@ -28,14 +31,17 @@ export const actions = {
         console.log('error', error)
       })
   },
-  createTransaction ({ commit }, payload) {
+  createTransaction({ commit }, payload) {
     console.log(payload)
     const communityId = payload.communityId
     delete payload.communityId
     const receiverId = payload.receiverId
     delete payload.receiverId
     console.log(receiverId)
-    firebase.database().ref(`transactions/${communityId}/${receiverId}`).push(payload)
+    firebase
+      .database()
+      .ref(`transactions/${communityId}/${receiverId}`)
+      .push(payload)
       .then(() => {
         console.log('Success, transaction created.')
       })
@@ -43,9 +49,14 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updateTransactionAsPaid ({ commit }, payload) {
+  updateTransactionAsPaid({ commit }, payload) {
     console.log(payload)
-    firebase.database().ref(`transactions/${payload.communityId}/${payload.userId}/${payload.transactionId}/paid`).set(Date.now())
+    firebase
+      .database()
+      .ref(
+        `transactions/${payload.communityId}/${payload.userId}/${payload.transactionId}/paid`
+      )
+      .set(Date.now())
       .then(() => {
         console.log('Success, transaction updated as paid.')
       })
@@ -53,12 +64,14 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updateSubmission ({ commit }, payload) {
+  updateSubmission({ commit }, payload) {
     const key = payload['.key']
     delete payload['.key']
-    db.ref(`submissions/${payload.communityId}/${key}`).set(payload)
+    db.ref(`submissions/${payload.communityId}/${key}`)
+      .set(payload)
       .then(() => {
-        db.ref(`openSubmissions/${key}`).remove()
+        db.ref(`openSubmissions/${key}`)
+          .remove()
           .then(() => {
             console.log('success')
           })
@@ -70,12 +83,13 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updateReview ({ commit }, payload) {
+  updateReview({ commit }, payload) {
     const key = payload['.key']
     const submissionId = payload.submissionId
     delete payload['.key']
     delete payload.submissionId
-    db.ref(`reviews/${submissionId}/${key}`).set(payload)
+    db.ref(`reviews/${submissionId}/${key}`)
+      .set(payload)
       .then(() => {
         console.log('success')
       })
@@ -83,10 +97,11 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updateBalance ({ commit }, payload) {
-    db.ref(`balance/${payload.userId}/${payload.rewardToken}`).transaction(function (currentData) {
-      return currentData + payload.rewardAmount
-    })
+  updateBalance({ commit }, payload) {
+    db.ref(`balance/${payload.userId}/${payload.rewardToken}`)
+      .transaction(function (currentData) {
+        return currentData + payload.rewardAmount
+      })
       .then(() => {
         console.log('Success, user balance updated.')
       })
@@ -94,10 +109,11 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updateReputation ({ commit }, payload) {
-    db.ref(`reputation/${payload.userId}/${payload.communityId}`).transaction(function (currentData) {
-      return currentData + payload.rewardAmount
-    })
+  updateReputation({ commit }, payload) {
+    db.ref(`reputation/${payload.userId}/${payload.communityId}`)
+      .transaction(function (currentData) {
+        return currentData + payload.rewardAmount
+      })
       .then(() => {
         console.log('success')
       })
@@ -105,10 +121,11 @@ export const actions = {
         console.log('error', error)
       })
   },
-  addLearningPoints ({ commit }, payload) {
-    db.ref(`learningPoints/${payload.userId}/${payload.communityId}`).transaction(function (currentData) {
-      return currentData + payload.learningPoints
-    })
+  addLearningPoints({ commit }, payload) {
+    db.ref(`learningPoints/${payload.userId}/${payload.communityId}`)
+      .transaction(function (currentData) {
+        return currentData + payload.learningPoints
+      })
       .then(() => {
         console.log('success')
       })
@@ -116,8 +133,11 @@ export const actions = {
         console.log('error', error)
       })
   },
-  deleteVerificationRequest ({ commit }, payload) {
-    db.ref(`userVerificationRequest/${payload.userId}/${payload.verificationType}`).set(null)
+  deleteVerificationRequest({ commit }, payload) {
+    db.ref(
+      `userVerificationRequest/${payload.userId}/${payload.verificationType}`
+    )
+      .set(null)
       .then(() => {
         console.log('Success, verification deleted')
       })
@@ -125,8 +145,11 @@ export const actions = {
         console.log('error', error)
       })
   },
-  createUserVerification ({ commit }, payload) {
-    db.ref(`userVerifications/${payload.userId}/${payload.verificationType}/link`).set(`${payload.verificationLink}`)
+  createUserVerification({ commit }, payload) {
+    db.ref(
+      `userVerifications/${payload.userId}/${payload.verificationType}/link`
+    )
+      .set(`${payload.verificationLink}`)
       .then(() => {
         console.log('Success, user verified')
       })
@@ -134,11 +157,19 @@ export const actions = {
         console.log('error', error)
       })
   },
-  updatePayoutRequestPending ({ commit }, payload) {
-    firebase.database().ref(`payoutRequestsPending/${payload.userId}/${payload.rewardToken}`).once('value')
+  updatePayoutRequestPending({ commit }, payload) {
+    firebase
+      .database()
+      .ref(`payoutRequestsPending/${payload.userId}/${payload.rewardToken}`)
+      .once('value')
       .then((snapShot) => {
-        if ((snapShot.val() + payload.rewardAmount) === 0) {
-          firebase.database().ref(`payoutRequestsPending/${payload.userId}/${payload.rewardToken}`).set(null)
+        if (snapShot.val() + payload.rewardAmount === 0) {
+          firebase
+            .database()
+            .ref(
+              `payoutRequestsPending/${payload.userId}/${payload.rewardToken}`
+            )
+            .set(null)
             .then(() => {
               console.log('Success, payout request deleted.')
             })
@@ -146,9 +177,12 @@ export const actions = {
               console.log('error', error)
             })
         } else {
-          db.ref(`payoutRequestsPending/${payload.userId}/${payload.rewardToken}`).transaction(function (currentData) {
-            return currentData + payload.rewardAmount
-          })
+          db.ref(
+            `payoutRequestsPending/${payload.userId}/${payload.rewardToken}`
+          )
+            .transaction(function (currentData) {
+              return currentData + payload.rewardAmount
+            })
             .then(() => {
               console.log('Success, user request updated.')
             })
@@ -158,7 +192,7 @@ export const actions = {
         }
       })
   },
-  fetch ({ commit }, payload) {
+  fetch({ commit }, payload) {
     return new Promise((resolve, reject) => {
       firebase
         .database()
@@ -167,18 +201,19 @@ export const actions = {
         .then((snapShot) => {
           commit('set', snapShot.val())
           return resolve(snapShot.val())
-        }).catch((error) => {
+        })
+        .catch((error) => {
           return reject(error)
         })
     })
-  }
+  },
 }
 
 export const getters = {
-  groups (state) {
+  groups(state) {
     return state.groups
   },
-  get (state) {
+  get(state) {
     return state.data
-  }
+  },
 }
