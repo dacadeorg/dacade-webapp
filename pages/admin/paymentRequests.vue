@@ -4,15 +4,11 @@
       <div class="offset-md-3 col-lg-6">
         <div class="mb-4">
           <h1>
-            <b>
-              OPEN PAYMENTS
-            </b>
+            <b> OPEN PAYMENTS </b>
           </h1>
         </div>
         <div class="mb-4">
-          <nuxt-link to="/admin/" class="btn btn-secondary">
-            BACK
-          </nuxt-link>
+          <nuxt-link to="/admin/" class="btn btn-secondary"> BACK </nuxt-link>
         </div>
         <div class="mb-4">
           <nuxt-link to="/admin/payments" class="btn btn-secondary">
@@ -21,9 +17,16 @@
         </div>
       </div>
       <div v-if="requestsQueried" class="offset-md-3 col-lg-6">
-        <div v-for="(openCommunityRequests, index) in Object.values(payoutRequests)" :key="index">
+        <div
+          v-for="(openCommunityRequests, index) in Object.values(
+            payoutRequests
+          )"
+          :key="index"
+        >
           <b-card
-            v-for="( openRequest, index2 ) in Object.values(openCommunityRequests)"
+            v-for="(openRequest, index2) in Object.values(
+              openCommunityRequests
+            )"
             :key="index2"
             class="mb-4"
             bg-variant="dark"
@@ -40,9 +43,7 @@
             </div>
             <div>
               Payout Amount:
-              <strong>
-                {{ openRequest.payoutAmount }}$
-              </strong>
+              <strong> {{ openRequest.payoutAmount }}$ </strong>
               ({{ openRequest.rewardToken }})
             </div>
             <div>
@@ -53,7 +54,13 @@
             </div>
             <div
               class="btn-cash-out pointer btn mt-2 mb-4"
-              @click="paymentDone(Object.keys(payoutRequests)[index], openRequest, Object.keys(openCommunityRequests)[index2])"
+              @click="
+                paymentDone(
+                  Object.keys(payoutRequests)[index],
+                  openRequest,
+                  Object.keys(openCommunityRequests)[index2]
+                )
+              "
             >
               Mark payment as done
             </div>
@@ -70,50 +77,66 @@ import firebase from '@/plugins/firebase'
 import util from '~/assets/js/util'
 
 export default {
-  data () {
+  data() {
     return {
       payoutRequests: [],
-      requestsQueried: false
+      requestsQueried: false,
     }
   },
   computed: {
     ...mapGetters({
-      communityDataPreview: 'content/communityDataPreview'
-    })
+      communityDataPreview: 'content/communityDataPreview',
+    }),
   },
-  mounted () {
-    if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
+  mounted() {
+    if (
+      !this.communityDataPreview ||
+      Object.keys(this.communityDataPreview).length === 0
+    ) {
       this.getCommunityDataPreview()
     }
   },
-  created () {
+  created() {
     this.getPayoutRequests()
   },
   methods: {
     ...mapActions({
-      getCommunityDataPreview: 'content/getCommunityDataPreview'
+      getCommunityDataPreview: 'content/getCommunityDataPreview',
     }),
-    convertDate (date) {
+    convertDate(date) {
       return util.convertDate(date)
     },
-    async getPayoutRequests () {
-      const communityIdsThatAdminManages = ['intro-to-blockchain', 'ae-dev-101', 'web-dev-101', 'eth-dev-101', 'AE', 'ETH']
+    async getPayoutRequests() {
+      const communityIdsThatAdminManages = [
+        'intro-to-blockchain',
+        'ae-dev-101',
+        'web-dev-101',
+        'eth-dev-101',
+        'AE',
+        'ETH',
+      ]
       for (const communityId of communityIdsThatAdminManages) {
-        await firebase.database().ref(`payoutRequests/${communityId}`).orderByChild('paid').equalTo(false).once('value').then((snapShot) => {
-          if (snapShot.val()) {
-            this.payoutRequests[communityId] = snapShot.val()
-            console.log(snapShot.val())
-          }
-        })
+        await firebase
+          .database()
+          .ref(`payoutRequests/${communityId}`)
+          .orderByChild('paid')
+          .equalTo(false)
+          .once('value')
+          .then((snapShot) => {
+            if (snapShot.val()) {
+              this.payoutRequests[communityId] = snapShot.val()
+              console.log(snapShot.val())
+            }
+          })
       }
       // console.log(this.payoutRequests)
       this.requestsQueried = true
     },
-    paymentDone (index, openRequest, userId) {
+    paymentDone(index, openRequest, userId) {
       // Add a timestamp to the request object indicating that it was paid and when.
       const requestObject = {
         communityId: index,
-        userId
+        userId,
       }
       // console.log('requestObject')
       // console.log(requestObject)
@@ -124,30 +147,36 @@ export default {
           const transactionObject = {
             userId,
             communityId: index,
-            transactionId
+            transactionId,
           }
           // console.log('transactionObject')
           // console.log(transactionObject)
-          this.$store.dispatch('admin/updateTransactionAsPaid', transactionObject)
+          this.$store.dispatch(
+            'admin/updateTransactionAsPaid',
+            transactionObject
+          )
         }
       }
       // Deduct paid out amount from the users balance.
       const userBalanceObject = {
         userId,
         rewardToken: openRequest.rewardToken,
-        rewardAmount: -openRequest.payoutAmount
+        rewardAmount: -openRequest.payoutAmount,
       }
       // console.log('userBalanceObject')
       // console.log(userBalanceObject)
       this.$store.dispatch('admin/updateBalance', userBalanceObject)
       // update the request pending entry
-      this.$store.dispatch('admin/updatePayoutRequestPending', userBalanceObject)
+      this.$store.dispatch(
+        'admin/updatePayoutRequestPending',
+        userBalanceObject
+      )
       // Add notification
       const notificationObject = {
         date: Date.now(),
         link: '/profile/',
         notificationRead: false,
-        userId
+        userId,
       }
       if (index === 'AE' || index === 'ETH') {
         notificationObject.message = `We send ${openRequest.payoutAmount}$ in ${openRequest.rewardToken} token to your wallet. Thank you for your contribution.`
@@ -157,8 +186,8 @@ export default {
       // console.log('notificationObject')
       // console.log(notificationObject)
       this.$store.dispatch('addUserNotification', notificationObject)
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>
@@ -169,9 +198,9 @@ export default {
 .btn-cash-out {
   color: black;
   text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #ffcc00;
-  border: 1.6px solid #ffcc00;
-  border-radius: .35rem;
+  background-color: #fc0;
+  border: 1.6px solid #fc0;
+  border-radius: 0.35rem;
   padding: 10px 40px;
   font-weight: 700;
 }

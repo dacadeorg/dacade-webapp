@@ -1,131 +1,168 @@
 <template>
   <div
-    class="bounty mb-4"
+    class="
+      cursor-pointer
+      flex
+      md:flex-row-reverse
+      md:space-x-5
+      px-5
+      min-h-32
+      md:h-auto
+      md:w-full
+      justify-between
+      hover:bg-secondary
+      relative
+      rounded-xl
+    "
+    @click="goToChallenge(bounty)"
   >
-    <nuxt-link :to="bounty.link">
-      <h5 v-if="bounty.typ === 'review'" class="dark-white">
-        <b> Feedback for Submission of {{ bounty.displayName }} </b>
-      </h5>
-      <h5 v-else class="dark-white">
-        <b>
-          {{ bounty.typ }}
-        </b>
-      </h5>
-      <div>
-        <b :style="{ color: bounty.color }">
-          <no-html :value="bounty.lcName" />
-        </b>
+    <div
+      class="
+        bg-theme-accent
+        flex-col
+        w-full
+        h-full
+        justify-between
+        md:-space-y-1
+        pl-3
+        pr-5
+        mt-7
+        mb-5
+      "
+    >
+      <nuxt-link
+        class="w-full"
+        :to="`/communities/${bounty.slug}/challenges/${bounty.challenge}`"
+      >
+        <div class="relative w-full md:flex md:justify-between">
+          <div class="font-medium text-md mb-2">
+            {{ bounty.name }}
+          </div>
+        </div>
+      </nuxt-link>
+
+      <div
+        class="
+          inline-flex
+          md:flex
+          h-2/3
+          md:flex-row
+          flex-col-reverse
+          justify-between
+        "
+      >
+        <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">
+          {{ type }}
+        </div>
+        <div>
+          <Reward type="gray" :reward="reward" />
+        </div>
       </div>
-      <div v-if="bounty.bountyText">
-        {{ bounty.bountyText }}
+      <div
+        v-if="bounty.submissions"
+        class="mt-4 space-y-0 divide-y divide-y-gray-500"
+      >
+        <nuxt-link
+          v-for="submission in bounty.submissions"
+          :key="submission.id"
+          :to="`/communities/${bounty.slug}/submissions/${submission.id}`"
+          class="flex space-x-1 relative text-sm font-medium py-3"
+        >
+          <div class="flex justify-between w-full pr-0">
+            <div class="flex space-x-1">
+              <Avatar :user="submission.user" size="mini" />
+              <div>{{ submission.user.displayName }}</div>
+              <div
+                class="
+                  flex
+                  align-middle
+                  text-gray-500 text-middle
+                  bg-gray-200
+                  px-2
+                  text-xxs
+                  rounded-xl
+                  m-0
+                  h-5
+                "
+              >
+                {{ submission.feedbacks }}
+              </div>
+            </div>
+            <div class="text-gray-500 text-base font-normal">
+              {{ $t('bounties.prefix.closes') }}
+              {{ convertDate(submission.reviewDeadline) }}
+            </div>
+          </div>
+        </nuxt-link>
       </div>
-      <div>
-        <span class="muted-dark">Reward:</span>
-        <b class="dark-white">
-          {{ bounty.reward }}
-        </b>
-        <coin height="18" />
-      </div>
-      <div v-if="bounty.hoursLeft && countDown">
-        <span class="muted-dark">Time left:</span>
-        <b v-if="countDown">
-          <span v-if="countDown.days">{{ countDown.days }}d</span>
-          <span v-if="countDown.hours || countDown.days">{{ countDown.hours }}h</span>
-          <span v-if="countDown.minutes || countDown.hours || countDown.days">{{ countDown.minutes }}m</span>
-          <span>{{ countDown.seconds }}s</span>
-        </b>
-      </div>
-      <div v-if="bounty.typ === 'review'">
-        <span class="muted-dark">Feedback:</span>
-        <b v-if="bounty.reviews">
-          {{ Object.keys(bounty.reviews).length }}
-        </b>
-        <b v-else>
-          0
-        </b>
-      </div>
-    </nuxt-link>
+    </div>
+    <div
+      class="self-start md:relative absolute right-8 top-15 md:top-7 md:right-0"
+    >
+      <Avatar
+        class="w-15 h-15"
+        :icon="bounty.icon"
+        :color="bounty.colors.primary"
+        size="medium-fixed"
+        shape="rounded"
+      />
+      <Badge
+        v-if="bounty.submissions.length"
+        :custom-style="{
+          bottom: '2px',
+          right: '-4px',
+          fontSize: 14,
+          backgroundColor: bounty.colors.accent,
+        }"
+        size="medium"
+        :value="bounty.submissions.length"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import Reward from '@/components/badges/Reward'
+import Avatar from '@/components/ui/Avatar'
+import Badge from '@/components/ui/Badge'
+import Moment from 'moment'
+
 export default {
   name: 'Bounty',
+  components: {
+    Reward,
+    Avatar,
+    Badge,
+  },
   props: {
     bounty: {
       type: Object,
-      default: () => {}
-    }
-  },
-  data () {
-    return {
-      interval: null,
-      countDown: null,
-      seconds: null
-    }
+      default: () => {},
+    },
   },
   computed: {
-    now () {
-      return Date.now()
-    }
-  },
-  created () {
-    if (this.bounty && this.bounty.endTime) {
-      this.counter()
-    }
-  },
-  beforeDestroy () {
-    clearInterval(this.interval)
+    reward() {
+      if (this.bounty.submissions.length) {
+        return this.bounty.rewards.find((reward) => reward.type === 'FEEDBACK')
+      }
+      return this.bounty.rewards.find((reward) => reward.type === 'SUBMISSION')
+    },
+    type() {
+      if (!this.bounty.submissions.length) {
+        return 'Challenge'
+      }
+      return 'Waiting for Feedbacks'
+    },
   },
   methods: {
-    counter () {
-      this.interval = setInterval(() => {
-        // Get today's date and time
-        const now = new Date().getTime()
-        // Find the distance between now and the count down date
-        const distance = this.bounty.endTime - now
-
-        this.countDown = {
-          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000)
-        }
-        // If the count down is finished, write some text
-        if (distance < 0) {
-          clearInterval(this.interval)
-          this.countDown = {}
-        }
-      }, 1000)
-    }
-  }
+    convertDate(date) {
+      return Moment(date).fromNow()
+    },
+    goToChallenge(bounty) {
+      return this.$router.push(
+        `/communities/${bounty.slug}/challenges/${bounty.challenge}`
+      )
+    },
+  },
 }
 </script>
-
-<style scoped>
-.bounty {
-  border: 1.6px solid #00000000;
-  border-radius: 0.35rem;
-  background: #343b42;
-  padding: 1em;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-    0 2px 1px -1px rgba(0, 0, 0, 0.12);
-}
-
-.bounty a {
-  color: #acb2be;
-}
-
-.bounty a {
-  text-decoration: none;
-}
-
-.bounty:hover {
-  border: 1.6px solid #53d1af;
-  background: #343b42;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-}
-</style>

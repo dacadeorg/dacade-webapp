@@ -4,11 +4,11 @@
       <div class="container pt-7 pb-7 text-white">
         <div class="row align-items-center text-center text-md-left">
           <div class="col-lg-6">
-            <h1>
-              <b>Developer Adoption</b> through Peer-to-Peer education
-            </h1>
+            <h1><b>Developer Adoption</b> through Peer-to-Peer education</h1>
             <p class="lead">
-              We know that in this highly competitive space, developer community growth is a top priority for software projects, thats why we created dacade.
+              We know that in this highly competitive space, developer community
+              growth is a top priority for software projects, thats why we
+              created dacade.
             </p>
             <div class="mt-4 pt-4 mb-8">
               <a href="mailto:moritz@dacade.org" class="btn btn-dark btn-lg">
@@ -30,44 +30,33 @@
               <b>Approach to Adoption</b>
             </h2>
             <p class="lead mb-4">
-              Traditional marketing efforts for developer adoption are hard to track and expensive.
-              The courses have low completion rates and the learning outcomes are inaccesible for other learners.
-              They cost a high personnel effort and are often very hard to scale.
+              Traditional marketing efforts for developer adoption are hard to
+              track and expensive. The courses have low completion rates and the
+              learning outcomes are inaccesible for other learners. They cost a
+              high personnel effort and are often very hard to scale.
             </p>
-            <img src="/img/usp-key.png" width="72px" class="mb-4" alt="">
+            <img src="/img/usp-key.png" width="72px" class="mb-4" alt="" />
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-2" />
           <div class="col-md-5">
             <p>Dacade offers:</p>
             <div class="mb-4">
-              <b class="dacade-case">
-                Measurable results
-              </b>
+              <b class="dacade-case"> Measurable results </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Value for money
-              </b>
+              <b class="dacade-case"> Value for money </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Incentives encourage engagement
-              </b>
+              <b class="dacade-case"> Incentives encourage engagement </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Outsourced tasks
-              </b>
+              <b class="dacade-case"> Outsourced tasks </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Scalable model
-              </b>
+              <b class="dacade-case"> Scalable model </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Creating an open learning community
-              </b>
+              <b class="dacade-case"> Creating an open learning community </b>
             </div>
           </div>
         </div>
@@ -84,9 +73,7 @@
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b>
-                  Marketing
-                </b>
+                <b> Marketing </b>
               </div>
               <p>Dacade creates awareness through performance marketing.</p>
             </div>
@@ -94,51 +81,63 @@
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b>
-                  Training
-                </b>
+                <b> Training </b>
               </div>
-              <p>Developers learn how to use new technology from curated learning materials and tutorials.</p>
+              <p>
+                Developers learn how to use new technology from curated learning
+                materials and tutorials.
+              </p>
             </div>
           </div>
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b>
-                  Challenge
-                </b>
+                <b> Challenge </b>
               </div>
-              <p>In the challenge, developers apply their new knowledge practically and build a working project.</p>
+              <p>
+                In the challenge, developers apply their new knowledge
+                practically and build a working project.
+              </p>
             </div>
           </div>
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b>
-                  Feedback
-                </b>
+                <b> Feedback </b>
               </div>
-              <p>After they enter their submission, developers receive feedback from their peers.</p>
+              <p>
+                After they enter their submission, developers receive feedback
+                from their peers.
+              </p>
             </div>
           </div>
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b>
-                  Community
-                </b>
+                <b> Community </b>
               </div>
-              <p>Developers go on to give their peers feedback and are encouraged to cooperate on further projects.</p>
+              <p>
+                Developers go on to give their peers feedback and are encouraged
+                to cooperate on further projects.
+              </p>
             </div>
           </div>
           <div class="col-md-2 mb-4">
-            <div class="text-white" style="padding: 0.4rem 0.6rem; border:1px solid white; border-radius: 0.35rem;">
+            <div
+              class="text-white"
+              style="
+                padding: 0.4rem 0.6rem;
+                border: 1px solid white;
+                border-radius: 0.35rem;
+              "
+            >
               <div class="text-center mb-1">
-                <b>
-                  Incentives
-                </b>
+                <b> Incentives </b>
               </div>
-              <p>Submissions and feedback can be incentivized with crypto tokens and receive reputational awards.</p>
+              <p>
+                Submissions and feedback can be incentivized with crypto tokens
+                and receive reputational awards.
+              </p>
             </div>
           </div>
         </div>
@@ -152,23 +151,20 @@
               <b>Approach to Education</b>
             </h2>
             <p class="lead mb-4">
-              Traditional online education is often an unengaging, dry and isolated experience.
-              Valuable human feedback is expensive and it is hard to find oppertunities to apply the new knowledge.
+              Traditional online education is often an unengaging, dry and
+              isolated experience. Valuable human feedback is expensive and it
+              is hard to find oppertunities to apply the new knowledge.
             </p>
-            <img src="/img/usp-cap.png" width="72px" class="mb-2" alt="">
+            <img src="/img/usp-cap.png" width="72px" class="mb-2" alt="" />
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-2" />
           <div class="col-md-5">
             <p>Dacade offers:</p>
             <div class="mb-4">
-              <b class="dacade-case">
-                Focus on practice through tutorials
-              </b>
+              <b class="dacade-case"> Focus on practice through tutorials </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Peer feedback and support
-              </b>
+              <b class="dacade-case"> Peer feedback and support </b>
             </div>
             <div class="mb-4">
               <b class="dacade-case">
@@ -176,9 +172,7 @@
               </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case">
-                Social engagement with other learners
-              </b>
+              <b class="dacade-case"> Social engagement with other learners </b>
             </div>
           </div>
         </div>
@@ -187,21 +181,13 @@
     <section id="demo">
       <div class="container pt-7 pb-7 text-black">
         <div class="big-shadow carousel mx-auto">
-          <b-card
-            class="bg-dark mb-4 small-shadow"
-          >
+          <b-card class="bg-dark mb-4 small-shadow">
             <h4>
-              <b class="white">
-                Demo
-              </b>
+              <b class="white"> Demo </b>
             </h4>
-            <h6 class="mb-2 white">
-              90 seconds
-            </h6>
+            <h6 class="mb-2 white">90 seconds</h6>
             <div>
-              <div
-                class="embed-responsive embed-responsive-16by9"
-              >
+              <div class="embed-responsive embed-responsive-16by9">
                 <iframe
                   class="embed-responsive-item"
                   src="https://www.youtube.com/embed/DoacJObg4Ck?showinfo=0&rel=0"
@@ -221,52 +207,63 @@
         </h2>
         <div class="row">
           <div class="col-md-5">
-            For the aeternity protocol, we created a learning community as the first touchpoint for new developers.
+            For the aeternity protocol, we created a learning community as the
+            first touchpoint for new developers.
           </div>
         </div>
-        <p></p>
+        <p />
         <div class="row align-items-center">
           <div class="col-md-5">
             <p>
-              <b>
-                Aeternity Development 101:
-              </b>
+              <b> Aeternity Development 101: </b>
             </p>
-            <div style="border: 1px solid black; border-radius: 0.35rem; padding: 1.4rem 0.5rem">
+            <div
+              style="
+                border: 1px solid black;
+                border-radius: 0.35rem;
+                padding: 1.4rem 0.5rem;
+              "
+            >
               <ul>
+                <li>General learning materials about aeternity.</li>
+                <li>General learning materials about aeternity.</li>
                 <li>
-                  General learning materials about aeternity.
+                  An explicit tutorial on how to build a MemeVoting Application
+                  on aeternity.
                 </li>
                 <li>
-                  An explicit tutorial on how to build a MemeVoting Application on aeternity.
-                </li>
-                <li>
-                  A challenge to write an original application on the aeternity blockchain.
+                  A challenge to write an original application on the aeternity
+                  blockchain.
                 </li>
               </ul>
             </div>
           </div>
           <div class="col-md-2">
-            <div class="text-center fs-2">
-              →
-            </div>
+            <div class="text-center fs-2">→</div>
           </div>
           <div class="col-md-5">
             <p>
-              <b>
-                Impact:
-              </b>
+              <b> Impact: </b>
             </p>
-            <div style="background: #1eecb3ff; border-radius: 0.35rem; padding: 1.4rem 0.5rem;">
+            <div
+              style="
+                background: #1eecb3ff;
+                border-radius: 0.35rem;
+                padding: 1.4rem 0.5rem;
+              "
+            >
               <ul>
                 <li>
-                  Over <u>70 aeternity applications</u> were submitted to dacade and uploaded to GitHub.
+                  Over <u>70 aeternity applications</u> were submitted to dacade
+                  and uploaded to GitHub.
                 </li>
                 <li>
-                  Developers provided over <u>300 times feedback</u> on those submissions.
+                  Developers provided over <u>300 times feedback</u> on those
+                  submissions.
                 </li>
                 <li>
-                  Developers connected and went on to build projects together on aeternity.
+                  Developers connected and went on to build projects together on
+                  aeternity.
                 </li>
               </ul>
             </div>
@@ -285,10 +282,10 @@
           <div class="col-md-6 mb-4">
             <div class="d-flex justify-content-center">
               <div>
-                <img src="/img/contact_paula.png" width="172" alt="">
+                <img src="/img/contact_paula.png" width="172" alt="" />
                 <p class="lead">
-                  Paula Kühn<br>
-                  Sales Consultant<br>
+                  Paula Kühn<br />
+                  Sales Consultant<br />
                   <u>Paula@dacade.org</u>
                 </p>
               </div>
@@ -297,10 +294,10 @@
           <div class="col-md-6 mb-4">
             <div class="d-flex justify-content-center">
               <div>
-                <img src="/img/contact_paul.png" width="172" alt="">
+                <img src="/img/contact_paul.png" width="172" alt="" />
                 <p class="lead">
-                  Paul Walton<br>
-                  Business Development<br>
+                  Paul Walton<br />
+                  Business Development<br />
                   <u>Paul@dacade.org</u>
                 </p>
               </div>
@@ -314,11 +311,11 @@
 
 <style scoped>
 ul li {
-  padding: 5px 0px;
+  padding: 5px 0;
 }
 
 hr {
-  margin: 0rem;
+  margin: 0;
   border-color: rgb(235, 235, 235);
 }
 
@@ -359,7 +356,6 @@ hr {
 
 .carousel {
   max-width: 800px;
-
 }
 
 .dacade-case {
@@ -368,14 +364,14 @@ hr {
   border-radius: 0.35rem;
 }
 
-.lead{
+.lead {
   font-size: 1.25rem;
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
 .pt-7 {
@@ -386,8 +382,8 @@ hr {
   padding-bottom: 7rem !important;
 }
 
-.text-black{
-  color: #172B4D;
+.text-black {
+  color: #172b4d;
 }
 
 .cyan-background {

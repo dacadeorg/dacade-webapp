@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-item,
+.nav-logo,
+.nav-brand {
+  @apply inline-block align-middle text-base;
+}
+
+.nav-item {
+  @apply font-normal ml-2 opacity-70 hover:opacity-100;
+}
+
+.nav-brand {
+  @apply font-semibold mr-3.5;
+}
+
+.content-wrapper {
+  @apply xl:w-10/12 lg:w-10/12 md:w-10/12 sm:w-10/12 w-11/12 mx-auto max-w-7xl;
+}
+
+body,
+.text-default {
+  @apply text-gray-900;
+
+  font-family: 'Graphik', sans-serif;
+  font-feature-settings: 'ss01' 1, 'ss02' 1;
+}
+
+body {
+  font-weight: 400;
+}
+
+.message-bubble {
+  @apply w-72 p-8 rounded-3.5xl relative text-base;
+
+  background: #fefce8;
+  color: #713f12;
+}
+
+.message-bubble::before {
+  width: 0;
+  height: 0;
+  left: -28px;
+  content: '';
+  position: absolute;
+  border-left: 28px solid transparent;
+  bottom: 0;
+  border-right: 28px solid transparent;
+  border-bottom: 28px solid #fefce8;
+}
+
+@media only screen and (min-width: 992px) {
+  .quadratic-card {
+    @apply p-8 mb-5;
+
+    width: calc(50% - 10px);
+  }
+}
+
+.text-with-links > a {
+  @apply underline;
+}
+
+input {
+  @apply px-5 border border-solid block xl:mx-auto lg:mx-auto lg:w-98 xl:w-98 w-full h-17;
+}
+
+button {
+  @apply bg-primary outline-none focus:outline-none cursor-pointer relative px-4 py-2 text-white rounded-full;
+}
+
+.floating-input > input::placeholder {
+  color: transparent;
+}
+
+.floating-input > input:focus,
+.floating-input > input:not(:placeholder-shown) {
+  @apply pt-6 pb-2 border border-solid;
+}
+
+@layer utilities {
+  @variants responsive {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+  .badget-color{
+    background-color:rgba(114, 70, 231, 1);
+
+  }
+}
+.action-button:hover,
+.action-button:focus {
+  color: var(--button-color--hover) !important;
+  background-color: var(--button-background-color--hover) !important;
+  border-color: var(--button-border-color--hover) !important;
+}
+
+.upload-icon{
+  margin-top: 0.625rem;
+}

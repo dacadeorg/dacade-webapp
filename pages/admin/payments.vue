@@ -4,20 +4,18 @@
       <div class="offset-md-3 col-lg-6">
         <div class="mb-4">
           <h1>
-            <b>
-              PAYMENTS
-            </b>
+            <b> PAYMENTS </b>
           </h1>
         </div>
         <div class="mb-4">
-          <nuxt-link to="/admin/" class="btn btn-secondary">
-            BACK
-          </nuxt-link>
+          <nuxt-link to="/admin/" class="btn btn-secondary"> BACK </nuxt-link>
         </div>
       </div>
       <div v-if="requestsQueried" class="offset-md-3 col-lg-6">
         <b-card
-          v-for="( transaction, index ) in orderTransactions(Object.values(transactions))"
+          v-for="(transaction, index) in orderTransactions(
+            Object.values(transactions)
+          )"
           :key="index"
           class="mb-4"
           bg-variant="dark"
@@ -46,9 +44,7 @@
           </div>
           <div>
             Payout Amount:
-            <strong>
-              {{ transaction.payoutAmount }}$
-            </strong>
+            <strong> {{ transaction.payoutAmount }}$ </strong>
             ({{ transaction.rewardToken }})
           </div>
           <div>
@@ -58,11 +54,11 @@
             </strong>
           </div>
           <div>
-            <strong>
-              Reporting
-            </strong>
+            <strong> Reporting </strong>
             <p>
-              {{ convertDate(transaction.paid) }}, {{ transaction.userId }}, {{ transaction.displayName }}, {{ transaction.userWallet }}, {{ transaction.payoutAmount }}
+              {{ convertDate(transaction.paid) }}, {{ transaction.userId }},
+              {{ transaction.displayName }}, {{ transaction.userWallet }},
+              {{ transaction.payoutAmount }}
             </p>
           </div>
         </b-card>
@@ -76,38 +72,53 @@ import { mapGetters, mapActions } from 'vuex'
 import firebase from '@/plugins/firebase'
 
 export default {
-  data () {
+  data() {
     return {
       transactions: [],
-      requestsQueried: false
+      requestsQueried: false,
     }
   },
   computed: {
     ...mapGetters({
-      communityDataPreview: 'content/communityDataPreview'
-    })
+      communityDataPreview: 'content/communityDataPreview',
+    }),
   },
-  mounted () {
-    if ((!this.communityDataPreview || Object.keys(this.communityDataPreview).length === 0)) {
+  mounted() {
+    if (
+      !this.communityDataPreview ||
+      Object.keys(this.communityDataPreview).length === 0
+    ) {
       this.getCommunityDataPreview()
     }
   },
-  created () {
+  created() {
     this.getPayoutRequests()
   },
   methods: {
     ...mapActions({
-      getCommunityDataPreview: 'content/getCommunityDataPreview'
+      getCommunityDataPreview: 'content/getCommunityDataPreview',
     }),
-    async getPayoutRequests () {
-      const communityIdsThatAdminManages = ['intro-to-blockchain', 'ae-dev-101', 'web-dev-101', 'eth-dev-101', 'AE', 'ETH']
+    async getPayoutRequests() {
+      const communityIdsThatAdminManages = [
+        'intro-to-blockchain',
+        'ae-dev-101',
+        'web-dev-101',
+        'eth-dev-101',
+        'AE',
+        'ETH',
+      ]
       const payoutRequests = {}
       for (const communityId of communityIdsThatAdminManages) {
-        await firebase.database().ref(`payoutRequests/${communityId}`).orderByChild('paid').once('value').then((snapShot) => {
-          if (snapShot.val()) {
-            payoutRequests[communityId] = snapShot.val()
-          }
-        })
+        await firebase
+          .database()
+          .ref(`payoutRequests/${communityId}`)
+          .orderByChild('paid')
+          .once('value')
+          .then((snapShot) => {
+            if (snapShot.val()) {
+              payoutRequests[communityId] = snapShot.val()
+            }
+          })
       }
       // console.log(payoutRequests)
       for (const key in payoutRequests) {
@@ -118,11 +129,15 @@ export default {
               const element2 = element[key2]
               element2.communityId = key
               element2.userId = key2
-              await firebase.database().ref(`users/${key2}`).once('value').then((snapShot) => {
-                if (snapShot.val()) {
-                  element2.displayName = snapShot.val().displayName
-                }
-              })
+              await firebase
+                .database()
+                .ref(`users/${key2}`)
+                .once('value')
+                .then((snapShot) => {
+                  if (snapShot.val()) {
+                    element2.displayName = snapShot.val().displayName
+                  }
+                })
               this.transactions.push(element2)
             }
           }
@@ -130,16 +145,16 @@ export default {
       }
       this.requestsQueried = true
     },
-    convertDate (date) {
+    convertDate(date) {
       const outputDate = new Date(date)
       return outputDate.toISOString().slice(0, 10)
     },
-    orderTransactions (transactions) {
+    orderTransactions(transactions) {
       return Object.values(transactions).sort(function (a, b) {
         return a.paid - b.paid
       })
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>
@@ -150,9 +165,9 @@ export default {
 .btn-cash-out {
   color: black;
   text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #ffcc00;
-  border: 1.6px solid #ffcc00;
-  border-radius: .35rem;
+  background-color: #fc0;
+  border: 1.6px solid #fc0;
+  border-radius: 0.35rem;
   padding: 10px 40px;
   font-weight: 700;
 }

@@ -12,7 +12,7 @@
               path: communityPath($route.params.slug, 'introduction'),
             }"
           >
-            Introduction
+            {{ t('community.query') }}
           </nuxt-link>
         </li>
         <span class="nav-item">
@@ -75,13 +75,13 @@ export default {
   computed: {
     ...mapGetters({
       communityData: 'content/communityData',
-      submissionDisplayName: 'content/submissionDisplayName'
-    })
+      submissionDisplayName: 'content/submissionDisplayName',
+    }),
   },
-  mounted () {
+  mounted() {
     window.addEventListener('scroll', this.scrollHandler)
   },
-  beforeDestroy () {
+  beforeDestroy() {
     try {
       window.removeEventListener('scroll', this.scrollHandler)
     } catch (error) {
@@ -89,13 +89,13 @@ export default {
     }
   },
   methods: {
-    communityPath (slug, chapterLink) {
+    communityPath(slug, chapterLink) {
       return `/${slug}/${chapterLink}`
     },
-    chapterPath (route, chapterId) {
+    chapterPath(route, chapterId) {
       return `/${route.params.slug}/chapter/${chapterId}`
     },
-    scrollHandler () {
+    scrollHandler() {
       const container = document.getElementById('community-menu-container')
       if (container) {
         const containerClasses = container.classList
@@ -107,8 +107,8 @@ export default {
           containerClasses.toggle('fixed')
         }
       }
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -139,7 +139,7 @@ export default {
   background-image: linear-gradient(#2c3238, #22262b);
   transition-duration: 125ms;
   transition-timing-function: linear;
-  &__content{
+  &__content {
     padding: 0.5em;
   }
 }
@@ -165,6 +165,7 @@ export default {
 
 .nav-item a:hover {
   color: #53d1af !important;
+
   /* background: #53d1af13; */
   border-radius: 25px;
   text-decoration: none;

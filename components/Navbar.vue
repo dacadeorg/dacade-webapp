@@ -1,218 +1,154 @@
 <template>
-  <div class="relative">
-    <b-navbar
-      :style="{ background: color }"
-      :class="{
-        'navbar-green': $route.name === 'index',
-        'navbar-business': $route.name === 'protocols',
-        'navbar-black': $route.name === 'communities',
-      }"
-      class="navbar-main"
-      toggleable="lg"
-      type="dark"
-    >
-      <b-navbar-brand class="desktop-only">
-        <nuxt-link to="/">
-          <img class="logoImg pointer" src="/img/logo-white.png" height="20" alt="">
-        </nuxt-link>
-      </b-navbar-brand>
-      <b-navbar-brand v-if="!loginStatus" class="mobile-only">
-        <nuxt-link to="/">
-          <img class="logoImg pointer" src="/img/logo-white.png" height="20" alt="">
-        </nuxt-link>
-      </b-navbar-brand>
-      <b-nav-text class="community-title">
-        <span class="nav-divider desktop-only" :class="{'invisible': (!isCommunity && !getSectionName($route))}" />
-        <span v-if="isCommunity">
-          {{ communityData.name }}
-        </span>
-        <span v-else>{{ getSectionName($route) }}</span>
-      </b-nav-text>
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto userPoints">
-        <b-nav-item>
-          <b-nav-text
-            v-if="$route.name != 'index' && user && !isCommunity && $route.name != 'protocols'"
-            class="mr-2 muted-dark no-padding"
+  <div class="relative text-gray-900" :style="containerStyle">
+    <div class="content-wrapper lg:py-12 py-6 flex relative">
+      <ul class="relative">
+        <NavItem type="logo">
+          <Logo />
+        </NavItem>
+        <NavItem type="brand">
+          {{ $t('app.name') }}
+        </NavItem>
+      </ul>
+      <ul v-if="isAuthenticated" class="hidden lg:block relative self-center">
+        <NavItem to="/bounties">
+          {{ $t('nav.bounties') }}
+        </NavItem>
+        <NavItem :to="localePath({ path: '/communities' })">
+          {{ $t('nav.communities') }}
+        </NavItem>
+      </ul>
+      <ul class="ml-auto text-right relative flex lg:hidden">
+        <Sidebar />
+      </ul>
+      <ul
+        v-if="!isAuthenticated"
+        class="ml-auto text-right relative hidden lg:block"
+      >
+        <div
+          v-if="$router.history.current.path !== '/login'"
+          class="inline-block"
+        >
+          <span
+            v-if="$router.history.current.path === '/signup'"
+            class="text-sm"
+            >{{ $t('nav.signup.already-exist') }}</span
           >
-            <b class="dark-white">{{ getDCNBalance() }}</b>
-            <coin />
-          </b-nav-text>
-          <nuxt-link
-            v-if="$route.name === 'index'"
-            to="/protocols/"
-            class="business-btn mr-3"
+          <NavItem to="/login">
+            <a class="py-2 text-sm text-primary">{{ $t('nav.login') }}</a>
+          </NavItem>
+        </div>
+        <div
+          v-if="$router.history.current.path !== '/signup'"
+          class="inline-block"
+        >
+          <span
+            v-if="$router.history.current.path === '/login'"
+            class="text-sm"
+            >{{ $t('nav.signin.new-accout') }}</span
           >
-            Become a Partner
-          </nuxt-link>
-          <b
-            v-if="isCommunity"
-            class="desktop-only mr-2"
-          >
-            {{ getReputation() }} REP
-          </b>
-          <i v-b-modal.modal-1 class="fa fa-bars fa-lg humburger-menu" />
-          <b-modal
-            id="modal-1"
-            title="Menu"
-            header-text-variant="light"
-            hide-footer
-          >
-            <nuxt-link
-              v-if="!loginStatus"
-              class="dropdown-item"
-              to="/signup/"
-              @click.native="closeModal"
+          <NavItem to="/signup">
+            <Button
+              :type="
+                $router.history.current.path === '/login' ? 'link' : 'secondary'
+              "
+              :padding="false"
+              class="text-sm py-2 px-5"
             >
-              Signup
-            </nuxt-link>
-            <nuxt-link
-              v-if="!loginStatus"
-              class="dropdown-item"
-              to="/login/"
-              @click.native="closeModal"
-            >
-              Login
-            </nuxt-link>
-            <nuxt-link
-              v-if="loginStatus"
-              class="dropdown-item"
-              to="/bounties/"
-              @click.native="closeModal"
-            >
-              Bounties
-            </nuxt-link>
-            <nuxt-link
-              class="dropdown-item"
-              to="/communities/"
-              @click.native="closeModal"
-            >
-              Communities
-            </nuxt-link>
-            <nuxt-link
-              v-if="loginStatus"
-              class="dropdown-item"
-              to="/notifications/"
-              @click.native="closeModal"
-            >
-              Notifications
-              <b-badge
-                v-if="getUnreadNotification > 0"
-                class="badge-notification-menu"
-              >
-                {{ getUnreadNotification }}
-                <span v-if="loginStatus" class="sr-only">unread messages</span>
-              </b-badge>
-            </nuxt-link>
-            <nuxt-link
-              v-if="loginStatus"
-              class="dropdown-item"
-              to="/profile/"
-              @click.native="closeModal"
-            >
-              Profile
-            </nuxt-link>
-            <a v-if="loginStatus" class="dropdown-item" @click="logOut">
-              Sign Out
-            </a>
-          </b-modal>
-          <b-badge
-            v-if="getUnreadNotification > 0"
-            class="badge-notification-nav"
-          >
-            {{ getUnreadNotification }}
-            <span class="sr-only">unread messages</span>
-          </b-badge>
-        </b-nav-item>
-      </b-navbar-nav>
-    </b-navbar>
+              {{ $t('nav.sign-up') }}
+            </Button>
+          </NavItem>
+        </div>
+      </ul>
+      <ul
+        v-if="isAuthenticated"
+        class="hidden lg:flex ml-auto text-right relative"
+      >
+        <NotificationPopup
+          :button-styles="buttonStyle"
+          :badge-styles="badgeStyle"
+        />
+        <UserPopup :button-styles="buttonStyle" />
+      </ul>
+    </div>
   </div>
 </template>
 <script>
+import hexToRgba from 'hex-to-rgba'
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import Logo from '@/components/Logo'
+import Sidebar from '@/components/popups/Sidebar'
+import NavItem from '@/components/ui/NavItem'
+import NotificationPopup from '@/components/popups/Notification'
+import UserPopup from '@/components/popups/User'
+import Button from '@/components/ui/Button'
 
 export default {
+  components: {
+    Logo,
+    NavItem,
+    Button,
+    Sidebar,
+    NotificationPopup,
+    UserPopup,
+  },
+
+  props: {
+    settings: {
+      default: () => {
+        return {}
+      },
+      type: Object,
+    },
+  },
   computed: {
-    color () {
-      if (this.isCommunity) {
-        return this.communityData.gradient
+    containerStyle() {
+      if (!this.settings || !this.settings.colors) {
+        return {}
       }
-      return null
-    },
-    isCommunity () {
-      const array = [
-        'slug-introduction',
-        'slug-challenge',
-        'slug-submissions',
-        'slug-scoreboard',
-        'slug-chapter-id',
-        'slug-submission-id'
-      ]
-      if (array.includes(this.$route.name)) {
-        return true
+      return {
+        backgroundColor: this.settings.colors.primary,
+        color: this.settings.colors.text,
       }
-      return false
     },
-    userLoggedIn (params) {
-      return this.$store.getters.loginStatus
-    },
-    getUnreadNotification () {
-      let notifications = 0
-      if (this.notifications) {
-        for (
-          let index = 0;
-          index < Object.values(this.notifications).length;
-          index++
-        ) {
-          if (!Object.values(this.notifications)[index].notificationRead) {
-            notifications++
-          }
-        }
+    buttonStyle() {
+      if (!this.settings || !this.settings.colors) {
+        return {}
       }
-      return parseFloat(notifications).toFixed(0)
+      return {
+        backgroundColor: hexToRgba(this.settings.colors.text, 0.3),
+        color: this.settings.colors.text,
+      }
+    },
+    badgeStyle() {
+      if (!this.settings || !this.settings.colors) {
+        return {}
+      }
+      return {
+        backgroundColor: this.settings.colors.accent,
+        color: this.settings.colors.primary,
+      }
     },
     ...mapGetters({
       user: 'user/get',
-      userReputation: 'user/reputation',
-      loginStatus: 'auth/loginStatus',
+      isAuthenticated: 'auth/check',
       communityData: 'content/communityData',
-      notifications: 'notification/get',
-      balance: 'user/balance'
-    })
+    }),
   },
   watch: {
     $route: {
       immediate: true,
-      handler (to, from) {
+      handler(to, from) {
         this.$forceUpdate()
-      }
-    }
+      },
+    },
   },
   methods: {
-    logOut () {
+    logOut() {
       this.$store.dispatch('auth/logout')
       this.$router.push('/communities')
     },
-    getBalance () {
-      let balance = 0
-      if (this.user && this.balance) {
-        for (const key in this.balance) {
-          if (key !== 'DCN') {
-            balance = balance + this.balance[key]
-          }
-        }
-      }
-      return parseFloat(balance).toFixed(0)
-    },
-    getDCNBalance () {
-      let balance = 0
-      if (this.user && this.balance && this.balance.DCN) {
-        balance = this.balance.DCN
-      }
-      return parseFloat(balance).toFixed(0)
-    },
-    getSectionName (route) {
+    getSectionName(route) {
       switch (route.name) {
         case 'notifications':
           return 'Notifications'
@@ -226,130 +162,9 @@ export default {
           return null
       }
     },
-    closeModal () {
+    closeModal() {
       this.$bvModal.hide('modal-1')
     },
-    getReputation () {
-      let reputation = 0
-      console.log(this.userReputation)
-      if (this.userReputation && this.userReputation[this.communityData.id]) {
-        reputation = this.userReputation[this.communityData.id]
-      }
-      return parseFloat(reputation).toFixed(0)
-    }
-  }
+  },
 }
 </script>
-<style lang="scss" scoped>
-.business-btn {
-  border: 1px solid white;
-  border-radius: 0.3rem;
-  color: white;
-  font-size: 0.8em;
-  padding: 0.2rem 0.6rem;
-}
-
-.business-btn:hover{
-  background: white;
-  color: #53d1af;
-  text-decoration: none;
-}
-
-.navbar-main {
-  z-index: 999;
-}
-
-.no-padding{
-  padding: 0;
-}
-.invisible{
-  visibility: hidden;
-}
-
-a:not([href]):not([tabindex]) {
-  color: rgba(217, 217, 217, 1);
-  cursor: pointer;
-}
-
-a:not([href]):not([tabindex]):hover {
-  color: #53d1af;
-}
-
-.community-title {
-  color: white;
-  font-size: 21px;
-  font-weight: 700;
-}
-
-.dropdown-item {
-  font-size: 19px;
-  font-weight: 700;
-  color: rgba(217, 217, 217, 1);
-}
-
-.dropdown-item a:hover {
-  color: #53d1af;
-}
-
-.dropdown-item:hover {
-  color: #53d1af;
-  background: none;
-  border-radius: 25px;
-  font-size: 1.3em;
-  margin-left: 0.3em;
-}
-
-.humburger-menu{
-  outline: none;
-  &:focus,
-  &:hover{
-    outline: none;
-  }
-}
-
-/* a.nuxt-link-active {
-  color: #53d1af;
-  background: none;
-  border-radius: 25px;
-  font-size: 1.3em;
-  margin-left: 0.3em;
-}
-
-a.nuxt-link-active:hover {
-  color: #53d1af;
-  background: none;
-  border-radius: 25px;
-  font-size: 1.3em;
-  margin-left: 0.3em;
-  cursor: default;
-} */
-.logoImg {
-  vertical-align: unset;
-}
-
-.nav-divider {
-  padding-left: 1em;
-  margin-left: 10px;
-  border-left: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.navbar-green {
-  background: #53d1af;
-}
-
-.navbar-black {
-  background: #343a40;
-}
-
-.navbar-business {
-  background: #252830;
-}
-
-.pointer:hover {
-  cursor: pointer;
-}
-
-.userPoints {
-  font-size: 19px;
-}
-</style>
