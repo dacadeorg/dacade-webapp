@@ -39,11 +39,9 @@
             items-start
           "
         >
-          <div v-if="submissions && showSubmissions" class="text-sm">
+          <div v-if="submissions" class="text-sm">
             <span
-              ><strong v-if="submissions && showSubmissions">{{
-                submissions.length
-              }}</strong>
+              ><strong v-if="submissions">{{ submissions.length }}</strong>
               {{ $t('communities.submissions') }}</span
             >
             <div />
