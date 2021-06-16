@@ -1,5 +1,5 @@
 <template>
-  <div class="relative mt-5 lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
+  <div class="relative my-7 lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
     <div
       class="
         relative
@@ -7,20 +7,23 @@
         lg:p-10
         lg:pb-10
         lg:pt-9
-        p-8
-        pb-24
-        w-11/12
+        p-7
+        w-full
         text-primary
         h-full
+        flex flex-col
+        justify-between
       "
     >
-      <p class="text-2xl font-medium mb-2.5 leading-none">
-        {{ $t('page.index.communities.partnering.title') }}
-      </p>
-      <p class="text-base mt-0 mb-20 lg:mb-0 leading-normal">
-        {{ $t('page.index.communities.partnering.subtitle') }}
-      </p>
-      <div class="mt-24 pb-4">
+      <div>
+        <p class="text-2xl font-medium mb-2.5 leading-none">
+          {{ $t('page.index.communities.partnering.title') }}
+        </p>
+        <p class="text-base mt-0 mb-20 lg:mb-0 leading-normal">
+          {{ $t('page.index.communities.partnering.subtitle') }}
+        </p>
+      </div>
+      <div class="self-start">
         <a href="mailto:moritz@dacade.org">
           <Button
             class="
@@ -28,7 +31,7 @@
               group-hover:text-white
               leading-relaxed
               px-6
-              py-5
+              py-1.5
             "
             type="outline-primary"
             :padding="false"
