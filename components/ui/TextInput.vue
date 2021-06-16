@@ -21,34 +21,57 @@
           pointer-events-none
           transform
           origin-left
+          transition-all
+          duration-100
+          ease-in-out
           items-center
         "
       >
         {{ label }}
       </label>
-      <input
+      <!-- :placeholder="$t('communities.challenge.submission.placeholder.text')" -->
+      <textarea
+        :value="value"
+        :placeholder="placeholder"
+        autocomplete="off"
+        :disabled="disabled"
+        class="
+          w-full
+          border border-solid border-grey-200
+          h-56
+          resize-none
+          m-0
+          pt-5
+          md:pt-7.5
+          pl-15
+          pr-2
+          md:px-10.75
+          block
+          text-lg
+          focus:outline-none
+          placeholder-gray-400 placeholder-opacity-100
+        "
+        @focus="isFocused = true"
+        @blur="isFocused = false"
+        v-on="inputListeners"
+      />
+      <!-- <textarea
         :class="{
           'text-gray-400 scale-75 -translate-y-3 translate-x-1 bg-gray-50':
             disabled,
-          'focus:border-none': !error,
           'border-red-100': error,
+          'focus:border-gray-200': !error,
         }"
-        :value="value"
         :type="type"
+        :value="value"
         :placeholder="placeholder"
-        class="
-          rounded-md
-          focus:outline-none
-          active:outline-none
-          border-none
-          text-lg
-        "
+        class="rounded-md focus:outline-none focus:shadow-sm text-lg"
         autocomplete="off"
         :disabled="disabled"
+        @focus="isFocused = true"
+        @blur="isFocused = false"
         v-on="inputListeners"
-      />
-      <!-- @focus="isFocused = true" -->
-      <!-- @blur="isFocused = false" -->
+      /> -->
     </div>
     <div v-if="error" class="bg-red-50 help text-sm text-red-900 px-5 py-1.5">
       <p>
@@ -76,11 +99,6 @@ export default {
     },
 
     disabled: {
-      type: Boolean,
-      default: false,
-    },
-
-    isGithubLink: {
       type: Boolean,
       default: false,
     },

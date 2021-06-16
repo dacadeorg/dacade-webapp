@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="floating-input relative">
+    <div class="relative">
       <label
         :class="{
           'text-gray-400 flex items-center': !isFilled && !isFocused,
@@ -17,38 +17,52 @@
           px-5
           py-5
           z-10
+          w-full
           h-full
           pointer-events-none
           transform
           origin-left
+          transition-all
+          duration-100
+          ease-in-out
+          outline-none
+          border-none
           items-center
         "
       >
         {{ label }}
       </label>
+      <!-- 'focus:border-gray-200': !error, -->
       <input
         :class="{
           'text-gray-400 scale-75 -translate-y-3 translate-x-1 bg-gray-50':
             disabled,
-          'focus:border-none': !error,
           'border-red-100': error,
         }"
         :value="value"
-        :type="type"
+        type="text"
         :placeholder="placeholder"
         class="
-          rounded-md
+          rounded-b
+          w-10/12
+          max-w-content
           focus:outline-none
-          active:outline-none
+          active:outline-none active:shadow-none
+          focus:shadow-none
           border-none
+          focus:border-none
+          outline-none
+          active:border-none
           text-lg
+          ml-7
+          active:border-0
         "
         autocomplete="off"
         :disabled="disabled"
+        @focus="isFocused = true"
+        @blur="isFocused = false"
         v-on="inputListeners"
       />
-      <!-- @focus="isFocused = true" -->
-      <!-- @blur="isFocused = false" -->
     </div>
     <div v-if="error" class="bg-red-50 help text-sm text-red-900 px-5 py-1.5">
       <p>
