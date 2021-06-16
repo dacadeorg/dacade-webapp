@@ -18,7 +18,9 @@
         mt-7
         grid grid-cols-1
         lg:grid-cols-2
-        gap-x-5 gap-y-5
+        gap-x-5 gap-y-0.5
+        lg:gap-y-5
+        md:gap-y-5
         justify-stretch-items
       "
     >
