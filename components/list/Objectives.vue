@@ -8,7 +8,9 @@
       py-2
       md:space-y-0
       lg:space-x-5
-      md:pt-5 md:pb-0 md:mb-0
+      md:pt-5
+      md:pb-0
+      md:mb-0
     "
   >
     <Objective

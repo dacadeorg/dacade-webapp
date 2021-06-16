@@ -15,7 +15,8 @@
           class="
             grid grid-cols-1
             space-y-4
-            md:space-y-0 md:grid-cols-2
+            md:space-y-0
+            md:grid-cols-2
             lg:grid-cols-4
             mt-3
             gap-y-5 gap-x-5
