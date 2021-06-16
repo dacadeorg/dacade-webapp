@@ -1,9 +1,7 @@
 /* eslint-disable vue/no-v-html */
 <template>
-  <Section padding="py-32" type="secondary-light">
-    <CommunitStats
-      class="xl:w-1/3 lg:mt-0 md:mt-0 -mt-24 md:w-1/2 z-10 max-w-sm"
-    />
+  <Section padding="md:py-32" type="secondary-light">
+    <CommunitStats class="xl:w-1/3 mt-5 md:w-1/2 z-10 max-w-sm" />
     <Stories :list="stories" />
   </Section>
 </template>
@@ -26,8 +24,8 @@ export default {
       stories: [
         {
           icon: require('~/assets/img/testimonial-sample.png'),
-          content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          // content:
+          //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-2.png'),
@@ -46,8 +44,8 @@ export default {
         },
         {
           icon: require('~/assets/img/testimonial-sample-5.png'),
-          // content:
-          //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          content:
+            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
           icon: require('~/assets/img/testimonial-sample-6.png'),

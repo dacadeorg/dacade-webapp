@@ -1,12 +1,6 @@
 /* eslint-disable vue/no-v-html */
 <template>
-  <div
-    class="absolute w-full left-0 z-0 hidden sm:block"
-    :style="{
-      top: '-3vh',
-      height: `${gridSize}vh`,
-    }"
-  >
+  <div class="absolute w-full top-0 h-screen left-0 z-0 hidden sm:block">
     <span
       v-for="(grid, i) in grids"
       :key="i"
