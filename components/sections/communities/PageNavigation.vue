@@ -16,8 +16,7 @@
       </nuxt-link>
       <nuxt-link v-if="nextUrl" :to="nextUrl">
         <Button
-          padding="p-4"
-          class="h-10 min-h-full"
+          class="p-4 h-10 min-h-full"
           :class="{
             'w-full min-w-3/4 h-15 min-h-full  sm:w-64 flex-none': !prevUrl,
           }"
