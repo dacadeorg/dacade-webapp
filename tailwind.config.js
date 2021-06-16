@@ -512,6 +512,7 @@ module.exports = {
     minHeight: {
       0: '0rem',
       '3xs': '5rem',
+      '2.5xs': '7.5rem',
       '2xs': '10rem',
       '.5xs': '14em',
       xs: '20rem',
