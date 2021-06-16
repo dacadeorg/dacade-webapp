@@ -53,10 +53,7 @@
           </p>
         </div>
         <div class="self-end w-36 md:w-1/2 max-w-lg">
-          <img
-            :src="community.icon"
-            class="relative w-full aspect-w-1 aspect-h-1"
-          />
+          <img :src="community.icon" class="relative w-full" />
         </div>
       </div>
       <div
@@ -70,23 +67,6 @@
           lg:flex-row lg:items-center
         "
       >
-        <!-- <div class="flex h-10 mr-5">
-          <img
-            class="w-10 h-10 -mr-3 border-2 rounded-full border-theme-secondary"
-            src="~assets/img/testimonial-sample-2.png"
-            alt=""
-          />
-          <img
-            class="w-10 h-10 -mr-3 border-2 rounded-full border-theme-secondary"
-            src="~assets/img/testimonial-sample-5.png"
-            alt=""
-          />
-          <img
-            class="w-10 h-10 -mr-3 border-2 rounded-full border-theme-secondary"
-            src="~assets/img/testimonial-sample-2.png"
-            alt=""
-          />
-        </div> -->
         <div class="my-2 text-sm">
           <span
             ><strong>{{ community.submissions }}</strong> Submissions</span
