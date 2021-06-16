@@ -3,10 +3,12 @@
     class="
       cursor-pointer
       flex
-      md:flex-row-reverse md:space-x-5
+      md:flex-row-reverse
+      md:space-x-5
       px-5
       min-h-32
-      md:h-auto md:w-full
+      md:h-auto
+      md:w-full
       justify-between
       hover:bg-secondary
       relative
@@ -87,7 +89,7 @@
               </div>
             </div>
             <div class="text-gray-500 text-base font-normal">
-              {{ $t('rewards.prefix.closes') }}
+              {{ $t('bounties.prefix.closes') }}
               {{ convertDate(submission.reviewDeadline) }}
             </div>
           </div>
