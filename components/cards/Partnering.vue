@@ -7,8 +7,11 @@
         lg:p-10
         lg:pb-10
         lg:pt-9
-        p-7
-        w-full
+        p-8
+        pb-6
+        lg:pb-24
+        md:pb-24
+        w-11/12
         text-primary
         h-full
         flex flex-col

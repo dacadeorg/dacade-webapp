@@ -26,7 +26,10 @@
         md:border-none
       "
     > -->
-    <span class="font-medium">{{ title }}</span> <span>{{ text }}</span>
+    <div class="mt-2.5">
+      <span class="font-medium">{{ title }}</span> <span>{{ text }}</span>
+    </div>
+
     <!-- </div> -->
   </div>
 </template>
