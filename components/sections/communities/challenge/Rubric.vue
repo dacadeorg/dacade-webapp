@@ -85,9 +85,6 @@ export default {
       colors: 'ui/colors',
     }),
   },
-  created() {
-    console.log(this.$router)
-  },
   methods: {
     selectedRubric(id) {
       return this.selected.find((rubric) => rubric.id === id)

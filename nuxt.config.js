@@ -16,10 +16,7 @@ export default {
       { property: 'og:image', content: 'https://dacade.org/img/dacade_og.png' },
       { property: 'og:description', content: 'Peer-to-Peer Learning' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '/font-awesome.min.css' },
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color

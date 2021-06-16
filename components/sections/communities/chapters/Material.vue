@@ -102,8 +102,5 @@ export default {
       }
     },
   },
-  created() {
-    console.log(this.material)
-  },
 }
 </script>

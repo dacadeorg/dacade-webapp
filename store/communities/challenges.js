@@ -22,7 +22,6 @@ export const mutations = {
 export const actions = {
   async find({ commit }, id) {
     const { data } = await this.$api.get(`challenges/show/${id}`)
-    console.log(data)
     commit('setCurrent', data)
     commit('setSubmission', data.submission)
   },

@@ -109,10 +109,6 @@ export default {
     }
   },
 
-  created() {
-    console.log(this.$router)
-  },
-
   methods: {
     onLogin() {
       const loginData = {

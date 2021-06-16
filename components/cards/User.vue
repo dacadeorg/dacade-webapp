@@ -25,7 +25,7 @@
               rounded-full
               font-medium
             "
-            >{{ user.reputation || 0 }} REP</span
+            >{{ Number(user.reputation || 0).toFixed(1) }} REP</span
           >
           <span class="block text-sm leading-snug text-gray-700">
             {{ timestamp.text }}

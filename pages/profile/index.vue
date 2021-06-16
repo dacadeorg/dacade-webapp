@@ -11,8 +11,5 @@ export default {
   components: {
     Wrapper,
   },
-  mounted() {
-    // Firebase.auth().currentUser.getIdToken().then(e => console.log(e))
-  },
 }
 </script>

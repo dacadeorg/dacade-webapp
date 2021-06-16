@@ -79,8 +79,5 @@ export default {
       )
     },
   },
-  mounted() {
-    console.log(this.chapter)
-  },
 }
 </script>

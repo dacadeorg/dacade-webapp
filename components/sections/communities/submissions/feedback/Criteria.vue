@@ -62,7 +62,11 @@
             "
           >
             <div
-              class="flex justify-between"
+              v-if="
+                submission.challenge.feedbackInfo &&
+                submission.challenge.feedbackInfo.length
+              "
+              class="flex justify-between cursor-pointer"
               @click="infoVisibility = !infoVisibility"
             >
               <p>

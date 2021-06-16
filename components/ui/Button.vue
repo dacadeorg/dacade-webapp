@@ -54,7 +54,7 @@ export default {
     },
     padding: {
       default: true,
-      type: Boolean,
+      type: [Boolean, String],
     },
     margin: {
       default: '',

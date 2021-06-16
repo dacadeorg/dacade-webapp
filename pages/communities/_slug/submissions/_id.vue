@@ -68,9 +68,5 @@ export default {
       submission: 'communities/submissions/current',
     }),
   },
-  created() {
-    // eslint-disable-next-line no-console
-    console.log(this.submission)
-  },
 }
 </script>

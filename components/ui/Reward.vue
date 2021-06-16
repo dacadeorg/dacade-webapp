@@ -28,9 +28,5 @@ export default {
       type: Object,
     },
   },
-  mounted() {
-    // eslint-disable-next-line no-console
-    console.log(this.reward)
-  },
 }
 </script>

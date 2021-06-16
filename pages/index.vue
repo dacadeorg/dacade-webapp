@@ -21,19 +21,5 @@ export default {
   fetch({ store }) {
     return store.dispatch('communities/all')
   },
-  // ,
-  // mounted () {
-  //   const helloWorld = firebase
-  //     .functions()
-  //     .httpsCallable('helloWorld')
-
-  //   helloWorld()
-  //     .then((response) => {
-  //       console.log(response)
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-  // }
 }
 </script>

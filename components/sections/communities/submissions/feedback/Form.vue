@@ -30,6 +30,7 @@
       "
     />
     <div
+      v-if="submission.challenge.format.githubLink"
       class="
         w-full
         border border-solid border-grey-200
@@ -70,10 +71,7 @@
         :custom-style="activeButtonStyle"
         @click="submit()"
       >
-        <span
-          class="flex text-left items-center text-sm w-32 h-6"
-          @click="state.issued = !state.issued"
-        >
+        <span class="flex text-left items-center text-sm w-32 h-6">
           {{ $t('submit') }}
           <span class="ml-16 w-3"><ArrowRightIcon /></span>
         </span>
@@ -99,7 +97,6 @@ export default {
   data() {
     return {
       state: {
-        issued: false,
         visiblity: false,
       },
       text: '',
@@ -110,7 +107,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      community: 'communities/current',
       user: 'user/get',
       colors: 'ui/colors',
       submission: 'communities/submissions/current',
@@ -121,36 +117,13 @@ export default {
         backgroundColor: this.colors.textAccent,
       }
     },
-    criteria() {
-      return [
-        {
-          type: 'Feedback Rewards',
-          list: this.community?.objectives,
-          crossmark: false,
-          description:
-            'This applies only if the submission reaches 6/20 Points otherwise the best feedback will get 0.5 CGLD',
-        },
-        {
-          type: 'Do',
-          list: this.community?.objectives,
-          crossmark: false,
-        },
-        {
-          type: "Don't",
-          list: this.community?.objectives,
-          crossmark: true,
-        },
-      ]
-    },
   },
   methods: {
     submit() {
-      // eslint-disable-next-line no-console
-      console.log('saving', this.saving)
       if (!this.saving) {
         this.saving = true
         this.$api
-          .post(`feedbacks/create/`, {
+          .post(`feedbacks/create`, {
             submission_id: this.submission.id,
             text: this.text,
             link: this.githubLink,
