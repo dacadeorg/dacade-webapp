@@ -21,6 +21,9 @@
           pointer-events-none
           transform
           origin-left
+          transition-all
+          duration-100
+          ease-in-out
           items-center
         "
       >
@@ -30,25 +33,19 @@
         :class="{
           'text-gray-400 scale-75 -translate-y-3 translate-x-1 bg-gray-50':
             disabled,
-          'focus:border-none': !error,
           'border-red-100': error,
+          'focus:border-gray-200': !error,
         }"
         :value="value"
         :type="type"
         :placeholder="placeholder"
-        class="
-          rounded-md
-          focus:outline-none
-          active:outline-none
-          border-none
-          text-lg
-        "
+        class="rounded-md focus:outline-none focus:shadow-sm text-lg"
         autocomplete="off"
         :disabled="disabled"
+        @focus="isFocused = true"
+        @blur="isFocused = false"
         v-on="inputListeners"
       />
-      <!-- @focus="isFocused = true" -->
-      <!-- @blur="isFocused = false" -->
     </div>
     <div v-if="error" class="bg-red-50 help text-sm text-red-900 px-5 py-1.5">
       <p>
@@ -76,11 +73,6 @@ export default {
     },
 
     disabled: {
-      type: Boolean,
-      default: false,
-    },
-
-    isGithubLink: {
       type: Boolean,
       default: false,
     },
