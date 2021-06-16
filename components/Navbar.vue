@@ -5,7 +5,7 @@
         <NavItem type="logo">
           <Logo />
         </NavItem>
-        <NavItem type="brand">
+        <NavItem type="brand mx-0.5">
           {{ $t('app.name') }}
         </NavItem>
       </ul>
@@ -17,7 +17,7 @@
           {{ $t('nav.communities') }}
         </NavItem>
       </ul>
-      <ul class="ml-auto text-right relative flex lg:hidden">
+      <ul class="ml-auto text-right relative flex lg:hidden items-center">
         <Sidebar />
       </ul>
       <ul
