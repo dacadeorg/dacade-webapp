@@ -1,20 +1,10 @@
 <template>
-  <div
-    class="
-      quadratic-card
-      relative
-      mt-5
-      lg:mt-0
-      xl:pt-0
-      rounded-3.5xl
-      overflow-hidden
-    "
-  >
+  <div class="relative mt-5 lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
     <div
       class="
         relative
         z-10
-        lg:w-8/12 lg:p-0 lg:pb-0 lg:pt-9
+        lg:p-10 lg:pb-10 lg:pt-9
         p-8
         pb-24
         w-11/12
@@ -28,7 +18,7 @@
       <p class="text-base mt-0 mb-20 lg:mb-0 leading-normal">
         {{ $t('page.index.communities.partnering.subtitle') }}
       </p>
-      <div class="mt-24 lg:bottom-0 lg:left-0 bottom-10 left-9">
+      <div class="mt-24 pb-4">
         <a href="mailto:moritz@dacade.org">
           <Button
             class="
@@ -36,7 +26,7 @@
               group-hover:text-white
               leading-relaxed
               px-6
-              py-2
+              py-5
             "
             type="outline-primary"
             :padding="false"
