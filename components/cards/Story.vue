@@ -23,6 +23,7 @@
     <img :src="story.icon" />
     <div
       v-show="showBubble"
+      :v-if="content"
       class="
         absolute
         p-7
@@ -36,7 +37,7 @@
         border border-solid border-black border-opacity-5
       "
     >
-      <span>{{ story.content }}</span>
+      <span>{{ content }}</span>
     </div>
   </div>
 </template>
@@ -72,10 +73,24 @@ export default {
       type: Number,
     },
   },
-  data() {
-    return {
-      showBubble: false,
-    }
+  // data() {
+  //   return {
+  //     showBubble: true,
+  //   }
+  // },
+  computed: {
+    content() {
+      return this.$props.story?.content
+    },
+    showBubble() {
+      if (this.content?.length > 1) return this.content
+      else return false
+    },
+  },
+  watch: {
+    story() {
+      this.toggleBubble()
+    },
   },
   methods: {
     getPosition() {
