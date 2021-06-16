@@ -70,7 +70,7 @@
           lg:flex-row lg:items-center
         "
       >
-        <div class="flex h-10 mr-5">
+        <!-- <div class="flex h-10 mr-5">
           <img
             class="w-10 h-10 -mr-3 border-2 rounded-full border-theme-secondary"
             src="~assets/img/testimonial-sample-2.png"
@@ -86,7 +86,7 @@
             src="~assets/img/testimonial-sample-2.png"
             alt=""
           />
-        </div>
+        </div> -->
         <div class="my-2 text-sm">
           <span
             ><strong>{{ community.submissions }}</strong> Submissions</span
