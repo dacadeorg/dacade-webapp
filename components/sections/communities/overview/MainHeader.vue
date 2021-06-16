@@ -64,15 +64,16 @@
           sm:-mt-15
           lg:-mt-8
           md:max-w-xl
-          lg:flex-row lg:items-center
+          lg:flex-row
+          lg:items-center
         "
       >
         <div class="my-2 text-sm">
           <span
-            ><strong>{{ community.submissions }}</strong> Submissions</span
+            ><strong>{{ submissions }}</strong> Submissions</span
           >
           <span class="p-2 md:border-l md:ml-2"
-            ><strong>{{ community.feedbacks }}</strong> Feedbacks</span
+            ><strong>{{ feedbacks }}</strong> Feedbacks</span
           >
           <div />
         </div>
@@ -93,6 +94,18 @@ export default {
       community: 'communities/current',
       communityData: 'communities/content',
     }),
+    submissions() {
+      if (this.community.metadata && this.community.metadata.submissions) {
+        return this.community.metadata.submissions
+      }
+      return 0
+    },
+    feedbacks() {
+      if (this.community.metadata && this.community.metadata.feedbacks) {
+        return this.community.metadata.feedbacks
+      }
+      return 0
+    },
   },
   methods: {
     htmlTagsCleanup(value) {
