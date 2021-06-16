@@ -16,7 +16,7 @@
                 >{{ reward.amount }} {{ reward.token }}</span
               >
               <div class="block text-sm">
-                {{ $t('communities.rewards.per') }}
+                {{ $t('bounties.rewards.per') }}
                 <span class="capitalize">{{ reward.type.toLowerCase() }}</span>
               </div>
             </div>

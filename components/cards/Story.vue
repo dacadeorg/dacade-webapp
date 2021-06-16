@@ -81,18 +81,18 @@ export default {
       type: Number,
     },
   },
-  // data() {
-  //   return {
-  //     showBubble: true,
-  //   }
-  // },
+
   computed: {
     content() {
       return this.$props.story?.content
     },
-    showBubble() {
-      if (this.content?.length > 1) return this.content
-      else return false
+    showBubble: {
+      get() {
+        return this.content?.length > 1
+      },
+      set(val) {
+        return val?.length > 1
+      },
     },
   },
   watch: {
