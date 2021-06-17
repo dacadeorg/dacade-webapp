@@ -108,7 +108,6 @@
               </span>
             </span>
           </Button>
-          <NotificationBar />
         </div>
       </form>
     </ValidationObserver>
@@ -117,7 +116,6 @@
 <script>
 import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
-import NotificationBar from '@/components/NotificationBar'
 import TextInput from '@/components/ui/TextInput'
 import GithubLinkInput from '@/components/ui/GithubLinkInput'
 import Button from '@/components/ui/Button'
@@ -136,7 +134,6 @@ export default {
     TextInput,
     GithubLinkInput,
     Spinner,
-    NotificationBar,
     Avatar,
   },
   data() {
