@@ -2,8 +2,20 @@
   <div class="relative">
     <MainHeaderSection />
     <Section>
-      <div class="lg:flex">
-        <div class="hidden lg:block w-1/4 py-3 pr-4 lg:py-14">
+      <div class="lg:flex h-auto">
+        <div
+          class="
+            hidden
+            lg:block
+            sticky
+            top-0
+            self-start
+            w-1/4
+            py-3
+            pr-4
+            lg:py-14
+          "
+        >
           <Navigation />
         </div>
         <div class="lg:hidden pt-8 pb-0 w-full lg:py-14">

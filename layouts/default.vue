@@ -1,6 +1,6 @@
 <template>
   <div class="relative min-h-screen flex flex-col">
-    <div class="relative flex-grow-0 sticky top-0 z-999 bg-white">
+    <div class="relative flex-grow-0">
       <Navbar />
       <NotificationBar />
     </div>
