@@ -11,7 +11,6 @@
     >
       <RewardsSection />
       <ObjectivesSection />
-      <DisclaimerSection />
       <PrerequisiteSection />
       <TrailerSection />
       <ChaptersSection />
@@ -31,7 +30,6 @@ import ChaptersSection from './Chapters'
 import ChallengeSection from './Challenge'
 import DescriptionSection from './Description'
 import PrerequisiteSection from './Prerequisite'
-import DisclaimerSection from './Disclaimer'
 
 export default {
   name: 'OverviewSection',
@@ -42,7 +40,6 @@ export default {
     ChaptersSection,
     ChallengeSection,
     DescriptionSection,
-    DisclaimerSection,
     PageNavigation,
     PrerequisiteSection,
   },
