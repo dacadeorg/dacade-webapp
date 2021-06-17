@@ -1,29 +1,31 @@
 <template>
   <ul class="relative hidden lg:block xl:block">
     <li v-for="(menu, i) in menus" :key="i" class="mb-8 relative">
-      <span
-        v-if="!menu.hideTitle"
-        class="text-xs uppercase font-semibold relative text-gray-500"
-        >{{ menu.title }}</span
-      >
-      <ul>
-        <li
-          v-for="(item, k) in menu.items"
-          :key="k"
-          class="text-sm mt-4 relative text-primary"
+      <div v-if="menu.items && menu.items.length">
+        <span
+          v-if="!menu.hideTitle"
+          class="text-xs uppercase font-semibold relative text-gray-500"
+          >{{ menu.title }}</span
         >
-          <nuxt-link
-            :to="item.link"
-            class="relative text-gray-500"
-            :class="{ 'activable-link': !item.exact }"
+        <ul>
+          <li
+            v-for="(item, k) in menu.items"
+            :key="k"
+            class="text-sm mt-4 relative text-primary"
           >
-            <span class="inline-block absolute -left-6 nav-icon">
-              <ChevronRightIcon />
-            </span>
-            <span class="nav-label">{{ item.label }}</span>
-          </nuxt-link>
-        </li>
-      </ul>
+            <nuxt-link
+              :to="item.link"
+              class="relative text-gray-500"
+              :class="{ 'activable-link': !item.exact }"
+            >
+              <span class="inline-block absolute -left-6 nav-icon">
+                <ChevronRightIcon />
+              </span>
+              <span class="nav-label">{{ item.label }}</span>
+            </nuxt-link>
+          </li>
+        </ul>
+      </div>
     </li>
   </ul>
 </template>
@@ -54,7 +56,8 @@ export default {
           items: [
             {
               label: 'Notifications',
-              link: '/profile/notifications',
+              link: '/profile',
+              exact: true,
             },
             {
               label: 'Wallet',

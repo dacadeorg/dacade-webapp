@@ -39,15 +39,7 @@ function isAdminRoute(route) {
 function isUserRoute(route) {
   return matchesRoutes(
     route,
-    [
-      'slug-chapter-id',
-      'slug-challenge',
-      'slug-submissions',
-      'slug-submission-id',
-      'bounties',
-      'profile',
-      'profile/notifications',
-    ],
+    ['bounties', 'profile', 'profile/notifications'],
     'name'
   )
 }
@@ -58,7 +50,7 @@ function isGuestRoute(route) {
 
 function matchesRoutes(route, list, key = 'path') {
   const matches = list.filter((el) =>
-    route.matched.some((record) => record[key] === el)
+    route.matched.some((record) => record[key].includes(el))
   )
   return matches.length > 0
 }

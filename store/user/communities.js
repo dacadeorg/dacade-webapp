@@ -28,6 +28,13 @@ export const mutations = {
   setReputation(state, payload) {
     state.reputation = payload
   },
+  clear(state, payload) {
+    state.list = []
+    state.reputation = 0
+    state.current = null
+    state.feedbacks = []
+    state.submissions = []
+  },
 }
 
 export const actions = {

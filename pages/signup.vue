@@ -196,7 +196,7 @@ export default {
           password: this.form.password,
         })
         .then(() => {
-          this.$router.replace('/profile/notifications')
+          this.$router.replace('/profile')
         })
         .catch((error) => {
           this.loading = false

@@ -1,7 +1,7 @@
 <template>
   <Section padding="py-12">
-    <Header />
-    <div class="lg:flex">
+    <Header v-if="isAuthenticated" />
+    <div v-if="isAuthenticated" class="lg:flex">
       <div class="lg:w-1/4">
         <Navigation />
       </div>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Header from '@/components/sections/profile/Header'
 import Navigation from '@/components/sections/profile/Navigation'
 import Section from '@/components/ui/Section'
@@ -23,6 +24,11 @@ export default {
     Header,
     Section,
     Navigation,
+  },
+  computed: {
+    ...mapGetters({
+      isAuthenticated: 'auth/check',
+    }),
   },
 }
 </script>
