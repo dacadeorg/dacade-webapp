@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-100 sm:flex sm:justify-between rounded-3xl lg:max-w-lg">
-    <div class="relative flex sm:flex-row">
+    <div class="relative items-center ml-7 flex sm:flex-row">
       <Avatar
         :icon="community.icon"
         :color="community.colors.primary"
