@@ -107,3 +107,6 @@ button {
 .upload-icon{
   margin-top: 0.625rem;
 }
+* {
+  letter-spacing: -0.01em;
+}
