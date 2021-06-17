@@ -1,5 +1,7 @@
 <template>
-  <div class="relative my-7 lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
+  <div
+    class="relative my-7 h-full lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden"
+  >
     <div
       class="
         relative
@@ -26,7 +28,7 @@
           {{ $t('page.index.communities.partnering.subtitle') }}
         </p>
       </div>
-      <div class="self-start">
+      <div class="self-start absolute bottom-8">
         <a href="mailto:moritz@dacade.org">
           <Button
             class="

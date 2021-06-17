@@ -1,6 +1,6 @@
 <template>
-  <ThemeWrapper :colors="community.colors">
-    <nuxt-link :to="path">
+  <ThemeWrapper class="h-full" :colors="community.colors">
+    <nuxt-link class="block h-full" :to="path">
       <div
         class="
           group
@@ -10,9 +10,11 @@
           text-theme-text
           space-y-5
           divide-y-2 divide-y divide-dotted divide-theme-accent
+          h-full
+          flex flex-col
         "
       >
-        <div class="mx-auto h-full">
+        <div class="flex-grow">
           <div
             class="
               flex flex-col
@@ -67,7 +69,7 @@
             </div>
           </div>
         </div>
-        <div v-if="duration" class="mt-4 flex justify-between">
+        <div v-if="duration" class="mt-4 flex-none flex justify-between">
           <div class="flex flex-col space-y-0">
             <div class="mt-4 font-light text-theme-accent">
               {{ $t('communities.card.estimated') }}
