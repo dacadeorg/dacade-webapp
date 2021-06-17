@@ -10,17 +10,10 @@
         <Button
           :padding="false"
           type="secondary"
-          class="p-2 bg-gray-100 bg-opacity-75 hover:bg-gray-50"
+          class="p-2"
           :custom-style="buttonStyles"
         >
-          <!-- @click="show = !show" -->
-          <BellIcon />
-          <Badge
-            v-if="unread > 0"
-            :value="unread"
-            class="top-0 -right-1"
-            :custom-style="badgeStyles"
-          />
+          {{ $t('signup-page.terms') }}
         </Button>
       </li>
       <div
@@ -44,7 +37,9 @@
           no-scrollbar
         "
       >
-        <NotificationList />
+        <div class="content-wrapper">
+          <nuxt-content :document="terms" />
+        </div>
       </div>
     </span>
     <div v-if="show" class="opacity-25 fixed inset-0 z-30 bg-black" />
@@ -55,22 +50,12 @@
 import { mapGetters } from 'vuex'
 import vClickOutside from 'v-click-outside'
 
-import Badge from '@/components/ui/Badge'
-import NotificationList from '@/components/list/Notification'
-import Button from '@/components/ui/Button'
-import BellIcon from '~/assets/icons/notification-bell.svg?inline'
-
 export default {
   name: 'NotificationPopup',
   directives: {
     clickOutside: vClickOutside.directive,
   },
-  components: {
-    Button,
-    BellIcon,
-    Badge,
-    NotificationList,
-  },
+  components: {},
   props: {
     buttonStyles: {
       default: null,
@@ -81,15 +66,22 @@ export default {
       type: Object,
     },
   },
+  async asyncData({ $content }) {
+    const terms = await $content('legal/terms').fetch()
+    return {
+      terms,
+    }
+  },
   fetchOnServer: false,
   data() {
     return {
       show: false,
+      loading: false,
     }
   },
   computed: {
     ...mapGetters({
-      unread: 'user/notifications/unread',
+      count: 'user/notifications/count',
     }),
   },
   created() {
@@ -98,31 +90,27 @@ export default {
   methods: {
     toggle() {
       this.show = !this.show
-
-      if (this.unread && this.show) {
-        this.$store.dispatch('user/notifications/read')
-      }
-
       if (this.show) {
         const body = document.body
         body.style.position = 'fixed'
         body.style.width = '100%'
-        return
+      } else {
+        const body = document.body
+        const scrollY = body.style.top
+        body.style.position = 'relative'
+        body.style.top = ''
+        window.scrollTo(0, parseInt(scrollY || '0') * -1)
       }
-      const body = document.body
-      const scrollY = body.style.top
-      body.style.position = 'relative'
-      body.style.top = ''
-      window.scrollTo(0, parseInt(scrollY || '0') * -1)
     },
     externalClick(event) {
-      if (!this.show) return
-      this.show = false
-      const body = document.body
-      const scrollY = body.style.top
-      body.style.position = 'relative'
-      body.style.top = ''
-      window.scrollTo(0, parseInt(scrollY || '0') * -1)
+      if (this.show) {
+        this.show = false
+        const body = document.body
+        const scrollY = body.style.top
+        body.style.position = 'relative'
+        body.style.top = ''
+        window.scrollTo(0, parseInt(scrollY || '0') * -1)
+      }
     },
   },
 }

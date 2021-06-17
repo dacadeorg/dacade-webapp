@@ -11,9 +11,7 @@
         <Checkmark />
       </div>
     </div>
-    <div class="text-sm font-normal leading-5">
-      {{ objective }}
-    </div>
+    <div class="text-sm font-normal leading-5" v-html="objective" />
   </div>
 </template>
 <script>

@@ -21,7 +21,7 @@
     }"
     @click="toggleBubble()"
   >
-    <img :src="story.icon" />
+    <img class="rounded-full" :src="story.icon" />
     <div
       v-show="showBubble"
       :v-if="content"

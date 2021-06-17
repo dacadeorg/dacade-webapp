@@ -51,9 +51,9 @@
           <SocialLink v-for="(link, i) in socialLinks" :key="i" :link="link" />
         </div>
         <p class="mt-8.5">
-          <a href="http://policy.dacade.org" target="__blank">{{
+          <nuxt-link to="privacy-policy" target="__blank">{{
             $t('footer.privacy-policy')
-          }}</a>
+          }}</nuxt-link>
         </p>
       </div>
     </div>

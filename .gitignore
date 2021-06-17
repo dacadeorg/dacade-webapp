@@ -98,3 +98,4 @@ firebase.js
 .nuxt-storybook
 storybook-static
 components/sections/communities/chapters/Header.vue
+yarn.lock

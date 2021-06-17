@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import firebase from '@/plugins/firebase'
+import { read } from 'gray-matter'
 import { vuexfireMutations, firebaseAction } from 'vuexfire'
 
 const db = firebase.database()
@@ -8,6 +9,7 @@ const db = firebase.database()
 export const state = () => ({
   notifications: [],
   count: 0,
+  unread: 0,
 })
 
 export const mutations = {
@@ -18,35 +20,21 @@ export const mutations = {
     state.notifications = payload
     state.count = payload.length
   },
+  setUnread(state, payload) {
+    state.unread = payload
+  },
   ...vuexfireMutations,
 }
 
 export const actions = {
   async all({ commit }) {
     const { data } = await this.$api.get('notifications/list')
-    commit('set', data)
+    commit('set', data.list)
+    commit('setUnread', data.unread)
   },
-  markAsRead({ commit }, payload) {
-    db.ref(`notifications/${payload.userId}/${payload.id}/notificationRead`)
-      .set(true)
-      .then(() => {
-        this.commit('setJobDone', true)
-        this.commit('setBusy', false)
-      })
-      .catch((error) => {
-        this.commit('setBusy', false)
-        this.commit('setError', error)
-      })
-  },
-  add({ commit }, payload) {
-    db.ref(`notifications/${payload.userId}`)
-      .push(payload)
-      .then(() => {
-        console.log('success user notification added')
-      })
-      .catch((error) => {
-        console.log('error', error)
-      })
+  async read({ dispatch }, payload) {
+    await this.$api.post('notifications/mark-as-read')
+    return dispatch('all')
   },
 }
 
@@ -56,5 +44,8 @@ export const getters = {
   },
   count(state) {
     return state.count
+  },
+  unread(state) {
+    return state.unread
   },
 }

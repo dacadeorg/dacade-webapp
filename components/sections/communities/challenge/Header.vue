@@ -8,20 +8,12 @@
     <Section>
       <ObjectiveList :objectives="challenge.objectives" />
     </Section>
-    <div
-      class="
-        bg-yellow-50
-        text-yellow-900
-        py-5
-        px-8
-        border border-solid border-yellow-100
-        text-base
-      "
-    >
+    <Hint>
       <span class="pr-1 font-medium"
         >{{ $t('communities.challenge.hint') }}:</span
-      >{{ challenge.hint }}
-    </div>
+      >
+      <span v-html="challenge.hint" />
+    </Hint>
   </div>
 </template>
 <script>
@@ -29,6 +21,7 @@
 import { mapGetters } from 'vuex'
 // import RewardsSection from './partials/overview/Rewards'
 import ObjectiveList from '@/components/list/Objectives'
+import Hint from '@/components/ui/Hint'
 import Section from '../partials/Section.vue'
 import Header from '../partials/Header.vue'
 
@@ -38,6 +31,7 @@ export default {
     Section,
     Header,
     ObjectiveList,
+    Hint,
   },
   computed: {
     ...mapGetters({

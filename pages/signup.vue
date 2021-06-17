@@ -1,12 +1,17 @@
 <template>
-  <ValidationObserver
-    ref="form"
-    v-slot="{ passes }"
-    class="absolute w-full top-0 min-h-screen flex items-center"
-  >
-    <form class="content-wrapper pt-24" @submit.prevent="passes(onSignUp)">
-      <div class="lg:w-98 xl:w-98 mx-auto">
-        <!-- <div
+  <div>
+    <ValidationObserver
+      ref="form"
+      v-slot="{ passes }"
+      class="absolute w-full top-0 min-h-screen flex items-center"
+    >
+      <form
+        class="content-wrapper pt-24"
+        target="_blank"
+        @submit.prevent="passes(onSignUp)"
+      >
+        <div class="lg:w-98 xl:w-98 mx-auto">
+          <!-- <div
           class="
             w-32
             h-32
@@ -49,114 +54,126 @@
             </div>
           </a>
         </div> -->
-        <div>
-          <h1 class="text-5xl my-5">
-            {{ $t('login-page.signup.title') }}
-          </h1>
-        </div>
-        <div label-for="input-1" class="mb-5 relative">
-          <ValidationProvider
-            v-slot="{ errors }"
-            name="email"
-            rules="required|email"
-            mode="passive"
-          >
-            <div>
+          <div>
+            <h1 class="text-5xl my-5">
+              {{ $t('login-page.signup.title') }}
+            </h1>
+          </div>
+          <div label-for="input-1" class="mb-5 relative">
+            <ValidationProvider
+              v-slot="{ errors }"
+              name="email"
+              rules="required|email"
+              mode="passive"
+            >
+              <div>
+                <Input
+                  id="input-1"
+                  required
+                  type="email"
+                  :placeholder="$t('login-page.email.placeholder')"
+                  :label="$t('login-page.email.label')"
+                  class="mb-5"
+                  :error="errors[0]"
+                  :value="form.email"
+                  @input="form.email = $event"
+                />
+              </div>
+            </ValidationProvider>
+          </div>
+
+          <div label-for="input-2">
+            <ValidationProvider
+              v-slot="{ errors }"
+              name="username"
+              rules="required|min:4"
+              mode="passive"
+            >
               <Input
-                id="input-1"
-                required
-                type="email"
-                :placeholder="$t('login-page.email.placeholder')"
-                :label="$t('login-page.email.label')"
+                id="input-2"
+                name="username"
+                :placeholder="$t('login-page.username.placeholder')"
+                :label="$t('login-page.username.label')"
                 class="mb-5"
                 :error="errors[0]"
-                :value="form.email"
-                @input="form.email = $event"
+                :value="form.username"
+                @input="form.username = $event"
               />
-            </div>
-          </ValidationProvider>
-        </div>
+            </ValidationProvider>
+          </div>
 
-        <div label-for="input-2">
-          <ValidationProvider
-            v-slot="{ errors }"
-            name="username"
-            rules="required|min:4"
-            mode="passive"
-          >
-            <Input
-              id="input-2"
-              name="username"
-              :placeholder="$t('login-page.username.placeholder')"
-              :label="$t('login-page.username.label')"
-              class="mb-5"
-              :error="errors[0]"
-              :value="form.username"
-              @input="form.username = $event"
-            />
-          </ValidationProvider>
-        </div>
-
-        <div>
-          <ValidationProvider
-            v-slot="{ errors }"
-            name="password"
-            rules="required|min:6"
-            mode="passive"
-          >
-            <Input
-              id="text-password"
+          <div>
+            <ValidationProvider
+              v-slot="{ errors }"
               name="password"
-              type="password"
-              :placeholder="$t('login-page.password.placeholder')"
-              :label="$t('login-page.password.label')"
-              class="mb-5"
-              :error="errors[0]"
-              :value="form.password"
-              @input="form.password = $event"
-            />
-          </ValidationProvider>
-        </div>
-        <div class="flex justify-between mt-4">
-          <div class="flex flex-row max-w-xs space-x-3">
-            <input
-              id="agree"
-              class="w-5 h-5"
-              name="agree"
-              required
-              size="small"
-              type="checkbox"
-            />
-            <span class="max-w-2xs">
-              I agree to dacade's
-              <nuxt-link class="underline" to="/terms/privacy"
-                >Privacy Policy</nuxt-link
-              ></span
+              rules="required|min:6"
+              mode="passive"
             >
+              <Input
+                id="text-password"
+                name="password"
+                type="password"
+                :placeholder="$t('login-page.password.placeholder')"
+                :label="$t('login-page.password.label')"
+                class="mb-5"
+                :error="errors[0]"
+                :value="form.password"
+                @input="form.password = $event"
+              />
+            </ValidationProvider>
           </div>
-          <div class="flex text-right self-end">
-            <Button
-              :loading="loading"
-              :padding="false"
-              :disabled="loading"
-              class="flex btn-primary btn-lg py-2 px-5 align-middle"
-            >
-              <span class="text-sm">{{ $t('login-page.signup.button') }}</span>
-              <span
-                v-if="loading === false"
-                class="text-white mt-0.5 lg:pl-12 pl-8"
+
+          <div class="flex justify-between mt-4">
+            <div class="flex flex-col self-start">
+              <div class="flex flex-row max-w-xm space-x-3">
+                <input
+                  id="agree1"
+                  v-model="checkedterms"
+                  class="w-5 h-5"
+                  name="agree"
+                  required
+                  size="small"
+                  type="checkbox"
+                  target="_blank"
+                />
+                <span class="max-w-none test">
+                  I agree to {{ $t('app.name') }}'s
+                  <nuxt-link class="underline" to="/terms-conditions">{{
+                    $t('signup-page.terms')
+                  }}</nuxt-link>
+                </span>
+                <span v-if="warningterms" class="form-text-red"
+                  >{{ $t('signup-page.terms.warning') }}
+                </span>
+              </div>
+            </div>
+
+            <div class="flex text-right self-start">
+              <Button
+                :loading="loading"
+                :padding="false"
+                :disabled="loading"
+                class="flex btn-primary btn-lg py-2 px-5 align-middle"
               >
-                <ArrowRight />
-              </span>
-              <span v-else class="text-white lg:pl-12 pl-8">
-                <Spinner class="animate-spin" />
-              </span>
-            </Button>
+                <span class="text-sm">{{
+                  $t('login-page.signup.button')
+                }}</span>
+                <span
+                  v-if="loading === false"
+                  class="text-white mt-0.5 lg:pl-12 pl-8"
+                >
+                  <ArrowRight />
+                </span>
+                <span v-else class="text-white lg:pl-12 pl-8">
+                  <Spinner class="animate-spin" />
+                </span>
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </form>
-  </ValidationObserver>
+      </form>
+    </ValidationObserver>
+  </div>
 </template>
 
 <script>
@@ -184,10 +201,19 @@ export default {
         password: '',
       },
       loading: false,
+      checkedterms: false,
+      checkedprivacy: false,
+      warningterms: false,
+      // warningprivacy: false,
     }
   },
   methods: {
     onSignUp() {
+      this.warningterms = !this.checkedterms
+      // this.warningprivacy = !this.checkedprivacy
+
+      if (this.warningterms) return
+
       this.loading = true
       this.$store
         .dispatch('auth/signUp', {
@@ -211,3 +237,29 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.form-checkbox {
+  height: 1rem;
+}
+
+.form-text {
+  width: 40rem;
+}
+
+.form-text-red {
+  color: red;
+  font-size: 0.6rem;
+}
+
+.link {
+  text-decoration: underline;
+}
+.link:hover {
+  color: blue;
+}
+
+.test {
+  width: 12rem;
+}
+</style>
