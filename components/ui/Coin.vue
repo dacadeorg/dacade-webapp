@@ -2,24 +2,28 @@
   <span
     :class="[sizeClasses, shapeClasses]"
     :style="{
-      backgroundColor: color || coin(token).color,
+      backgroundColor: coin.bgColor,
+      color: coin.textColor,
     }"
-    class="
-      inline-flex
-      text-white
-      items-center
-      justify-center
-      uppercase
-      leading-none
-    "
+    class="block text-white uppercase leading-none"
   >
-    <img v-if="coin(token).icon" :src="coin(token).icon" />
+    <component
+      v-if="coin.icon"
+      v-bind:is="coin.icon"
+      class="w-full h-auto max-h-full relative"
+    />
   </span>
 </template>
 
 <script>
+import DACIcon from '~/assets/icons/tokens/DAC.svg?inline'
+import CUSDIcon from '~/assets/icons/tokens/cUSD.svg?inline'
 export default {
   name: 'Coin',
+  components: {
+    DACIcon,
+    CUSDIcon,
+  },
   props: {
     color: {
       default: null,
@@ -41,17 +45,15 @@ export default {
   data() {
     return {
       coins: {
-        DCN: {
-          icon: require('~/assets/icons/logo.svg?data'),
-          color: '#1B66F8',
-        },
-        CGLD: {
-          icon: require('~/assets/icons/logo.svg?data'),
-          color: '#34E256',
+        DAC: {
+          icon: DACIcon,
+          bgColor: '#FBBF24',
+          textColor: '#FFFFFF',
         },
         cUSD: {
-          icon: require('~/assets/icons/logo.svg?data'),
-          color: '#34E256',
+          icon: CUSDIcon,
+          bgColor: '#45CD85',
+          textColor: '#FFFFFF',
         },
       },
     }
@@ -77,10 +79,8 @@ export default {
           return 'rounded-full'
       }
     },
-  },
-  methods: {
-    coin(token) {
-      return this.coins[token] ? this.coins[token] : this.coins.DCN
+    coin() {
+      return this.coins[this.token] ? this.coins[this.token] : this.coins.DAC
     },
   },
 }
