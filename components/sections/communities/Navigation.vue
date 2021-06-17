@@ -52,7 +52,7 @@ export default {
     }),
     activeLinkStyle() {
       return {
-        color: this.colors.accent,
+        color: this.colors.primary,
       }
     },
   },
