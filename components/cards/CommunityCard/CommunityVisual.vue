@@ -5,7 +5,7 @@
         p-6
         bg-theme-primary
         text-theme-text
-        lg:min-w-md lg:min-h-md
+        lg:min-w-md lg:min-h-sm
         lg:h-full
         md:w-full
         md:h-60
