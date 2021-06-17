@@ -218,6 +218,7 @@ export default {
       communityData: 'content/communityData',
       balance: 'user/balance',
       user: 'user/get',
+      unread: 'user/notifications/unread',
     }),
   },
   methods: {
@@ -235,29 +236,34 @@ export default {
     // },
     toggle() {
       this.show = !this.show
+
+      if (this.isAuthenticated && this.show && this.unread) {
+        this.$store.dispatch('user/notifications/read')
+      }
+
       if (this.show) {
         const scrollY =
           document.documentElement.style.getPropertyValue('--scroll-y')
         const body = document.body
         body.style.position = 'fixed'
         body.style.top = `-${scrollY}`
-      } else {
-        const body = document.body
-        const scrollY = body.style.top
-        body.style.position = 'relative'
-        body.style.top = ''
-        window.scrollTo(0, parseInt(scrollY || '0') * -1)
+        return
       }
+
+      const body = document.body
+      const scrollY = body.style.top
+      body.style.position = 'relative'
+      body.style.top = ''
+      window.scrollTo(0, parseInt(scrollY || '0') * -1)
     },
     externalClick(event) {
-      if (this.show) {
-        this.show = false
-        const body = document.body
-        const scrollY = body.style.top
-        body.style.position = 'relative'
-        body.style.top = ''
-        window.scrollTo(0, parseInt(scrollY || '0') * -1)
-      }
+      if (!this.show) return
+      this.show = false
+      const body = document.body
+      const scrollY = body.style.top
+      body.style.position = 'relative'
+      body.style.top = ''
+      window.scrollTo(0, parseInt(scrollY || '0') * -1)
     },
     logout() {
       this.$store.dispatch('auth/logout')

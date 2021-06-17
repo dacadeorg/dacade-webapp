@@ -1,5 +1,5 @@
 <template>
-  <div class="relative my-7 lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
+  <div class="relative lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
     <div
       class="
         relative
@@ -7,11 +7,8 @@
         lg:p-10
         lg:pb-10
         lg:pt-9
-        p-8
-        pb-6
-        lg:pb-24
-        md:pb-24
-        w-11/12
+        p-7
+        w-full
         text-primary
         h-full
         flex flex-col
