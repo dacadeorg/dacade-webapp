@@ -10,7 +10,7 @@
         <Button
           :padding="false"
           type="secondary"
-          class="p-2"
+          class="p-2 bg-gray-100 bg-opacity-75 hover:bg-gray-50"
           :custom-style="buttonStyles"
         >
           <!-- @click="show = !show" -->

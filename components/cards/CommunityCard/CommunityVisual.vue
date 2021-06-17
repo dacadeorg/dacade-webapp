@@ -5,7 +5,8 @@
         p-6
         bg-theme-primary
         text-theme-text
-        lg:min-w-md lg:min-h-md
+        lg:min-w-md
+        min-h-2.5xs
         lg:h-96
         md:w-full
         md:h-60
@@ -16,16 +17,25 @@
         <div
           class="flex flex-col sm:flex-row justify-between lg:flex-col h-full"
         >
-          <div class="text-.5xl md:text-2xl font-medium sm:max-w-sm pb-5">
+          <div
+            class="text-.5xl md:text-2xl font-medium md:max-w-sm sm:max-w-xs"
+          >
             <h1 class="tracking-tight max-w-text-xs text-theme-text">
               {{ community.name }}
             </h1>
-            <p class="tracking-tight md:max-w-text-md text-theme-accent">
+            <p
+              class="
+                tracking-tight
+                max-w-text-2xs
+                md:max-w-text-md
+                text-theme-accent
+              "
+            >
               {{ community.description || '' }}
             </p>
           </div>
-          <div class="self-end w-auto sm:h-full sm:-mb-6 md:mb-2 md:h-auto">
-            <img :src="community.icon" class="relative h-42 sm:h-42" />
+          <div class="self-end w-auto sm:h-full md:h-auto">
+            <img :src="community.icon" class="relative md:h-42 h-30" />
           </div>
         </div>
         <div
@@ -45,6 +55,13 @@
           <div v-if="submissions" class="text-sm">
             <span
               ><strong v-if="submissions">{{ submissions }}</strong>
+              {{ $t('communities.submissions') }}</span
+            >
+            <div />
+          </div>
+          <div v-else class="text-sm">
+            <span
+              ><strong v-if="!submissions">0</strong>
               {{ $t('communities.submissions') }}</span
             >
             <div />

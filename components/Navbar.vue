@@ -1,5 +1,5 @@
 <template>
-  <div class="relative text-gray-900" :style="containerStyle">
+  <div class="text-gray-900" :style="containerStyle">
     <div class="content-wrapper lg:py-12 py-6 flex relative">
       <ul class="relative">
         <NavItem type="logo">
