@@ -14,7 +14,9 @@ export const mutations = {
   setList(state, payload) {
     const list = payload
     state.list = list
-    state.main = list && list.length ? list[0] : null
+    state.main = list.length
+      ? list.find((wallet) => wallet.main) || list[0]
+      : null
   },
 }
 
