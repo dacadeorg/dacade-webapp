@@ -10,7 +10,14 @@
     class="max-w-3xl hover:bg-gray-50 rounded-3.5xl"
   >
     <p
-      class="text-base md:text-lg max-w-screen-sm leading-normal text-gray-700"
+      class="
+        text-base
+        md:text-lg
+        max-w-screen-sm
+        leading-normal
+        text-gray-700
+        pb-6
+      "
     >
       {{ submission.text }}
     </p>
