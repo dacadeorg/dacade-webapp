@@ -5,7 +5,7 @@
       backgroundColor: coin.bgColor,
       color: coin.textColor,
     }"
-    class="block text-white uppercase leading-none"
+    class="inline-block text-white uppercase leading-none"
   >
     <component
       v-if="coin.icon"
