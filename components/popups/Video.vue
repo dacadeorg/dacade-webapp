@@ -26,13 +26,14 @@
             hover:text-primary-dark
             mt-3
             text-base
+            leading-normal
           "
         >
           <PlayIcon class="-mt-1" fill="white" />
-          <span class="font-medium">{{ $t('app.name') }}</span>
-          <span class="font-light">{{
-            $t('page.index.main.button.description')
-          }}</span>
+          <div class="leading-normal font-light">
+            <span class="font-medium">{{ $t('app.name') }}</span>
+            {{ $t('page.index.main.button.description') }}
+          </div>
         </span>
       </li>
       <div class="flex justify-center">
