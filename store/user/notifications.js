@@ -12,7 +12,7 @@ export const state = () => ({
 
 export const mutations = {
   clear(state) {
-    state.userNotifications = null
+    state.notifications = []
   },
   set(state, payload) {
     state.notifications = payload

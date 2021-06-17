@@ -18,6 +18,11 @@ export const mutations = {
       ? list.find((wallet) => wallet.main) || list[0]
       : null
   },
+  clear(state, payload) {
+    state.list = []
+    state.current = null
+    state.main = null
+  },
 }
 
 export const actions = {

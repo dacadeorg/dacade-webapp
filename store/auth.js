@@ -64,8 +64,8 @@ export const actions = {
   },
   logout() {
     firebase.auth().signOut()
-    this.commit('user/clear', null)
-    this.commit('user/notifications/clear', null)
+    this.dispatch('user/clear')
+    this.$router.push('/communities')
   },
   createVerificationRequest({ dispatch }, payload) {
     return new Promise((resolve, reject) => {

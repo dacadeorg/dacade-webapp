@@ -146,7 +146,6 @@ export default {
   methods: {
     logOut() {
       this.$store.dispatch('auth/logout')
-      this.$router.push('/communities')
     },
     getSectionName(route) {
       switch (route.name) {

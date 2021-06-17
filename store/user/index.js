@@ -24,17 +24,12 @@ export const mutations = {
 }
 
 export const actions = {
-  async updateWalletAddress({ commit }, payload) {
-    // try {
-    //   await db
-    //     .ref(`userWallet/${payload.userId}/${payload.token}`)
-    //     .set(`${payload.walletAddress}`)
-    //   commit('setJobDone', true, { root: true })
-    //   commit('setBusy', false, { root: true })
-    // } catch (error) {
-    //   commit('setBusy', false, { root: true })
-    //   commit('setError', error, { root: true })
-    // }
+  clear({ commit }, payload) {
+    commit('clear')
+    this.commit('user/notifications/clear')
+    this.commit('user/reputations/clear')
+    this.commit('user/wallets/clear')
+    this.commit('user/communities/clear')
   },
 
   async fetch({ commit, dispatch }, payload) {

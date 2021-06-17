@@ -1,15 +1,18 @@
 <template>
-  <Wrapper />
+  <Wrapper>
+    <NotificationList extended />
+  </Wrapper>
 </template>
 
 <script>
 import Wrapper from '@/components/sections/profile/Wrapper'
-// import Firebase from '@/plugins/firebase'
+import NotificationList from '@/components/list/Notification'
 
 export default {
-  name: 'Profile',
+  name: 'Notifications',
   components: {
     Wrapper,
+    NotificationList,
   },
 }
 </script>

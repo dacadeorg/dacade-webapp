@@ -9,6 +9,9 @@ export const mutations = {
   setList(state, payload) {
     state.list = payload
   },
+  clear(state, payload) {
+    state.list = []
+  },
 }
 
 export const actions = {
