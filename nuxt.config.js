@@ -67,6 +67,7 @@ export default {
     'nuxt-i18n',
     '@nuxtjs/markdownit',
     '@nuxtjs/axios',
+    '@nuxt/content',
   ],
   bootstrapVue: {
     bootstrapCSS: false, // Or `css: false`
@@ -141,6 +142,7 @@ export default {
 
   fontawesome: {
     icons: {
+      regular: ['faTimesCircle'],
       solid: ['faSpinner'],
       brands: ['faTwitter', 'faTelegramPlane', 'faYoutube', 'faDiscord'],
     },

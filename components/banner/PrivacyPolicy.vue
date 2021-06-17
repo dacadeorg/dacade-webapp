@@ -6,13 +6,16 @@
     >
       We use browser cookies to give you the best possible experience. Learn
       more about our
-      <a href="http://policy.dacade.org/" class="underline">Privacy Policy</a>.
+      <!-- <a href="http://policy.dacade.org/" class="underline">Privacy Policy</a>. -->
+      <nuxt-link class="underline" to="/privacy-policy">{{
+        $t('signup-page.privacy')
+      }}</nuxt-link>
     </div>
 
     <div
       class="
         absolute
-        top-5
+        top-7
         right-5
         z-50
         h-8
@@ -20,9 +23,12 @@
         flex
         items-center
         justify-center
+        content-center
         text-white
         rounded-full
         border-solid border border-white
+        hover:bg-blue-700
+        cursor-pointer
       "
       @click="dismiss"
     >
