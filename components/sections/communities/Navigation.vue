@@ -1,5 +1,5 @@
 <template>
-  <ThemeWrapper :colors="community.colors">
+  <ThemeWrapper class="top-0 sticky self-start py-4" :colors="community.colors">
     <ul class="relative">
       <li v-for="(menu, i) in menus" :key="i" class="relative mb-8">
         <span
