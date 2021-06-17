@@ -7,7 +7,7 @@
         text-theme-text
         lg:min-w-md
         min-h-2.5xs
-        lg:h-96
+        lg:h-full
         md:w-full
         md:h-60
         lg:max-w-sm
