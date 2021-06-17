@@ -65,11 +65,19 @@ export default {
   //   padding: 20px 22px;
   //   border-radius: 4px;
   // }
+  ol > li::before {
+    color: var(--text-primary-color);
+    font-weight: 400;
+  }
 
-  // a {
-  //   text-decoration: underline;
-  // }
-
+  a {
+    color: var(--text-primary-color);
+    text-decoration: underline;
+    font-weight: 400;
+  }
+  a:hover {
+    color: var(--text-accent-color);
+  }
   // code span,
   // .hljs code {
   //   font-size: 1rem;
@@ -80,6 +88,8 @@ export default {
   // }
 
   code {
+    font-size: 1rem;
+    font-weight: 400;
     color: var(--text-accent-color);
     &::before,
     &::after {
