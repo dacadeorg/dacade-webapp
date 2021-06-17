@@ -16,7 +16,32 @@ export default {
       { property: 'og:image', content: 'https://dacade.org/img/dacade_og.png' },
       { property: 'og:description', content: 'Peer-to-Peer Learning' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'icon',
+        sizes: '180x180',
+        href: '/fav-icons/apple-touch-icon.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/fav-icons/favicon-16x16.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/fav-icons/favicon-32x32.png',
+      },
+      {
+        rel: 'icon',
+        type: 'mask-icon',
+        href: '/fav-icons/safari-pinned-tab.svg',
+        color: '#5bbad5',
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
