@@ -98,5 +98,10 @@
   "login-page.password-reset.Description": "We’ll email you instructions to reset your password.",
   "bounties.navigation": "Communities",
   "bounties.prefix.closes": "closes",
-  "bounties.navigation.all": "All communities"
+  "bounties.navigation.all": "All communities",
+  "signup-page.terms": "Terms and conditions",
+  "signup-page.terms.warning": "you have to accept in order to proceed",
+  "signup-page.privacy": "privacy policy",
+  "signup-page.privacy.warning": "you have to accept in order to proceed"
+
 }
