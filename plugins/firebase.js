@@ -14,7 +14,7 @@ if (!firebase.apps.length) {
     storageBucket: 'dacade-mvp-2.appspot.com',
     messagingSenderId: '974386769381',
     appId: '1:974386769381:web:0452a0b85b74eb2e',
-    measurementId: 'G-2TN6QTJQCC',
+    measurementId: 'G-2TN6QTJQC',
   }
   // } else {
   //   config = {

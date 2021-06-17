@@ -22,7 +22,7 @@ export default function ({ $axios, store }, inject) {
   //
 
   // Set baseURL to something different
-  api.setBaseURL('https://us-central1-dacade-d02d2.cloudfunctions.net/api')
+  api.setBaseURL('https://us-central1-dacade-mvp-2.cloudfunctions.net/api')
 
   // Inject to context as $api
   inject('api', api)
