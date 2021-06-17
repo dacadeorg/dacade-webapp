@@ -17,7 +17,11 @@
           <h4 class="my-8 text-.5xl font-medium">
             {{ $t('communities.challenge.your-submission') }}
           </h4>
-          <SubmissionCard :submission="submission" :last="true" />
+          <SubmissionCard
+            :submission="submission"
+            :last="true"
+            :buttons="true"
+          />
         </div>
         <SubmissionForm v-else />
       </div>
