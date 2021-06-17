@@ -23,32 +23,32 @@ export default {
     return {
       stories: [
         {
-          icon: require('~/assets/img/testimonial-sample.png'),
+          icon: require('~/assets/img/moritz-pic.png'),
           // content:
           //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
-          icon: require('~/assets/img/testimonial-sample-2.png'),
+          icon: require('~/assets/img/alex.jpg'),
           // content:
           //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
-          icon: require('~/assets/img/testimonial-sample-3.png'),
+          icon: require('~/assets/img/user_jet.png'),
           // content:
           //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
-          icon: require('~/assets/img/testimonial-sample-4.png'),
+          icon: require('~/assets/img/user_tosin_edit.png'),
           // content:
           //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
-          icon: require('~/assets/img/testimonial-sample-5.png'),
+          icon: require('~/assets/img/user_susen.png'),
           content:
             "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
-          icon: require('~/assets/img/testimonial-sample-6.png'),
+          icon: require('~/assets/img/gabriela.png'),
           // content:
           //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
@@ -58,7 +58,7 @@ export default {
           //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
         {
-          icon: require('~/assets/img/testimonial-sample-8.png'),
+          icon: require('~/assets/img/yannick.png'),
           // content:
           //   "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
         },
