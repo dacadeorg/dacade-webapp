@@ -82,12 +82,12 @@ export default {
         },
         {
           title: 'Twitter',
-          url: 'https://www.youtube.com/channel/UC08wXfDvuqBJvuZfNZkv3xQ',
+          url: 'https://twitter.com/dacadeorg',
           icon: 'twitter',
         },
         {
           title: 'Youtube',
-          url: 'https://twitter.com/dacadeorg',
+          url: 'https://www.youtube.com/channel/UC08wXfDvuqBJvuZfNZkv3xQ',
           icon: 'youtube',
         },
       ],
