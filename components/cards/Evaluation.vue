@@ -3,7 +3,7 @@
     :user="evaluation.evaluator"
     :timestamp="{
       date: evaluation.created_at,
-      text: 'Evaluatted',
+      text: 'Evaluated',
     }"
     :link="link"
     :bordered="!last"
