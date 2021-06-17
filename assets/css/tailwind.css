@@ -5,7 +5,7 @@
 .nav-item,
 .nav-logo,
 .nav-brand {
-  @apply inline-block align-middle text-base;
+  @apply inline-block align-middle text-base lg:leading-none;
 }
 
 .nav-item {
