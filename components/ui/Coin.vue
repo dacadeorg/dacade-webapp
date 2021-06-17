@@ -2,14 +2,14 @@
   <span
     :class="[sizeClasses, shapeClasses]"
     :style="{
-      backgroundColor: coin.bgColor,
-      color: coin.textColor,
+      backgroundColor: bgColor || coin.bgColor,
+      color: textColor || coin.textColor,
     }"
     class="inline-block text-white uppercase leading-none"
   >
     <component
+      :is="coin.icon"
       v-if="coin.icon"
-      v-bind:is="coin.icon"
       class="w-full h-auto max-h-full relative"
     />
   </span>
@@ -25,7 +25,11 @@ export default {
     CUSDIcon,
   },
   props: {
-    color: {
+    bgColor: {
+      default: null,
+      type: String,
+    },
+    textColor: {
       default: null,
       type: String,
     },

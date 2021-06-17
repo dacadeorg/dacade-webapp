@@ -8,6 +8,8 @@
     "
   >
     <Coin
+      v-if="reward"
+      :token="reward.token"
       class="
         absolute
         md:-ml-7
@@ -21,7 +23,8 @@
         md:w-15
         md:h-15
       "
-      :color="!submission.reviewable ? '#d2d2d2' : '#fbcc5c'"
+      :bg-color="!submission.reviewable ? '#d2d2d2' : null"
+      :color="!submission.reviewable ? '#FFFFFF' : null"
     />
     <div :class="!submission.reviewable ? 'text-gray-700' : 'text-yellow-900'">
       <div class="md:ml-10 ml-15">
