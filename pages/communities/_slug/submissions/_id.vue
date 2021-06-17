@@ -1,48 +1,33 @@
 <template>
-  <Section padding="py-0">
-    <div class="lg:flex">
-      <div class="hidden lg:block w-1/4 py-3 pr-4 lg:py-14">
-        <Navigation />
-      </div>
-      <div class="lg:hidden py-4 w-full lg:py-14">
-        <MobileNav />
-      </div>
-      <div class="lg:w-3/4">
-        <div class="py-4 flex flex-col space-y-8 text-gray-700">
-          <Header
-            :title="community.name"
-            :subtitle="$t('communities.submission.title')"
-          />
-          <div v-if="submission">
-            <SubmissionCard :submission="submission" :buttons="true" />
-            <Evaluation v-if="submission.evaluation" />
-            <Feedback />
-          </div>
-        </div>
+  <Wrapper>
+    <div class="py-4 flex flex-col space-y-8 text-gray-700">
+      <Header
+        :title="community.name"
+        :subtitle="$t('communities.submission.title')"
+      />
+      <div v-if="submission">
+        <SubmissionCard :submission="submission" :buttons="true" />
+        <Evaluation v-if="submission.evaluation" />
+        <Feedback />
       </div>
     </div>
-  </Section>
+  </Wrapper>
 </template>
 <script>
 import { mapGetters } from 'vuex'
 import SubmissionCard from '@/components/cards/Submission'
-
-import Navigation from '@/components/sections/communities/Navigation'
-import Section from '@/components/ui/Section'
+import Wrapper from '@/components/sections/communities/Wrapper'
 import Header from '@/components/sections/communities/partials/Header'
-import MobileNav from '@/components/sections/communities/MobileNav'
 import Feedback from '@/components/sections/communities/submissions/feedback'
 import Evaluation from '@/components/sections/communities/submissions/Evaluation'
 
 export default {
   components: {
-    MobileNav,
-    Navigation,
-    Section,
     Header,
     SubmissionCard,
     Feedback,
     Evaluation,
+    Wrapper,
   },
   scrollToTop: true,
   props: {
