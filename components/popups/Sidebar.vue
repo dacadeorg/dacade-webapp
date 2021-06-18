@@ -39,20 +39,6 @@
           text-gray-900
         "
       >
-        <div
-          class="
-            w-full
-            -mb-5
-            bg-gradient-to-b
-            from-secondary
-            to-transparent
-            h-5
-            sticky
-            inset-x-0
-            top-0
-            left-0
-          "
-        />
         <div class="divide-y divide-gray-200">
           <div class="flex flex-col text-left -space-y-3 justify-between">
             <div class="flex">
