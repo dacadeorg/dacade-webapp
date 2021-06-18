@@ -28,7 +28,9 @@
             <h1>Balance</h1>
           </div>
           <div class="w-1/2 pt-3.5 text-right text-2xl font-medium">
-            <h1>{{ (details.balance || 0).toFixed(2) }}</h1>
+            <h1>
+              <Currency :value="details.balance" />
+            </h1>
           </div>
         </div>
       </div>
@@ -69,6 +71,7 @@ import Coin from '@/components/ui/Coin'
 import Button from '@/components/ui/Button'
 import Tag from '@/components/ui/Tag'
 import Address from '@/components/cards/Address'
+import Currency from '@/components/ui/Currency'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
@@ -79,6 +82,7 @@ export default {
     ArrowRight,
     Tag,
     Address,
+    Currency,
   },
   props: {
     details: {
