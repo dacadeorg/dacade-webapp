@@ -1,17 +1,17 @@
 <template>
   <div class="group bg-gradient-to-trw-full pl-5 md:pl-7.5 relative">
     <nuxt-link :to="link">
-      <div class="absolute -top-1 left-0 z-10">
+      <div class="absolute top-0 left-0 z-10">
         <Avatar :user="user" size="medium" />
       </div>
       <div
-        class="relative pt-2 pl-10.5 z-0 pb-12"
+        class="relative pl-10.5 z-0 pb-12"
         :class="{
           'group-hover:border-gray-50 border-l border-solid border-gray-200':
             bordered,
         }"
       >
-        <div class="pb-4 pt-2">
+        <div class="pb-4">
           <span class="text-lg leading-loose font-medium">
             {{ user.displayName }}
           </span>
