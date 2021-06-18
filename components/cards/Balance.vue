@@ -4,8 +4,8 @@
       <Coin :token="details.token" size="medium" />
       <div class="pt-1">
         <span class="block text-base font-medium leading-normal"
-          >{{ details.balance }} {{ details.token }}</span
-        >
+          ><Currency :value="details.balance" :token="details.token"
+        /></span>
         <span class="block font-normal text-sm">{{ details.title }}</span>
       </div>
     </div>
@@ -14,11 +14,13 @@
 
 <script>
 import Coin from '@/components/ui/Coin'
+import Currency from '@/components/ui/Currency'
 
 export default {
   name: 'Balance',
   components: {
     Coin,
+    Currency,
   },
   props: {
     user: {

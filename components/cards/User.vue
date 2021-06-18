@@ -16,6 +16,7 @@
             {{ user.displayName }}
           </span>
           <span
+            v-if="user.reputation"
             class="
               text-xs
               px-2.5
@@ -25,8 +26,8 @@
               rounded-full
               font-medium
             "
-            >{{ Number(user.reputation || 0).toFixed(1) }} REP</span
-          >
+            ><Currency :value="user.Reputation" token="REP"
+          /></span>
           <span class="block text-sm leading-snug text-gray-700">
             {{ timestamp.text }}
             <span
@@ -48,11 +49,13 @@
 import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import Moment from 'moment'
+import Currency from '@/components/ui/Currency'
 
 export default {
   name: 'UserCard',
   components: {
     Avatar,
+    Currency,
   },
   props: {
     user: {

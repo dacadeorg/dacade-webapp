@@ -19,8 +19,9 @@
               color: buttonStyles.color ? buttonStyles.color : null,
             }"
             class="align-middle ml-2.5 font-medium text-gray-500"
-            >{{ mainWallet.balance }} {{ mainWallet.token }}</span
           >
+            <Currency :value="mainWallet.balance" :token="mainWallet.token" />
+          </span>
         </Button>
       </li>
       <div
@@ -98,6 +99,7 @@ import BalanceList from '@/components/list/Balance'
 import ReputationList from '@/components/list/Reputation'
 import Avatar from '@/components/ui/Avatar'
 import Button from '@/components/ui/Button'
+import Currency from '@/components/ui/Currency'
 
 export default {
   name: 'UserPopup',
@@ -109,6 +111,7 @@ export default {
     Button,
     BalanceList,
     ReputationList,
+    Currency,
   },
   props: {
     buttonStyles: {
