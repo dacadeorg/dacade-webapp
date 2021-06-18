@@ -1,11 +1,11 @@
 <template>
   <div class="group bg-gradient-to-trw-full pl-5 md:pl-7.5 relative">
     <nuxt-link :to="link">
-      <div class="absolute left-1 top-1 z-10">
+      <div class="absolute -top-1 left-0 z-10">
         <Avatar :user="user" size="medium" />
       </div>
       <div
-        class="relative pl-10.5 z-0 pb-12"
+        class="relative pt-2 pl-10.5 z-0 pb-12"
         :class="{
           'group-hover:border-gray-50 border-l border-solid border-gray-200':
             bordered,
