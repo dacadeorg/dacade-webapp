@@ -34,7 +34,7 @@
             >{{ $t('nav.signup.already-exist') }}</span
           >
           <NavItem to="/login">
-            <a class="py-2 text-sm text-primary">{{ $t('nav.login') }}</a>
+            <span class="py-2 text-sm text-primary">{{ $t('nav.login') }}</span>
           </NavItem>
         </div>
         <div

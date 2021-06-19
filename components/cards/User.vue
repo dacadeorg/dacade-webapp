@@ -26,7 +26,7 @@
               rounded-full
               font-medium
             "
-            ><Currency :value="user.Reputation" token="REP"
+            ><Currency :value="user.reputation" token="REP"
           /></span>
           <span class="block text-sm leading-snug text-gray-700">
             {{ timestamp.text }}

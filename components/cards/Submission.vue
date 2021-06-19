@@ -46,19 +46,20 @@
         md:space-x-2
       "
     >
-      <a v-if="submission.link" :href="submission.link" target="__blank">
-        <Button
-          :padding="false"
-          class="action-button py-2 px-5 w-44"
-          :custom-style="primaryButtonStyles"
-          type="outline-primary"
-        >
-          <span class="flex text-left items-center">
-            GitHub Code
-            <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-          </span>
-        </Button>
-      </a>
+      <Button
+        v-if="submission.link"
+        :padding="false"
+        class="action-button py-2 px-5 w-44"
+        :link="submission.link"
+        target="__blank"
+        :custom-style="primaryButtonStyles"
+        type="outline-primary"
+      >
+        <span class="flex text-left items-center">
+          GitHub Code
+          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
+        </span>
+      </Button>
 
       <!-- <Button
         :padding="false"
