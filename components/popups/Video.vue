@@ -56,7 +56,6 @@
             no-scrollbar
             max-w-full
             h-auto
-            bottom-20
             content-wrapper
             justify-self-center
             sm:m-auto
