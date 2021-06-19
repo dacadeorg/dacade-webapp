@@ -64,6 +64,14 @@ export default {
       default: null,
       type: Object,
     },
+    link: {
+      default: null,
+      type: String,
+    },
+    target: {
+      default: null,
+      type: String,
+    },
   },
   computed: {
     inputListeners() {
@@ -80,8 +88,21 @@ export default {
           input(event) {
             vm.$emit('input', event.target.value)
           },
+          click(event) {
+            if (!vm.link) {
+              vm.$emit('click', event)
+              return
+            }
+            vm.navigate()
+          },
         }
       )
+    },
+  },
+  methods: {
+    navigate() {
+      if (!this.link) return
+      window.open(this.link, this.target)
     },
   },
 }

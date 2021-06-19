@@ -43,28 +43,22 @@
 
     <div
       v-if="value.link"
-      class="
-        inline-grid
-        space-y-2
-        md:space-y-5
-        md:contents
-        space-x-0
-        md:space-x-2
-      "
+      class="flex space-y-2 md:space-y-5 space-x-0 md:space-x-2 mt-6"
     >
-      <a :href="value.link" target="__blank" class="mt-6 block">
-        <Button
-          :padding="false"
-          class="action-button py-2 px-5 w-44"
-          :custom-style="primaryButtonStyles"
-          type="outline-primary"
-        >
-          <span class="flex text-left items-center">
-            GitHub Code
-            <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-          </span>
-        </Button>
-        <!-- <Button
+      <Button
+        :link="value.link"
+        target="__blank"
+        :padding="false"
+        class="action-button py-2 px-5 w-44"
+        :custom-style="primaryButtonStyles"
+        type="outline-primary"
+      >
+        <span class="flex text-left items-center">
+          GitHub Code
+          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
+        </span>
+      </Button>
+      <!-- <Button
         :padding="false"
         class="action-button py-2 px-5 w-44"
         :custom-style="outlineButtonStyles"
@@ -75,7 +69,6 @@
           <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
         </span>
       </Button> -->
-      </a>
     </div>
   </UserCard>
 </template>
@@ -115,6 +108,10 @@ export default {
     last: {
       default: false,
       type: Boolean,
+    },
+    link: {
+      default: '',
+      type: String,
     },
   },
   data() {
