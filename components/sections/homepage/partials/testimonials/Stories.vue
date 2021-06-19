@@ -102,10 +102,10 @@ export default {
       }
     },
     onBubbleShow(card, grid) {
-      this.showingBubble = {
-        card,
-        grid,
-      }
+      // this.showingBubble = {
+      //   card,
+      //   grid,
+      // }
     },
   },
 }
