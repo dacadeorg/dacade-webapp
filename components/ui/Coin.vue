@@ -5,7 +5,14 @@
       backgroundColor: bgColor || coin.bgColor,
       color: textColor || coin.textColor,
     }"
-    class="inline-block text-white uppercase leading-none"
+    class="
+      inline-flex
+      items-center
+      justify-items-center
+      text-white
+      uppercase
+      leading-none
+    "
   >
     <component
       :is="coin.icon"
@@ -18,11 +25,15 @@
 <script>
 import DACIcon from '~/assets/icons/tokens/DAC.svg?inline'
 import CUSDIcon from '~/assets/icons/tokens/cUSD.svg?inline'
+import ETHIcon from '~/assets/icons/tokens/ETH.svg?inline'
+import AEIcon from '~/assets/icons/tokens/AE.svg?inline'
 export default {
   name: 'Coin',
   components: {
     DACIcon,
     CUSDIcon,
+    ETHIcon,
+    AEIcon,
   },
   props: {
     bgColor: {
@@ -57,6 +68,16 @@ export default {
         cUSD: {
           icon: CUSDIcon,
           bgColor: '#45CD85',
+          textColor: '#FFFFFF',
+        },
+        ETH: {
+          icon: ETHIcon,
+          bgColor: '#627EEA',
+          textColor: '#FFFFFF',
+        },
+        AE: {
+          icon: AEIcon,
+          bgColor: '#DE3F6B',
           textColor: '#FFFFFF',
         },
       },
