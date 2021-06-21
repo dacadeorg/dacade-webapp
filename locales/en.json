@@ -50,7 +50,7 @@
   "communities.challenge.your-submission": "Your submission",
   "communities.challenge.rewards.description": "In order to earn {reward} you must get at least {minPoints} out of {maxPoints} Points in this challenge.",
   "communities.challenge.submission.placeholder.text": "Enter Submission Text",
-  "communities.challenge.submission.placeholder.github": "Enter link to GitHub Link",
+  "communities.challenge.submission.placeholder.github": "Enter link to GitHub pull request",
   "communities.challenge.submission.feedback.placeholder.text": "Enter your feedback",
   "communities.challenge.submission.feedback.placeholder.github": "Enter link to GitHub Pull request",
   "communities.submission.title": "Submissions",
