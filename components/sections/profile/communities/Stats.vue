@@ -11,7 +11,7 @@
         <div class="text-lg font-medium text-gray-800 pb-2">
           {{ community.name }}
         </div>
-        <Tag :value="`${reputation} REP`" />
+        <Tag><Currency :value="reputation" token="REP" /></Tag>
       </div>
     </div>
     <div class="p-7 md:text-right justify-self-stretch space-y-2">
@@ -31,12 +31,14 @@
 import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import Tag from '@/components/ui/Tag'
+import Currency from '@/components/ui/Currency'
 
 export default {
   name: 'CommunityStats',
   components: {
     Tag,
     Avatar,
+    Currency,
   },
   async fetch({ store, params }) {
     await store.dispatch('user/communities/find', params.slug)
