@@ -81,7 +81,7 @@
           <div class="p-4">
             <BalanceList />
           </div>
-          <div class="p-4">
+          <div v-show="showReputation" class="p-4">
             <ReputationList />
           </div>
         </div>
@@ -122,6 +122,7 @@ export default {
   data() {
     return {
       show: false,
+      showReputation: this.reputations?.length > 1,
     }
   },
   computed: {
