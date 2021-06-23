@@ -110,3 +110,7 @@ button {
 * {
   letter-spacing: -0.01em;
 }
+
+div {
+  @apply break-all;
+}
