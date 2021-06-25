@@ -15,7 +15,7 @@
         >
           <!-- @click="show = !show" -->
           <BellIcon />
-          <Badge v-if="unread >= 0" :value="unread" class="top-0 -right-1" />
+          <Badge v-if="unread > 0" :value="unread" class="top-0 -right-1" />
         </Button>
       </li>
       <div
