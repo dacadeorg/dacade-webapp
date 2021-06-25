@@ -1,6 +1,6 @@
 <template>
   <ThemeWrapper :colors="colors">
-    <div class="relative">
+    <div class="relative overflow-hidden lg:overflow-auto">
       <Navbar :settings="settings" />
       <NotificationBar />
       <div class="relative">

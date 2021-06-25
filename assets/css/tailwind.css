@@ -92,9 +92,8 @@ button {
       scrollbar-width: none; /* Firefox */
     }
   }
-  .badget-color{
-    background-color:rgba(114, 70, 231, 1);
-
+  .badget-color {
+    background-color: rgba(114, 70, 231, 1);
   }
 }
 .action-button:hover,
@@ -104,7 +103,7 @@ button {
   border-color: var(--button-border-color--hover) !important;
 }
 
-.upload-icon{
+.upload-icon {
   margin-top: 0.625rem;
 }
 * {
