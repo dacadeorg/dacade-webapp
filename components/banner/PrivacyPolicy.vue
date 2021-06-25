@@ -1,68 +1,93 @@
 <template>
-  <div v-if="show" class="fixed bottom-0 z-999 left-0 right-0">
+  <div
+    v-if="showBanner"
+    class="
+      fixed
+      bottom-0
+      left-0
+      right-0
+      z-999
+      flex flex-col
+      md:flex-row
+      justify-center
+      md:justify-between
+      bg-primary
+    "
+  >
+    <div></div>
     <div
       variant="warning"
-      class="bg-primary text-white py-8 text-center relative z-10"
+      class="
+        text-white
+        py-8
+        text-center text-base
+        md:text-lg
+        justify-center
+        md:max-w-none
+        px-6
+      "
     >
       We use browser cookies to give you the best possible experience. Learn
       more about our
-      <!-- <a href="http://policy.dacade.org/" class="underline">Privacy Policy</a>. -->
-      <nuxt-link class="underline" to="/privacy-policy">{{
+      <a href="/privacy-policy" class="underline">{{
         $t('signup-page.privacy')
-      }}</nuxt-link>
+      }}</a
+      >.
     </div>
-
     <div
       class="
-        absolute
-        top-7
-        right-5
-        z-50
-        h-8
-        w-8
         flex
-        items-center
+        md:text-center
+        md:content-center
+        md:mr-6
+        mb-6
+        md:mb-0
+        md:mt-6
         justify-center
-        content-center
-        text-white
-        rounded-full
-        border-solid border border-white
-        hover:bg-blue-700
-        cursor-pointer
       "
-      @click="dismiss"
+      @click="acceptCookiePolicy"
     >
-      <CloseIcon />
+      <div
+        class="
+          z-50
+          h-8
+          w-8
+          flex
+          items-center
+          text-white
+          rounded-full
+          border-solid border border-white
+          hover:bg-blue-700
+          cursor-pointer
+          place-content-center
+        "
+      >
+        <CloseIcon />
+      </div>
     </div>
   </div>
 </template>
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import CloseIcon from '~/assets/icons/close-icon.svg?inline'
 export default {
   name: 'PrivacyPolicyBanner',
   components: {
     CloseIcon,
   },
-  data() {
-    return {
-      show: false,
-      cookieName: 'privacy-policy-banner',
-    }
+  computed: {
+    ...mapGetters({
+      showBanner: 'banners/showCookiePolicy',
+    }),
   },
   created() {
-    const cookieRes = this.$cookies.get(this.cookieName)
-    if (!cookieRes) {
-      this.show = true
-    }
+    this.checkCookiePolicy()
   },
   methods: {
-    dismiss() {
-      this.show = false
-      this.$cookies.set(this.cookieName, 'cookie-value', {
-        path: '/',
-        maxAge: 60 * 60 * 24 * 365,
-      })
-    },
+    ...mapActions({
+      checkCookiePolicy: 'banners/checkCookiePolicy',
+      acceptCookiePolicy: 'banners/acceptCookiePolicy',
+    }),
   },
 }
 </script>
