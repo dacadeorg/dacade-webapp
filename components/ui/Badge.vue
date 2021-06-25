@@ -53,16 +53,5 @@ export default {
       return this?.$route.name?.startsWith('communities-slug__')
     },
   },
-  created() {
-    // eslint-disable-next-line no-console
-    console.log(this.$route.path) // path is /users
-    // eslint-disable-next-line no-console
-    console.log(this?.$route.name)
-    // eslint-disable-next-line no-console
-    console.log('isCommunity', this?.isCommunity)
-    return {
-      isCommunity: this?.$route?.name?.startsWith('communities-slug__'),
-    }
-  },
 }
 </script>
