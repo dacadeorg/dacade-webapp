@@ -5,11 +5,6 @@ export default function ({ store, redirect, route }) {
   const authUser = store.getters['user/data']
 
   if (authUser) {
-    // Todo: Fix this so we dont have to always make a call if user is admin
-    if (isAdminRoute(route)) {
-      store.commit('setForwardRoute', route.path)
-      redirect('/login')
-    }
     if (isGuestRoute(route)) {
       redirect('/')
     }
@@ -18,22 +13,10 @@ export default function ({ store, redirect, route }) {
       store.dispatch('user/communities/all')
     }
     // if(route.path.starts)
-  } else if (isUserRoute(route) || isAdminRoute(route)) {
+  } else if (isUserRoute(route)) {
     store.commit('setForwardRoute', route.path)
     redirect('/login')
   }
-}
-
-function isAdminRoute(route) {
-  return matchesRoutes(route, [
-    '/admin/evaluations',
-    '/admin',
-    '/admin/evaluation/:id?',
-    '/admin/functions',
-    '/admin/test',
-    '/admin/payments',
-    '/admin/verifications',
-  ])
 }
 
 function isUserRoute(route) {
