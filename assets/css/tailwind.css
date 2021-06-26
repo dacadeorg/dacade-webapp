@@ -111,5 +111,5 @@ button {
 }
 
 div {
-  @apply break-all;
+  @apply break-words;
 }
