@@ -3,6 +3,16 @@
     <nuxt-link :to="link">
       <div class="absolute top-0 left-0 z-10">
         <Avatar :user="user" size="medium" />
+        <Badge
+          v-if="badge"
+          :value="badge"
+          size="medium"
+          :custom-style="{
+            bottom: '-1px',
+            right: '-3px',
+            backgroundColor: colors.textAccent,
+          }"
+        />
       </div>
       <div
         class="relative pl-10.5 z-0 pb-12"
@@ -48,6 +58,7 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
+import Badge from '@/components/ui/Badge'
 import Moment from 'moment'
 import Currency from '@/components/ui/Currency'
 
@@ -56,6 +67,7 @@ export default {
   components: {
     Avatar,
     Currency,
+    Badge,
   },
   props: {
     user: {
@@ -80,6 +92,10 @@ export default {
     bordered: {
       default: true,
       type: Boolean,
+    },
+    badge: {
+      default: 0,
+      type: Number,
     },
   },
   computed: {

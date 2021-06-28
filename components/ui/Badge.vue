@@ -39,9 +39,6 @@ export default {
     },
   },
   computed: {
-    initials() {
-      return this.user.displayName ? this.user.displayName[0] : null
-    },
     sizeClasses() {
       switch (this.size) {
         case 'medium':
