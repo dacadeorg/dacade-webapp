@@ -96,9 +96,7 @@
         </nuxt-link>
       </div>
     </div>
-    <div
-      class="self-start md:relative absolute right-8 top-15 md:top-7 md:right-0"
-    >
+    <div class="self-start relative mt-15 md:mt-7">
       <Avatar
         class="w-15 h-15"
         :icon="bounty.icon"
@@ -109,7 +107,7 @@
       <Badge
         v-if="bounty.submissions.length"
         :custom-style="{
-          bottom: '2px',
+          bottom: '0',
           right: '-4px',
           fontSize: 14,
           backgroundColor: bounty.colors.accent,

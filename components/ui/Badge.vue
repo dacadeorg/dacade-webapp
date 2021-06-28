@@ -5,6 +5,7 @@
       'bg-white text-gray-900': isCommunity === true,
       'text-white bg-gray-900': isCommunity === false,
     }"
+    :style="customStyle"
     class="
       font-semibold
       leading-3
