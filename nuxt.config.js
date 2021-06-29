@@ -1,3 +1,5 @@
+console.log(process.env.NODE_ENV)
+
 export default {
   ssr: false,
   target: 'static',
@@ -74,7 +76,12 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org/docs/
     // 'bootstrap-vue/nuxt',
-    '@nuxtjs/dotenv',
+    [
+      '@nuxtjs/dotenv',
+      {
+        filename: `.env.${process.env.NODE_ENV}`,
+      },
+    ],
     [
       'nuxt-highlightjs',
       {

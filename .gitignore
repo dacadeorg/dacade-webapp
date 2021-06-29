@@ -100,3 +100,5 @@ storybook-static
 yarn.lock
 .env.production
 .vscode
+.env.local
+.env.development
