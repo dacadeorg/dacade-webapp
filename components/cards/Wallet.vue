@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="px-7 pt-6 lg:w-96.5 md:w-8/12 sm:w-8/12 pb-24 lg:pb-24">
+    <!-- <div class="px-7 pt-6 lg:w-96.5 md:w-8/12 sm:w-8/12 pb-24 lg:pb-24">
       <div class="xl:w-72 md:w-72 lg:w-full text-sm text-gray-700">
         <p>
           {{ details.address || details.description }}
@@ -62,26 +62,26 @@
           </Button>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import Coin from '@/components/ui/Coin'
-import Button from '@/components/ui/Button'
+// import Button from '@/components/ui/Button'
 import Tag from '@/components/ui/Tag'
-import Address from '@/components/cards/Address'
+// import Address from '@/components/cards/Address'
 import Currency from '@/components/ui/Currency'
-import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
+// import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
   name: 'Wallet',
   components: {
     Coin,
-    Button,
-    ArrowRight,
+    // Button,
+    // ArrowRight,
     Tag,
-    Address,
+    // Address,
     Currency,
   },
   props: {
