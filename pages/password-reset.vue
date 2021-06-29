@@ -1,7 +1,21 @@
 <template>
-  <div class="content-wrapper">
-    <ValidationObserver v-slot="{ passes }">
-      <form class="mb-24" @submit.prevent="passes(onPasswordResetRequest)">
+  <div>
+    <ValidationObserver
+      v-slot="{ passes }"
+      class="
+        absolute
+        w-full
+        top-0
+        min-h-screen
+        flex
+        items-center
+        justify-center
+      "
+    >
+      <form
+        class="content-wrapper"
+        @submit.prevent="passes(onPasswordResetRequest)"
+      >
         <div class="lg:w-98 xl:w-98 mx-auto">
           <h3 class="text-5xl my-5">
             {{ $t('login-page.password-reset.title') }}
