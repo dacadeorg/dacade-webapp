@@ -1,5 +1,6 @@
 export default {
   ssr: false,
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -58,9 +59,8 @@ export default {
   plugins: [
     { src: '~/plugins/vee-validate.js' },
     '~/plugins/globals.js',
-    '~/plugins/axios',
     '~/plugins/api.js',
-    '~/plugins/fireauth.js',
+    '~/plugins/auth.js',
     '~/plugins/highlight',
     { src: '~/plugins/vClickOutside.js', ssr: false },
   ],
@@ -74,6 +74,7 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org/docs/
     // 'bootstrap-vue/nuxt',
+    '@nuxtjs/dotenv',
     [
       'nuxt-highlightjs',
       {

@@ -1,11 +1,8 @@
-import { vuexfireMutations } from 'vuexfire'
-
 export const state = () => ({
   error: null,
   busy: false,
   jobDone: false,
   forwardRoute: null,
-  communityDataPreview: null,
 })
 
 export const mutations = {
@@ -24,7 +21,6 @@ export const mutations = {
   setForwardRoute(state, payload) {
     state.forwardRoute = payload
   },
-  ...vuexfireMutations,
 }
 
 export const getters = {

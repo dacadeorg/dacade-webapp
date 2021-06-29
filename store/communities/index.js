@@ -1,8 +1,5 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import firebase from '@/plugins/firebase'
-
-const db = firebase.database()
 
 export const state = () => ({
   list: [],
@@ -39,15 +36,6 @@ export const actions = {
   async all({ commit }) {
     const { data } = await this.$api.get('communities/list')
     commit('setList', data)
-  },
-  content({ commit }, payload) {
-    return db
-      .ref(`communityData/${payload}`)
-      .once('value')
-      .then((snapShot) => {
-        const communityData = snapShot.val()
-        commit('setContent', communityData)
-      })
   },
 }
 

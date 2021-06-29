@@ -3,7 +3,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable spaced-comment */
 import firebase from '@/plugins/firebase'
-import auth from '@/lib/auth'
 
 export const state = () => ({
   data: null,
@@ -44,23 +43,19 @@ export const actions = {
       throw error
     }
   },
-  passwordResetRequest({ dispatch }, payload) {
+  async passwordResetRequest({ dispatch }, { email }) {
     this.commit('setBusy', true)
     this.commit('clearError')
-    return new Promise((resolve, reject) => {
-      auth
-        .passwordResetRequest(payload.email)
-        .then((response) => {
-          resolve(response)
-          this.commit('setJobDone', true)
-          this.commit('setBusy', false)
-        })
-        .catch((error) => {
-          reject(error)
-          this.commit('setBusy', false)
-          this.commit('setError', error)
-        })
-    })
+    try {
+      const response = await firebase.auth().sendPasswordResetEmail(email)
+      this.commit('setJobDone', true)
+      this.commit('setBusy', false)
+      return response
+    } catch (error) {
+      this.commit('setBusy', false)
+      this.commit('setError', error)
+      throw error
+    }
   },
   logout() {
     firebase.auth().signOut()

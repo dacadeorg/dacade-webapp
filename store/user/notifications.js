@@ -1,10 +1,5 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import firebase from '@/plugins/firebase'
-import { read } from 'gray-matter'
-import { vuexfireMutations, firebaseAction } from 'vuexfire'
-
-const db = firebase.database()
 
 export const state = () => ({
   notifications: [],
@@ -23,7 +18,6 @@ export const mutations = {
   setUnread(state, payload) {
     state.unread = payload
   },
-  ...vuexfireMutations,
 }
 
 export const actions = {

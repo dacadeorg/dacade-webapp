@@ -39,6 +39,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/markdownit": "^2.0.0",
@@ -65,8 +66,7 @@
     "v-click-outside": "^3.1.2",
     "vee-validate": "^3.3.11",
     "vue-highlight.js": "^4.0.1-beta",
-    "vuelidate": "^0.7.6",
-    "vuexfire": "^3.2.4"
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
