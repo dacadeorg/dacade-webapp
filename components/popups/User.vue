@@ -139,19 +139,12 @@ export default {
   methods: {
     toggle() {
       this.show = !this.show
-      const body = document.body
-      if (this.show) {
-        body.style.position = 'fixed'
-        body.style.width = '100%'
-      } else {
-        body.style.position = 'relative'
-      }
+      this.$store.dispatch('ui/toggleBodyScrolling', this.show)
     },
     externalClick() {
       if (this.show) {
         this.show = false
-        const body = document.body
-        body.style.position = 'relative'
+        this.$store.dispatch('ui/toggleBodyScrolling', this.show)
       }
     },
     logout() {

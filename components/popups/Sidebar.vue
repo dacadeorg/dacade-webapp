@@ -227,29 +227,13 @@ export default {
         this.$store.dispatch('user/notifications/read')
       }
 
-      if (this.show) {
-        const scrollY =
-          document.documentElement.style.getPropertyValue('--scroll-y')
-        const body = document.body
-        // body.style.position = 'fixed'
-        body.style.top = `-${scrollY}`
-        return
-      }
-
-      const body = document.body
-      const scrollY = body.style.top
-      body.style.position = 'relative'
-      body.style.top = ''
-      window.scrollTo(0, parseInt(scrollY || '0') * -1)
+      this.$store.dispatch('ui/toggleBodyScrolling', this.show)
+      window.scrollTo(0, 0)
     },
     externalClick(event) {
       if (!this.show) return
       this.show = false
-      const body = document.body
-      const scrollY = body.style.top
-      body.style.position = 'relative'
-      body.style.top = ''
-      window.scrollTo(0, parseInt(scrollY || '0') * -1)
+      this.$store.dispatch('ui/toggleBodyScrolling', this.show)
     },
     logout() {
       this.$store.dispatch('auth/logout')

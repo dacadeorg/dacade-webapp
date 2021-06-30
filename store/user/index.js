@@ -50,6 +50,11 @@ export const actions = {
     }
   },
 
+  async update({ dispatch }, payload) {
+    await this.$api.patch('users/update', payload)
+    dispatch('fetch')
+  },
+
   async getToken({ commit }, payload) {
     const user = firebase.auth().currentUser
     if (user) {

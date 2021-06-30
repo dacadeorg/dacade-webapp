@@ -6,9 +6,15 @@
       hover:outline-none
       cursor-pointer
       relative
+      disabled:border-opacity-60
     "
+    :disabled="disabled"
     type="submit"
     :class="{
+      'disabled:bg-gray-400 disabled:text-white':
+        type == 'primary' || type == 'secondary',
+      'disabled:border-gray-400 disabled:text-gray-400 disabled:bg-transparent':
+        type.includes('outline'),
       'bg-primary hover:bg-primary-dark  text-white': type == 'primary',
       'lg:px-7 px-5': padding,
       'bg-secondary text-primary': type == 'secondary',
@@ -41,6 +47,10 @@ export default {
       type: [Number, String],
     },
     loading: {
+      default: false,
+      type: Boolean,
+    },
+    disabled: {
       default: false,
       type: Boolean,
     },
