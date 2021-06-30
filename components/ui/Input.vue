@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative">
     <div class="floating-input relative">
       <label
         :class="{
@@ -39,7 +39,7 @@
         :value="value"
         :type="type"
         :placeholder="placeholder"
-        class="rounded-md focus:outline-none focus:shadow-sm text-lg"
+        class="rounded-md focus:outline-none focus:shadow-sm text-lg w-full"
         autocomplete="off"
         :disabled="disabled"
         @focus="isFocused = true"
@@ -96,7 +96,7 @@ export default {
 
   computed: {
     isFilled() {
-      return this.value.trim().length > 0
+      return this.value?.trim().length > 0
     },
 
     inputListeners() {

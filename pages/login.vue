@@ -64,10 +64,7 @@
               class="flex btn-primary btn-lg py-2 px-5 align-middle"
             >
               <span class="text-sm">{{ $t('login-page.signin.button') }}</span>
-              <span
-                v-if="loading === false"
-                class="text-white mt-0.5 lg:pl-12 pl-8"
-              >
+              <span v-if="!loading" class="text-white mt-0.5 lg:pl-12 pl-8">
                 <ArrowRight />
               </span>
               <span v-else class="text-white lg:pl-12 pl-8">

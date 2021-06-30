@@ -1,17 +1,10 @@
 <template>
-  <div
-    class="
-      bg-gray-100
-      lg:w-9/12
-      xl:w-2/3
-      relative
-      lg:flex
-      md:flex
-      sm:flex
-      rounded-3.5xl
-      mb-7
-    "
-  >
+  <div class="bg-gray-100 relative lg:flex md:flex sm:flex rounded-3.5xl mb-7">
+    <EditAddress
+      :wallet="details"
+      :show="showEditModal"
+      @close="showEditModal = false"
+    />
     <div class="bg-gray-50 lg:w-60 md:w-60 sm:w-60 rounded-3.5xl">
       <div class="p-6">
         <div class="border-b border-dotted border-gray-900">
@@ -35,54 +28,56 @@
         </div>
       </div>
     </div>
-    <!-- <div class="px-7 pt-6 lg:w-96.5 md:w-8/12 sm:w-8/12 pb-24 lg:pb-24">
+    <div class="px-7 pt-6 lg:w-96.5 md:w-8/12 sm:w-8/12 pb-24 lg:pb-24">
       <div class="xl:w-72 md:w-72 lg:w-full text-sm text-gray-700">
-        <p>
-          {{ details.address || details.description }}
+        <p v-if="address" class="leading-5 text-sm">
+          <span v-for="(part, k) in address" :key="k" class="mr-2">{{
+            part
+          }}</span>
         </p>
+        <p v-else>{{ details.description }}</p>
       </div>
-      <div>
-        <Address />
+      <div class="text-gray-700 text-sm mt-3">
+        <span
+          class="cursor-pointer hover:underline"
+          @click="showEditModal = true"
+          >{{ address ? 'Change' : 'Set' }} address</span
+        >
       </div>
       <div class="right-2 absolute bottom-2 mt-5">
-        <div v-if="hasAddress">
-          <Button :padding="false" class="py-2" type="outline-primary">
-            <span class="inline-block text-sm">Cash out </span>
-            <span class="inline-block lg:pl-12 pl-3 align-middle"
-              ><ArrowRight
-            /></span>
-          </Button>
-        </div>
-        <div v-else>
-          <Button :padding="false" class="py-2" type="outline-gray">
-            <span class="inline-block text-sm">Cash out </span>
-            <span class="inline-block lg:pl-12 pl-3 align-middle"
-              ><ArrowRight
-            /></span>
-          </Button>
-        </div>
+        <Button
+          :padding="false"
+          :disabled="true"
+          class="py-2"
+          type="outline-primary"
+        >
+          <span class="inline-block text-sm">Cash out </span>
+          <span class="inline-block lg:pl-12 pl-3 align-middle"
+            ><ArrowRight
+          /></span>
+        </Button>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script>
 import Coin from '@/components/ui/Coin'
-// import Button from '@/components/ui/Button'
+import Button from '@/components/ui/Button'
 import Tag from '@/components/ui/Tag'
-// import Address from '@/components/cards/Address'
 import Currency from '@/components/ui/Currency'
-// import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
+import EditAddress from '@/components/sections/profile/modals/EditAddress'
+import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
   name: 'Wallet',
   components: {
     Coin,
-    // Button,
-    // ArrowRight,
+    Button,
+    ArrowRight,
     Tag,
-    // Address,
     Currency,
+    EditAddress,
   },
   props: {
     details: {
@@ -92,11 +87,20 @@ export default {
         return {}
       },
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
-
+  data() {
+    return {
+      showEditModal: false,
+    }
+  },
   computed: {
-    hasAddress() {
-      return true
+    address() {
+      if (!this.details.address) return null
+      return this.details.address.match(/.{1,4}/g)
     },
   },
 }

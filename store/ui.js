@@ -3,6 +3,7 @@
 
 export const state = () => ({
   colors: {},
+  locked: false,
 })
 
 export const mutations = {
@@ -11,6 +12,21 @@ export const mutations = {
       ...state.colors,
       ...payload,
     }
+  },
+  setLocked(state, payload) {
+    state.locked = payload
+  },
+}
+
+export const actions = {
+  toggleBodyScrolling({ commit }, lock) {
+    const body = document.body
+    commit('setLocked', lock)
+    if (lock) {
+      body.style.overflow = 'hidden'
+      return
+    }
+    body.style.overflow = 'visible'
   },
 }
 

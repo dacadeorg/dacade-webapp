@@ -830,6 +830,7 @@ module.exports = {
       'focus-within',
       'hover',
       'focus',
+      'disabled',
     ],
     backgroundImage: ['responsive'],
     backgroundOpacity: [
@@ -851,6 +852,7 @@ module.exports = {
       'focus-within',
       'hover',
       'focus',
+      'disabled',
     ],
     borderOpacity: [
       'responsive',
@@ -859,6 +861,7 @@ module.exports = {
       'focus-within',
       'hover',
       'focus',
+      'disabled',
     ],
     borderRadius: ['responsive'],
     borderStyle: ['responsive'],
@@ -949,6 +952,7 @@ module.exports = {
       'focus-within',
       'hover',
       'focus',
+      'disabled',
     ],
     textDecoration: [
       'responsive',

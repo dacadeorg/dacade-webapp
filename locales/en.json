@@ -103,5 +103,14 @@
   "signup-page.terms": "Terms and conditions",
   "signup-page.terms.warning": "you have to accept in order to proceed",
   "signup-page.privacy": "privacy policy",
-  "signup-page.privacy.warning": "you have to accept in order to proceed"
+  "signup-page.privacy.warning": "you have to accept in order to proceed",
+  "profile.wallets.missing-info.warning": "In order to cash out you need to",
+  "profile.wallets.missing-info.action": "complete your profile",
+  "profile.edit.label.fist-name": "First name",
+  "profile.edit.label.last-name": "Last name",
+  "profile.edit.label.account-address": "Account address",
+  "profile.edit.placeholder.fist-name": "Enter your first name",
+  "profile.edit.placeholder.last-name": "Enter your last name",
+  "profile.edit.close": "Close",
+  "profile.edit.save": "Save changes"
 }

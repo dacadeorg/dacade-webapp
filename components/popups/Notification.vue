@@ -98,26 +98,12 @@ export default {
         this.$store.dispatch('user/notifications/read')
       }
 
-      if (this.show) {
-        const body = document.body
-        body.style.position = 'fixed'
-        body.style.width = '100%'
-        return
-      }
-      const body = document.body
-      const scrollY = body.style.top
-      body.style.position = 'relative'
-      body.style.top = ''
-      window.scrollTo(0, parseInt(scrollY || '0') * -1)
+      this.$store.dispatch('ui/toggleBodyScrolling', this.show)
     },
     externalClick(event) {
       if (!this.show) return
       this.show = false
-      const body = document.body
-      const scrollY = body.style.top
-      body.style.position = 'relative'
-      body.style.top = ''
-      window.scrollTo(0, parseInt(scrollY || '0') * -1)
+      this.$store.dispatch('ui/toggleBodyScrolling', this.show)
     },
   },
 }

@@ -30,6 +30,13 @@ export const actions = {
     const { data } = await this.$api.get('wallets/list')
     commit('setList', data)
   },
+
+  async update({ dispatch }, { id, address }) {
+    await this.$api.patch(`wallets/update/${id}`, {
+      address,
+    })
+    await dispatch('all')
+  },
 }
 
 export const getters = {
