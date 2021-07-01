@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import Vue from 'vue'
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate'
-import { required, email, min } from 'vee-validate/dist/rules'
+import { required, email, min, between } from 'vee-validate/dist/rules'
 
 extend('required', {
   ...required,
@@ -12,6 +12,8 @@ extend('email', {
   ...email,
   message: 'This must be a valid email address',
 })
+
+extend('between', between)
 
 extend('min', {
   ...min,

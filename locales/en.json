@@ -112,5 +112,6 @@
   "profile.edit.placeholder.fist-name": "Enter your first name",
   "profile.edit.placeholder.last-name": "Enter your last name",
   "profile.edit.close": "Close",
-  "profile.edit.save": "Save changes"
+  "profile.edit.save": "Save changes",
+  "profile.wallet.payout.text": "has been successfully claimed, you will receive a notification when the deposit will be completed."
 }
