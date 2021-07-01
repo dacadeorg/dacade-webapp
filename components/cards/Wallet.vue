@@ -53,7 +53,7 @@
         <div class="right-2 absolute bottom-2 mt-5">
           <Button
             :padding="false"
-            :disabled="!details.balance"
+            :disabled="disabled || !details.balance"
             class="py-2"
             type="outline-primary"
             @click="showPayoutModal = true"
