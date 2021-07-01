@@ -64,7 +64,7 @@ export default {
 
     value: {
       default: '',
-      type: String,
+      type: [String, Number],
     },
 
     label: {
@@ -96,7 +96,7 @@ export default {
 
   computed: {
     isFilled() {
-      return this.value?.trim().length > 0
+      return String(this.value)?.trim().length > 0
     },
 
     inputListeners() {

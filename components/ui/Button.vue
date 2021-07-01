@@ -7,6 +7,7 @@
       cursor-pointer
       relative
       disabled:border-opacity-60
+      disabled:cursor-not-allowed
     "
     :disabled="disabled"
     type="submit"
