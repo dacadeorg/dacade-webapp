@@ -22,7 +22,8 @@ export default {
 <style lang="scss">
 .hint-container {
   a {
-    font-weight: 500;
+    font-weight: 400;
+    text-decoration: underline;
   }
 }
 </style>
