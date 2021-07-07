@@ -1,5 +1,3 @@
-console.log(process.env.NODE_ENV)
-
 export default {
   ssr: false,
   target: 'static',
@@ -66,7 +64,6 @@ export default {
     '~/plugins/highlight',
     { src: '~/plugins/vClickOutside.js', ssr: false },
   ],
-
   router: {
     middleware: 'router-auth',
   },

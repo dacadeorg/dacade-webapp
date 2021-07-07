@@ -35,16 +35,7 @@
       >.
     </div>
     <div
-      class="
-        flex
-        md:text-center
-        md:content-center
-        md:mr-6
-        mb-6
-        md:mb-0
-        md:mt-6
-        justify-center
-      "
+      class="flex items-center p-6 md:py-2 justify-center"
       @click="acceptCookiePolicy"
     >
       <div
