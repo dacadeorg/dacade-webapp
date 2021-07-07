@@ -70,7 +70,11 @@
         >
           <div class="flex justify-between w-full pr-0">
             <div class="flex space-x-1">
-              <Avatar :user="submission.user" size="mini" />
+              <Avatar
+                :user="submission.user"
+                size="mini"
+                style="font-size: 14px"
+              />
               <div>{{ submission.user.displayName }}</div>
               <div
                 class="
@@ -106,6 +110,7 @@
       />
       <Badge
         v-if="bounty.submissions.length"
+        class="bottom-0 -right-1"
         :custom-style="{
           bottom: '0',
           right: '-4px',
