@@ -4,6 +4,9 @@ export default {
   /*
    ** Headers of the page
    */
+  env: {
+    packageName: process.env.npm_package_name || '',
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [

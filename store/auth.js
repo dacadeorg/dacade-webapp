@@ -16,7 +16,10 @@ export const actions = {
     this.commit('setBusy', true)
     this.commit('clearError')
     try {
-      await this.$api.post('auth/signup', payload)
+      await this.$api.post('auth/signup', {
+        ...payload,
+        redirectLink: '/communities',
+      })
       return dispatch('login', {
         email: payload.email,
         password: payload.password,
