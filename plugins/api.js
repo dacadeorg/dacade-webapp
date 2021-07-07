@@ -1,3 +1,5 @@
+import Package from '../package.json'
+
 export default function ({ $axios, store }, inject) {
   // Create a custom axios instance
   const api = $axios.create({
@@ -13,7 +15,7 @@ export default function ({ $axios, store }, inject) {
     const token = store.getters['user/token']
     config.headers = {
       Authorization: token,
-      'app-name': process.env.packageName,
+      'app-name': Package.name,
       'app-domain': window.location.hostname,
     }
   })
