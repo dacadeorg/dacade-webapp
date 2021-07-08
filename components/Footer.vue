@@ -65,7 +65,7 @@ import Section from '@/components/ui/Section'
 import SocialLink from '@/components/ui/SocialLink'
 import ApeUnitLogo from '@/assets/icons/partners/apeunit.svg?data'
 import OctanLogo from '@/assets/icons/partners/octan.svg?data'
-
+import CeloLogo from '@/assets/icons/partners/celo.svg?data'
 export default {
   name: 'Footer',
   components: {
@@ -101,6 +101,11 @@ export default {
           name: 'Octan Group',
           url: 'https://octan.group/',
           logo: OctanLogo,
+        },
+        {
+          name: 'Celo',
+          url: 'https://celo.org',
+          logo: CeloLogo,
         },
       ],
     }
