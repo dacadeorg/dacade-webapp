@@ -127,6 +127,7 @@ export default {
   buildModules: [
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
+    '@nuxt/image',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/fontawesome',
@@ -203,5 +204,18 @@ export default {
     },
 
     use: ['markdown-it-div', 'markdown-it-attrs'],
+  },
+
+  image: {
+    // The screen sizes predefined by `@nuxt/image`:
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      '2xl': 1536,
+    },
   },
 }
