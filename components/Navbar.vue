@@ -55,10 +55,14 @@
             >{{ $t('nav.signin.new-accout') }}</span
           >
           <NavItem to="/signup">
+            <span
+              v-if="$router.history.current.path === '/login'"
+              class="py-2 text-sm text-primary"
+              >{{ $t('nav.sign-up') }}</span
+            >
             <Button
-              :type="
-                $router.history.current.path === '/login' ? 'link' : 'secondary'
-              "
+              v-else
+              type="secondary"
               :padding="false"
               class="text-sm py-2"
               :class="
