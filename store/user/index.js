@@ -35,7 +35,7 @@ export const actions = {
   async fetch({ commit, dispatch }, payload) {
     const user = firebase.auth().currentUser
     if (!user) {
-      commit('set', null)
+      dispatch('clear')
       return null
     }
 
@@ -46,6 +46,7 @@ export const actions = {
       return data
     } catch (e) {
       console.log(e)
+      dispatch('clear')
       return null
     }
   },
