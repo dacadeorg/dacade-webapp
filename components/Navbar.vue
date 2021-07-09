@@ -34,7 +34,15 @@
             >{{ $t('nav.signup.already-exist') }}</span
           >
           <NavItem to="/login">
-            <span class="py-2 text-sm text-primary">{{ $t('nav.login') }}</span>
+            <span
+              class="py-2 text-sm"
+              :class="
+                $router.history.current.path === '/signup'
+                  ? 'text-primary'
+                  : 'text-gray-900'
+              "
+              >{{ $t('nav.login') }}</span
+            >
           </NavItem>
         </div>
         <div
@@ -52,7 +60,12 @@
                 $router.history.current.path === '/login' ? 'link' : 'secondary'
               "
               :padding="false"
-              class="text-sm py-2 px-5"
+              class="text-sm py-2"
+              :class="
+                $router.history.current.path === '/login'
+                  ? 'text-primary'
+                  : 'text-gray-900'
+              "
             >
               {{ $t('nav.sign-up') }}
             </Button>
