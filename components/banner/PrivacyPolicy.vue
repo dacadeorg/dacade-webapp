@@ -7,8 +7,7 @@
       left-0
       right-0
       z-999
-      flex flex-col
-      md:flex-row
+      flex flex-row
       justify-center
       md:justify-between
       bg-primary
@@ -35,7 +34,19 @@
       >.
     </div>
     <div
-      class="flex items-center p-6 md:py-2 justify-center"
+      class="
+        flex
+        absolute
+        lg:relative
+        lg:p-6
+        md:py-0
+        lg:justify-center
+        -right-1
+        -top-1
+        lg:top-0
+        lg:right-0
+        lg:items-center
+      "
       @click="acceptCookiePolicy"
     >
       <div
@@ -49,6 +60,7 @@
           rounded-full
           border-solid border border-white
           hover:bg-blue-700
+          bg-primary
           cursor-pointer
           place-content-center
         "
