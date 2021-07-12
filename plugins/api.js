@@ -10,14 +10,13 @@ export default function ({ $axios, store }, inject) {
     },
   })
 
-  api.onRequest((config) => {
+  api.onRequest(async (config) => {
     // Adding firebase token
-    const token = store.getters['user/token']
-    config.headers = {
-      Authorization: token,
-      'app-name': Package.name,
-      'app-domain': window.location.hostname,
-    }
+    const token = await store.dispatch('user/getToken')
+    await api.setToken(token)
+    config.headers['app-name'] = Package.name
+    config.headers['app-domain'] = window.location.hostname
+    return config
   })
 
   api.onError((error) => {
