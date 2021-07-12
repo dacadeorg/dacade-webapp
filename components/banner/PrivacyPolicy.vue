@@ -7,8 +7,7 @@
       left-0
       right-0
       z-999
-      flex flex-col
-      md:flex-row
+      flex flex-row
       justify-center
       md:justify-between
       bg-primary
@@ -20,7 +19,9 @@
       class="
         text-white
         py-8
-        text-center text-base
+        text-center
+        lg:text-base
+        text-sm
         md:text-lg
         justify-center
         md:max-w-none
@@ -35,20 +36,33 @@
       >.
     </div>
     <div
-      class="flex items-center p-6 md:py-2 justify-center"
+      class="
+        flex
+        absolute
+        lg:relative
+        lg:p-6
+        md:py-0
+        lg:justify-center
+        top-0
+        lg:right-0
+        right-1
+        items-center
+      "
       @click="acceptCookiePolicy"
     >
       <div
         class="
           z-50
           h-8
-          w-8
+          lg:w-8
+          w-5
           flex
           items-center
           text-white
           rounded-full
-          border-solid border border-white
+          lg:border-solid lg:border lg:border-white
           hover:bg-blue-700
+          bg-transparent
           cursor-pointer
           place-content-center
         "
