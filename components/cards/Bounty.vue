@@ -14,7 +14,6 @@
       relative
       rounded-xl
     "
-    @click="goToChallenge(bounty)"
   >
     <div
       class="
@@ -31,10 +30,13 @@
       "
     >
       <nuxt-link
-        class="w-full"
         :to="`/communities/${bounty.slug}/challenges/${bounty.challenge}`"
+        class="w-full"
       >
-        <div class="relative w-full md:flex md:justify-between">
+        <div
+          class="relative w-full md:flex md:justify-between"
+          @click="goToChallenge(bounty)"
+        >
           <div class="font-medium text-md mb-2">
             {{ bounty.name }}
           </div>
