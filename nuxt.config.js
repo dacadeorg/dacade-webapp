@@ -66,6 +66,7 @@ export default {
     '~/plugins/auth.js',
     '~/plugins/highlight',
     { src: '~/plugins/vClickOutside.js', ssr: false },
+    { src: '~/plugins/persistedState.client.js', ssr: false },
   ],
   router: {
     middleware: 'router-auth',
