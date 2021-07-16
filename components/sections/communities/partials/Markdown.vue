@@ -87,8 +87,15 @@ export default {
   //   margin-top: 2rem;
   // }
 
+  p {
+    width: 65ch;
+  }
+
+  pre {
+    margin: 28px 0;
+  }
   code {
-    font-size: 1rem;
+    font-size: 16px; // 1.2 rem?
     font-weight: 400;
     color: var(--text-accent-color);
     &::before,
