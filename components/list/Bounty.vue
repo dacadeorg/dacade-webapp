@@ -15,15 +15,18 @@
       lg:max-w-2xl
     "
   >
+    <Referral />
     <Bounty v-for="bounty in bounties" :key="bounty.id" :bounty="bounty" />
   </div>
 </template>
 <script>
 import Bounty from '@/components/cards/Bounty.vue'
+import Referral from '@/components/cards/Referral.vue'
 export default {
   name: 'BountyList',
   components: {
     Bounty,
+    Referral,
   },
   props: {
     value: {

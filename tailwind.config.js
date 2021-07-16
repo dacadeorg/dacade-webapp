@@ -505,7 +505,7 @@ module.exports = {
       full: '100%',
       min: 'min-content',
       max: 'max-content',
-      prose: '65ch',
+      prose: '100%',
       sidebar: '340px',
       ...breakpoints(theme('screens')),
     }),
