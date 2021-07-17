@@ -17,6 +17,7 @@ export default function ({ store, redirect, route }) {
     store.commit('setForwardRoute', route.path)
     redirect('/login')
   }
+  // store.dispatch('ui/unlockBodyScrolling')
 }
 
 function isUserRoute(route) {

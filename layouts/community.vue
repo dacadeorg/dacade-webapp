@@ -1,15 +1,17 @@
 <template>
-  <ThemeWrapper :colors="colors">
-    <div class="relative overflow-hidden lg:overflow-auto">
-      <Navbar :settings="settings" />
-      <NotificationBar />
-      <div class="relative">
-        <nuxt />
+  <Wrapper>
+    <ThemeWrapper :colors="colors">
+      <div class="relative overflow-hidden lg:overflow-auto">
+        <Navbar :settings="settings" />
+        <NotificationBar />
+        <div class="relative">
+          <nuxt />
+        </div>
+        <Footer />
+        <PrivacyPolicyBanner />
       </div>
-      <Footer />
-      <PrivacyPolicyBanner />
-    </div>
-  </ThemeWrapper>
+    </ThemeWrapper>
+  </Wrapper>
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -18,6 +20,7 @@ import Footer from '@/components/Footer'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
 import NotificationBar from '@/components/NotificationBar'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
+import Wrapper from './wrapper.vue'
 
 export default {
   components: {
@@ -26,6 +29,7 @@ export default {
     PrivacyPolicyBanner,
     NotificationBar,
     Footer,
+    Wrapper,
   },
   computed: {
     ...mapGetters({
