@@ -1,24 +1,45 @@
 <template>
-  <div class="container">
-    <div class="row align-items-center error-page-container">
-      <div class="col-md-6 mx-auto text-center">
-        <div v-if="error.statusCode === 404">
-          <h1>Page not found</h1>
-          <p>{{ error.message }}</p>
-        </div>
-        <div v-else>
-          <h1>Oops!</h1>
-          <p>An error occured and your request couldn't be completed.</p>
-        </div>
-        <n-link to="/"> Home page </n-link>
+  <div
+    class="flex items-center justify-center absolute min-h-screen top-0 w-full"
+  >
+    <div class="relative p-6 text-center">
+      <div v-if="error.statusCode === 404">
+        <h1 class="text-3xl font-medium mb-6">Page not found</h1>
+        <p class="text-lg mb-6">
+          The page you're trying to reach doesn't appear to exist.
+        </p>
+      </div>
+      <div v-else>
+        <h1 class="text-3xl font-medium mb-6">Oops!</h1>
+        <p class="text-lg mb-2">
+          An error occured and your request couldn't be completed.
+        </p>
+        <p class="text-lg mb-6">Please refresh this page or try again later</p>
+      </div>
+      <div class="text-center">
+        <Button
+          link="/"
+          target="_self"
+          class="inline-flex btn-primary btn-lg py-2 px-5 align-middle"
+          ><span class="text-sm">Home Page</span>
+          <span class="text-white mt-0.5 pl-4">
+            <ArrowRight />
+          </span>
+        </Button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Button from '@/components/ui/Button'
+import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 export default {
-  layout: 'default',
+  components: {
+    Button,
+    ArrowRight,
+  },
+  layout: 'withoutFooter',
   props: {
     error: {
       type: Object,
@@ -27,8 +48,3 @@ export default {
   }, // If you prefers you can set a custom layout for the error page
 }
 </script>
-<style lang="scss" scoped>
-.error-page-container {
-  min-height: 80vh;
-}
-</style>
