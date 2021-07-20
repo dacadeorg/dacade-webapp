@@ -28,6 +28,11 @@ export const actions = {
     }
     body.style.overflow = 'visible'
   },
+  unlockBodyScrolling({ state, dispatch }) {
+    if (state.locked) {
+      dispatch('toggleBodyScrolling', false)
+    }
+  },
 }
 
 export const getters = {

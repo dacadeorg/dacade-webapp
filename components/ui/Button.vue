@@ -80,7 +80,7 @@ export default {
       type: String,
     },
     target: {
-      default: null,
+      default: '_self',
       type: String,
     },
   },
@@ -113,7 +113,7 @@ export default {
   methods: {
     navigate() {
       if (!this.link) return
-      window.open(this.link, this.target)
+      window.open(this.link, this.target || undefined)
     },
   },
 }
