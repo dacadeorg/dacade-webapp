@@ -47,17 +47,18 @@
         "
       >
         <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">
-          {{ type }}
+          {{ referral.type }}
         </div>
         <div>
-          <Reward type="gray" :reward="reward" />
+          <Reward type="gray" :reward="referral.reward" />
         </div>
       </div>
     </div>
     <div class="self-start relative mt-15 md:mt-7">
       <Avatar
-        class="w-15 h-15"
+        class="w-15 h-15 rounded-xl overflow-hidden"
         :icon="referral.icon"
+        :image="referral.image"
         :color="referral.colors.primary"
         size="medium-fixed"
         shape="rounded"
@@ -76,32 +77,15 @@ export default {
     Reward,
     Avatar,
   },
-  computed: {
-    reward() {
-      return {
-        amount: 25,
-        token: 'cUSD',
-      }
-    },
-    type() {
-      return 'Referral'
-    },
-    referral() {
-      return {
-        name: 'Celo Development 101',
-        icon: '/img/communities/celo.svg',
-        colors: {
-          text: '#fff',
-          accent: '#2E3337',
-          textAccent: '#34b276',
-          primary: '#35C07D',
-        },
-      }
+  props: {
+    referral: {
+      type: Object,
+      default: () => ({}),
     },
   },
   methods: {
     openLink() {
-      window.open('https://forms.gle/PLjPugvJpj9m2Qn7A')
+      window.open(this.referral.url)
     },
   },
 }
