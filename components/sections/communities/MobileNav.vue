@@ -2,18 +2,7 @@
   <div>
     <div
       :style="activeLinkStyle"
-      class="
-        text-sm
-        font-medium
-        -mt-4
-        -mx-16
-        relative
-        px-16
-        pt-4
-        py-4
-        md:py-7
-        border-b-2
-      "
+      class="text-sm font-medium -mt-4 relative pt-4 py-4 md:py-7 border-b-2"
       :class="[showTopBorder === false ? 'border-t-2' : '-mt-12']"
     >
       <span class="flex">
