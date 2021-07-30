@@ -126,6 +126,7 @@ export default {
       user: 'user/get',
       colors: 'ui/colors',
       submission: 'communities/submissions/current',
+      community: 'communities/current',
     }),
     activeButtonStyle() {
       return {
@@ -147,6 +148,14 @@ export default {
               link: this.githubLink,
             })
             .then((response) => {
+              this.$store.dispatch('events/create', {
+                name: 'feedback-created',
+                attributes: {
+                  feedbackId: response.id,
+                  submissionId: this.submission.id,
+                  community: this.community.slug,
+                },
+              })
               this.text = ''
               this.githubLink = ''
               this.saving = false

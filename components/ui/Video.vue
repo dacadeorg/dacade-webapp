@@ -10,7 +10,6 @@
       lg:aspect-h-9
       md:w-full
       h-auto
-      -mx-6
       md:m-auto
       md:ml-auto
     "

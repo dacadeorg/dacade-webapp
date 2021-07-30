@@ -179,6 +179,13 @@ export default {
               link: this.form.githubLink,
             })
             .then((response) => {
+              this.$store.dispatch('events/create', {
+                name: 'submission-created',
+                attributes: {
+                  submissionId: response.id,
+                  community: this.community.slug,
+                },
+              })
               this.form.text = ''
               this.form.githubLink = ''
               this.form.submitting = false
