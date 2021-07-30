@@ -113,7 +113,10 @@ button {
 div {
   @apply break-words;
 }
-.prose a{
+.prose {
+  max-width: 100% !important;
+}
+.prose a {
   font-weight: 400;
   text-decoration: underline;
 }

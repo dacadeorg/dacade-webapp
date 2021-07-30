@@ -43,28 +43,13 @@ export default {
 
 <style lang="scss">
 .markdown-content {
-  // h1,
-  // h2,
-  // h3 {
-  //   font-weight: bold;
-  //   margin-top: 1rem;
-  //   margin-bottom: 1rem;
-  // }
+  p {
+    max-width: 65ch;
+  }
 
-  // .hljs code {
-  //   color: white;
-  // }
-
-  // p {
-  //   margin-top: 2rem;
-  //   margin-bottom: 2rem;
-  // }
-
-  // pre {
-  //   margin: 28px 0;
-  //   padding: 20px 22px;
-  //   border-radius: 4px;
-  // }
+  pre {
+    margin: 28px 0;
+  }
   ol > li::before {
     color: var(--text-primary-color);
     font-weight: 400;
@@ -78,29 +63,38 @@ export default {
   a:hover {
     color: var(--text-accent-color);
   }
-  // code span,
-  // .hljs code {
-  //   font-size: 1rem;
-  // }
-
-  // img {
-  //   margin-top: 2rem;
-  // }
-
-  p {
-    width: 65ch;
+  .prose {
+    width: 100%;
+    max-width: auto !important;
   }
-
-  pre {
-    margin: 28px 0;
+  .prose h2 {
+    font-weight: 500 !important;
   }
   code {
-    font-size: 16px; // 1.2 rem?
+    font-size: 16px;
     font-weight: 400;
     color: var(--text-accent-color);
     &::before,
     &::after {
       content: '' !important;
+    }
+
+    max-width: fit-content;
+  }
+  @media (min-width: 1024px) {
+    code {
+      width: 125%;
+    }
+  }
+  h2 {
+    font-weight: 500 !important;
+    margin-top: 24px !important;
+    margin-bottom: 14px !important;
+    font-size: 22px !important;
+  }
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 20px !important;
     }
   }
 }
