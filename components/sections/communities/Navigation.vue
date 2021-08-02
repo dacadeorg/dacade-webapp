@@ -122,11 +122,11 @@ export default {
         })
       }
 
-      // links.push({
-      //   label: this.$t('communities.navigation.scoreboard'),
-      //   link: this.communityPath('scoreboard'),
-      //   exact: false,
-      // })
+      links.push({
+        label: this.$t('communities.navigation.scoreboard'),
+        link: this.communityPath('scoreboard'),
+        exact: false,
+      })
       return links
     },
   },
