@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.0.0...v2.1.0) (2021-08-03)
+
+
+### Features
+
+* add app headers ([edcb76a](https://gitlab.com/u2467/dacade/dacade/commit/edcb76af259f11735a7e5dd86c8c06799e706327))
+* add firebase analytics events collection ([18dd414](https://gitlab.com/u2467/dacade/dacade/commit/18dd414a02e7486fbe46448a9e30839fa5c838c7))
+* add scoreboard api and activate scoreboard link ([9d6dac1](https://gitlab.com/u2467/dacade/dacade/commit/9d6dac17fdb627269c236f59735d27383f0d93b4))
+* add vuestore persisted states ([e732a47](https://gitlab.com/u2467/dacade/dacade/commit/e732a47889bb34044404d5b1ebf355ef3cab7ef9))
+* integrate nuxt image ([370f305](https://gitlab.com/u2467/dacade/dacade/commit/370f30512fc2359d29e786b36e69f19982bccd2b))
+
+
+### Bug Fixes
+
+* add celo logo ([6bfa8ac](https://gitlab.com/u2467/dacade/dacade/commit/6bfa8ac19edd4eadcc42ff0284111d665955154d))
+* change wording on feedback input ([b08e8d8](https://gitlab.com/u2467/dacade/dacade/commit/b08e8d8bcf8a3c5893eb513da9fb2ecc28023010))
+* fix the cards on home page ([d44bdab](https://gitlab.com/u2467/dacade/dacade/commit/d44bdabd89c91ab075d6e9bdff597c260dba0803))
+* fix the font on logo ([966c584](https://gitlab.com/u2467/dacade/dacade/commit/966c5846e2a5cade10ab84da7419c53c4a9694b5))
+* fix the link to be underline ([799535a](https://gitlab.com/u2467/dacade/dacade/commit/799535a79c07c4699561089ef266d71d8e2dc895))
+* fix the login and signup ([bd79c54](https://gitlab.com/u2467/dacade/dacade/commit/bd79c54b7d0d32d503756dc4ed1d69a5f1a36293))
+* fix the private policy popup on mobile ([07ebd6a](https://gitlab.com/u2467/dacade/dacade/commit/07ebd6ac925e310906b2e2d9d87d36bf2a6fdb38))
+* fixing privacy policy link ([037ccc5](https://gitlab.com/u2467/dacade/dacade/commit/037ccc55853889ae8d5625d906a73aa82508098a))
+* scrolling lock issue and update firebase dependency ([6dacf9a](https://gitlab.com/u2467/dacade/dacade/commit/6dacf9af3278e78e32f06d05a32bb7508304f656))
+* token expiration issue for api request ([d7993fc](https://gitlab.com/u2467/dacade/dacade/commit/d7993fc3b8c8091f01f6b6c3dc72302149192616))
+* **tutorial:** width and text styling/sizes ([311b348](https://gitlab.com/u2467/dacade/dacade/commit/311b3482ed0465c3581ea7ca239ff59c1ee7a339))
+* undefined app name header ([c64f883](https://gitlab.com/u2467/dacade/dacade/commit/c64f883e382dcc8220aeefbd208f847ee5282e5e))
+* **sidebar:** remove b-to gradient from popup ([47d4728](https://gitlab.com/u2467/dacade/dacade/commit/47d47281f468d67dbe68b93e508c4b9f8f54c844))
+
+
+### Improvements
+
+* change the api backend to production ([f291ecb](https://gitlab.com/u2467/dacade/dacade/commit/f291ecbc714dc7a035957cf6750dd08d56cf6433))
+* cleanup remove unused firebase plugins ([5457001](https://gitlab.com/u2467/dacade/dacade/commit/545700165cfb94ec4639fa29fc8d8563b1e8b123))
+* enable different env files ([7c33489](https://gitlab.com/u2467/dacade/dacade/commit/7c334899459d471c94219a125333a85e706a28b8))
+* fix disabled wallet status ([07c4f97](https://gitlab.com/u2467/dacade/dacade/commit/07c4f9765e7419476962296689dca5756a4453c0))
+* fix login wording ([0f138ce](https://gitlab.com/u2467/dacade/dacade/commit/0f138ce0f70abd30372e91cc0081c19bbea573d7))
+* fix privacy banner close icon position ([ae64c54](https://gitlab.com/u2467/dacade/dacade/commit/ae64c54911195cf7b8d31d8ff586fbd6ff6ddb54))
+* fix testimonial section padding issue ([2c2ae3d](https://gitlab.com/u2467/dacade/dacade/commit/2c2ae3d5fb9b93fce9d5834179f65c5acd370ce5))
+* remove old profile leftovers ([6c0db5d](https://gitlab.com/u2467/dacade/dacade/commit/6c0db5d4e716490e9e5d2bdedeeff5d25aab4764))
+
 ## 2.0.0 (2021-06-29)
 
 
