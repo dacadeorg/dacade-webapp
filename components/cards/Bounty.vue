@@ -130,7 +130,7 @@
 import Reward from '@/components/badges/Reward'
 import Avatar from '@/components/ui/Avatar'
 import Badge from '@/components/ui/Badge'
-import Moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 
 export default {
   name: 'Bounty',
@@ -161,7 +161,7 @@ export default {
   },
   methods: {
     convertDate(date) {
-      return Moment(date).fromNow()
+      return DateManager.fromNow(date)
     },
     goToChallenge(bounty) {
       return this.$router.push(

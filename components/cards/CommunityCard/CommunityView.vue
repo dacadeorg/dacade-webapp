@@ -77,7 +77,7 @@ import Reward from '@/components/ui/Reward'
 
 import CommunityVisual from '@/components/cards/CommunityCard/CommunityVisual'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
-import moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 import Button from '@/components/ui/Button'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
@@ -100,7 +100,7 @@ export default {
       )
     },
     duration() {
-      return moment.duration(this.community.duration).asMinutes()
+      return DateManager.millisecondsToMinutes(this.community.duration)
     },
   },
 }

@@ -38,7 +38,7 @@
       </li>
       <div class="flex justify-center">
         <div
-          v-show="show"
+          v-if="show"
           class="
             z-50
             mt-0
@@ -62,7 +62,14 @@
           "
         >
           <Video
-            class="z-50 aspect-w-16 aspect-h-8 max-w-full m-auto justify-center"
+            class="
+              z-50
+              aspect-w-16 aspect-h-8
+              max-w-full
+              m-auto
+              justify-center
+              bg-black
+            "
             url="https://youtube.com/embed/GmVrQDulaLY"
           />
         </div>

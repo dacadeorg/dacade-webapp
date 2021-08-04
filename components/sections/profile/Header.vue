@@ -4,14 +4,16 @@
     <span class="block capitalize text-5xl mt-5 leading-none">{{
       user.displayName
     }}</span>
-    <span class="block text-sm leading-none mt-2">{{ joined }}</span>
+    <span v-if="joined" class="block text-sm leading-none mt-2">{{
+      joined
+    }}</span>
   </div>
 </template>
 
 <script>
 import Avatar from '@/components/ui/Avatar'
 import { mapGetters } from 'vuex'
-import Moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 
 export default {
   name: 'ProfileHeader',
@@ -24,7 +26,8 @@ export default {
       user: 'user/get',
     }),
     joined() {
-      return Moment(this.user.joined).format('MMMM YYYY')
+      if (!this.user.joined) return null
+      return DateManager.format(this.user.joined, 'MMMM yyyy')
     },
   },
 }

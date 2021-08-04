@@ -24,7 +24,7 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import ObjectiveList from '@/components/list/Objectives'
-import Moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 import Section from '../partials/Section.vue'
 
 export default {
@@ -44,7 +44,7 @@ export default {
       if (!value) {
         return 0
       }
-      return Moment.duration(value).humanize()
+      return DateManager.humanize(value)
     },
   },
 }
