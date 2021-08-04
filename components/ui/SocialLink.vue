@@ -17,17 +17,40 @@
       rounded-full
     "
   >
-    <font-awesome-icon :icon="['fab', link.icon]" />
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div
+      v-if="icon"
+      :title="link.title"
+      class="w-4.5 inline-block"
+      v-html="icon"
+    />
   </a>
 </template>
 
 <script>
+import DiscordIcon from '@/assets/icons/discord.svg?raw'
+import TwitterIcon from '@/assets/icons/twitter.svg?raw'
+import YoutubeIcon from '@/assets/icons/youtube.svg?raw'
 export default {
   name: 'SocialLink',
   props: {
     link: {
       default: () => {},
       type: Object,
+    },
+  },
+  data() {
+    return {
+      icons: {
+        discord: DiscordIcon,
+        twitter: TwitterIcon,
+        youtube: YoutubeIcon,
+      },
+    }
+  },
+  computed: {
+    icon() {
+      return this.icons[this.link.icon]
     },
   },
 }

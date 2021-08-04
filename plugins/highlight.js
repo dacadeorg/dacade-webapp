@@ -7,7 +7,7 @@ import xml from 'highlight.js/lib/languages/xml'
 import { definer as solidity } from 'highlightjs-solidity'
 // import solidity from 'highlight.js/lib/languages/rust'
 
-import 'highlight.js/styles/atom-one-dark-reasonable.css'
+import 'highlight.js/styles/obsidian.css'
 
 Vue.use(VueHighlightJS, {
   languages: {

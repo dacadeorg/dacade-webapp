@@ -17,7 +17,7 @@
 
 <script>
 import Avatar from '@/components/ui/Avatar'
-import moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 
 export default {
   name: 'Notification',
@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     date() {
-      return moment(this.details.created_at).fromNow()
+      return DateManager.fromNow(this.details.created_at)
     },
   },
 }

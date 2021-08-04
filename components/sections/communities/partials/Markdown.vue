@@ -2,7 +2,7 @@
   <div v-if="markdown" :style="themeStyles" class="prose">
     <h2 v-if="markdown.data.title">{{ markdown.data.title }}</h2>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="markdown-content" v-html="$md.render(markdown.content)" />
+    <div class="markdown-content" v-html="content" />
     <!-- :style="themeStyles" -->
   </div>
 </template>
@@ -10,6 +10,9 @@
 <script>
 import { mapGetters } from 'vuex'
 import matter from 'gray-matter'
+import Remark from 'remark'
+import RemarkHtml from 'remark-html'
+import Highlighter from '@/utilities/Highlighter'
 export default {
   name: 'Markdown',
   props: {
@@ -21,11 +24,17 @@ export default {
   data() {
     return {
       markdown: '',
+      content: '',
     }
   },
   async fetch() {
     const content = await fetch(this.url).then((response) => response.text())
     this.markdown = matter(content)
+    const { contents } = await Remark()
+      .use(Highlighter)
+      .use(RemarkHtml)
+      .process(this.markdown.content)
+    this.content = contents
   },
   computed: {
     ...mapGetters({
@@ -71,7 +80,8 @@ export default {
     font-weight: 500 !important;
   }
   code {
-    font-size: 16px;
+    text-shadow: none !important;
+    font-size: 16px; // 1.2 rem?
     font-weight: 400;
     color: var(--text-accent-color);
     &::before,

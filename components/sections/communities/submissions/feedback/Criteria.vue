@@ -136,7 +136,7 @@
 import { mapGetters } from 'vuex'
 import Coin from '@/components/ui/Coin'
 import ObjectiveList from '@/components/list/Objectives'
-import moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 import ChevronBottomIcon from '~/assets/icons/chevron-bottom.svg?inline'
 import ChevronTopIcon from '~/assets/icons/chevron-top.svg?inline'
 
@@ -174,7 +174,7 @@ export default {
       }
     },
     deadline() {
-      return moment(this.submission.reviewDeadline).fromNow()
+      return DateManager.fromNow(this.submission.reviewDeadline)
     },
   },
 }
