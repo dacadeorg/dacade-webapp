@@ -141,17 +141,6 @@ export default {
       },
     ],
   ],
-  /*
-   ** Build configuration
-   */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    analyze: {
-      analyzerMode: 'static',
-    },
-  },
 
   storybook: {
     stories: ['~/stories/**/*.stories.js'],
