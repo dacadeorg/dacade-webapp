@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-v-html */
 <template>
   <div class="relative mb-7">
     <div class="bg-gray-100 relative lg:flex md:flex sm:flex rounded-3.5xl">
@@ -35,7 +36,10 @@
         </div>
       </div>
       <div class="px-7 pt-6 lg:w-96.5 md:w-8/12 sm:w-8/12 pb-24 lg:pb-24">
-        <div class="xl:w-72 md:w-72 lg:w-full text-sm text-gray-700">
+        <div
+          v-if="cashable"
+          class="xl:w-72 md:w-72 lg:w-full text-sm text-gray-700"
+        >
           <p v-if="address" class="leading-5 text-sm">
             <span v-for="(part, k) in address" :key="k" class="mr-2">{{
               part
@@ -43,14 +47,24 @@
           </p>
           <p v-else>{{ details.description }}</p>
         </div>
-        <div class="text-gray-700 text-sm mt-3">
+        <div v-if="cashable" class="text-gray-700 text-sm mt-3">
           <span
             class="cursor-pointer hover:underline"
             @click="showEditModal = true"
             >{{ address ? 'Change' : 'Set' }} address</span
           >
         </div>
-        <div class="right-2 absolute bottom-2 mt-5">
+        <div v-if="!cashable" class="prose">
+          <p
+            v-html="
+              $t('profile.wallets.uncashable', {
+                token: details.title,
+                link: 'https://discord.gg/5yDZvVnpQQ',
+              })
+            "
+          />
+        </div>
+        <div v-if="cashable" class="right-2 absolute bottom-2 mt-5">
           <Button
             :padding="false"
             :disabled="disabled || !details.balance"
@@ -118,6 +132,9 @@ export default {
     address() {
       if (!this.details.address) return null
       return this.details.address.match(/.{1,4}/g)
+    },
+    cashable() {
+      return String(this.details.token).toUpperCase() !== 'DAC'
     },
   },
 }
