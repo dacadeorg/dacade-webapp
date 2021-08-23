@@ -7,6 +7,7 @@
         <div class="relative">
           <nuxt />
         </div>
+        <DiscordButton />
         <Footer />
         <PrivacyPolicyBanner />
       </div>
@@ -20,6 +21,7 @@ import Footer from '@/components/Footer'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
 import NotificationBar from '@/components/NotificationBar'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
+import DiscordButton from '@/components/ui/DiscordButton'
 import Wrapper from './wrapper.vue'
 
 export default {
@@ -30,6 +32,7 @@ export default {
     NotificationBar,
     Footer,
     Wrapper,
+    DiscordButton,
   },
   computed: {
     ...mapGetters({
