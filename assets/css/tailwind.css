@@ -120,3 +120,6 @@ div {
   font-weight: 400;
   text-decoration: underline;
 }
+.discord-button:hover{
+  fill: rgba(229, 231, 235, 1);
+}
