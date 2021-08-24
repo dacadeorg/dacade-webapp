@@ -116,5 +116,8 @@
   "profile.edit.placeholder.last-name": "Enter your last name",
   "profile.edit.close": "Close",
   "profile.edit.save": "Save changes",
-  "profile.wallet.payout.text": "has been successfully claimed, you will receive a notification when the deposit will be completed."
+  "profile.wallet.payout.text": "has been successfully claimed, you will receive a notification when the deposit will be completed.",
+  "faq.title": "FAQ",
+  "faq.subtitle": "If you have any additional questions or need help visit our ",
+  "faq.discord": "Discord server."
 }
