@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.2.0...v2.3.0) (2021-08-24)
+
+
+### Features
+
+* add discord button on courses page ([1678135](https://gitlab.com/u2467/dacade/dacade/commit/1678135b7e6f6ce608514e28e2b5024f4cdfe7c2))
+* add faq section to the community overview page ([02135e6](https://gitlab.com/u2467/dacade/dacade/commit/02135e64ed255a62547d47b3c7e208fb0a9d2e34))
+* prevent cashing out dacade coins ([dcb4f6f](https://gitlab.com/u2467/dacade/dacade/commit/dcb4f6fa52d7540991b0be3117c87fcd759f97e5))
+
+
+### Improvements
+
+* add all env variables to env.sample ([abfeda6](https://gitlab.com/u2467/dacade/dacade/commit/abfeda690e936731612a52ae4eb25f9d9dc0d5e0))
+* add tailwind purge ([c90b693](https://gitlab.com/u2467/dacade/dacade/commit/c90b69396645059bfbb0a1a197e56a1e4df26e35))
+* disable analyze mode for each build ([86b597d](https://gitlab.com/u2467/dacade/dacade/commit/86b597d8d462eecace00d0b3026660bc6057c9f2))
+
 ## [2.2.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.1.0...v2.2.0) (2021-08-09)
 
 ## [2.1.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.0.0...v2.1.0) (2021-08-03)
