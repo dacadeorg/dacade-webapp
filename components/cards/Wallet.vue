@@ -67,7 +67,7 @@
         <div v-if="cashable" class="right-2 absolute bottom-2 mt-5">
           <Button
             :padding="false"
-            :disabled="disabled || !details.balance"
+            :disabled="disabled || !details.balance || !details.address"
             class="py-2"
             type="outline-primary"
             @click="showPayoutModal = true"
