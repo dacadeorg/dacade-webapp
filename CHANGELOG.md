@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://gitlab.com/u2467/dacade/dacade/compare/v2.3.0...v2.3.1) (2021-08-27)
+
+
+### Improvements
+
+* prevent payout request when address is not set ([7e6236b](https://gitlab.com/u2467/dacade/dacade/commit/7e6236b27566d6288baad99f611d3bc6f5a1e8b5))
+
 ## [2.3.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.2.0...v2.3.0) (2021-08-24)
 
 
