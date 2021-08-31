@@ -32,6 +32,7 @@ export const actions = {
           userId: user.uid,
         },
       })
+
       return dispatch('login', {
         email: payload.email,
         password: payload.password,

@@ -1,22 +1,17 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
-// import 'firebase/compat/auth'
-// import 'firebase/compat/analytics'
+import { getAnalytics } from 'firebase/analytics'
 
-// if (!firebase.apps.length) {
-let config = {}
-config = {
+const firebase = initializeApp({
   apiKey: process.env.NUXT_ENV_FIREBASE_API_KEY,
   projectId: process.env.NUXT_ENV_FIREBASE_PROJECT_ID,
   authDomain: 'dacade-d02d2.firebaseapp.com',
   appId: process.env.NUXT_ENV_FIREBASE_APP_ID,
   measurementId: process.env.NUXT_ENV_FIREBASE_MEASUREMENT_ID,
-}
-const firebase = initializeApp(config)
+})
 
 const auth = getAuth(firebase)
-// }
+const analytics = getAnalytics(firebase)
 
-// firebase.analytics()
-export { auth }
+export { auth, analytics }
 export default firebase
