@@ -10,7 +10,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import matter from 'gray-matter'
-import Remark from 'remark'
+import { remark } from 'remark'
 import RemarkHtml from 'remark-html'
 import Highlighter from '@/utilities/Highlighter'
 export default {
@@ -30,11 +30,11 @@ export default {
   async fetch() {
     const content = await fetch(this.url).then((response) => response.text())
     this.markdown = matter(content)
-    const { contents } = await Remark()
+    const { value } = await remark()
       .use(Highlighter)
       .use(RemarkHtml)
       .process(this.markdown.content)
-    this.content = contents
+    this.content = value
   },
   computed: {
     ...mapGetters({
