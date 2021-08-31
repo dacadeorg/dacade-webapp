@@ -44,7 +44,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/markdownit": "^2.0.0",
-    "@nuxtjs/svg": "^0.1.12",
+    "@nuxtjs/svg": "^0.2.0",
     "@storybook/addon-controls": "^6.1.17",
     "@storybook/addon-notes": "^5.3.21",
     "@tailwindcss/aspect-ratio": "^0.2.1",
@@ -61,7 +61,7 @@
     "markdown-it": "^12.0.6",
     "markdown-it-attrs": "^4.0.0",
     "markdown-it-div": "^1.1.0",
-    "nuxt": "^2.15.7",
+    "nuxt": "^2.15.8",
     "nuxt-bugsnag": "^4.2.2",
     "nuxt-highlightjs": "^1.0.1",
     "nuxt-i18n": "^6.20.1",
@@ -72,7 +72,7 @@
     "vee-validate": "^3.3.11",
     "vue-highlight.js": "^4.0.1-beta",
     "vuelidate": "^0.7.6",
-    "vuex-persistedstate": "^4.0.0-beta.3"
+    "vuex-persistedstate": "^4.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
