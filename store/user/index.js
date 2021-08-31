@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import firebase from '@/plugins/firebase'
+import { auth as firebaseAuth } from '@/plugins/firebase'
 
 export const state = () => ({
   data: null,
@@ -33,7 +33,7 @@ export const actions = {
   },
 
   async fetch({ commit, dispatch }, payload) {
-    const user = firebase.auth().currentUser
+    const user = firebaseAuth.currentUser
     if (!user) {
       dispatch('clear')
       return null
@@ -57,7 +57,7 @@ export const actions = {
   },
 
   async getToken({ commit }, payload) {
-    const user = firebase.auth().currentUser
+    const user = firebaseAuth.currentUser
     if (user) {
       const token = await user.getIdToken()
       commit('setToken', token)
