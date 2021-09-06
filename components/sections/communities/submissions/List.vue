@@ -4,7 +4,7 @@
       <SubmissionCard
         v-for="(submission, i) in submissions"
         :key="submission.id"
-        :stats="true"
+        :preview="true"
         :link="`/communities/${$route.params.slug}/submissions/${submission.id}`"
         :submission="submission"
         :last="i === submissions.length - 1"

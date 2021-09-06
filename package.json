@@ -57,6 +57,7 @@
     "highlight.js": "^10.7.2",
     "highlightjs-solidity": "^1.0.22",
     "lodash.chunk": "^4.2.0",
+    "lodash.truncate": "^4.4.2",
     "lowlight": "^1.2.0",
     "markdown-it": "^12.0.6",
     "markdown-it-attrs": "^4.0.0",
