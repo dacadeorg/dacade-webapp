@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.3.1...v2.4.0) (2021-09-06)
+
+
+### Features
+
+* add preview mode on submission card ([d1ba0d9](https://gitlab.com/u2467/dacade/dacade/commit/d1ba0d9a48d030f1b63d27a018f4e93ead72a483))
+
+
+### Bug Fixes
+
+* add the button to all pages ([0d7b8a8](https://gitlab.com/u2467/dacade/dacade/commit/0d7b8a8b4da73b0c42cad936f0f21fdb6ede55f8))
+* the discord button ([05a563a](https://gitlab.com/u2467/dacade/dacade/commit/05a563ace90e80bf470ae7ea6c165b9f6201d7f9))
+
 ### [2.3.1](https://gitlab.com/u2467/dacade/dacade/compare/v2.3.0...v2.3.1) (2021-08-27)
 
 
