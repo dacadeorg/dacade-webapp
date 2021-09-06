@@ -9,20 +9,35 @@
     :bordered="!last"
     class="max-w-3xl hover:bg-gray-50 rounded-3.5xl"
   >
-    <p
-      class="
-        text-base
-        md:text-lg
-        max-w-screen-sm
-        leading-normal
-        text-gray-700
-        pb-6
-      "
-    >
-      {{ submission.text }}
-    </p>
+    <div class="pb-6">
+      <p
+        class="
+          text-base
+          md:text-lg
+          max-w-screen-sm
+          leading-normal
+          text-gray-700
+        "
+      >
+        {{ text }}
+      </p>
+      <span
+        v-if="preview"
+        class="
+          rounded-full
+          bg-gray-100
+          px-2
+          leading-none
+          py-0
+          h-5
+          items-center
+          justify-items-center
+        "
+        >&#183;&#183;&#183;</span
+      >
+    </div>
     <div
-      v-if="stats && submission.metadata && submission.metadata.evaluation"
+      v-if="preview && submission.metadata && submission.metadata.evaluation"
       class="flex items-center mt-4"
     >
       <Badge
@@ -78,6 +93,7 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import Truncate from 'lodash.truncate'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import UserCard from '@/components/cards/User'
@@ -97,6 +113,10 @@ export default {
         return {}
       },
       type: Object,
+    },
+    preview: {
+      default: false,
+      type: Boolean,
     },
     stats: {
       default: false,
@@ -120,6 +140,14 @@ export default {
       colors: 'ui/colors',
       community: 'communities/current',
     }),
+    text() {
+      if (!this.preview) return this.submission.text
+      return Truncate(this.submission.text, {
+        length: 220,
+        omission: '',
+        separator: ' ',
+      })
+    },
     badgeButtonStyles() {
       return {
         backgroundColor: this.colors.textAccent,

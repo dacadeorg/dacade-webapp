@@ -21,6 +21,7 @@ export const actions = {
     commit('setCurrent', data)
   },
   async all({ commit }, submissionId) {
+    commit('setList', [])
     const { data } = await this.$api.get(`feedbacks/list/${submissionId}`)
     commit('setList', data)
   },
