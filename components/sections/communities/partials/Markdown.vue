@@ -10,8 +10,11 @@
 <script>
 import { mapGetters } from 'vuex'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import RemarkHtml from 'remark-html'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeExternalLinks from 'rehype-external-links'
+import rehypeStringify from 'rehype-stringify'
 import Highlighter from '@/utilities/Highlighter'
 export default {
   name: 'Markdown',
@@ -30,9 +33,12 @@ export default {
   async fetch() {
     const content = await fetch(this.url).then((response) => response.text())
     this.markdown = matter(content)
-    const { value } = await remark()
+    const { value } = await unified()
+      .use(remarkParse)
       .use(Highlighter)
-      .use(RemarkHtml)
+      .use(remarkRehype)
+      .use(rehypeExternalLinks, { target: '_blank' })
+      .use(rehypeStringify)
       .process(this.markdown.content)
     this.content = value
   },
