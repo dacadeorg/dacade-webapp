@@ -11,10 +11,10 @@
   </Wrapper>
 </template>
 <script>
+import Wrapper from './wrapper.vue'
 import Navbar from '@/components/Navbar'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
 import NotificationBar from '@/components/NotificationBar'
-import Wrapper from './wrapper.vue'
 
 export default {
   components: {

@@ -14,8 +14,7 @@
       <div
         class="
           w-full
-          lg:w-1/2
-          lg:min-w-xs
+          lg:w-1/2 lg:min-w-xs
           text-gray-900 text-2xl
           md:text-4xl
           font-medium
@@ -60,8 +59,8 @@
   </div>
 </template>
 <script>
-import QuestionCard from '@/components/cards/Question'
 import { mapGetters } from 'vuex'
+import QuestionCard from '@/components/cards/Question'
 
 export default {
   name: 'FaqCard',

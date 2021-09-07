@@ -5,10 +5,8 @@
         p-6
         bg-theme-primary
         text-theme-text
-        lg:min-w-md lg:min-h-sm
-        lg:h-full
-        md:w-full
-        md:h-60
+        lg:min-w-md lg:min-h-sm lg:h-full
+        md:w-full md:h-60
         lg:max-w-sm
       "
     >
@@ -46,8 +44,7 @@
             flex-col
             max-w-xs
             -mt-4
-            md:-mt-7
-            md:max-w-lg
+            md:-mt-7 md:max-w-lg
             items-start
           "
         >

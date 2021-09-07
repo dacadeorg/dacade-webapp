@@ -26,11 +26,11 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Video from '@/components/ui/Video'
-import ObjectiveList from '@/components/list/Objectives'
 import Section from '../partials/Section.vue'
 import Duration from '../partials/Duration.vue'
 import DisclaimerSection from './Disclaimer'
+import ObjectiveList from '@/components/list/Objectives'
+import Video from '@/components/ui/Video'
 
 export default {
   name: 'OverviewRewards',

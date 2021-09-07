@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import Story from '@/components/cards/Story'
 import LodashChunk from 'lodash.chunk'
+import Story from '@/components/cards/Story'
 
 export default {
   name: 'TestimonialsSection',

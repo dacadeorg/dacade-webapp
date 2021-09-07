@@ -64,8 +64,7 @@
           sm:-mt-15
           lg:-mt-8
           md:max-w-xl
-          lg:flex-row
-          lg:items-center
+          lg:flex-row lg:items-center
         "
       >
         <div class="my-2 text-sm">

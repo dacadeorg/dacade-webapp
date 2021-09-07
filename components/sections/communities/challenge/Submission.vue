@@ -115,11 +115,11 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import Section from '../partials/Section.vue'
 import Avatar from '@/components/ui/Avatar'
 import TextInput from '@/components/ui/TextInput'
 import GithubLinkInput from '@/components/ui/GithubLinkInput'
 import Button from '@/components/ui/Button'
-import Section from '../partials/Section.vue'
 import GithubIcon from '~/assets/icons/github.svg?inline'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 import Spinner from '~/assets/icons/spinner.svg?inline'

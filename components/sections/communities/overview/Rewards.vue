@@ -12,8 +12,8 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Reward from '@/components/ui/Reward'
 import Section from '../partials/Section.vue'
+import Reward from '@/components/ui/Reward'
 
 export default {
   name: 'OverviewRewards',

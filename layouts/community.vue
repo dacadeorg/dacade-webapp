@@ -16,13 +16,13 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import Wrapper from './wrapper.vue'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
 import NotificationBar from '@/components/NotificationBar'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 import DiscordButton from '@/components/ui/DiscordButton'
-import Wrapper from './wrapper.vue'
 
 export default {
   components: {

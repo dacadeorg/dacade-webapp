@@ -2,12 +2,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable spaced-comment */
-import { auth as firebaseAuth } from '@/plugins/firebase'
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
 } from 'firebase/auth'
+import { auth as firebaseAuth } from '@/plugins/firebase'
 
 export const state = () => ({
   data: null,

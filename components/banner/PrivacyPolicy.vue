@@ -39,8 +39,7 @@
       class="
         flex
         absolute
-        lg:relative
-        lg:p-6
+        lg:relative lg:p-6
         md:py-0
         lg:justify-center
         top-0

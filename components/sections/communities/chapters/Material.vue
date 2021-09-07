@@ -57,11 +57,11 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 // import RewardsSection from './partials/overview/Rewards'
-import Video from '@/components/ui/Video'
-import Button from '@/components/ui/Button'
 import Section from '../partials/Section.vue'
 import Duration from '../partials/Duration.vue'
 import Markdown from '../partials/Markdown.vue'
+import Button from '@/components/ui/Button'
+import Video from '@/components/ui/Video'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {

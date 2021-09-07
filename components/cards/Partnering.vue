@@ -4,9 +4,7 @@
       class="
         relative
         z-10
-        lg:p-6
-        lg:pb-3
-        lg:pt-9
+        lg:p-6 lg:pb-3 lg:pt-9
         p-7
         w-full
         text-primary
