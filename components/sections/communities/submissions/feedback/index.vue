@@ -14,10 +14,10 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import FeedbackCard from '@/components/cards/Feedback'
-import Section from '@/components/sections/communities/partials/Section'
 import Form from './Form'
 import Criteria from './Criteria'
+import FeedbackCard from '@/components/cards/Feedback'
+import Section from '@/components/sections/communities/partials/Section'
 
 export default {
   name: 'Feedback',

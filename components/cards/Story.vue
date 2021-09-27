@@ -33,8 +33,7 @@
         md:-left-9
         -ml-2
         -mt-5
-        md:ml-20
-        md:w-72
+        md:ml-20 md:w-72
         w-48
         -bottom-60
         md:bottom-16

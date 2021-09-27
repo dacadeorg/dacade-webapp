@@ -9,8 +9,8 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import ObjectiveList from '@/components/list/Objectives'
 import Section from '../partials/Section.vue'
+import ObjectiveList from '@/components/list/Objectives'
 
 export default {
   name: 'OverviewSection',

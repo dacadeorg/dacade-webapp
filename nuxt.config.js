@@ -125,7 +125,7 @@ export default {
   buildModules: [
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
-    '@nuxt/image',
+    // '@nuxt/image',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
     [

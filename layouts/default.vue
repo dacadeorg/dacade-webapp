@@ -17,12 +17,12 @@
   </Wrapper>
 </template>
 <script>
+import Wrapper from './wrapper.vue'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
 import NotificationBar from '@/components/NotificationBar'
 import DiscordButton from '@/components/ui/DiscordButton'
-import Wrapper from './wrapper.vue'
 
 export default {
   components: {

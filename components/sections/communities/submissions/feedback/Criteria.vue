@@ -20,8 +20,7 @@
         w-10
         h-10
         p-4
-        md:w-15
-        md:h-15
+        md:w-15 md:h-15
       "
       :bg-color="!submission.reviewable ? '#d2d2d2' : null"
       :color="!submission.reviewable ? '#FFFFFF' : null"

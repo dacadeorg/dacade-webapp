@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Avatar from '@/components/ui/Avatar'
 import { mapGetters } from 'vuex'
+import Avatar from '@/components/ui/Avatar'
 import DateManager from '@/utilities/DateManager'
 
 export default {

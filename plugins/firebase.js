@@ -1,18 +1,17 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/analytics'
+import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
+import { getAnalytics } from 'firebase/analytics'
 
-if (!firebase.apps.length) {
-  let config = {}
-  config = {
-    apiKey: process.env.NUXT_ENV_FIREBASE_API_KEY,
-    projectId: process.env.NUXT_ENV_FIREBASE_PROJECT_ID,
-    appId: process.env.NUXT_ENV_FIREBASE_APP_ID,
-    measurementId: process.env.NUXT_ENV_FIREBASE_MEASUREMENT_ID,
-  }
-  firebase.initializeApp(config)
-}
+const firebase = initializeApp({
+  apiKey: process.env.NUXT_ENV_FIREBASE_API_KEY,
+  projectId: process.env.NUXT_ENV_FIREBASE_PROJECT_ID,
+  authDomain: process.env.NUXT_ENV_FIREBASE_AUTH_DOMAIN,
+  appId: process.env.NUXT_ENV_FIREBASE_APP_ID,
+  measurementId: process.env.NUXT_ENV_FIREBASE_MEASUREMENT_ID,
+})
 
-firebase.analytics()
+const auth = getAuth(firebase)
+const analytics = getAnalytics(firebase)
 
+export { auth, analytics }
 export default firebase

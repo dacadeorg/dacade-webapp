@@ -4,8 +4,8 @@
   </Section>
 </template>
 <script>
-import ScoreboardList from '@/components/list/Scoreboard'
 import Section from '../partials/Section.vue'
+import ScoreboardList from '@/components/list/Scoreboard'
 
 export default {
   name: 'SubmissionList',

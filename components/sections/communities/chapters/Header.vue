@@ -18,9 +18,9 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 // import RewardsSection from './partials/overview/Rewards'
-import ObjectiveList from '@/components/list/Objectives'
 import Section from '../partials/Section.vue'
 import Header from '../partials/Header.vue'
+import ObjectiveList from '@/components/list/Objectives'
 
 export default {
   name: 'ChapterHeader',

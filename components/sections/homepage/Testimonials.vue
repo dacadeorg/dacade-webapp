@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Section from '@/components/ui/Section'
 import CommunitStats from './partials/testimonials/CommunityStats'
 import Stories from './partials/testimonials/Stories'
+import Section from '@/components/ui/Section'
 // import Button from '@/components/ui/Button'
 export default {
   name: 'TestimonialsSection',

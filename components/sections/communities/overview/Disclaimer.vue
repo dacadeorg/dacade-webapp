@@ -9,8 +9,8 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Hint from '@/components/ui/Hint'
 import Section from '../partials/Section.vue'
+import Hint from '@/components/ui/Hint'
 
 export default {
   name: 'DisclaimerSection',

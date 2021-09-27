@@ -50,7 +50,8 @@
                     <span
                       class="
                         text-primary
-                        group-gover:bg-text-primary group-hover:text-white
+                        group-gover:bg-text-primary
+                        group-hover:text-white
                         py-0
                         inline-block
                         align-middle

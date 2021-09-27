@@ -15,9 +15,9 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import Section from '../partials/Section.vue'
 import SubmissionCard from '@/components/cards/Submission'
 // import RewardsSection from './partials/overview/Rewards'
-import Section from '../partials/Section.vue'
 
 export default {
   name: 'SubmissionList',
