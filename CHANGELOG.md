@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.4.0...v2.5.0) (2021-10-05)
+
+
+### Features
+
+* update to firebase version 9 ([a005791](https://gitlab.com/u2467/dacade/dacade/commit/a0057917081d89091728093f2ba76d3799f7a320))
+
+
+### Improvements
+
+* add auth domain to env variables ([86210bb](https://gitlab.com/u2467/dacade/dacade/commit/86210bbe96697f6e4336892a0c70b45ac86b2bd1))
+* disable unused plugins ([c052897](https://gitlab.com/u2467/dacade/dacade/commit/c0528979bf10aac40f402e0a57ddd7e9fe7bb5b2))
+* fix linting issues ([e1ecb6f](https://gitlab.com/u2467/dacade/dacade/commit/e1ecb6fd842f691f6f816a166dd420a444c8113e))
+* update firebase analytics to modular js ([a3af007](https://gitlab.com/u2467/dacade/dacade/commit/a3af007a34dec47915a0237beae6b5e7eb384ea6))
+* update markdown parsing ([6bc1f02](https://gitlab.com/u2467/dacade/dacade/commit/6bc1f0209e0a815c0b09fb762bf8836003f2f673))
+* update nuxt packages ([8683df1](https://gitlab.com/u2467/dacade/dacade/commit/8683df1bd09b827d3577ad484d53887a919ab0d9))
+* update remark plugins ([a77af15](https://gitlab.com/u2467/dacade/dacade/commit/a77af15b88c52aed415ac71a8158e6c61a7fbbe4))
+
 ## [2.4.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.3.1...v2.4.0) (2021-09-06)
 
 
