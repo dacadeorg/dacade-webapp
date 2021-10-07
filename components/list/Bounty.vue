@@ -76,7 +76,7 @@ export default {
             primary: '#0D61FF',
           },
           reward: {
-            amount: 36,
+            amount: 12,
             token: 'tez',
           },
           url: 'https://tacode.dev/courses/dev-starter',
