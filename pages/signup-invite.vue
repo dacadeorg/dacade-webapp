@@ -11,55 +11,63 @@
         @submit.prevent="passes(onSignUp)"
       >
         <div class="lg:w-98 xl:w-98 mx-auto">
-          <!-- <div
-          class="
-            w-32
-            h-32
-            rounded-full
-            bg-gray-50
-            mx-auto
-            mb-5.5
-            relative
-            pt-16
-          "
-        >
-          <div
-            class="
-              absolute
-              text-lg
-              top-8
-              text-gray-400
-              left-0
-              right-0
-              text-center
-            "
-          >
-            <p class="w-1/2 mx-auto relative">
-              {{ $t('login-page.signup.upload-title') }}
-            </p>
-          </div>
-          <a class="cursor-pointer">
-            <div
-              class="
-                bg-primary
-                w-10
-                h-10
-                rounded-full
-                bottom-0
-                right-0
-                absolute
-              "
-            >
-              <Upload />
-            </div>
-          </a>
-        </div> -->
           <div>
             <h1 class="text-5xl my-5">
-              {{ $t('login-page.signup.title') }}
-              HELLO
+              <div v-for="community in communities" :key="community.key">
+                {{ community }}
+              </div>
+              {{ $t('app.name') }}
+              {{ $t('login-page.signup.title.invitation') }}
+              {{ $t('app.name') }}
             </h1>
           </div>
+          <div>
+            <h1 class="text-2xl my-5">
+              {{ $t('login-page.signup.ref-text') }}
+            </h1>
+          </div>
+          <Referral
+            v-for="referral in referrals"
+            :key="referral.name"
+            :referral="referral"
+          />
+          <!-- <div class="flex justify-between mt-4">
+            <div class="flex flex-col self-start">
+              <div class="flex flex-row max-w-xm space-x-3">
+                <span class="max-w-none test"> Active Bounties </span>
+              </div>
+              <div class="flex flex-row max-w-xm space-x-3">
+                <span class="max-w-none test">
+                  <div v-for="community in communities" :key="community.key">
+                    {{ community }} Community
+                  </div>
+                </span>
+              </div>
+            </div>
+
+            <div class="flex text-right self-start">
+              <Button
+                :loading="loading"
+                :padding="false"
+                :disabled="loading"
+                class="flex btn-primary btn-lg py-2 px-5 align-middle"
+              >
+                <span class="text-sm">{{
+                  $t('login-page.signup.button')
+                }}</span>
+                <span
+                  v-if="loading === false"
+                  class="text-white mt-0.5 lg:pl-12 pl-8"
+                >
+                  <ArrowRight />
+                </span>
+                <span v-else class="text-white lg:pl-12 pl-8">
+                  <Spinner class="animate-spin" />
+                </span>
+              </Button>
+            </div>
+          </div> -->
+
           <div label-for="input-1" class="mb-5 relative">
             <ValidationProvider
               v-slot="{ errors }"
@@ -128,6 +136,7 @@
             <ValidationProvider
               v-slot="{ errors }"
               name="password"
+              rules="required|min:6"
               mode="passive"
             >
               <Input
@@ -199,8 +208,10 @@
 
 <script>
 /* eslint-disable no-console */
+import { mapGetters } from 'vuex'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
+import Referral from '@/components/cards/Referral.vue'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 // import Upload from '~/assets/icons/upload.svg?inline'
 import Spinner from '~/assets/icons/spinner.svg?inline'
@@ -212,6 +223,7 @@ export default {
     ArrowRight,
     Spinner,
     // Upload,
+    Referral,
   },
   layout: 'withoutFooter',
   data() {
@@ -228,6 +240,47 @@ export default {
       warningterms: false,
       // warningprivacy: false,
     }
+  },
+  computed: {
+    ...mapGetters({
+      communities: 'communities/list',
+    }),
+    referrals() {
+      return [
+        {
+          name: 'Celo Development 101',
+          icon: '/img/communities/celo.svg',
+          type: 'Referral',
+          colors: {
+            text: '#fff',
+            accent: '#2E3337',
+            textAccent: '#34b276',
+            primary: '#35C07D',
+          },
+          reward: {
+            amount: 25,
+            token: 'cUSD',
+          },
+          url: 'https://forms.gle/PLjPugvJpj9m2Qn7A',
+        },
+        {
+          name: 'Tezos Starter Course',
+          image: '/img/communities/tacode.webp',
+          type: 'Challenge',
+          colors: {
+            text: '#0D61FF',
+            accent: '#0D61FF',
+            textAccent: '#fff',
+            primary: '#0D61FF',
+          },
+          reward: {
+            amount: 12,
+            token: 'tez',
+          },
+          url: 'https://tacode.dev/courses/dev-starter',
+        },
+      ]
+    },
   },
   methods: {
     onSignUp() {
