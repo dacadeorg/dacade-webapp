@@ -12,6 +12,7 @@
   "nav.signin.new-accout": "Not a member?",
   "nav.reputation": "Reputation",
   "nav.view-profile": "View your profile",
+  "nav.view-profile-codes": "Get invite codes",
   "page.index.main.title": "Peer to peer learning",
   "page.index.main.subtitle": "Dacade makes learning multiplayer",
   "page.index.main.button": "Get started",
@@ -86,8 +87,6 @@
   "submit": "Submit",
   "login-page.signin.title": "Log in",
   "login-page.signup.title": "Sign up",
-  "login-page.signup.title.invitation": "invited you to join ",
-  "login-page.signup.ref-text": "You both can earn crypto if you complete a challenge in a community with a referral bounty",
   "login-page.signup.upload-title": "Profile picture",
   "login-page.email.placeholder": "Enter email",
   "login-page.password.placeholder": "Enter password",
@@ -103,6 +102,9 @@
   "login-page.username.placeholder": "Enter username",
   "login-page.password-reset.title": "Password reset",
   "login-page.password-reset.Description": "We’ll email you instructions to reset your password.",
+  "signup-invite-page.bounties.active": "We’ll email you instructions to reset your password.",
+  "signup-invite-page.bounties.reward": "We’ll email you instructions to reset your password.",
+  "signup-invite-page.title.invitation": "invited you to join ",
   "bounties.navigation": "Communities",
   "bounties.prefix.closes": "closes",
   "bounties.navigation.all": "All communities",
@@ -123,5 +125,15 @@
   "profile.wallet.payout.text": "has been successfully claimed, you will receive a notification when the deposit will be completed.",
   "faq.title": "FAQ",
   "faq.subtitle": "If you have any additional questions or need help visit our ",
-  "faq.discord": "Discord server."
+  "faq.discord": "Discord server.",
+  "modal.referral.code.placeholder": "referral code comes here",
+  "modal.referral.code.label": "referral code comes here",
+  "modal.referral.link.placeholder": "referral link comes here",
+  "modal.referral.link.label": "referral link comes here",
+  "modal.referral.bottom.message": "Referral bounties are not cumulative, you can earn only one bounty per user",
+  "modal.referral.bottom.ref-text-1": "Hey ",
+  "modal.referral.bottom.ref-text-2": "! You can either share your personalised referral link or your unique referral code with friends!",
+  "modal.referral.bottom.ref-text-3": "When they complete a challenge in a community with an active referral bounty you will be rewarded.",
+  "modal.referral.bottom.ref-title": "Invite your friends to join "
+
 }

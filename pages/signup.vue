@@ -57,7 +57,6 @@
           <div>
             <h1 class="text-5xl my-5">
               {{ $t('login-page.signup.title') }}
-              HELLO
             </h1>
           </div>
           <div label-for="input-1" class="mb-5 relative">

@@ -10,65 +10,33 @@
         target="_blank"
         @submit.prevent="passes(onSignUp)"
       >
-        <div class="lg:w-98 xl:w-98 mx-auto">
+        <div class="lg:w-98 xl:w-150 mx-auto">
           <div>
             <h1 class="text-5xl my-5">
               <div v-for="community in communities" :key="community.key">
                 {{ community }}
               </div>
-              {{ $t('app.name') }}
-              {{ $t('login-page.signup.title.invitation') }}
+              [name of invitor]
+              {{ $t('signup-invite-page.title.invitation') }}
               {{ $t('app.name') }}
             </h1>
           </div>
           <div>
-            <h1 class="text-2xl my-5">
-              {{ $t('login-page.signup.ref-text') }}
+            <h1 class="text-xl font-extralight my-5">
+              {{ $t('signup-invite-page.signup.ref-text') }}
             </h1>
+          </div>
+          <div class="flex justify-between">
+            <p>ACTIVE BOUNTIES</p>
+            <p>Challenge reward</p>
           </div>
           <Referral
             v-for="referral in referrals"
             :key="referral.name"
             :referral="referral"
           />
-          <!-- <div class="flex justify-between mt-4">
-            <div class="flex flex-col self-start">
-              <div class="flex flex-row max-w-xm space-x-3">
-                <span class="max-w-none test"> Active Bounties </span>
-              </div>
-              <div class="flex flex-row max-w-xm space-x-3">
-                <span class="max-w-none test">
-                  <div v-for="community in communities" :key="community.key">
-                    {{ community }} Community
-                  </div>
-                </span>
-              </div>
-            </div>
 
-            <div class="flex text-right self-start">
-              <Button
-                :loading="loading"
-                :padding="false"
-                :disabled="loading"
-                class="flex btn-primary btn-lg py-2 px-5 align-middle"
-              >
-                <span class="text-sm">{{
-                  $t('login-page.signup.button')
-                }}</span>
-                <span
-                  v-if="loading === false"
-                  class="text-white mt-0.5 lg:pl-12 pl-8"
-                >
-                  <ArrowRight />
-                </span>
-                <span v-else class="text-white lg:pl-12 pl-8">
-                  <Spinner class="animate-spin" />
-                </span>
-              </Button>
-            </div>
-          </div> -->
-
-          <div label-for="input-1" class="mb-5 relative">
+          <div label-for="input-1" class="mb-5 mt-5 relative">
             <ValidationProvider
               v-slot="{ errors }"
               name="email"
@@ -132,28 +100,7 @@
             </ValidationProvider>
           </div>
 
-          <div>
-            <ValidationProvider
-              v-slot="{ errors }"
-              name="password"
-              rules="required|min:6"
-              mode="passive"
-            >
-              <Input
-                id="text-refcode"
-                name="refcode"
-                type="refcode"
-                :placeholder="$t('login-page.refcode.placeholder')"
-                :label="$t('login-page.refcode.label')"
-                class="mb-5"
-                :error="errors[0]"
-                :value="form.refcode"
-                @input="form.refcode = $event"
-              />
-            </ValidationProvider>
-          </div>
-
-          <div class="flex justify-between mt-4">
+          <div class="flex justify-between mt-4 mb-40">
             <div class="flex flex-col self-start">
               <div class="flex flex-row max-w-xm space-x-3">
                 <input
