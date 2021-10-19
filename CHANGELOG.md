@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.1](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.0...v2.5.1) (2021-10-19)
+
+
+### Features
+
+* update tezos bounty value ([8adee8b](https://gitlab.com/u2467/dacade/dacade/commit/8adee8b4d2cf9c6cb2b047acd86e98190dd533a0))
+
+
+### Bug Fixes
+
+* roundind numbers ([46bba30](https://gitlab.com/u2467/dacade/dacade/commit/46bba30945895192d4530ed54704c010f43f333c))
+
+
+### Improvements
+
+* update node version ([ee1f1b6](https://gitlab.com/u2467/dacade/dacade/commit/ee1f1b60c517fb3b4cfdbdbc48572f963fe84b89))
+
 ## [2.5.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.4.0...v2.5.0) (2021-10-05)
 
 
