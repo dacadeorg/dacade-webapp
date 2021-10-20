@@ -119,8 +119,9 @@
       <div
         v-show="showReferral"
         :style="{
-          width: '100vh',
+          width: '35vw',
           maxHeight: 'calc(100vh - 90px)',
+          maxWidth: '25vw',
           overflow: 'hidden scroll',
         }"
         class="
@@ -131,46 +132,47 @@
           bg-white
           rounded-3.5xl
           text-gray-900
-          bg-black
-          py-2
-          px-2
           no-scrollbar
         "
       >
-        <section class="">
-          <button class="bg-transparent" @click="toggleInvite">
-            <Crossmark class="text-3xl text-gray-400" />
-          </button>
-        </section>
-        <section class="mx-8">
-          <div>
-            <h1 class="text-5xl my-5 text-left">
+        <section class=""></section>
+        <section class="ml-8">
+          <div class="flex justify-between mr-2">
+            <h1 class="text-3xl mt-7 mb-3 text-left">
               <div v-for="community in communities" :key="community.key">
                 {{ community }}
               </div>
               {{ $t('modal.referral.bottom.ref-title') }}
               {{ $t('app.name') }}
             </h1>
+            <button
+              class="bg-gray-100 self-start mt-2 px-2.5 py-2.5"
+              @click="toggleInvite"
+            >
+              <Crossmark class="text-xl text-gray-600 w-6" />
+            </button>
           </div>
+
           <div>
-            <h1 class="text-xl text-left font-extralight my-5">
+            <p class="text-xl text-left font-light mb-8 mr-8">
               {{ $t('modal.referral.bottom.ref-text-1') }}
               {{ user.displayName }}
               {{ $t('modal.referral.bottom.ref-text-2') }}
               {{ $t('modal.referral.bottom.ref-text-3') }}
-            </h1>
+            </p>
           </div>
-          <Input
-            id="input-referral"
-            name="referral"
-            :placeholder="$t('modal.referral.link.placeholder')"
-            :label="$t('modal.referral.link.label')"
-            class="mb-5"
-            :value="form.referralCode"
-            @input="form.referralCode = $event"
-          />
+          <div class="mr-8 mb-5">
+            <Input
+              id="input-referral"
+              name="referral"
+              :placeholder="$t('modal.referral.link.placeholder')"
+              :label="$t('modal.referral.link.label')"
+              :value="form.referralCode"
+              @input="form.referralCode = $event"
+            />
+          </div>
           <!-- <div class="relative flex bg-gray-200 mb-5"> -->
-          <div class="relative">
+          <div class="mr-8">
             <Input
               id="input-referral-2"
               name="referral"
@@ -182,13 +184,15 @@
             <!-- <button class="absolute">copy</button> -->
           </div>
           <!-- </div> -->
-          <Referral
-            v-for="referral in referrals"
-            :key="referral.name"
-            :referral="referral"
-          />
+          <div class="mr-8">
+            <Referral
+              v-for="referral in referrals"
+              :key="referral.name"
+              :referral="referral"
+            />
+          </div>
           <hr size="8px" color="black" />
-          <p class="text-left pt-4 pb-8">
+          <p class="text-left pt-4 pb-8 mr-8">
             {{ $t('modal.referral.bottom.message') }}
           </p>
         </section>
@@ -208,7 +212,8 @@ import ReputationList from '@/components/list/Reputation'
 import Avatar from '@/components/ui/Avatar'
 import Button from '@/components/ui/Button'
 import Currency from '@/components/ui/Currency'
-import Crossmark from '~/assets/icons/crossmark.svg?inline'
+import Input from '@/components/ui/InputRef'
+import Crossmark from '~/assets/icons/crossmark-2.svg?inline'
 
 export default {
   name: 'UserPopup',
@@ -222,6 +227,7 @@ export default {
     ReputationList,
     Currency,
     Crossmark,
+    Input,
     Referral,
   },
   props: {
@@ -235,7 +241,7 @@ export default {
       show: false,
       showReferral: false,
       form: {
-        referralCode: '',
+        referralCode: 'https://www.dacade.org/invite/paul-123',
       },
     }
   },
