@@ -97,7 +97,7 @@ import Logo from '@/components/Logo'
 import Sidebar from '@/components/popups/Sidebar'
 import NavItem from '@/components/ui/NavItem'
 import NotificationPopup from '@/components/popups/Notification'
-import UserPopup from '@/components/popups/User'
+import UserPopup from '@/components/popups/user'
 import Button from '@/components/ui/Button'
 
 export default {
