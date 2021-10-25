@@ -122,7 +122,7 @@ export default {
             amount: 25,
             token: 'cUSD',
           },
-          url: 'https://forms.gle/PLjPugvJpj9m2Qn7A',
+          // url: 'https://forms.gle/PLjPugvJpj9m2Qn7A',
         },
         {
           name: 'Tezos Starter Course',
@@ -138,9 +138,9 @@ export default {
             amount: 12,
             token: 'tez',
           },
-          url: 'https://tacode.dev/courses/dev-starter',
+          // url: 'https://tacode.dev/courses/dev-starter',
         },
-      ]
+      ].filter((referral) => referral.type === 'Referral')
     },
   },
   created() {

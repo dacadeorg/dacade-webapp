@@ -15,6 +15,11 @@
       lg:max-w-2xl
     "
   >
+    <!-- <Referral
+      v-for="referral in referrals"
+      :key="referral.name"
+      :referral="referral"
+    /> -->
     <Referral
       v-for="referral in referrals"
       :key="referral.name"
@@ -64,6 +69,22 @@ export default {
             token: 'cUSD',
           },
           url: 'https://forms.gle/PLjPugvJpj9m2Qn7A',
+        },
+        {
+          name: 'Tezos Starter Course',
+          image: '/img/communities/tacode.webp',
+          type: 'Challenge',
+          colors: {
+            text: '#0D61FF',
+            accent: '#0D61FF',
+            textAccent: '#fff',
+            primary: '#0D61FF',
+          },
+          reward: {
+            amount: 12,
+            token: 'tez',
+          },
+          url: 'https://tacode.dev/courses/dev-starter',
         },
         {
           name: 'Tezos Starter Course',
