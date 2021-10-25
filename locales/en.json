@@ -126,14 +126,13 @@
   "faq.title": "FAQ",
   "faq.subtitle": "If you have any additional questions or need help visit our ",
   "faq.discord": "Discord server.",
-  "modal.referral.code.placeholder": "referral code",
-  "modal.referral.code.label": "referral code",
-  "modal.referral.link.placeholder": "referral link",
-  "modal.referral.link.label": "referral link",
-  "modal.referral.bottom.message": "Referral bounties are not cumulative, you can earn only one bounty per user",
-  "modal.referral.bottom.ref-text-1": "Hey ",
-  "modal.referral.bottom.ref-text-2": "! You can either share your personalised referral link or your unique referral code with friends!",
-  "modal.referral.bottom.ref-text-3": "When they complete a challenge in a community with an active referral bounty you will be rewarded.",
-  "modal.referral.bottom.ref-title": "Invite your friends to join "
-
+  "modal.referral.code.placeholder": "Referral code",
+  "modal.referral.code.label": "Referral code",
+  "modal.referral.link.placeholder": "Referral link",
+  "modal.referral.link.label": "Referral link",
+  "modal.referral.message": "Referral bounties are not cumulative, you can earn only one bounty per user",
+  "modal.referral.text-1": "Hey {username}! You can either share your personalized referral link or your unique referral code with friends!",
+  "modal.referral.text-2": "When they complete a challenge in a community with an active referral bounty you will be rewarded.",
+  "modal.referral.title": "Invite your friends to ",
+  "modal.referral.button.copy": "Copy"
 }

@@ -117,6 +117,7 @@ export default {
   created() {
     this.$store.dispatch('user/wallets/all')
     this.$store.dispatch('user/reputations/all')
+    this.$store.dispatch('referrals/all')
   },
   methods: {
     toggle() {
