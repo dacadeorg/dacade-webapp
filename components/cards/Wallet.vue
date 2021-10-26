@@ -81,7 +81,9 @@
       </div>
     </div>
     <Hint v-for="(payout, i) in details.payouts" :key="i" class="mt-2">
-      <span class="font-medium">{{ payout.amount }} {{ payout.token }}</span>
+      <span class="font-medium"
+        ><Currency :value="payout.amount" :token="payout.token"
+      /></span>
       {{ $t('profile.wallet.payout.text') }}
     </Hint>
   </div>
