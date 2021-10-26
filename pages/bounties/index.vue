@@ -7,27 +7,22 @@
       <h1 class="text-4xl sm:text-5xl pt-10 md:pt-20 pb-10">
         {{ $t('nav.bounties') }}
       </h1>
-      <BountyList :bounties="bounties" />
+      <BountyList />
     </div>
   </div>
 </template>
 <script>
 /* eslint-disable no-console, no-unused-vars, require-await, no-unused-expressions */
-import { mapGetters } from 'vuex'
+
 // import firebase from '@/plugins/firebase'
 import Navigation from '@/components/sections/bounties/Navigation'
 import BountyList from '@/components/list/Bounty'
 
 export default {
   components: { Navigation, BountyList },
-  fetch({ store }) {
+  async fetch({ store }) {
+    await store.dispatch('referrals/all')
     return store.dispatch('bounties/all')
-  },
-  computed: {
-    ...mapGetters({
-      bounties: 'bounties/list',
-      isAuthenticated: 'auth/check',
-    }),
   },
 }
 </script>

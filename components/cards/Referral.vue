@@ -30,7 +30,7 @@
     >
       <div class="relative w-full md:flex md:justify-between">
         <div class="font-medium text-md mb-2">
-          {{ referral.name }}
+          {{ referral.title || referral.community.name }}
         </div>
       </div>
 
@@ -44,9 +44,7 @@
           justify-between
         "
       >
-        <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">
-          {{ referral.type }}
-        </div>
+        <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">Referral</div>
         <div>
           <Reward type="gray" :reward="referral.reward" />
         </div>
@@ -55,9 +53,9 @@
     <div class="self-start relative mt-15 md:mt-7">
       <Avatar
         class="w-15 h-15 rounded-xl overflow-hidden"
-        :icon="referral.icon"
-        :image="referral.image"
-        :color="referral.colors.primary"
+        :icon="referral.community.icon"
+        :image="referral.community.image"
+        :color="referral.community.colors.primary"
         size="medium-fixed"
         shape="rounded"
       />
@@ -83,7 +81,7 @@ export default {
   },
   methods: {
     openLink() {
-      window.open(this.referral.url)
+      this.$store.dispatch('ui/toggleShowReferralPopup', true)
     },
   },
 }

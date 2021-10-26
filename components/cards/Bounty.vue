@@ -27,19 +27,14 @@
         mb-5
       "
     >
-      <nuxt-link
-        :to="`/communities/${bounty.slug}/challenges/${bounty.challenge}`"
-        class="w-full"
+      <div
+        class="relative w-full md:flex md:justify-between"
+        @click="goToChallenge(bounty)"
       >
-        <div
-          class="relative w-full md:flex md:justify-between"
-          @click="goToChallenge(bounty)"
-        >
-          <div class="font-medium text-md mb-2">
-            {{ bounty.name }}
-          </div>
+        <div class="font-medium text-md mb-2">
+          {{ bounty.name }}
         </div>
-      </nuxt-link>
+      </div>
 
       <div
         class="
@@ -102,14 +97,15 @@
     </div>
     <div class="self-start relative mt-15 md:mt-7">
       <Avatar
-        class="w-15 h-15"
+        class="w-15 h-15 rounded-xl overflow-hidden"
         :icon="bounty.icon"
+        :image="bounty.image"
         :color="bounty.colors.primary"
         size="medium-fixed"
         shape="rounded"
       />
       <Badge
-        v-if="bounty.submissions.length"
+        v-if="bounty.submissions && bounty.submissions.length"
         class="bottom-0 -right-1"
         :custom-style="{
           bottom: '0',
@@ -145,13 +141,13 @@ export default {
   },
   computed: {
     reward() {
-      if (this.bounty.submissions.length) {
+      if (this.bounty?.submissions?.length) {
         return this.bounty.rewards.find((reward) => reward.type === 'FEEDBACK')
       }
       return this.bounty.rewards.find((reward) => reward.type === 'SUBMISSION')
     },
     type() {
-      if (!this.bounty.submissions.length) {
+      if (!this.bounty?.submissions?.length) {
         return 'Challenge'
       }
       return 'Waiting for Feedbacks'
@@ -162,6 +158,10 @@ export default {
       return DateManager.fromNow(date)
     },
     goToChallenge(bounty) {
+      if (bounty.link) {
+        window.open(bounty.link)
+        return
+      }
       return this.$router.push(
         `/communities/${bounty.slug}/challenges/${bounty.challenge}`
       )
