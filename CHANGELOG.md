@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.2](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.1...v2.5.2) (2021-10-26)
+
+
+### Features
+
+* added page to signup wby invitation showing bounties ([a6aaac3](https://gitlab.com/u2467/dacade/dacade/commit/a6aaac31478c1d1fc087a09f4b2950c2f59cbf64))
+* content displaying in the referral modal ([7ed8a2e](https://gitlab.com/u2467/dacade/dacade/commit/7ed8a2eff0fc44ec8020beffc32cbc088cf6006e))
+* integrate referral invite into signup page ([0b4d139](https://gitlab.com/u2467/dacade/dacade/commit/0b4d139fc58effa9d4fe1560975742141ecacd08))
+* show bounties on signup page ([75842f0](https://gitlab.com/u2467/dacade/dacade/commit/75842f0d53071305ea5a22548192b7ee1b0cd66e))
+* styling implementation for referral system ([6730776](https://gitlab.com/u2467/dacade/dacade/commit/673077690a1fa427f395be5100eac281a4e13f69))
+
+
+### Bug Fixes
+
+* copy button in input field and styling corrections ([79ed059](https://gitlab.com/u2467/dacade/dacade/commit/79ed059aa9f51feb457f53777f6b2203bbaa6a04))
+* corrections referral show ([772d875](https://gitlab.com/u2467/dacade/dacade/commit/772d875e322aaa5a4a410adf70e354612f1edc50))
+
+
+### Improvements
+
+* adjust referral signup message ([90fd967](https://gitlab.com/u2467/dacade/dacade/commit/90fd96758e31fff8c875673d2a673a64c19d63bf))
+* refactor referral modal ([f16f9d6](https://gitlab.com/u2467/dacade/dacade/commit/f16f9d664d11f18b86e9ddf5823d792c2600976c))
+* remove redundant modal ([966baa6](https://gitlab.com/u2467/dacade/dacade/commit/966baa6fd29a06af83da52b2c2f3d3b780fcd436))
+
 ### [2.5.1](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.0...v2.5.1) (2021-10-19)
 
 
