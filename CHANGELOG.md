@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.4](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.3...v2.5.4) (2021-10-26)
+
+
+### Features
+
+* adjust modal size and add referral button in sidebar ([57e5fce](https://gitlab.com/u2467/dacade/dacade/commit/57e5fce3e65f6b884a00f8bd29429df3c3d8defe))
+
 ### [2.5.3](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.2...v2.5.3) (2021-10-26)
 
 
