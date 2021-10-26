@@ -11,50 +11,18 @@
         @submit.prevent="passes(onSignUp)"
       >
         <div class="lg:w-98 xl:w-98 mx-auto">
-          <!-- <div
-          class="
-            w-32
-            h-32
-            rounded-full
-            bg-gray-50
-            mx-auto
-            mb-5.5
-            relative
-            pt-16
-          "
-        >
-          <div
-            class="
-              absolute
-              text-lg
-              top-8
-              text-gray-400
-              left-0
-              right-0
-              text-center
-            "
-          >
-            <p class="w-1/2 mx-auto relative">
-              {{ $t('login-page.signup.upload-title') }}
-            </p>
-          </div>
-          <a class="cursor-pointer">
-            <div
-              class="
-                bg-primary
-                w-10
-                h-10
-                rounded-full
-                bottom-0
-                right-0
-                absolute
-              "
-            >
-              <Upload />
+          <div v-if="referrer" class="p-px">
+            <h1 class="text-.5xl mb-2.5 font-medium leading-6">
+              <span class="capitalize">{{ referrer }}</span>
+              {{ $t('signup-page.referrer.title') }}
+              {{ $t('app.name') }}
+            </h1>
+            <p class="my-px">{{ $t('signup-page.referrer.subtitle') }}</p>
+            <div class="my-8">
+              <ReferralList />
             </div>
-          </a>
-        </div> -->
-          <div>
+          </div>
+          <div v-else>
             <h1 class="text-5xl my-5">
               {{ $t('login-page.signup.title') }}
             </h1>
@@ -69,14 +37,13 @@
               <div>
                 <Input
                   id="input-1"
+                  v-model="form.email"
                   required
                   type="email"
                   :placeholder="$t('login-page.email.placeholder')"
                   :label="$t('login-page.email.label')"
                   class="mb-5"
                   :error="errors[0]"
-                  :value="form.email"
-                  @input="form.email = $event"
                 />
               </div>
             </ValidationProvider>
@@ -91,13 +58,12 @@
             >
               <Input
                 id="input-2"
+                v-model="form.username"
                 name="username"
                 :placeholder="$t('login-page.username.placeholder')"
                 :label="$t('login-page.username.label')"
                 class="mb-5"
                 :error="errors[0]"
-                :value="form.username"
-                @input="form.username = $event"
               />
             </ValidationProvider>
           </div>
@@ -111,34 +77,33 @@
             >
               <Input
                 id="text-password"
+                v-model="form.password"
                 name="password"
                 type="password"
                 :placeholder="$t('login-page.password.placeholder')"
                 :label="$t('login-page.password.label')"
                 class="mb-5"
                 :error="errors[0]"
-                :value="form.password"
-                @input="form.password = $event"
               />
             </ValidationProvider>
           </div>
 
-          <div>
+          <div v-if="!referrer">
             <ValidationProvider
               v-slot="{ errors }"
-              name="password"
+              name="refcode"
+              rules="min:4"
               mode="passive"
             >
               <Input
                 id="text-refcode"
+                v-model="form.referredBy"
                 name="refcode"
-                type="refcode"
+                type="text"
                 :placeholder="$t('login-page.refcode.placeholder')"
                 :label="$t('login-page.refcode.label')"
                 class="mb-5"
                 :error="errors[0]"
-                :value="form.refcode"
-                @input="form.refcode = $event"
               />
             </ValidationProvider>
           </div>
@@ -202,6 +167,7 @@ import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 // import Upload from '~/assets/icons/upload.svg?inline'
+import ReferralList from '@/components/popups/referral/List'
 import Spinner from '~/assets/icons/spinner.svg?inline'
 
 export default {
@@ -210,6 +176,7 @@ export default {
     Input,
     ArrowRight,
     Spinner,
+    ReferralList,
     // Upload,
   },
   layout: 'withoutFooter',
@@ -219,7 +186,7 @@ export default {
         username: '',
         email: '',
         password: '',
-        refCode: '',
+        referredBy: '',
       },
       loading: false,
       checkedterms: false,
@@ -227,6 +194,15 @@ export default {
       warningterms: false,
       // warningprivacy: false,
     }
+  },
+  fetch() {
+    return this.$store.dispatch('referrals/all')
+  },
+  computed: {
+    referrer() {
+      // console.log(this.$route.query)
+      return this.$route.query?.invite
+    },
   },
   methods: {
     onSignUp() {
@@ -241,7 +217,7 @@ export default {
           username: this.form.username,
           email: this.form.email,
           password: this.form.password,
-          refcode: this.form.refcode,
+          referredBy: this.referrer || this.form.referredBy,
         })
         .then(() => {
           this.$router.replace('/profile')

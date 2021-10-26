@@ -1,5 +1,5 @@
 <template>
-  <Modal>
+  <Modal v-if="user">
     <div class="bg-white rounded-3.5xl p-7 w-5/12 relative">
       <button
         class="bg-gray-100 self-start px-2.5 py-2.5 absolute top-2 right-2"
@@ -27,17 +27,7 @@
         <Box :value="referralCode" :label="$t('modal.referral.code.label')" />
       </div>
       <div class="my-8">
-        <div class="flex justify-between items-center mb-3 text-gray-500">
-          <div class="uppercase text-xs font-semibold">Active BOUNTY</div>
-          <div class="text-sm font-normal">Referral reward</div>
-        </div>
-        <div class="flex flex-col space-y-2">
-          <ListItem
-            v-for="referral in referrals"
-            :key="referral.name"
-            :referral="referral"
-          />
-        </div>
+        <List />
       </div>
       <hr size="8px" color="black" />
       <p class="text-left pt-4 pb-8 text-gray-500 text-sm font-normal">
@@ -50,7 +40,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import vClickOutside from 'v-click-outside'
-import ListItem from './ListItem.vue'
+import List from './List.vue'
 import Box from './Box.vue'
 import Crossmark from '~/assets/icons/crossmark-2.svg?inline'
 import Modal from '@/components/popups/Modal'
@@ -63,7 +53,7 @@ export default {
   components: {
     Crossmark,
     Modal,
-    ListItem,
+    List,
     Box,
   },
   computed: {
