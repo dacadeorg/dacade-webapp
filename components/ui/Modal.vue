@@ -1,6 +1,6 @@
 <template>
   <Popup :show="show" @close="$emit('close', $event)">
-    <div class="bg-white my-auto relative w-2/5 rounded-3.5xl relative">
+    <div class="bg-white my-auto w-2/5 rounded-3.5xl relative">
       <slot />
     </div>
   </Popup>

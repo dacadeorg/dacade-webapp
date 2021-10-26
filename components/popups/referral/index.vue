@@ -1,6 +1,6 @@
 <template>
-  <Modal v-if="user">
-    <div class="bg-white rounded-3.5xl p-7 w-5/12 relative">
+  <Modal v-if="user" :show="showReferral" @close="close">
+    <div class="w-full p-7 relative">
       <button
         class="bg-gray-100 self-start px-2.5 py-2.5 absolute top-2 right-2"
         @click="close"
@@ -43,7 +43,7 @@ import vClickOutside from 'v-click-outside'
 import List from './List.vue'
 import Box from './Box.vue'
 import Crossmark from '~/assets/icons/crossmark-2.svg?inline'
-import Modal from '@/components/popups/Modal'
+import Modal from '@/components/ui/Modal'
 
 export default {
   name: 'UserPopup',
