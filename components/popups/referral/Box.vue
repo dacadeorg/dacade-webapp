@@ -13,9 +13,9 @@
       bg-gray-50
     "
   >
-    <div class="text-left flex-grow w-3/4">
-      <label class="relative block text-sm">{{ label }}</label>
-      <div class="text-lg mt-0.5 w-full truncate">{{ value }}</div>
+    <div class="text-left flex-grow w-2/5 md:w-3/4">
+      <label class="relative block text-xs md:text-sm">{{ label }}</label>
+      <div class="text-base md:text-lg mt-0.5 w-full truncate">{{ value }}</div>
     </div>
     <div class="pl-3 flex-none">
       <Button type="outline-primary" @click="copyToClipBoard()">

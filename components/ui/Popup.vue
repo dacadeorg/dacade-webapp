@@ -6,25 +6,15 @@
       z-999
       w-screen
       h-screen
+      overflow-scroll
       top-0
       left-0
       flex
       items-center
-      justify-center
     "
   >
     <div
-      class="
-        opacity-25
-        absolute
-        inset-0
-        z-0
-        bg-black
-        w-full
-        h-full
-        top-0
-        left-0
-      "
+      class="opacity-25 fixed inset-0 z-0 bg-black w-full h-screen top-0 left-0"
       @click="externalClick"
     />
     <slot />

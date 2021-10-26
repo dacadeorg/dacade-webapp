@@ -1,5 +1,5 @@
 <template>
-  <div class="text-left">
+  <div class="text-left relative">
     <span
       class="
         uppercase

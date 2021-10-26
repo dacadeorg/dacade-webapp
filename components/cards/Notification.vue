@@ -2,7 +2,7 @@
   <nuxt-link :to="details.link">
     <div
       :class="extended ? 'rounded-3xl' : ''"
-      class="flex hover:bg-gray-50 -mx-5 px-5 py-4"
+      class="flex hover:bg-gray-50 py-4"
     >
       <div class="flex mr-2">
         <Avatar :user="user" class="w-10 h-10" />

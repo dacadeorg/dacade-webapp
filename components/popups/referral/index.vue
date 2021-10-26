@@ -7,11 +7,13 @@
       >
         <Crossmark class="text-xl text-gray-600 w-6" />
       </button>
-      <h1 class="text-3xl mb-3 text-left">
+      <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
         {{ $t('modal.referral.title') }}
         {{ $t('app.name') }}
       </h1>
-      <div class="text-lg text-left font-normal text-gray-700 mb-8">
+      <div
+        class="text-base md:text-lg text-left font-normal text-gray-700 mb-8"
+      >
         <p class="mb-3 leading-normal">
           {{
             $t('modal.referral.text-1', {

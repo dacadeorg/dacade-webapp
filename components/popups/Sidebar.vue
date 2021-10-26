@@ -1,38 +1,34 @@
 <template>
-  <div>
-    <span v-click-outside="externalClick">
-      <li
-        class="
-          inline-block
-          align-middle
-          z-40
-          relative
-          ease-linear
-          transition-all
-          duration-150
-        "
-        @click="toggle"
-      >
-        <div v-if="!show">
-          <MobileMenuLogo />
-        </div>
-        <div v-else>
-          <CloseIcon />
-        </div>
-      </li>
+  <div class="relative">
+    <li
+      class="
+        inline-block
+        align-middle
+        z-40
+        relative
+        ease-linear
+        transition-all
+        duration-150
+      "
+      @click="toggle"
+    >
+      <div v-if="!show">
+        <MobileMenuLogo />
+      </div>
+      <div v-else>
+        <CloseIcon />
+      </div>
+    </li>
+    <Popup :show="show" class="px-3 pt-16 pb-2" @close="externalClick">
       <div
-        v-show="show"
-        :style="{
-          width: 'calc(100vw - 110px)',
-          maxHeight: 'calc(100vh - 110px)',
-          overflow: 'hidden scroll',
-        }"
         class="
-          no-scrollbar
+          h-full
+          overflow-scroll
           md:max-w-sidebar
-          absolute
-          top-10
-          right-0
+          relative
+          ml-auto
+          md:mr-12
+          w-full
           z-40
           bg-secondary
           rounded-3.5xl
@@ -40,7 +36,7 @@
         "
       >
         <div class="divide-y divide-gray-200">
-          <div class="flex flex-col text-left -space-y-3 justify-between">
+          <div class="flex flex-col text-left justify-between">
             <div class="flex">
               <div class="w-10 h-10 ml-3 mr-2 my-3 rounded-full bg-green-500">
                 <BountiesIcon class="m-2" />
@@ -118,7 +114,18 @@
               </div>
             </div>
           </div>
-          <div v-if="isAuthenticated" class="px-3 py-2 h-full">
+          <div class="p-4 flex justify-center bg-indigo-50">
+            <div class="z-10">
+              <Button
+                :padding="false"
+                type="outline-primary"
+                class="flex btn-primary btn-lg py-2 px-5 align-middle text-sm"
+                @click="toggleInvite"
+                >{{ $t('nav.view-profile-codes') }}
+              </Button>
+            </div>
+          </div>
+          <div v-if="isAuthenticated" class="px-3 py-2 relative">
             <NotificationList />
           </div>
           <div v-if="!isAuthenticated" class="w-full h-15 p-2 flex">
@@ -142,11 +149,7 @@
           </div>
         </div>
       </div>
-    </span>
-    <div
-      v-if="show"
-      class="opacity-25 overscroll-none fixed inset-0 z-30 bg-black"
-    />
+    </Popup>
   </div>
 </template>
 
@@ -165,6 +168,7 @@ import MobileMenuLogo from '~/assets/icons/menu.svg?inline'
 import BountiesIcon from '~/assets/icons/bounties.svg?inline'
 import CommunitiesIcon from '~/assets/icons/communities.svg?inline'
 import WalletIcon from '~/assets/icons/wallet.svg?inline'
+import Popup from '@/components/ui/Popup'
 
 export default {
   name: 'UserPopup',
@@ -176,7 +180,7 @@ export default {
     Button,
     WalletIcon,
     CommunitiesIcon,
-    // BalanceList,
+    Popup,
     CloseIcon,
     BountiesIcon,
     // NavItem,
@@ -237,6 +241,10 @@ export default {
     },
     logout() {
       this.$store.dispatch('auth/logout')
+    },
+    toggleInvite() {
+      this.show = false
+      this.$store.dispatch('ui/toggleShowReferralPopup', true)
     },
   },
 }
