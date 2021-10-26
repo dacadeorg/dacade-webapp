@@ -10,11 +10,18 @@
         shape="squared"
       />
       <div class="font-medium text-sm leading-relaxed ml-2">
-        {{ referral.title || referral.community.name }}
+        {{
+          !bounty
+            ? referral.title || referral.community.name
+            : referral.community.name
+        }}
       </div>
     </div>
     <div>
-      <Reward type="gray" :reward="referral.reward" />
+      <Reward
+        type="gray"
+        :reward="!bounty ? referral.reward : referral.community.reward"
+      />
     </div>
   </div>
 </template>
@@ -33,6 +40,10 @@ export default {
     referral: {
       type: Object,
       default: () => ({}),
+    },
+    bounty: {
+      type: Boolean,
+      default: false,
     },
   },
 }

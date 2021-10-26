@@ -5,7 +5,11 @@
         {{ $t('modal.referral.list.bounty_title') }}
       </div>
       <div class="text-sm font-normal">
-        {{ $t('modal.referral.list.reward') }}
+        {{
+          bounty
+            ? $t('modal.referral.list.challenge')
+            : $t('modal.referral.list.reward')
+        }}
       </div>
     </div>
     <div class="flex flex-col space-y-2">
@@ -13,6 +17,7 @@
         v-for="referral in referrals"
         :key="referral.name"
         :referral="referral"
+        :bounty="bounty"
       />
     </div>
   </div>
@@ -26,6 +31,12 @@ export default {
   name: 'ReferralList',
   components: {
     ListItem,
+  },
+  props: {
+    bounty: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     ...mapGetters({

@@ -12,14 +12,16 @@
       >
         <div class="lg:w-98 xl:w-98 mx-auto">
           <div v-if="referrer" class="p-px">
-            <h1 class="text-.5xl mb-2.5 font-medium leading-6">
+            <h1 class="text-.5xl mb-2.5 font-medium leading-6 text-gray-900">
               <span class="capitalize">{{ referrer }}</span>
               {{ $t('signup-page.referrer.title') }}
               {{ $t('app.name') }}
             </h1>
-            <p class="my-px">{{ $t('signup-page.referrer.subtitle') }}</p>
+            <p class="my-px text-gray-700">
+              {{ $t('signup-page.referrer.subtitle') }}
+            </p>
             <div class="my-8">
-              <ReferralList />
+              <ReferralList bounty />
             </div>
           </div>
           <div v-else>
@@ -195,8 +197,8 @@ export default {
       // warningprivacy: false,
     }
   },
-  fetch() {
-    return this.$store.dispatch('referrals/all')
+  fetch({ store }) {
+    return store.dispatch('referrals/all')
   },
   computed: {
     referrer() {

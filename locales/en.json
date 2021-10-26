@@ -135,5 +135,6 @@
   "modal.referral.title": "Invite your friends to ",
   "modal.referral.button.copy": "Copy",
   "modal.referral.list.bounty_title": "Active Bounties",
-  "modal.referral.list.reward": "Referral reward"
+  "modal.referral.list.reward": "Referral reward",
+  "modal.referral.list.challenge": "Challenge reward"
 }
