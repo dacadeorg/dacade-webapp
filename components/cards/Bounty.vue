@@ -148,9 +148,9 @@ export default {
     },
     type() {
       if (!this.bounty?.submissions?.length) {
-        return 'Challenge'
+        return this.$t('bounties.reward.challenge')
       }
-      return 'Waiting for Feedbacks'
+      return this.$t('bounties.reward.feedback')
     },
   },
   methods: {

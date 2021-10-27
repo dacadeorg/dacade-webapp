@@ -44,7 +44,9 @@
           justify-between
         "
       >
-        <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">Referral</div>
+        <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">
+          {{ $t('bounties.reward.referral') }}
+        </div>
         <div>
           <Reward type="gray" :reward="referral.reward" />
         </div>

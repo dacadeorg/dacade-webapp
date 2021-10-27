@@ -18,8 +18,17 @@
       <div class="text-base md:text-lg mt-0.5 w-full truncate">{{ value }}</div>
     </div>
     <div class="pl-3 flex-none">
-      <Button type="outline-primary" @click="copyToClipBoard()">
-        {{ $t('modal.referral.button.copy') }}
+      <Button
+        :type="copied ? 'primary' : 'outline-primary'"
+        @click="copyToClipBoard()"
+      >
+        {{
+          $t(
+            copied
+              ? 'modal.referral.button.copied'
+              : 'modal.referral.button.copy'
+          )
+        }}
       </Button>
     </div>
   </div>
@@ -43,9 +52,22 @@ export default {
       type: String,
     },
   },
+  data() {
+    return {
+      copied: false,
+      timeout: null,
+    }
+  },
   methods: {
     async copyToClipBoard() {
       await navigator.clipboard.writeText(this.value)
+      this.copied = true
+      if (this.timeout) {
+        clearTimeout(this.timeout)
+      }
+      this.timeout = setTimeout(() => {
+        this.copied = false
+      }, 500)
     },
   },
 }
