@@ -58,6 +58,11 @@ export default {
       timeout: null,
     }
   },
+  beforeDestroy() {
+    if (this.timeout) {
+      clearTimeout(this.timeout)
+    }
+  },
   methods: {
     async copyToClipBoard() {
       await navigator.clipboard.writeText(this.value)
