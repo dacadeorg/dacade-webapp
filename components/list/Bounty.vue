@@ -7,12 +7,13 @@
       bg-gray-50
       rounded-3xl
       space-y-0
-      divide-y divide-y-gray-500
+      divide-y divide-gray-200
       px-0
       mb-10
       relative
       w-full
       lg:max-w-2xl
+      overflow-hidden
     "
   >
     <Referral

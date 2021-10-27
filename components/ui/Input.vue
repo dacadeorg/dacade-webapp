@@ -34,7 +34,7 @@
           'text-gray-400 scale-75 -translate-y-3 translate-x-1 bg-gray-50':
             disabled,
           'border-red-100': error,
-          'focus:border-gray-200': !error,
+          'focus:border-gray-200 border-gray-200': !error,
         }"
         :value="value"
         :type="type"

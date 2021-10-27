@@ -30,7 +30,7 @@
             v-if="challenge.format.githubLink"
             class="
               w-full
-              border border-solid border-grey-200
+              border border-solid border-gray-200
               m-0
               rounded-b
               text-lg

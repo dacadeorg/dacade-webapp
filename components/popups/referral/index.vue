@@ -31,7 +31,7 @@
       <div class="my-8">
         <List />
       </div>
-      <hr size="8px" color="black" />
+      <div class="w-full block border-t border-t-solid border-gray-200" />
       <p class="text-left pt-4 pb-8 text-gray-500 text-sm font-normal">
         {{ $t('modal.referral.message') }}
       </p>

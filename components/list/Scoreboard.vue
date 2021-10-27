@@ -3,7 +3,7 @@
     class="
       pb-5
       w-full
-      divide-y divide-y-gray-200
+      divide-y divide-gray-200
       space-y-4
       bg-gray-50
       rounded-3xl

@@ -10,7 +10,6 @@
       justify-between
       hover:bg-secondary
       relative
-      rounded-xl
     "
     @click="openLink()"
   >
