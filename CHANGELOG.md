@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.4...v2.6.0) (2021-10-28)
+
+
+### Features
+
+* add submissions pagination ([7e44963](https://gitlab.com/u2467/dacade/dacade/commit/7e449638d3769acd5a894b4a4f932d78544807cf))
+* add timeout clearing ([9be437e](https://gitlab.com/u2467/dacade/dacade/commit/9be437e7fa50d4b1f9287739b4d63bc45d526fbb))
+* adjust bounty type wording ([e0e52bb](https://gitlab.com/u2467/dacade/dacade/commit/e0e52bb2716a0683afb2c59ae3f1cce98341b696))
+
+
+### Bug Fixes
+
+* missing border color issue ([41e39ac](https://gitlab.com/u2467/dacade/dacade/commit/41e39ac8d9da8952141e7588a5afedfb218c8d2c))
+* story border color ([91ac391](https://gitlab.com/u2467/dacade/dacade/commit/91ac391f5ac12292c0f58e8f173c9e9d339da33f))
+* token fetching ([1b886d1](https://gitlab.com/u2467/dacade/dacade/commit/1b886d1d9dd73545dc80375df1228139b7160051))
+
+
+### Improvements
+
+* remove scrollbars on referral modal ([07080c2](https://gitlab.com/u2467/dacade/dacade/commit/07080c2adef3832a3c9a3d38a02f4da0ee0df910))
+
 ### [2.5.4](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.3...v2.5.4) (2021-10-26)
 
 
