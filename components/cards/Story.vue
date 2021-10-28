@@ -4,8 +4,7 @@
     v-click-outside="externalClick"
     class="
       absolute
-      border border-solid
-      boder-gray-200
+      border border-solid border-gray-200
       bg-gray-50
       rounded-full
       p-1

@@ -56,12 +56,19 @@ export const actions = {
     dispatch('fetch')
   },
 
-  async getToken({ commit }, payload) {
+  async getToken({ commit, dispatch }, payload) {
     const user = firebaseAuth.currentUser
     if (user) {
-      const token = await user.getIdToken()
-      commit('setToken', token)
-      return token
+      try {
+        const token = await user.getIdToken()
+        if (!token) throw new Error("Couldn't fetch the token")
+        commit('setToken', token)
+        return token
+      } catch (e) {
+        console.log(e)
+        dispatch('clear')
+        return null
+      }
     }
     return null
   },

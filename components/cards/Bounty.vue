@@ -10,7 +10,6 @@
       justify-between
       hover:bg-secondary
       relative
-      rounded-xl
     "
   >
     <div
@@ -54,8 +53,13 @@
         </div>
       </div>
       <div
-        v-if="bounty.submissions"
-        class="mt-4 space-y-0 divide-y divide-y-gray-500"
+        v-if="bounty.submissions && bounty.submissions.length"
+        class="
+          mt-4
+          space-y-0
+          divide-y divide-gray-200
+          border-t border-t-solid border-gray-200
+        "
       >
         <nuxt-link
           v-for="submission in bounty.submissions"
@@ -148,9 +152,9 @@ export default {
     },
     type() {
       if (!this.bounty?.submissions?.length) {
-        return 'Challenge'
+        return this.$t('bounties.reward.challenge')
       }
-      return 'Waiting for Feedbacks'
+      return this.$t('bounties.reward.feedback')
     },
   },
   methods: {

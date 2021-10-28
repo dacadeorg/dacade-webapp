@@ -5,8 +5,7 @@
       v-for="(grid, i) in grids"
       :key="i"
       class="
-        border border-solid
-        boder-gray-200
+        border border-solid border-gray-200
         m-auto
         rounded-full
         absolute

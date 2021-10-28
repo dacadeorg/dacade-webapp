@@ -1,17 +1,8 @@
 <template>
   <div
     v-if="show"
-    class="
-      fixed
-      z-999
-      w-screen
-      h-screen
-      overflow-scroll
-      top-0
-      left-0
-      flex
-      items-center
-    "
+    class="fixed z-999 w-screen h-screen overflow-y-scroll top-0 left-0"
+    :class="{ 'flex items-center': center }"
   >
     <div
       class="opacity-25 fixed inset-0 z-0 bg-black w-full h-screen top-0 left-0"
@@ -34,6 +25,10 @@ export default {
     show: {
       type: Boolean,
       default: false,
+    },
+    center: {
+      type: Boolean,
+      default: true,
     },
   },
   watch: {

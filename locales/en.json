@@ -107,6 +107,9 @@
   "bounties.navigation": "Communities",
   "bounties.prefix.closes": "closes",
   "bounties.navigation.all": "All communities",
+  "bounties.reward.challenge": "Challenge reward",
+  "bounties.reward.feedback": "Feedback reward",
+  "bounties.reward.referral": "Referral reward",
   "signup-page.terms": "Terms and conditions",
   "signup-page.terms.warning": "you have to accept in order to proceed",
   "signup-page.privacy": "privacy policy",
@@ -134,6 +137,7 @@
   "modal.referral.text-2": "When they complete a challenge in a community with an active referral bounty you will be rewarded.",
   "modal.referral.title": "Invite your friends to ",
   "modal.referral.button.copy": "Copy",
+  "modal.referral.button.copied": "Copied",
   "modal.referral.list.bounty_title": "Active Bounties",
   "modal.referral.list.reward": "Referral reward",
   "modal.referral.list.challenge": "Challenge reward"

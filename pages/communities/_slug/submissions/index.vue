@@ -25,7 +25,9 @@ export default {
   scrollToTop: true,
   async fetch({ store, params }) {
     await store.dispatch('communities/find', params.slug)
-    await store.dispatch('communities/submissions/all', params.slug)
+    await store.dispatch('communities/submissions/all', {
+      slug: params.slug,
+    })
   },
   computed: {
     ...mapGetters({

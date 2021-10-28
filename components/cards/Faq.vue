@@ -6,7 +6,7 @@
         content-wrapper
         divide-y divide-2
         lg:divide-0 lg:divide-y-0
-        divde-gray-100
+        divide-gray-200
         flex flex-col
         lg:flex-row
       "
@@ -47,7 +47,7 @@
       </div>
       <div
         v-if="community.faq"
-        class="w-full lg:w-1/2 divide-y divide-2 space-y-4 divde-gray-100"
+        class="w-full lg:w-1/2 divide-y divide-2 space-y-4 divide-gray-200"
       >
         <QuestionCard
           v-for="(question, i) in community.faq"

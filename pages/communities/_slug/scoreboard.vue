@@ -9,7 +9,7 @@
         class="
           my-24
           w-full
-          divide-y divide-y-gray-200
+          divide-y divide-gray-200
           space-y-4
           bg-gray-50
           lg:max-w-2xl

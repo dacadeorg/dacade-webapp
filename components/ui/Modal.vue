@@ -9,7 +9,6 @@
         lg:w-8/12
         xl:w-2/5
         rounded-3.5xl
-        overflow-scroll
         relative
         mx-auto
       "

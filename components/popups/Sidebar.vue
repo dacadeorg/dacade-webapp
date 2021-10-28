@@ -19,14 +19,20 @@
         <CloseIcon />
       </div>
     </li>
-    <Popup :show="show" class="px-3 pt-16 pb-2" @close="externalClick">
+    <Popup
+      :center="false"
+      :show="show"
+      class="px-3 pt-16 pb-2"
+      @close="externalClick"
+    >
       <div
         class="
-          h-full
+          max-h-full
           overflow-scroll
           md:max-w-sidebar
           relative
           ml-auto
+          mt-0
           md:mr-12
           w-full
           z-40
@@ -114,7 +120,10 @@
               </div>
             </div>
           </div>
-          <div class="p-4 flex justify-center bg-indigo-50">
+          <div
+            v-if="isAuthenticated"
+            class="p-4 flex justify-center bg-indigo-50"
+          >
             <div class="z-10">
               <Button
                 :padding="false"
@@ -125,7 +134,7 @@
               </Button>
             </div>
           </div>
-          <div v-if="isAuthenticated" class="px-3 py-2 relative">
+          <div v-if="isAuthenticated" class="px-5 py-2 relative">
             <NotificationList />
           </div>
           <div v-if="!isAuthenticated" class="w-full h-15 p-2 flex">
