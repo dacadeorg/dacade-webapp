@@ -147,3 +147,15 @@ div {
     transform: rotate(360deg);
   }
 }
+
+.border-none\!{
+  @apply border-none !important;
+}
+
+.mt-0\!{
+  @apply mt-0 !important;
+}
+
+.pt-0\!{
+  @apply pt-0 !important;
+}

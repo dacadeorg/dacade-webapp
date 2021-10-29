@@ -1,8 +1,8 @@
 <template>
-  <Section>
+  <Section class="mt-0! pt-0!">
     <Hint v-if="community.disclaimer">
       <strong>{{ $t('communities.overview.info.disclaimer.title') }}:</strong>
-      <span>{{ community.disclaimer }}</span>
+      <span v-html="community.disclaimer" />
     </Hint>
   </Section>
 </template>
