@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.1](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.0...v2.6.1) (2021-11-01)
+
+
+### Features
+
+* adjust disclaimer box placement on community overview page ([21fbbd5](https://gitlab.com/u2467/dacade/dacade/commit/21fbbd5c08fc4aa2bf9335ab1755b8f3e0d0db98))
+
 ## [2.6.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.4...v2.6.0) (2021-10-28)
 
 
