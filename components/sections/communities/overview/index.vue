@@ -13,6 +13,9 @@
       <ObjectivesSection />
       <PrerequisiteSection />
       <TrailerSection />
+      <div class="border-none!">
+        <DisclaimerSection />
+      </div>
       <ChaptersSection />
       <ChallengeSection />
       <PageNavigation />
@@ -28,6 +31,7 @@ import ObjectivesSection from './Objectives'
 import TrailerSection from './Trailer'
 import ChaptersSection from './Chapters'
 import ChallengeSection from './Challenge'
+import DisclaimerSection from './Disclaimer'
 import DescriptionSection from './Description'
 import PrerequisiteSection from './Prerequisite'
 
@@ -42,6 +46,7 @@ export default {
     DescriptionSection,
     PageNavigation,
     PrerequisiteSection,
+    DisclaimerSection,
   },
   computed: {
     ...mapGetters({
