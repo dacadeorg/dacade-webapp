@@ -27,12 +27,18 @@
       >
         <RefreshIcon :class="{ 'spinning-animation': loading }" />
       </div>
+      <InfiniteLoading
+        class="invisible"
+        :distance="1000"
+        @infinite="nextPage"
+      ></InfiniteLoading>
     </Section>
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import InfiniteLoading from 'vue-infinite-loading'
 import Section from '../partials/Section.vue'
 import SubmissionCard from '@/components/cards/Submission'
 import RefreshIcon from '~/assets/icons/refresh.svg?inline'
@@ -44,6 +50,7 @@ export default {
     Section,
     SubmissionCard,
     RefreshIcon,
+    InfiniteLoading,
   },
   data() {
     return {
@@ -62,8 +69,11 @@ export default {
     },
   },
   methods: {
-    async nextPage() {
-      if (this.loading) return
+    async nextPage($state) {
+      if (this.loading || !this.showButton) {
+        $state.complete()
+        return
+      }
       this.loading = true
       const submissionId =
         this.submissions[this.submissions.length - 1]?.id || null
@@ -71,9 +81,16 @@ export default {
         slug: this.community.slug,
         startAfter: submissionId,
       })
-      this.showButton = !!list.length
       this.page = this.page + 1
       this.loading = false
+
+      if (!list.length) {
+        this.showButton = false
+        $state.complete()
+        return
+      }
+
+      $state.loaded()
     },
   },
 }
