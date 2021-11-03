@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.2](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.1...v2.6.2) (2021-11-03)
+
+
+### Features
+
+* add infinite scrolling to the submission list ([6a61e8e](https://gitlab.com/u2467/dacade/dacade/commit/6a61e8e67fc75d2aa2f28d0448f023543ef0d911))
+
 ### [2.6.1](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.0...v2.6.1) (2021-11-01)
 
 
