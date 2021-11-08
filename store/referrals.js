@@ -31,4 +31,7 @@ export const getters = {
   list(state) {
     return state.list
   },
+  filteredList(state) {
+    return state.filteredList
+  },
 }
