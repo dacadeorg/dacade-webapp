@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.3](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.2...v2.6.3) (2021-11-08)
+
+
+### Features
+
+* show bounties for each reward ([0d1e70d](https://gitlab.com/u2467/dacade/dacade/commit/0d1e70d3b045d297084609cb9af25259620046a8))
+
+
+### Bug Fixes
+
+* filtered list ([dd05693](https://gitlab.com/u2467/dacade/dacade/commit/dd056935a80b5160272b733a60ec9d94b1ea9fe6))
+
 ### [2.6.2](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.1...v2.6.2) (2021-11-03)
 
 
