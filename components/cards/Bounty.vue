@@ -49,7 +49,7 @@
           {{ type }}
         </div>
         <div>
-          <Reward type="gray" :reward="reward" />
+          <Reward type="gray" :reward="bounty.reward" />
         </div>
       </div>
       <div
@@ -88,7 +88,7 @@
                   h-5
                 "
               >
-                {{ submission.feedbacks }}
+                {{ submission.metadata ? submission.metadata.feedbacks : 0 }}
               </div>
             </div>
             <div class="text-gray-500 text-base font-normal">
@@ -118,7 +118,7 @@
           backgroundColor: bounty.colors.accent,
         }"
         size="medium"
-        :value="bounty.submissions.length"
+        :value="bounty.totalSubmissions"
       />
     </div>
   </div>
@@ -144,14 +144,8 @@ export default {
     },
   },
   computed: {
-    reward() {
-      if (this.bounty?.submissions?.length) {
-        return this.bounty.rewards.find((reward) => reward.type === 'FEEDBACK')
-      }
-      return this.bounty.rewards.find((reward) => reward.type === 'SUBMISSION')
-    },
     type() {
-      if (!this.bounty?.submissions?.length) {
+      if (this.bounty.reward.type === 'SUBMISSION') {
         return this.$t('bounties.reward.challenge')
       }
       return this.$t('bounties.reward.feedback')

@@ -58,6 +58,7 @@
     "highlightjs-solidity": "^1.0.22",
     "lodash.chunk": "^4.2.0",
     "lodash.truncate": "^4.4.2",
+    "lodash.uniqby": "^4.7.0",
     "lowlight": "^1.2.0",
     "nuxt": "^2.15.8",
     "nuxt-bugsnag": "^4.2.2",
