@@ -7,7 +7,7 @@
       <h1 class="text-4xl sm:text-5xl pt-10 md:pt-20 pb-10">
         {{ $t('nav.bounties') }}
       </h1>
-      <BountyList :bounties="bountiesFiltered" />
+      <BountyList :bounties="bountiesFiltered" :referrals="referralsFiltered" />
     </div>
   </div>
 </template>
@@ -20,14 +20,14 @@ import BountyList from '@/components/list/Bounty'
 
 export default {
   components: { Navigation, BountyList },
-  fetch({ store, params }) {
+  async fetch({ store, params }) {
+    await store.dispatch('bounties/findAll', params.slug)
     return store.dispatch('bounties/findAll', params.slug)
   },
   computed: {
     ...mapGetters({
-      bounties: 'bounties/list',
       bountiesFiltered: 'bounties/filteredList',
-
+      referralsFiltered: 'referrals/filteredList',
       isAuthenticated: 'auth/check',
     }),
   },
