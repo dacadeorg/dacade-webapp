@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.4](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.3...v2.6.4) (2021-11-08)
+
+
+### Features
+
+* add markdown heading navigation ([75d2d23](https://gitlab.com/u2467/dacade/dacade/commit/75d2d2395bec4612e51b125458fe1fdd22e69031))
+
 ### [2.6.3](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.2...v2.6.3) (2021-11-08)
 
 
