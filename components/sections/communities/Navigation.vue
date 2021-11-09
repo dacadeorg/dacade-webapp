@@ -12,18 +12,40 @@
             v-for="(item, k) in menu.items"
             :key="k"
             class="relative mt-4 text-sm"
-            :style="activeLinkStyle"
           >
-            <nuxt-link
-              :to="item.link"
-              class="relative text-gray-500"
-              :class="{ 'activable-link': !item.exact }"
-            >
-              <span class="absolute inline-block -left-6 nav-icon">
-                <ChevronRightIcon />
-              </span>
-              <span class="nav-label">{{ item.label }}</span>
-            </nuxt-link>
+            <span class="relative block" :style="activeLinkStyle">
+              <nuxt-link
+                :to="item.link"
+                class="relative text-gray-500"
+                :class="{ 'activable-link': !item.exact }"
+              >
+                <span class="absolute inline-block -top-1 -left-6 nav-icon">
+                  <ChevronRightIcon
+                    :class="{
+                      'transform rotate-90':
+                        item.subitems && item.subitems.length,
+                    }"
+                  />
+                </span>
+                <span class="nav-label">{{ item.label }}</span>
+              </nuxt-link>
+            </span>
+            <ul v-if="item.subitems && item.subitems.length">
+              <li
+                v-for="(subitem, j) in item.subitems"
+                :key="j"
+                class="relative mt-4 text-sm text-gray-500"
+                :style="activeLinkStyle"
+              >
+                <nuxt-link
+                  :to="{ path: item.link, hash: subitem.link }"
+                  class="relative text-gray-500 opacity-50 hover:opacity-100"
+                  :class="{ 'activable-link': !subitem.exact }"
+                >
+                  <span class="nav-label">{{ subitem.label }}</span>
+                </nuxt-link>
+              </li>
+            </ul>
           </li>
         </ul>
       </li>
@@ -69,6 +91,7 @@ export default {
     setNavigationList() {
       const list = [
         {
+          id: 'introduction',
           title: 'Introduction',
           hideTitle: true,
           items: [
@@ -80,12 +103,14 @@ export default {
           ],
         },
         {
+          id: 'chapters',
           title: this.$t('communities.navigation.chapters'),
           items: this.community.chapters?.map((chapter, i) => ({
+            id: chapter.id,
             label: chapter.title,
             link: this.chapterPath(chapter.id),
             exact: false,
-            items: chapter.materials
+            subitems: chapter.materials
               ? chapter.materials.map((material) => ({
                   label: material.title,
                   link: this.chapterPath(i),
@@ -95,6 +120,7 @@ export default {
           })),
         },
         {
+          id: 'boutnies',
           title: this.$t('communities.navigation.bounties'),
           items: this.bountyLinks(),
         },
@@ -108,6 +134,7 @@ export default {
 
       if (this.community.challenges?.length) {
         links.push({
+          id: 'challenge',
           label: this.$t('communities.navigation.challenge'),
           link: this.communityPath(
             `challenges/${this.community.challenges[0].id}`
@@ -116,6 +143,7 @@ export default {
         })
 
         links.push({
+          id: 'submissions',
           label: this.$t('communities.navigation.submissions'),
           link: this.communityPath('submissions'),
           exact: false,
@@ -123,6 +151,7 @@ export default {
       }
 
       links.push({
+        id: 'scoreboard',
         label: this.$t('communities.navigation.scoreboard'),
         link: this.communityPath('scoreboard'),
         exact: false,
@@ -142,7 +171,9 @@ export default {
 .nuxt-link-exact-active,
 .activable-link.nuxt-link-active {
   color: inherit !important;
+  opacity: 1;
 }
+
 .nuxt-link-exact-active > .nav-icon,
 .activable-link.nuxt-link-active > .nav-icon {
   display: block;

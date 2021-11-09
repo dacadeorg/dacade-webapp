@@ -44,12 +44,13 @@
           flex-col-reverse
           justify-between
         "
+        @click="goToChallenge(bounty)"
       >
         <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">
           {{ type }}
         </div>
         <div>
-          <Reward type="gray" :reward="reward" />
+          <Reward type="gray" :reward="bounty.reward" />
         </div>
       </div>
       <div
@@ -88,7 +89,7 @@
                   h-5
                 "
               >
-                {{ submission.feedbacks }}
+                {{ submission.metadata ? submission.metadata.feedbacks : 0 }}
               </div>
             </div>
             <div class="text-gray-500 text-base font-normal">
@@ -99,7 +100,10 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="self-start relative mt-15 md:mt-7">
+    <div
+      class="self-start relative mt-15 md:mt-7"
+      @click="goToChallenge(bounty)"
+    >
       <Avatar
         class="w-15 h-15 rounded-xl overflow-hidden"
         :icon="bounty.icon"
@@ -118,7 +122,7 @@
           backgroundColor: bounty.colors.accent,
         }"
         size="medium"
-        :value="bounty.submissions.length"
+        :value="bounty.totalSubmissions"
       />
     </div>
   </div>
@@ -144,17 +148,14 @@ export default {
     },
   },
   computed: {
-    reward() {
-      if (this.bounty?.submissions?.length) {
-        return this.bounty.rewards.find((reward) => reward.type === 'FEEDBACK')
-      }
-      return this.bounty.rewards.find((reward) => reward.type === 'SUBMISSION')
-    },
     type() {
-      if (!this.bounty?.submissions?.length) {
+      if (this.bounty.reward.type === 'SUBMISSION') {
         return this.$t('bounties.reward.challenge')
       }
       return this.$t('bounties.reward.feedback')
+    },
+    isChallenge() {
+      return this.bounty.reward.type === 'SUBMISSION'
     },
   },
   methods: {
@@ -166,9 +167,12 @@ export default {
         window.open(bounty.link)
         return
       }
-      return this.$router.push(
-        `/communities/${bounty.slug}/challenges/${bounty.challenge}`
-      )
+      if (this.isChallenge) {
+        return this.$router.push(
+          `/communities/${bounty.slug}/challenges/${bounty.challenge}`
+        )
+      }
+      return this.$router.push(`/communities/${bounty.slug}/submissions`)
     },
   },
 }
