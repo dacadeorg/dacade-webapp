@@ -149,7 +149,6 @@ export default {
     ...mapGetters({
       user: 'user/get',
       isAuthenticated: 'auth/check',
-      communityData: 'content/communityData',
     }),
   },
   watch: {
@@ -177,9 +176,6 @@ export default {
         default:
           return null
       }
-    },
-    closeModal() {
-      this.$bvModal.hide('modal-1')
     },
   },
 }

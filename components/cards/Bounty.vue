@@ -44,6 +44,7 @@
           flex-col-reverse
           justify-between
         "
+        @click="goToChallenge(bounty)"
       >
         <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">
           {{ type }}
@@ -99,7 +100,10 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="self-start relative mt-15 md:mt-7">
+    <div
+      class="self-start relative mt-15 md:mt-7"
+      @click="goToChallenge(bounty)"
+    >
       <Avatar
         class="w-15 h-15 rounded-xl overflow-hidden"
         :icon="bounty.icon"
@@ -150,6 +154,9 @@ export default {
       }
       return this.$t('bounties.reward.feedback')
     },
+    isChallenge() {
+      return this.bounty.reward.type === 'SUBMISSION'
+    },
   },
   methods: {
     convertDate(date) {
@@ -160,9 +167,12 @@ export default {
         window.open(bounty.link)
         return
       }
-      return this.$router.push(
-        `/communities/${bounty.slug}/challenges/${bounty.challenge}`
-      )
+      if (this.isChallenge) {
+        return this.$router.push(
+          `/communities/${bounty.slug}/challenges/${bounty.challenge}`
+        )
+      }
+      return this.$router.push(`/communities/${bounty.slug}/submissions`)
     },
   },
 }
