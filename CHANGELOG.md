@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.5...v3.0.0-alpha.0) (2021-11-10)
+
+
+### Features
+
+* replace chapters with learning materials ([e2c5328](https://gitlab.com/u2467/dacade/dacade/commit/e2c53286b6b7f321f0ba6593a3418c09d50baae0))
+
+
+### Improvements
+
+* add alpha release scripts ([288f318](https://gitlab.com/u2467/dacade/dacade/commit/288f318ea8a5a21a6ca4f01f98a1f8c5ac4dba0d))
+
 ### [2.6.5](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.4...v2.6.5) (2021-11-09)
 
 
