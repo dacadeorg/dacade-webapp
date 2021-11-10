@@ -26,9 +26,9 @@
 /* eslint-disable no-unused-vars */
 import { mapGetters } from 'vuex'
 import PageNavigation from '@/components/sections/communities/PageNavigation.vue'
-import Header from '@/components/sections/communities/chapters/Header'
-import MaterialSection from '@/components/sections/communities/chapters/Material'
-import AdditionalMaterialsSection from '@/components/sections/communities/chapters/AdditionalMaterials'
+import Header from '@/components/sections/communities/learning-modules/Header'
+import MaterialSection from '@/components/sections/communities/learning-modules/Material'
+import AdditionalMaterialsSection from '@/components/sections/communities/learning-modules/AdditionalMaterials'
 import Wrapper from '@/components/sections/communities/Wrapper'
 
 export default {
@@ -42,25 +42,24 @@ export default {
   scrollToTop: true,
   async fetch({ store, params }) {
     await store.dispatch('communities/find', params.slug)
-    await store.dispatch('communities/chapters/find', params.id)
+    await store.dispatch('communities/learningModules/find', params.id)
   },
   computed: {
     ...mapGetters({
-      communityData: 'content/communityData',
       community: 'communities/current',
-      chapter: 'communities/chapters/current',
+      learningModule: 'communities/learningModules/current',
     }),
     materials() {
-      if (!this.chapter?.materials) return []
+      if (!this.learningModule?.materials) return []
 
-      return this.chapter.materials.filter(
+      return this.learningModule.materials.filter(
         (material) => material.type !== 'ADDITIONAL'
       )
     },
     additionalMaterials() {
-      if (!this.chapter?.materials) return []
+      if (!this.learningModule?.materials) return []
 
-      return this.chapter.materials.filter(
+      return this.learningModule.materials.filter(
         (material) => material.type === 'ADDITIONAL'
       )
     },

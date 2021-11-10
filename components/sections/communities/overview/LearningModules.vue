@@ -1,22 +1,25 @@
 <template>
-  <Section :title="$t('communities.overview.chapter')" :title-bold="false">
+  <Section
+    :title="$t('communities.overview.learning-modules')"
+    :title-bold="false"
+  >
     <div
-      v-for="(chapter, i) in community.chapters"
+      v-for="(learningModule, i) in community.learningModules"
       :key="i"
       class="mt-4 md:mt-9"
     >
       <h4 class="font-medium inline-block text-.5xl">
-        {{ chapter.title }}
+        {{ learningModule.title }}
       </h4>
       <span
-        v-if="chapter.duration"
+        v-if="learningModule.duration"
         class="text-xs font-semibold whitespace-nowrap"
         :style="{
           color: colors.textAccent,
         }"
-        >{{ duration(chapter.duration) }}</span
+        >{{ duration(learningModule.duration) }}</span
       >
-      <ObjectiveList :objectives="chapter.objectives" />
+      <ObjectiveList :objectives="learningModule.objectives" />
     </div>
   </Section>
 </template>
@@ -28,7 +31,7 @@ import ObjectiveList from '@/components/list/Objectives'
 import DateManager from '@/utilities/DateManager'
 
 export default {
-  name: 'ChapterSection',
+  name: 'LearningModuleSection',
   components: {
     Section,
     ObjectiveList,

@@ -3,14 +3,14 @@
     <Header
       hide-title-on-mobile
       :title="community.name"
-      :subtitle="chapter.title"
-      :description="chapter.description"
+      :subtitle="learningModule.title"
+      :description="learningModule.description"
     />
     <Section
       :title="$t('communities.overview.objective.title')"
       :subtitle="`${$t('communities.chapter.objective.subtitle')}:`"
     >
-      <ObjectiveList :objectives="chapter.objectives" />
+      <ObjectiveList :objectives="learningModule.objectives" />
     </Section>
   </div>
 </template>
@@ -23,7 +23,7 @@ import Header from '../partials/Header.vue'
 import ObjectiveList from '@/components/list/Objectives'
 
 export default {
-  name: 'ChapterHeader',
+  name: 'LearningModuleHeader',
   components: {
     Section,
     ObjectiveList,
@@ -33,7 +33,7 @@ export default {
     ...mapGetters({
       community: 'communities/current',
       communityData: 'communities/content',
-      chapter: 'communities/chapters/current',
+      learningModule: 'communities/learningModules/current',
     }),
   },
 }

@@ -87,7 +87,6 @@ export default {
       colors: 'ui/colors',
       community: 'communities/current',
       communityData: 'communities/content',
-      chapter: 'communities/chapters/current',
     }),
     isAdditional() {
       return this.material.type === 'ADDITIONAL'

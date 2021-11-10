@@ -85,8 +85,8 @@ export default {
     communityPath(link = '') {
       return `/communities/${this.$route.params.slug}/${link}`
     },
-    chapterPath(chapterId) {
-      return `/communities/${this.$route.params.slug}/chapters/${chapterId}`
+    learningModulePath(learningModuleId) {
+      return `/communities/${this.$route.params.slug}/learning-modules/${learningModuleId}`
     },
     setNavigationList() {
       const list = [
@@ -103,17 +103,17 @@ export default {
           ],
         },
         {
-          id: 'chapters',
-          title: this.$t('communities.navigation.chapters'),
-          items: this.community.chapters?.map((chapter, i) => ({
-            id: chapter.id,
-            label: chapter.title,
-            link: this.chapterPath(chapter.id),
+          id: 'learning-modules',
+          title: this.$t('communities.navigation.learning-modules'),
+          items: this.community.learningModules?.map((learningModule, i) => ({
+            id: learningModule.id,
+            label: learningModule.title,
+            link: this.learningModulePath(learningModule.id),
             exact: false,
-            subitems: chapter.materials
-              ? chapter.materials.map((material) => ({
+            subitems: learningModule.materials
+              ? learningModule.materials.map((material) => ({
                   label: material.title,
-                  link: this.chapterPath(i),
+                  link: this.learningModulePath(i),
                   exact: false,
                 }))
               : [],

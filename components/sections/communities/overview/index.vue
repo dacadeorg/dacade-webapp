@@ -16,7 +16,7 @@
       <div class="border-none!">
         <DisclaimerSection />
       </div>
-      <ChaptersSection />
+      <LearningModulesSection />
       <ChallengeSection />
       <PageNavigation />
     </div>
@@ -29,7 +29,7 @@ import PageNavigation from '../PageNavigation.vue'
 import RewardsSection from './Rewards'
 import ObjectivesSection from './Objectives'
 import TrailerSection from './Trailer'
-import ChaptersSection from './Chapters'
+import LearningModulesSection from './LearningModules'
 import ChallengeSection from './Challenge'
 import DisclaimerSection from './Disclaimer'
 import DescriptionSection from './Description'
@@ -41,7 +41,7 @@ export default {
     ObjectivesSection,
     RewardsSection,
     TrailerSection,
-    ChaptersSection,
+    LearningModulesSection,
     ChallengeSection,
     DescriptionSection,
     PageNavigation,

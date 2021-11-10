@@ -71,7 +71,7 @@ export default {
       const data = CloneDeep(this.menus)
       const slugger = new Slugger()
       const list = data.map((menu) => {
-        if (menu.id !== 'chapters') {
+        if (menu.id !== 'learning-modules') {
           return menu
         }
         menu.items = menu.items.map((item) => {
