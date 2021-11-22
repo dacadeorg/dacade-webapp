@@ -18,10 +18,10 @@
 </template>
 <script>
 import Wrapper from './wrapper.vue'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
-import NotificationBar from '@/components/NotificationBar'
+import NotificationBar from '@/components/layout/NotificationBar'
 import DiscordButton from '@/components/ui/DiscordButton'
 
 export default {
