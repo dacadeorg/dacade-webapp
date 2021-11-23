@@ -17,7 +17,7 @@
 import { mapGetters } from 'vuex'
 import SubmissionCard from '@/components/cards/Submission'
 import Wrapper from '@/components/sections/communities/Wrapper'
-import Header from '@/components/sections/communities/partials/Header'
+import Header from '@/components/sections/communities/_partials/Header'
 import Feedback from '@/components/sections/communities/submissions/feedback'
 import Evaluation from '@/components/sections/communities/submissions/Evaluation'
 
