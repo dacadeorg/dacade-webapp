@@ -36,7 +36,7 @@
 import { mapGetters } from 'vuex'
 
 import Section from '@/components/ui/Section'
-import CommunityCard from '@/components/cards/Community'
+import CommunityCard from '@/components/cards/community'
 import PartneringCard from '@/components/cards/Partnering'
 
 export default {
