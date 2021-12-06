@@ -63,6 +63,10 @@ export default {
               label: 'Wallet',
               link: '/profile/wallet',
             },
+            {
+              label: 'Referral',
+              link: '/profile/referral',
+            },
           ],
         },
       ]
