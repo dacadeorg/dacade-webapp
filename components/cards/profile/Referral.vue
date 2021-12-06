@@ -21,18 +21,18 @@
         <div class="pt-1">
           <ul class="text-sm leading-loose font-light text-gray-700 pb-1 test">
             <li>
-              <span class="ml-4">in a challenge in</span>
+              <span class="ml-5">in a challenge in</span>
               <span class="font-bold">Celo Community</span>
               <span class="hidden md:inline-block">{{ timestamp.date }}</span>
             </li>
 
             <li>
-              <span class="ml-4">Submission evaluated</span>
+              <span class="ml-5">Submission evaluated</span>
               <span class="font-bold">15/20</span> points
               <span class="hidden md:inline-block">{{ timestamp.date }}</span>
             </li>
             <li>
-              <span class="ml-4">You earned the referral reward</span>
+              <span class="ml-5">You earned the referral reward</span>
               <span class="font-bold"> </span>
               <span class="hidden md:inline-block">{{ timestamp.date }}</span>
             </li>
