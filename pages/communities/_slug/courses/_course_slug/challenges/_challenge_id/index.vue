@@ -12,6 +12,7 @@
       <Header />
       <Rewards />
       <RatingRubric :rating-criteria="challenge.ratingCriteria" />
+      <BestSubmissions />
       <div v-if="isAuthenticated">
         <div v-if="submission" class="mt-8">
           <h4 class="my-8 text-.5xl font-medium">
@@ -36,6 +37,7 @@ import Rewards from '@/components/sections/communities/courses/challenge/Rewards
 import SubmissionForm from '@/components/sections/communities/courses/challenge/Submission'
 import SubmissionCard from '@/components/cards/Submission'
 import Wrapper from '@/components/sections/communities/courses/Wrapper'
+import BestSubmissions from '@/components/sections/communities/courses/challenge/submissions/BestSubmissions'
 
 export default {
   components: {
@@ -45,6 +47,7 @@ export default {
     Rewards,
     SubmissionForm,
     SubmissionCard,
+    BestSubmissions,
   },
   scrollToTop: true,
   fetch({ store, params }) {
