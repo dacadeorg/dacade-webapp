@@ -20,8 +20,8 @@ export default {
     Wrapper,
     CommunityStats,
   },
-  async fetch({ store, params }) {
-    await store.dispatch('user/communities/find', params.slug)
+  fetch({ store, params }) {
+    return store.dispatch('user/communities/find', params.slug)
   },
   computed: {
     ...mapGetters({

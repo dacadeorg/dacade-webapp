@@ -21,9 +21,11 @@ import BountyList from '@/components/list/Bounty'
 
 export default {
   components: { Navigation, BountyList },
-  async fetch({ store }) {
-    await store.dispatch('referrals/all')
-    return store.dispatch('bounties/all')
+  fetch({ store }) {
+    return Promise.all([
+      store.dispatch('referrals/all'),
+      store.dispatch('bounties/all'),
+    ])
   },
   computed: {
     ...mapGetters({

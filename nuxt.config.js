@@ -70,6 +70,7 @@ export default {
     // '~/plugins/highlight',
     { src: '~/plugins/vClickOutside.js', ssr: false },
     { src: '~/plugins/persistedState.client.js', ssr: false },
+    '~/plugins/navigation.js',
   ],
   router: {
     middleware: 'router-auth',

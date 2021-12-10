@@ -1,5 +1,5 @@
 <template>
-  <div class="text-xl md:text-.5xl px-0 py-5 md:py-10 md:pb-5">
+  <div :id="id" class="text-xl md:text-.5xl px-0 py-5 md:py-10 md:pb-5">
     <h3
       v-if="title !== ''"
       class="leading-normal text-default capitalize"
@@ -28,6 +28,10 @@ export default {
       type: Boolean,
     },
     subtitle: {
+      default: null,
+      type: String,
+    },
+    id: {
       default: null,
       type: String,
     },

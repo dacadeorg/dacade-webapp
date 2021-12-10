@@ -35,7 +35,7 @@
               lg:hidden
             "
           >
-            {{ community.summary }}
+            {{ community.description }}
           </p>
           <p
             class="
@@ -49,7 +49,7 @@
               lg:block
             "
           >
-            {{ community.summary }}
+            {{ community.description }}
           </p>
         </div>
         <div class="self-end w-36 md:w-1/2 max-w-lg">
