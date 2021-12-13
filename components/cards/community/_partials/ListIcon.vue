@@ -71,7 +71,7 @@
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 
 export default {
-  name: 'CommunityVisual',
+  name: 'CommunityListCardIcon',
   components: { ThemeWrapper },
   props: {
     community: {

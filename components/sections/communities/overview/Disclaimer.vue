@@ -9,7 +9,7 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Section from '../partials/Section.vue'
+import Section from '../_partials/Section.vue'
 import Hint from '@/components/ui/Hint'
 
 export default {

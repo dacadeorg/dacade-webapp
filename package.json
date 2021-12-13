@@ -1,6 +1,6 @@
 {
   "name": "dacade",
-  "version": "2.6.5",
+  "version": "2.6.7",
   "description": "blockchain education platform",
   "author": "moritzfelipe",
   "private": true,
@@ -35,6 +35,8 @@
     }
   },
   "dependencies": {
+    "@bugsnag/js": "^7.14.1",
+    "@bugsnag/plugin-vue": "^7.14.1",
     "@coingecko/cryptoformat": "^0.4.4",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
@@ -63,7 +65,6 @@
     "lodash.uniqby": "^4.7.0",
     "lowlight": "^1.2.0",
     "nuxt": "^2.15.8",
-    "nuxt-bugsnag": "^4.2.2",
     "nuxt-highlightjs": "^1.0.1",
     "nuxt-i18n": "^6.20.1",
     "rehype-external-links": "^1.0.0",

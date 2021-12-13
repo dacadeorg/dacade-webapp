@@ -18,8 +18,8 @@
 </template>
 <script>
 /* eslint-disable no-console */
-import Section from '../partials/Section.vue'
-import Duration from '../partials/Duration.vue'
+import Section from '../_partials/Section.vue'
+import Duration from '../_partials/Duration.vue'
 
 export default {
   name: 'AdditionalMaterialSection',

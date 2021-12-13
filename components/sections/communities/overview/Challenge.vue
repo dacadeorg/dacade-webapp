@@ -10,7 +10,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Section from '../partials/Section.vue'
+import Section from '../_partials/Section.vue'
 
 export default {
   name: 'OverviewChallenge',

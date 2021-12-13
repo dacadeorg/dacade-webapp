@@ -24,15 +24,9 @@
         justify-stretch-items
       "
     >
-      <!-- <CommunityCard
-        v-for="(community, i) in communities"
-        :key="i"
-        :community="community"
-      /> -->
-      <div v-for="community in communities" :key="community.key">
+      <div v-for="community in communities" :key="community.id">
         <CommunityCard :community="community" />
       </div>
-
       <PartneringCard />
     </div>
   </Section>
@@ -42,9 +36,8 @@
 import { mapGetters } from 'vuex'
 
 import Section from '@/components/ui/Section'
-// import CommunityCard from '@/components/cards/Community'
+import CommunityCard from '@/components/cards/community'
 import PartneringCard from '@/components/cards/Partnering'
-import CommunityCard from '@/components/cards/CommunityCard/CommunityCard'
 
 export default {
   name: 'CommunitiesSection',

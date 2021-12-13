@@ -22,7 +22,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Section from '../partials/Section.vue'
+import Section from '../_partials/Section.vue'
 import Reward from '@/components/ui/Reward'
 
 export default {
