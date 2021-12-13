@@ -14,12 +14,7 @@
             >{{ course.name }}</nuxt-link
           >
         </div>
-        <ScoreboardCard
-          v-for="(item, i) in scoreboard"
-          :key="i"
-          :index="i + 1"
-          :value="item"
-        />
+        <Scoreboard />
       </div>
     </Section>
   </div>
@@ -27,14 +22,14 @@
 <script>
 import { mapGetters } from 'vuex'
 import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
-import ScoreboardCard from '@/components/cards/Scoreboard'
+import Scoreboard from '@/pages/communities/_slug/scoreboard.vue'
 import Section from '@/components/sections/communities/_partials/Section.vue'
 
 export default {
   components: {
     MainHeaderSection,
-    ScoreboardCard,
     Section,
+    Scoreboard,
   },
   layout: 'community',
   scrollToTop: true,
