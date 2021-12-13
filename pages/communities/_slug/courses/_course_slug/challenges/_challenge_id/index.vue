@@ -50,12 +50,14 @@ export default {
     BestSubmissions,
   },
   scrollToTop: true,
-  fetch({ store, params }) {
+  fetch({ store, params, error }) {
     return Promise.all([
       store.dispatch('communities/find', params.slug),
       store.dispatch('communities/courses/find', params.course_slug),
       store.dispatch('communities/challenges/find', params.challenge_id),
-    ])
+    ]).catch((e) => {
+      error(e)
+    })
   },
   computed: {
     ...mapGetters({

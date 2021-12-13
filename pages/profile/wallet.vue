@@ -42,9 +42,10 @@ export default {
   data: () => ({
     showEditProfile: false,
   }),
-
-  fetch() {
-    return this.$store.dispatch('user/wallets/all')
+  fetch({ store, error }) {
+    return store.dispatch('user/wallets/all').catch((e) => {
+      error(e)
+    })
   },
 
   computed: {

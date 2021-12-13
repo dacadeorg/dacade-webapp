@@ -40,12 +40,14 @@ export default {
     AdditionalMaterialsSection,
   },
   scrollToTop: true,
-  fetch({ store, params }) {
+  fetch({ store, params, error }) {
     return Promise.all([
       store.dispatch('communities/find', params.slug),
       store.dispatch('communities/courses/find', params.course_slug),
       store.dispatch('communities/courses/learningModules/find', params.id),
-    ])
+    ]).catch((e) => {
+      error(e)
+    })
   },
   computed: {
     ...mapGetters({

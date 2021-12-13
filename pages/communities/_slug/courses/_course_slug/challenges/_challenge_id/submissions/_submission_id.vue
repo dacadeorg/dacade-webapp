@@ -42,7 +42,7 @@ export default {
       type: Object,
     },
   },
-  fetch({ store, params }) {
+  fetch({ store, params, error }) {
     return Promise.all([
       store.dispatch('communities/find', params.slug),
       store.dispatch('communities/courses/find', params.course_slug),
@@ -50,7 +50,9 @@ export default {
         'communities/challenges/submissions/find',
         params.submission_id
       ),
-    ])
+    ]).catch((e) => {
+      error(e)
+    })
   },
   computed: {
     ...mapGetters({

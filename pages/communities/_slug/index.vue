@@ -38,12 +38,14 @@ export default {
   },
   layout: 'community',
   scrollToTop: true,
-  fetch({ store, params }) {
+  fetch({ store, params, error }) {
     return Promise.all([
       store.dispatch('communities/find', params.slug),
       store.dispatch('communities/courses/all', params.slug),
       store.dispatch('communities/scoreboard/all', params.slug),
-    ])
+    ]).catch((e) => {
+      error(e)
+    })
   },
   computed: {
     ...mapGetters({
