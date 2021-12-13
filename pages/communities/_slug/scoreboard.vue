@@ -1,9 +1,6 @@
 <template>
   <div class="py-4 flex flex-col text-gray-700">
-    <Header
-      :title="community.name"
-      :subtitle="$t('communities.navigation.scoreboard')"
-    />
+    <Header :subtitle="$t('communities.navigation.scoreboard')" />
     <div
       class="
         my-24

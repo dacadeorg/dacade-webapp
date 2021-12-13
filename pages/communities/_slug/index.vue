@@ -3,17 +3,7 @@
     <MainHeaderSection />
     <Section>
       <div class="w-full lg:w-3/4 mx-auto">
-        <div
-          v-for="course in courses"
-          :key="course.id"
-          class="relative py-8 w-full bg-black text-white"
-        >
-          <nuxt-link
-            class="text-white"
-            :to="$navigation.community.coursePath('', course.slug)"
-            >{{ course.name }}</nuxt-link
-          >
-        </div>
+        <Courses />
         <Scoreboard />
       </div>
     </Section>
@@ -23,6 +13,7 @@
 import { mapGetters } from 'vuex'
 import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
 import Scoreboard from '@/pages/communities/_slug/scoreboard.vue'
+import Courses from '@/pages/communities/_slug/courses-overview.vue'
 import Section from '@/components/sections/communities/_partials/Section.vue'
 
 export default {
@@ -30,6 +21,7 @@ export default {
     MainHeaderSection,
     Section,
     Scoreboard,
+    Courses,
   },
   layout: 'community',
   scrollToTop: true,
