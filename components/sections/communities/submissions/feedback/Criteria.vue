@@ -41,7 +41,9 @@
             </div>
             <div class="text-sm md">
               {{ $t('feedback.bounty') }}
-              <span v-if="!submission.reviewable" class="font-medium"
+              <span
+                v-if="submission.metadata && submission.metadata.evaluation"
+                class="font-medium"
                 >{{ $t('feedback.issued') }}
               </span>
               <span v-else class="font-medium">~ {{ deadline }}</span>
@@ -134,9 +136,9 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import moment from 'moment'
 import Coin from '@/components/ui/Coin'
 import ObjectiveList from '@/components/list/Objectives'
-import moment from 'moment'
 import ChevronBottomIcon from '~/assets/icons/chevron-bottom.svg?inline'
 import ChevronTopIcon from '~/assets/icons/chevron-top.svg?inline'
 
