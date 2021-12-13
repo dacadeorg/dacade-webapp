@@ -25,8 +25,8 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Section from '../partials/Section.vue'
-import Duration from '../partials/Duration.vue'
+import Section from '../_partials/Section.vue'
+import Duration from '../_partials/Duration.vue'
 import ObjectiveList from '@/components/list/Objectives'
 import Video from '@/components/ui/Video'
 

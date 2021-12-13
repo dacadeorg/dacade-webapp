@@ -17,9 +17,9 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-// import RewardsSection from './partials/overview/Rewards'
-import Section from '../partials/Section.vue'
-import Header from '../partials/Header.vue'
+// import RewardsSection from './_partials/overview/Rewards'
+import Section from '../_partials/Section.vue'
+import Header from '../_partials/Header.vue'
 import ObjectiveList from '@/components/list/Objectives'
 
 export default {
