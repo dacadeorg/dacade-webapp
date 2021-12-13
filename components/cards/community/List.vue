@@ -13,7 +13,7 @@
           relative
         "
       >
-        <CommunityVisual :community="community" />
+        <ListIcon :community="community" />
         <div class="flex-col justify-between flex p-3 md:p-7 text-gray-700">
           <div class="w-full">
             <div class="xl:pr-52 w-full text-lg pb-10">
@@ -76,15 +76,15 @@
 <script>
 import Reward from '@/components/ui/Reward'
 
-import CommunityVisual from '@/components/cards/CommunityCard/CommunityVisual'
+import ListIcon from '@/components/cards/community/_partials/ListIcon'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 import DateManager from '@/utilities/DateManager'
 import Button from '@/components/ui/Button'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
-  name: 'CommunityCardView',
-  components: { Reward, CommunityVisual, ThemeWrapper, Button, ArrowRightIcon },
+  name: 'CommunityListCard',
+  components: { Reward, ListIcon, ThemeWrapper, Button, ArrowRightIcon },
   props: {
     community: {
       default: () => {},

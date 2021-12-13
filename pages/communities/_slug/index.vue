@@ -28,7 +28,7 @@
 import { mapGetters } from 'vuex'
 import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
 import ScoreboardCard from '@/components/cards/Scoreboard'
-import Section from '@/components/sections/communities/partials/Section.vue'
+import Section from '@/components/sections/communities/_partials/Section.vue'
 
 export default {
   components: {

@@ -14,7 +14,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import SubmissionCard from './_partials/SubmissionCard.vue'
-import Section from '@/components/sections/communities/partials/Section.vue'
+import Section from '@/components/sections/communities/_partials/Section.vue'
 export default {
   name: 'BestSubmissions',
   components: {

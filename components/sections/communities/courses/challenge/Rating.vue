@@ -84,7 +84,7 @@
 // }"
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Section from '@/components/sections/communities/partials/Section.vue'
+import Section from '@/components/sections/communities/_partials/Section.vue'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper.vue'
 import Coin from '@/components/ui/Coin'
 import Checkmark from '~/assets/icons/checkmark.svg?inline'

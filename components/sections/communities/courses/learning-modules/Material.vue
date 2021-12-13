@@ -62,7 +62,7 @@
 import { mapGetters } from 'vuex'
 // import RewardsSection from './partials/overview/Rewards'
 import Slugger from 'github-slugger'
-import Section from '@/components/sections/communities/partials/Section.vue'
+import Section from '@/components/sections/communities/_partials/Section.vue'
 import Duration from '@/components/sections/communities/courses/_partials/Duration.vue'
 import Markdown from '@/components/sections/communities/courses/_partials/Markdown.vue'
 import Button from '@/components/ui/Button'

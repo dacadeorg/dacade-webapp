@@ -12,9 +12,9 @@
 </template>
 <script>
 import Wrapper from './wrapper.vue'
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/layout/Navbar'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
-import NotificationBar from '@/components/NotificationBar'
+import NotificationBar from '@/components/layout/NotificationBar'
 
 export default {
   components: {

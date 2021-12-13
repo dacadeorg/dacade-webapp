@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file. See [standa
 ### Improvements
 
 * add alpha release scripts ([288f318](https://gitlab.com/u2467/dacade/dacade/commit/288f318ea8a5a21a6ca4f01f98a1f8c5ac4dba0d))
+### [2.6.6](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.5...v2.6.6) (2021-11-16)
+
+
+### Bug Fixes
+
+* add feedback explanation ([a4dfba9](https://gitlab.com/u2467/dacade/dacade/commit/a4dfba94dc0412213ad251a96025cf86ddd7dd11))
 
 ### [2.6.5](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.4...v2.6.5) (2021-11-09)
 

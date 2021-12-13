@@ -18,8 +18,8 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 // import RewardsSection from './partials/overview/Rewards'
-import Section from '@/components/sections/communities/partials/Section.vue'
-import Header from '@/components/sections/communities/partials/Header.vue'
+import Section from '@/components/sections/communities/_partials/Section.vue'
+import Header from '@/components/sections/communities/_partials/Header.vue'
 import ObjectiveList from '@/components/list/Objectives'
 
 export default {

@@ -39,7 +39,7 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Section from '@/components/sections/communities/partials/Section.vue'
+import Section from '@/components/sections/communities/_partials/Section.vue'
 import Button from '@/components/ui/Button'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 

@@ -15,7 +15,7 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import DateManager from '@/utilities/DateManager'
-// import RewardsSection from './partials/overview/Rewards'
+// import RewardsSection from './_partials/overview/Rewards'
 
 export default {
   name: 'Duration',
@@ -31,8 +31,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      community: 'communities/current',
-      communityData: 'communities/content',
       colors: 'ui/colors',
     }),
     duration() {

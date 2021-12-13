@@ -4,7 +4,7 @@
   </Section>
 </template>
 <script>
-import Section from '@/components/sections/communities/partials/Section.vue'
+import Section from '@/components/sections/communities/_partials/Section.vue'
 import ScoreboardList from '@/components/list/Scoreboard'
 
 export default {

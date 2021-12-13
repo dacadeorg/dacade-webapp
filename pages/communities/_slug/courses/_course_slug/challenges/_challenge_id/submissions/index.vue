@@ -12,7 +12,7 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import Header from '@/components/sections/communities/partials/Header'
+import Header from '@/components/sections/communities/_partials/Header'
 import List from '@/components/sections/communities/courses/challenge/submissions/List'
 import Wrapper from '@/components/sections/communities/courses/Wrapper'
 

@@ -39,10 +39,10 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
-import Section from '@/components/sections/communities/partials/Section.vue'
+import Section from '@/components/sections/communities/_partials/Section.vue'
 import SubmissionCard from '@/components/cards/Submission'
 import RefreshIcon from '~/assets/icons/refresh.svg?inline'
-// import RewardsSection from './partials/overview/Rewards'
+// import RewardsSection from './_partials/overview/Rewards'
 
 export default {
   name: 'SubmissionList',

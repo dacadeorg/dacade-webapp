@@ -92,7 +92,7 @@
             "
           >
             <div
-              v-for="(item, key) in submission.challenge.feedbackInfo"
+              v-for="(item, key) in list"
               :key="key"
               class="
                 md:-ml-5
@@ -108,7 +108,9 @@
                 !submission.reviewable ? 'border-gray-200' : 'border-yellow-200'
               "
             >
-              <span class="capitalize">{{ item.name }}</span>
+              <span class="relative block">{{
+                $t('feedback.criteria.' + item.name)
+              }}</span>
               <div
                 class="px-5"
                 :class="
@@ -120,9 +122,11 @@
                   :crossmark="!item.positive"
                   :objectives="item.criteria"
                 />
-                <div v-if="item.description" class="mt-4 text-sm font-normal">
-                  {{ item.description }}
-                </div>
+                <div
+                  v-if="item.description"
+                  class="mt-4 text-sm font-normal"
+                  v-html="item.description"
+                />
               </div>
             </div>
           </div>
@@ -152,8 +156,16 @@ export default {
       infoVisibility: false,
       text: '',
       githubLink: '',
+      feedback: [
+        'The best feedback receives <b>3 CGLD</b>',
+        'The second feedback receives <b>1.5 CGLD</b>',
+        'The third feedback receives <b>0.5 CGLD</b>',
+      ],
+      description:
+        'This applies only if the submission reaches 6/20 Points otherwise the best feedback will get 0.5 CGLD',
     }
   },
+
   computed: {
     ...mapGetters({
       community: 'communities/current',
@@ -174,6 +186,9 @@ export default {
     },
     deadline() {
       return DateManager.fromNow(this.submission.reviewDeadline)
+    },
+    list() {
+      return this.submission.challenge.feedbackInfo
     },
   },
 }

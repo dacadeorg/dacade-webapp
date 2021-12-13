@@ -15,7 +15,7 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Section from '@/components/sections/communities/partials/Section.vue'
+import Section from '@/components/sections/communities/_partials/Section.vue'
 import ObjectiveList from '@/components/list/Objectives'
 import Hint from '@/components/ui/Hint'
 

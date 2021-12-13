@@ -27,7 +27,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Header from '@/components/sections/communities/partials/Header'
+import Header from '@/components/sections/communities/_partials/Header'
 import ScoreboardCard from '@/components/cards/Scoreboard'
 
 export default {
