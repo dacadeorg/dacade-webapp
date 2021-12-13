@@ -11,7 +11,7 @@
   >
     <div class="flex p-7">
       <div class="">
-        <Avatar size="medium" :user="user" />
+        <Avatar size="large" :user="user" />
       </div>
       <div class="ml-5">
         <span class="text-lg leading-loose font-medium text-gray-900 pb-1">
@@ -19,7 +19,7 @@
         </span>
         <p>Joined 3 weeks ago</p>
         <div class="pt-1">
-          <ul class="text-sm leading-loose font-light text-gray-700 pb-1 test">
+          <ul class="text-sm leading-loose font-light text-gray-700 pb-1 list">
             <li>
               <span class="ml-5">in a challenge in</span>
               <span class="font-bold">Celo Community</span>

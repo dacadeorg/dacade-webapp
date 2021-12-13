@@ -160,17 +160,18 @@ div {
   @apply pt-0 !important;
 } 
 
-.test li {
+.list li {
 line-height: 0.5rem;
 }
 
-.test li::before {
-  content: url('../icons/test.svg');
+.list li::before {
+  content: url('../icons/list.svg');
   margin-left: -52px;
 }
 
 @media only screen and (max-width: 600px) {
-  .test li {
-    height: 40px;
-    }
+  .list li {
+    height: 44px;
+    line-height: 1rem;
+    }   
 }
