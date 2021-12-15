@@ -46,11 +46,11 @@
         </div>
       </div>
       <div
-        v-if="community.faq"
+        v-if="course.faq"
         class="w-full lg:w-1/2 divide-y divide-2 space-y-4 divide-gray-200"
       >
         <QuestionCard
-          v-for="(question, i) in community.faq"
+          v-for="(question, i) in course.faq"
           :key="i"
           :details="question"
         />
@@ -67,7 +67,7 @@ export default {
   components: { QuestionCard },
   computed: {
     ...mapGetters({
-      community: 'communities/current',
+      course: 'communities/courses/current',
     }),
   },
 }

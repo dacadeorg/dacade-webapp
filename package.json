@@ -1,6 +1,6 @@
 {
   "name": "dacade",
-  "version": "2.6.6",
+  "version": "3.0.0-alpha.0",
   "description": "blockchain education platform",
   "author": "moritzfelipe",
   "private": true,
@@ -22,7 +22,11 @@
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
-    "release:major": "standard-version --release-as major"
+    "release:major": "standard-version --release-as major",
+    "release:alpha-minor": "standard-version --release-as minor --prerelease alpha",
+    "release:alpha-patch": "standard-version --release-as patch --prerelease alpha",
+    "release:alpha-major": "standard-version --release-as major --prerelease alpha",
+    "release:alpha": "standard-version --prerelease alpha"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --quiet --fix",
@@ -35,6 +39,8 @@
     }
   },
   "dependencies": {
+    "@bugsnag/js": "^7.14.1",
+    "@bugsnag/plugin-vue": "^7.14.1",
     "@coingecko/cryptoformat": "^0.4.4",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
@@ -63,7 +69,6 @@
     "lodash.uniqby": "^4.7.0",
     "lowlight": "^1.2.0",
     "nuxt": "^2.15.8",
-    "nuxt-bugsnag": "^4.2.2",
     "nuxt-highlightjs": "^1.0.1",
     "nuxt-i18n": "^6.20.1",
     "rehype-external-links": "^1.0.0",

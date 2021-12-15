@@ -67,9 +67,11 @@ export default {
     '~/plugins/globals.js',
     '~/plugins/api.js',
     '~/plugins/auth.js',
+    '~/plugins/bugsnag.js',
     // '~/plugins/highlight',
     { src: '~/plugins/vClickOutside.js', ssr: false },
     { src: '~/plugins/persistedState.client.js', ssr: false },
+    '~/plugins/navigation.js',
   ],
   router: {
     middleware: 'router-auth',
@@ -128,18 +130,6 @@ export default {
     // '@nuxt/image',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
-    [
-      'nuxt-bugsnag',
-      {
-        apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd',
-        enabledReleaseStages: ['staging', 'production'],
-        reporterOptions: {
-          releaseStage: process.env.NODE_ENV,
-          autoAssignRelease: true,
-        },
-        publishRelease: true,
-      },
-    ],
   ],
 
   storybook: {

@@ -39,14 +39,14 @@ export const mutations = {
 
 export const actions = {
   async find({ commit }, slug) {
-    const { data } = await this.$api.get(`profile/communities/show/${slug}`)
+    const { data } = await this.$api.get(`profile/communities/${slug}`)
     commit('setCurrent', data.community)
     commit('setFeedbacks', data.feedbacks)
     commit('setSubmissions', data.submissions)
     commit('setReputation', data.reputation)
   },
   async all({ commit }) {
-    const { data } = await this.$api.get('profile/communities/list')
+    const { data } = await this.$api.get('profile/communities')
     commit('setList', data)
   },
 }

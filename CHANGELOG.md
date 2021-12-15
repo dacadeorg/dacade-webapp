@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.5...v3.0.0-alpha.0) (2021-11-10)
+
+
+### Features
+
+* replace chapters with learning materials ([e2c5328](https://gitlab.com/u2467/dacade/dacade/commit/e2c53286b6b7f321f0ba6593a3418c09d50baae0))
+
+
+### Improvements
+
+* add alpha release scripts ([288f318](https://gitlab.com/u2467/dacade/dacade/commit/288f318ea8a5a21a6ca4f01f98a1f8c5ac4dba0d))
+
+### [2.6.7](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.6...v2.6.7) (2021-12-13)
+
+
+### Bug Fixes
+
+* revamp bugsnag integration and proper error tracking ([588ea6e](https://gitlab.com/u2467/dacade/dacade/commit/588ea6e6294dcd049879530531fe29562c127397))
+
+
+### Improvements
+
+* adjust component file structure ([39a7a82](https://gitlab.com/u2467/dacade/dacade/commit/39a7a82f3455064f78063954300be14db5279259))
+* card imports issue ([1120c00](https://gitlab.com/u2467/dacade/dacade/commit/1120c007b8f94e8ec2f6c668782a1e532933a57d))
+* rename partials to _partials ([357621d](https://gitlab.com/u2467/dacade/dacade/commit/357621d90f615aeae162ee611dd83b1c5a711bfb))
+
 ### [2.6.6](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.5...v2.6.6) (2021-11-16)
 
 

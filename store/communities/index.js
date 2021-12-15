@@ -6,7 +6,6 @@ export const state = () => ({
   count: 0,
   content: null,
   current: null,
-  menus: [],
 })
 
 export const mutations = {
@@ -22,19 +21,15 @@ export const mutations = {
   setContent(state, payload) {
     state.content = payload
   },
-  setNavigation(state, payload) {
-    const { list } = payload
-    state.menus = list
-  },
 }
 
 export const actions = {
   async find({ commit }, slug) {
-    const { data } = await this.$api.get(`communities/show/${slug}`)
+    const { data } = await this.$api.get(`communities/${slug}`)
     commit('setCurrent', data)
   },
   async all({ commit }) {
-    const { data } = await this.$api.get('communities/list')
+    const { data } = await this.$api.get('communities')
     commit('setList', data)
   },
 }
@@ -48,8 +43,5 @@ export const getters = {
   },
   content(state) {
     return state.content
-  },
-  navigation(state) {
-    return state.menus
   },
 }

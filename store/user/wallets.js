@@ -28,7 +28,7 @@ export const mutations = {
 export const actions = {
   async all({ commit }) {
     try {
-      const { data } = await this.$api.get('wallets/list')
+      const { data } = await this.$api.get('wallets')
       await commit('clear')
       commit('setList', data)
     } catch (e) {
