@@ -20,9 +20,17 @@ export const actions = {
     const { data } = await this.$api.get(`submissions/show/${id}`)
     commit('setCurrent', data)
   },
-  async all({ commit }, slug) {
-    const { data } = await this.$api.get(`submissions/list/${slug}`)
-    commit('setList', data)
+  async all({ commit, state }, { slug, startAfter }) {
+    const { data } = await this.$api.get(`submissions/list/${slug}`, {
+      params: { start_after: startAfter },
+    })
+    const list = []
+    if (startAfter) {
+      list.push(...(state.list || []))
+    }
+    list.push(...(data || []))
+    commit('setList', list)
+    return data
   },
   async create({ commit }, { text, link, challengeId }) {
     const { data } = await this.$api.post('submissions/create', {

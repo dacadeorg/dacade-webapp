@@ -7,7 +7,7 @@
         :key="community.key"
         class="flex pb-4"
       >
-        <CommunityView :community="community" />
+        <CommunityListCard :community="community" />
       </div>
     </div>
   </div>
@@ -15,9 +15,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import CommunityView from '@/components/cards/CommunityCard/CommunityView'
+import CommunityListCard from '@/components/cards/community/List'
 export default {
-  components: { CommunityView },
+  components: {
+    CommunityListCard,
+  },
   fetch({ store }) {
     return store.dispatch('communities/all')
   },

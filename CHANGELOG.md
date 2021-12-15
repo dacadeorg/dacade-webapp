@@ -2,6 +2,239 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.7](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.6...v2.6.7) (2021-12-13)
+
+
+### Bug Fixes
+
+* revamp bugsnag integration and proper error tracking ([588ea6e](https://gitlab.com/u2467/dacade/dacade/commit/588ea6e6294dcd049879530531fe29562c127397))
+
+
+### Improvements
+
+* adjust component file structure ([39a7a82](https://gitlab.com/u2467/dacade/dacade/commit/39a7a82f3455064f78063954300be14db5279259))
+* card imports issue ([1120c00](https://gitlab.com/u2467/dacade/dacade/commit/1120c007b8f94e8ec2f6c668782a1e532933a57d))
+* rename partials to _partials ([357621d](https://gitlab.com/u2467/dacade/dacade/commit/357621d90f615aeae162ee611dd83b1c5a711bfb))
+
+### [2.6.6](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.5...v2.6.6) (2021-11-16)
+
+
+### Bug Fixes
+
+* add feedback explanation ([a4dfba9](https://gitlab.com/u2467/dacade/dacade/commit/a4dfba94dc0412213ad251a96025cf86ddd7dd11))
+
+### [2.6.5](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.4...v2.6.5) (2021-11-09)
+
+
+### Bug Fixes
+
+* bounty card link ([d3b14d0](https://gitlab.com/u2467/dacade/dacade/commit/d3b14d0298b76d38f8694d7e201cc4321498d6e4))
+
+### [2.6.4](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.3...v2.6.4) (2021-11-08)
+
+
+### Features
+
+* add markdown heading navigation ([75d2d23](https://gitlab.com/u2467/dacade/dacade/commit/75d2d2395bec4612e51b125458fe1fdd22e69031))
+
+### [2.6.3](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.2...v2.6.3) (2021-11-08)
+
+
+### Features
+
+* show bounties for each reward ([0d1e70d](https://gitlab.com/u2467/dacade/dacade/commit/0d1e70d3b045d297084609cb9af25259620046a8))
+
+
+### Bug Fixes
+
+* filtered list ([dd05693](https://gitlab.com/u2467/dacade/dacade/commit/dd056935a80b5160272b733a60ec9d94b1ea9fe6))
+
+### [2.6.2](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.1...v2.6.2) (2021-11-03)
+
+
+### Features
+
+* add infinite scrolling to the submission list ([6a61e8e](https://gitlab.com/u2467/dacade/dacade/commit/6a61e8e67fc75d2aa2f28d0448f023543ef0d911))
+
+### [2.6.1](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.0...v2.6.1) (2021-11-01)
+
+
+### Features
+
+* adjust disclaimer box placement on community overview page ([21fbbd5](https://gitlab.com/u2467/dacade/dacade/commit/21fbbd5c08fc4aa2bf9335ab1755b8f3e0d0db98))
+
+## [2.6.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.4...v2.6.0) (2021-10-28)
+
+
+### Features
+
+* add submissions pagination ([7e44963](https://gitlab.com/u2467/dacade/dacade/commit/7e449638d3769acd5a894b4a4f932d78544807cf))
+* add timeout clearing ([9be437e](https://gitlab.com/u2467/dacade/dacade/commit/9be437e7fa50d4b1f9287739b4d63bc45d526fbb))
+* adjust bounty type wording ([e0e52bb](https://gitlab.com/u2467/dacade/dacade/commit/e0e52bb2716a0683afb2c59ae3f1cce98341b696))
+
+
+### Bug Fixes
+
+* missing border color issue ([41e39ac](https://gitlab.com/u2467/dacade/dacade/commit/41e39ac8d9da8952141e7588a5afedfb218c8d2c))
+* story border color ([91ac391](https://gitlab.com/u2467/dacade/dacade/commit/91ac391f5ac12292c0f58e8f173c9e9d339da33f))
+* token fetching ([1b886d1](https://gitlab.com/u2467/dacade/dacade/commit/1b886d1d9dd73545dc80375df1228139b7160051))
+
+
+### Improvements
+
+* remove scrollbars on referral modal ([07080c2](https://gitlab.com/u2467/dacade/dacade/commit/07080c2adef3832a3c9a3d38a02f4da0ee0df910))
+
+### [2.5.4](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.3...v2.5.4) (2021-10-26)
+
+
+### Features
+
+* adjust modal size and add referral button in sidebar ([57e5fce](https://gitlab.com/u2467/dacade/dacade/commit/57e5fce3e65f6b884a00f8bd29429df3c3d8defe))
+
+### [2.5.3](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.2...v2.5.3) (2021-10-26)
+
+
+### Bug Fixes
+
+* show referrals on bounty page ([c3d3f7b](https://gitlab.com/u2467/dacade/dacade/commit/c3d3f7bf51dfdc8516b7f6f2efd046218073a4fa))
+
+### [2.5.2](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.1...v2.5.2) (2021-10-26)
+
+
+### Features
+
+* added page to signup wby invitation showing bounties ([a6aaac3](https://gitlab.com/u2467/dacade/dacade/commit/a6aaac31478c1d1fc087a09f4b2950c2f59cbf64))
+* content displaying in the referral modal ([7ed8a2e](https://gitlab.com/u2467/dacade/dacade/commit/7ed8a2eff0fc44ec8020beffc32cbc088cf6006e))
+* integrate referral invite into signup page ([0b4d139](https://gitlab.com/u2467/dacade/dacade/commit/0b4d139fc58effa9d4fe1560975742141ecacd08))
+* show bounties on signup page ([75842f0](https://gitlab.com/u2467/dacade/dacade/commit/75842f0d53071305ea5a22548192b7ee1b0cd66e))
+* styling implementation for referral system ([6730776](https://gitlab.com/u2467/dacade/dacade/commit/673077690a1fa427f395be5100eac281a4e13f69))
+
+
+### Bug Fixes
+
+* copy button in input field and styling corrections ([79ed059](https://gitlab.com/u2467/dacade/dacade/commit/79ed059aa9f51feb457f53777f6b2203bbaa6a04))
+* corrections referral show ([772d875](https://gitlab.com/u2467/dacade/dacade/commit/772d875e322aaa5a4a410adf70e354612f1edc50))
+
+
+### Improvements
+
+* adjust referral signup message ([90fd967](https://gitlab.com/u2467/dacade/dacade/commit/90fd96758e31fff8c875673d2a673a64c19d63bf))
+* refactor referral modal ([f16f9d6](https://gitlab.com/u2467/dacade/dacade/commit/f16f9d664d11f18b86e9ddf5823d792c2600976c))
+* remove redundant modal ([966baa6](https://gitlab.com/u2467/dacade/dacade/commit/966baa6fd29a06af83da52b2c2f3d3b780fcd436))
+
+### [2.5.1](https://gitlab.com/u2467/dacade/dacade/compare/v2.5.0...v2.5.1) (2021-10-19)
+
+
+### Features
+
+* update tezos bounty value ([8adee8b](https://gitlab.com/u2467/dacade/dacade/commit/8adee8b4d2cf9c6cb2b047acd86e98190dd533a0))
+
+
+### Bug Fixes
+
+* roundind numbers ([46bba30](https://gitlab.com/u2467/dacade/dacade/commit/46bba30945895192d4530ed54704c010f43f333c))
+
+
+### Improvements
+
+* update node version ([ee1f1b6](https://gitlab.com/u2467/dacade/dacade/commit/ee1f1b60c517fb3b4cfdbdbc48572f963fe84b89))
+
+## [2.5.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.4.0...v2.5.0) (2021-10-05)
+
+
+### Features
+
+* update to firebase version 9 ([a005791](https://gitlab.com/u2467/dacade/dacade/commit/a0057917081d89091728093f2ba76d3799f7a320))
+
+
+### Improvements
+
+* add auth domain to env variables ([86210bb](https://gitlab.com/u2467/dacade/dacade/commit/86210bbe96697f6e4336892a0c70b45ac86b2bd1))
+* disable unused plugins ([c052897](https://gitlab.com/u2467/dacade/dacade/commit/c0528979bf10aac40f402e0a57ddd7e9fe7bb5b2))
+* fix linting issues ([e1ecb6f](https://gitlab.com/u2467/dacade/dacade/commit/e1ecb6fd842f691f6f816a166dd420a444c8113e))
+* update firebase analytics to modular js ([a3af007](https://gitlab.com/u2467/dacade/dacade/commit/a3af007a34dec47915a0237beae6b5e7eb384ea6))
+* update markdown parsing ([6bc1f02](https://gitlab.com/u2467/dacade/dacade/commit/6bc1f0209e0a815c0b09fb762bf8836003f2f673))
+* update nuxt packages ([8683df1](https://gitlab.com/u2467/dacade/dacade/commit/8683df1bd09b827d3577ad484d53887a919ab0d9))
+* update remark plugins ([a77af15](https://gitlab.com/u2467/dacade/dacade/commit/a77af15b88c52aed415ac71a8158e6c61a7fbbe4))
+
+## [2.4.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.3.1...v2.4.0) (2021-09-06)
+
+
+### Features
+
+* add preview mode on submission card ([d1ba0d9](https://gitlab.com/u2467/dacade/dacade/commit/d1ba0d9a48d030f1b63d27a018f4e93ead72a483))
+
+
+### Bug Fixes
+
+* add the button to all pages ([0d7b8a8](https://gitlab.com/u2467/dacade/dacade/commit/0d7b8a8b4da73b0c42cad936f0f21fdb6ede55f8))
+* the discord button ([05a563a](https://gitlab.com/u2467/dacade/dacade/commit/05a563ace90e80bf470ae7ea6c165b9f6201d7f9))
+
+### [2.3.1](https://gitlab.com/u2467/dacade/dacade/compare/v2.3.0...v2.3.1) (2021-08-27)
+
+
+### Improvements
+
+* prevent payout request when address is not set ([7e6236b](https://gitlab.com/u2467/dacade/dacade/commit/7e6236b27566d6288baad99f611d3bc6f5a1e8b5))
+
+## [2.3.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.2.0...v2.3.0) (2021-08-24)
+
+
+### Features
+
+* add discord button on courses page ([1678135](https://gitlab.com/u2467/dacade/dacade/commit/1678135b7e6f6ce608514e28e2b5024f4cdfe7c2))
+* add faq section to the community overview page ([02135e6](https://gitlab.com/u2467/dacade/dacade/commit/02135e64ed255a62547d47b3c7e208fb0a9d2e34))
+* prevent cashing out dacade coins ([dcb4f6f](https://gitlab.com/u2467/dacade/dacade/commit/dcb4f6fa52d7540991b0be3117c87fcd759f97e5))
+
+
+### Improvements
+
+* add all env variables to env.sample ([abfeda6](https://gitlab.com/u2467/dacade/dacade/commit/abfeda690e936731612a52ae4eb25f9d9dc0d5e0))
+* add tailwind purge ([c90b693](https://gitlab.com/u2467/dacade/dacade/commit/c90b69396645059bfbb0a1a197e56a1e4df26e35))
+* disable analyze mode for each build ([86b597d](https://gitlab.com/u2467/dacade/dacade/commit/86b597d8d462eecace00d0b3026660bc6057c9f2))
+
+## [2.2.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.1.0...v2.2.0) (2021-08-09)
+
+## [2.1.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.0.0...v2.1.0) (2021-08-03)
+
+
+### Features
+
+* add app headers ([edcb76a](https://gitlab.com/u2467/dacade/dacade/commit/edcb76af259f11735a7e5dd86c8c06799e706327))
+* add firebase analytics events collection ([18dd414](https://gitlab.com/u2467/dacade/dacade/commit/18dd414a02e7486fbe46448a9e30839fa5c838c7))
+* add scoreboard api and activate scoreboard link ([9d6dac1](https://gitlab.com/u2467/dacade/dacade/commit/9d6dac17fdb627269c236f59735d27383f0d93b4))
+* add vuestore persisted states ([e732a47](https://gitlab.com/u2467/dacade/dacade/commit/e732a47889bb34044404d5b1ebf355ef3cab7ef9))
+* integrate nuxt image ([370f305](https://gitlab.com/u2467/dacade/dacade/commit/370f30512fc2359d29e786b36e69f19982bccd2b))
+
+
+### Bug Fixes
+
+* add celo logo ([6bfa8ac](https://gitlab.com/u2467/dacade/dacade/commit/6bfa8ac19edd4eadcc42ff0284111d665955154d))
+* change wording on feedback input ([b08e8d8](https://gitlab.com/u2467/dacade/dacade/commit/b08e8d8bcf8a3c5893eb513da9fb2ecc28023010))
+* fix the cards on home page ([d44bdab](https://gitlab.com/u2467/dacade/dacade/commit/d44bdabd89c91ab075d6e9bdff597c260dba0803))
+* fix the font on logo ([966c584](https://gitlab.com/u2467/dacade/dacade/commit/966c5846e2a5cade10ab84da7419c53c4a9694b5))
+* fix the link to be underline ([799535a](https://gitlab.com/u2467/dacade/dacade/commit/799535a79c07c4699561089ef266d71d8e2dc895))
+* fix the login and signup ([bd79c54](https://gitlab.com/u2467/dacade/dacade/commit/bd79c54b7d0d32d503756dc4ed1d69a5f1a36293))
+* fix the private policy popup on mobile ([07ebd6a](https://gitlab.com/u2467/dacade/dacade/commit/07ebd6ac925e310906b2e2d9d87d36bf2a6fdb38))
+* fixing privacy policy link ([037ccc5](https://gitlab.com/u2467/dacade/dacade/commit/037ccc55853889ae8d5625d906a73aa82508098a))
+* scrolling lock issue and update firebase dependency ([6dacf9a](https://gitlab.com/u2467/dacade/dacade/commit/6dacf9af3278e78e32f06d05a32bb7508304f656))
+* token expiration issue for api request ([d7993fc](https://gitlab.com/u2467/dacade/dacade/commit/d7993fc3b8c8091f01f6b6c3dc72302149192616))
+* **tutorial:** width and text styling/sizes ([311b348](https://gitlab.com/u2467/dacade/dacade/commit/311b3482ed0465c3581ea7ca239ff59c1ee7a339))
+* undefined app name header ([c64f883](https://gitlab.com/u2467/dacade/dacade/commit/c64f883e382dcc8220aeefbd208f847ee5282e5e))
+* **sidebar:** remove b-to gradient from popup ([47d4728](https://gitlab.com/u2467/dacade/dacade/commit/47d47281f468d67dbe68b93e508c4b9f8f54c844))
+
+
+### Improvements
+
+* change the api backend to production ([f291ecb](https://gitlab.com/u2467/dacade/dacade/commit/f291ecbc714dc7a035957cf6750dd08d56cf6433))
+* cleanup remove unused firebase plugins ([5457001](https://gitlab.com/u2467/dacade/dacade/commit/545700165cfb94ec4639fa29fc8d8563b1e8b123))
+* enable different env files ([7c33489](https://gitlab.com/u2467/dacade/dacade/commit/7c334899459d471c94219a125333a85e706a28b8))
+* fix disabled wallet status ([07c4f97](https://gitlab.com/u2467/dacade/dacade/commit/07c4f9765e7419476962296689dca5756a4453c0))
+* fix login wording ([0f138ce](https://gitlab.com/u2467/dacade/dacade/commit/0f138ce0f70abd30372e91cc0081c19bbea573d7))
+* fix privacy banner close icon position ([ae64c54](https://gitlab.com/u2467/dacade/dacade/commit/ae64c54911195cf7b8d31d8ff586fbd6ff6ddb54))
+* fix testimonial section padding issue ([2c2ae3d](https://gitlab.com/u2467/dacade/dacade/commit/2c2ae3d5fb9b93fce9d5834179f65c5acd370ce5))
+* remove old profile leftovers ([6c0db5d](https://gitlab.com/u2467/dacade/dacade/commit/6c0db5d4e716490e9e5d2bdedeeff5d25aab4764))
+
 ## 2.0.0 (2021-06-29)
 
 

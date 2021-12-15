@@ -15,9 +15,9 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import Section from '../_partials/Section.vue'
 import ObjectiveList from '@/components/list/Objectives'
 import Hint from '@/components/ui/Hint'
-import Section from '../partials/Section.vue'
 
 export default {
   name: 'PrerequisiteSection',

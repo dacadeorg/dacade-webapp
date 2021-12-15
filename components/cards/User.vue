@@ -59,7 +59,7 @@
 import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import Badge from '@/components/ui/Badge'
-import Moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 import Currency from '@/components/ui/Currency'
 
 export default {
@@ -104,7 +104,7 @@ export default {
       community: 'communities/current',
     }),
     date() {
-      return Moment(this.timestamp.date).fromNow()
+      return DateManager.fromNow(this.timestamp.date)
     },
   },
 }

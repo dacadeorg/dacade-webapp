@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import firebase from '@/plugins/firebase'
+import { auth as firebaseAuth } from '@/plugins/firebase'
 
 export const state = () => ({
   data: null,
@@ -33,7 +33,7 @@ export const actions = {
   },
 
   async fetch({ commit, dispatch }, payload) {
-    const user = firebase.auth().currentUser
+    const user = firebaseAuth.currentUser
     if (!user) {
       dispatch('clear')
       return null
@@ -45,8 +45,8 @@ export const actions = {
       commit('set', data)
       return data
     } catch (e) {
-      console.log(e)
-      dispatch('clear')
+      console.log('ikibazo', e)
+      await dispatch('clear')
       return null
     }
   },
@@ -56,12 +56,19 @@ export const actions = {
     dispatch('fetch')
   },
 
-  async getToken({ commit }, payload) {
-    const user = firebase.auth().currentUser
+  async getToken({ commit, dispatch }, payload) {
+    const user = firebaseAuth.currentUser
     if (user) {
-      const token = await user.getIdToken()
-      commit('setToken', token)
-      return token
+      try {
+        const token = await user.getIdToken()
+        if (!token) throw new Error("Couldn't fetch the token")
+        commit('setToken', token)
+        return token
+      } catch (e) {
+        console.log(e)
+        dispatch('clear')
+        return null
+      }
     }
     return null
   },

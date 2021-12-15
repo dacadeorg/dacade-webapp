@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import firebase from '~/plugins/firebase'
+import { logEvent, setUserId } from 'firebase/analytics'
+import { analytics } from '~/plugins/firebase'
 export const actions = {
   create({ commit }, { name, attributes }) {
     const user = this.getters['user/get']
-    firebase.analytics().setUserId(user && user.uid ? user.uid : null)
-    return firebase.analytics().logEvent(name, attributes || {})
+    setUserId(analytics, user && user.uid ? user.uid : null)
+    return logEvent(analytics, name, attributes || {})
   },
 }
 

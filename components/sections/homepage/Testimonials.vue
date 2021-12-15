@@ -7,9 +7,9 @@
 </template>
 
 <script>
+import CommunitStats from './_partials/testimonials/CommunityStats'
+import Stories from './_partials/testimonials/Stories'
 import Section from '@/components/ui/Section'
-import CommunitStats from './partials/testimonials/CommunityStats'
-import Stories from './partials/testimonials/Stories'
 // import Button from '@/components/ui/Button'
 export default {
   name: 'TestimonialsSection',

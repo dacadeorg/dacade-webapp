@@ -10,8 +10,7 @@
         class="
           grid grid-cols-1
           space-y-4
-          md:space-y-0
-          md:grid-cols-2
+          md:space-y-0 md:grid-cols-2
           lg:grid-cols-4
           mt-3
           gap-y-5 gap-x-5
@@ -56,7 +55,7 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Section from '../partials/Section.vue'
+import Section from '../_partials/Section.vue'
 import Checkmark from '~/assets/icons/checkmark.svg?inline'
 
 export default {

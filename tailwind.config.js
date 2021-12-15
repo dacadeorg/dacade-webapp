@@ -3,7 +3,17 @@ const typography = require('@tailwindcss/typography')
 const aspectRatio = require('@tailwindcss/aspect-ratio')
 
 module.exports = {
-  purge: [],
+  purge: {
+    enabled: !(process.env.NODE_ENV === 'development'),
+    content: [
+      `components/**/*.{vue,js}`,
+      `layouts/**/*.vue`,
+      `pages/**/*.vue`,
+      `plugins/**/*.{js,ts}`,
+      `store/**/*.{js,ts}`,
+      `nuxt.config.{js,ts}`,
+    ],
+  },
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {

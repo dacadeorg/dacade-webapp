@@ -8,6 +8,7 @@
       <div class="relative flex-grow">
         <nuxt />
       </div>
+      <DiscordButton />
       <div class="relative flex-grow-0">
         <Footer />
         <PrivacyPolicyBanner />
@@ -16,11 +17,12 @@
   </Wrapper>
 </template>
 <script>
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
-import NotificationBar from '@/components/NotificationBar'
 import Wrapper from './wrapper.vue'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
+import NotificationBar from '@/components/layout/NotificationBar'
+import DiscordButton from '@/components/ui/DiscordButton'
 
 export default {
   components: {
@@ -29,6 +31,7 @@ export default {
     NotificationBar,
     Footer,
     Wrapper,
+    DiscordButton,
   },
 }
 </script>

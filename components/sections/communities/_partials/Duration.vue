@@ -14,8 +14,8 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Moment from 'moment'
-// import RewardsSection from './partials/overview/Rewards'
+import DateManager from '@/utilities/DateManager'
+// import RewardsSection from './_partials/overview/Rewards'
 
 export default {
   name: 'Duration',
@@ -39,7 +39,7 @@ export default {
       if (!this.value) {
         return 0
       }
-      return Moment.duration(this.value).humanize()
+      return DateManager.humanize(this.value)
     },
   },
 }

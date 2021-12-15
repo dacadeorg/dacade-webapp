@@ -12,7 +12,7 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import Header from '@/components/sections/communities/partials/Header'
+import Header from '@/components/sections/communities/_partials/Header'
 import List from '@/components/sections/communities/submissions/List'
 import Wrapper from '@/components/sections/communities/Wrapper'
 
@@ -25,7 +25,9 @@ export default {
   scrollToTop: true,
   async fetch({ store, params }) {
     await store.dispatch('communities/find', params.slug)
-    await store.dispatch('communities/submissions/all', params.slug)
+    await store.dispatch('communities/submissions/all', {
+      slug: params.slug,
+    })
   },
   computed: {
     ...mapGetters({

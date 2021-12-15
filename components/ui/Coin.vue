@@ -61,33 +61,38 @@ export default {
   },
   data() {
     return {
-      coins: {
-        DAC: {
+      coins: [
+        {
+          token: 'DAC',
           icon: DACIcon,
           bgColor: '#FBBF24',
           textColor: '#FFFFFF',
         },
-        cUSD: {
+        {
+          token: 'cUSD',
           icon: CUSDIcon,
           bgColor: '#45CD85',
           textColor: '#FFFFFF',
         },
-        ETH: {
+        {
+          token: 'ETH',
           icon: ETHIcon,
           bgColor: '#627EEA',
           textColor: '#FFFFFF',
         },
-        AE: {
+        {
+          token: 'AE',
           icon: AEIcon,
           bgColor: '#DE3F6B',
           textColor: '#FFFFFF',
         },
-        tez: {
+        {
+          token: 'tez',
           icon: TEZIcon,
           bgColor: '#0D61FF',
           textColor: '#FFFFFF',
         },
-      },
+      ],
     }
   },
   computed: {
@@ -112,7 +117,13 @@ export default {
       }
     },
     coin() {
-      return this.coins[this.token] ? this.coins[this.token] : this.coins.DAC
+      return this.getCoin(this.token) || this.getCoin('DAC')
+    },
+  },
+  methods: {
+    getCoin(token) {
+      const value = token.toUpperCase()
+      return this.coins.find((coin) => coin.token.toUpperCase() === value)
     },
   },
 }

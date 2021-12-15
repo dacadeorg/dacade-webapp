@@ -4,8 +4,7 @@
     v-click-outside="externalClick"
     class="
       absolute
-      border border-solid
-      boder-gray-200
+      border border-solid border-gray-200
       bg-gray-50
       rounded-full
       p-1
@@ -33,8 +32,7 @@
         md:-left-9
         -ml-2
         -mt-5
-        md:ml-20
-        md:w-72
+        md:ml-20 md:w-72
         w-48
         -bottom-60
         md:bottom-16

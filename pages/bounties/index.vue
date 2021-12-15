@@ -7,27 +7,53 @@
       <h1 class="text-4xl sm:text-5xl pt-10 md:pt-20 pb-10">
         {{ $t('nav.bounties') }}
       </h1>
-      <BountyList :bounties="bounties" />
+      <BountyList :bounties="bountiesList" :referrals="referrals" />
     </div>
   </div>
 </template>
 <script>
 /* eslint-disable no-console, no-unused-vars, require-await, no-unused-expressions */
-import { mapGetters } from 'vuex'
+
 // import firebase from '@/plugins/firebase'
+import { mapGetters } from 'vuex'
 import Navigation from '@/components/sections/bounties/Navigation'
 import BountyList from '@/components/list/Bounty'
 
 export default {
   components: { Navigation, BountyList },
-  fetch({ store }) {
+  async fetch({ store }) {
+    await store.dispatch('referrals/all')
     return store.dispatch('bounties/all')
   },
   computed: {
     ...mapGetters({
-      bounties: 'bounties/list',
+      referrals: 'referrals/list',
       isAuthenticated: 'auth/check',
+      bounties: 'bounties/list',
     }),
+    bountiesList() {
+      return [
+        {
+          name: 'Tezos Starter Course',
+          image: '/img/communities/tacode.webp',
+          type: 'Challenge',
+          link: 'https://tacode.dev/courses/dev-starter/challenges/f9c23fc7-3022-4347-b19c-66cc2424ac2f',
+          colors: {
+            text: '#0D61FF',
+            accent: '#0D61FF',
+            textAccent: '#fff',
+            primary: '#0D61FF',
+          },
+          reward: {
+            amount: 12,
+            token: 'tez',
+            type: 'SUBMISSION',
+          },
+          url: 'https://tacode.dev/courses/dev-starter',
+        },
+        ...(this.bounties || []),
+      ]
+    },
   },
 }
 </script>

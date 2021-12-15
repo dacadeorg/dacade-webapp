@@ -93,11 +93,11 @@
 import hexToRgba from 'hex-to-rgba'
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Logo from '@/components/Logo'
+import Logo from '@/components/layout/Logo'
 import Sidebar from '@/components/popups/Sidebar'
 import NavItem from '@/components/ui/NavItem'
 import NotificationPopup from '@/components/popups/Notification'
-import UserPopup from '@/components/popups/User'
+import UserPopup from '@/components/popups/user'
 import Button from '@/components/ui/Button'
 
 export default {
@@ -149,7 +149,6 @@ export default {
     ...mapGetters({
       user: 'user/get',
       isAuthenticated: 'auth/check',
-      communityData: 'content/communityData',
     }),
   },
   watch: {
@@ -177,9 +176,6 @@ export default {
         default:
           return null
       }
-    },
-    closeModal() {
-      this.$bvModal.hide('modal-1')
     },
   },
 }

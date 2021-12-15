@@ -35,6 +35,11 @@ export default {
       type: Array,
       default: () => [],
     },
+
+    feedback: {
+      type: Array,
+      default: () => [],
+    },
   },
   computed: {
     ...mapGetters({

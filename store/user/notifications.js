@@ -22,9 +22,15 @@ export const mutations = {
 
 export const actions = {
   async all({ commit }) {
-    const { data } = await this.$api.get('notifications/list')
-    commit('set', data.list)
-    commit('setUnread', data.unread)
+    try {
+      const { data } = await this.$api.get('notifications/list')
+      await commit('clear')
+      commit('set', data.list)
+      commit('setUnread', data.unread)
+    } catch (e) {
+      console.log(e)
+      commit('clear')
+    }
   },
   async read({ dispatch }, payload) {
     await this.$api.post('notifications/mark-as-read')

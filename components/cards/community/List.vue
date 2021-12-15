@@ -13,7 +13,7 @@
           relative
         "
       >
-        <CommunityVisual :community="community" />
+        <ListIcon :community="community" />
         <div class="flex-col justify-between flex p-3 md:p-7 text-gray-700">
           <div class="w-full">
             <div class="xl:pr-52 w-full text-lg pb-10">
@@ -50,7 +50,8 @@
                     <span
                       class="
                         text-primary
-                        group-gover:bg-text-primary group-hover:text-white
+                        group-gover:bg-text-primary
+                        group-hover:text-white
                         py-0
                         inline-block
                         align-middle
@@ -75,15 +76,15 @@
 <script>
 import Reward from '@/components/ui/Reward'
 
-import CommunityVisual from '@/components/cards/CommunityCard/CommunityVisual'
+import ListIcon from '@/components/cards/community/_partials/ListIcon'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
-import moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 import Button from '@/components/ui/Button'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
-  name: 'CommunityCardView',
-  components: { Reward, CommunityVisual, ThemeWrapper, Button, ArrowRightIcon },
+  name: 'CommunityListCard',
+  components: { Reward, ListIcon, ThemeWrapper, Button, ArrowRightIcon },
   props: {
     community: {
       default: () => {},
@@ -100,7 +101,7 @@ export default {
       )
     },
     duration() {
-      return moment.duration(this.community.duration).asMinutes()
+      return DateManager.millisecondsToMinutes(this.community.duration)
     },
   },
 }
