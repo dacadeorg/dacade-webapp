@@ -7,6 +7,7 @@
         <div class="relative">
           <nuxt />
         </div>
+        <DiscordButton />
         <Footer />
         <PrivacyPolicyBanner />
       </div>
@@ -15,12 +16,13 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
-import NotificationBar from '@/components/NotificationBar'
-import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 import Wrapper from './wrapper.vue'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
+import NotificationBar from '@/components/layout/NotificationBar'
+import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
+import DiscordButton from '@/components/ui/DiscordButton'
 
 export default {
   components: {
@@ -30,6 +32,7 @@ export default {
     NotificationBar,
     Footer,
     Wrapper,
+    DiscordButton,
   },
   computed: {
     ...mapGetters({

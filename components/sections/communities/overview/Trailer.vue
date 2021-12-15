@@ -21,16 +21,14 @@
       }}</span>
       <ObjectiveList :objectives="community.trailer.info.items" />
     </div>
-    <DisclaimerSection />
   </Section>
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Video from '@/components/ui/Video'
+import Section from '../_partials/Section.vue'
+import Duration from '../_partials/Duration.vue'
 import ObjectiveList from '@/components/list/Objectives'
-import Section from '../partials/Section.vue'
-import Duration from '../partials/Duration.vue'
-import DisclaimerSection from './Disclaimer'
+import Video from '@/components/ui/Video'
 
 export default {
   name: 'OverviewRewards',
@@ -39,7 +37,6 @@ export default {
     Duration,
     Video,
     ObjectiveList,
-    DisclaimerSection,
   },
   computed: {
     ...mapGetters({

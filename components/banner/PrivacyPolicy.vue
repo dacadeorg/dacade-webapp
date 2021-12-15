@@ -39,17 +39,14 @@
       class="
         flex
         absolute
-        lg:relative
-        lg:p-6
+        lg:relative lg:p-6
         md:py-0
         lg:justify-center
         <<<<<<<
         HEAD
         -right-1
         -top-1
-        lg:top-0
-        lg:right-0
-        lg:items-center
+        lg:top-0 lg:right-0 lg:items-center
         =======
         top-0
         lg:right-0

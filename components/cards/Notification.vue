@@ -2,7 +2,7 @@
   <nuxt-link :to="details.link">
     <div
       :class="extended ? 'rounded-3xl' : ''"
-      class="flex hover:bg-gray-50 -mx-5 px-5 py-4"
+      class="flex hover:bg-gray-50 py-4 -mx-5 px-5"
     >
       <div class="flex mr-2">
         <Avatar :user="user" class="w-10 h-10" />
@@ -17,7 +17,7 @@
 
 <script>
 import Avatar from '@/components/ui/Avatar'
-import moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 
 export default {
   name: 'Notification',
@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     date() {
-      return moment(this.details.created_at).fromNow()
+      return DateManager.fromNow(this.details.created_at)
     },
   },
 }

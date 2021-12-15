@@ -7,12 +7,13 @@
       bg-gray-50
       rounded-3xl
       space-y-0
-      divide-y divide-y-gray-500
+      divide-y divide-gray-200
       px-0
       mb-10
       relative
       w-full
       lg:max-w-2xl
+      overflow-hidden
     "
   >
     <Referral
@@ -20,7 +21,7 @@
       :key="referral.name"
       :referral="referral"
     />
-    <Bounty v-for="bounty in bounties" :key="bounty.id" :bounty="bounty" />
+    <Bounty v-for="(bounty, i) in bounties" :key="i" :bounty="bounty" />
   </div>
 </template>
 <script>
@@ -33,55 +34,13 @@ export default {
     Referral,
   },
   props: {
-    value: {
-      default: 0,
-      type: Number,
-    },
-    token: {
-      default: null,
-      type: String,
-    },
     bounties: {
       default: () => [],
       type: Array,
     },
-  },
-  computed: {
-    referrals() {
-      return [
-        {
-          name: 'Celo Development 101',
-          icon: '/img/communities/celo.svg',
-          type: 'Referral',
-          colors: {
-            text: '#fff',
-            accent: '#2E3337',
-            textAccent: '#34b276',
-            primary: '#35C07D',
-          },
-          reward: {
-            amount: 25,
-            token: 'cUSD',
-          },
-          url: 'https://forms.gle/PLjPugvJpj9m2Qn7A',
-        },
-        {
-          name: 'Tezos Starter Course',
-          image: '/img/communities/tacode.webp',
-          type: 'Challenge',
-          colors: {
-            text: '#0D61FF',
-            accent: '#0D61FF',
-            textAccent: '#fff',
-            primary: '#0D61FF',
-          },
-          reward: {
-            amount: 36,
-            token: 'tez',
-          },
-          url: 'https://tacode.dev/courses/dev-starter',
-        },
-      ]
+    referrals: {
+      default: () => [],
+      type: Array,
     },
   },
 }

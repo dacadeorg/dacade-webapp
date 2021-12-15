@@ -46,7 +46,7 @@
                 :value="githubLink"
                 class="
                   p-0
-                  border border-t-0 border-solid border-grey-200
+                  border border-t-0 border-solid border-gray-200
                   focus:outline-none
                   outline-none
                   active:border-none

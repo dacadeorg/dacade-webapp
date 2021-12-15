@@ -3,7 +3,7 @@
     class="
       pb-5
       w-full
-      divide-y divide-y-gray-200
+      divide-y divide-gray-200
       space-y-4
       bg-gray-50
       rounded-3xl
@@ -14,15 +14,13 @@
       <div
         class="
           h-36
-          md:h-24
-          md:flex
+          md:h-24 md:flex
           w-full
           justify-between
           md:justify-end
           space-x-5 space-y-0
           pt-6
-          md:flex-row-reverse
-          md:pt-6
+          md:flex-row-reverse md:pt-6
         "
       >
         <div
@@ -39,15 +37,13 @@
           <div
             class="
               absolute
-              md:relative
-              md:top-0
+              md:relative md:top-0
               -bottom-28
               md:-bottom-24
               font-medium
               text-gray-500
               left-5
-              md:left-auto
-              md:right-5
+              md:left-auto md:right-5
               px-2
               py-1
               h-6

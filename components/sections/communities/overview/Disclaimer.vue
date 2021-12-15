@@ -1,16 +1,16 @@
 <template>
-  <Section>
+  <Section class="mt-0! pt-0!">
     <Hint v-if="community.disclaimer">
       <strong>{{ $t('communities.overview.info.disclaimer.title') }}:</strong>
-      <span>{{ community.disclaimer }}</span>
+      <span v-html="community.disclaimer" />
     </Hint>
   </Section>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import Section from '../_partials/Section.vue'
 import Hint from '@/components/ui/Hint'
-import Section from '../partials/Section.vue'
 
 export default {
   name: 'DisclaimerSection',

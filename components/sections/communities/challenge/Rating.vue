@@ -15,8 +15,7 @@
           class="
             grid grid-cols-1
             space-y-4
-            md:space-y-0
-            md:grid-cols-2
+            md:space-y-0 md:grid-cols-2
             lg:grid-cols-4
             mt-3
             gap-y-5 gap-x-5
@@ -85,9 +84,9 @@
 // }"
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import Section from '../_partials/Section.vue'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper.vue'
 import Coin from '@/components/ui/Coin'
-import Section from '../partials/Section.vue'
 import Checkmark from '~/assets/icons/checkmark.svg?inline'
 
 export default {

@@ -2,7 +2,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 /* eslint-disable spaced-comment */
-import firebase from '@/plugins/firebase'
+import {
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signOut,
+} from 'firebase/auth'
+import { auth as firebaseAuth } from '@/plugins/firebase'
 
 export const state = () => ({
   data: null,
@@ -27,6 +32,7 @@ export const actions = {
           userId: user.uid,
         },
       })
+
       return dispatch('login', {
         email: payload.email,
         password: payload.password,
@@ -42,7 +48,7 @@ export const actions = {
     this.commit('setBusy', true)
     this.commit('clearError')
     try {
-      await firebase.auth().signInWithEmailAndPassword(email, password)
+      await signInWithEmailAndPassword(firebaseAuth, email, password)
       await this.dispatch('user/fetch')
       this.commit('setJobDone', true)
       this.commit('setBusy', false)
@@ -57,7 +63,7 @@ export const actions = {
     this.commit('setBusy', true)
     this.commit('clearError')
     try {
-      const response = await firebase.auth().sendPasswordResetEmail(email)
+      const response = await sendPasswordResetEmail(firebaseAuth, email)
       this.commit('setJobDone', true)
       this.commit('setBusy', false)
       return response
@@ -67,8 +73,8 @@ export const actions = {
       throw error
     }
   },
-  logout() {
-    firebase.auth().signOut()
+  async logout() {
+    await signOut(firebaseAuth)
     this.dispatch('user/clear')
     this.$router.push('/communities')
   },

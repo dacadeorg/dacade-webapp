@@ -44,9 +44,8 @@
       <div
         class="
           flex flex-col
-          md:flex-row
-          md:divide-y-0
-          divide-y divide-y-text-primary divide-dotted
+          md:flex-row md:divide-y-0
+          divide-y divide-gray-900 divide-dotted
           space-y-5
           md:space-y-0
           space-x-0

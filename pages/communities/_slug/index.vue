@@ -1,6 +1,7 @@
 <template>
   <div class="relative">
     <MainHeaderSection />
+    <FAQCard />
     <Wrapper>
       <OverviewSection />
     </Wrapper>
@@ -11,12 +12,14 @@ import { mapGetters } from 'vuex'
 import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
 import OverviewSection from '@/components/sections/communities/overview'
 import Wrapper from '@/components/sections/communities/Wrapper'
+import FAQCard from '@/components/cards/Faq'
 
 export default {
   components: {
     MainHeaderSection,
     OverviewSection,
     Wrapper,
+    FAQCard,
   },
   layout: 'community',
   scrollToTop: true,

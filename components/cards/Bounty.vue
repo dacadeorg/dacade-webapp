@@ -3,16 +3,13 @@
     class="
       cursor-pointer
       flex
-      md:flex-row-reverse
-      md:space-x-5
+      md:flex-row-reverse md:space-x-5
       px-5
       min-h-32
-      md:h-auto
-      md:w-full
+      md:h-auto md:w-full
       justify-between
       hover:bg-secondary
       relative
-      rounded-xl
     "
   >
     <div
@@ -29,19 +26,14 @@
         mb-5
       "
     >
-      <nuxt-link
-        :to="`/communities/${bounty.slug}/challenges/${bounty.challenge}`"
-        class="w-full"
+      <div
+        class="relative w-full md:flex md:justify-between"
+        @click="goToChallenge(bounty)"
       >
-        <div
-          class="relative w-full md:flex md:justify-between"
-          @click="goToChallenge(bounty)"
-        >
-          <div class="font-medium text-md mb-2">
-            {{ bounty.name }}
-          </div>
+        <div class="font-medium text-md mb-2">
+          {{ bounty.name }}
         </div>
-      </nuxt-link>
+      </div>
 
       <div
         class="
@@ -52,17 +44,23 @@
           flex-col-reverse
           justify-between
         "
+        @click="goToChallenge(bounty)"
       >
         <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">
           {{ type }}
         </div>
         <div>
-          <Reward type="gray" :reward="reward" />
+          <Reward type="gray" :reward="bounty.reward" />
         </div>
       </div>
       <div
-        v-if="bounty.submissions"
-        class="mt-4 space-y-0 divide-y divide-y-gray-500"
+        v-if="bounty.submissions && bounty.submissions.length"
+        class="
+          mt-4
+          space-y-0
+          divide-y divide-gray-200
+          border-t border-t-solid border-gray-200
+        "
       >
         <nuxt-link
           v-for="submission in bounty.submissions"
@@ -91,7 +89,7 @@
                   h-5
                 "
               >
-                {{ submission.feedbacks }}
+                {{ submission.metadata ? submission.metadata.feedbacks : 0 }}
               </div>
             </div>
             <div class="text-gray-500 text-base font-normal">
@@ -102,16 +100,20 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="self-start relative mt-15 md:mt-7">
+    <div
+      class="self-start relative mt-15 md:mt-7"
+      @click="goToChallenge(bounty)"
+    >
       <Avatar
-        class="w-15 h-15"
+        class="w-15 h-15 rounded-xl overflow-hidden"
         :icon="bounty.icon"
+        :image="bounty.image"
         :color="bounty.colors.primary"
         size="medium-fixed"
         shape="rounded"
       />
       <Badge
-        v-if="bounty.submissions.length"
+        v-if="bounty.submissions && bounty.submissions.length"
         class="bottom-0 -right-1"
         :custom-style="{
           bottom: '0',
@@ -120,7 +122,7 @@
           backgroundColor: bounty.colors.accent,
         }"
         size="medium"
-        :value="bounty.submissions.length"
+        :value="bounty.totalSubmissions"
       />
     </div>
   </div>
@@ -130,7 +132,7 @@
 import Reward from '@/components/badges/Reward'
 import Avatar from '@/components/ui/Avatar'
 import Badge from '@/components/ui/Badge'
-import Moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 
 export default {
   name: 'Bounty',
@@ -146,27 +148,31 @@ export default {
     },
   },
   computed: {
-    reward() {
-      if (this.bounty.submissions.length) {
-        return this.bounty.rewards.find((reward) => reward.type === 'FEEDBACK')
-      }
-      return this.bounty.rewards.find((reward) => reward.type === 'SUBMISSION')
-    },
     type() {
-      if (!this.bounty.submissions.length) {
-        return 'Challenge'
+      if (this.bounty.reward.type === 'SUBMISSION') {
+        return this.$t('bounties.reward.challenge')
       }
-      return 'Waiting for Feedbacks'
+      return this.$t('bounties.reward.feedback')
+    },
+    isChallenge() {
+      return this.bounty.reward.type === 'SUBMISSION'
     },
   },
   methods: {
     convertDate(date) {
-      return Moment(date).fromNow()
+      return DateManager.fromNow(date)
     },
     goToChallenge(bounty) {
-      return this.$router.push(
-        `/communities/${bounty.slug}/challenges/${bounty.challenge}`
-      )
+      if (bounty.link) {
+        window.open(bounty.link)
+        return
+      }
+      if (this.isChallenge) {
+        return this.$router.push(
+          `/communities/${bounty.slug}/challenges/${bounty.challenge}`
+        )
+      }
+      return this.$router.push(`/communities/${bounty.slug}/submissions`)
     },
   },
 }

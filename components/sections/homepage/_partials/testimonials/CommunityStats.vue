@@ -16,10 +16,7 @@
     <a target="_blank" href="https://discord.gg/U38KQHDtHe">
       <Button type="outline-white">
         {{ $t('testimonials.community.join', { appName: $t('app.name') }) }}
-        <font-awesome-icon
-          :icon="['fab', 'discord']"
-          class="ml-3 align-middle text-2xl"
-        />
+        <DiscordIcon class="ml-3 align-middle h-6 inline-block" />
       </Button>
     </a>
   </div>
@@ -27,10 +24,12 @@
 
 <script>
 import Button from '@/components/ui/Button'
+import DiscordIcon from '@/assets/icons/discord.svg?inline'
 export default {
   name: 'CommunityStats',
   components: {
     Button,
+    DiscordIcon,
   },
   data() {
     return {

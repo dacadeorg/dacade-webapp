@@ -16,8 +16,14 @@ export const mutations = {
 
 export const actions = {
   async all({ commit }) {
-    const { data } = await this.$api.get('reputations/list')
-    commit('setList', data)
+    try {
+      const { data } = await this.$api.get('reputations/list')
+      await commit('clear')
+      commit('setList', data)
+    } catch (e) {
+      commit('clear')
+      console.log(e)
+    }
   },
 }
 

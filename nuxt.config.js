@@ -55,7 +55,10 @@ export default {
    ** Global CSS
    */
   // css: ['@/assets/css/custom.scss', '@/assets/css/main.css'],
-  css: ['@/assets/css/fonts.css'],
+  css: [
+    '@/assets/css/fonts.css',
+    'highlight.js/styles/atom-one-dark-reasonable.css',
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -64,7 +67,8 @@ export default {
     '~/plugins/globals.js',
     '~/plugins/api.js',
     '~/plugins/auth.js',
-    '~/plugins/highlight',
+    '~/plugins/bugsnag.js',
+    // '~/plugins/highlight',
     { src: '~/plugins/vClickOutside.js', ssr: false },
     { src: '~/plugins/persistedState.client.js', ssr: false },
   ],
@@ -83,12 +87,6 @@ export default {
         filename: `.env.${process.env.NODE_ENV}`,
       },
     ],
-    [
-      'nuxt-highlightjs',
-      {
-        style: 'obsidian',
-      },
-    ],
     '@nuxtjs/svg',
     [
       '@nuxtjs/google-analytics',
@@ -99,7 +97,7 @@ export default {
     ],
     'cookie-universal-nuxt',
     'nuxt-i18n',
-    '@nuxtjs/markdownit',
+    // '@nuxtjs/markdownit',
     '@nuxtjs/axios',
     '@nuxt/content',
   ],
@@ -128,32 +126,10 @@ export default {
   buildModules: [
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
-    '@nuxt/image',
+    // '@nuxt/image',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/fontawesome',
-    [
-      'nuxt-bugsnag',
-      {
-        apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd',
-        enabledReleaseStages: ['staging', 'production'],
-        reporterOptions: {
-          releaseStage: process.env.NODE_ENV,
-          autoAssignRelease: true,
-        },
-        publishRelease: true,
-      },
-    ],
   ],
-  /*
-   ** Build configuration
-   */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {},
-  },
 
   storybook: {
     stories: ['~/stories/**/*.stories.js'],
@@ -173,38 +149,6 @@ export default {
         es: require('./locales/es.json'),
       },
     },
-  },
-
-  fontawesome: {
-    icons: {
-      regular: ['faTimesCircle'],
-      solid: ['faSpinner'],
-      brands: ['faTwitter', 'faTelegramPlane', 'faYoutube', 'faDiscord'],
-    },
-  },
-
-  markdownit: {
-    preset: 'default',
-    linkify: true,
-    breaks: true,
-    langPrefix: 'language-',
-    typographer: true,
-    highlight: (str, lang) => {
-      lang = lang || 'js'
-
-      const hljs = require('highlight.js')
-      try {
-        return (
-          '<pre class="hljs"><code>' +
-          hljs.highlight(lang, str, true).value +
-          '</code></pre>'
-        )
-      } catch (__) {
-        return ''
-      }
-    },
-
-    use: ['markdown-it-div', 'markdown-it-attrs'],
   },
 
   image: {

@@ -32,6 +32,7 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import UniqBy from 'lodash.uniqby'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 import ChevronRightIcon from '~/assets/icons/chevron-right.svg?inline'
 
@@ -58,13 +59,16 @@ export default {
               exact: true,
               link: '/bounties',
             },
-            ...this.bounties.map((bounty) => {
-              return {
-                label: bounty.name,
-                exact: true,
-                link: `/bounties/${bounty.slug}`,
-              }
-            }),
+            ...UniqBy(
+              this.bounties.map((bounty) => {
+                return {
+                  label: bounty.name,
+                  exact: true,
+                  link: `/bounties/${bounty.slug}`,
+                }
+              }),
+              'link'
+            ),
           ],
         },
       ]

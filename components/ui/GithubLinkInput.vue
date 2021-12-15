@@ -47,8 +47,7 @@
           w-10/12
           max-w-content
           focus:outline-none
-          active:outline-none
-          active:shadow-none
+          active:outline-none active:shadow-none
           focus:shadow-none
           border-none
           focus:border-none

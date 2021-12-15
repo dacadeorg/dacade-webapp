@@ -58,8 +58,7 @@
               flex-col
               max-w-xs
               -mt-4
-              md:-mt-7
-              md:max-w-lg
+              md:-mt-7 md:max-w-lg
               items-start
             "
           >
@@ -112,7 +111,7 @@
   </ThemeWrapper>
 </template>
 <script>
-import Moment from 'moment'
+import DateManager from '@/utilities/DateManager'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 import Reward from '@/components/badges/Reward'
 import Button from '@/components/ui/Button'
@@ -144,10 +143,7 @@ export default {
       return this.community.rewards.filter((r) => r.type === 'SUBMISSION')[0]
     },
     duration() {
-      return Moment.duration(
-        this.community.duration,
-        'milliseconds'
-      ).asMinutes()
+      return DateManager.millisecondsToMinutes(this.community.duration)
     },
   },
 }
