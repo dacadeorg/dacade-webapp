@@ -11,7 +11,7 @@
       text-gray-700
       md:p-7
       mb-4
-      max-w-3xl
+      w-11/12
     "
   >
     <div class="flex flex-col pr-20">
