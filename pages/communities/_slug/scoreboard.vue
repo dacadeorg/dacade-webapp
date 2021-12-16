@@ -1,37 +1,42 @@
 <template>
-  <div class="py-4 flex flex-col text-gray-700">
-    <Header :subtitle="$t('communities.navigation.scoreboard')" />
-    <div
+  <div class="py-4 flex justify-between">
+    <span
       class="
-        my-24
-        w-full
-        divide-y divide-gray-200
-        space-y-4
-        bg-gray-50
-        lg:max-w-2xl
-        rounded-3.5xl
-        overflow-hidden
+        w-1/5
+        py-4
+        flex flex-col
+        text-gray-700 text-primary
+        group-gover:bg-text-primary
+        group-hover:text-black
       "
     >
-      <ScoreboardCard
-        v-for="(item, i) in list"
-        :key="i"
-        :index="i + 1"
-        :value="item"
-      />
+      <span>{{ $t('communities.navigation.scoreboard') }}</span>
+      <span class="text-xs font-light">
+        here you can see the courses available and bla bla bla so on and so
+        forth</span
+      ></span
+    >
+
+    <div class="w-4/5 flex justify-center">
+      <div class="rounded-3xl divide-y divide-gray-200">
+        <ScoreboardCard
+          v-for="(item, i) in list"
+          :key="i"
+          :index="i + 1"
+          :value="item"
+        />
+      </div>
     </div>
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Header from '@/components/sections/communities/_partials/Header'
 import ScoreboardCard from '@/components/cards/Scoreboard'
 
 export default {
   name: 'ScoreboardList',
   components: {
     ScoreboardCard,
-    Header,
   },
   props: {
     badgeStyles: {

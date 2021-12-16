@@ -1,14 +1,11 @@
 <template>
-  <div :v-if="reward" class="flex mt-3 md:mt-6 items-center">
-    <Coin :token="reward.token" size="medium" />
-    <div class="text-base pl-2 lg:pl-3 md:pl-3">
-      <span class="block font-medium"
-        >{{ reward.amount }} {{ reward.token }}</span
-      >
-      <span class="block text-sm"
-        >{{ $t('reward.type.prefix') }}
-        <span class="capitalize">{{ reward.type.toLowerCase() }}</span></span
-      >
+  <div
+    :v-if="reward"
+    class="flex items-center bg-gray-200 rounded-3xl max-w-max"
+  >
+    <Coin :token="reward.token" size="small" />
+    <div class="text-base lg:px-2 md:px-2">
+      <span class="block font-medium text-xxs">{{ reward.token }}</span>
     </div>
   </div>
 </template>
