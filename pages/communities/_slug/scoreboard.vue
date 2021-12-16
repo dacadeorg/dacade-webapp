@@ -1,5 +1,5 @@
 <template>
-  <div class="py-4 flex justify-between">
+  <div class="pt-8 pb-4 flex justify-between">
     <span
       class="
         w-1/5
@@ -21,7 +21,7 @@
     >
 
     <div class="w-4/5 flex justify-center">
-      <div class="rounded-3xl divide-y divide-gray-200">
+      <div class="rounded-2xl divide-y divide-gray-200 w-11/12">
         <ScoreboardCard
           v-for="(item, i) in list"
           :key="i"
