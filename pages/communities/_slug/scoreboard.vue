@@ -14,7 +14,7 @@
       <span class="font-medium">{{
         $t('communities.navigation.scoreboard')
       }}</span>
-      <span class="text-xs font-light">
+      <span class="text-xs font-light mt-2">
         here you can see the courses available and bla bla bla so on and so
         forth</span
       ></span

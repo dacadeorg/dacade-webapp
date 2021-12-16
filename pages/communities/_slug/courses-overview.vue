@@ -1,13 +1,4 @@
 <template>
-  <!-- <div
-    class="
-      py-4
-      flex flex-col
-      text-gray-700
-      border-solid border-2 border-indigo-600
-    "
-  > -->
-  <!-- <Header :subtitle="$t('communities.navigation.courses')" /> -->
   <div class="py-4 flex">
     <span
       class="
@@ -26,17 +17,15 @@
         $t('communities.navigation.courses')
       }}</span>
 
-      <span class="text-xs font-light">
+      <span class="text-xs font-light mt-2">
         here you can see the courses available and bla bla bla so on and so
         forth</span
       ></span
     >
     <div class="w-4/5 items-center flex flex-col">
       <CourseCard v-for="course in courses" :key="course.id" :course="course" />
-      <CourseCard v-for="course in courses" :key="course.id" :course="course" />
     </div>
   </div>
-  <!-- </div> -->
 </template>
 <script>
 import { mapGetters } from 'vuex'
