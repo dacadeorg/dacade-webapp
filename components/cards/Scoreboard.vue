@@ -4,11 +4,11 @@
       h-36
       md:h-24 md:flex
       space-x-5 space-y-0
-      pt-6
-      md:flex-row-reverse md:pt-6
+      md:flex-row-reverse
       overflow-hidden
       bg-gray-100
       px-3
+      items-center
     "
   >
     <div
@@ -28,10 +28,10 @@
           text-gray-500
           left-5
           md:left-auto md:right-5
-          px-2
-          py-1
+          px-2.5
+          py-0.5
           h-6
-          text-xs
+          text-xxs
           bg-gray-200
           rounded-full
         "
@@ -44,9 +44,9 @@
         {{ value.user.displayName }}
       </div>
       <div class="whitespace-nowrap text-base">
-        <span class="font-medium">
+        <span class="font-medium text-xs">
           {{ value.feedbacks }}
-          <span class="font-normal">
+          <span class="font-normal text-xs">
             {{ $t(value.feedbacks == 1 ? 'feedback' : 'feedbacks') }}
           </span>
         </span>
