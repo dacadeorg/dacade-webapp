@@ -2,7 +2,9 @@
   <div class="relative">
     <MainHeaderSection />
     <Section>
-      <div class="w-full lg:w-3/4 mx-auto">
+      <div
+        class="w-full lg:w-3/4 mx-auto divide-y divide-dotted divide-gray-500"
+      >
         <Courses />
         <Scoreboard />
       </div>

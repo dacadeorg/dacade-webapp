@@ -13,6 +13,7 @@
       class="
         w-1/5
         py-4
+        mr-16
         flex flex-col
         text-gray-700 text-primary
         group-gover:bg-text-primary

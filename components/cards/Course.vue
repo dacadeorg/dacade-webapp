@@ -16,7 +16,7 @@
   >
     <div class="flex flex-col pr-20">
       <!-- <div class="w-full"> -->
-      <div class="xl:pr-52 w-full text-xl font-medium pb-2">
+      <div class="text-xl font-medium pb-2">
         {{ course.name }}
       </div>
       <!-- </div> -->

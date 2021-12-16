@@ -4,13 +4,16 @@
       class="
         w-1/5
         py-4
+        mr-16
         flex flex-col
         text-gray-700 text-primary
         group-gover:bg-text-primary
         group-hover:text-black
       "
     >
-      <span>{{ $t('communities.navigation.scoreboard') }}</span>
+      <span class="font-medium">{{
+        $t('communities.navigation.scoreboard')
+      }}</span>
       <span class="text-xs font-light">
         here you can see the courses available and bla bla bla so on and so
         forth</span
