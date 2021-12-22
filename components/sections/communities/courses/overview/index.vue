@@ -12,10 +12,10 @@
       <RewardsSection />
       <ObjectivesSection />
       <PrerequisiteSection />
-      <TrailerSection />
       <div class="border-none!">
         <DisclaimerSection />
       </div>
+      <TrailerSection />
       <LearningModulesSection />
       <ChallengeSection />
       <PageNavigation />

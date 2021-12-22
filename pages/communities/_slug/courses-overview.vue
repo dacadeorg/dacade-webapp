@@ -23,7 +23,12 @@
       ></span
     >
     <div class="w-4/5 items-center flex flex-col">
-      <CourseCard v-for="course in courses" :key="course.id" :course="course" />
+      <CourseCard
+        v-for="course in courses"
+        :key="course.id"
+        :course="course"
+        :community="community"
+      />
     </div>
   </div>
 </template>
