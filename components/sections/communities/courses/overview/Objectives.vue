@@ -3,7 +3,7 @@
     :title="$t('communities.overview.objective.title')"
     :subtitle="$t('communities.overview.objective.subtitle')"
   >
-    <ObjectiveList :objectives="community.objectives" />
+    <ObjectiveList :objectives="course.objectives" />
   </Section>
 </template>
 <script>
@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      community: 'communities/current',
+      course: 'communities/courses/current',
       colors: 'ui/colors',
     }),
   },
