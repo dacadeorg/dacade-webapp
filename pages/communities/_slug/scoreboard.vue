@@ -21,7 +21,7 @@
     >
 
     <div class="w-4/5 flex justify-center">
-      <div class="rounded-2xl divide-y divide-gray-200 w-11/12">
+      <div class="overflow-hidden rounded-2xl divide-y divide-gray-200 w-11/12">
         <ScoreboardCard
           v-for="(item, i) in list"
           :key="i"

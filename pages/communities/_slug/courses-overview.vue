@@ -34,7 +34,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import CourseCard from '@/components/cards/Course.vue'
+import CourseCard from '~/components/cards/course'
 
 export default {
   name: 'ScoreboardList',

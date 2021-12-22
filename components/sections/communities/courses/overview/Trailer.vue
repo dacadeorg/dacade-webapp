@@ -20,7 +20,7 @@
         community.trailer.info.title
       }}</span>
       <span class="block text-lg mt-2 prose">{{ community.trailer.info }}</span>
-      <!-- <ObjectiveList :objectives="community.trailer.info.items" /> -->
+      <ObjectiveList :objectives="community.trailer.info.items" />
     </div>
   </Section>
 </template>
@@ -28,7 +28,7 @@
 import { mapGetters } from 'vuex'
 import Section from '@/components/sections/communities/_partials/Section.vue'
 import Duration from '@/components/sections/communities/courses/_partials/Duration.vue'
-// import ObjectiveList from '@/components/list/Objectives'
+import ObjectiveList from '@/components/list/Objectives'
 import Video from '@/components/ui/Video'
 
 export default {
@@ -37,7 +37,7 @@ export default {
     Section,
     Duration,
     Video,
-    // ObjectiveList,
+    ObjectiveList,
   },
   computed: {
     ...mapGetters({
