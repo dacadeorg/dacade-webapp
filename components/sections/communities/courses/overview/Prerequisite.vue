@@ -1,14 +1,14 @@
 <template>
   <Section
-    v-if="community.prerequisite"
+    v-if="course.prerequisite"
     :title="$t('communities.overview.info.prerequisite.title')"
     :subtitle="$t('communities.overview.info.prerequisite.subtitle')"
   >
     <div class="mb-5">
-      <ObjectiveList :objectives="community.prerequisite.items" />
+      <ObjectiveList :objectives="course.prerequisite.items" />
     </div>
-    <Hint v-if="community.prerequisite.hint">
-      <span v-html="community.prerequisite.hint" />
+    <Hint v-if="course.prerequisite.hint">
+      <span v-html="course.prerequisite.hint" />
     </Hint>
   </Section>
 </template>
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      community: 'communities/current',
+      course: 'communities/courses/current',
     }),
   },
 }
