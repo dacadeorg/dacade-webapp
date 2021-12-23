@@ -9,6 +9,7 @@
       bg-gray-100
       px-3
       items-center
+      border-solid border-2 border-gray-200
     "
   >
     <div

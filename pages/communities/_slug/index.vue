@@ -3,7 +3,7 @@
     <MainHeaderSection />
     <Section>
       <div
-        class="w-full lg:w-3/4 mx-auto divide-y divide-solid divide-gray-500"
+        class="w-full lg:w-3/4 mx-auto divide-y divide-solid divide-gray-200"
       >
         <Courses />
         <Scoreboard />

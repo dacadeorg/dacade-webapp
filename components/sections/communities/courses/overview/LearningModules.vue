@@ -1,7 +1,7 @@
 <template>
   <Section>
     <div class="flex flex-wrap">
-      <div class="mt-0 md:mt-4 mr-4 flex flex-col w-2/5">
+      <div class="mt-0 md:mt-4 mr-4 flex w-2/5 flex-col">
         <h4 class="pl-2 font-medium inline-block text-.5xl">
           {{ $t('communities.overview.learning-modules') }}
         </h4>
