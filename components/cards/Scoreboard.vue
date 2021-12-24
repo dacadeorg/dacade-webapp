@@ -2,14 +2,14 @@
   <div
     class="
       h-36
+      w-full
       md:h-24 md:flex
       space-x-5 space-y-0
       md:flex-row-reverse
       overflow-hidden
-      bg-gray-100
+      bg-gray-50
       px-3
       items-center
-      border-solid border-2 border-gray-200
     "
   >
     <div
@@ -60,11 +60,12 @@
       >
         <Avatar :user="value.user" size="large" />
         <Badge
-          class="absolute left-9 top-10 w-6 h-6 bg-theme-accent"
+          class="absolute left-9 top-10 w-6 h-6 bg-theme-accent text-white"
           :value="index"
           :custom-style="{
             bottom: '-1px',
             right: '-3px',
+            color: '#fff',
             backgroundColor: colors.textAccent,
           }"
         />

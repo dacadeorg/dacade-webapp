@@ -2,9 +2,7 @@
   <div class="relative">
     <MainHeaderSection />
     <Section>
-      <div
-        class="w-full lg:w-3/4 mx-auto divide-y divide-solid divide-gray-200"
-      >
+      <div class="w-full mx-auto divide-y divide-solid divide-gray-200">
         <Courses />
         <Scoreboard />
       </div>
@@ -14,9 +12,9 @@
 <script>
 import { mapGetters } from 'vuex'
 import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
-import Scoreboard from '@/pages/communities/_slug/scoreboard.vue'
-import Courses from '@/pages/communities/_slug/courses-overview.vue'
-import Section from '@/components/sections/communities/_partials/Section.vue'
+import Scoreboard from '@/components/sections/communities/overview/Scoreboard'
+import Courses from '@/components/sections/communities/overview/Courses'
+import Section from '@/components/ui/Section'
 
 export default {
   components: {

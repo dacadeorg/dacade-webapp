@@ -1,45 +1,40 @@
 <template>
-  <div class="pt-8 pb-4 flex justify-between">
-    <span
+  <div class="py-4 flex flex-col text-gray-700">
+    <Header
+      :title="community.name"
+      :subtitle="$t('communities.navigation.scoreboard')"
+    />
+    <div
       class="
-        w-1/5
-        py-4
-        mr-16
-        flex flex-col
-        text-gray-700 text-primary
-        group-gover:bg-text-primary
-        group-hover:text-black
+        my-24
+        w-full
+        divide-y divide-gray-200
+        space-y-4
+        bg-gray-50
+        lg:max-w-2xl
+        rounded-3.5xl
+        overflow-hidden
       "
     >
-      <span class="font-medium">{{
-        $t('communities.navigation.scoreboard')
-      }}</span>
-      <span class="text-xs font-light mt-2">
-        here you can see the courses available and bla bla bla so on and so
-        forth</span
-      ></span
-    >
-
-    <div class="w-4/5 flex justify-center">
-      <div class="overflow-hidden rounded-2xl divide-y divide-gray-200 w-11/12">
-        <ScoreboardCard
-          v-for="(item, i) in list"
-          :key="i"
-          :index="i + 1"
-          :value="item"
-        />
-      </div>
+      <ScoreboardCard
+        v-for="(item, i) in list"
+        :key="i"
+        :index="i + 1"
+        :value="item"
+      />
     </div>
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import Header from '@/components/sections/communities/_partials/Header'
 import ScoreboardCard from '@/components/cards/Scoreboard'
 
 export default {
   name: 'ScoreboardList',
   components: {
     ScoreboardCard,
+    Header,
   },
   props: {
     badgeStyles: {

@@ -1,64 +1,73 @@
 <template>
-  <nuxt-link :to="{ path: path }">
-    <div
-      class="
-        flex
-        lg:flex
-        p-2
-        divide-x divide-dotted divide-gray-500
-        bg-gray-100
-        rounded-3xl
-        group
-        text-gray-700
-        md:p-7
-        mb-4
-        w-11/12
-        border-solid border-2 border-gray-200
-      "
-    >
-      <div class="flex flex-col pr-20">
-        <!-- <div class="w-full"> -->
-        <div class="text-xl font-medium pb-2">
+  <div
+    class="
+      flex
+      lg:flex
+      p-2
+      divide-x divide-gray-200
+      bg-gray-50
+      rounded-3xl
+      group
+      text-gray-700
+      md:p-7
+      mb-4
+      w-full
+      border-solid border border-gray-200
+    "
+  >
+    <div class="flex flex-col pr-20 justify-between">
+      <div class="flex flex-col">
+        <div class="text-lg font-medium leading-normal">
           {{ course.name }}
         </div>
-        <!-- </div> -->
-        <div class="text-xxs px-2 mb-2 bg-gray-200 rounded-3xl max-w-max">
-          BEGINNER
+        <div
+          class="
+            mt-2
+            text-xxs
+            px-2.5
+            py-0.5
+            bg-gray-200
+            rounded-3xl
+            max-w-max
+            uppercase
+            font-medium
+          "
+        >
+          Beginer
         </div>
-        <div class="text-xs pb-2 mb-5 max-w-xxs">
+        <div class="text-sm mt-3 pb-2 max-w-xxs">
           {{ course.challenge.description }}
         </div>
-        <div class="align-start" :colors="community.colors">
-          <nuxt-link :to="path">
-            <Button class="py-0" :custom-style="buttonStyle">
-              <span class="inline-block align-middle text-xs">learn more</span>
-              <span class="inline-block align-middle">
-                <ArrowRightIcon
-                  class="ml-7 text-accent group-hover:text-white"
-                />
-              </span>
-            </Button>
-          </nuxt-link>
-        </div>
       </div>
-
-      <div
-        class="
-          text-base text-left
-          md:flex
-          flex-start flex flex-col
-          pl-10
-          max-w-xs
-        "
-      >
-        <Reward :reward="reward" size="small" class="mb-2" />
-        <span class="font-light text-xs max-w-xs pt-2">
-          By completing this challenge you can earn $100 in sUSC
-        </span>
+      <div>
+        <nuxt-link :to="path">
+          <Button class="py-2 leading-tight px-5" :custom-style="buttonStyle">
+            <span class="inline-block align-middle text-sm">Start now</span>
+            <span class="inline-block align-middle">
+              <ArrowRightIcon class="ml-7 text-accent group-hover:text-white" />
+            </span>
+          </Button>
+        </nuxt-link>
       </div>
-      <!-- <Button @click="debug" /> -->
     </div>
-  </nuxt-link>
+
+    <div
+      class="
+        text-base text-left
+        md:flex
+        flex-start flex flex-col
+        space-y-4
+        pl-7
+        max-w-xs
+      "
+    >
+      <Reward :reward="reward" size="small" />
+      <div class="font-light text-sm max-w-xs pb-2 text-gray-700">
+        By completing this challenge you can earn $100 in sUSC
+      </div>
+    </div>
+    <!-- <Button @click="debug" /> -->
+  </div>
 </template>
 
 <script>
