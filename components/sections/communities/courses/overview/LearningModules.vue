@@ -19,11 +19,11 @@
           p-5
           bg-gray-50
           rounded-3xl
-          flex flex-col
           w-2/5
-          border-solid border-2 border-gray-200
+          border-solid border-2 border-gray-100
         "
       >
+        <!-- 
         <h4 class="font-medium inline-block text-xl">
           {{ learningModule.title }}
         </h4>
@@ -32,13 +32,13 @@
           class="text-xxs mt-4 px-2 mb-2 bg-gray-200 rounded-3xl max-w-max"
           >{{ duration(learningModule.duration) }}</span
         >
-        <!-- <Button @click="debug" /> -->
         <span
           v-if="learningModule.description"
           class="text-sm mt-4 px-2 mb-2 rounded-3xl max-w-max"
           >{{ learningModule.description }}</span
         >
-        <!-- <ObjectiveList :objectives="learningModule.objectives" /> -->
+      </div> -->
+        <LearningModules :learning-module="learningModule" />
       </div>
     </div>
   </Section>
@@ -47,14 +47,14 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Section from '@/components/sections/communities/_partials/Section.vue'
-// import ObjectiveList from '@/components/list/Objectives'
 import DateManager from '@/utilities/DateManager'
+import LearningModules from '@/components/cards/Learning.vue'
 
 export default {
   name: 'LearningModuleSection',
   components: {
     Section,
-    // ObjectiveList,
+    LearningModules,
   },
   computed: {
     ...mapGetters({

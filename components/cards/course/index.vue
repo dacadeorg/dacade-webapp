@@ -33,16 +33,19 @@
             font-medium
           "
         >
-          Beginer
+          Beginner
         </div>
         <div class="text-sm mt-3 pb-2 max-w-xxs">
           {{ course.challenge.description }}
+          {{ reward.amount }}
         </div>
       </div>
       <div>
         <nuxt-link :to="path">
           <Button class="py-2 leading-tight px-5" :custom-style="buttonStyle">
-            <span class="inline-block align-middle text-sm">Start now</span>
+            <span class="inline-block align-middle text-sm">{{
+              $t('course.challenge.button')
+            }}</span>
             <span class="inline-block align-middle">
               <ArrowRightIcon class="ml-7 text-accent group-hover:text-white" />
             </span>
@@ -63,10 +66,11 @@
     >
       <Reward :reward="reward" size="small" />
       <div class="font-light text-sm max-w-xs pb-2 text-gray-700">
-        By completing this challenge you can earn $100 in sUSC
+        {{ $t('course.challenge.description-1') }}
+        {{ reward.amount }}
+        {{ $t('course.challenge.description-2') }}
       </div>
     </div>
-    <!-- <Button @click="debug" /> -->
   </div>
 </template>
 
@@ -75,7 +79,6 @@ import { mapGetters } from 'vuex'
 import Reward from '@/components/cards/course/_partials/Reward.vue'
 import Button from '@/components/ui/Button'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
-
 export default {
   name: 'CourseCard',
   components: {
