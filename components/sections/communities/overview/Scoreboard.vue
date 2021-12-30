@@ -15,7 +15,7 @@
       "
     >
       <ScoreboardCard
-        v-for="(item, i) in list"
+        v-for="(item, i) in list.slice(0, 3)"
         :key="i"
         :index="i + 1"
         :value="item"
