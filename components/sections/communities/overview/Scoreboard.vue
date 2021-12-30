@@ -20,6 +20,13 @@
         :index="i + 1"
         :value="item"
       />
+
+      <ScoreboardCardEmpty
+        v-for="(item, i) in list.slice(0, 1)"
+        :key="i"
+        :index="i + 1"
+        :value="item"
+      />
     </div>
   </SectionWrapper>
 </template>
@@ -27,12 +34,14 @@
 import { mapGetters } from 'vuex'
 import SectionWrapper from './_partials/SectionWrapper'
 import ScoreboardCard from '@/components/cards/Scoreboard'
+import ScoreboardCardEmpty from '@/components/cards/ScoreboardEmpty'
 
 export default {
   name: 'ScoreboardOverview',
   components: {
     ScoreboardCard,
     SectionWrapper,
+    ScoreboardCardEmpty,
   },
   computed: {
     ...mapGetters({
