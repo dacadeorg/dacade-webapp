@@ -42,18 +42,10 @@
         lg:relative lg:p-6
         md:py-0
         lg:justify-center
-        <<<<<<<
-        HEAD
         -right-1
         -top-1
         lg:top-0 lg:right-0 lg:items-center
-        =======
-        top-0
-        lg:right-0
-        right-1
         items-center
-        >>>>>>>
-        d7993fc3b8c8091f01f6b6c3dc72302149192616
       "
       @click="acceptCookiePolicy"
     >
