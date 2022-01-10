@@ -89,7 +89,7 @@ export default {
   },
   methods: {
     loadMore() {
-      this.items = this.items + 3
+      this.items = this.items + 10
     },
   },
 }
