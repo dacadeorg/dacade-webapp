@@ -40,7 +40,9 @@
             </div>
             <div class="text-sm md">
               {{ $t('feedback.bounty') }}
-              <span v-if="!submission.reviewable" class="font-medium"
+              <span
+                v-if="submission.metadata && submission.metadata.evaluation"
+                class="font-medium"
                 >{{ $t('feedback.issued') }}
               </span>
               <span v-else class="font-medium">~ {{ deadline }}</span>
