@@ -11,7 +11,7 @@
     :disabled="disabled"
     type="submit"
     :class="{
-      'disabled:bg-gray-400 disabled:text-white':
+      'disabled:bg-gray-100 disabled:text-gray-400':
         type == 'primary' || type == 'secondary',
       'disabled:border-gray-400 disabled:text-gray-400 disabled:bg-transparent':
         type.includes('outline'),
@@ -31,7 +31,7 @@
     }"
     :padding="[padding]"
     :margin="[margin]"
-    :style="customStyle"
+    :style="!disabled ? customStyle : null"
     v-on="inputListeners"
   >
     <slot />

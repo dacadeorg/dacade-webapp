@@ -111,8 +111,8 @@
           </div>
           <div class="flex text-right self-start">
             <Button
-              type="submit"
-              :disabled="submitting"
+              type="primary"
+              :disabled="disabled"
               :custom-style="activeButtonStyle"
             >
               <!-- @click="submit" -->
@@ -155,6 +155,7 @@ export default {
     Spinner,
     Avatar,
   },
+
   data() {
     return {
       form: {
@@ -164,6 +165,7 @@ export default {
       text: '',
       githubLink: '',
       submitting: false,
+      checkedterms: false,
     }
   },
   computed: {
@@ -183,6 +185,9 @@ export default {
         color: this.colors.text,
         backgroundColor: this.colors.textAccent,
       }
+    },
+    disabled() {
+      return this.submitting || !this.checkedterms
     },
   },
   methods: {
