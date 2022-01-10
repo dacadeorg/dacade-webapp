@@ -61,13 +61,7 @@
           rounded-full
           lg:border-solid lg:border lg:border-white
           hover:bg-blue-700
-          <<<<<<<
-          HEAD
-          bg-primary
-          =======
           bg-transparent
-          >>>>>>>
-          d7993fc3b8c8091f01f6b6c3dc72302149192616
           cursor-pointer
           place-content-center
         "
