@@ -39,10 +39,6 @@ export default {
       },
       type: Object,
     },
-    size: {
-      required: true,
-      type: String,
-    },
   },
 }
 </script>

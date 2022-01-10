@@ -22,10 +22,6 @@ export default {
     Section,
     Reward,
   },
-  size: {
-    required: true,
-    type: String,
-  },
   computed: {
     ...mapGetters({
       course: 'communities/courses/current',

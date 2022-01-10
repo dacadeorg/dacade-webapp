@@ -1,8 +1,7 @@
 <template>
   <SectionWrapper
-    :title="$t('communities.navigation.courses')"
-    description=" here you can see the courses available and bla bla bla so on and so
-        forth"
+    :title="$t('communities.overview.courses.title')"
+    :description="$t('communities.overview.courses.description')"
   >
     <CourseCard
       v-for="course in courses"

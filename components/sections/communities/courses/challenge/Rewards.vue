@@ -23,7 +23,6 @@
 <script>
 import { mapGetters } from 'vuex'
 import Section from '@/components/sections/communities/_partials/Section.vue'
-// import Reward from '@/components/ui/Reward'
 import Reward from '@/components/cards/challenge/_partials/Reward'
 
 export default {
@@ -31,10 +30,6 @@ export default {
   components: {
     Section,
     Reward,
-  },
-  size: {
-    required: true,
-    type: String,
   },
   computed: {
     ...mapGetters({

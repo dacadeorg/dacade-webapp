@@ -1,8 +1,7 @@
 <template>
   <SectionWrapper
-    :title="$t('communities.navigation.scoreboard')"
-    description=" here you can see the courses available and bla bla bla so on and so
-        forth"
+    :title="$t('communities.overview.scoreboard.title')"
+    :description="$t('communities.overview.scoreboard.description')"
   >
     <div
       class="
