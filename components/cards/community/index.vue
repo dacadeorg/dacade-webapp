@@ -64,7 +64,7 @@
           >
             <div v-if="reward" class="text-sm">
               <Reward :reward="reward" />
-              <div />
+              <!-- <div /> -->
             </div>
           </div>
         </div>

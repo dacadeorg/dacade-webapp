@@ -10,7 +10,7 @@
       "
     >
       <Header />
-      <Rewards />
+      <Rewards size="medium" />
       <RatingRubric :rating-criteria="challenge.ratingCriteria" />
       <BestSubmissions />
       <div v-if="isAuthenticated">

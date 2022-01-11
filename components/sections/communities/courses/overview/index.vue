@@ -12,10 +12,8 @@
       <RewardsSection />
       <ObjectivesSection />
       <PrerequisiteSection />
+      <DisclaimerSection />
       <TrailerSection />
-      <div class="border-none!">
-        <DisclaimerSection />
-      </div>
       <LearningModulesSection />
       <ChallengeSection />
       <PageNavigation />
