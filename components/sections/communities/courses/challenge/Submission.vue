@@ -91,23 +91,42 @@
             </div>
           </div>
         </div>
-        <div class="text-right">
-          <Button
-            type="submit"
-            :disabled="submitting"
-            :custom-style="activeButtonStyle"
-          >
-            <!-- @click="submit" -->
-            <span class="flex text-left items-center text-sm w-32 h-6">
-              {{ $t('submit') }}
-              <span v-if="submitting === false" class="ml-16 w-3"
-                ><ArrowRightIcon
-              /></span>
-              <span v-else class="text-white ml-16">
-                <Spinner class="animate-spin" />
+        <div class="flex justify-between">
+          <div class="flex ml-13 flex-col self-center">
+            <div class="flex flex-row max-w-xm space-x-3">
+              <input
+                id="agree3"
+                v-model="checkedterms"
+                class="w-5 h-5"
+                name="agree"
+                required
+                size="small"
+                type="checkbox"
+                target="_blank"
+              />
+              <span class="max-w-none test text-sm">
+                The link to demo of the Dapp is in the readme of the repository.
               </span>
-            </span>
-          </Button>
+            </div>
+          </div>
+          <div class="flex text-right self-start">
+            <Button
+              type="primary"
+              :disabled="disabled"
+              :custom-style="activeButtonStyle"
+            >
+              <!-- @click="submit" -->
+              <span class="flex text-left items-center text-sm w-32 h-6">
+                {{ $t('submit') }}
+                <span v-if="submitting === false" class="ml-16 w-3"
+                  ><ArrowRightIcon
+                /></span>
+                <span v-else class="text-white ml-16">
+                  <Spinner class="animate-spin" />
+                </span>
+              </span>
+            </Button>
+          </div>
         </div>
       </form>
     </ValidationObserver>
@@ -136,6 +155,7 @@ export default {
     Spinner,
     Avatar,
   },
+
   data() {
     return {
       form: {
@@ -145,6 +165,7 @@ export default {
       text: '',
       githubLink: '',
       submitting: false,
+      checkedterms: false,
     }
   },
   computed: {
@@ -164,6 +185,9 @@ export default {
         color: this.colors.text,
         backgroundColor: this.colors.textAccent,
       }
+    },
+    disabled() {
+      return this.submitting || !this.checkedterms
     },
   },
   methods: {
