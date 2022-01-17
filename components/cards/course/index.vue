@@ -15,7 +15,7 @@
       border-solid border border-gray-200
     "
   >
-    <div class="flex flex-col pr-20 justify-between">
+    <div class="flex flex-col pr-20 justify-between w-2/3">
       <div class="flex flex-col">
         <div class="text-lg font-medium leading-normal">
           {{ course.name }}
@@ -61,7 +61,8 @@
         flex-start flex flex-col
         space-y-4
         pl-7
-        max-w-xs
+        pb-10
+        w-1/3
       "
     >
       <Reward :reward="reward" size="small" />
