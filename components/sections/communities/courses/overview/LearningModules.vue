@@ -13,10 +13,13 @@
         v-for="(learningModule, i) in course.learningModules"
         :key="i"
         class="
-          mt-4
-          md:mt-4
+          mt-2
+          md:mt-2
           mx-2
-          p-5
+          mb-4
+          px-5
+          pt-5
+          pb-12
           bg-gray-50
           rounded-3xl
           w-2/5
