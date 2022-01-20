@@ -1,17 +1,28 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col h-36 overflow-hidden">
     <h4 class="font-medium inline-block text-xl">
       {{ learningModule.title }}
     </h4>
     <span
       v-if="learningModule.duration"
-      class="text-xxs mt-4 px-2 mb-2 bg-gray-200 rounded-3xl max-w-max"
+      class="
+        text-xxs
+        mt-4
+        uppercase
+        px-2
+        mb-2
+        bg-gray-200
+        rounded-3xl
+        max-w-max max-h-56
+      "
       >{{ duration(learningModule.duration) }}</span
     >
     <span
       v-if="learningModule.description"
-      class="text-sm mt-4 px-2 mb-2 rounded-3xl max-w-max"
-      >{{ learningModule.description }}</span
+      class="text-sm mt-4 px-2 mb-12 rounded-3xl max-w-max"
+      ><p class="text-clip">
+        {{ learningModule.description }}
+      </p></span
     >
   </div>
 </template>

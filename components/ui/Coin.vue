@@ -51,7 +51,7 @@ export default {
       type: String,
     },
     size: {
-      default: 'small',
+      default: 'medium',
       type: String,
     },
     shape: {

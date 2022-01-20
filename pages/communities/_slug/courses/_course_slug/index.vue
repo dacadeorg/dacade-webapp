@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <FAQCard />
+    <!-- <FAQCard /> -->
     <Wrapper>
       <OverviewSection />
     </Wrapper>
@@ -10,13 +10,13 @@
 import { mapGetters } from 'vuex'
 import OverviewSection from '@/components/sections/communities/courses/overview'
 import Wrapper from '@/components/sections/communities/courses/Wrapper'
-import FAQCard from '@/components/cards/Faq'
+// import FAQCard from '@/components/cards/Faq'
 
 export default {
   components: {
     OverviewSection,
     Wrapper,
-    FAQCard,
+    // FAQCard,
   },
   layout: 'community',
   scrollToTop: true,

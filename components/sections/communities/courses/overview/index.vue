@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <DescriptionSection />
+    <!-- <DescriptionSection /> -->
     <div
       class="
         divide-y divide-solid divide-gray-200
@@ -29,7 +29,7 @@ import TrailerSection from './Trailer'
 import LearningModulesSection from './LearningModules'
 import ChallengeSection from './Challenge'
 import DisclaimerSection from './Disclaimer'
-import DescriptionSection from './Description'
+// import DescriptionSection from './Description'
 import PrerequisiteSection from './Prerequisite'
 
 export default {
@@ -40,7 +40,7 @@ export default {
     TrailerSection,
     LearningModulesSection,
     ChallengeSection,
-    DescriptionSection,
+    // DescriptionSection,
     PageNavigation,
     PrerequisiteSection,
     DisclaimerSection,
