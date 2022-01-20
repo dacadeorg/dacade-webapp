@@ -37,7 +37,7 @@
       >
         <Button
           class="py-2 leading-tight px-5"
-          :custom-style="buttonStyle"
+          :community-styles="true"
           @click="loadMore"
         >
           <span class="inline-block align-middle text-sm">{{
@@ -77,14 +77,6 @@ export default {
       list: 'communities/scoreboard/list',
       colors: 'ui/colors',
     }),
-    buttonStyle() {
-      return {
-        color: this.colors.textAccent,
-        borderColor: this.colors.textAccent,
-        border: '1px solid',
-        backgroundColor: 'transparent',
-      }
-    },
   },
   methods: {
     loadMore() {

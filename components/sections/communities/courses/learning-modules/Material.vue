@@ -45,8 +45,8 @@
     >
       <Button
         :padding="false"
-        class="action-button py-2 px-5"
-        :custom-style="outlineButtonStyles"
+        class="py-2 px-5"
+        :community-styles="true"
         type="outline-primary"
       >
         <span class="flex text-left items-center text-sm pr-6">
@@ -95,15 +95,6 @@ export default {
     }),
     isAdditional() {
       return this.material.type === 'ADDITIONAL'
-    },
-    outlineButtonStyles() {
-      return {
-        borderColor: this.colors.textAccent,
-        color: this.colors.textAccent,
-        '--button-color--hover': this.colors.text,
-        '--button-background-color--hover': this.colors.textAccent,
-        '--button-border-color--hover': this.colors.textAccent,
-      }
     },
     materialId() {
       if (!this.material.title || this.isAdditional) return
