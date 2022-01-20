@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.8](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.7...v2.6.8) (2022-01-20)
+
+
+### Features
+
+* add proper username validation ([84fd545](https://gitlab.com/u2467/dacade/dacade/commit/84fd545e21a73e02a11f209953b5def618a97320))
+
+
+### Bug Fixes
+
+* feedback rewards issued logic ([28cb914](https://gitlab.com/u2467/dacade/dacade/commit/28cb914c339b54d910cb1e92a70094fcce997a7c))
+* fix the private policy popup on mobile ([834fa71](https://gitlab.com/u2467/dacade/dacade/commit/834fa71488543b012f16a3abee8f9f8ef85bbad4))
+* remove conflict with develop branch ([a828571](https://gitlab.com/u2467/dacade/dacade/commit/a828571412abbf6215f1041ebcdb287c8178d135))
+* remove conflicts ([5dda211](https://gitlab.com/u2467/dacade/dacade/commit/5dda211543518997d26ae61be7b1cc10067d3e2c))
+* remove conflicts ([5dfb817](https://gitlab.com/u2467/dacade/dacade/commit/5dfb817763b8e6d8b650bfa0156ab29ab356c04c))
+
 ### [2.6.7](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.6...v2.6.7) (2021-12-13)
 
 
