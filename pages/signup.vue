@@ -55,8 +55,8 @@
             <ValidationProvider
               v-slot="{ errors }"
               name="username"
-              rules="required|min:4"
-              mode="passive"
+              rules="required|min:3|username"
+              mode="aggressive"
             >
               <Input
                 id="input-2"
