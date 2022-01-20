@@ -1,11 +1,20 @@
 /* eslint-disable camelcase */
 import Vue from 'vue'
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate'
-import { required, email, min, between } from 'vee-validate/dist/rules'
+import { required, email, min, between, regex } from 'vee-validate/dist/rules'
 
 extend('required', {
   ...required,
   message: 'This field is required',
+})
+
+extend('username', {
+  ...regex,
+  validate(value) {
+    return regex.validate(value, {
+      regex: /^[a-zA-Z0-9]([._](?![._])|[a-zA-Z0-9]){1,20}[a-zA-Z0-9]$/,
+    })
+  },
 })
 
 extend('email', {

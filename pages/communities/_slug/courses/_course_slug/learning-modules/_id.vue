@@ -1,6 +1,7 @@
 <template>
   <Wrapper>
     <div
+      v-scroll-spy="{ offset: -300 }"
       class="
         py-8
         flex flex-col
