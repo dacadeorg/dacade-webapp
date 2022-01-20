@@ -1,7 +1,7 @@
 <template>
   <Section>
-    <div class="flex flex-wrap">
-      <div class="mt-0 md:mt-4 mr-4 flex w-2/5 flex-col">
+    <div class="md:grid grid-cols-2 gap-5 flex-wrap">
+      <div class="mt-0 md:pt-4 mr-4 flex w-full flex-col">
         <h4 class="pl-2 font-medium inline-block text-.5xl">
           {{ $t('communities.overview.learning-modules') }}
         </h4>
@@ -9,25 +9,11 @@
           $t('communities.overview.learning-modules-description')
         }}</span>
       </div>
-      <div
+      <LearningModuleCard
         v-for="(learningModule, i) in course.learningModules"
         :key="i"
-        class="
-          mt-2
-          md:mt-2
-          mx-2
-          mb-4
-          px-5
-          pt-5
-          pb-12
-          bg-gray-50
-          rounded-3xl
-          w-2/5
-          border-solid border-2 border-gray-100
-        "
-      >
-        <LearningModules :learning-module="learningModule" />
-      </div>
+        :learning-module="learningModule"
+      />
     </div>
   </Section>
 </template>
@@ -36,13 +22,13 @@
 import { mapGetters } from 'vuex'
 import Section from '@/components/sections/communities/_partials/Section.vue'
 import DateManager from '@/utilities/DateManager'
-import LearningModules from '@/components/cards/Learning.vue'
+import LearningModuleCard from '@/components/cards/Learning.vue'
 
 export default {
   name: 'LearningModuleSection',
   components: {
     Section,
-    LearningModules,
+    LearningModuleCard,
   },
   computed: {
     ...mapGetters({
