@@ -71,6 +71,7 @@ export default {
     // '~/plugins/highlight',
     { src: '~/plugins/vClickOutside.js', ssr: false },
     { src: '~/plugins/persistedState.client.js', ssr: false },
+    { src: '~/plugins/vue2scrollspy.js', ssr: false },
     '~/plugins/navigation.js',
   ],
   router: {

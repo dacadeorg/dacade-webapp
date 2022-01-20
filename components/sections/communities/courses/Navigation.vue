@@ -36,6 +36,8 @@
                 item.subitems.length &&
                 $route.path === item.link
               "
+              v-scroll-spy-active
+              v-scroll-spy-link
             >
               <li
                 v-for="(subitem, j) in item.subitems"
@@ -45,8 +47,13 @@
               >
                 <nuxt-link
                   :to="{ path: item.link, hash: subitem.link }"
-                  class="relative text-gray-500 opacity-50 hover:opacity-100"
-                  :class="{ 'activable-link': !subitem.exact }"
+                  class="
+                    relative
+                    text-gray-500
+                    opacity-50
+                    hover:opacity-100
+                    scroll-spy-link
+                  "
                 >
                   <span class="nav-label">{{ $t(subitem.label) }}</span>
                 </nuxt-link>
@@ -94,8 +101,9 @@ export default {
 .nuxt-link-active + ul {
   display: block;
 }
-.nuxt-link-exact-active,
-.activable-link.nuxt-link-active {
+a:not(.scroll-spy-link).nuxt-link-exact-active,
+a:not(.scroll-spy-link).activable-link.nuxt-link-active,
+li.active a {
   color: inherit !important;
   opacity: 1;
 }
