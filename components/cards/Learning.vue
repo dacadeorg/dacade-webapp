@@ -14,6 +14,9 @@
         bg-gray-200
         rounded-3xl
         max-w-max max-h-56
+        tracking-wider
+        font-medium
+        text-gray-500
       "
       >{{ duration(learningModule.duration) }}</span
     >
