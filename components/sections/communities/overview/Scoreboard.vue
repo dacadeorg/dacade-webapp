@@ -38,6 +38,7 @@
         <Button
           class="py-2 leading-tight px-5"
           :community-styles="true"
+          type="outline-primary"
           @click="loadMore"
         >
           <span class="inline-block align-middle text-sm">{{
