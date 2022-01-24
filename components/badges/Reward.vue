@@ -19,7 +19,7 @@
       'bg-gray-200 text-gray-500': type == 'gray',
     }"
   >
-    <Coin :v-if="token" :token="token" :size="size" />
+    <Coin :v-if="token" :token="token" size="small" />
     <div :v-if="amount" class="font-medium pl-0 pr-2">
       {{ amount }}{{ token }}
     </div>
@@ -41,10 +41,6 @@ export default {
     },
     type: {
       default: 'transparent',
-      type: String,
-    },
-    size: {
-      required: true,
       type: String,
     },
   },

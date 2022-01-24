@@ -9,9 +9,10 @@
     :bordered="!last"
     :badge="value.ranking"
   >
-    <p class="text-base md:text-lg max-w-screen-sm leading-normal relative">
-      {{ value.text }}
-    </p>
+    <div
+      class="text-base md:text-lg max-w-screen-sm leading-normal relative"
+      v-html="value.text"
+    />
     <div
       v-if="
         value.metadata &&
