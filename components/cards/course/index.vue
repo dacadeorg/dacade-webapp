@@ -27,13 +27,15 @@
             px-2.5
             py-0.5
             bg-gray-200
+            text-gray-500
             rounded-3xl
             max-w-max
+            tracking-wider
             uppercase
             font-medium
           "
         >
-          Beginner
+          {{ $t('course.challenge.level') }}
         </div>
         <div class="text-sm mt-3 pb-2 max-w-xxs">
           {{ course.challenge.description }}
@@ -52,7 +54,7 @@
               $t('course.challenge.button')
             }}</span>
             <span class="inline-block align-middle">
-              <ArrowRightIcon class="ml-7 text-accent group-hover:text-white" />
+              <ArrowRightIcon class="ml-7 text-accent hover:text-white" />
             </span>
           </Button>
         </nuxt-link>
@@ -68,6 +70,7 @@
         pl-7
         pb-10
         w-1/3
+        tracking-wider
       "
     >
       <Reward :reward="reward" size="small" />

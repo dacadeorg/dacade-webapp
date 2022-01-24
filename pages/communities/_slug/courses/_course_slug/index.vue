@@ -1,24 +1,29 @@
 <template>
-  <div class="relative">
-    <!-- <FAQCard /> -->
-    <Wrapper>
+  <Wrapper>
+    <div
+      v-scroll-spy="{ offset: -300 }"
+      class="
+        py-8
+        flex flex-col
+        divide-y divide-solid divide-gray-200
+        space-y-8
+        text-gray-700
+      "
+    >
       <OverviewSection />
-    </Wrapper>
-  </div>
+    </div>
+  </Wrapper>
 </template>
 <script>
 import { mapGetters } from 'vuex'
 import OverviewSection from '@/components/sections/communities/courses/overview'
 import Wrapper from '@/components/sections/communities/courses/Wrapper'
-// import FAQCard from '@/components/cards/Faq'
 
 export default {
   components: {
     OverviewSection,
     Wrapper,
-    // FAQCard,
   },
-  layout: 'community',
   scrollToTop: true,
   fetch({ store, params, error }) {
     return Promise.all([
