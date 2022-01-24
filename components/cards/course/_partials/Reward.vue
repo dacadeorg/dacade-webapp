@@ -2,8 +2,10 @@
   <div
     class="text-base text-left md:flex flex-start flex flex-col space-y-4 pt-4"
   >
-    <div class="text-xxs px-1 font-semibold uppercase text-gray-500">
-      Reward
+    <div
+      class="text-xxs tracking-wider px-1 font-semibold uppercase text-gray-500"
+    >
+      {{ $t('course.challenge.reward') }}
     </div>
     <div class="font-normal text-5xl text-gray-900">${{ reward.amount }}</div>
     <div
@@ -26,6 +28,7 @@
           leading-none
           font-medium
           text-xxs text-gray-500
+          tracking-wider
         "
       >
         {{ reward.token }}

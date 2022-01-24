@@ -9,6 +9,7 @@
         text-gray-700
       "
     >
+      <Header />
       <RewardsSection />
       <ObjectivesSection />
       <PrerequisiteSection />
@@ -23,6 +24,7 @@
 <script>
 /* eslint-disable no-console */
 import PageNavigation from '../PageNavigation.vue'
+import Header from './Header'
 import RewardsSection from './Rewards'
 import ObjectivesSection from './Objectives'
 import TrailerSection from './Trailer'
@@ -37,6 +39,7 @@ export default {
   components: {
     ObjectivesSection,
     RewardsSection,
+    Header,
     TrailerSection,
     LearningModulesSection,
     ChallengeSection,
