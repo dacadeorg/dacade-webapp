@@ -62,8 +62,8 @@ export default {
       type: Object,
     },
     learningModule: {
-      default: '',
-      type: String,
+      default: () => ({}),
+      type: Object,
     },
   },
   computed: {

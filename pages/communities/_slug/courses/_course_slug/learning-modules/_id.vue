@@ -1,7 +1,6 @@
 <template>
   <Wrapper>
     <div
-      v-scroll-spy="{ offset: -300 }"
       class="
         py-8
         flex flex-col
@@ -11,12 +10,15 @@
       "
     >
       <Header />
-      <MaterialSection
-        v-for="(material, i) in materials"
-        :key="i"
-        :material="material"
-      />
-      <AdditionalMaterialsSection :materials="additionalMaterials" />
+      <div v-scroll-spy="{ offset: -300 }" class="w-full">
+        <MaterialSection
+          v-for="(material, i) in materials"
+          :key="i"
+          :material="material"
+        />
+        <AdditionalMaterialsSection :materials="additionalMaterials" />
+      </div>
+
       <PageNavigation />
     </div>
   </Wrapper>

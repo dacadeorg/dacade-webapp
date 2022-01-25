@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header
-      :title="community.name"
+      :title="course.name"
       :subtitle="$t('communities.challenge.title')"
       :description="challenge.description"
     />
@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      community: 'communities/current',
+      course: 'communities/courses/current',
       challenge: 'communities/challenges/current',
     }),
   },

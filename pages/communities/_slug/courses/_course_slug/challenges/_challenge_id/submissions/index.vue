@@ -2,7 +2,7 @@
   <Wrapper>
     <div class="py-4 flex flex-col space-y-8 text-gray-700">
       <Header
-        :title="community.name"
+        :title="course.name"
         :subtitle="$t('communities.submission.title')"
       />
       <List />
@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      community: 'communities/current',
+      course: 'communities/courses/current',
       submissions: 'communities/challenges/submissions/list',
     }),
   },

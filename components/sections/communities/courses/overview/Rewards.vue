@@ -6,7 +6,7 @@
   >
     <div class="grid grid-cols-2 lg:grid-cols-3 pt-4">
       <div v-for="(reward, i) in course.challenge.rewards" :key="i">
-        <Reward :reward="reward" :size="size" />
+        <Reward :reward="reward" />
       </div>
     </div>
   </Section>

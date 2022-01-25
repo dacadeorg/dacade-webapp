@@ -43,10 +43,6 @@ export default {
       default: 'transparent',
       type: String,
     },
-    size: {
-      required: true,
-      type: String,
-    },
   },
   computed: {
     token() {

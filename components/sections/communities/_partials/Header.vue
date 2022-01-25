@@ -1,8 +1,12 @@
 <template>
   <div>
     <h1
-      class="text-4xl md:text-5xl leading-none text-gray-400"
-      :class="hideTitleOnMobile ? 'hidden md:flex' : ''"
+      class="text-4xl md:text-5xl leading-none"
+      :class="{
+        'hidden md:flex': hideTitleOnMobile,
+        'text-gray-400': subtitle,
+        'text-gray-900': !subtitle,
+      }"
     >
       {{ title }}
     </h1>
