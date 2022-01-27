@@ -60,8 +60,12 @@ export default {
               exact: true,
             },
             {
-              label: 'Wallet',
-              link: '/profile/wallet',
+              label: 'Wallets',
+              link: '/profile/wallets',
+            },
+            {
+              label: 'Referrals',
+              link: '/profile/referrals',
             },
           ],
         },

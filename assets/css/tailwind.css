@@ -161,4 +161,20 @@ div {
 
 .pt-0\! {
   @apply pt-0 !important;
+} 
+
+.list li {
+line-height: 0.5rem;
+}
+
+.list li::before {
+  content: url('../icons/list.svg');
+  margin-left: -52px;
+}
+
+@media only screen and (max-width: 600px) {
+  .list li {
+    height: 44px;
+    line-height: 1rem;
+    }   
 }
