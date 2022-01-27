@@ -1,40 +1,51 @@
 <template>
-  <div
-    class="
-      bg-gray-50
-      text-sm text-gray-700
-      border-solid border border-gray-200
-      rounded-3xl
-      mb-5
-      md:mb-0
-    "
-  >
+  <div class="bg-gray-50 text-sm text-gray-700 mb-5 md:mb-0">
     <div class="flex p-7">
       <div class="">
-        <Avatar size="large" :user="user" />
+        <Avatar size="large" :user="referral.user" />
       </div>
       <div class="ml-5">
         <span class="text-lg leading-loose font-medium text-gray-900 pb-1">
-          {{ user.name }}
+          {{ referral.user.displayName }}
         </span>
-        <p>Joined 3 weeks ago</p>
+        <p>Joined {{ joinedAt }}</p>
         <div class="pt-1">
           <ul class="text-sm leading-loose font-light text-gray-700 pb-1 list">
-            <li>
-              <span class="ml-5">in a challenge in</span>
-              <span class="font-bold">Celo Community</span>
-              <span class="hidden md:inline-block">{{ timestamp.date }}</span>
+            <li v-if="referral.challenge && referral.community">
+              <span class="ml-5">Participated in a challenge in</span>
+              <span class="font-bold">{{ referral.community.name }}</span>
+              <span class="hidden md:inline-block">{{ participatedAt }}</span>
             </li>
 
-            <li>
+            <li
+              v-if="
+                referral.submission &&
+                referral.submission.metadata &&
+                referral.submission.metadata.evaluation
+              "
+            >
               <span class="ml-5">Submission evaluated</span>
-              <span class="font-bold">15/20</span> points
-              <span class="hidden md:inline-block">{{ timestamp.date }}</span>
+              <span class="font-bold"
+                >{{ referral.submission.metadata.evaluation.points }}/{{
+                  referral.submission.metadata.evaluation.totalPoints
+                }}</span
+              >
+              points
+              <span class="hidden md:inline-block">{{ rewardAt }}</span>
             </li>
-            <li>
+
+            <li
+              v-if="
+                referral.rewarded &&
+                referral.metadata &&
+                referral.metadata.reward
+              "
+            >
               <span class="ml-5">You earned the referral reward</span>
-              <span class="font-bold"> </span>
-              <span class="hidden md:inline-block">{{ timestamp.date }}</span>
+              <span class="font-bold"
+                ><Reward type="gray" :reward="referral.metadata.reward"
+              /></span>
+              <span class="hidden md:inline-block">{{ rewardAt }}</span>
             </li>
           </ul>
         </div>
@@ -44,31 +55,38 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import Reward from '@/components/badges/Reward'
 import Avatar from '@/components/ui/Avatar'
 import DateManager from '@/utilities/DateManager'
 export default {
   name: 'Referral',
   components: {
     Avatar,
+    Reward,
   },
-  data() {
-    return {
-      user: {
-        name: 'lorovani',
-        text: 'AEQuiz is a web æpp that engages the audience in a unique and fun way and connects them to the learning material. It also gives immediate results to participants...',
+  props: {
+    referral: {
+      default: () => {
+        return {}
       },
-      timestamp: {
-        date: '3 days ago',
-      },
-    }
+      type: Object,
+    },
   },
   computed: {
     ...mapGetters({
       colors: 'ui/colors',
       community: 'communities/current',
     }),
-    date() {
-      return DateManager.fromNow(this.timestamp.date)
+    joinedAt() {
+      return DateManager.fromNow(this.referral.user.created_at)
+    },
+    participatedAt() {
+      if (!this.referral.submission) return null
+      return DateManager.fromNow(this.referral.submission.created_at)
+    },
+    rewardAt() {
+      if (!this.referral.rewarded) return null
+      return DateManager.fromNow(this.referral.updated_at)
     },
   },
 }
