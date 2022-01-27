@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 text-sm text-gray-700 mb-5 md:mb-0">
+  <div class="bg-gray-50 text-sm text-gray-700 md:mb-0">
     <div class="flex p-7">
       <div class="">
         <Avatar size="large" :user="referral.user" />
