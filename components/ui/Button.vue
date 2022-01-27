@@ -11,7 +11,7 @@
     :disabled="disabled"
     type="submit"
     :class="{
-      'disabled:bg-gray-400 disabled:text-white':
+      'disabled:bg-gray-100 disabled:text-gray-400':
         type == 'primary' || type == 'secondary',
       'disabled:border-gray-400 disabled:text-gray-400 disabled:bg-transparent':
         type.includes('outline'),
@@ -28,10 +28,11 @@
         type == 'outline-gray',
       'bg-transparent text-primary': type == 'link',
       'rounded-full': rounded,
+      'community-button': communityStyles,
     }"
     :padding="[padding]"
     :margin="[margin]"
-    :style="customStyle"
+    :style="!disabled ? styles : null"
     v-on="inputListeners"
   >
     <slot />
@@ -39,6 +40,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'DAButton',
   props: {
@@ -82,8 +85,15 @@ export default {
       default: '_self',
       type: String,
     },
+    communityStyles: {
+      default: false,
+      type: Boolean,
+    },
   },
   computed: {
+    ...mapGetters({
+      colors: 'ui/colors',
+    }),
     inputListeners() {
       const vm = this
       // `Object.assign` merges objects together to form a new object
@@ -107,6 +117,29 @@ export default {
           },
         }
       )
+    },
+    styles() {
+      let communityStyles = {}
+      const isOutline = this.type && this.type.includes('outline')
+      if (
+        this.communityStyles &&
+        this.colors &&
+        Object.keys(this.colors).length
+      ) {
+        communityStyles = {
+          borderColor: this.colors.textAccent,
+          color: isOutline ? this.colors.textAccent : this.colors.text,
+          backgroundColor: isOutline ? 'transparent' : this.colors.textAccent,
+          '--button-color--hover': this.colors.text,
+          '--button-background-color--hover': this.colors.textAccent,
+          '--button-border-color--hover': this.colors.textAccent,
+        }
+      }
+
+      return {
+        ...communityStyles,
+        ...(this.customStyle || {}),
+      }
     },
   },
   methods: {

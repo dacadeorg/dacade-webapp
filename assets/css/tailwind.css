@@ -30,6 +30,7 @@ body,
 
 body {
   font-weight: 400;
+  font-family: 'Graphik', sans-serif;
 }
 
 .message-bubble {
@@ -97,7 +98,9 @@ button {
   }
 }
 .action-button:hover,
-.action-button:focus {
+.action-button:focus,
+.community-button:hover,
+.community-button:focus {
   color: var(--button-color--hover) !important;
   background-color: var(--button-background-color--hover) !important;
   border-color: var(--button-border-color--hover) !important;
@@ -148,15 +151,15 @@ div {
   }
 }
 
-.border-none\!{
+.border-none\! {
   @apply border-none !important;
 }
 
-.mt-0\!{
+.mt-0\! {
   @apply mt-0 !important;
 }
 
-.pt-0\!{
+.pt-0\! {
   @apply pt-0 !important;
 } 
 

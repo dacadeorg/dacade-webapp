@@ -1,8 +1,8 @@
 <template>
   <Section :title="$t('communities.overview.reward.title')">
-    <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="pt-8 grid grid-cols-1 md:grid-cols-2">
       <div v-for="(reward, i) in rewards" :key="i">
-        <Reward :reward="reward" />
+        <Reward :reward="reward" size="medium" />
       </div>
       <div class="mt-5 flex items-end pb-2">
         <p class="text-sm w-full">
@@ -23,7 +23,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import Section from '@/components/sections/communities/_partials/Section.vue'
-import Reward from '@/components/ui/Reward'
+import Reward from '@/components/cards/challenge/_partials/Reward'
 
 export default {
   name: 'OverviewRewards',

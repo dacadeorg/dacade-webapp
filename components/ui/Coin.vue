@@ -51,7 +51,7 @@ export default {
       type: String,
     },
     size: {
-      default: 'small',
+      default: 'medium',
       type: String,
     },
     shape: {
@@ -100,6 +100,8 @@ export default {
       switch (this.size) {
         case 'medium':
           return 'w-15 h-15 text-2xl p-2'
+        case 'normal':
+          return 'w-10 h-10 text-xl p-1'
         case 'small':
           return 'w-4 h-4 text-md p-0.5'
         default:

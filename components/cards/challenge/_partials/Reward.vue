@@ -4,7 +4,7 @@
       :v-if="reward == true && size == 'medium'"
       class="flex items-center rounded-full max-w-max"
     >
-      <Coin :token="reward.token" />
+      <Coin :token="reward.token" :size="size" />
       <div class="text-base lg:pl-2 lg:pr-3 md:px-2 max-w-max">
         <div class="flex">
           <span class="block font-medium text-md pr-1">{{
@@ -38,6 +38,10 @@ export default {
         return {}
       },
       type: Object,
+    },
+    size: {
+      required: true,
+      type: String,
     },
   },
 }

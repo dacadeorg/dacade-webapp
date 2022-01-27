@@ -4,7 +4,7 @@
     :title="$t('communities.overview.reward.title')"
     :subtitle="$t('communities.overview.reward.subtitle')"
   >
-    <div class="grid grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-2 lg:grid-cols-3 pt-4">
       <div v-for="(reward, i) in course.challenge.rewards" :key="i">
         <Reward :reward="reward" />
       </div>

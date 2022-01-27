@@ -1,12 +1,18 @@
 <template>
-  <Section :title="bestSubmission.title">
+  <Section
+    v-if="challenge.bestSubmissions && challenge.bestSubmissions.length"
+    :title="$t('communities.challenge.best-submissions.title')"
+  >
     <p class="leading-normal text-sm capitalize w-64 pt-3">
-      {{ bestSubmission.subtitle }}
+      {{ $t('communities.challenge.best-submissions.description') }}
     </p>
     <div class="text-xl md:text-.5xl px-0">
       <div class="md:grid grid-cols-2 gap-5 pt-7 flex-wrap">
-        <SubmissionCard />
-        <SubmissionCard />
+        <SubmissionCard
+          v-for="submission in challenge.bestSubmissions"
+          :key="submission.id"
+          :submission="submission"
+        />
       </div>
     </div>
   </Section>
@@ -21,27 +27,11 @@ export default {
     Section,
     SubmissionCard,
   },
-  data() {
-    return {
-      user: {
-        name: 'lorovani',
-        text: 'AEQuiz is a web æpp that engages the audience in a unique and fun way and connects them to the learning material. It also gives immediate results to participants...',
-      },
-      bestSubmission: {
-        title: 'Best submissions',
-        subtitle:
-          'Molestiae ad quibusdam illo amet odit est. Est minima aut eligendi explicabo dicta.',
-      },
-      timestamp: {
-        text: 'Submitted',
-        date: '3 days ago',
-      },
-    }
-  },
   computed: {
     ...mapGetters({
       colors: 'ui/colors',
       community: 'communities/current',
+      challenge: 'communities/challenges/current',
     }),
   },
 }

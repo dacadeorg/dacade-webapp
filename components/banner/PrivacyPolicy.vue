@@ -42,9 +42,9 @@
         lg:relative lg:p-6
         md:py-0
         lg:justify-center
-        top-0
-        lg:right-0
-        right-1
+        -right-1
+        -top-1
+        lg:top-0 lg:right-0 lg:items-center
         items-center
       "
       @click="acceptCookiePolicy"

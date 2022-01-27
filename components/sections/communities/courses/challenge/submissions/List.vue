@@ -77,10 +77,14 @@ export default {
       this.loading = true
       const submissionId =
         this.submissions[this.submissions.length - 1]?.id || null
-      const list = await this.$store.dispatch('communities/submissions/all', {
-        slug: this.community.slug,
-        startAfter: submissionId,
-      })
+      const list = await this.$store.dispatch(
+        'communities/challenges/submissions/all',
+        {
+          slug: this.community.slug,
+          startAfter: submissionId,
+          challengeId: this.$route.params.challenge_id,
+        }
+      )
       this.page = this.page + 1
       this.loading = false
 

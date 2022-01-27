@@ -1,5 +1,5 @@
 <template>
-  <ThemeWrapper :colors="community.colors">
+  <ThemeWrapper :colors="community.colors" class="w-full">
     <nuxt-link :to="{ path: path }">
       <div
         class="
@@ -14,26 +14,49 @@
         "
       >
         <ListIcon :community="community" />
-        <div class="flex-col justify-between flex p-3 md:p-7 text-gray-700">
+        <div
+          class="
+            flex-col
+            justify-between
+            flex
+            p-3
+            md:p-7
+            text-gray-700
+            flex-1
+            divide-y divide-dotted divide-gray-500
+          "
+        >
           <div class="w-full">
             <div class="xl:pr-52 w-full text-lg pb-10">
               {{ community.summary }}
             </div>
           </div>
-          <div class="divide-y divide-dotted divide-gray-500 space-y-5">
-            <div class="flex space-x-3">
-              <div v-for="(reward, i) in community.rewards" :key="i">
-                <Reward :reward="reward" />
-              </div>
-            </div>
+          <div class="space-y-5">
             <div class="hidden md:flex flex-row justify-between">
               <div class="text-base pt-7 text-left flex-start flex flex-col">
-                <span class="font-light">
-                  {{ $t('communities.card.estimated') }}
-                </span>
-                <span class="font-medium">
-                  {{ duration }} {{ $t('communities.card.minutes') }}
-                </span>
+                <div class="flex space-x-3">
+                  <div class="flex space-x-2">
+                    <Coin :token="reward.token" size="normal" />
+                    <div class="flex flex-col text-sm leading-tight pt-1">
+                      <div class="font-normal leading-tight">
+                        {{ $t('communities.list-card.earn') }}
+                        <span class="font-bold">{{ reward.token }}</span>
+                      </div>
+                      <div class="font-light leading-tight">
+                        {{
+                          $t(
+                            community.courses !== 1
+                              ? 'communities.card.courses'
+                              : 'communities.card.course',
+                            {
+                              count: community.courses,
+                            }
+                          )
+                        }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="mt-7 align-middle">
                 <nuxt-link :to="path">
@@ -74,7 +97,7 @@
   </ThemeWrapper>
 </template>
 <script>
-import Reward from '@/components/ui/Reward'
+import Coin from '@/components/ui/Coin'
 
 import ListIcon from '@/components/cards/community/_partials/ListIcon'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
@@ -84,7 +107,7 @@ import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
   name: 'CommunityListCard',
-  components: { Reward, ListIcon, ThemeWrapper, Button, ArrowRightIcon },
+  components: { Coin, ListIcon, ThemeWrapper, Button, ArrowRightIcon },
   props: {
     community: {
       default: () => {},
@@ -102,6 +125,9 @@ export default {
     },
     duration() {
       return DateManager.millisecondsToMinutes(this.community.duration)
+    },
+    reward() {
+      return this.community.rewards.find((r) => r.type === 'SUBMISSION')
     },
   },
 }

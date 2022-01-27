@@ -63,19 +63,27 @@
             "
           >
             <div v-if="reward" class="text-sm">
-              <Reward :reward="reward" />
-              <div />
+              <Reward :reward="{ token: reward.token, amount: null }" />
+              <!-- <div /> -->
             </div>
           </div>
         </div>
-        <div v-if="duration" class="mt-4 flex-none flex justify-between">
+        <div class="mt-4 flex-none flex justify-between">
           <div class="flex flex-col space-y-0">
-            <div class="mt-4 font-light text-theme-accent">
-              {{ $t('communities.card.estimated') }}
-            </div>
             <div class="mt-4 font-medium text-theme-accent">
-              {{ duration }}
-              {{ $t('communities.card.minutes') }}
+              {{ $t('communities.card.earn') }}
+            </div>
+            <div class="mt-4 font-light text-theme-accent">
+              {{
+                $t(
+                  community.courses !== 1
+                    ? 'communities.card.courses'
+                    : 'communities.card.course',
+                  {
+                    count: community.courses,
+                  }
+                )
+              }}
             </div>
           </div>
           <div class="mt-4 align-middle">
@@ -111,9 +119,9 @@
   </ThemeWrapper>
 </template>
 <script>
-import DateManager from '@/utilities/DateManager'
+import Reward from './_partials/Reward.vue'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
-import Reward from '@/components/badges/Reward'
+// import Reward from '@/components/badges/Reward'
 import Button from '@/components/ui/Button'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
@@ -141,9 +149,6 @@ export default {
     },
     reward() {
       return this.community.rewards.filter((r) => r.type === 'SUBMISSION')[0]
-    },
-    duration() {
-      return DateManager.millisecondsToMinutes(this.community.duration)
     },
   },
 }

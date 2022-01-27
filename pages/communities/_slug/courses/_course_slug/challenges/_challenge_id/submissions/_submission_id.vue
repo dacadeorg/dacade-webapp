@@ -2,7 +2,7 @@
   <Wrapper>
     <div class="py-4 flex flex-col space-y-8 text-gray-700">
       <Header
-        :title="community.name"
+        :title="course.name"
         :subtitle="$t('communities.submission.title')"
       />
       <div v-if="submission">
@@ -57,7 +57,7 @@ export default {
   computed: {
     ...mapGetters({
       communityData: 'content/communityData',
-      community: 'communities/current',
+      course: 'communities/courses/current',
       submission: 'communities/challenges/submissions/current',
     }),
   },
