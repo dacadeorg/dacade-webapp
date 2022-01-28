@@ -29,7 +29,7 @@
     </div>
     <div class="flex justify-between">
       <div class="w-full max-w-xs hidden lg:block">
-        <nuxt-link to="/communities">
+        <nuxt-link :to="localePath('/communities')">
           <Button :padding="false" class="pl-7.5">
             <span class="py-2 inline-block align-middle pr-5.75">{{
               $t('page.index.main.button')
@@ -68,7 +68,7 @@
     </div>
 
     <div class="lg:hidden pt-10">
-      <nuxt-link to="/communities">
+      <nuxt-link :to="localePath('/communities')">
         <Button :padding="false" class="pl-7.5">
           <span class="py-2 inline-block align-middle pr-5.75">{{
             $t('page.index.main.button')

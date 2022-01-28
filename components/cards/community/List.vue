@@ -1,6 +1,6 @@
 <template>
   <ThemeWrapper :colors="community.colors" class="w-full">
-    <nuxt-link :to="{ path: path }">
+    <nuxt-link :to="localePath({ path: path })">
       <div
         class="
           group
@@ -59,7 +59,7 @@
                 </div>
               </div>
               <div class="mt-7 align-middle">
-                <nuxt-link :to="path">
+                <nuxt-link :to="localePath(path)">
                   <Button
                     class="
                       group-hover:bg-primary

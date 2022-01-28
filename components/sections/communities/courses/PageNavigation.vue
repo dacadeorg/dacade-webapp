@@ -4,7 +4,7 @@
       class="text-center justify-center space-x-10 pt-3"
       :class="{ flex: prevUrl, 'w-full sm:flex': !prevUrl }"
     >
-      <nuxt-link v-if="prevUrl" :to="prevUrl">
+      <nuxt-link v-if="prevUrl" :to="localePath(prevUrl)">
         <Button class="w-full h-10 min-h-full" :custom-style="buttonStyle">
           <span class="w-full md:w-1/3 flex text-left items-center text-sm"
             ><span class="mr-3 w-3"
@@ -14,7 +14,7 @@
           </span>
         </Button>
       </nuxt-link>
-      <nuxt-link v-if="nextUrl" :to="nextUrl">
+      <nuxt-link v-if="nextUrl" :to="localePath(nextUrl)">
         <Button
           class="h-10 min-h-full"
           :class="{

@@ -1,6 +1,6 @@
 <template>
   <ThemeWrapper class="h-full" :colors="community.colors">
-    <nuxt-link class="block h-full" :to="path">
+    <nuxt-link class="block h-full" :to="localePath(path)">
       <div
         class="
           group
@@ -87,7 +87,7 @@
             </div>
           </div>
           <div class="mt-4 align-middle">
-            <nuxt-link :to="path">
+            <nuxt-link :to="localePath(path)">
               <Button
                 class="
                   group-hover:bg-theme-accent

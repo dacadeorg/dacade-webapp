@@ -58,6 +58,20 @@ export default class CommunityNavigation {
     )
   }
 
+  submissionsPath(
+    challengeId = this._params().challenge_id,
+    courseSlug = this._params().course_slug,
+    communitySlug = this._params().slug
+  ) {
+    return this._cleanupUrl(
+      this.challengePath(
+        `${challengeId}/submissions`,
+        courseSlug,
+        communitySlug
+      )
+    )
+  }
+
   learningModuleLinks(course) {
     const slugger = new Slugger()
     return course.learningModules?.map((learningModule, i) => ({

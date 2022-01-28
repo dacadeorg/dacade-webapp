@@ -9,7 +9,9 @@
       md:mb-0
     "
   >
-    <nuxt-link :to="$navigation.community.submissionPath(submission.id)">
+    <nuxt-link
+      :to="localePath($navigation.community.submissionPath(submission.id))"
+    >
       <div class="p-7">
         <span class="text-lg leading-loose font-medium text-gray-900 pb-1">
           {{ submission.user.displayName }}

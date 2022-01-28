@@ -45,7 +45,6 @@ export const actions = {
       commit('set', data)
       return data
     } catch (e) {
-      console.log('ikibazo', e)
       await dispatch('clear')
       return null
     }

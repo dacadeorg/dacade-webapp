@@ -50,7 +50,7 @@
               <div class="py-5 font-medium text-gray-900" @click="toggle">
                 <nuxt-link
                   class="font-medium text-lg text-gray-900"
-                  to="/bounties"
+                  :to="localePath('/bounties')"
                 >
                   {{ $t('nav.bounties') }}
                 </nuxt-link>
@@ -63,7 +63,7 @@
               <div class="py-5 font-medium text-gray-900" @click="toggle">
                 <nuxt-link
                   class="font-medium text-lg text-gray-900"
-                  to="/communities"
+                  :to="localePath('/communities')"
                 >
                   {{ $t('nav.communities') }}
                 </nuxt-link>
@@ -76,7 +76,7 @@
               <div class="py-5 font-medium text-gray-900" @click="toggle">
                 <nuxt-link
                   class="font-medium text-lg text-gray-900"
-                  to="/profile/wallet"
+                  :to="localePath('/profile/wallet')"
                 >
                   {{ $t('nav.wallet') }}
                 </nuxt-link>
@@ -87,7 +87,10 @@
               class="w-full px-3 py-3 text-left flex justify-between"
             >
               <div @click="toggle">
-                <nuxt-link class="flex text-sm leading-normal" to="/profile">
+                <nuxt-link
+                  class="flex text-sm leading-normal"
+                  :to="localePath('/profile')"
+                >
                   <Avatar class="p-3 w-10 h-10" :user="user" />
                   <div class="py-2 px-2">
                     <span
@@ -144,14 +147,18 @@
               class="w-full p-3 text-sm font-medium"
               @click="toggle"
             >
-              <nuxt-link class="w-full" to="/login"> Login </nuxt-link>
+              <nuxt-link class="w-full" :to="localePath('/login')">
+                Login
+              </nuxt-link>
             </Button>
             <Button
               :padding="false"
               class="w-full p-3 text-sm font-medium"
               @click="toggle"
             >
-              <nuxt-link lass="w-full" to="/signup"> Sign up </nuxt-link>
+              <nuxt-link lass="w-full" :to="localePath('/signup')">
+                Sign up
+              </nuxt-link>
             </Button>
 
             <!-- <ReputationList /> -->

@@ -14,7 +14,7 @@
             class="text-sm mt-4 relative text-primary"
           >
             <nuxt-link
-              :to="item.link"
+              :to="localePath(item.link)"
               class="relative text-gray-500"
               :class="{ 'activable-link': !item.exact }"
             >

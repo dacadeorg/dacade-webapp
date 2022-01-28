@@ -1,6 +1,6 @@
 <template>
   <li :class="`nav-${type}`">
-    <nuxt-link :to="to">
+    <nuxt-link :to="localePath(to)">
       <slot />
     </nuxt-link>
   </li>
