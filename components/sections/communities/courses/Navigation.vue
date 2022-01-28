@@ -15,7 +15,7 @@
           >
             <span class="relative block" :style="activeLinkStyle">
               <nuxt-link
-                :to="item.link"
+                :to="localePath(item.link)"
                 class="relative text-gray-500"
                 :class="{ 'activable-link': !item.exact }"
               >
@@ -46,7 +46,7 @@
                 :style="activeLinkStyle"
               >
                 <nuxt-link
-                  :to="{ path: item.link, hash: subitem.link }"
+                  :to="localePath({ path: item.link, hash: subitem.link })"
                   class="
                     relative
                     text-gray-500

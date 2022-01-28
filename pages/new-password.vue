@@ -122,7 +122,7 @@ export default {
       this.$store
         .dispatch('auth/passwordResetRequest', data)
         .then(() => {
-          this.$router.push('/login')
+          this.$router.push(this.localePath('/login'))
         })
         .catch(() => {
           this.loading = false

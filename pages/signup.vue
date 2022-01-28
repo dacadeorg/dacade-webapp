@@ -125,9 +125,11 @@
                 />
                 <span class="max-w-none test">
                   I agree to {{ $t('app.name') }}'s
-                  <nuxt-link class="underline" to="/terms-conditions">{{
-                    $t('signup-page.terms')
-                  }}</nuxt-link>
+                  <nuxt-link
+                    class="underline"
+                    :to="localePath('/terms-conditions')"
+                    >{{ $t('signup-page.terms') }}</nuxt-link
+                  >
                 </span>
                 <span v-if="warningterms" class="form-text-red"
                   >{{ $t('signup-page.terms.warning') }}
@@ -232,7 +234,7 @@ export default {
         })
     },
     goToLogin() {
-      this.$router.push('/login')
+      this.$router.push(this.localePath('/login'))
     },
   },
 }

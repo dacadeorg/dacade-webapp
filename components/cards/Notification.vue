@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="details.link">
+  <nuxt-link :to="localePath(details.link)">
     <div
       :class="extended ? 'rounded-3xl' : ''"
       class="flex hover:bg-gray-50 py-4 -mx-5 px-5"

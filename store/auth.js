@@ -76,7 +76,7 @@ export const actions = {
   async logout() {
     await signOut(firebaseAuth)
     this.dispatch('user/clear')
-    this.$router.push('/communities')
+    this.$router.push(this.localePath('/communities'))
   },
   createVerificationRequest({ dispatch }, payload) {
     return new Promise((resolve, reject) => {

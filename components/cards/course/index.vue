@@ -43,7 +43,7 @@
         </div>
       </div>
       <div>
-        <nuxt-link :to="path">
+        <nuxt-link :to="localePath(path)">
           <Button
             :padding="false"
             class="py-2 px-5"

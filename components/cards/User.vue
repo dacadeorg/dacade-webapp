@@ -1,6 +1,6 @@
 <template>
   <div class="group bg-gradient-to-trw-full pl-5 md:pl-7.5 relative">
-    <nuxt-link :to="link">
+    <nuxt-link :to="localePath(link)">
       <div class="absolute top-0 left-0 z-10">
         <Avatar :user="user" size="medium" />
         <Badge

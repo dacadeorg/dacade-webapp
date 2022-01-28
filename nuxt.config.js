@@ -142,7 +142,16 @@ export default {
     configPath: 'tailwind.config.js',
   },
   i18n: {
-    locales: ['en', 'es'],
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+      },
+      {
+        code: 'es',
+        name: 'Español',
+      },
+    ],
     defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en',

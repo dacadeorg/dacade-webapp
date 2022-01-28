@@ -13,7 +13,9 @@
     "
   >
     <nuxt-link
-      :to="$navigation.community.learningModulePath(learningModule.id)"
+      :to="
+        localePath($navigation.community.learningModulePath(learningModule.id))
+      "
     >
       <div class="flex flex-col">
         <div class="w-full">

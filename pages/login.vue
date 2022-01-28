@@ -123,7 +123,7 @@ export default {
         })
     },
     goToSignup() {
-      this.$router.push('/signup')
+      this.$router.push(this.localePath('/signup'))
     },
   },
 }
