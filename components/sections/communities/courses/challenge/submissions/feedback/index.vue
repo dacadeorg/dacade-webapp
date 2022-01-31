@@ -6,7 +6,7 @@
       :value="feedback"
       :last="k === feedbacks.length - 1"
     />
-    <Section v-if="isAuthenticated">
+    <Section v-if="isAuthenticated && submission.challenge.feedbackInfo">
       <Criteria />
       <Form @save="fetchList()" />
     </Section>

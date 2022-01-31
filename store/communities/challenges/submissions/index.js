@@ -20,6 +20,12 @@ export const actions = {
     const { data } = await this.$api.get(`submissions/${id}`)
     commit('setCurrent', data)
   },
+  show({ commit, state }, id) {
+    if (!state.list.length) return
+    const current = state.list.find((submission) => submission.id === id)
+    console.log(current)
+    commit('setCurrent', current)
+  },
   async all({ commit, state }, { challengeId, startAfter }) {
     const { data } = await this.$api.get(
       `challenges/${challengeId}/submissions`,
