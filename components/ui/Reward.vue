@@ -2,7 +2,7 @@
   <div>
     <div
       :v-if="reward == true && size == 'medium'"
-      class="flex items-center rounded-full max-w-max"
+      class="flex items-center rounded-full max-w-max mr-4"
     >
       <Coin :token="reward.token" />
       <div class="text-base lg:pl-2 lg:pr-3 md:px-2 max-w-max">
@@ -17,7 +17,7 @@
             {{ $t('reward.type.prefix') }}
           </div>
           <div class="text-gray-500 text-base font-normal">
-            {{ $t('communities.challenge.submission') }}
+            {{ $t(`communities.challenge.${category}`) }}
           </div>
         </div>
       </div>
@@ -38,6 +38,10 @@ export default {
         return {}
       },
       type: Object,
+    },
+    category: {
+      default: null,
+      type: String,
     },
   },
 }

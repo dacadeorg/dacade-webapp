@@ -12,6 +12,8 @@
       text-white
       uppercase
       leading-none
+      md:mr-0
+      mr-2
     "
   >
     <component
