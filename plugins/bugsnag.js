@@ -4,7 +4,7 @@ import Vue from 'vue'
 import PackageJson from '../package.json'
 
 Bugsnag.start({
-  apiKey: '77a1ecc00ef7ab8ac27ac7ebfb353afd',
+  apiKey: process.env.NUXT_ENV_BUGSNAG_API_KEY,
   plugins: [new BugsnagPluginVue()],
   appVersion: `v${PackageJson.version}`,
   appType: 'client',
