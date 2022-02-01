@@ -4,7 +4,7 @@
       mx-2
       px-5
       pt-5
-      pb-12
+      pb-8
       bg-gray-50
       rounded-3xl
       min-h-2xs
@@ -28,20 +28,19 @@
               text-xxs
               mt-4
               uppercase
+              font-semibold
               px-2
               mb-2
               bg-gray-200
               rounded-3xl
               inline-block
+              text-gray-500
             "
             >{{ duration(learningModule.duration) }}</span
           >
         </div>
-        <span
-          v-if="learningModule.description"
-          class="text-sm mt-4 px-2 rounded-3xl"
+        <span v-if="learningModule.description" class="text-sm mt-4 rounded-3xl"
           ><p class="text-clip">
-            <!-- {{ learningModule.description }} -->
             {{ text }}
           </p></span
         >
