@@ -21,24 +21,16 @@
       "
       class="mt-5"
     >
-      <div
+      <Reward
         v-if="value.metadata.evaluation.reward"
-        class="bg-gray-100 inline-block rounded-2xl relative px-2"
-      >
-        <span class="absolute top-0.5">
-          <Coin :token="value.metadata.evaluation.reward.token"
-        /></span>
-        <Tag
-          :value="`${value.metadata.evaluation.reward.amount} ${value.metadata.evaluation.reward.token}`"
-          class="text-sm font-bold text-gray-500 mt-0 ml-4"
-          style="background-color: transparent; margin-top: 0"
-        />
-      </div>
-      <div class="bg-gray-100 inline-block rounded-2xl w-16 text-center">
+        type="light-gray"
+        :reward="value.metadata.evaluation.reward"
+      />
+      <div class="inline-block">
         <Tag
           :value="`${value.metadata.evaluation.points} REP`"
-          class="text-sm font-bold text-gray-500"
-          style="background-color: transparent; margin-top: 0"
+          class="text-sm font-bold"
+          type="light-gray"
         />
       </div>
     </div>
@@ -79,7 +71,7 @@ import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import UserCard from '@/components/cards/User'
 import Button from '@/components/ui/Button'
-import Coin from '@/components/ui/Coin'
+import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
@@ -88,9 +80,9 @@ export default {
   components: {
     UserCard,
     Button,
-    Coin,
     Tag,
     ArrowRightIcon,
+    Reward,
   },
   props: {
     value: {
