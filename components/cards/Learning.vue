@@ -10,6 +10,8 @@
       min-h-2xs
       w-full
       border-solid border-2 border-gray-100
+      md:mt-0
+      mt-4
     "
   >
     <nuxt-link
