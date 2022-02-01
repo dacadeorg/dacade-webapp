@@ -1,34 +1,25 @@
 <template>
   <div
     class="
-      h-36
+      relative
       w-full
-      md:h-24 md:flex
-      space-x-5 space-y-0
-      md:flex-row-reverse
+      flex
+      sm:space-x-5
+      space-y-0
+      sm:flex-row-reverse sm:space-x-reverse sm:justify-between
       overflow-hidden
       bg-gray-50
-      px-3
-      items-center
+      sm:p-7
+      py-5
+      px-6
+      sm:items-center
     "
   >
-    <div
-      class="
-        relative
-        flex flex-row-reverse
-        md:w-full md:justify-items-stretch md:relative md:text-right md:right-0
-      "
-    >
+    <div class="sm:flex-none absolute bottom-5 left-6 sm:relative sm:inset-0">
       <div
         class="
-          absolute
-          md:relative md:top-0
-          -bottom-28
-          md:-bottom-24
           font-medium
           text-gray-500
-          left-5
-          md:left-auto md:right-5
           px-2.5
           py-0.5
           h-6
@@ -40,7 +31,7 @@
         <Currency :value="value.score" token="REP" />
       </div>
     </div>
-    <div class="w-full md:w-auto">
+    <div class="flex-1">
       <div class="text-lg font-medium">
         {{ value.user.displayName }}
       </div>
@@ -54,10 +45,8 @@
       </div>
     </div>
 
-    <div class="relative">
-      <div
-        class="absolute md:relative right-2 md:-bottom-10 -bottom-14 md:top-0"
-      >
+    <div class="relative sm:flex-none pt-9 sm:p-0">
+      <div class="relative sm:inset-0">
         <Avatar :user="value.user" size="large" />
         <Badge
           class="absolute left-9 top-10 w-6 h-6 bg-theme-accent text-white"

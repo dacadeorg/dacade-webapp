@@ -24,15 +24,15 @@
         class="
           flex
           w-full
-          md:flex
+          sm:flex
           space-x-5 space-y-0
-          md:flex-row-reverse
+          sm:flex-row-reverse
           overflow-hidden
           bg-gray-50
-          px-4
-          py-8
+          p-6
+          sm:px-4 sm:py-7
           items-center
-          justify-center
+          sm:justify-center
         "
       >
         <Button
