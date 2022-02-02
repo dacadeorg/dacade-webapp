@@ -18,8 +18,9 @@
           leading-normal
           text-gray-700
         "
+        :class="{ 'line-clamp-3': preview }"
       >
-        {{ text }}
+        {{ submission.text }}
       </p>
       <span
         v-if="preview"
@@ -92,7 +93,6 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Truncate from 'lodash.truncate'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import UserCard from '@/components/cards/User'
@@ -139,14 +139,6 @@ export default {
       colors: 'ui/colors',
       community: 'communities/current',
     }),
-    text() {
-      if (!this.preview) return this.submission.text
-      return Truncate(this.submission.text, {
-        length: 220,
-        omission: '',
-        separator: ' ',
-      })
-    },
     badgeButtonStyles() {
       return {
         backgroundColor: this.colors.textAccent,

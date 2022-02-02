@@ -54,6 +54,7 @@
     "@storybook/addon-controls": "^6.3.7",
     "@storybook/addon-notes": "^5.3.21",
     "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/line-clamp": "^0.3.1",
     "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.19.0",
     "date-fns": "^2.23.0",

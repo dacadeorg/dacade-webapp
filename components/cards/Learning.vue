@@ -40,8 +40,8 @@
           >
         </div>
         <span v-if="learningModule.description" class="text-sm mt-4 rounded-3xl"
-          ><p class="text-clip">
-            {{ text }}
+          ><p class="line-clamp-3">
+            {{ learningModule.description }}
           </p></span
         >
       </div>
@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import Truncate from 'lodash.truncate'
 import DateManager from '@/utilities/DateManager'
 
 export default {
@@ -65,15 +64,6 @@ export default {
     learningModule: {
       default: () => ({}),
       type: Object,
-    },
-  },
-  computed: {
-    text() {
-      return Truncate(this.learningModule.description, {
-        length: 220,
-        omission: '...',
-        separator: ' ',
-      })
     },
   },
   methods: {
