@@ -2,10 +2,12 @@
   <div
     v-if="objectives"
     class="
-      flex flex-col
-      gap-y-3
-      md:grid md:grid-cols-3 md:gap-x-3 md:items-stretch
+      flex flex-row
+      xl:flex-nowrap
+      flex-wrap
+      gap-5
       pt-2
+      py-2
       md:pt-5 md:pb-2 md:mb-2
     "
   >
