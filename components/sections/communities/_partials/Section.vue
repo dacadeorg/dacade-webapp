@@ -7,7 +7,10 @@
     >
       {{ title }}
     </h3>
-    <p class="text-base md:text-.5xl font-normal leading-normal">
+    <p
+      class="text-base md:text-.5xl font-normal leading-normal"
+      :class="{ hidden: hideSubtitleOnMobile }"
+    >
       {{ subtitle }}
     </p>
     <div>
@@ -34,6 +37,10 @@ export default {
     id: {
       default: null,
       type: String,
+    },
+    hideSubtitleOnMobile: {
+      default: false,
+      type: Boolean,
     },
   },
 }

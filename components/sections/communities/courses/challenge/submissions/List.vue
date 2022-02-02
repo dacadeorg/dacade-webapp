@@ -9,24 +9,7 @@
         :submission="submission"
         :last="i === submissions.length - 1 && !showLoadMore"
       />
-      <div
-        v-if="showLoadMore"
-        class="
-          h-15
-          w-15
-          rounded-full
-          border border-solid
-          cursor-pointer
-          flex
-          items-center
-          justify-center
-          text-gray-400
-        "
-        :class="{ 'bg-gray-50': loading, 'hover:bg-gray-200': !loading }"
-        @click="nextPage()"
-      >
-        <RefreshIcon :class="{ 'spinning-animation': loading }" />
-      </div>
+      <Loader v-if="showLoadMore" :loading="loading" @click="nextPage()" />
       <InfiniteLoading
         class="invisible"
         :distance="1000"
@@ -41,16 +24,15 @@ import { mapGetters } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
 import Section from '@/components/sections/communities/_partials/Section.vue'
 import SubmissionCard from '@/components/cards/Submission'
-import RefreshIcon from '~/assets/icons/refresh.svg?inline'
-// import RewardsSection from './_partials/overview/Rewards'
+import Loader from '@/components/ui/Loader'
 
 export default {
   name: 'SubmissionList',
   components: {
     Section,
     SubmissionCard,
-    RefreshIcon,
     InfiniteLoading,
+    Loader,
   },
   data() {
     return {

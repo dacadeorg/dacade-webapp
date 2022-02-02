@@ -6,6 +6,7 @@
       :value="feedback"
       :last="k === feedbacks.length - 1"
     />
+    <Loader v-if="loading" :loading="loading" />
     <Section v-if="isAuthenticated && submission.challenge.feedbackInfo">
       <Criteria />
       <Form @save="fetchList()" />
@@ -18,6 +19,7 @@ import Form from './Form'
 import Criteria from './Criteria'
 import FeedbackCard from '@/components/cards/Feedback'
 import Section from '@/components/sections/communities/_partials/Section'
+import Loader from '@/components/ui/Loader'
 
 export default {
   name: 'Feedback',
@@ -26,6 +28,12 @@ export default {
     Section,
     Form,
     Criteria,
+    Loader,
+  },
+  data() {
+    return {
+      loading: true,
+    }
   },
   computed: {
     ...mapGetters({
@@ -39,10 +47,12 @@ export default {
   },
   methods: {
     fetchList() {
-      this.$store.dispatch(
-        'communities/challenges/submissions/feedbacks/all',
-        this.submission.id
-      )
+      this.$store
+        .dispatch(
+          'communities/challenges/submissions/feedbacks/all',
+          this.submission.id
+        )
+        .finally(() => (this.loading = false))
     },
   },
 }

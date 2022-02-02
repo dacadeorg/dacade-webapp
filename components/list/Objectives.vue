@@ -5,10 +5,10 @@
       flex flex-row
       xl:flex-nowrap
       flex-wrap
-      gap-5
-      pt-2
-      py-2
-      md:pt-5 md:pb-2 md:mb-2
+      gap-3
+      sm:gap-5
+      pt-3
+      sm:pt-5 sm:pb-2 sm:mb-2
     "
   >
     <Objective

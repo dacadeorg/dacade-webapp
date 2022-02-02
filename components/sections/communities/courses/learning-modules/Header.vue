@@ -9,6 +9,7 @@
     <Section
       :title="$t('communities.overview.objective.title')"
       :subtitle="`${$t('communities.chapter.objective.subtitle')}:`"
+      hide-subtitle-on-mobile
     >
       <ObjectiveList :objectives="learningModule.objectives" />
     </Section>
