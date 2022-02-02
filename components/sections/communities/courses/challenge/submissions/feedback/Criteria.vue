@@ -100,7 +100,7 @@
             <div
               v-for="(item, key) in list"
               :key="key"
-              class="pt-6 pl-3.75 sm:pl-10 pb-0 sm:border-t font-medium"
+              class="pt-6 px-3.75 sm:px-10 pb-0 sm:border-t font-medium"
               :class="
                 !submission.reviewable ? 'border-gray-200' : 'border-yellow-200'
               "
