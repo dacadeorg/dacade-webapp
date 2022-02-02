@@ -166,5 +166,7 @@
   "modal.referral.button.copied": "Copied",
   "modal.referral.list.bounty_title": "Active Bounties",
   "modal.referral.list.reward": "Referral reward",
-  "modal.referral.list.challenge": "Challenge reward"
+  "modal.referral.list.challenge": "Challenge reward",
+  "auth/wrong-password": "Incorrect email or password.",
+  "auth/user-not-found": "Incorrect email or password."
 }
