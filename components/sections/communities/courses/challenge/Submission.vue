@@ -92,12 +92,12 @@
           </div>
         </div>
         <div class="flex justify-between">
-          <div class="flex ml-13 flex-col self-center">
+          <div class="flex xl:ml-13 flex-col self-center">
             <div class="flex flex-row max-w-xm space-x-3">
               <input
                 id="agree3"
                 v-model="checkedterms"
-                class="w-5 h-5"
+                class="xl:w-5 w-10 h-5"
                 name="agree"
                 required
                 size="small"

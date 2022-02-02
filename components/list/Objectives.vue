@@ -1,7 +1,15 @@
 <template>
   <div
     v-if="objectives"
-    class="flex flex-row gap-5 pt-2 py-2 md:pt-5 md:pb-2 md:mb-2"
+    class="
+      flex flex-row
+      xl:flex-nowrap
+      flex-wrap
+      gap-5
+      pt-2
+      py-2
+      md:pt-5 md:pb-2 md:mb-2
+    "
   >
     <Objective
       v-for="(objective, i) in objectives"
