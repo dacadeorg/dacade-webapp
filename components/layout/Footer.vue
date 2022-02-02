@@ -46,7 +46,7 @@
           </a>
         </div>
       </div>
-      <div class="lg:w-1/2 w-full mt-6 sm:mt-0 lg:mt-0 lg:text-right">
+      <div class="lg:w-1/2 w-full mt-6 md:mt-0 lg:text-right">
         <div class="space-x-2">
           <SocialLink v-for="(link, i) in socialLinks" :key="i" :link="link" />
         </div>

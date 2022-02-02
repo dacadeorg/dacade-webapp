@@ -1,7 +1,6 @@
 <template>
   <div
     class="
-      mx-2
       px-5
       pt-5
       pb-8
@@ -11,7 +10,6 @@
       w-full
       border-solid border-2 border-gray-100
       md:mt-0
-      mt-4
     "
   >
     <nuxt-link
