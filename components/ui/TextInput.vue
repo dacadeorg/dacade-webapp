@@ -2,6 +2,7 @@
   <div>
     <div class="floating-input relative">
       <label
+        v-if="label"
         :class="{
           'text-gray-400 flex items-center': !isFilled && !isFocused,
           'text-gray-400 scale-75 -translate-y-3 translate-x-1':
@@ -51,27 +52,11 @@
           focus:outline-none
           placeholder-gray-400 placeholder-opacity-100
         "
+        :class="[inputClass]"
         @focus="isFocused = true"
         @blur="isFocused = false"
         v-on="inputListeners"
       />
-      <!-- <textarea
-        :class="{
-          'text-gray-400 scale-75 -translate-y-3 translate-x-1 bg-gray-50':
-            disabled,
-          'border-red-100': error,
-          'focus:border-gray-200': !error,
-        }"
-        :type="type"
-        :value="value"
-        :placeholder="placeholder"
-        class="rounded-md focus:outline-none focus:shadow-sm text-lg"
-        autocomplete="off"
-        :disabled="disabled"
-        @focus="isFocused = true"
-        @blur="isFocused = false"
-        v-on="inputListeners"
-      /> -->
     </div>
     <div v-if="error" class="bg-red-50 help text-sm text-red-900 px-5 py-1.5">
       <p>
@@ -107,7 +92,10 @@ export default {
       default: null,
       type: String,
     },
-
+    inputClass: {
+      default: null,
+      type: String,
+    },
     error: {
       default: null,
       type: String,

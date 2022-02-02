@@ -21,6 +21,7 @@
                 :placeholder="
                   $t('communities.challenge.submission.placeholder.text')
                 "
+                input-class="border-t-0"
                 :error="errors[0]"
                 :value="text"
                 @input="text = $event"

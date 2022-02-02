@@ -12,28 +12,27 @@
       :token="reward.token"
       class="
         absolute
-        md:-ml-7
+        sm:-ml-7
         left-3
-        md:left-0
+        sm:left-0
         top-6
-        md:top-4
+        sm:top-4
         w-10
         h-10
-        p-4
-        md:w-15 md:h-15
+        sm:w-15 sm:h-15
       "
       :bg-color="!submission.reviewable ? '#d2d2d2' : null"
       :color="!submission.reviewable ? '#FFFFFF' : null"
     />
     <div :class="!submission.reviewable ? 'text-gray-700' : 'text-yellow-900'">
-      <div class="md:ml-10 ml-15">
+      <div class="relative">
         <div
-          class="divide-y md:divide-y-0 space-y-4"
+          class="divide-y sm:divide-y-0 space-y-4"
           :class="
             !submission.reviewable ? 'divide-gray-200' : 'divide-yellow-200'
           "
         >
-          <div>
+          <div class="sm:pl-10 pl-15">
             <div v-if="reward" class="font-medium text-lg">
               {{ reward.amount }}
               {{ reward.token }}
@@ -55,11 +54,9 @@
               flex-inline
               text-base
               font-medium
-              right-8
-              top-7
-              md:absolute
-              pt-3
-              md:pt-0
+              sm:right-8 sm:top-3 sm:absolute
+              pt-4
+              sm:pt-0
             "
             :class="
               !submission.reviewable ? 'divide-gray-200 ' : 'divide-yellow-200'
@@ -70,13 +67,20 @@
                 submission.challenge.feedbackInfo &&
                 submission.challenge.feedbackInfo.length
               "
-              class="flex justify-between cursor-pointer"
+              class="
+                pl-15
+                sm:pl-0
+                flex
+                items-center
+                justify-between
+                cursor-pointer
+              "
               @click="infoVisibility = !infoVisibility"
             >
-              <p>
+              <p class="text-sm">
                 {{ $t('communities.submissions.feedback.reward-info') }}
               </p>
-              <span class="mt-2 px-4">
+              <span class="px-4">
                 <div v-if="infoVisibility === true">
                   <ChevronTopIcon />
                 </div>
@@ -88,7 +92,7 @@
           </div>
           <div
             v-show="infoVisibility === true"
-            class="-ml-15 md:-ml-9 md:-mr-4 pl-4 divide-y space-y-4"
+            class="divide-y space-y-4"
             :class="
               !submission.reviewable ? 'border-gray-200' : 'border-yellow-200'
             "
@@ -96,16 +100,7 @@
             <div
               v-for="(item, key) in list"
               :key="key"
-              class="
-                md:-ml-5
-                -ml-4
-                md:mr-4
-                px-5
-                pt-6
-                pb-0
-                md:border-t
-                font-medium
-              "
+              class="pt-6 pl-3.75 sm:pl-10 pb-0 sm:border-t font-medium"
               :class="
                 !submission.reviewable ? 'border-gray-200' : 'border-yellow-200'
               "
@@ -114,7 +109,7 @@
                 $t('feedback.criteria.' + item.name)
               }}</span>
               <div
-                class="px-5"
+                class="sm:-ml-6 px-5 sm:p-0"
                 :class="
                   !submission.reviewable ? 'text-gray-600' : 'text-yellow-900'
                 "
