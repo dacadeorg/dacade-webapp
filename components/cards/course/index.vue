@@ -1,21 +1,34 @@
 <template>
   <div
     class="
-      flex
-      lg:flex
-      p-2
-      divide-x divide-gray-200
+      flex flex-col
+      sm:flex-row
+      p-6
+      divide-y
+      sm:divide-y-0 sm:divide-x
+      divide-gray-200
       bg-gray-50
       rounded-3xl
       group
       text-gray-700
-      md:p-7
+      sm:p-7
       mb-4
       w-full
       border-solid border border-gray-200
     "
   >
-    <div class="flex flex-col pr-20 justify-between w-2/3">
+    <div
+      class="
+        flex flex-col
+        sm:pr-20
+        justify-between
+        w-full
+        sm:w-3/5
+        lg:w-2/3
+        pb-6
+        sm:pb-0
+      "
+    >
       <div class="flex flex-col">
         <div class="text-lg font-medium leading-normal">
           {{ course.name }}
@@ -42,7 +55,7 @@
           {{ reward.amount }}
         </div>
       </div>
-      <div>
+      <div class="hidden sm:block">
         <nuxt-link :to="localePath(path)">
           <Button
             :padding="false"
@@ -64,12 +77,16 @@
     <div
       class="
         text-base text-left
-        md:flex
+        sm:flex
         flex-start flex flex-col
+        pt-6
+        sm:pt-0
         space-y-4
-        pl-7
-        pb-10
-        w-1/3
+        pb-5
+        sm:pl-7 sm:pb-10
+        w-full
+        sm:w-2/5
+        lg:w-1/3
         tracking-wider
       "
     >
@@ -79,6 +96,23 @@
         {{ reward.amount }}
         {{ $t('course.challenge.description-2') }}
       </div>
+    </div>
+    <div class="block sm:hidden pt-6">
+      <nuxt-link :to="localePath(path)">
+        <Button
+          :padding="false"
+          class="py-2 px-5"
+          :community-styles="true"
+          type="outline-primary"
+        >
+          <span class="inline-block align-middle text-sm">{{
+            $t('course.challenge.button')
+          }}</span>
+          <span class="inline-block align-middle">
+            <ArrowRightIcon class="ml-7 text-accent hover:text-white" />
+          </span>
+        </Button>
+      </nuxt-link>
     </div>
   </div>
 </template>
