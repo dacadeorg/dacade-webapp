@@ -47,6 +47,8 @@ export default {
   },
   methods: {
     fetchList() {
+      this.loading = true
+
       this.$store
         .dispatch(
           'communities/challenges/submissions/feedbacks/all',
