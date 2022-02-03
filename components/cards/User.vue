@@ -1,57 +1,49 @@
 <template>
-  <div class="group bg-gradient-to-trw-full pl-5 md:pl-7.5 relative">
-    <nuxt-link :to="localePath(link)">
-      <div class="absolute top-0 left-0 z-10">
-        <Avatar :user="user" size="medium" />
-        <Badge
-          v-if="badge"
-          :value="badge"
-          size="medium"
-          :custom-style="{
-            bottom: '-1px',
-            right: '-3px',
-            backgroundColor: colors.textAccent,
-          }"
-        />
-      </div>
-      <div
-        class="relative pl-10.5 z-0 pb-12"
-        :class="{
-          'group-hover:border-gray-50 border-l border-solid border-gray-200':
-            bordered,
+  <div
+    class="group bg-gradient-to-trw-full pl-5 md:pl-7.5 relative"
+    :class="{ 'cursor-pointer': link }"
+    @click="goToLink"
+  >
+    <div class="absolute top-0 left-0 z-10">
+      <Avatar :user="user" size="medium" />
+      <Badge
+        v-if="badge"
+        :value="badge"
+        size="medium"
+        :custom-style="{
+          bottom: '-1px',
+          right: '-3px',
+          backgroundColor: colors.textAccent,
         }"
-      >
-        <div class="pb-4">
-          <span class="text-lg leading-loose font-medium">
-            {{ user.displayName }}
-          </span>
+      />
+    </div>
+    <div
+      class="relative pl-10.5 z-0 pb-12"
+      :class="{
+        'group-hover:border-gray-50 border-l border-solid border-gray-200':
+          bordered,
+      }"
+    >
+      <div class="pb-4">
+        <span class="text-lg leading-loose font-medium">
+          {{ user.displayName }}
+        </span>
+        <Tag v-if="user.reputation" type="light-gray" class="leading-tight"
+          ><Currency :value="user.reputation" token="REP"
+        /></Tag>
+        <span class="block text-sm leading-snug text-gray-700">
+          {{ timestamp.text }}
           <span
-            v-if="user.reputation"
-            class="
-              text-xs
-              px-2.5
-              bg-secondary
-              leading-none
-              py-1
-              rounded-full
-              font-medium
-            "
-            ><Currency :value="user.reputation" token="REP"
-          /></span>
-          <span class="block text-sm leading-snug text-gray-700">
-            {{ timestamp.text }}
-            <span
-              class="font-medium"
-              :style="{
-                color: colors.textAccent,
-              }"
-              >{{ date }}</span
-            >
-          </span>
-        </div>
-        <slot />
+            class="font-medium"
+            :style="{
+              color: colors.textAccent,
+            }"
+            >{{ date }}</span
+          >
+        </span>
       </div>
-    </nuxt-link>
+      <slot />
+    </div>
   </div>
 </template>
 <script>
@@ -61,6 +53,7 @@ import Avatar from '@/components/ui/Avatar'
 import Badge from '@/components/ui/Badge'
 import DateManager from '@/utilities/DateManager'
 import Currency from '@/components/ui/Currency'
+import Tag from '@/components/ui/Tag.vue'
 
 export default {
   name: 'UserCard',
@@ -68,6 +61,7 @@ export default {
     Avatar,
     Currency,
     Badge,
+    Tag,
   },
   props: {
     user: {
@@ -105,6 +99,12 @@ export default {
     }),
     date() {
       return DateManager.fromNow(this.timestamp.date)
+    },
+  },
+  methods: {
+    goToLink() {
+      if (!this.link) return
+      this.$router.push(this.localePath(this.link))
     },
   },
 }

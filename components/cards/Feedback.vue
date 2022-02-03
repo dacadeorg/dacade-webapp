@@ -10,7 +10,7 @@
     :badge="value.ranking"
   >
     <div
-      class="text-base md:text-lg max-w-screen-sm leading-normal relative"
+      class="text-base md:text-lg leading-normal relative"
       v-html="value.text"
     />
     <div
@@ -19,7 +19,7 @@
         value.metadata.evaluation &&
         value.metadata.evaluation.points
       "
-      class="mt-5"
+      class="pt-5"
     >
       <Reward
         v-if="value.metadata.evaluation.reward"

@@ -5,50 +5,13 @@
       date: submission.created_at,
       text: 'Submitted',
     }"
-    :link="link"
-    :bordered="!last"
-    class="max-w-3xl hover:bg-gray-50 rounded-3.5xl"
   >
     <div class="pb-6">
-      <p
-        class="text-base md:text-lg leading-normal text-gray-700"
-        :class="{
-          'line-clamp-3': preview,
-          'max-w-screen-sm': preview,
-        }"
-      >
+      <p class="text-base md:text-lg leading-normal text-gray-700">
         {{ submission.text }}
       </p>
-      <span
-        v-if="preview"
-        class="
-          rounded-full
-          bg-gray-100
-          px-2
-          leading-none
-          py-0
-          h-5
-          items-center
-          justify-items-center
-        "
-        >&#183;&#183;&#183;</span
-      >
     </div>
     <div
-      v-if="preview && submission.metadata && submission.metadata.evaluation"
-      class="flex items-center mt-4"
-    >
-      <Badge
-        :custom-style="badgeButtonStyles"
-        size="medium"
-        class="relative left-0"
-        :value="submission.metadata.evaluation.points"
-      >
-      </Badge>
-      <span class="ml-3 text-sm">Points</span>
-    </div>
-    <div
-      v-if="buttons"
       class="
         inline-grid
         space-y-2
@@ -90,15 +53,13 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import UserCard from '@/components/cards/User'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
-  name: 'SubmissionCard',
+  name: 'SubmissionViewCard',
   components: {
-    Badge,
     Button,
     ArrowRightIcon,
     UserCard,
@@ -109,26 +70,6 @@ export default {
         return {}
       },
       type: Object,
-    },
-    preview: {
-      default: false,
-      type: Boolean,
-    },
-    stats: {
-      default: false,
-      type: Boolean,
-    },
-    link: {
-      default: '',
-      type: String,
-    },
-    buttons: {
-      default: false,
-      type: Boolean,
-    },
-    last: {
-      default: false,
-      type: Boolean,
     },
   },
   computed: {
