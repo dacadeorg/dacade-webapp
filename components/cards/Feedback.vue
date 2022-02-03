@@ -11,6 +11,7 @@
   >
     <div
       class="text-base md:text-lg leading-normal relative"
+      :class="{ 'max-w-screen-sm': preview }"
       v-html="value.text"
     />
     <div
@@ -91,7 +92,7 @@ export default {
       },
       type: Object,
     },
-    stats: {
+    preview: {
       default: false,
       type: Boolean,
     },

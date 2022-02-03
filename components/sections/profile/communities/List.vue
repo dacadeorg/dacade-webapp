@@ -7,7 +7,14 @@
           v-for="(submission, i) in submissions"
           :key="submission.id"
           :stats="true"
-          :link="`/communities/${community.slug}/submissions/${submission.id}`"
+          :link="
+            $navigation.community.submissionPath(
+              submission.id,
+              submission.challenge.id,
+              submission.challenge.course.slug,
+              community.slug
+            )
+          "
           :submission="submission"
           :last="i === submissions.length - 1"
         />
@@ -18,11 +25,18 @@
       <div v-for="feedback in feedbacks" :key="feedback.id" class="py-5">
         <SubmissionCard
           :stats="true"
-          :link="`/communities/${community.slug}/submissions/${community.id}`"
+          :link="
+            $navigation.community.submissionPath(
+              feedback.submission.id,
+              feedback.submission.challenge.id,
+              feedback.submission.challenge.course.slug,
+              community.slug
+            )
+          "
           :submission="feedback.submission"
           :last="false"
         />
-        <FeedbackCard :stats="true" :value="feedback" :last="true" />
+        <FeedbackCard :preview="true" :value="feedback" :last="true" />
       </div>
     </div>
   </div>
