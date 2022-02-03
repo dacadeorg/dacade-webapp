@@ -58,7 +58,7 @@
       <div v-show="reputations.length > 1" class="p-4">
         <ReputationList />
       </div>
-      <div class="p-4">
+      <div v-if="false" class="p-4">
         <LanguageList />
       </div>
       <div class="p-4 flex justify-center bg-indigo-50">
