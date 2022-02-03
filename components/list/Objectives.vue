@@ -2,13 +2,11 @@
   <div
     v-if="objectives"
     class="
-      flex flex-row
-      xl:flex-nowrap
-      flex-wrap
-      gap-3
-      sm:gap-5
-      pt-3
-      sm:pt-5 sm:pb-2 sm:mb-2
+      flex flex-col
+      gap-y-3
+      md:grid md:grid-cols-3 md:gap-x-3 md:items-stretch
+      pt-2
+      md:pt-5 md:pb-2 md:mb-2
     "
   >
     <Objective
