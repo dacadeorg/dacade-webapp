@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Section :key="page">
+  <Section :key="page">
+    <div class="border border-gray-200 border-solid rounded-3.5xl divide-y">
       <SubmissionCard
         v-for="(submission, i) in submissions"
         :key="submission.id"
@@ -10,13 +10,13 @@
         :last="i === submissions.length - 1 && !showLoadMore"
       />
       <Loader v-if="showLoadMore" :loading="loading" @click="nextPage()" />
-      <InfiniteLoading
-        class="invisible"
-        :distance="1000"
-        @infinite="nextPage"
-      ></InfiniteLoading>
-    </Section>
-  </div>
+    </div>
+    <InfiniteLoading
+      class="invisible"
+      :distance="1000"
+      @infinite="nextPage"
+    ></InfiniteLoading>
+  </Section>
 </template>
 <script>
 /* eslint-disable no-console */

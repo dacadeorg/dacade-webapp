@@ -1,15 +1,15 @@
 <template>
-  <UserCard
+  <UserViewCard
     :user="submission.user"
     :timestamp="{
       date: submission.created_at,
       text: 'Submitted',
     }"
     :link="link"
-    :bordered="false"
-    class="pt-6"
+    :bordered="!last"
+    class="max-w-3xl hover:bg-gray-50 rounded-3.5xl"
   >
-    <div class="pb-6 border-b border-solid border-gray-200">
+    <div class="pb-6">
       <p
         class="
           text-base
@@ -87,7 +87,7 @@
         </span>
       </Button> -->
     </div>
-  </UserCard>
+  </UserViewCard>
 </template>
 <script>
 /* eslint-disable no-console */
@@ -95,16 +95,16 @@ import { mapGetters } from 'vuex'
 import Truncate from 'lodash.truncate'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
-import UserCard from '@/components/cards/User'
+import UserViewCard from '@/components/cards/UserView'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
-  name: 'SubmissionCard',
+  name: 'SubmissionViewCard',
   components: {
     Badge,
     Button,
     ArrowRightIcon,
-    UserCard,
+    UserViewCard,
   },
   props: {
     submission: {
