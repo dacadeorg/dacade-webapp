@@ -10,7 +10,7 @@
       "
     >
       <Header />
-      <div v-scroll-spy="{ offset: -300 }" class="w-full">
+      <div class="w-full">
         <MaterialSection
           v-for="(material, i) in materials"
           :key="i"
