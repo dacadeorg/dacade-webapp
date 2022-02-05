@@ -1,5 +1,5 @@
 <template>
-  <UserCard
+  <UserViewCard
     :user="value.user"
     :timestamp="{
       date: value.created_at,
@@ -64,12 +64,12 @@
         </span>
       </Button> -->
     </div>
-  </UserCard>
+  </UserViewCard>
 </template>
 <script>
 import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
-import UserCard from '@/components/cards/User'
+import UserViewCard from '@/components/cards/UserView'
 import Button from '@/components/ui/Button'
 import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
@@ -78,7 +78,7 @@ import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 export default {
   name: 'FeedbackCard',
   components: {
-    UserCard,
+    UserViewCard,
     Button,
     Tag,
     ArrowRightIcon,

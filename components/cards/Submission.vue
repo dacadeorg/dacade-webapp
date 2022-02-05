@@ -36,18 +36,46 @@
         >&#183;&#183;&#183;</span
       >
     </div>
-    <div
-      v-if="preview && submission.metadata && submission.metadata.evaluation"
-      class="flex items-center mt-4"
-    >
-      <Badge
-        :custom-style="badgeButtonStyles"
-        size="medium"
-        class="relative left-0"
-        :value="submission.metadata.evaluation.points"
+    <div class="flex items-center mt-4 w-full">
+      <div
+        v-if="preview && submission.metadata && submission.metadata.evaluation"
+        class="w-full"
       >
-      </Badge>
-      <span class="ml-3 text-sm">Points</span>
+        <span class="inline-block mr-4">
+          <Badge
+            :custom-style="badgeButtonStyles"
+            size="medium"
+            class="relative left-0"
+            :value="submission.metadata.evaluation.points"
+          >
+          </Badge>
+          <span class="ml-3 text-sm">Points</span>
+        </span>
+        <span class="text-sm relative leading-snug text-gray-700 inline-block">
+          4 feedbacks
+        </span>
+      </div>
+      <div class="text-right ml-auto xl:m-0 xl:w-full">
+        <button
+          class="
+            bg-gray-100
+            inline-flex
+            text-black
+            items-center
+            justify-center
+            uppercase
+            leading-none
+            w-10
+            h-10
+            md:w-11 md:h-11
+            text-2xl
+            rounded-full
+            hover:bg-primary hover:text-white
+          "
+        >
+          <ArrowRightIcon class="w-full" />
+        </button>
+      </div>
     </div>
     <div
       v-if="buttons"
@@ -96,6 +124,7 @@ import Truncate from 'lodash.truncate'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import UserCard from '@/components/cards/User'
+import DateManager from '@/utilities/DateManager'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
@@ -133,6 +162,15 @@ export default {
       default: false,
       type: Boolean,
     },
+    timestamp: {
+      default: () => {
+        return {
+          text: '',
+          date: '',
+        }
+      },
+      type: Object,
+    },
   },
   computed: {
     ...mapGetters({
@@ -146,6 +184,9 @@ export default {
         omission: '',
         separator: ' ',
       })
+    },
+    date() {
+      return DateManager.fromNow(this.timestamp.date)
     },
     badgeButtonStyles() {
       return {

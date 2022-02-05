@@ -16,7 +16,7 @@
           />
         </div>
         <div
-          class="relative pl-10.5 z-0 pb-12"
+          class="relative pl-10.5 z-0 pb-6"
           :class="{
             'group-hover:border-gray-50 border-l border-solid border-gray-200':
               bordered,
