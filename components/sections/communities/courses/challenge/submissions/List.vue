@@ -1,15 +1,22 @@
 <template>
   <Section :key="page">
-    <div class="border border-gray-200 border-solid rounded-3.5xl divide-y">
-      <SubmissionCard
-        v-for="(submission, i) in submissions"
-        :key="submission.id"
-        :preview="true"
-        :link="$navigation.community.submissionPath(submission.id)"
-        :submission="submission"
-        :last="i === submissions.length - 1 && !showLoadMore"
+    <div class="border border-gray-200 border-solid rounded-3.5xl relative">
+      <div class="flex flex-col divide-y">
+        <SubmissionCard
+          v-for="(submission, i) in submissions"
+          :key="submission.id"
+          :preview="true"
+          :link="$navigation.community.submissionPath(submission.id)"
+          :submission="submission"
+          :last="i === submissions.length - 1 && !showLoadMore"
+        />
+      </div>
+      <Loader
+        v-if="showLoadMore"
+        :loading="loading"
+        class="absolute left-6 -bottom-7.5"
+        @click="nextPage()"
       />
-      <Loader v-if="showLoadMore" :loading="loading" @click="nextPage()" />
     </div>
     <InfiniteLoading
       class="invisible"

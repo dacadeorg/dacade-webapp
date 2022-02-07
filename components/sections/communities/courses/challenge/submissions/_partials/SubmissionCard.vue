@@ -39,8 +39,8 @@
             >{{ date }}</span
           >
         </span>
-        <p>
-          {{ text }}
+        <p class="line-clamp-3">
+          {{ submission.text }}
         </p>
         <div class="pt-5">
           <Badge
@@ -60,7 +60,6 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Truncate from 'lodash.truncate'
 import Currency from '@/components/ui/Currency'
 import DateManager from '@/utilities/DateManager'
 import Badge from '@/components/ui/Badge'
@@ -86,13 +85,6 @@ export default {
     }),
     date() {
       return DateManager.fromNow(this.submission.created_at)
-    },
-    text() {
-      return Truncate(this.submission.text, {
-        length: 220,
-        omission: '...',
-        separator: ' ',
-      })
     },
   },
 }

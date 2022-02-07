@@ -69,21 +69,13 @@
             </ValidationProvider>
           </div>
           <div class="text-right mt-5">
-            <Button
-              type="submit"
+            <ArrowButton
               :disabled="saving"
               :custom-style="activeButtonStyle"
+              :loading="saving"
             >
-              <span class="flex text-left items-center text-sm w-32 h-6">
-                {{ $t('submit') }}
-                <span v-if="saving === false" class="ml-16 w-3"
-                  ><ArrowRightIcon
-                /></span>
-                <span v-else class="text-white ml-16">
-                  <Spinner class="animate-spin" />
-                </span>
-              </span>
-            </Button>
+              {{ $t('submit') }}
+            </ArrowButton>
           </div>
         </div>
       </form>
@@ -95,21 +87,17 @@ import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import TextInput from '@/components/ui/TextInput'
 import GithubLinkInput from '@/components/ui/GithubLinkInput'
-import Button from '@/components/ui/Button'
-import Spinner from '~/assets/icons/spinner.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 import GithubIcon from '~/assets/icons/github.svg?inline'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
   name: 'Feedback',
   components: {
-    ArrowRightIcon,
     GithubIcon,
-    Button,
+    ArrowButton,
     Avatar,
     TextInput,
     GithubLinkInput,
-    Spinner,
   },
   data() {
     return {
@@ -131,8 +119,12 @@ export default {
     }),
     activeButtonStyle() {
       return {
+        borderColor: this.colors.textAccent,
         color: this.colors.text,
         backgroundColor: this.colors.textAccent,
+        '--button-color--hover': this.colors.text,
+        '--button-background-color--hover': this.colors.accent,
+        '--button-border-color--hover': this.colors.accent,
       }
     },
   },

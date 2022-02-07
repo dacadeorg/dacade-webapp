@@ -10,7 +10,8 @@
     :badge="value.ranking"
   >
     <div
-      class="text-base md:text-lg max-w-screen-sm leading-normal relative"
+      class="text-base md:text-lg leading-normal relative"
+      :class="{ 'max-w-screen-sm': preview }"
       v-html="value.text"
     />
     <div
@@ -19,7 +20,7 @@
         value.metadata.evaluation &&
         value.metadata.evaluation.points
       "
-      class="mt-5"
+      class="pt-5"
     >
       <Reward
         v-if="value.metadata.evaluation.reward"
@@ -70,7 +71,7 @@
 import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import UserCard from '@/components/cards/User'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
@@ -91,7 +92,7 @@ export default {
       },
       type: Object,
     },
-    stats: {
+    preview: {
       default: false,
       type: Boolean,
     },

@@ -1,6 +1,6 @@
 <template>
   <div v-if="submission">
-    <SubmissionViewCard :submission="submission" :buttons="true" />
+    <SubmissionViewCard :submission="submission" />
     <Evaluation v-if="submission.evaluation" />
     <Feedback />
   </div>

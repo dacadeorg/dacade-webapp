@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import DiscordIcon from '@/assets/icons/discord.svg?inline'
 export default {
   name: 'CommunityStats',

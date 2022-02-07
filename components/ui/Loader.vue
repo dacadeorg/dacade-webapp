@@ -10,6 +10,7 @@
       items-center
       justify-center
       text-gray-400
+      bg-white
     "
     :class="{ 'bg-gray-50': loading, 'hover:bg-gray-200': !loading }"
     v-on="inputListeners"

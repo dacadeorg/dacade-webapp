@@ -175,7 +175,7 @@ import vClickOutside from 'v-click-outside'
 // import BalanceList from '@/components/list/Balance'
 // import ReputationList from '@/components/list/Reputation'
 import Avatar from '@/components/ui/Avatar'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 // import NavItem from '@/components/ui/NavItem'
 import NotificationList from '@/components/list/Notification'
 

@@ -12,15 +12,13 @@
   >
     <div class="pb-6 border-b border-solid border-gray-200">
       <p
-        class="
-          text-base
-          md:text-lg
-          max-w-screen-sm
-          leading-normal
-          text-gray-700
-        "
+        class="text-base md:text-lg leading-normal text-gray-700"
+        :class="{
+          'line-clamp-3': preview,
+          'max-w-screen-sm': preview,
+        }"
       >
-        {{ text }}
+        {{ submission.text }}
       </p>
       <span
         v-if="preview"
@@ -84,11 +82,9 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Truncate from 'lodash.truncate'
 import Badge from '@/components/ui/Badge'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import UserCard from '@/components/cards/User'
-import DateManager from '@/utilities/DateManager'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
@@ -141,17 +137,6 @@ export default {
       colors: 'ui/colors',
       community: 'communities/current',
     }),
-    text() {
-      if (!this.preview) return this.submission.text
-      return Truncate(this.submission.text, {
-        length: 220,
-        omission: '',
-        separator: ' ',
-      })
-    },
-    date() {
-      return DateManager.fromNow(this.timestamp.date)
-    },
     badgeButtonStyles() {
       return {
         backgroundColor: this.colors.textAccent,

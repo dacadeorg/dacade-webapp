@@ -18,7 +18,9 @@
         "
         role="alert"
       >
-        <span class="block sm:inline"> {{ error.message }} </span>
+        <span class="block sm:inline">
+          {{ $t(error.code || error.message) }}
+        </span>
       </div>
       <!-- <div v-if="busy" class="notification max-w-md justify-center flex">
         <span>

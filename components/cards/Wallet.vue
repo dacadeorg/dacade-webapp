@@ -91,7 +91,7 @@
 
 <script>
 import Coin from '@/components/ui/Coin'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import Tag from '@/components/ui/Tag'
 import Currency from '@/components/ui/Currency'
 import EditAddress from '@/components/sections/profile/modals/EditAddress'
