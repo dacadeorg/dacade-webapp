@@ -40,7 +40,7 @@
         v-if="preview && submission.metadata && submission.metadata.evaluation"
         class="w-full"
       >
-        <span class="inline-block mr-4">
+        <span class="inline-block mr-2">
           <Badge
             :custom-style="badgeButtonStyles"
             size="medium"
@@ -50,11 +50,20 @@
           </Badge>
           <span class="ml-3 text-sm">Points</span>
         </span>
-        <span class="text-sm relative leading-snug text-gray-700 inline-block">
+        <span
+          class="mr-2 text-sm relative leading-snug text-gray-700 inline-block"
+        >
           {{ submission.metadata.feedbacks }} feedbacks
         </span>
+
+        <span
+          class="bg-yellow-50 text-yellow-900 text-sm rounded-full px-3 py-2"
+        >
+          <span class="font-bold">25 cUSD</span> Feedback bounty
+        </span>
       </div>
-      <div class="text-right ml-auto xl:m-0 xl:w-full">
+
+      <div class="text-right ml-auto xl:m-0 w-full">
         <Button
           :padding="false"
           class="
