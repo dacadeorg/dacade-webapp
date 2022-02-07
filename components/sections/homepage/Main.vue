@@ -92,7 +92,7 @@
 
 <script>
 import Section from '@/components/ui/Section'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import NumberedCard from '@/components/cards/Numbered'
 import VideoPopup from '@/components/popups/Video'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'

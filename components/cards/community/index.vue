@@ -122,7 +122,7 @@
 import Reward from './_partials/Reward.vue'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 // import Reward from '@/components/badges/Reward'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {

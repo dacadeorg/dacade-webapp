@@ -1,10 +1,16 @@
 <template>
   <div
-    class="group bg-gradient-to-trw-full pl-5 md:pl-7.5 relative"
-    :class="{ 'cursor-pointer': link }"
+    class="group bg-gradient-to-trw-full relative"
+    :class="[
+      boxLayout ? 'p-6' : 'pl-5 md:pl-7.5',
+      { 'cursor-pointer': link, 'flex space-x-3': boxLayout },
+    ]"
     @click="goToLink"
   >
-    <div class="absolute top-0 left-0 z-10">
+    <div
+      class="z-10"
+      :class="[boxLayout ? 'relative flex-none' : 'absolute top-0 left-0']"
+    >
       <Avatar :user="user" size="medium" />
       <Badge
         v-if="badge"
@@ -18,11 +24,14 @@
       />
     </div>
     <div
-      class="relative pl-10.5 z-0 pb-12"
-      :class="{
-        'group-hover:border-gray-50 border-l border-solid border-gray-200':
-          bordered,
-      }"
+      class="relative z-0 flex-1"
+      :class="[
+        {
+          'group-hover:border-gray-50 border-l border-solid border-gray-200':
+            bordered,
+          'pl-10.5 pb-12': !boxLayout,
+        },
+      ]"
     >
       <div class="pb-4">
         <span class="text-lg leading-loose font-medium">
@@ -90,6 +99,10 @@ export default {
     badge: {
       default: 0,
       type: Number,
+    },
+    boxLayout: {
+      default: false,
+      type: Boolean,
     },
   },
   computed: {

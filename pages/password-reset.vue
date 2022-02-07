@@ -66,7 +66,7 @@
 <script>
 /* eslint-disable no-console */
 
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 

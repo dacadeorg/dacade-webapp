@@ -21,48 +21,29 @@
         md:space-x-2
       "
     >
-      <Button
+      <ArrowButton
         v-if="submission.link"
-        :padding="false"
-        class="action-button py-2 px-5 w-44"
         :link="submission.link"
         target="__blank"
         :custom-style="primaryButtonStyles"
         type="outline-primary"
       >
-        <span class="flex text-left items-center">
-          GitHub Code
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-        </span>
-      </Button>
-
-      <!-- <Button
-        :padding="false"
-       class="action-button py-2 px-5 w-44"
-        :custom-style="outlineButtonStyles"
-        type="outline-primary"
-      >
-        <span class="flex text-left items-center">
-          Website
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-        </span>
-      </Button> -->
+        GitHub Code
+      </ArrowButton>
     </div>
   </UserCard>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Button from '@/components/ui/Button'
+import ArrowButton from '@/components/ui/button/Arrow'
 import UserCard from '@/components/cards/User'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
   name: 'SubmissionViewCard',
   components: {
-    Button,
-    ArrowRightIcon,
     UserCard,
+    ArrowButton,
   },
   props: {
     submission: {

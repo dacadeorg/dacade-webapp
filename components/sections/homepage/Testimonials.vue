@@ -10,7 +10,7 @@
 import CommunitStats from './_partials/testimonials/CommunityStats'
 import Stories from './_partials/testimonials/Stories'
 import Section from '@/components/ui/Section'
-// import Button from '@/components/ui/Button'
+// import Button from '@/components/ui/button'
 export default {
   name: 'TestimonialsSection',
   components: {

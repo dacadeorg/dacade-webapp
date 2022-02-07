@@ -120,7 +120,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import Reward from '@/components/cards/course/_partials/Reward.vue'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 export default {
   name: 'CourseCard',

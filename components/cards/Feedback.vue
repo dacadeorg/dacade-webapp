@@ -71,7 +71,7 @@
 import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import UserCard from '@/components/cards/User'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'

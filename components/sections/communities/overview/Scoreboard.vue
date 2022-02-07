@@ -56,7 +56,7 @@
 import { mapGetters } from 'vuex'
 import SectionWrapper from './_partials/SectionWrapper'
 import ScoreboardCard from '@/components/cards/Scoreboard'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import ArrowDownIcon from '~/assets/icons/arrow-down.svg?inline'
 
 export default {

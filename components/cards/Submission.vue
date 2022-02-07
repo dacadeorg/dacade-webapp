@@ -6,10 +6,11 @@
       text: 'Submitted',
     }"
     :link="link"
-    :bordered="!last"
-    class="max-w-3xl hover:bg-gray-50 rounded-3.5xl"
+    :bordered="false"
+    class="pt-6"
+    box-layout
   >
-    <div class="pb-6">
+    <div class="pb-6 border-b border-solid border-gray-200">
       <p
         class="text-base md:text-lg leading-normal text-gray-700"
         :class="{
@@ -34,56 +35,47 @@
         >&#183;&#183;&#183;</span
       >
     </div>
-    <div
-      v-if="preview && submission.metadata && submission.metadata.evaluation"
-      class="flex items-center mt-4"
-    >
-      <Badge
-        :custom-style="badgeButtonStyles"
-        size="medium"
-        class="relative left-0"
-        :value="submission.metadata.evaluation.points"
+    <div class="flex items-center mt-4 w-full">
+      <div
+        v-if="preview && submission.metadata && submission.metadata.evaluation"
+        class="w-full"
       >
-      </Badge>
-      <span class="ml-3 text-sm">Points</span>
-    </div>
-    <div
-      v-if="buttons"
-      class="
-        inline-grid
-        space-y-2
-        md:space-y-5 md:contents
-        mt-6
-        space-x-0
-        md:space-x-2
-      "
-    >
-      <Button
-        v-if="submission.link"
-        :padding="false"
-        class="action-button py-2 px-5 w-44"
-        :link="submission.link"
-        target="__blank"
-        :custom-style="primaryButtonStyles"
-        type="outline-primary"
-      >
-        <span class="flex text-left items-center">
-          GitHub Code
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
+        <span class="inline-block mr-4">
+          <Badge
+            :custom-style="badgeButtonStyles"
+            size="medium"
+            class="relative left-0"
+            :value="submission.metadata.evaluation.points"
+          >
+          </Badge>
+          <span class="ml-3 text-sm">Points</span>
         </span>
-      </Button>
-
-      <!-- <Button
-        :padding="false"
-       class="action-button py-2 px-5 w-44"
-        :custom-style="outlineButtonStyles"
-        type="outline-primary"
-      >
-        <span class="flex text-left items-center">
-          Website
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
+        <span class="text-sm relative leading-snug text-gray-700 inline-block">
+          {{ submission.metadata.feedbacks }} feedbacks
         </span>
-      </Button> -->
+      </div>
+      <div class="text-right ml-auto xl:m-0 xl:w-full">
+        <Button
+          :padding="false"
+          class="
+            action-button
+            bg-gray-100
+            inline-flex
+            text-gray-500
+            items-center
+            justify-center
+            w-10
+            h-10
+            md:w-11 md:h-11
+            text-2xl
+            rounded-full
+          "
+          type="none"
+          :custom-style="arrowButtonStyles"
+        >
+          <ArrowRightIcon class="w-full" />
+        </Button>
+      </div>
     </div>
   </UserCard>
 </template>
@@ -91,7 +83,7 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Badge from '@/components/ui/Badge'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import UserCard from '@/components/cards/User'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
@@ -130,6 +122,15 @@ export default {
       default: false,
       type: Boolean,
     },
+    timestamp: {
+      default: () => {
+        return {
+          text: '',
+          date: '',
+        }
+      },
+      type: Object,
+    },
   },
   computed: {
     ...mapGetters({
@@ -156,6 +157,13 @@ export default {
       return {
         borderColor: this.colors.textAccent,
         color: this.colors.textAccent,
+        '--button-color--hover': this.colors.text,
+        '--button-background-color--hover': this.colors.textAccent,
+        '--button-border-color--hover': this.colors.textAccent,
+      }
+    },
+    arrowButtonStyles() {
+      return {
         '--button-color--hover': this.colors.text,
         '--button-background-color--hover': this.colors.textAccent,
         '--button-border-color--hover': this.colors.textAccent,

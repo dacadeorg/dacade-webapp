@@ -65,7 +65,7 @@ import Slugger from 'github-slugger'
 import Section from '@/components/sections/communities/_partials/Section.vue'
 import Duration from '@/components/sections/communities/courses/_partials/Duration.vue'
 import Markdown from '@/components/sections/communities/courses/_partials/Markdown.vue'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import Video from '@/components/ui/Video'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 

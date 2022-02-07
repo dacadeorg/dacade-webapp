@@ -102,7 +102,7 @@ import Coin from '@/components/ui/Coin'
 import ListIcon from '@/components/cards/community/_partials/ListIcon'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 import DateManager from '@/utilities/DateManager'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {

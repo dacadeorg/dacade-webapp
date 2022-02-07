@@ -82,7 +82,7 @@ import BalanceList from '@/components/list/Balance'
 import ReputationList from '@/components/list/Reputation'
 import LanguageList from '@/components/list/Language'
 import Avatar from '@/components/ui/Avatar'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 
 export default {
   name: 'UserProfileDropdown',
