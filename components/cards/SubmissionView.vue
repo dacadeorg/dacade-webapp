@@ -1,5 +1,5 @@
 <template>
-  <UserViewCard
+  <UserCard
     :user="submission.user"
     :timestamp="{
       date: submission.created_at,
@@ -87,7 +87,7 @@
         </span>
       </Button> -->
     </div>
-  </UserViewCard>
+  </UserCard>
 </template>
 <script>
 /* eslint-disable no-console */
@@ -95,7 +95,7 @@ import { mapGetters } from 'vuex'
 import Truncate from 'lodash.truncate'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
-import UserViewCard from '@/components/cards/UserView'
+import UserCard from '@/components/cards/User'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
@@ -104,7 +104,7 @@ export default {
     Badge,
     Button,
     ArrowRightIcon,
-    UserViewCard,
+    UserCard,
   },
   props: {
     submission: {
