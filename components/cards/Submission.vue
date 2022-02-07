@@ -12,66 +12,60 @@
   >
     <div class="pb-6 border-b border-solid border-gray-200">
       <p
-        class="text-base md:text-lg leading-normal text-gray-700 break-all"
-        :class="{
-          'line-clamp-3': preview,
-          'max-w-screen-sm': preview,
-        }"
+        class="
+          text-base
+          md:text-lg
+          line-clamp-3
+          leading-normal
+          text-gray-700
+          break-all
+        "
       >
         {{ submission.text }}
       </p>
-      <span
-        v-if="preview"
-        class="
-          rounded-full
-          bg-gray-100
-          px-2
-          leading-none
-          py-0
-          h-5
-          items-center
-          justify-items-center
-        "
-        >&#183;&#183;&#183;</span
-      >
     </div>
-    <div class="flex items-center my-4 w-full">
-      <div
-        v-if="preview && submission.metadata && submission.metadata.evaluation"
-        class="w-full"
-      >
-        <span class="inline-block mr-2">
+    <div class="flex items-center my-4 w-full justify-between">
+      <div class="flex space-x-4 items-center">
+        <div
+          v-if="submission.reward && submission.reviewable"
+          class="
+            bg-yellow-50
+            text-yellow-900 text-sm
+            border border-solid border-yellow-100
+            rounded
+            px-3
+            py-0.5
+            inline-block
+          "
+        >
+          <span class="font-semibold"
+            >{{ submission.reward.amount }} {{ submission.reward.token }}</span
+          >
+          Feedback bounty
+        </div>
+        <div
+          v-if="submission.metadata && submission.metadata.evaluation"
+          class="inline-flex flex-1 items-center space-x-1"
+        >
           <Badge
             :custom-style="badgeButtonStyles"
             size="medium"
-            class="relative left-0"
+            class="relative"
             :value="submission.metadata.evaluation.points"
           >
           </Badge>
-          <span class="text-sm">Points</span>
-        </span>
-        <span
+          <span class="text-sm leading">Points</span>
+        </div>
+        <div
+          v-if="submission.metadata && submission.metadata.feedbacks"
           class="mr-2 text-sm relative leading-snug text-gray-700 inline-block"
         >
           <span class="font-semibold">{{ submission.metadata.feedbacks }}</span>
           Feedbacks
-        </span>
-
-        <span
-          class="
-            bg-yellow-50
-            text-yellow-900 text-sm
-            border border-solid border-yellow-50
-            rounded
-            px-3
-            py-2
-          "
-        >
-          <span class="font-semibold">25 cUSD</span> Feedback bounty
-        </span>
+        </div>
       </div>
 
-      <div class="text-right ml-auto xl:m-0 w-full hidden md:block">
+      <div class="text-right ml-auto xl:m-0 hidden md:block">
         <Button
           :padding="false"
           class="
