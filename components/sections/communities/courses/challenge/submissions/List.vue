@@ -1,6 +1,12 @@
 <template>
   <Section :key="page">
-    <div class="border border-gray-200 border-solid rounded-3.5xl relative">
+    <div
+      class="
+        md:border md:border-gray-200 md:border-solid
+        rounded-3.5xl
+        relative
+      "
+    >
       <div class="flex flex-col divide-y">
         <SubmissionCard
           v-for="(submission, i) in submissions"

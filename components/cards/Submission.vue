@@ -12,7 +12,7 @@
   >
     <div class="pb-6 border-b border-solid border-gray-200">
       <p
-        class="text-base md:text-lg leading-normal text-gray-700"
+        class="text-base md:text-lg leading-normal text-gray-700 break-all"
         :class="{
           'line-clamp-3': preview,
           'max-w-screen-sm': preview,
@@ -35,7 +35,7 @@
         >&#183;&#183;&#183;</span
       >
     </div>
-    <div class="flex items-center mt-4 w-full">
+    <div class="flex flex-wrap items-center my-4 w-full">
       <div
         v-if="preview && submission.metadata && submission.metadata.evaluation"
         class="w-full"
@@ -63,7 +63,7 @@
         </span>
       </div>
 
-      <div class="text-right ml-auto xl:m-0 w-full">
+      <div class="text-right ml-auto xl:m-0 w-full hidden md:block">
         <Button
           :padding="false"
           class="
