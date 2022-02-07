@@ -35,7 +35,7 @@
         >&#183;&#183;&#183;</span
       >
     </div>
-    <div class="flex flex-wrap items-center my-4 w-full">
+    <div class="flex items-center my-4 w-full">
       <div
         v-if="preview && submission.metadata && submission.metadata.evaluation"
         class="w-full"
@@ -48,18 +48,26 @@
             :value="submission.metadata.evaluation.points"
           >
           </Badge>
-          <span class="ml-3 text-sm">Points</span>
+          <span class="text-sm">Points</span>
         </span>
         <span
           class="mr-2 text-sm relative leading-snug text-gray-700 inline-block"
         >
-          {{ submission.metadata.feedbacks }} feedbacks
+          <span class="font-semibold">{{ submission.metadata.feedbacks }}</span>
+          Feedbacks
         </span>
 
         <span
-          class="bg-yellow-50 text-yellow-900 text-sm rounded-full px-3 py-2"
+          class="
+            bg-yellow-50
+            text-yellow-900 text-sm
+            border border-solid border-yellow-50
+            rounded
+            px-3
+            py-2
+          "
         >
-          <span class="font-bold">25 cUSD</span> Feedback bounty
+          <span class="font-semibold">25 cUSD</span> Feedback bounty
         </span>
       </div>
 
