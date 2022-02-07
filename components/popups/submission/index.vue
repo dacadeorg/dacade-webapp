@@ -5,7 +5,7 @@
         class="
           bg-white
           my-auto
-          md:w-10/12
+          lg:w-10/12
           w-11/12
           rounded-3.5xl
           relative
@@ -17,7 +17,7 @@
         <div class="w-full flex-none">
           <Header @close="close" />
         </div>
-        <div class="overflow-y-scroll flex-1 md:p-20">
+        <div class="overflow-y-scroll flex-1 py-5 md:py-10 lg:p-20">
           <Section>
             <SubmissionView />
           </Section>
