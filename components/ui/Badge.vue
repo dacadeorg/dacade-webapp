@@ -15,7 +15,6 @@
       justify-center
       rounded-full
       text-xxs
-      absolute
     "
     >{{ value }}</span
   >
