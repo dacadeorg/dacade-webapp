@@ -120,7 +120,7 @@
       />
       <Badge
         v-if="bounty.submissions && bounty.submissions.length"
-        class="bottom-0 -right-1"
+        class="bottom-0 -right-1 absolute"
         :custom-style="{
           bottom: '0',
           right: '-4px',

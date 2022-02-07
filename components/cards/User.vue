@@ -15,6 +15,7 @@
       <Badge
         v-if="badge"
         :value="badge"
+        class="absolute"
         size="medium"
         :custom-style="{
           bottom: '-1px',
