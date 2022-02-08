@@ -51,8 +51,7 @@
           {{ $t('course.challenge.level') }}
         </div>
         <div class="text-sm mt-3 pb-2 max-w-xxs">
-          {{ course.challenge.description }}
-          {{ reward.amount }}
+          {{ course.description }}
         </div>
       </div>
       <div class="hidden sm:block">
@@ -92,9 +91,12 @@
     >
       <Reward :reward="reward" size="small" />
       <div class="font-light text-sm max-w-xs pb-2 text-gray-700">
-        {{ $t('course.challenge.description-1') }}
-        {{ reward.amount }}
-        {{ $t('course.challenge.description-2') }}
+        {{
+          $t('course.challenge.description', {
+            amount: `$${reward.amount}`,
+            token: reward.token,
+          })
+        }}
       </div>
     </div>
     <div class="block sm:hidden pt-6">
