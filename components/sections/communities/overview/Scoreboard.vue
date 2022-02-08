@@ -1,5 +1,6 @@
 <template>
   <SectionWrapper
+    v-if="list && list.length"
     :title="$t('communities.overview.scoreboard.title')"
     :description="$t('communities.overview.scoreboard.description')"
   >
