@@ -97,7 +97,11 @@ export default {
   },
   methods: {
     stripTrailingSlash(str) {
-      return str.endsWith('/') ? str.slice(0, -1) : str
+      let value = str
+      if (str.includes('#')) {
+        value = value.split('#')[0]
+      }
+      return value.endsWith('/') ? value.slice(0, -1) : value
     },
   },
 }
