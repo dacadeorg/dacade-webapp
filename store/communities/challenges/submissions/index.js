@@ -17,13 +17,16 @@ export const mutations = {
 
 export const actions = {
   async find({ commit }, id) {
-    const { data } = await this.$api.get(`submissions/${id}`)
+    const { data } = await this.$api.get(`submissions/${id}`, {
+      params: {
+        relations: ['challenge', 'evaluations'],
+      },
+    })
     commit('setCurrent', data)
   },
   show({ commit, state }, id) {
     if (!state.list.length) return
     const current = state.list.find((submission) => submission.id === id)
-    console.log(current)
     commit('setCurrent', current)
   },
   async all({ commit, state }, { challengeId, startAfter }) {
@@ -49,6 +52,17 @@ export const actions = {
     })
     this.commit('communities/challenges/setSubmission', data)
     return data
+  },
+  async findWithRelations({ commit }, id) {
+    const { data } = await this.$api.get(`submissions/${id}`, {
+      params: {
+        relations: ['challenge', 'evaluations', 'course', 'community'],
+      },
+    })
+    commit('setCurrent', data)
+    this.commit('communities/setCurrent', data.community)
+    this.commit('communities/courses/setCurrent', data.course)
+    this.commit('communities/challenges/setCurrent', data.challenge)
   },
 }
 
