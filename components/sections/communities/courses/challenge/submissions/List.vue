@@ -2,7 +2,7 @@
   <Section :key="page">
     <div
       class="
-        md:border md:border-gray-200 md:border-solid
+        sm:border sm:border-gray-200 sm:border-solid
         rounded-3.5xl
         relative
       "
@@ -20,7 +20,7 @@
       <Loader
         v-if="showLoadMore"
         :loading="loading"
-        class="absolute left-6 -bottom-7.5"
+        class=":absolute left-6 -bottom-7.5"
         @click="nextPage()"
       />
     </div>

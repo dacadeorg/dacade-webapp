@@ -14,7 +14,7 @@
       <p
         class="
           text-base
-          md:text-lg
+          sm:text-lg
           line-clamp-3
           leading-normal
           text-gray-700
@@ -65,7 +65,7 @@
         </div>
       </div>
 
-      <div class="text-right ml-auto xl:m-0 hidden md:block">
+      <div class="text-right ml-auto xl:m-0 hidden sm:block">
         <Button
           :padding="false"
           class="
@@ -77,7 +77,7 @@
             justify-center
             w-10
             h-10
-            md:w-11 md:h-11
+            sm:w-11 sm:h-11
             text-2xl
             rounded-full
           "

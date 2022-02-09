@@ -2,7 +2,7 @@
   <div
     class="group bg-gradient-to-trw-full relative"
     :class="[
-      boxLayout ? 'md:p-6' : 'pl-5 md:pl-7.5',
+      boxLayout ? 'sm:p-6' : 'pl-5 sm:pl-7.5',
       { 'cursor-pointer': link, 'flex space-x-3': boxLayout },
     ]"
     @click="goToLink"

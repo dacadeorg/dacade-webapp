@@ -12,9 +12,10 @@
       justify-center
       uppercase
       leading-none
+      align-middle
     "
   >
-    {{ user && initials }}
+    <span v-if="user">{{ initials }}</span>
     <img v-if="icon" :src="icon" class="p-2" />
     <img v-if="image" :src="image" class="p-0" />
   </span>
@@ -62,7 +63,7 @@ export default {
         case 'large':
           return 'w-15 h-15 text-2xl'
         case 'medium':
-          return 'w-10 h-10 md:w-15 md:h-15 text-2xl'
+          return 'w-10 h-10 sm:h-12 sm:w-12 md:w-15 md:h-15 text-2xl'
         case 'medium-fixed':
           return 'w-10 h-10 text-2xl'
         case 'mini':
