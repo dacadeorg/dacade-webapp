@@ -93,10 +93,12 @@
         </div>
         <div class="flex justify-between">
           <div class="flex xl:ml-13 flex-col self-center">
-            <div class="flex flex-row max-w-xm space-x-3">
+            <div
+              v-if="challenge.format.disclaimer"
+              class="flex flex-row max-w-xm space-x-3 items-center"
+            >
               <input
-                id="agree3"
-                v-model="checkedterms"
+                v-model="checkedTerms"
                 class="xl:w-5 w-10 h-5"
                 name="agree"
                 required
@@ -104,8 +106,8 @@
                 type="checkbox"
                 target="_blank"
               />
-              <span class="max-w-none test text-sm">
-                The link to demo of the Dapp is in the readme of the repository.
+              <span class="max-w-none test text-sm leading-none">
+                {{ challenge.format.disclaimer }}
               </span>
             </div>
           </div>
@@ -165,7 +167,7 @@ export default {
       text: '',
       githubLink: '',
       submitting: false,
-      checkedterms: false,
+      checkedTerms: false,
     }
   },
   computed: {
@@ -187,7 +189,10 @@ export default {
       }
     },
     disabled() {
-      return this.submitting || !this.checkedterms
+      return (
+        this.submitting ||
+        (this.challenge.format.disclaimer ? !this.checkedTerms : false)
+      )
     },
   },
   methods: {
