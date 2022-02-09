@@ -21,7 +21,7 @@
           <SubmissionCard
             :submission="submission"
             :last="true"
-            :buttons="true"
+            :link="$navigation.community.submissionPath(submission.id)"
           />
         </div>
         <SubmissionForm v-else />

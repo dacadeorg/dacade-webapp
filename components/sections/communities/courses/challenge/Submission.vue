@@ -197,7 +197,7 @@ export default {
         if (!this.submitting) {
           this.submitting = true
           this.$store
-            .dispatch('communities/submissions/create', {
+            .dispatch('communities/challenges/submissions/create', {
               challengeId: this.challenge.id,
               text: this.form.text,
               link: this.form.githubLink,
