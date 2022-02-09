@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.0...v3.0.1) (2022-02-09)
+
+
+### Bug Fixes
+
+* create submission vue store error ([5326311](https://gitlab.com/u2467/dacade/dacade/commit/5326311b037bb5a23abfb3de4952fce5058cc2aa))
+* remove some credentials ([ba86fa5](https://gitlab.com/u2467/dacade/dacade/commit/ba86fa531b21046b67fbc28b88a4c4bc6f0faa9c))
+
 ## [3.0.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.8...v3.0.0) (2022-02-09)
 
 
