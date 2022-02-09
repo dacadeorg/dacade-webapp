@@ -167,5 +167,9 @@
   "modal.referral.list.reward": "Referral reward",
   "modal.referral.list.challenge": "Challenge reward",
   "auth/wrong-password": "Incorrect email or password.",
-  "auth/user-not-found": "Incorrect email or password."
+  "auth/user-not-found": "Incorrect email or password.",
+  "referrals.empty-state.title": "No referrals yet",
+  "referrals.empty-state.subtitle": "Once someone uses your referral code to signup, they will showup here",
+  "submissions.empty-state.title": "No submissions yet.",
+  "submissions.empty-state.subtitle": "Be the first!"
 }
