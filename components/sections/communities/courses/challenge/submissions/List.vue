@@ -20,7 +20,7 @@
       <Loader
         v-if="showLoadMore"
         :loading="loading"
-        class=":absolute left-6 -bottom-7.5"
+        class="sm:absolute sm:left-6 sm:-bottom-7.5"
         @click="nextPage()"
       />
     </div>
