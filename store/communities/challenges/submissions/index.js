@@ -19,7 +19,7 @@ export const actions = {
   async find({ commit }, id) {
     const { data } = await this.$api.get(`submissions/${id}`, {
       params: {
-        relations: ['challenge', 'evaluations'],
+        relations: ['challenge', 'evaluation'],
       },
     })
     commit('setCurrent', data)
@@ -56,7 +56,7 @@ export const actions = {
   async findWithRelations({ commit }, id) {
     const { data } = await this.$api.get(`submissions/${id}`, {
       params: {
-        relations: ['challenge', 'evaluations', 'course', 'community'],
+        relations: ['challenge', 'evaluation', 'course', 'community'],
       },
     })
     commit('setCurrent', data)
