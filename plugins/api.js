@@ -21,7 +21,11 @@ export default function ({ $axios, store }, inject) {
 
   api.onError((error) => {
     const { data } = error.response
-    return Promise.reject(data)
+    const output = {
+      ...data,
+      statusCode: error.response.status,
+    }
+    return Promise.reject(output)
   })
 
   //

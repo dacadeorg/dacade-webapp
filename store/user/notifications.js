@@ -23,7 +23,7 @@ export const mutations = {
 export const actions = {
   async all({ commit }) {
     try {
-      const { data } = await this.$api.get('notifications/list')
+      const { data } = await this.$api.get('notifications')
       await commit('clear')
       commit('set', data.list)
       commit('setUnread', data.unread)

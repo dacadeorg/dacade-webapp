@@ -28,7 +28,7 @@
             >
             <nuxt-link
               class="self-end text-sm block leading-normal"
-              to="/profile"
+              :to="localePath('/profile')"
             >
               {{ $t('nav.view-profile') }}
             </nuxt-link>
@@ -58,6 +58,9 @@
       <div v-show="reputations.length > 1" class="p-4">
         <ReputationList />
       </div>
+      <div v-if="false" class="p-4">
+        <LanguageList />
+      </div>
       <div class="p-4 flex justify-center bg-indigo-50">
         <div class="z-10">
           <Button
@@ -77,8 +80,9 @@
 import { mapGetters } from 'vuex'
 import BalanceList from '@/components/list/Balance'
 import ReputationList from '@/components/list/Reputation'
+import LanguageList from '@/components/list/Language'
 import Avatar from '@/components/ui/Avatar'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 
 export default {
   name: 'UserProfileDropdown',
@@ -87,6 +91,7 @@ export default {
     Button,
     BalanceList,
     ReputationList,
+    LanguageList,
   },
   props: {
     buttonStyles: {
@@ -105,7 +110,7 @@ export default {
     logout() {
       this.$emit('close')
       this.$store.dispatch('auth/logout')
-      this.$router.push('/communities')
+      this.$router.push(this.localePath('/communities'))
     },
     toggleInvite() {
       this.$emit('close')

@@ -20,9 +20,13 @@ import BountyList from '@/components/list/Bounty'
 
 export default {
   components: { Navigation, BountyList },
-  async fetch({ store, params }) {
-    await store.dispatch('bounties/findAll', params.slug)
-    return store.dispatch('bounties/findAll', params.slug)
+  fetch({ store, params, error }) {
+    return Promise.all([
+      store.dispatch('bounties/findAll', params.slug),
+      store.dispatch('bounties/findAll', params.slug),
+    ]).catch((e) => {
+      error(e)
+    })
   },
   computed: {
     ...mapGetters({

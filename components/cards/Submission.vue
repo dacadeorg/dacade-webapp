@@ -6,95 +6,95 @@
       text: 'Submitted',
     }"
     :link="link"
-    :bordered="!last"
-    class="max-w-3xl hover:bg-gray-50 rounded-3.5xl"
+    :bordered="false"
+    class="pt-6"
+    box-layout
   >
-    <div class="pb-6">
+    <div class="pb-6 border-b border-solid border-gray-200">
       <p
         class="
           text-base
-          md:text-lg
-          max-w-screen-sm
+          sm:text-lg
+          line-clamp-3
           leading-normal
           text-gray-700
+          break-all
         "
       >
-        {{ text }}
+        {{ submission.text }}
       </p>
-      <span
-        v-if="preview"
-        class="
-          rounded-full
-          bg-gray-100
-          px-2
-          leading-none
-          py-0
-          h-5
-          items-center
-          justify-items-center
-        "
-        >&#183;&#183;&#183;</span
-      >
     </div>
-    <div
-      v-if="preview && submission.metadata && submission.metadata.evaluation"
-      class="flex items-center mt-4"
-    >
-      <Badge
-        :custom-style="badgeButtonStyles"
-        size="medium"
-        class="relative left-0"
-        :value="submission.metadata.evaluation.points"
-      >
-      </Badge>
-      <span class="ml-3 text-sm">Points</span>
-    </div>
-    <div
-      v-if="buttons"
-      class="
-        inline-grid
-        space-y-2
-        md:space-y-5 md:contents
-        mt-6
-        space-x-0
-        md:space-x-2
-      "
-    >
-      <Button
-        v-if="submission.link"
-        :padding="false"
-        class="action-button py-2 px-5 w-44"
-        :link="submission.link"
-        target="__blank"
-        :custom-style="primaryButtonStyles"
-        type="outline-primary"
-      >
-        <span class="flex text-left items-center">
-          GitHub Code
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-        </span>
-      </Button>
+    <div class="flex items-center my-4 w-full justify-between">
+      <div class="flex space-x-4 items-center">
+        <div
+          v-if="submission.reward && submission.reviewable"
+          class="
+            bg-yellow-50
+            text-yellow-900 text-sm
+            border border-solid border-yellow-100
+            rounded
+            px-3
+            py-0.5
+            inline-block
+          "
+        >
+          <span class="font-semibold"
+            >{{ submission.reward.amount }} {{ submission.reward.token }}</span
+          >
+          Feedback bounty
+        </div>
+        <div
+          v-if="submission.metadata && submission.metadata.evaluation"
+          class="inline-flex flex-1 items-center space-x-1"
+        >
+          <Badge
+            :custom-style="badgeButtonStyles"
+            size="medium"
+            class="relative"
+            :value="submission.metadata.evaluation.points"
+          >
+          </Badge>
+          <span class="text-sm leading">Points</span>
+        </div>
+        <div
+          v-if="submission.metadata && submission.metadata.feedbacks"
+          class="mr-2 text-sm relative leading-snug text-gray-700 inline-block"
+        >
+          <span class="font-semibold">{{ submission.metadata.feedbacks }}</span>
+          Feedbacks
+        </div>
+      </div>
 
-      <!-- <Button
-        :padding="false"
-       class="action-button py-2 px-5 w-44"
-        :custom-style="outlineButtonStyles"
-        type="outline-primary"
-      >
-        <span class="flex text-left items-center">
-          Website
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-        </span>
-      </Button> -->
+      <div class="text-right ml-auto xl:m-0 hidden sm:block">
+        <Button
+          :padding="false"
+          class="
+            action-button
+            bg-gray-100
+            inline-flex
+            text-gray-500
+            items-center
+            justify-center
+            w-10
+            h-10
+            sm:w-11 sm:h-11
+            text-2xl
+            rounded-full
+          "
+          type="none"
+          :custom-style="arrowButtonStyles"
+        >
+          <ArrowRightIcon class="w-full" />
+        </Button>
+      </div>
     </div>
   </UserCard>
 </template>
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import Truncate from 'lodash.truncate'
 import Badge from '@/components/ui/Badge'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import UserCard from '@/components/cards/User'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
@@ -133,20 +133,21 @@ export default {
       default: false,
       type: Boolean,
     },
+    timestamp: {
+      default: () => {
+        return {
+          text: '',
+          date: '',
+        }
+      },
+      type: Object,
+    },
   },
   computed: {
     ...mapGetters({
       colors: 'ui/colors',
       community: 'communities/current',
     }),
-    text() {
-      if (!this.preview) return this.submission.text
-      return Truncate(this.submission.text, {
-        length: 220,
-        omission: '',
-        separator: ' ',
-      })
-    },
     badgeButtonStyles() {
       return {
         backgroundColor: this.colors.textAccent,
@@ -167,6 +168,13 @@ export default {
       return {
         borderColor: this.colors.textAccent,
         color: this.colors.textAccent,
+        '--button-color--hover': this.colors.text,
+        '--button-background-color--hover': this.colors.textAccent,
+        '--button-border-color--hover': this.colors.textAccent,
+      }
+    },
+    arrowButtonStyles() {
+      return {
         '--button-color--hover': this.colors.text,
         '--button-background-color--hover': this.colors.textAccent,
         '--button-border-color--hover': this.colors.textAccent,

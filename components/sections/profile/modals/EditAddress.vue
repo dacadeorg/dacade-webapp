@@ -57,7 +57,7 @@
 import Modal from '@/components/ui/Modal'
 import Input from '@/components/ui/Input'
 import Tag from '@/components/ui/Tag'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 import Spinner from '~/assets/icons/spinner.svg?inline'
 

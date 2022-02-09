@@ -1,4 +1,4 @@
-import MyButton from '@/components/ui/Button'
+import MyButton from '@/components/ui/button'
 export default {
   title: 'Button',
   component: MyButton,

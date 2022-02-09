@@ -26,12 +26,9 @@
         mb-5
       "
     >
-      <div
-        class="relative w-full md:flex md:justify-between"
-        @click="goToChallenge(bounty)"
-      >
+      <div class="relative w-full" @click="goToChallenge(bounty)">
         <div class="font-medium text-md mb-2">
-          {{ bounty.name }}
+          {{ bounty.course ? bounty.course.name : bounty.name }}
         </div>
       </div>
 
@@ -65,7 +62,16 @@
         <nuxt-link
           v-for="submission in bounty.submissions"
           :key="submission.id"
-          :to="`/communities/${bounty.slug}/submissions/${submission.id}`"
+          :to="
+            localePath(
+              $navigation.community.submissionsPath(
+                submission.id,
+                bounty.challenge,
+                bounty.course.slug,
+                bounty.slug
+              )
+            )
+          "
           class="flex space-x-1 relative text-sm font-medium py-3"
         >
           <div class="flex justify-between w-full pr-0">
@@ -114,7 +120,7 @@
       />
       <Badge
         v-if="bounty.submissions && bounty.submissions.length"
-        class="bottom-0 -right-1"
+        class="bottom-0 -right-1 absolute"
         :custom-style="{
           bottom: '0',
           right: '-4px',
@@ -164,15 +170,29 @@ export default {
     },
     goToChallenge(bounty) {
       if (bounty.link) {
-        window.open(bounty.link)
+        this.$router.push(this.localePath(bounty.link))
         return
       }
       if (this.isChallenge) {
         return this.$router.push(
-          `/communities/${bounty.slug}/challenges/${bounty.challenge}`
+          this.localePath(
+            this.$navigation.community.challengePath(
+              bounty.challenge,
+              bounty.course.slug,
+              bounty.slug
+            )
+          )
         )
       }
-      return this.$router.push(`/communities/${bounty.slug}/submissions`)
+      return this.$router.push(
+        this.localePath(
+          this.$navigation.community.submissionsPath(
+            bounty.challenge,
+            bounty.course.slug,
+            bounty.slug
+          )
+        )
+      )
     },
   },
 }

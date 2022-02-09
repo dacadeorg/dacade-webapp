@@ -20,7 +20,7 @@ export const mutations = {
 
 export const actions = {
   async all({ commit }) {
-    const { data } = await this.$api.get('payouts/list')
+    const { data } = await this.$api.get('payouts')
     commit('setList', data)
   },
 

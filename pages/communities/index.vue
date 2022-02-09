@@ -20,8 +20,10 @@ export default {
   components: {
     CommunityListCard,
   },
-  fetch({ store }) {
-    return store.dispatch('communities/all')
+  fetch({ store, error }) {
+    return store.dispatch('communities/all').catch((e) => {
+      error(e)
+    })
   },
   computed: {
     ...mapGetters({

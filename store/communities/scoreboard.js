@@ -13,8 +13,7 @@ export const mutations = {
 
 export const actions = {
   async all({ commit }, slug) {
-    const { data } = await this.$api.get(`communities/scoreboard/${slug}`)
-    console.log(data)
+    const { data } = await this.$api.get(`communities/${slug}/scoreboard`)
     commit('setList', data)
   },
 }

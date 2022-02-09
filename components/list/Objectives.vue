@@ -1,7 +1,13 @@
 <template>
   <div
     v-if="objectives"
-    class="grid grid-cols-1 md:grid-cols-3 gap-5 py-2 md:pt-5 md:pb-0 md:mb-0"
+    class="
+      flex flex-col
+      gap-y-3
+      md:grid md:grid-cols-3 md:gap-x-3 md:items-stretch
+      pt-2
+      md:pt-5 md:pb-2 md:mb-2
+    "
   >
     <Objective
       v-for="(objective, i) in objectives"

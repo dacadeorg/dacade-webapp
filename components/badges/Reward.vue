@@ -17,6 +17,7 @@
     :class="{
       'bg-white bg-opacity-25 text-white': type == 'transparent',
       'bg-gray-200 text-gray-500': type == 'gray',
+      'bg-gray-100 text-gray-500': type == 'light-gray',
     }"
   >
     <Coin :v-if="token" :token="token" size="small" />

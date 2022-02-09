@@ -14,7 +14,7 @@
             class="text-sm mt-4 relative text-primary"
           >
             <nuxt-link
-              :to="item.link"
+              :to="localePath(item.link)"
               class="relative text-gray-500"
               :class="{ 'activable-link': !item.exact }"
             >
@@ -60,8 +60,12 @@ export default {
               exact: true,
             },
             {
-              label: 'Wallet',
-              link: '/profile/wallet',
+              label: 'Wallets',
+              link: '/profile/wallets',
+            },
+            {
+              label: 'Referrals',
+              link: '/profile/referrals',
             },
           ],
         },

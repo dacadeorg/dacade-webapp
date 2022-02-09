@@ -17,7 +17,7 @@
 }
 
 .content-wrapper {
-  @apply xl:w-10/12 lg:w-10/12 md:w-10/12 sm:w-10/12 w-11/12 mx-auto max-w-7xl;
+  @apply xl:w-10/12 lg:w-10/12 md:w-10/12 sm:w-11/12 w-11/12 mx-auto max-w-7xl;
 }
 
 body,
@@ -30,6 +30,7 @@ body,
 
 body {
   font-weight: 400;
+  font-family: 'Graphik', sans-serif;
 }
 
 .message-bubble {
@@ -97,7 +98,9 @@ button {
   }
 }
 .action-button:hover,
-.action-button:focus {
+.action-button:focus,
+.community-button:hover,
+.community-button:focus {
   color: var(--button-color--hover) !important;
   background-color: var(--button-background-color--hover) !important;
   border-color: var(--button-border-color--hover) !important;
@@ -148,14 +151,30 @@ div {
   }
 }
 
-.border-none\!{
+.border-none\! {
   @apply border-none !important;
 }
 
-.mt-0\!{
+.mt-0\! {
   @apply mt-0 !important;
 }
 
-.pt-0\!{
+.pt-0\! {
   @apply pt-0 !important;
+} 
+
+.list li {
+line-height: 0.5rem;
+}
+
+.list li::before {
+  content: url('../icons/list.svg');
+  margin-left: -52px;
+}
+
+@media only screen and (max-width: 600px) {
+  .list li {
+    height: 44px;
+    line-height: 1rem;
+    }   
 }

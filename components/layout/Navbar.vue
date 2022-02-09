@@ -98,7 +98,7 @@ import Sidebar from '@/components/popups/Sidebar'
 import NavItem from '@/components/ui/NavItem'
 import NotificationPopup from '@/components/popups/Notification'
 import UserPopup from '@/components/popups/user'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 
 export default {
   components: {

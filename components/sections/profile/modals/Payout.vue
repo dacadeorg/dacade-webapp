@@ -53,7 +53,7 @@
 // import { mapGetters } from 'vuex'
 import Modal from '@/components/ui/Modal'
 import Tag from '@/components/ui/Tag'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import Coin from '@/components/ui/Coin'
 import Currency from '@/components/ui/Currency'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
