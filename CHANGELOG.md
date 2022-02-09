@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.2](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.1...v3.0.2) (2022-02-09)
+
+
+### Features
+
+* allow the support of optional disclaimer message on submission form ([340772a](https://gitlab.com/u2467/dacade/dacade/commit/340772a72eb81cda63ed160a031810a72b29c636))
+
 ### [3.0.1](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.0...v3.0.1) (2022-02-09)
 
 
