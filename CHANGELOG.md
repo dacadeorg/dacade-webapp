@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.4](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.3...v3.0.4) (2022-02-10)
+
+
+### Features
+
+* add dai icon ([42b4de4](https://gitlab.com/u2467/dacade/dacade/commit/42b4de40d863ec93f3dba1922e79d4bd03355fbf))
+
+
+### Bug Fixes
+
+* wallet links ([462b0e9](https://gitlab.com/u2467/dacade/dacade/commit/462b0e97534dde2f3aa30d89e25dd46b017fa536))
+
 ### [3.0.3](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.2...v3.0.3) (2022-02-10)
 
 
