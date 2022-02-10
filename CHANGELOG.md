@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.5](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.4...v3.0.5) (2022-02-10)
+
+
+### Features
+
+* add referral code validation ([be8bc3d](https://gitlab.com/u2467/dacade/dacade/commit/be8bc3d66903ca4c2d0d5683ff27ee29bd8113f1))
+* adjust profile community view list ([8411c50](https://gitlab.com/u2467/dacade/dacade/commit/8411c50049cb44bf82f3185d0e60f335a34a6039))
+
 ### [3.0.4](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.3...v3.0.4) (2022-02-10)
 
 
