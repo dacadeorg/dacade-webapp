@@ -8,10 +8,11 @@
     :link="link"
     :bordered="!last"
     :badge="value.ranking"
+    :box-layout="preview"
   >
     <div
-      class="text-base md:text-lg leading-normal relative"
-      :class="{ 'max-w-screen-sm': preview }"
+      class="text-base md:text-lg leading-normal relative break-all"
+      :class="{ 'line-clamp-3': preview }"
       v-html="value.text"
     />
     <div

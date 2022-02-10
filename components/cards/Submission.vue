@@ -10,83 +10,96 @@
     class="pt-6"
     box-layout
   >
-    <div class="pb-6 border-b border-solid border-gray-200">
-      <p
-        class="
-          text-base
-          sm:text-lg
-          line-clamp-3
-          leading-normal
-          text-gray-700
-          break-all
-        "
-      >
-        {{ submission.text }}
-      </p>
-    </div>
-    <div class="flex items-center my-4 w-full justify-between">
-      <div class="flex space-x-4 items-center">
-        <div
-          v-if="submission.reward && submission.reviewable"
+    <div class="divide-y divide-gray-200 flex flex-col">
+      <div class="pb-6">
+        <p
           class="
-            bg-yellow-50
-            text-yellow-900 text-sm
-            border border-solid border-yellow-100
-            rounded
-            px-3
-            py-0.5
-            inline-block
+            text-base
+            sm:text-lg
+            line-clamp-3
+            leading-normal
+            text-gray-700
+            break-all
           "
         >
-          <span class="font-semibold"
-            >{{ submission.reward.amount }} {{ submission.reward.token }}</span
-          >
-          Feedback bounty
-        </div>
-        <div
-          v-if="submission.metadata && submission.metadata.evaluation"
-          class="inline-flex flex-1 items-center space-x-1"
-        >
-          <Badge
-            :custom-style="badgeButtonStyles"
-            size="medium"
-            class="relative"
-            :value="submission.metadata.evaluation.points"
-          >
-          </Badge>
-          <span class="text-sm leading">Points</span>
-        </div>
-        <div
-          v-if="submission.metadata && submission.metadata.feedbacks"
-          class="mr-2 text-sm relative leading-snug text-gray-700 inline-block"
-        >
-          <span class="font-semibold">{{ submission.metadata.feedbacks }}</span>
-          Feedbacks
-        </div>
+          {{ submission.text }}
+        </p>
       </div>
+      <div class="flex items-center py-4 w-full justify-between">
+        <div class="flex space-x-4 items-center">
+          <div
+            v-if="submission.reward && submission.reviewable"
+            class="
+              bg-yellow-50
+              text-yellow-900 text-sm
+              border border-solid border-yellow-100
+              rounded
+              px-3
+              py-0.5
+              inline-block
+            "
+          >
+            <span class="font-semibold"
+              >{{ submission.reward.amount }}
+              {{ submission.reward.token }}</span
+            >
+            Feedback bounty
+          </div>
+          <div
+            v-if="submission.metadata && submission.metadata.evaluation"
+            class="inline-flex flex-1 items-center space-x-1"
+          >
+            <Badge
+              :custom-style="badgeButtonStyles"
+              size="medium"
+              class="relative"
+              :value="submission.metadata.evaluation.points"
+            >
+            </Badge>
+            <span class="text-sm leading">Points</span>
+          </div>
+          <div
+            v-if="submission.metadata && submission.metadata.feedbacks"
+            class="
+              mr-2
+              text-sm
+              relative
+              leading-snug
+              text-gray-700
+              inline-block
+            "
+          >
+            <span class="font-semibold">{{
+              submission.metadata.feedbacks
+            }}</span>
+            Feedbacks
+          </div>
+        </div>
 
-      <div class="text-right ml-auto xl:m-0 hidden sm:block">
-        <Button
-          :padding="false"
-          class="
-            action-button
-            bg-gray-100
-            inline-flex
-            text-gray-500
-            items-center
-            justify-center
-            w-10
-            h-10
-            sm:w-11 sm:h-11
-            text-2xl
-            rounded-full
-          "
-          type="none"
-          :custom-style="arrowButtonStyles"
-        >
-          <ArrowRightIcon class="w-full" />
-        </Button>
+        <div class="text-right ml-auto xl:m-0 hidden sm:block">
+          <Button
+            :padding="false"
+            class="
+              action-button
+              bg-gray-100
+              inline-flex
+              text-gray-500
+              items-center
+              justify-center
+              w-10
+              h-10
+              sm:w-11 sm:h-11
+              text-2xl
+              rounded-full
+            "
+            type="none"
+            :custom-style="arrowButtonStyles"
+          >
+            <ArrowRightIcon class="w-full" />
+          </Button>
+        </div>
       </div>
+      <slot />
     </div>
   </UserCard>
 </template>
