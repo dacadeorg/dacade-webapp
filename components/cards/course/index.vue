@@ -92,10 +92,16 @@
       <Reward :reward="reward" size="small" />
       <div class="font-light text-sm max-w-xs pb-2 text-gray-700">
         {{
-          $t('course.challenge.description', {
-            amount: `$${reward.amount}`,
-            token: reward.token,
-          })
+          $t(
+            reward.stable
+              ? 'course.challenge.reward.stable.description'
+              : 'course.challenge.reward.description',
+            {
+              currency: `$`,
+              amount: `${reward.amount}`,
+              token: reward.token,
+            }
+          )
         }}
       </div>
     </div>

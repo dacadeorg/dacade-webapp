@@ -15,7 +15,9 @@
       {{ $t('course.challenge.reward') }}
     </div>
     <div>
-      <div class="font-normal text-5xl text-gray-900">${{ reward.amount }}</div>
+      <div class="font-normal text-5xl text-gray-900">
+        {{ reward.stable && '$' }}{{ reward.amount }}
+      </div>
       <div v-if="reward" class="text-right sm:text-left mt-3">
         <RewardBadge :reward="{ token: reward.token }" type="gray" />
       </div>
