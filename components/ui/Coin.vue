@@ -30,6 +30,7 @@ import CUSDIcon from '~/assets/icons/tokens/cUSD.svg?inline'
 import ETHIcon from '~/assets/icons/tokens/ETH.svg?inline'
 import AEIcon from '~/assets/icons/tokens/AE.svg?inline'
 import TEZIcon from '~/assets/icons/tokens/Tezos.svg?inline'
+import DAIIcon from '~/assets/icons/tokens/DAI.svg?inline'
 export default {
   name: 'Coin',
   components: {
@@ -38,6 +39,7 @@ export default {
     ETHIcon,
     AEIcon,
     TEZIcon,
+    DAIIcon,
   },
   props: {
     bgColor: {
@@ -93,6 +95,12 @@ export default {
           icon: TEZIcon,
           bgColor: '#0D61FF',
           textColor: '#FFFFFF',
+        },
+        {
+          token: 'DAI',
+          icon: DAIIcon,
+          bgColor: '#F5AC37',
+          textColor: '#FEFEFD',
         },
       ],
     }
