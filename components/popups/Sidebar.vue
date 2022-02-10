@@ -76,7 +76,7 @@
               <div class="py-5 font-medium text-gray-900" @click="toggle">
                 <nuxt-link
                   class="font-medium text-lg text-gray-900"
-                  :to="localePath('/profile/wallet')"
+                  :to="localePath('/profile/wallets')"
                 >
                   {{ $t('nav.wallet') }}
                 </nuxt-link>
