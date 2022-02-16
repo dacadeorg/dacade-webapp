@@ -27,7 +27,7 @@
       "
     >
       <div class="relative w-full" @click="goToChallenge(bounty)">
-        <div class="font-medium text-md mb-2">
+        <div class="font-medium text-md md:pt-1.5">
           {{ bounty.course ? bounty.course.name : bounty.name }}
         </div>
       </div>
@@ -126,7 +126,7 @@
         v-if="bounty.submissions && bounty.submissions.length"
         class="bottom-0 -right-1 absolute"
         :custom-style="{
-          bottom: '0',
+          bottom: '-4px',
           right: '-4px',
           fontSize: 14,
           backgroundColor: bounty.colors.accent,
