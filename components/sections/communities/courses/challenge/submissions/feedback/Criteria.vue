@@ -2,8 +2,7 @@
   <div
     class="py-5 border rounded-t relative"
     :class="
-      !submission.reviewable &
-      !(submission.metadata && submission.metadata.evaluation)
+      submission.metadata && submission.metadata.evaluation
         ? 'bg-gray-50 border-gray-200'
         : 'bg-yellow-50 border-yellow-200'
     "
@@ -23,22 +22,15 @@
         sm:w-15 sm:h-15
       "
       :bg-color="
-        !submission.reviewable &
-        !(submission.metadata && submission.metadata.evaluation)
-          ? '#d2d2d2'
-          : null
+        submission.metadata && submission.metadata.evaluation ? '#d2d2d2' : null
       "
       :color="
-        !submission.reviewable &
-        !(submission.metadata && submission.metadata.evaluation)
-          ? '#FFFFFF'
-          : null
+        submission.metadata && submission.metadata.evaluation ? '#FFFFFF' : null
       "
     />
     <div
       :class="
-        !submission.reviewable &
-        !(submission.metadata && submission.metadata.evaluation)
+        submission.metadata && submission.metadata.evaluation
           ? 'text-gray-700'
           : 'text-yellow-900'
       "
@@ -47,8 +39,7 @@
         <div
           class="divide-y sm:divide-y-0 space-y-4"
           :class="
-            !submission.reviewable &
-            !(submission.metadata && submission.metadata.evaluation)
+            submission.metadata && submission.metadata.evaluation
               ? 'divide-gray-200'
               : 'divide-yellow-200'
           "
@@ -80,8 +71,7 @@
               sm:pt-0
             "
             :class="
-              !submission.reviewable &
-              !(submission.metadata && submission.metadata.evaluation)
+              submission.metadata && submission.metadata.evaluation
                 ? 'divide-gray-200 '
                 : 'divide-yellow-200'
             "
@@ -118,8 +108,7 @@
             v-show="infoVisibility === true"
             class="divide-y space-y-4"
             :class="
-              !submission.reviewable &
-              !(submission.metadata && submission.metadata.evaluation)
+              submission.metadata && submission.metadata.evaluation
                 ? 'border-gray-200'
                 : 'border-yellow-200'
             "
@@ -129,8 +118,7 @@
               :key="key"
               class="pt-6 px-3.75 sm:px-10 pb-0 sm:border-t font-medium"
               :class="
-                !submission.reviewable &
-                !(submission.metadata && submission.metadata.evaluation)
+                submission.metadata && submission.metadata.evaluation
                   ? 'border-gray-200'
                   : 'border-yellow-200'
               "
@@ -141,16 +129,14 @@
               <div
                 class="sm:-ml-6 px-5 sm:p-0"
                 :class="
-                  !submission.reviewable &
-                  !(submission.metadata && submission.metadata.evaluation)
+                  submission.metadata && submission.metadata.evaluation
                     ? 'text-gray-600'
                     : 'text-yellow-900'
                 "
               >
                 <ObjectiveList
                   :iconcolor="
-                    !submission.reviewable &
-                    !(submission.metadata && submission.metadata.evaluation)
+                    submission.metadata && submission.metadata.evaluation
                       ? '#9CA3AF'
                       : '#F59E0B'
                   "
