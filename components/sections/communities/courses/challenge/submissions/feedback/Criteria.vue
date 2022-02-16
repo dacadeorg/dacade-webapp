@@ -56,7 +56,9 @@
                 class="font-medium"
                 >{{ $t('feedback.issued') }}
               </span>
-              <span v-else class="font-medium">~ {{ deadline }}</span>
+              <span v-if="submission.reviewable" class="font-medium"
+                >~ {{ deadline }}</span
+              >
             </div>
           </div>
           <div
