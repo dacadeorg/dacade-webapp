@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.7](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.6...v3.0.7) (2022-02-16)
+
+
+### Bug Fixes
+
+* bounty submission link ([3d4ff81](https://gitlab.com/u2467/dacade/dacade/commit/3d4ff81803df3a9e41f904d3a8f12f32e5a7b848))
+
 ### [3.0.6](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.5...v3.0.6) (2022-02-10)
 
 
