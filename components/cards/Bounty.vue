@@ -64,7 +64,7 @@
           :key="submission.id"
           :to="
             localePath(
-              $navigation.community.submissionsPath(
+              $navigation.community.submissionPath(
                 submission.id,
                 bounty.challenge,
                 bounty.course.slug,
@@ -95,7 +95,11 @@
                   h-5
                 "
               >
-                {{ submission.metadata ? submission.metadata.feedbacks : 0 }}
+                {{
+                  submission.metadata && submission.metadata.feedbacks
+                    ? submission.metadata.feedbacks
+                    : 0
+                }}
               </div>
             </div>
             <div class="text-gray-500 text-base font-normal">
