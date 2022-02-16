@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.8](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.7...v3.0.8) (2022-02-16)
+
+
+### Improvements
+
+* adjust the referral and bounty card design ([c05e74f](https://gitlab.com/u2467/dacade/dacade/commit/c05e74f8a1cfefc66261c2ebf3e3728ad32528c4))
+
 ### [3.0.7](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.6...v3.0.7) (2022-02-16)
 
 
