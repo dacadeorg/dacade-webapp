@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link :to="localePath(`/communities/${details.community.slug}`)">
+  <nuxt-link
+    v-if="details.community"
+    :to="localePath(`/communities/${details.community.slug}`)"
+  >
     <div class="flex space-x-3 text-left hover:bg-gray-50 pb-3 -mx-5 px-5">
       <Avatar
         :icon="details.community.icon"
