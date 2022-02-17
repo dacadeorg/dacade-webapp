@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.9](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.8...v3.0.9) (2022-02-17)
+
+
+### Bug Fixes
+
+* change the condition ([5528fc2](https://gitlab.com/u2467/dacade/dacade/commit/5528fc295754a63b21eab885b83dc28b31428ac6))
+* change the conditions ([2710d8d](https://gitlab.com/u2467/dacade/dacade/commit/2710d8da159160f1a451507b40d2ac62a484dd20))
+* empty reputation rendering issue ([e2f0aaf](https://gitlab.com/u2467/dacade/dacade/commit/e2f0aaf2f87158608dd75f91c27357f635f6f7d9))
+
+
+### Improvements
+
+* make the feedback rewards active ([f87dbd5](https://gitlab.com/u2467/dacade/dacade/commit/f87dbd5e8978226472d80f8d66a3e0a0431dc00e))
+* make the feedback rewards active ([a01fd85](https://gitlab.com/u2467/dacade/dacade/commit/a01fd85d0d34106aad67f904da6bc7a9cc43756d))
+
 ### [3.0.8](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.7...v3.0.8) (2022-02-16)
 
 
