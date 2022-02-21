@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.11](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.10...v3.0.11) (2022-02-21)
+
+
+### Bug Fixes
+
+* course navigation links ([4bd0338](https://gitlab.com/u2467/dacade/dacade/commit/4bd03380184b4092582907b53d3a6f0c11047757))
+
 ### [3.0.10](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.9...v3.0.10) (2022-02-21)
 
 
