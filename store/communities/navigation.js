@@ -22,7 +22,11 @@ export const actions = {
   },
   init({ commit, dispatch, getters }) {
     const course = this.getters['communities/courses/current']
-    const menus = this.$navigation.community.init(course)
+    const community = this.getters['communities/current']
+    const menus = this.$navigation.community.init({
+      course,
+      community,
+    })
     commit('setList', menus)
   },
 }

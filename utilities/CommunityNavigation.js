@@ -72,12 +72,16 @@ export default class CommunityNavigation {
     )
   }
 
-  learningModuleLinks(course) {
+  learningModuleLinks(course, community) {
     const slugger = new Slugger()
     return course.learningModules?.map((learningModule, i) => ({
       id: learningModule.id,
       label: learningModule.title,
-      link: this.learningModulePath(learningModule.id, course.slug),
+      link: this.learningModulePath(
+        learningModule.id,
+        course.slug,
+        community.slug
+      ),
       exact: false,
       subitems: learningModule.materials
         ? learningModule.materials.map((material) => {
@@ -92,26 +96,35 @@ export default class CommunityNavigation {
     }))
   }
 
-  bountyLinks(course) {
+  bountyLinks(course, community) {
     if (!course.challenge) return []
 
     return [
       {
         id: 'challenge',
         label: 'communities.navigation.challenge.overview',
-        link: this.challengePath(course.challenge.id, course.slug),
+        link: this.challengePath(
+          course.challenge.id,
+          course.slug,
+          community.slug
+        ),
         exact: true,
       },
       {
         id: 'submissions',
         label: 'communities.navigation.submissions',
-        link: this.submissionPath('', course.challenge.id, course.slug),
+        link: this.submissionPath(
+          '',
+          course.challenge.id,
+          course.slug,
+          community.slug
+        ),
         exact: false,
       },
     ]
   }
 
-  init(course) {
+  init({ course, community }) {
     const list = [
       {
         id: 'introduction',
@@ -121,19 +134,19 @@ export default class CommunityNavigation {
           {
             label: 'communities.navigation.overview',
             exact: true,
-            link: this.coursePath('', course.slug),
+            link: this.coursePath('', course.slug, community.slug),
           },
         ],
       },
       {
         id: 'learning-modules',
         title: 'communities.navigation.learning-modules',
-        items: this.learningModuleLinks(course),
+        items: this.learningModuleLinks(course, community),
       },
       {
         id: 'boutnies',
         title: 'communities.navigation.challenge',
-        items: this.bountyLinks(course),
+        items: this.bountyLinks(course, community),
       },
     ]
     return list
