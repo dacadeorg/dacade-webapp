@@ -144,7 +144,7 @@ export default class CommunityNavigation {
         items: this.learningModuleLinks(course, community),
       },
       {
-        id: 'boutnies',
+        id: 'bounties',
         title: 'communities.navigation.challenge',
         items: this.bountyLinks(course, community),
       },
