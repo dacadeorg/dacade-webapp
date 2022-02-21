@@ -173,6 +173,9 @@ export default {
       return DateManager.fromNow(date)
     },
     goToChallenge(bounty) {
+      if (bounty.url) {
+        return window.open(bounty.url)
+      }
       if (bounty.link) {
         this.$router.push(this.localePath(bounty.link))
         return
