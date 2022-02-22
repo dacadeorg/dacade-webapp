@@ -8,8 +8,8 @@
 <script>
 import { mapGetters } from 'vuex'
 import SubmissionViewCard from '@/components/cards/SubmissionView'
-import Feedback from '@/components/sections/communities/courses/challenge/submissions/feedback'
-import Evaluation from '@/components/sections/communities/courses/challenge/submissions/Evaluation'
+import Feedback from '@/components/sections/feedbacks'
+import Evaluation from '@/components/sections/submissions/Evaluation'
 
 export default {
   name: 'SubmissionView',

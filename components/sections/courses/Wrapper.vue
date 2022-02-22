@@ -16,9 +16,9 @@
   </Section>
 </template>
 <script>
-import Navigation from '@/components/sections/communities/courses/Navigation'
+import Navigation from '@/components/sections/courses/Navigation'
 import Section from '@/components/ui/Section'
-import MobileNav from '@/components/sections/communities/courses/MobileNav'
+import MobileNav from '@/components/sections/courses/MobileNav'
 
 export default {
   components: {

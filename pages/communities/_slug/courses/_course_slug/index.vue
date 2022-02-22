@@ -16,8 +16,8 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import OverviewSection from '@/components/sections/communities/courses/overview'
-import Wrapper from '@/components/sections/communities/courses/Wrapper'
+import OverviewSection from '@/components/sections/courses/overview'
+import Wrapper from '@/components/sections/courses/Wrapper'
 
 export default {
   components: {
