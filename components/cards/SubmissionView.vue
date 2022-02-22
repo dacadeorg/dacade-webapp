@@ -28,7 +28,7 @@
         :custom-style="primaryButtonStyles"
         type="outline-primary"
       >
-        GitHub Code
+        {{ $t('submissions.link.github') }}
       </ArrowButton>
     </div>
   </UserCard>

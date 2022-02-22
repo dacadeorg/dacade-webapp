@@ -4,14 +4,16 @@
       <div class="container pt-7 pb-7 text-white">
         <div class="row align-items-center text-center text-md-left">
           <div class="col-lg-6">
-            <h1><b>Developer Adoption</b> through Peer-to-Peer education</h1>
+            <h1>
+              <b>{{ $t('page.protocols.title.1') }}</b
+              >{{ $t('page.protocols.title.2') }}
+            </h1>
             <p class="lead">
-              We know that in this highly competitive space, developer community
-              growth is a top priority for software projects, thats why we
-              created dacade.
+              {{ $t('page.protocols.summary') }}
             </p>
             <div class="mt-4 pt-4 mb-8">
               <a href="mailto:moritz@dacade.org" class="btn btn-dark btn-lg">
+                {{ $t('page.protocols.summary') }}
                 Contact Us
               </a>
             </div>
@@ -27,36 +29,39 @@
         <div class="row">
           <div class="col-md-5">
             <h2>
-              <b>Approach to Adoption</b>
+              <b>{{ $t('page.protocols.adoption') }}</b>
             </h2>
             <p class="lead mb-4">
-              Traditional marketing efforts for developer adoption are hard to
-              track and expensive. The courses have low completion rates and the
-              learning outcomes are inaccesible for other learners. They cost a
-              high personnel effort and are often very hard to scale.
+              {{ $t('page.protocols.message') }}
             </p>
             <img src="/img/usp-key.png" width="72px" class="mb-4" alt="" />
           </div>
           <div class="col-md-2" />
           <div class="col-md-5">
-            <p>Dacade offers:</p>
+            <p>{{ $t('page.protocols.offers') }}</p>
             <div class="mb-4">
-              <b class="dacade-case"> Measurable results </b>
+              <b class="dacade-case">{{ $t('page.protocols.case.results') }}</b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case"> Value for money </b>
+              <b class="dacade-case">{{ $t('page.protocols.case.money') }}</b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case"> Incentives encourage engagement </b>
+              <b class="dacade-case">{{
+                $t('page.protocols.case.engagement')
+              }}</b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case"> Outsourced tasks </b>
+              <b class="dacade-case">{{ $t('page.protocols.case.tasks') }} </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case"> Scalable model </b>
+              <b class="dacade-case"
+                >{{ $t('page.protocols.case.scalable') }}
+              </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case"> Creating an open learning community </b>
+              <b class="dacade-case"
+                >{{ $t('page.protocols.case.community') }}
+              </b>
             </div>
           </div>
         </div>
@@ -66,59 +71,57 @@
       <div class="container pt-7 pb-7 text-black">
         <div class="text-center mb-8 text-white">
           <h2>
-            <b>How it works</b>
+            <b>{{ $t('page.protocols.how') }}</b>
           </h2>
         </div>
         <div class="row">
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b> Marketing </b>
-              </div>
-              <p>Dacade creates awareness through performance marketing.</p>
-            </div>
-          </div>
-          <div class="col-md-2 mb-4">
-            <div class="border-case h-100">
-              <div class="text-center cyan-background mb-1">
-                <b> Training </b>
+                <b>{{ $t('page.protocols.marketing.title') }}</b>
               </div>
               <p>
-                Developers learn how to use new technology from curated learning
-                materials and tutorials.
+                {{ $t('page.protocols.marketing.text') }}
               </p>
             </div>
           </div>
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b> Challenge </b>
+                <b>{{ $t('page.protocols.training.title') }}</b>
               </div>
               <p>
-                In the challenge, developers apply their new knowledge
-                practically and build a working project.
+                {{ $t('page.protocols.training.text') }}
               </p>
             </div>
           </div>
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b> Feedback </b>
+                <b>{{ $t('page.protocols.challenge.title') }}</b>
               </div>
               <p>
-                After they enter their submission, developers receive feedback
-                from their peers.
+                {{ $t('page.protocols.challenge.text') }}
               </p>
             </div>
           </div>
           <div class="col-md-2 mb-4">
             <div class="border-case h-100">
               <div class="text-center cyan-background mb-1">
-                <b> Community </b>
+                <b>{{ $t('page.protocols.feedback.title') }}</b>
               </div>
               <p>
-                Developers go on to give their peers feedback and are encouraged
-                to cooperate on further projects.
+                {{ $t('page.protocols.title.text') }}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-2 mb-4">
+            <div class="border-case h-100">
+              <div class="text-center cyan-background mb-1">
+                <b>{{ $t('page.protocols.community.title') }}</b>
+              </div>
+              <p>
+                {{ $t('page.protocols.community.text') }}
               </p>
             </div>
           </div>
@@ -132,11 +135,10 @@
               "
             >
               <div class="text-center mb-1">
-                <b> Incentives </b>
+                <b>{{ $t('page.protocols.incentives.title') }}</b>
               </div>
               <p>
-                Submissions and feedback can be incentivized with crypto tokens
-                and receive reputational awards.
+                {{ $t('page.protocols.incentives.text') }}
               </p>
             </div>
           </div>
@@ -148,31 +150,35 @@
         <div class="row">
           <div class="col-md-5">
             <h2>
-              <b>Approach to Education</b>
+              <b>{{ $t('page.protocols.education.title') }}</b>
             </h2>
             <p class="lead mb-4">
-              Traditional online education is often an unengaging, dry and
-              isolated experience. Valuable human feedback is expensive and it
-              is hard to find oppertunities to apply the new knowledge.
+              {{ $t('page.protocols.education.text') }}
             </p>
             <img src="/img/usp-cap.png" width="72px" class="mb-2" alt="" />
           </div>
           <div class="col-md-2" />
           <div class="col-md-5">
-            <p>Dacade offers:</p>
+            <p>{{ $t('page.protocols.offers.title') }}</p>
             <div class="mb-4">
-              <b class="dacade-case"> Focus on practice through tutorials </b>
-            </div>
-            <div class="mb-4">
-              <b class="dacade-case"> Peer feedback and support </b>
-            </div>
-            <div class="mb-4">
-              <b class="dacade-case">
-                Practical challenges to apply knowledge
+              <b class="dacade-case"
+                >{{ $t('page.protocols.offers.case.1') }}
               </b>
             </div>
             <div class="mb-4">
-              <b class="dacade-case"> Social engagement with other learners </b>
+              <b class="dacade-case"
+                >{{ $t('page.protocols.offers.case.2') }}
+              </b>
+            </div>
+            <div class="mb-4">
+              <b class="dacade-case">
+                {{ $t('page.protocols.offers.case.3') }}
+              </b>
+            </div>
+            <div class="mb-4">
+              <b class="dacade-case"
+                >{{ $t('page.protocols.offers.case.4') }}
+              </b>
             </div>
           </div>
         </div>
@@ -183,9 +189,11 @@
         <div class="big-shadow carousel mx-auto">
           <b-card class="bg-dark mb-4 small-shadow">
             <h4>
-              <b class="white"> Demo </b>
+              <b class="white">{{ $t('page.protocols.demo.title') }}</b>
             </h4>
-            <h6 class="mb-2 white">90 seconds</h6>
+            <h6 class="mb-2 white">
+              {{ $t('page.protocols.demo.time') }}
+            </h6>
             <div>
               <div class="embed-responsive embed-responsive-16by9">
                 <iframe
@@ -203,19 +211,18 @@
     <section id="study">
       <div class="container pt-7 pb-7 text-black">
         <h2>
-          <b>Case Study</b>
+          <b>{{ $t('page.protocols.case-study.title') }}</b>
         </h2>
         <div class="row">
           <div class="col-md-5">
-            For the aeternity protocol, we created a learning community as the
-            first touchpoint for new developers.
+            {{ $t('page.protocols.case-study.text') }}
           </div>
         </div>
         <p />
         <div class="row align-items-center">
           <div class="col-md-5">
             <p>
-              <b> Aeternity Development 101: </b>
+              <b>{{ $t('page.protocols.aeternity.title') }} </b>
             </p>
             <div
               style="
@@ -225,15 +232,17 @@
               "
             >
               <ul>
-                <li>General learning materials about aeternity.</li>
-                <li>General learning materials about aeternity.</li>
                 <li>
-                  An explicit tutorial on how to build a MemeVoting Application
-                  on aeternity.
+                  {{ $t('page.protocols.aeternity.list.1') }}
                 </li>
                 <li>
-                  A challenge to write an original application on the aeternity
-                  blockchain.
+                  {{ $t('page.protocols.aeternity.list.1') }}
+                </li>
+                <li>
+                  {{ $t('page.protocols.aeternity.list.2') }}
+                </li>
+                <li>
+                  {{ $t('page.protocols.aeternity.list.3') }}
                 </li>
               </ul>
             </div>
@@ -243,7 +252,7 @@
           </div>
           <div class="col-md-5">
             <p>
-              <b> Impact: </b>
+              <b>{{ $t('page.protocols.impact.title') }}</b>
             </p>
             <div
               style="
@@ -254,16 +263,17 @@
             >
               <ul>
                 <li>
-                  Over <u>70 aeternity applications</u> were submitted to dacade
-                  and uploaded to GitHub.
+                  {{ $t('page.protocols.impact.list.1') }}
+                  <u>{{ $t('page.protocols.impact.list.2') }}</u
+                  >{{ $t('page.protocols.impact.list.3') }}
                 </li>
                 <li>
-                  Developers provided over <u>300 times feedback</u> on those
-                  submissions.
+                  {{ $t('page.protocols.impact.list.4') }}
+                  <u>{{ $t('page.protocols.impact.list.5') }}</u
+                  >{{ $t('page.protocols.impact.list.6') }}
                 </li>
                 <li>
-                  Developers connected and went on to build projects together on
-                  aeternity.
+                  {{ $t('page.protocols.impact.list.7') }}
                 </li>
               </ul>
             </div>
@@ -275,7 +285,7 @@
       <div class="container pt-7 pb-7 text-black">
         <div class="text-center mb-8 text-white">
           <h2>
-            <b>Contact</b>
+            <b>{{ $t('page.protocols.contact.title') }}</b>
           </h2>
         </div>
         <div class="row text-white">
@@ -284,9 +294,11 @@
               <div>
                 <img src="/img/contact_paula.png" width="172" alt="" />
                 <p class="lead">
-                  Paula Kühn<br />
-                  Sales Consultant<br />
-                  <u>Paula@dacade.org</u>
+                  {{ $t('page.protocols.contact.name.1') }}
+                  <br />
+                  {{ $t('page.protocols.contact.title.1') }}
+                  <br />
+                  <u>{{ $t('page.protocols.contact.email.1') }}</u>
                 </p>
               </div>
             </div>
@@ -296,9 +308,9 @@
               <div>
                 <img src="/img/contact_paul.png" width="172" alt="" />
                 <p class="lead">
-                  Paul Walton<br />
-                  Business Development<br />
-                  <u>Paul@dacade.org</u>
+                  {{ $t('page.protocols.contact.name.2') }}<br />
+                  {{ $t('page.protocols.contact.title.2') }}<br />
+                  <u>{{ $t('page.protocols.contact.email.2') }}</u>
                 </p>
               </div>
             </div>

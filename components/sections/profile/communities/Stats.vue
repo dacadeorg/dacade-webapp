@@ -17,11 +17,11 @@
     <div class="p-7 md:text-right justify-self-stretch space-y-2">
       <div class="whitespace-nowrap">
         <span class="font-bold">{{ feedbacks.length }}</span>
-        Feedbacks
+        {{ $t('feedbacks') }}
       </div>
       <div class="whitespace-nowrap">
         <span class="font-bold">{{ submissions.length }}</span>
-        Submission
+        {{ $t('communities.challenge.submission') }}
       </div>
     </div>
   </div>

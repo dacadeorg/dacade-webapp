@@ -6,7 +6,8 @@
           {{ wallet.title }}
         </p>
         <p class="text-.5xl font-medium text-gray-400 leading-snug">
-          {{ wallet.address ? 'Change' : 'Set' }} address
+          {{ wallet.address ? 'Change' : 'Set' }}
+          {{ $t('profile.wallets.address') }}
         </p>
         <Tag class="text-gray-500" :value="wallet.token" />
       </div>

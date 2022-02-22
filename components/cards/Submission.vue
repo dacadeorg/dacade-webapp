@@ -43,7 +43,7 @@
               >{{ submission.reward.amount }}
               {{ submission.reward.token }}</span
             >
-            Feedback bounty
+            {{ $t('submission.feedback.bounty') }}
           </div>
           <div
             v-if="submission.metadata && submission.metadata.evaluation"
@@ -56,7 +56,9 @@
               :value="submission.metadata.evaluation.points"
             >
             </Badge>
-            <span class="text-sm leading">Points</span>
+            <span class="text-sm leading">{{
+              $t('submission.evaluation.points')
+            }}</span>
           </div>
           <div
             v-if="submission.metadata && submission.metadata.feedbacks"
@@ -72,7 +74,7 @@
             <span class="font-semibold">{{
               submission.metadata.feedbacks
             }}</span>
-            Feedbacks
+            {{ $t('submission.feedback.feedbacks') }}
           </div>
         </div>
 

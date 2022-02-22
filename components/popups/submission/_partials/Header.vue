@@ -12,7 +12,9 @@
       @click="close"
     >
       <ArrowLeftIcon class="block" />
-      <span class="text-lg font-medium bloc">Submissions</span>
+      <span class="text-lg font-medium bloc">{{
+        $t('communities.submissions')
+      }}</span>
     </div>
     <div class="p-2">
       <button class="bg-gray-100 self-start px-2.5 py-2.5" @click="close">

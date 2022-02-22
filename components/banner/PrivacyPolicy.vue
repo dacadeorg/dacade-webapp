@@ -28,8 +28,7 @@
         px-6
       "
     >
-      We use browser cookies to give you the best possible experience. Learn
-      more about our
+      {{ $t('signup-page.privacy.text') }}
       <nuxt-link :to="localePath('/privacy-policy')" class="underline">{{
         $t('signup-page.privacy')
       }}</nuxt-link

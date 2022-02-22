@@ -17,7 +17,9 @@
       "
     >
       <div class="text-sm">
-        <span class="block font-medium">Total</span>
+        <span class="block font-medium">{{
+          $t('communities.challenge.evaluation.total')
+        }}</span>
         <span
           class="text-xl"
           :style="{
@@ -29,11 +31,14 @@
           :style="{
             color: colors.textAccent,
           }"
-          >/{{ evaluation.totalPoints }} Points</span
+          >/{{ evaluation.totalPoints }}
+          {{ $t('communities.challenge.evaluation.points') }}</span
         >
       </div>
       <div v-if="evaluation.reward" class="text-sm relative">
-        <span class="block font-medium">Total</span>
+        <span class="block font-medium">{{
+          $t('communities.challenge.evaluation.total')
+        }}</span>
         <div class="absolute -left-5 top-7">
           <Coin :token="evaluation.reward.token" size="small" />
         </div>
@@ -47,8 +52,7 @@
           <span>{{ evaluation.reward.token }}</span>
         </div>
         <div>
-          Congratulations you gained at least 70% of the available learning
-          points.
+          {{ $t('communities.challenge.evaluation.message') }}
         </div>
       </div>
     </div>
