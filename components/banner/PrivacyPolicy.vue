@@ -30,9 +30,9 @@
     >
       We use browser cookies to give you the best possible experience. Learn
       more about our
-      <a href="/privacy-policy" class="underline">{{
+      <nuxt-link :to="localePath('/privacy-policy')" class="underline">{{
         $t('signup-page.privacy')
-      }}</a
+      }}</nuxt-link
       >.
     </div>
     <div

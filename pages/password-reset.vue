@@ -66,7 +66,7 @@
 <script>
 /* eslint-disable no-console */
 
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 
@@ -95,7 +95,7 @@ export default {
       this.$store
         .dispatch('auth/passwordResetRequest', data)
         .then(() => {
-          this.$router.push('/login')
+          this.$router.push(this.localePath('/login'))
         })
         .catch(() => {
           this.loading = false

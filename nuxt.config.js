@@ -71,6 +71,8 @@ export default {
     // '~/plugins/highlight',
     { src: '~/plugins/vClickOutside.js', ssr: false },
     { src: '~/plugins/persistedState.client.js', ssr: false },
+    { src: '~/plugins/vue2scrollspy.js', ssr: false },
+    '~/plugins/navigation.js',
   ],
   router: {
     middleware: 'router-auth',
@@ -140,7 +142,16 @@ export default {
     configPath: 'tailwind.config.js',
   },
   i18n: {
-    locales: ['en', 'es'],
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+      },
+      {
+        code: 'es',
+        name: 'Español',
+      },
+    ],
     defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en',

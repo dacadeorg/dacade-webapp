@@ -11,7 +11,7 @@
               :class="{ unread: !notification.notificationRead }"
               class="muted-dark mb-4 notification"
             >
-              <nuxt-link :to="notification.link">
+              <nuxt-link :to="localePath(notification.link)">
                 <div>
                   <b>
                     {{ convertDate(notification.date) }}

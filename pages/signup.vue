@@ -93,14 +93,13 @@
           <div v-if="!referrer">
             <ValidationProvider
               v-slot="{ errors }"
-              name="refcode"
-              rules="min:4"
-              mode="passive"
+              name="referralCode"
+              rules="min:3|username"
+              mode="aggressive"
             >
               <Input
-                id="text-refcode"
-                v-model="form.referredBy"
-                name="refcode"
+                v-model="form.referralCode"
+                name="referralCode"
                 type="text"
                 :placeholder="$t('login-page.refcode.placeholder')"
                 :label="$t('login-page.refcode.label')"
@@ -115,7 +114,7 @@
               <div class="flex flex-row max-w-xm space-x-3">
                 <input
                   id="agree1"
-                  v-model="checkedterms"
+                  v-model="checkedTerms"
                   class="w-5 h-5"
                   name="agree"
                   required
@@ -125,11 +124,13 @@
                 />
                 <span class="max-w-none test">
                   I agree to {{ $t('app.name') }}'s
-                  <nuxt-link class="underline" to="/terms-conditions">{{
-                    $t('signup-page.terms')
-                  }}</nuxt-link>
+                  <nuxt-link
+                    class="underline"
+                    :to="localePath('/terms-conditions')"
+                    >{{ $t('signup-page.terms') }}</nuxt-link
+                  >
                 </span>
-                <span v-if="warningterms" class="form-text-red"
+                <span v-if="warningTerms" class="form-text-red"
                   >{{ $t('signup-page.terms.warning') }}
                 </span>
               </div>
@@ -165,7 +166,7 @@
 
 <script>
 /* eslint-disable no-console */
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 // import Upload from '~/assets/icons/upload.svg?inline'
@@ -188,13 +189,13 @@ export default {
         username: '',
         email: '',
         password: '',
-        referredBy: '',
+        referralCode: '',
       },
       loading: false,
-      checkedterms: false,
-      checkedprivacy: false,
-      warningterms: false,
-      // warningprivacy: false,
+      checkedTerms: false,
+      checkedPrivacy: false,
+      warningTerms: false,
+      // warningPrivacy: false,
     }
   },
   fetch({ store }) {
@@ -208,10 +209,10 @@ export default {
   },
   methods: {
     onSignUp() {
-      this.warningterms = !this.checkedterms
-      // this.warningprivacy = !this.checkedprivacy
+      this.warningTerms = !this.checkedTerms
+      // this.warningPrivacy = !this.checkedPrivacy
 
-      if (this.warningterms) return
+      if (this.warningTerms) return
 
       this.loading = true
       this.$store
@@ -219,7 +220,8 @@ export default {
           username: this.form.username,
           email: this.form.email,
           password: this.form.password,
-          referredBy: this.referrer || this.form.referredBy,
+          referralCode: this.form.referralCode,
+          referrer: this.referrer,
         })
         .then(() => {
           this.$router.replace('/profile')
@@ -232,7 +234,7 @@ export default {
         })
     },
     goToLogin() {
-      this.$router.push('/login')
+      this.$router.push(this.localePath('/login'))
     },
   },
 }

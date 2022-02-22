@@ -12,6 +12,8 @@
       text-white
       uppercase
       leading-none
+      md:mr-0
+      mr-2
     "
   >
     <component
@@ -28,6 +30,7 @@ import CUSDIcon from '~/assets/icons/tokens/cUSD.svg?inline'
 import ETHIcon from '~/assets/icons/tokens/ETH.svg?inline'
 import AEIcon from '~/assets/icons/tokens/AE.svg?inline'
 import TEZIcon from '~/assets/icons/tokens/Tezos.svg?inline'
+import DAIIcon from '~/assets/icons/tokens/DAI.svg?inline'
 export default {
   name: 'Coin',
   components: {
@@ -36,6 +39,7 @@ export default {
     ETHIcon,
     AEIcon,
     TEZIcon,
+    DAIIcon,
   },
   props: {
     bgColor: {
@@ -51,7 +55,7 @@ export default {
       type: String,
     },
     size: {
-      default: 'small',
+      default: 'medium',
       type: String,
     },
     shape: {
@@ -92,6 +96,12 @@ export default {
           bgColor: '#0D61FF',
           textColor: '#FFFFFF',
         },
+        {
+          token: 'DAI',
+          icon: DAIIcon,
+          bgColor: '#F5AC37',
+          textColor: '#FEFEFD',
+        },
       ],
     }
   },
@@ -99,7 +109,9 @@ export default {
     sizeClasses() {
       switch (this.size) {
         case 'medium':
-          return 'w-15 h-15 text-2xl p-2'
+          return 'w-10 h-10 sm:w-15 sm:h-15 text-xl p-1  sm:text-2xl sm:p-2'
+        case 'normal':
+          return 'w-10 h-10 text-xl p-1'
         case 'small':
           return 'w-4 h-4 text-md p-0.5'
         default:

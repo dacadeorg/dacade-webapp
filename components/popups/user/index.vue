@@ -41,7 +41,7 @@ import { mapGetters } from 'vuex'
 import vClickOutside from 'v-click-outside'
 import Dropdown from './Dropdown'
 import Avatar from '@/components/ui/Avatar'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import Currency from '@/components/ui/Currency'
 
 export default {

@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 export default {
   name: 'PartneringCard',
   components: {

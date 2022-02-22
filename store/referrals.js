@@ -22,7 +22,7 @@ export const actions = {
     commit('setFilteredList', data)
   },
   async all({ commit }) {
-    const { data } = await this.$api.get('referrals/list')
+    const { data } = await this.$api.get('referrals')
     commit('setList', data)
   },
 }

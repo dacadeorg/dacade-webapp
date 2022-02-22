@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import Input from '@/components/ui/Input'
 import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 import Spinner from '~/assets/icons/spinner.svg?inline'
@@ -123,7 +123,7 @@ export default {
         })
     },
     goToSignup() {
-      this.$router.push('/signup')
+      this.$router.push(this.localePath('/signup'))
     },
   },
 }

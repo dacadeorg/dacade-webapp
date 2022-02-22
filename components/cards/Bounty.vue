@@ -26,12 +26,9 @@
         mb-5
       "
     >
-      <div
-        class="relative w-full md:flex md:justify-between"
-        @click="goToChallenge(bounty)"
-      >
-        <div class="font-medium text-md mb-2">
-          {{ bounty.name }}
+      <div class="relative w-full" @click="goToChallenge(bounty)">
+        <div class="font-medium text-md md:pt-1.5">
+          {{ bounty.course ? bounty.course.name : bounty.name }}
         </div>
       </div>
 
@@ -65,7 +62,16 @@
         <nuxt-link
           v-for="submission in bounty.submissions"
           :key="submission.id"
-          :to="`/communities/${bounty.slug}/submissions/${submission.id}`"
+          :to="
+            localePath(
+              $navigation.community.submissionPath(
+                submission.id,
+                bounty.challenge,
+                bounty.course.slug,
+                bounty.slug
+              )
+            )
+          "
           class="flex space-x-1 relative text-sm font-medium py-3"
         >
           <div class="flex justify-between w-full pr-0">
@@ -89,7 +95,11 @@
                   h-5
                 "
               >
-                {{ submission.metadata ? submission.metadata.feedbacks : 0 }}
+                {{
+                  submission.metadata && submission.metadata.feedbacks
+                    ? submission.metadata.feedbacks
+                    : 0
+                }}
               </div>
             </div>
             <div class="text-gray-500 text-base font-normal">
@@ -114,9 +124,9 @@
       />
       <Badge
         v-if="bounty.submissions && bounty.submissions.length"
-        class="bottom-0 -right-1"
+        class="bottom-0 -right-1 absolute"
         :custom-style="{
-          bottom: '0',
+          bottom: '-4px',
           right: '-4px',
           fontSize: 14,
           backgroundColor: bounty.colors.accent,
@@ -163,16 +173,33 @@ export default {
       return DateManager.fromNow(date)
     },
     goToChallenge(bounty) {
+      if (bounty.url) {
+        return window.open(bounty.url)
+      }
       if (bounty.link) {
-        window.open(bounty.link)
+        this.$router.push(this.localePath(bounty.link))
         return
       }
       if (this.isChallenge) {
         return this.$router.push(
-          `/communities/${bounty.slug}/challenges/${bounty.challenge}`
+          this.localePath(
+            this.$navigation.community.challengePath(
+              bounty.challenge,
+              bounty.course.slug,
+              bounty.slug
+            )
+          )
         )
       }
-      return this.$router.push(`/communities/${bounty.slug}/submissions`)
+      return this.$router.push(
+        this.localePath(
+          this.$navigation.community.submissionsPath(
+            bounty.challenge,
+            bounty.course.slug,
+            bounty.slug
+          )
+        )
+      )
     },
   },
 }

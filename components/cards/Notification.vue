@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="details.link">
+  <nuxt-link :to="localePath(link)">
     <div
       :class="extended ? 'rounded-3xl' : ''"
       class="flex hover:bg-gray-50 py-4 -mx-5 px-5"
@@ -45,6 +45,16 @@ export default {
   computed: {
     date() {
       return DateManager.fromNow(this.details.created_at)
+    },
+    link() {
+      switch (this.details.type) {
+        case 'SUBMISSION':
+        case 'REFERRAL':
+        case 'FEEDBACK':
+          return `/${this.details.metadata.submission}`
+        default:
+          return this.details.link
+      }
     },
   },
 }

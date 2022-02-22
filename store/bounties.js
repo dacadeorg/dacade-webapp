@@ -23,7 +23,7 @@ export const actions = {
     commit('setFilteredList', data)
   },
   async all({ commit }) {
-    const { data } = await this.$api.get('bounties/list')
+    const { data } = await this.$api.get('bounties')
     commit('setList', data)
   },
 }

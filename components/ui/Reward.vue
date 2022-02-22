@@ -1,14 +1,26 @@
 <template>
-  <div :v-if="reward" class="flex mt-3 md:mt-6 items-center">
-    <Coin :token="reward.token" size="medium" />
-    <div class="text-base pl-2 lg:pl-3 md:pl-3">
-      <span class="block font-medium"
-        >{{ reward.amount }} {{ reward.token }}</span
-      >
-      <span class="block text-sm"
-        >{{ $t('reward.type.prefix') }}
-        <span class="capitalize">{{ reward.type.toLowerCase() }}</span></span
-      >
+  <div>
+    <div
+      :v-if="reward == true && size == 'medium'"
+      class="flex items-center rounded-full max-w-max mr-4"
+    >
+      <Coin :token="reward.token" />
+      <div class="text-base lg:pl-2 lg:pr-3 md:px-2 max-w-max">
+        <div class="flex">
+          <span class="block font-medium text-base pr-1">{{
+            reward.amount
+          }}</span>
+          <span class="block font-medium text-base">{{ reward.token }}</span>
+        </div>
+        <div class="flex">
+          <div class="text-gray-500 text-sm font-normal pr-1">
+            {{ $t('reward.type.prefix') }}
+          </div>
+          <div class="text-gray-500 text-sm font-normal">
+            {{ $t(`communities.challenge.${category}`) }}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -26,6 +38,10 @@ export default {
         return {}
       },
       type: Object,
+    },
+    category: {
+      default: null,
+      type: String,
     },
   },
 }

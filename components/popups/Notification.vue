@@ -15,7 +15,11 @@
         >
           <!-- @click="show = !show" -->
           <BellIcon />
-          <Badge v-if="unread > 0" :value="unread" class="top-0 -right-1" />
+          <Badge
+            v-if="unread > 0"
+            :value="unread"
+            class="top-0 -right-1 absolute"
+          />
         </Button>
       </li>
       <div
@@ -52,7 +56,7 @@ import vClickOutside from 'v-click-outside'
 
 import Badge from '@/components/ui/Badge'
 import NotificationList from '@/components/list/Notification'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/button'
 import BellIcon from '~/assets/icons/notification-bell.svg?inline'
 
 export default {

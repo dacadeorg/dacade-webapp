@@ -2,8 +2,227 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [2.6.8](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.7...v2.6.8) (2022-01-20)
+### [3.0.11](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.10...v3.0.11) (2022-02-21)
 
+
+### Bug Fixes
+
+* course navigation links ([4bd0338](https://gitlab.com/u2467/dacade/dacade/commit/4bd03380184b4092582907b53d3a6f0c11047757))
+
+### [3.0.10](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.9...v3.0.10) (2022-02-21)
+
+
+### Bug Fixes
+
+* external bounty url ([6accbee](https://gitlab.com/u2467/dacade/dacade/commit/6accbee837bbfa270d32e75d41817835c8113642))
+
+### [3.0.9](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.8...v3.0.9) (2022-02-17)
+
+
+### Bug Fixes
+
+* change the condition ([5528fc2](https://gitlab.com/u2467/dacade/dacade/commit/5528fc295754a63b21eab885b83dc28b31428ac6))
+* change the conditions ([2710d8d](https://gitlab.com/u2467/dacade/dacade/commit/2710d8da159160f1a451507b40d2ac62a484dd20))
+* empty reputation rendering issue ([e2f0aaf](https://gitlab.com/u2467/dacade/dacade/commit/e2f0aaf2f87158608dd75f91c27357f635f6f7d9))
+
+
+### Improvements
+
+* make the feedback rewards active ([f87dbd5](https://gitlab.com/u2467/dacade/dacade/commit/f87dbd5e8978226472d80f8d66a3e0a0431dc00e))
+* make the feedback rewards active ([a01fd85](https://gitlab.com/u2467/dacade/dacade/commit/a01fd85d0d34106aad67f904da6bc7a9cc43756d))
+
+### [3.0.8](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.7...v3.0.8) (2022-02-16)
+
+
+### Improvements
+
+* adjust the referral and bounty card design ([c05e74f](https://gitlab.com/u2467/dacade/dacade/commit/c05e74f8a1cfefc66261c2ebf3e3728ad32528c4))
+
+### [3.0.7](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.6...v3.0.7) (2022-02-16)
+
+
+### Bug Fixes
+
+* bounty submission link ([3d4ff81](https://gitlab.com/u2467/dacade/dacade/commit/3d4ff81803df3a9e41f904d3a8f12f32e5a7b848))
+
+### [3.0.6](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.5...v3.0.6) (2022-02-10)
+
+
+### Bug Fixes
+
+* hide feedbacks buttons in preview mode ([590a1ac](https://gitlab.com/u2467/dacade/dacade/commit/590a1ac40fd2bad4e503b3cafceada395425cf15))
+
+### [3.0.5](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.4...v3.0.5) (2022-02-10)
+
+
+### Features
+
+* add referral code validation ([be8bc3d](https://gitlab.com/u2467/dacade/dacade/commit/be8bc3d66903ca4c2d0d5683ff27ee29bd8113f1))
+* adjust profile community view list ([8411c50](https://gitlab.com/u2467/dacade/dacade/commit/8411c50049cb44bf82f3185d0e60f335a34a6039))
+
+### [3.0.4](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.3...v3.0.4) (2022-02-10)
+
+
+### Features
+
+* add dai icon ([42b4de4](https://gitlab.com/u2467/dacade/dacade/commit/42b4de40d863ec93f3dba1922e79d4bd03355fbf))
+
+
+### Bug Fixes
+
+* wallet links ([462b0e9](https://gitlab.com/u2467/dacade/dacade/commit/462b0e97534dde2f3aa30d89e25dd46b017fa536))
+
+### [3.0.3](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.2...v3.0.3) (2022-02-10)
+
+
+### Features
+
+* add stable coin flag to rewards ([a0a628a](https://gitlab.com/u2467/dacade/dacade/commit/a0a628ab111047e96de1ca0f2b384013aa7c979b))
+
+### [3.0.2](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.1...v3.0.2) (2022-02-09)
+
+
+### Features
+
+* allow the support of optional disclaimer message on submission form ([340772a](https://gitlab.com/u2467/dacade/dacade/commit/340772a72eb81cda63ed160a031810a72b29c636))
+
+### [3.0.1](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.0...v3.0.1) (2022-02-09)
+
+
+### Bug Fixes
+
+* create submission vue store error ([5326311](https://gitlab.com/u2467/dacade/dacade/commit/5326311b037bb5a23abfb3de4952fce5058cc2aa))
+* remove some credentials ([ba86fa5](https://gitlab.com/u2467/dacade/dacade/commit/ba86fa531b21046b67fbc28b88a4c4bc6f0faa9c))
+
+## [3.0.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.8...v3.0.0) (2022-02-09)
+
+
+### Features
+
+* add badge ([a3f87ee](https://gitlab.com/u2467/dacade/dacade/commit/a3f87ee4065b5f0a276f29c784575286f2ba17ee))
+* add checkbox and disabled button ([b62f8df](https://gitlab.com/u2467/dacade/dacade/commit/b62f8df506f3d382501d575dbdee153135c4a329))
+* add empty state component ([c829185](https://gitlab.com/u2467/dacade/dacade/commit/c8291853d7c7de3a0441fc1994b024f3ddab9425))
+* add line clamping ([55cdd24](https://gitlab.com/u2467/dacade/dacade/commit/55cdd240571ba909bb2806375bc8817e3759344d))
+* add loading animation to feedback fetching submission view page ([6d18f40](https://gitlab.com/u2467/dacade/dacade/commit/6d18f404d799991d44c4f1889f05044bcc52b440))
+* add page fetch request error handling ([3196dd6](https://gitlab.com/u2467/dacade/dacade/commit/3196dd6ce76b0135521ac4e395bce19e65c9fc4f))
+* add submission view popup ([a025261](https://gitlab.com/u2467/dacade/dacade/commit/a025261f3bdd06735299ba2b70a85acf6c97a284))
+* adding checkout before submitting ([87cfc6c](https://gitlab.com/u2467/dacade/dacade/commit/87cfc6ccea4d9d09d7f59982f71b1c47d94a741f))
+* adding scroll spy to show the position of learning materials in nav ([6efbce7](https://gitlab.com/u2467/dacade/dacade/commit/6efbce758b45472ed2d3eac27dafc4333dcbde97))
+* adjust community list card ([d0a1abb](https://gitlab.com/u2467/dacade/dacade/commit/d0a1abb0a78b882c1173dc41e67175793549f64a))
+* adjust learning modules card design ([95026db](https://gitlab.com/u2467/dacade/dacade/commit/95026db29ab80a7f9198d2fb998241efc19176fb))
+* adjust notification links ([22d999a](https://gitlab.com/u2467/dacade/dacade/commit/22d999aef059a849a692ae91a802e7ff7c6a6ae0))
+* adjust submission view page ([8a2ec64](https://gitlab.com/u2467/dacade/dacade/commit/8a2ec64b5ee8dae6fde80ea9ac1251a92ed97cc3))
+* adjust the community card design ([392dc59](https://gitlab.com/u2467/dacade/dacade/commit/392dc598028d3d826b670ff4ad862b4c6803574c))
+* adjust the community overview responsive design ([e9f1da5](https://gitlab.com/u2467/dacade/dacade/commit/e9f1da5f036be23fea7cdd9e17089bff126832cb))
+* centrer scoreboard individual items ([5c4bbbf](https://gitlab.com/u2467/dacade/dacade/commit/5c4bbbfc0ac864fad23a1e29087dd6207c5f95f0))
+* clean up code ([9d9f720](https://gitlab.com/u2467/dacade/dacade/commit/9d9f720a93dc4a4db6f6a0f64020fe7c7c5e49b4))
+* color button ([ee9c78e](https://gitlab.com/u2467/dacade/dacade/commit/ee9c78e742e18c554f8d365f4b879626b798bc5c))
+* community overview page ([5fb84c9](https://gitlab.com/u2467/dacade/dacade/commit/5fb84c9d36450d915a72e06c71b4e1e23877ee82))
+* component challenge ([9543d91](https://gitlab.com/u2467/dacade/dacade/commit/9543d911ff1827ebe781149886fce0734c17d0df))
+* connect referral list to api ([311420b](https://gitlab.com/u2467/dacade/dacade/commit/311420b3aff3b873671da2b4f1417b13169b1ce3))
+* creating new component of referrals ([d4572a4](https://gitlab.com/u2467/dacade/dacade/commit/d4572a4f139be4d1714b46bc640e6b960a6093d7))
+* implement new design for the submission list ([288c5fb](https://gitlab.com/u2467/dacade/dacade/commit/288c5fb5e52a263f06535f16f534990cfd833e4b))
+* integrate best submission ([e5a7470](https://gitlab.com/u2467/dacade/dacade/commit/e5a747061c609db63f300e9c5a8f038b03e3f689))
+* learning modules community page ([2863418](https://gitlab.com/u2467/dacade/dacade/commit/2863418ceb286f3abfe3ca1fc1b7b1fa863a148c))
+* restructure vue store and adapt to the new api ([3c9f560](https://gitlab.com/u2467/dacade/dacade/commit/3c9f560f181534bb282805d780d3216f31792e4e))
+* scoreboard ([0b8d6ed](https://gitlab.com/u2467/dacade/dacade/commit/0b8d6edad53747d43c36c0fbca6057066d1e1879))
+* styling title and description ([e9f0eba](https://gitlab.com/u2467/dacade/dacade/commit/e9f0ebaf94a3a8ebfa99ec2f1fb26c15b97636d5))
+* width challenges ([1297aa2](https://gitlab.com/u2467/dacade/dacade/commit/1297aa2cf44950a94efe9d77798941442a37729a))
+* width scoreboard ([59ea31b](https://gitlab.com/u2467/dacade/dacade/commit/59ea31b9080a0ebe41b5a0804c2d4577fe701f12))
+
+
+### Bug Fixes
+
+* 10 users shown when loading more in scoreboard ([4fe3df4](https://gitlab.com/u2467/dacade/dacade/commit/4fe3df47e0b201b292425bc7a4ea742c074037f5))
+* add margin left on the list ([2c8c0a7](https://gitlab.com/u2467/dacade/dacade/commit/2c8c0a75d158e8a03a9a6e69675fed1a21663fc3))
+* adjust submission list design on landscape ([1d5cd5f](https://gitlab.com/u2467/dacade/dacade/commit/1d5cd5fae9df5416e40168ab3224e05b8bf42b7c))
+* badge label reward style ([33fda38](https://gitlab.com/u2467/dacade/dacade/commit/33fda38836a0782f166d6de5d1a853b18165026a))
+* badge positioning ([1e1dc0f](https://gitlab.com/u2467/dacade/dacade/commit/1e1dc0f9d0348bef69b27b136129e5f28c11f454))
+* broken design community courses overview ([8524476](https://gitlab.com/u2467/dacade/dacade/commit/85244768f5257e1347c673ee9cb0bf97b5c587d6))
+* button styling correction scoreboard card ([ea080a5](https://gitlab.com/u2467/dacade/dacade/commit/ea080a570676976cf3daaba2f8b20eb07a4378a1))
+* button styling issue ([d40a799](https://gitlab.com/u2467/dacade/dacade/commit/d40a799c9eb0a5cc35437ea7eb8fbdb702eaf172))
+* coin size in coin component ([317bd7f](https://gitlab.com/u2467/dacade/dacade/commit/317bd7f09a22c0b7f85d7678c272a9fcb2457a15))
+* community button styles ([2a5b34d](https://gitlab.com/u2467/dacade/dacade/commit/2a5b34d45d9aca337b51890bd2ffe2290a42cac0))
+* community overview design ([56b2073](https://gitlab.com/u2467/dacade/dacade/commit/56b2073e5306cae0032eed1040007da3d1f389f7))
+* community overview translation text ([00362c5](https://gitlab.com/u2467/dacade/dacade/commit/00362c555f28960443d6ffaa9c54346d561714c1))
+* community page navigation ([7a05b42](https://gitlab.com/u2467/dacade/dacade/commit/7a05b4215fb1b932cb228e7171026539af468899))
+* corrections PR ([c0497ec](https://gitlab.com/u2467/dacade/dacade/commit/c0497ec86373b3454462fce0e40200ec877387e9))
+* course overview design issues ([e0d6b13](https://gitlab.com/u2467/dacade/dacade/commit/e0d6b134f6e5305f4356ba67d94d735f1738a790))
+* design fixings for course and community overview ([8bc2d13](https://gitlab.com/u2467/dacade/dacade/commit/8bc2d137bdf5cf460df11132b7a7eecac7e8a9bd))
+* disclaimer border ([0f8b152](https://gitlab.com/u2467/dacade/dacade/commit/0f8b152137a62ae47e82ac5454bf9bbb638167e9))
+* evaluation relation on submission request ([bdbea90](https://gitlab.com/u2467/dacade/dacade/commit/bdbea90bb9ca768572372d03120120e847cb9f01))
+* feedback card reward and reputation badge ([61f0e23](https://gitlab.com/u2467/dacade/dacade/commit/61f0e23dca65c5e677ce3a18b4c99e5d6cef83c7))
+* feedback form responsiveness design ([cfe170a](https://gitlab.com/u2467/dacade/dacade/commit/cfe170a59c6fd28bd3d86303c8522cbc28ec4fa6))
+* fix style learning modules uppercase padding ([c42c64e](https://gitlab.com/u2467/dacade/dacade/commit/c42c64e55f917f87b761fefdb8ccab28c44e3de5))
+* fixed issue with coin sizes disparities ([27c5042](https://gitlab.com/u2467/dacade/dacade/commit/27c5042816aa914401a21d98a744555d220ff637))
+* fixes in responsivess learning objects and rewards ([8a0574c](https://gitlab.com/u2467/dacade/dacade/commit/8a0574c6cd2f25b447a177e88daae7295700cb35))
+* incorrect login credentials error messages ([4c7ef3a](https://gitlab.com/u2467/dacade/dacade/commit/4c7ef3a4589945e00bcaa73be60a12b487cce4ee))
+* issues community and course overview pages ([1f04e8e](https://gitlab.com/u2467/dacade/dacade/commit/1f04e8e4a1fc70806282e413d297f33280c28f37))
+* issues with coin sizes ([7d72494](https://gitlab.com/u2467/dacade/dacade/commit/7d72494e19f6f00bd271bb39d9b64261cc9b1126))
+* learning modules cards poisitioning ([3291c8b](https://gitlab.com/u2467/dacade/dacade/commit/3291c8bff8321a19b99d338f40f2572e2ff6ede9))
+* margin between cards learning modules ([68cb3eb](https://gitlab.com/u2467/dacade/dacade/commit/68cb3eb41f04465e4603a65dc50f48c03f367d7b))
+* margin left fixed and text bold learning modules ([f66546f](https://gitlab.com/u2467/dacade/dacade/commit/f66546f170797ce82f1f3920699b9c2c3737ac87))
+* profile communities links ([26b8311](https://gitlab.com/u2467/dacade/dacade/commit/26b83110918bb1b79ad87e091bcce3bf3d842528))
+* refactor code learning objectivs ([86fb21c](https://gitlab.com/u2467/dacade/dacade/commit/86fb21c70e6fe76e9f26e72625a5737440876058))
+* replace community object with course object for the course overview ([b30c6f9](https://gitlab.com/u2467/dacade/dacade/commit/b30c6f9bf8135205e9fb52684f131a8d6b04e524))
+* responsive line limit for learning module card ([d07a700](https://gitlab.com/u2467/dacade/dacade/commit/d07a700e893b1724797ec2a93fa1e6a6952e1785))
+* responsiveness issues ([b8b4cb6](https://gitlab.com/u2467/dacade/dacade/commit/b8b4cb6503ed6ee498339ec3236070c27444b368))
+* scoreboard 3 items ([0615eef](https://gitlab.com/u2467/dacade/dacade/commit/0615eef49c4f1e489d898d4372feaa4337fd3163))
+* see only three boxes in scoreboard ([40e3d7c](https://gitlab.com/u2467/dacade/dacade/commit/40e3d7c544db3c503d33e0cc842b466a7e601f63))
+* solve conflicts and merge with v3 branch ([950b0b2](https://gitlab.com/u2467/dacade/dacade/commit/950b0b2abc24cd0460b245241a693b90a73f5fcf))
+* spacing issue ([781e500](https://gitlab.com/u2467/dacade/dacade/commit/781e500cc67b2d0d60fb639b418755500a6e4a00))
+* styling challenges card in community overview ([9fdebaf](https://gitlab.com/u2467/dacade/dacade/commit/9fdebaf255372f9a7db400c73d213fbe38aecd30))
+* styling learning modules duration pill ([f4e2f87](https://gitlab.com/u2467/dacade/dacade/commit/f4e2f879ade47cf0e4df41316776fec3bcb1dcf4))
+* submission pagination ([93122f9](https://gitlab.com/u2467/dacade/dacade/commit/93122f94f5283fad0a18fab9f41f71684f262167))
+* the list on mobile ([a81d5d4](https://gitlab.com/u2467/dacade/dacade/commit/a81d5d4eaca6e694b72d2fe79069d8141542f8e3))
+* the responsiveness ([6d2a2bd](https://gitlab.com/u2467/dacade/dacade/commit/6d2a2bd66fdaec66d9e84ca90ffc64108d87d44e))
+* the responsiveness ([d62712f](https://gitlab.com/u2467/dacade/dacade/commit/d62712f01588a5b9738560bbce6422d2e33271ab))
+* the responsivenss of the popup ([8739afd](https://gitlab.com/u2467/dacade/dacade/commit/8739afd440fa0747c70fdc64900e2bebf0e74209))
+* top banner fixes and design minor fixes in course card and course overview ([b3e8517](https://gitlab.com/u2467/dacade/dacade/commit/b3e8517198b45f3eaf4c99a8ae5bf4ba8aafc7d6))
+* width learning objective modules ([94c59a1](https://gitlab.com/u2467/dacade/dacade/commit/94c59a1cbd62e12441b4db4c2fefc2bdde1df909))
+
+
+### Improvements
+
+* adjust course card content ([365dcbe](https://gitlab.com/u2467/dacade/dacade/commit/365dcbe9f371a2a01002a757f16813339a348c9c))
+* adjust loader positioning ([d4f28c6](https://gitlab.com/u2467/dacade/dacade/commit/d4f28c6d7825c21811251b54b7830444a238cafa))
+* adjust new eth community integration ([c3545f7](https://gitlab.com/u2467/dacade/dacade/commit/c3545f7b417644ed9344dde3d2668738606f3348))
+* adjust padding on mobile and tablet devices for the submission popup ([b1ab4ea](https://gitlab.com/u2467/dacade/dacade/commit/b1ab4ea791b5ed2c5d20a5d4c1f714b009ed6e0a))
+* adjust referral card spacing ([9e7b415](https://gitlab.com/u2467/dacade/dacade/commit/9e7b41529c3ab7fdbaa8c38898672c5c87b27692))
+* adjust referral main text ([1c18fa6](https://gitlab.com/u2467/dacade/dacade/commit/1c18fa62d106badb9c2c5dffe63f83b218c6731f))
+* adjust the submission card design ([c5a6fa2](https://gitlab.com/u2467/dacade/dacade/commit/c5a6fa25f367cb9e9f97fd9a30ea6f5565791230))
+* disable scrollspy ([3f0cf8d](https://gitlab.com/u2467/dacade/dacade/commit/3f0cf8d510b5a229895c190599a591a83ec78f37))
+* handle feedback loading state properly ([2974679](https://gitlab.com/u2467/dacade/dacade/commit/297467946a8a1e98c11ee15066f146dfab7379e2))
+* link feedback bounty badge with the api data ([c40df17](https://gitlab.com/u2467/dacade/dacade/commit/c40df17fa4691b2f66d69710166438a1860d2e9c))
+* temporary hide the language switcher ([b0e62c9](https://gitlab.com/u2467/dacade/dacade/commit/b0e62c949e85008c027e8d143bbac47b6751da2b))
+* update translations ([bb2e474](https://gitlab.com/u2467/dacade/dacade/commit/bb2e4746f107fdd0693933aba5663cccdbd264e2))
+
+## [3.0.0-alpha.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.5...v3.0.0-alpha.0) (2021-11-10)
+
+
+### Features
+
+* replace chapters with learning materials ([e2c5328](https://gitlab.com/u2467/dacade/dacade/commit/e2c53286b6b7f321f0ba6593a3418c09d50baae0))
+
+
+### Improvements
+
+* add alpha release scripts ([288f318](https://gitlab.com/u2467/dacade/dacade/commit/288f318ea8a5a21a6ca4f01f98a1f8c5ac4dba0d))
+* **release:** 3.0.0-alpha.0 ([41e9b10](https://gitlab.com/u2467/dacade/dacade/commit/41e9b101af503448a44587f5db696e2c2924ed4f))
+
+## [3.0.0-alpha.0](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.5...v3.0.0-alpha.0) (2021-11-10)
+
+
+### Features
+
+* replace chapters with learning materials ([e2c5328](https://gitlab.com/u2467/dacade/dacade/commit/e2c53286b6b7f321f0ba6593a3418c09d50baae0))
+
+
+### Improvements
+
+* add alpha release scripts ([288f318](https://gitlab.com/u2467/dacade/dacade/commit/288f318ea8a5a21a6ca4f01f98a1f8c5ac4dba0d))
+
+### [2.6.8](https://gitlab.com/u2467/dacade/dacade/compare/v2.6.7...v2.6.8) (2022-01-20)
 
 ### Features
 

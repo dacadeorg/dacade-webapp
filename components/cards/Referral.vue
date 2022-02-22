@@ -28,7 +28,7 @@
       "
     >
       <div class="relative w-full md:flex md:justify-between">
-        <div class="font-medium text-md mb-2">
+        <div class="font-medium text-md md:pt-1.5">
           {{ referral.title || referral.community.name }}
         </div>
       </div>
