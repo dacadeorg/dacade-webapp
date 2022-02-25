@@ -26,7 +26,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import Section from '@/components/sections/communities/_partials/Section.vue'
-import Duration from '@/components/sections/communities/courses/_partials/Duration.vue'
+import Duration from '@/components/sections/courses/_partials/Duration.vue'
 import ObjectiveList from '@/components/list/Objectives'
 import Video from '@/components/ui/Video'
 

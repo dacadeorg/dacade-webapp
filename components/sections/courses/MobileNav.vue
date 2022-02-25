@@ -24,7 +24,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Navigation from '@/components/sections/communities/courses/Navigation'
+import Navigation from '@/components/sections/courses/Navigation'
 import ChevronRightIcon from '~/assets/icons/chevron-right.svg?inline'
 import ChevronBottomIcon from '~/assets/icons/chevron-bottom.svg?inline'
 

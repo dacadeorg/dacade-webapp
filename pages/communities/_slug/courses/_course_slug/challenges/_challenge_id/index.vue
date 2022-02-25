@@ -31,13 +31,13 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Header from '@/components/sections/communities/courses/challenge/Header'
-import RatingRubric from '@/components/sections/communities/courses/challenge/Rubric'
-import Rewards from '@/components/sections/communities/courses/challenge/Rewards'
-import SubmissionForm from '@/components/sections/communities/courses/challenge/Submission'
+import Header from '@/components/sections/challenges/Header'
+import RatingRubric from '@/components/sections/challenges/Rubric'
+import Rewards from '@/components/sections/challenges/Rewards'
+import SubmissionForm from '@/components/sections/challenges/Submission'
 import SubmissionCard from '@/components/cards/Submission'
-import Wrapper from '@/components/sections/communities/courses/Wrapper'
-import BestSubmissions from '@/components/sections/communities/courses/challenge/submissions/BestSubmissions'
+import Wrapper from '@/components/sections/courses/Wrapper'
+import BestSubmissions from '@/components/sections/submissions/BestSubmissions'
 
 export default {
   components: {

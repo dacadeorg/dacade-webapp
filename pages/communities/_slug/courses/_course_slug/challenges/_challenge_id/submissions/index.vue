@@ -18,8 +18,8 @@
 import { mapGetters } from 'vuex'
 
 import Header from '@/components/sections/communities/_partials/Header'
-import List from '@/components/sections/communities/courses/challenge/submissions/List'
-import Wrapper from '@/components/sections/communities/courses/Wrapper'
+import List from '@/components/sections/submissions/List'
+import Wrapper from '@/components/sections/courses/Wrapper'
 import SubmissionPopup from '~/components/popups/submission'
 
 export default {

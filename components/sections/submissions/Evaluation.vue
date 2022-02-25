@@ -61,7 +61,7 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import RatingRubric from '@/components/sections/communities/courses/challenge/Rubric'
+import RatingRubric from '@/components/sections/challenges/Rubric'
 import EvaluationCard from '@/components/cards/Evaluation'
 import Coin from '@/components/ui/Coin'
 

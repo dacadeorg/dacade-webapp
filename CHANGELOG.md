@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.11...v3.1.0) (2022-02-23)
+
+
+### Features
+
+* remove protocol page ([731ae3c](https://gitlab.com/u2467/dacade/dacade/commit/731ae3cddc0c7b21bf0ba90e767683b9e3c24a58))
+
+
+### Bug Fixes
+
+* story avatar shape ([1049e41](https://gitlab.com/u2467/dacade/dacade/commit/1049e41259885504d40d26551b8fc7a508fa1acb))
+
+
+### Improvements
+
+* fix bounties id wording ([94ca154](https://gitlab.com/u2467/dacade/dacade/commit/94ca154f85d0821a34584d683990f75097365315))
+* flattening the sections folder structure ([8b04da6](https://gitlab.com/u2467/dacade/dacade/commit/8b04da659f2b3c733c3532c2268cb8d853c73ebe))
+* remove unused components ([0dd3401](https://gitlab.com/u2467/dacade/dacade/commit/0dd3401b96afa96e0828639d016cefe871abb7cc))
+
 ### [3.0.11](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.10...v3.0.11) (2022-02-21)
 
 

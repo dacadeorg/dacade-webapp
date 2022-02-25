@@ -39,21 +39,21 @@ export default {
           description: this.$t(
             'testimonials.community.stats.card-1.description'
           ),
-          count: 4000,
+          count: 1000,
         },
         {
           title: this.$t('testimonials.community.stats.card-2.title'),
           description: this.$t(
             'testimonials.community.stats.card-2.description'
           ),
-          count: 1000,
+          count: 1500,
         },
         {
           title: this.$t('testimonials.community.stats.card-3.title'),
           description: this.$t(
             'testimonials.community.stats.card-3.description'
           ),
-          count: 3000,
+          count: 3500,
         },
       ],
     }

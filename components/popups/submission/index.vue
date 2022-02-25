@@ -32,7 +32,7 @@
 import Header from './_partials/Header.vue'
 import Popup from '@/components/ui/Popup'
 import Section from '@/components/ui/Section'
-import SubmissionView from '@/components/sections/communities/courses/challenge/submissions/View'
+import SubmissionView from '@/components/sections/submissions/View'
 
 export default {
   name: 'SubmissionPopup',

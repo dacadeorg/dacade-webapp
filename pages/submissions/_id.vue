@@ -11,7 +11,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import SubmissionView from '@/components/sections/communities/courses/challenge/submissions/View'
+import SubmissionView from '@/components/sections/submissions/View'
 import Section from '@/components/ui/Section'
 import Header from '@/components/sections/communities/_partials/Header'
 

@@ -28,11 +28,11 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
 import { mapGetters } from 'vuex'
-import PageNavigation from '@/components/sections/communities/courses/PageNavigation.vue'
-import Header from '@/components/sections/communities/courses/learning-modules/Header'
-import MaterialSection from '@/components/sections/communities/courses/learning-modules/Material'
-import AdditionalMaterialsSection from '@/components/sections/communities/courses/learning-modules/AdditionalMaterials'
-import Wrapper from '@/components/sections/communities/courses/Wrapper'
+import PageNavigation from '@/components/sections/courses/PageNavigation.vue'
+import Header from '@/components/sections/learning-modules/Header'
+import MaterialSection from '@/components/sections/learning-modules/Material'
+import AdditionalMaterialsSection from '@/components/sections/learning-modules/AdditionalMaterials'
+import Wrapper from '@/components/sections/courses/Wrapper'
 
 export default {
   components: {
