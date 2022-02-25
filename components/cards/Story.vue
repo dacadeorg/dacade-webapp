@@ -8,8 +8,6 @@
       bg-gray-50
       rounded-full
       p-1
-      h-14
-      w-14
       top-2/4
       left-2/4
       -m-7
@@ -20,7 +18,7 @@
     }"
     @click="toggleBubble()"
   >
-    <img class="rounded-full" :src="story.icon" />
+    <img class="object-cover h-14 w-14 rounded-full" :src="story.icon" />
     <div
       v-show="showBubble"
       :v-if="content"

@@ -11,8 +11,8 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import SubmissionView from '@/components/sections/communities/courses/challenge/submissions/View'
-import Wrapper from '@/components/sections/communities/courses/Wrapper'
+import SubmissionView from '@/components/sections/submissions/View'
+import Wrapper from '@/components/sections/courses/Wrapper'
 import Header from '@/components/sections/communities/_partials/Header'
 
 export default {
