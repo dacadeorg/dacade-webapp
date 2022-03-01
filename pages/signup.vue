@@ -183,6 +183,7 @@ export default {
     // Upload,
   },
   layout: 'withoutFooter',
+  middleware: 'guest',
   data() {
     return {
       form: {
