@@ -17,7 +17,7 @@
     "lint-fix:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore --fix",
     "lint": "npm run lint:js && npm run lint:style",
     "lint-fix": "npm run lint-fix:js && npm run lint-fix:style",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "storybook": "nuxt storybook",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
