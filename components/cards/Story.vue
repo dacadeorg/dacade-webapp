@@ -27,7 +27,8 @@
         p-4
         md:p-7
         left-6
-        md:-left-9
+        md:-left-20
+        lg:-left-9
         -ml-2
         -mt-5
         md:ml-20 md:w-72

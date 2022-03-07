@@ -32,6 +32,9 @@ body {
   font-weight: 400;
   font-family: 'Graphik', sans-serif;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
 
 .message-bubble {
   @apply w-72 p-8 rounded-3.5xl relative text-base;
