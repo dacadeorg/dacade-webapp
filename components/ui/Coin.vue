@@ -31,6 +31,7 @@ import ETHIcon from '~/assets/icons/tokens/ETH.svg?inline'
 import AEIcon from '~/assets/icons/tokens/AE.svg?inline'
 import TEZIcon from '~/assets/icons/tokens/Tezos.svg?inline'
 import DAIIcon from '~/assets/icons/tokens/DAI.svg?inline'
+import NEARIcon from '~/assets/icons/tokens/NEAR.svg?inline'
 export default {
   name: 'Coin',
   components: {
@@ -40,6 +41,7 @@ export default {
     AEIcon,
     TEZIcon,
     DAIIcon,
+    NEARIcon,
   },
   props: {
     bgColor: {
@@ -101,6 +103,12 @@ export default {
           icon: DAIIcon,
           bgColor: '#F5AC37',
           textColor: '#FEFEFD',
+        },
+        {
+          token: 'NEAR',
+          icon: NEARIcon,
+          bgColor: '#000000',
+          textColor: '#FFFFFF',
         },
       ],
     }

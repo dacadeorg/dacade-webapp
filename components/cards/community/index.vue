@@ -46,7 +46,7 @@
               </p>
             </div>
             <div class="self-end max-w-lg sm:h-full sm:-mb-0 md:mb-2 md:h-auto">
-              <img :src="community.icon" class="relative h-42 w-full lg:mb-5" />
+              <img :src="community.icon" class="relative h-44 w-44 mb-5" />
             </div>
           </div>
           <div
