@@ -71,6 +71,8 @@
   "communities.navigation.submissions": "Submissions",
   "communities.navigation.scoreboard": "Scoreboard",
   "communities.navigation.courses": "Challenges",
+  "communities.navigation.language.text": "This course is available in multiple languages",
+  "communities.navigation.language.eng": "English",
   "communities.overview.courses.title": "Courses",
   "communities.overview.courses.description": "In the courses of this community, you will be able to learn about new technologies, solve challenges, get feedback and earn bounties.",
   "communities.overview.scoreboard.title": "Scoreboard",

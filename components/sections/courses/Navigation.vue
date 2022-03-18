@@ -55,6 +55,23 @@
           </li>
         </ul>
       </li>
+      <li>
+        <div
+          class="
+            message-rectangle
+            flex flex-col
+            divide-y divide-solid divide-yellow-100
+          "
+        >
+          <div class="pb-4">
+            {{ $t('communities.navigation.language.text') }}
+          </div>
+          <div class="pt-4 flex flex-row justify-between">
+            {{ $t('communities.navigation.language.eng') }}
+            <ChevronRightIcon />
+          </div>
+        </div>
+      </li>
     </ul>
   </ThemeWrapper>
 </template>
