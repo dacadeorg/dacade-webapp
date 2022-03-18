@@ -32,7 +32,7 @@
             </p>
           </div>
           <div class="self-end w-auto sm:h-full md:h-auto">
-            <img :src="community.icon" class="relative md:h-42 h-30" />
+            <img :src="community.icon" class="relative h-44 w-44 mb-5 h-30" />
           </div>
         </div>
         <div

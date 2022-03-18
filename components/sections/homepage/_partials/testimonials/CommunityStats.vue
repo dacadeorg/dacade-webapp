@@ -39,7 +39,7 @@ export default {
           description: this.$t(
             'testimonials.community.stats.card-1.description'
           ),
-          count: 1000,
+          count: 10000,
         },
         {
           title: this.$t('testimonials.community.stats.card-2.title'),
