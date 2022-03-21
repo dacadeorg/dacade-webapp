@@ -66,10 +66,20 @@
           <div class="pb-4">
             {{ $t('communities.navigation.language.text') }}
           </div>
-          <div class="pt-4 flex flex-row justify-between">
-            {{ $t('communities.navigation.language.eng') }}
-            <ChevronRightIcon />
-          </div>
+
+          <form action="/action_page.php">
+            <select id="lang" name="language" class="appearance-none">
+              <option value="english">
+                <div class="pt-4 flex flex-row justify-between">
+                  <div>
+                    {{ $t('communities.navigation.language.eng') }}
+                  </div>
+                  <div><ChevronRightIcon /></div>
+                </div>
+              </option>
+              <option value="spanish">Spanish</option>
+            </select>
+          </form>
         </div>
       </li>
     </ul>
