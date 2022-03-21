@@ -12,7 +12,12 @@
       "
       @click="toggle"
     >
-      <div v-if="!show">
+      <div
+        v-if="!show"
+        :class="
+          $router.history.current.path === '/' ? 'text-black' : 'text-white'
+        "
+      >
         <MobileMenuLogo />
       </div>
       <div v-else>

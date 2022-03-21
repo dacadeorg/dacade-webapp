@@ -4,8 +4,10 @@
       bg-yellow-50
       text-yellow-900
       py-5
+      my-5
       px-8
       border border-solid border-yellow-100
+      rounded
       text-base
       hint-container
     "

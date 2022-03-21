@@ -1,5 +1,8 @@
 <template>
-  <Section padding="pt-20" type="secondary-light">
+  <Section
+    padding="pt-20"
+    :type="$router.history.current.path === '/' ? 'secondary-light' : 'default'"
+  >
     <div
       class="
         border-t border-t-solid border-gray-200

@@ -10,7 +10,7 @@
       "
     >
       <Header />
-      <div class="w-full">
+      <div class="w-full divide-y divide-solid divide-gray-200">
         <MaterialSection
           v-for="(material, i) in materials"
           :key="i"

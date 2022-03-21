@@ -26,7 +26,7 @@
         md:text-.5xl
         w-full
         md:w-10/12
-        leading-loose
+        leading-normal
         md:leading-snug
         text-gray-700
       "

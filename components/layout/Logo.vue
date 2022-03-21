@@ -1,11 +1,5 @@
 <template>
-  <svg
-    width="42"
-    height="42"
-    viewBox="0 0 42 42"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="21" cy="21" r="20" stroke="currentColor" stroke-width="1.5" />
     <path
       d="M21 41C26.5228 41 31 32.0457 31 21C31 9.9543 26.5228 1 21 1"

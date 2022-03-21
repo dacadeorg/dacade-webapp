@@ -1,5 +1,17 @@
 <template>
-  <div class="relative lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
+  <div
+    class="
+      relative
+      lg:mt-0
+      xl:pt-0
+      rounded-3.5xl
+      overflow-hidden
+      mt-5
+      md:mt-0
+      border border-solid border-grayLight
+      md:border-none
+    "
+  >
     <div
       class="
         relative
@@ -23,7 +35,7 @@
         </p>
       </div>
       <div class="mt-4 flex-none flex justify-between">
-        <div class="flex flex-col space-y-0">
+        <div class="md:flex flex-col space-y-0 hidden">
           <div class="mt-4 font-light text-theme-accent w-48">
             {{ $t('partnering.card.text') }}
           </div>

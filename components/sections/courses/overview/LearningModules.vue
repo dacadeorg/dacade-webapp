@@ -2,10 +2,10 @@
   <Section>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 flex-wrap">
       <div class="mt-0 md:pt-4 mr-4 flex w-full flex-col">
-        <h4 class="pl-2 font-medium inline-block text-.5xl">
+        <h4 class="font-medium inline-block text-.5xl">
           {{ $t('communities.overview.learning-modules') }}
         </h4>
-        <span class="text-sm mt-4 px-2 mb-2 rounded-3xl max-w-xs">{{
+        <span class="text-sm mt-4 mb-2 rounded-3xl max-w-xs">{{
           $t('communities.overview.learning-modules-description')
         }}</span>
       </div>
