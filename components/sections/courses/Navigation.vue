@@ -66,14 +66,14 @@
           <div class="pb-4">
             {{ $t('communities.navigation.language.text') }}
           </div>
-          <div>
+
+          <div v-for="locale in availableLocales" :key="locale.code">
             <select class="translation">
-              <option value="english">
-                {{ $t('communities.navigation.language.eng') }}
-              </option>
-              <option value="spanish">
-                {{ $t('communities.navigation.language.es') }}
-              </option>
+              <nuxt-link :to="switchLocalePath(locale.code)">
+                <option value="language">
+                  {{ locale.name }}
+                </option>
+              </nuxt-link>
             </select>
           </div>
         </div>
@@ -107,6 +107,12 @@ export default {
         color: this.colors.primary,
       }
     },
+    availableLocales() {
+      return this.$i18n.locales
+    },
+    selected() {
+      return this.$i18n.locale
+    },
   },
 }
 </script>
@@ -122,7 +128,6 @@ export default {
   color: inherit !important;
   opacity: 1;
 }
-
 .nuxt-link-exact-active > .nav-icon,
 .activable-link.nuxt-link-active > .nav-icon {
   display: block;
