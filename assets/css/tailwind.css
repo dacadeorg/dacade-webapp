@@ -197,3 +197,9 @@ line-height: 0.5rem;
     line-height: 1rem;
     }   
 }
+
+.translation {
+  background-color: #fefce8;
+  width: -webkit-fill-available;
+  margin-top: 1rem;
+  } 
