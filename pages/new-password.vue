@@ -104,7 +104,7 @@ export default {
     ArrowRight,
   },
   layout: 'withoutFooter',
-
+  middleware: 'guest',
   data() {
     return {
       form: {

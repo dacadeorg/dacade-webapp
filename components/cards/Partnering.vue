@@ -4,11 +4,12 @@
       class="
         relative
         z-10
-        lg:p-6 lg:pb-3 lg:pt-9
-        p-7
+        p-6
+        lg:pb-3
         w-full
         text-primary
         h-full
+        min-h-xs
         flex flex-col
         justify-between
         divide-y-2 divide-y divide-dotted divide-theme-accent
