@@ -24,9 +24,11 @@
         justify-stretch-items
       "
     >
-      <div v-for="community in communities" :key="community.id">
-        <CommunityCard :community="community" />
-      </div>
+      <CommunityCard
+        v-for="community in communities"
+        :key="community.id"
+        :community="community"
+      />
       <PartneringCard />
     </div>
   </Section>

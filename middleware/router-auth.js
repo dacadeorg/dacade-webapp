@@ -12,12 +12,10 @@ export default function ({ store, redirect, route }) {
     if (route.path.startsWith('/profile')) {
       store.dispatch('user/communities/all')
     }
-    // if(route.path.starts)
   } else if (isUserRoute(route)) {
     store.commit('setForwardRoute', route.path)
     redirect('/login')
   }
-  // store.dispatch('ui/unlockBodyScrolling')
 }
 
 function isUserRoute(route) {

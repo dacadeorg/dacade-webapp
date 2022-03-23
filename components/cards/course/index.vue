@@ -34,6 +34,7 @@
           {{ course.name }}
         </div>
         <div
+          v-if="course.level"
           class="
             mt-2
             text-xxs
@@ -48,7 +49,7 @@
             font-medium
           "
         >
-          {{ $t('course.challenge.level') }}
+          {{ $t(`course.challenge.level-${course.level}`) }}
         </div>
         <div class="text-sm mt-3 pb-2 max-w-xxs">
           {{ course.description }}

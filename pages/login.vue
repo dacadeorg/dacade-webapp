@@ -94,7 +94,6 @@ export default {
   },
   layout: 'withoutFooter',
   middleware: 'guest',
-
   data() {
     return {
       form: {
@@ -105,7 +104,6 @@ export default {
       loading: false,
     }
   },
-
   methods: {
     onLogin() {
       const loginData = {
