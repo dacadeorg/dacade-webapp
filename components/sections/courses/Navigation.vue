@@ -67,13 +67,18 @@
             {{ $t('communities.navigation.language.text') }}
           </div>
 
-          <div v-for="locale in availableLocales" :key="locale.code">
-            <select class="translation">
-              <nuxt-link :to="switchLocalePath(locale.code)">
-                <option value="language">
-                  {{ locale.name }}
-                </option>
-              </nuxt-link>
+          <div>
+            <select
+              v-model="currentLocale"
+              class="translation outline-none focus:outline-none"
+            >
+              <option
+                v-for="translation in course.translations"
+                :key="translation.id"
+                :value="translation.locale"
+              >
+                {{ availableLocales[translation.locale].name }}
+              </option>
             </select>
           </div>
         </div>
@@ -108,10 +113,25 @@ export default {
       }
     },
     availableLocales() {
-      return this.$i18n.locales
+      const locales = {}
+      this.$i18n.locales.map((locale) => {
+        locales[locale.code] = locale
+        return locale
+      })
+      return locales
     },
     selected() {
       return this.$i18n.locale
+    },
+    currentLocale: {
+      get() {
+        return this.course.locale
+      },
+      set(locale) {
+        if (locale !== this.selected) {
+          this.$i18n.setLocale(locale)
+        }
+      },
     },
   },
 }
