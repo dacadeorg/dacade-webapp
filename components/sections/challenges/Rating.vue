@@ -60,12 +60,8 @@
             {{ $t('communities.challenge.rating.total') }}
           </div>
           <div class="text-theme-accent">
-            <span class="text-xl">{{
-              $t('communities.challenge.rating.points')
-            }}</span>
-            <span class="text-sm">{{
-              $t('communities.challenge.rating.total.points')
-            }}</span>
+            <span class="text-xl">12</span>
+            <span class="text-sm"> 20 Points </span>
           </div>
         </div>
         <div class="md:w-1/4 w-full">
@@ -74,9 +70,7 @@
           </div>
           <div class="text-theme-accent">
             <Coin token="CGLD" size="small" class="-ml-5" />
-            <span class="text-xl">{{
-              $t('communities.challenge.rating.number')
-            }}</span>
+            <span class="text-xl">5</span>
             {{ $t('communities.challenge.rating.symbol') }}
           </div>
           <div class="text-sm font-normal leading-loose">

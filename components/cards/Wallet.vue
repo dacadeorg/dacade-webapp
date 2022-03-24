@@ -51,7 +51,11 @@
           <span
             class="cursor-pointer hover:underline"
             @click="showEditModal = true"
-            >{{ address ? 'Change' : 'Set' }}{{ $t('profile.wallets.address') }}
+            >{{
+              address
+                ? $t('profile.wallets.change')
+                : $t('profile.wallets.set')
+            }}{{ $t('profile.wallets.address') }}
           </span>
         </div>
         <div v-if="!cashable" class="prose">

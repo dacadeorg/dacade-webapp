@@ -104,7 +104,7 @@
     "communities.reward": "Rewards",
     "communities.overview.subtitle": "Esto es lo que puedes ganar en esta comunidad",
     "communities.submissions": "Propuestas",
-    "communities.submissions.cap": "PROPUESTAS",
+    "communities.submissions.cap": "Propuestas",
     "communities.challenge.title": "Reto",
     "communities.challenge.hint": "Pista",
     "communities.challenge.criteria.title": "Rúbrica de evaluación",
@@ -211,7 +211,9 @@
     "signup-page.privacy": "política de privacidad",
     "signup-page.privacy.warning": "debe aceptar si desea proceder",
     "profile.wallets.missing-info.warning": "Para cobrar debe de",
-    "profile.wallets.address": "address",
+    "profile.wallets.address": "dirección",
+    "profile.wallets.set": "Establecer",
+    "profile.wallets.change": "Cambiar",
     "profile.wallets.balance": "Balance",
     "profile.wallets.cash-out": "Cobro",
     "profile.wallets.address-set": "Establezca una dirección",
@@ -261,11 +263,11 @@
     "submissions.feedback.feedbacks": "Feedbacks",
     "submissions.link.github": "Código de GitHub",
     "submissions.submitted": "Enviado",
-    "error.title.1": "Página no encontrada",
-    "error.message.1": "Parece que la página que busca no existe.",
-    "error.title.2": "Oops!",
-    "error.message.2": "Ha ocurrido un error y su petición no puede ser completada.",
-    "error.refresh": "Por favor refresque la página y pruebe de nuevo más tarde",
-    "error.home": "Home Page"
+    "error.404.title.not-found": "Página no encontrada",
+    "error.404.message.page": "Parece que la página que busca no existe.",
+    "error.404.title": "Oops!",
+    "error.404.message.petition": "Ha ocurrido un error y su petición no puede ser completada.",
+    "error.page.button.refresh": "Por favor refresque la página y pruebe de nuevo más tarde",
+    "error.page.button.home": "Home Page"
   }
   
