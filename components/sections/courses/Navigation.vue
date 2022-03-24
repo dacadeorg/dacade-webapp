@@ -55,6 +55,34 @@
           </li>
         </ul>
       </li>
+      <li>
+        <div
+          class="
+            message-rectangle
+            flex flex-col
+            divide-y divide-solid divide-yellow-100
+          "
+        >
+          <div class="pb-4">
+            {{ $t('communities.navigation.language.text') }}
+          </div>
+
+          <div>
+            <select
+              v-model="currentLocale"
+              class="translation outline-none focus:outline-none"
+            >
+              <option
+                v-for="translation in course.translations"
+                :key="translation.id"
+                :value="translation.locale"
+              >
+                {{ availableLocales[translation.locale].name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </li>
     </ul>
   </ThemeWrapper>
 </template>
@@ -84,6 +112,27 @@ export default {
         color: this.colors.primary,
       }
     },
+    availableLocales() {
+      const locales = {}
+      this.$i18n.locales.map((locale) => {
+        locales[locale.code] = locale
+        return locale
+      })
+      return locales
+    },
+    selected() {
+      return this.$i18n.locale
+    },
+    currentLocale: {
+      get() {
+        return this.course.locale
+      },
+      set(locale) {
+        if (locale !== this.selected) {
+          this.$i18n.setLocale(locale)
+        }
+      },
+    },
   },
 }
 </script>
@@ -99,7 +148,6 @@ export default {
   color: inherit !important;
   opacity: 1;
 }
-
 .nuxt-link-exact-active > .nav-icon,
 .activable-link.nuxt-link-active > .nav-icon {
   display: block;
