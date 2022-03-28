@@ -44,8 +44,7 @@ export default {
         },
         {
           icon: require('~/assets/img/user_susen.png'),
-          content:
-            "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+          content: this.$t('testimonials.text'),
         },
         {
           icon: require('~/assets/img/gabriela.png'),
