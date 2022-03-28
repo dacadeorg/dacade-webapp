@@ -39,7 +39,7 @@ export default {
       return [
         {
           name: 'Tezos Starter Course',
-          image: '/img/communities/tacode.webp',
+          image: '/img/communities/tacode.svg',
           type: 'Challenge',
           link: 'https://tacode.dev/courses/dev-starter/challenges/f9c23fc7-3022-4347-b19c-66cc2424ac2f',
           colors: {

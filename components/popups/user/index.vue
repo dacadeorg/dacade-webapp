@@ -97,7 +97,7 @@ export default {
         },
         {
           name: 'Tezos Starter Course',
-          image: '/img/communities/tacode.webp',
+          image: '/img/communities/tacode.svg',
           type: 'Challenge',
           colors: {
             text: '#0D61FF',
