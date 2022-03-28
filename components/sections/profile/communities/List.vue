@@ -2,7 +2,7 @@
   <div>
     <div v-if="submissions && submissions.length" class="py-10">
       <p class="font-medium text-xs text-gray-600 uppercase">
-        {{ $t('communities.submissions.cap') }}
+        {{ $t('communities.submissions') }}
       </p>
       <div
         class="
