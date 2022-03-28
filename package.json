@@ -77,7 +77,7 @@
     "remark-parse": "^10.0.0",
     "remark-rehype": "^9.0.0",
     "unified": "^10.1.0",
-    "unist-util-visit": "^2.0.0",
+    "unist-util-visit": "^4.1.0",
     "v-click-outside": "^3.1.2",
     "vee-validate": "^3.3.11",
     "vue": "^2.6.14",
