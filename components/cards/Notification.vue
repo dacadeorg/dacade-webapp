@@ -1,18 +1,17 @@
 <template>
-  <nuxt-link :to="localePath(link)">
-    <div
-      :class="extended ? 'rounded-3xl' : ''"
-      class="flex hover:bg-gray-50 py-4 -mx-5 px-5"
-    >
-      <div class="flex mr-2">
-        <Avatar :user="user" class="w-10 h-10" />
-      </div>
-      <div class="pt-1 -mt-2">
-        <span class="block text-base text-gray-700">{{ details.message }}</span>
-        <span class="block text-gray-900 font-medium text-sm">{{ date }}</span>
-      </div>
+  <div
+    :class="extended ? 'rounded-3xl' : ''"
+    class="flex hover:bg-gray-50 py-4 -mx-5 px-5 cursor-pointer"
+    @click="goToLink()"
+  >
+    <div class="flex mr-2">
+      <Avatar :user="user" class="w-10 h-10" />
     </div>
-  </nuxt-link>
+    <div class="pt-1 -mt-2">
+      <span class="block text-base text-gray-700">{{ details.message }}</span>
+      <span class="block text-gray-900 font-medium text-sm">{{ date }}</span>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -44,7 +43,7 @@ export default {
   },
   computed: {
     date() {
-      return DateManager.fromNow(this.details.created_at)
+      return DateManager.fromNow(this.details.created_at, this.$i18n.locale)
     },
     link() {
       switch (this.details.type) {
@@ -55,6 +54,17 @@ export default {
         default:
           return this.details.link
       }
+    },
+  },
+  methods: {
+    goToLink() {
+      /* 
+        check if string starts with /
+      */
+      if (this.link.startsWith('/')) {
+        return this.$router.push(this.localePath(this.link))
+      }
+      window.open(this.link, '_blank')
     },
   },
 }

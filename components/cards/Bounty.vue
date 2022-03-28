@@ -170,7 +170,7 @@ export default {
   },
   methods: {
     convertDate(date) {
-      return DateManager.fromNow(date)
+      return DateManager.fromNow(date, this.$i18n.locale)
     },
     goToChallenge(bounty) {
       if (bounty.url) {

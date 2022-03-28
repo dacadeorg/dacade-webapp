@@ -65,7 +65,9 @@ export default {
       referrals: 'referrals/list',
     }),
     referralLink() {
-      return `${window.location.origin}/signup?invite=${this.user.displayName}`
+      return `${window.location.origin}${this.localePath('/signup')}?invite=${
+        this.user.displayName
+      }`
     },
     referralCode() {
       return this.user.displayName

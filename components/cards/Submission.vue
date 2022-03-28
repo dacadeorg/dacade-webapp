@@ -3,7 +3,7 @@
     :user="submission.user"
     :timestamp="{
       date: submission.created_at,
-      text: 'Submitted',
+      text: $t('submissions.submitted'),
     }"
     :link="link"
     :bordered="false"

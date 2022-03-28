@@ -225,7 +225,7 @@ export default {
           referrer: this.referrer,
         })
         .then(() => {
-          this.$router.replace('/profile')
+          this.$router.replace(this.localePath('/profile'))
         })
         .catch((error) => {
           this.loading = false

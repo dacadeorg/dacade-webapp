@@ -11,7 +11,7 @@
       "
       >{{ $t('nav.notification') }}</span
     >
-    <div :class="{ 'space-y-4 mt-3': !extended, 'space-y-16 mt-4': extended }">
+    <div :class="{ 'space-y-4 mt-3': !extended, 'space-y-4 mt-4': extended }">
       <NotificationCard
         v-for="notification in notifications"
         :key="notification.id"

@@ -82,15 +82,21 @@ export default {
       community: 'communities/current',
     }),
     joinedAt() {
-      return DateManager.fromNow(this.referral.user.created_at)
+      return DateManager.fromNow(
+        this.referral.user.created_at,
+        this.$i18n.locale
+      )
     },
     participatedAt() {
       if (!this.referral.submission) return null
-      return DateManager.fromNow(this.referral.submission.created_at)
+      return DateManager.fromNow(
+        this.referral.submission.created_at,
+        this.$i18n.locale
+      )
     },
     rewardAt() {
       if (!this.referral.rewarded) return null
-      return DateManager.fromNow(this.referral.updated_at)
+      return DateManager.fromNow(this.referral.updated_at, this.$i18n.locale)
     },
   },
 }

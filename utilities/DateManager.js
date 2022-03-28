@@ -10,9 +10,10 @@ function getLocale(locale) {
   return locale === 'es' ? es : enUS
 }
 export default class DateManager {
-  static fromNow(date) {
+  static fromNow(date, locale = 'en') {
     return formatDistance(new Date(date), new Date(), {
       addSuffix: true,
+      locale: getLocale(locale),
     })
   }
 

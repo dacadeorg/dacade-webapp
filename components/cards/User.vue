@@ -112,7 +112,7 @@ export default {
       community: 'communities/current',
     }),
     date() {
-      return DateManager.fromNow(this.timestamp.date)
+      return DateManager.fromNow(this.timestamp.date, this.$i18n.locale)
     },
   },
   methods: {

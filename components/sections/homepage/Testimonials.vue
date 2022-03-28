@@ -1,13 +1,13 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <Section padding="md:py-32 xl:py-40" type="secondary-light">
-    <CommunitStats class="xl:w-1/3 mt-5 md:w-1/2 z-10 max-w-sm" />
+    <CommunityStats class="xl:w-1/3 mt-5 md:w-1/2 z-10 max-w-sm" />
     <Stories :list="stories" />
   </Section>
 </template>
 
 <script>
-import CommunitStats from './_partials/testimonials/CommunityStats'
+import CommunityStats from './_partials/testimonials/CommunityStats'
 import Stories from './_partials/testimonials/Stories'
 import Section from '@/components/ui/Section'
 // import Button from '@/components/ui/button'
@@ -15,7 +15,7 @@ export default {
   name: 'TestimonialsSection',
   components: {
     Section,
-    CommunitStats,
+    CommunityStats,
     Stories,
     // Button
   },

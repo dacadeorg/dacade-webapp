@@ -86,7 +86,7 @@ export default {
       community: 'communities/current',
     }),
     date() {
-      return DateManager.fromNow(this.submission.created_at)
+      return DateManager.fromNow(this.submission.created_at, this.$i18n.locale)
     },
   },
 }

@@ -55,7 +55,7 @@
           </li>
         </ul>
       </li>
-      <li>
+      <li v-if="course.translations.length > 1">
         <div
           class="
             message-rectangle
