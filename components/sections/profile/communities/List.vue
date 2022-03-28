@@ -5,12 +5,7 @@
         {{ $t('communities.submissions') }}
       </p>
       <div
-        class="
-          my-5
-          sm:border sm:border-gray-200 sm:border-solid
-          rounded-3.5xl
-          relative
-        "
+        class="my-5 sm:border sm:border-gray-200 sm:border-solid rounded-3.5xl relative"
       >
         <div class="flex flex-col divide-y">
           <SubmissionCard
@@ -36,12 +31,7 @@
         {{ $t('communities.challenge.feedbacks.cap') }}
       </p>
       <div
-        class="
-          my-5
-          sm:border sm:border-gray-200 sm:border-solid
-          rounded-3.5xl
-          relative
-        "
+        class="my-5 sm:border sm:border-gray-200 sm:border-solid rounded-3.5xl relative"
       >
         <div class="flex flex-col divide-y">
           <div v-for="feedback in feedbacks" :key="feedback.id">

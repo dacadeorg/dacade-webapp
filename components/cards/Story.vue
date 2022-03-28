@@ -2,17 +2,7 @@
 <template>
   <div
     v-click-outside="externalClick"
-    class="
-      absolute
-      border border-solid border-gray-200
-      bg-gray-50
-      rounded-full
-      p-1
-      top-2/4
-      left-2/4
-      -m-7
-      flex flex-row-reverse
-    "
+    class="absolute border border-solid border-gray-200 bg-gray-50 rounded-full p-1 top-2/4 left-2/4 -m-7 flex flex-row-reverse"
     :style="{
       transform: getPosition(),
     }"
@@ -22,24 +12,7 @@
     <div
       v-show="showBubble"
       :v-if="content"
-      class="
-        absolute
-        p-4
-        md:p-7
-        left-6
-        md:-left-9
-        -ml-2
-        -mt-5
-        md:ml-20 md:w-72
-        w-48
-        -bottom-60
-        md:bottom-16
-        bg-yellow-50
-        rounded-3.5xl rounded-tl-none
-        md:rounded-tl-3.5xl md:rounded-bl-none
-        text-yellow-900
-        border border-solid border-black border-opacity-5
-      "
+      class="absolute p-4 md:p-7 left-6 md:-left-9 -ml-2 -mt-5 md:ml-20 md:w-72 w-48 -bottom-60 md:bottom-16 bg-yellow-50 rounded-3.5xl rounded-tl-none md:rounded-tl-3.5xl md:rounded-bl-none text-yellow-900 border border-solid border-black border-opacity-5"
     >
       <span>{{ content }}</span>
     </div>

@@ -57,11 +57,7 @@
       </li>
       <li v-if="course.translations.length > 1">
         <div
-          class="
-            message-rectangle
-            flex flex-col
-            divide-y divide-solid divide-yellow-100
-          "
+          class="message-rectangle flex flex-col divide-y divide-solid divide-yellow-100"
         >
           <div class="pb-4">
             {{ $t('communities.navigation.language.text') }}

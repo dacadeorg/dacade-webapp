@@ -99,16 +99,16 @@ export default {
   border-radius: 0.35rem;
   background: #343b42;
   padding: 1em;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-    0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+    0 2px 1px -1px rgb(0 0 0 / 12%);
 }
 
 .notification:hover {
   border: 1.6px solid #53d1af;
   background: #343b42;
   padding: 1em;
-  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%),
+    0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);
 }
 
 .notification:hover a {
@@ -116,14 +116,14 @@ export default {
 }
 
 .unread {
-  color: rgba(255, 255, 255, 0.8);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
+  border-bottom: 2px solid rgb(255 255 255 / 80%);
 
   /* animation: glow 0.5s infinite alternate; */
 }
 
 .unread a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
 }
 
 /* @keyframes glow {
