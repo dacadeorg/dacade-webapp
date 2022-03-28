@@ -41,7 +41,7 @@ export default {
       if (!value) {
         return 0
       }
-      return DateManager.humanize(value)
+      return DateManager.humanize(value, this.$i18n.locale)
     },
     debug(event) {
       console.log('learning module', this.course.learningModules)

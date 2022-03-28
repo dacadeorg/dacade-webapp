@@ -27,7 +27,11 @@ export default {
     }),
     joined() {
       if (!this.user.joined) return null
-      return DateManager.format(this.user.joined, 'MMMM yyyy')
+      return DateManager.format(
+        this.user.joined,
+        'MMMM yyyy',
+        this.$i18n.locale
+      )
     },
   },
 }
