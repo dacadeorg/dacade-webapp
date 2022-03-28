@@ -1,7 +1,9 @@
 <template>
   <Modal :show="show" @close="$emit('close', $event)">
     <div class="px-6 pt-6 relative">
-      <h1 class="text-.5xl leading-none font-medium mb-12">Profile</h1>
+      <h1 class="text-.5xl leading-none font-medium mb-12">
+        {{ $t('profile.edit.profile') }}
+      </h1>
       <ValidationObserver ref="form" v-slot="{ passes }">
         <form @submit.prevent="passes(onSave)">
           <div class="mb-2.5">

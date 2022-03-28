@@ -10,7 +10,7 @@
             ><span class="mr-3 w-3"
               ><ArrowRightIcon class="transform -rotate-180"
             /></span>
-            Prev
+            {{ $t('nav.page.prev') }}
           </span>
         </Button>
       </nuxt-link>

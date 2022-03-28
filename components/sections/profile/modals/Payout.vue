@@ -6,7 +6,7 @@
           {{ wallet.title }}
         </p>
         <p class="text-.5xl font-medium text-gray-400 leading-snug">
-          Payout request
+          {{ $t('profile.wallet.payout.request') }}
         </p>
         <Tag class="text-gray-500" :value="wallet.token" />
       </div>
@@ -17,7 +17,7 @@
       </div>
       <div class="flex mb-8">
         <div class="w-1/2 pt-5 text-sm">
-          <h1>Amount</h1>
+          <h1>{{ $t('profile.wallet.payout.amount') }}</h1>
         </div>
         <div class="w-1/2 pt-3.5 text-right text-2xl font-medium">
           <h1>
@@ -38,7 +38,7 @@
           class="pl-5 pr-0"
           type="outline-primary"
           @click="save"
-          >Send request
+          >{{ $t('profile.wallet.payout.send') }}
           <span class="inline-block mr-3.5 ml-4 align-middle">
             <ArrowRightIcon v-if="!loading" />
             <Spinner v-else class="animate-spin"

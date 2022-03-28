@@ -25,7 +25,7 @@
           </div>
           <div class="flex">
             <div class="w-1/2 pt-5 text-sm">
-              <h1>Balance</h1>
+              <h1>{{ $t('profile.wallets.balance') }}</h1>
             </div>
             <div class="w-1/2 pt-3.5 text-right text-2xl font-medium">
               <h1>
@@ -51,8 +51,12 @@
           <span
             class="cursor-pointer hover:underline"
             @click="showEditModal = true"
-            >{{ address ? 'Change' : 'Set' }} address</span
-          >
+            >{{
+              address
+                ? $t('profile.wallets.change')
+                : $t('profile.wallets.set')
+            }}{{ $t('profile.wallets.address') }}
+          </span>
         </div>
         <div v-if="!cashable" class="prose">
           <p
@@ -72,7 +76,9 @@
             type="outline-primary"
             @click="showPayoutModal = true"
           >
-            <span class="inline-block text-sm">Cash out </span>
+            <span class="inline-block text-sm"
+              >{{ $t('profile.wallets.cash-out') }}
+            </span>
             <span class="inline-block lg:pl-12 pl-3 align-middle"
               ><ArrowRight
             /></span>

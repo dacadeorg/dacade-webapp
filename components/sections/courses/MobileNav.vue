@@ -13,7 +13,7 @@
           <ChevronRightIcon />
         </div>
         <p class="px-4" @click="state.visiblity = !state.visiblity">
-          Navigate between pages
+          {{ $t('nav.mobile.pages') }}
         </p>
       </span>
       <div v-if="state.visiblity === true" class="px-10 py-2 pb-0 -mb-2">

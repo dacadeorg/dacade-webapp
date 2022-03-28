@@ -1,7 +1,9 @@
 <template>
   <div>
     <div v-if="submissions && submissions.length" class="py-10">
-      <p class="font-medium text-xs text-gray-600">SUBMISSIONS</p>
+      <p class="font-medium text-xs text-gray-600 uppercase">
+        {{ $t('communities.submissions') }}
+      </p>
       <div
         class="
           my-5
@@ -30,7 +32,9 @@
       </div>
     </div>
     <div v-if="feedbacks && feedbacks.length" class="py-10">
-      <p class="font-medium text-xs text-gray-600">FEEDBACKS</p>
+      <p class="font-medium text-xs text-gray-600">
+        {{ $t('communities.challenge.feedbacks.cap') }}
+      </p>
       <div
         class="
           my-5

@@ -19,10 +19,10 @@
     "
   >
     <div v-if="hasAddress">
-      <a href="#">Set Address</a>
+      <a href="#">{{ $t('profile.wallets.address-set') }}</a>
     </div>
     <div v-else>
-      <a href="#">Change Address</a>
+      <a href="#">{{ $t('profile.wallets.address-change') }}</a>
     </div>
   </div>
 </template>

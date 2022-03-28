@@ -8,11 +8,13 @@
         <span class="text-lg leading-loose font-medium text-gray-900 pb-1">
           {{ referral.user.displayName }}
         </span>
-        <p>Joined {{ joinedAt }}</p>
+        <p>{{ $t('referrals.joined') }} {{ joinedAt }}</p>
         <div class="pt-1">
           <ul class="text-sm leading-loose font-light text-gray-700 pb-1 list">
             <li v-if="referral.challenge && referral.community">
-              <span class="ml-5">Participated in a challenge in</span>
+              <span class="ml-5">{{
+                $t('referrals.challenge-participation')
+              }}</span>
               <span class="font-bold">{{ referral.community.name }}</span>
               <span class="hidden md:inline-block">{{ participatedAt }}</span>
             </li>
@@ -24,13 +26,15 @@
                 referral.submission.metadata.evaluation
               "
             >
-              <span class="ml-5">Submission evaluated</span>
+              <span class="ml-5"
+                >{{ $t('referrals.submission.evaluation') }}
+              </span>
               <span class="font-bold"
                 >{{ referral.submission.metadata.evaluation.points }}/{{
                   referral.submission.metadata.evaluation.totalPoints
                 }}</span
               >
-              points
+              {{ $t('referrals.submission.points') }}
               <span class="hidden md:inline-block">{{ rewardAt }}</span>
             </li>
 
@@ -41,7 +45,7 @@
                 referral.metadata.reward
               "
             >
-              <span class="ml-5">You earned the referral reward</span>
+              <span class="ml-5"> {{ $t('referrals.reward.text') }}</span>
               <span class="font-bold"
                 ><Reward type="gray" :reward="referral.metadata.reward"
               /></span>

@@ -30,7 +30,7 @@
           ><Currency :value="submission.user.reputation" token="REP"
         /></span>
         <span class="block text-sm leading-snug text-gray-700 pb-4">
-          Submitted
+          {{ $t('submissions.submitted') }}
           <span
             class="font-medium"
             :style="{
@@ -52,7 +52,9 @@
             :value="submission.metadata.evaluation.points"
           >
           </Badge>
-          <span class="ml-1 text-sm">Points</span>
+          <span class="ml-1 text-sm">{{
+            $t('submissions.evaluation.points')
+          }}</span>
         </div>
       </div>
     </nuxt-link>
