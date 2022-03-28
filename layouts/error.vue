@@ -5,16 +5,18 @@
     <div class="relative p-6 text-center">
       <div v-if="error.statusCode === 404">
         <h1 class="text-3xl font-medium mb-6">
-          {{ $t('error.404.title.not-found') }}
+          {{ $t('error.404.title') }}
         </h1>
         <p class="text-lg mb-6">
-          {{ $t('error.404.message.page') }}
+          {{ $t('error.404.message') }}
         </p>
       </div>
       <div v-else>
-        <h1 class="text-3xl font-medium mb-6">{{ $t('error.404.title') }}</h1>
+        <h1 class="text-3xl font-medium mb-6">
+          {{ $t('error.default.title') }}
+        </h1>
         <p class="text-lg mb-2">
-          {{ $t('error.404.message.petition') }}
+          {{ $t('error.default.message') }}
         </p>
         <p class="text-lg mb-6">{{ $t('error.page.button.refresh') }}</p>
       </div>

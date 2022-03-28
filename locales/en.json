@@ -264,10 +264,10 @@
   "submissions.feedback.feedbacks": "Feedbacks",
   "submissions.link.github": "GitHub Code",
   "submissions.submitted": "Submitted",
-  "error.404.title.not-found": "Page not found",
-  "error.404.message.page": "The page you're trying to reach doesn't appear to exist.",
-  "error.404.title": "Oops!",
-  "error.404.message.petition": "An error occured and your request couldn't be completed.",
+  "error.404.title": "Page not found",
+  "error.404.message": "The page you're trying to reach doesn't appear to exist.",
+  "error.default.title": "Oops!",
+  "error.default.message": "An error occured and your request couldn't be completed.",
   "error.page.button.refresh": "Please refresh this page or try again later",
   "error.page.button.home": "Home Page"
 }

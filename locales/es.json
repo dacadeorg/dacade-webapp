@@ -262,10 +262,10 @@
     "submissions.feedback.feedbacks": "Feedbacks",
     "submissions.link.github": "Código de GitHub",
     "submissions.submitted": "Enviado",
-    "error.404.title.not-found": "Página no encontrada",
-    "error.404.message.page": "Parece que la página que busca no existe.",
-    "error.404.title": "Oops!",
-    "error.404.message.petition": "Ha ocurrido un error y su petición no puede ser completada.",
+    "error.404.title": "Página no encontrada",
+    "error.404.message": "Parece que la página que busca no existe.",
+    "error.default.title": "Oops!",
+    "error.default.message": "Ha ocurrido un error y su petición no puede ser completada.",
     "error.page.button.refresh": "Por favor refresque la página y pruebe de nuevo más tarde",
     "error.page.button.home": "Home Page"
   }
