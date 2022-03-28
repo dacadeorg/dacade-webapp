@@ -69,10 +69,12 @@
       >
         <div class="my-2 text-sm">
           <span
-            ><strong>{{ submissions }}</strong> Submissions</span
+            ><strong>{{ submissions }}</strong>
+            {{ $t('communities.submissions') }}</span
           >
           <span class="p-2 md:border-l md:ml-2"
-            ><strong>{{ feedbacks }}</strong> Feedbacks</span
+            ><strong>{{ feedbacks }}</strong>
+            {{ $t('communities.feedbacks') }}</span
           >
           <div />
         </div>
