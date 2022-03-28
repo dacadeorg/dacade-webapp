@@ -26,7 +26,7 @@
             class="pl-2 flex text-left items-center"
             :class="{ 'text-sm': prevUrl, 'text-lg': !prevUrl }"
           >
-            {{ !prevUrl ? 'Start' : 'Next' }}
+            {{ !prevUrl ? $t('navigation.start') : $t('navigation.next') }}
             <span class="ml-auto pr-5 w-3" :class="{ 'ml-6.5': prevUrl }"
               ><ArrowRightIcon
             /></span>

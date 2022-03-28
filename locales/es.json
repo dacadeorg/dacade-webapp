@@ -268,6 +268,8 @@
     "error.default.title": "Oops!",
     "error.default.message": "Ha ocurrido un error y su petición no puede ser completada.",
     "error.page.button.refresh": "Por favor refresque la página y pruebe de nuevo más tarde",
-    "error.page.button.home": "Home Page"
+    "error.page.button.home": "Home Page",
+    "navigation.start": "Comienzo",
+    "navigation.next": "Próximo"
   }
   
