@@ -5,7 +5,7 @@
         <Navbar />
         <NotificationBar />
       </div>
-      <div class="relative flex-grow">
+      <div class="relative flex-grow invisible-scrollbar">
         <nuxt />
       </div>
       <DiscordButton />

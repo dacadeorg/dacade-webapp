@@ -32,7 +32,7 @@ body {
   font-weight: 400;
   font-family: 'Graphik', sans-serif;
 }
-body::-webkit-scrollbar {
+.invisible-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
