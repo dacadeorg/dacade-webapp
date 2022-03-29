@@ -261,6 +261,7 @@
   "submissions.empty-state.title": "No submissions yet.",
   "submissions.empty-state.subtitle": "Be the first!",
   "submissions.evaluation.points'": "Points",
+  "submissions.evaluation.evaluated'": "Evaluated",
   "submissions.feedback.bounty": "Feedback bounty",
   "submissions.feedback.feedbacks": "Feedbacks",
   "submissions.link.github": "GitHub Code",
