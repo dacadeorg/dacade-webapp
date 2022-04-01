@@ -258,6 +258,7 @@ export default {
 .link {
   text-decoration: underline;
 }
+
 .link:hover {
   color: blue;
 }

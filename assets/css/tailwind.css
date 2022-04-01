@@ -180,10 +180,10 @@ div {
 
 .pt-0\! {
   @apply pt-0 !important;
-} 
+}
 
 .list li {
-line-height: 0.5rem;
+  line-height: 0.5rem;
 }
 
 .list li::before {
@@ -195,11 +195,11 @@ line-height: 0.5rem;
   .list li {
     height: 44px;
     line-height: 1rem;
-    }   
+  }
 }
 
 .translation {
   background-color: #fefce8;
   width: -webkit-fill-available;
   margin-top: 1rem;
-  } 
+}

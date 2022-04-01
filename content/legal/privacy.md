@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Privacy Policy
+title: Privacy Policy
 type: legal
 ---
 
