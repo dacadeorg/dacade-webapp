@@ -55,29 +55,8 @@
           </li>
         </ul>
       </li>
-      <li v-if="course.translations.length > 1">
-        <div
-          class="message-rectangle flex flex-col divide-y divide-solid divide-yellow-100"
-        >
-          <div class="pb-4">
-            {{ $t('communities.navigation.language.text') }}
-          </div>
-
-          <div>
-            <select
-              v-model="currentLocale"
-              class="translation outline-none focus:outline-none"
-            >
-              <option
-                v-for="translation in course.translations"
-                :key="translation.id"
-                :value="translation.locale"
-              >
-                {{ availableLocales[translation.locale].name }}
-              </option>
-            </select>
-          </div>
-        </div>
+      <li>
+        <LanguageSwitcher />
       </li>
     </ul>
   </ThemeWrapper>
@@ -85,6 +64,7 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import LanguageSwitcher from './_partials/LanguageSwitcher'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 import ChevronRightIcon from '~/assets/icons/chevron-right.svg?inline'
 
@@ -92,6 +72,7 @@ export default {
   components: {
     ThemeWrapper,
     ChevronRightIcon,
+    LanguageSwitcher,
   },
   data() {
     return {}
@@ -107,27 +88,6 @@ export default {
       return {
         color: this.colors.primary,
       }
-    },
-    availableLocales() {
-      const locales = {}
-      this.$i18n.locales.map((locale) => {
-        locales[locale.code] = locale
-        return locale
-      })
-      return locales
-    },
-    selected() {
-      return this.$i18n.locale
-    },
-    currentLocale: {
-      get() {
-        return this.course.locale
-      },
-      set(locale) {
-        if (locale !== this.selected) {
-          this.$i18n.setLocale(locale)
-        }
-      },
     },
   },
 }

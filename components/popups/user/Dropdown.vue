@@ -38,7 +38,7 @@
       <div v-show="reputations.length > 1" class="p-4">
         <ReputationList />
       </div>
-      <div class="p-4">
+      <div v-if="showLanguageSwitcher" class="p-4">
         <LanguageList />
       </div>
       <div class="p-4 flex justify-center bg-indigo-50">
@@ -85,6 +85,9 @@ export default {
       reputations: 'user/reputations/list',
       user: 'user/get',
     }),
+    showLanguageSwitcher() {
+      return process.env.NUXT_ENV_SHOW_LANGUAGE_SELECTOR === 'true'
+    },
   },
   methods: {
     logout() {
