@@ -52,7 +52,7 @@ export default {
           })),
         },
         {
-          title: this.$t('navigation.title').toUppercase(),
+          title: this.$t('navigation.title'),
           items: [
             {
               label:  this.$t('navigation.profile.notifications'),

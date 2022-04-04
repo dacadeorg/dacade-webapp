@@ -149,7 +149,7 @@
   "communities.card.courses": "en {count} Cursos",
   "communities.card.course": "en {count} Cursos",
   "communities.list-card.earn": "Gane",
-  "course.challenge.button": "Desde ahora",
+  "course.challenge.button": "Comience ahora",
   "course.challenge.level": "PRINCIPIANTE",
   "course.challenge.reward": "RECOMPENSA",
   "course.challenge.reward.description": "Completando este reto de este curso puede asegurarse la cantidad de {amount} {token}",
