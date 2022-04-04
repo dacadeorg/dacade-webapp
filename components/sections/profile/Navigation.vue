@@ -52,7 +52,7 @@ export default {
           })),
         },
         {
-          title: this.$t('navigation.title'),
+          title: this.$t('navigation.profile.title'),
           items: [
             {
               label:  this.$t('navigation.profile.notifications'),
