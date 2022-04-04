@@ -3,7 +3,7 @@
     :user="evaluation.evaluator"
     :timestamp="{
       date: evaluation.created_at,
-      text: 'Evaluated',
+      text: $t('submissions.evaluation.evaluated'),
     }"
     :link="link"
     :bordered="!last"

@@ -139,6 +139,7 @@
   "communities.navigation.submissions": "Propuestas",
   "communities.navigation.scoreboard": "Tabla de Resultados",
   "communities.navigation.courses": "Retos",
+  "communities.navigation.language.text": "Este curso esta discponible en varios idiomas",
   "communities.overview.courses.title": "Cursos",
   "communities.overview.courses.description": "En los cursos de esta comunidad, podrá aprender sobre nuevas tecnologías, resolver retos, recibir feedbacks y ganar premios.",
   "communities.overview.scoreboard.title": "Tabla de Resultados",
@@ -164,7 +165,7 @@
   "testimonials.community.stats.card-3.title": "Feedbacks,",
   "testimonials.community.stats.card-3.description": "los estudiantes mostraron sus propuestas a sus compañeras",
   "testimonials.community.join": "{appName} en Discord",
-  "testimonials.text": "Dacade is really encouraging, I didn't realize the little that I know would matter. Thank you for making us learn more and to make research too.",
+  "testimonials.text": "Dacade es muy motivadora, no era consciente de que mis pocos conocimientos podrían ser útiles. Gracias por permitirnos aprender e investigar más.",
   "footer.text": "Dacade ha sido creada en colaboración con múltiples contribuciones. Si le interesa colaborar <a href=\"https://discord.gg/U38KQHDtHe\">contáctenos.</a>",
   "footer.privacy-policy": "Impressum & Política de Privacidad",
   "feedback.bounty": "Premio por Feedback",
@@ -258,7 +259,7 @@
   "referrals.reward.text": "Ha ganado una recompensa por recomendación",
   "submissions.empty-state.title": "No hay propuestas todavía.",
   "submissions.empty-state.subtitle": "¡Sea la primera en enviar su propuesta!",
-  "submissions.evaluation.points'": "Puntos",
+  "submissions.evaluation.points": "Puntos",
   "submissions.feedback.bounty": "Recompensa por su Feedback",
   "submissions.feedback.feedbacks": "Feedbacks",
   "submissions.link.github": "Código de GitHub",
@@ -268,7 +269,5 @@
   "error.default.title": "Oops!",
   "error.default.message": "Ha ocurrido un error y su petición no puede ser completada.",
   "error.page.button.refresh": "Por favor refresque la página y pruebe de nuevo más tarde",
-  "error.page.button.home": "Home Page",
-  "navigation.start": "Comienzo",
-  "navigation.next": "Próximo"
+  "error.page.button.home": "Home Page"
 }
