@@ -42,7 +42,7 @@
             >
             </Badge>
             <span class="text-sm leading">{{
-              $t('submission.evaluation.points')
+              $t('submissions.evaluation.points')
             }}</span>
           </div>
           <div
@@ -52,7 +52,7 @@
             <span class="font-semibold">{{
               submission.metadata.feedbacks
             }}</span>
-            {{ $t('submission.feedback.feedbacks') }}
+            {{ $t('submissions.feedback.feedbacks') }}
           </div>
         </div>
 
