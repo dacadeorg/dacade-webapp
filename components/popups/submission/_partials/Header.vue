@@ -1,11 +1,6 @@
 <template>
   <div
-    class="
-      flex
-      justify-between
-      items-center
-      border-b border-solid border-gray-200
-    "
+    class="flex justify-between items-center border-b border-solid border-gray-200"
   >
     <div
       class="text-left pl-5 flex items-center space-x-6 cursor-pointer"

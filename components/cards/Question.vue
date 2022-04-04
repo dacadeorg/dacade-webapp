@@ -6,15 +6,7 @@
   >
     <div
       :class="show ? 'text-gray-900 font-medium' : ''"
-      class="
-        flex
-        justify-between
-        space-x-5
-        align-middle
-        hover:text-gray-900
-        font-medium
-        cursor-pointer
-      "
+      class="flex justify-between space-x-5 align-middle hover:text-gray-900 font-medium cursor-pointer"
       @click="toggle"
     >
       {{ details.title }}

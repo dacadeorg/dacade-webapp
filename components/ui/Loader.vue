@@ -1,17 +1,6 @@
 <template>
   <div
-    class="
-      h-15
-      w-15
-      rounded-full
-      border border-solid
-      cursor-pointer
-      flex
-      items-center
-      justify-center
-      text-gray-400
-      bg-white
-    "
+    class="h-15 w-15 rounded-full border border-solid cursor-pointer flex items-center justify-center text-gray-400 bg-white"
     :class="{ 'bg-gray-50': loading, 'hover:bg-gray-200': !loading }"
     v-on="inputListeners"
   >

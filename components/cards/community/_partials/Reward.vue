@@ -1,19 +1,7 @@
 <template>
   <span
     :v-if="reward"
-    class="
-      font-semibold
-      leading-none
-      text-center
-      inline-flex
-      items-center
-      justify-between
-      rounded-full
-      text-xs
-      p-0.5
-      h-5
-      space-x-2
-    "
+    class="font-semibold leading-none text-center inline-flex items-center justify-between rounded-full text-xs p-0.5 h-5 space-x-2"
     :class="{
       'bg-white bg-opacity-25 text-white': type == 'transparent',
       'bg-gray-200 text-gray-500': type == 'gray',
