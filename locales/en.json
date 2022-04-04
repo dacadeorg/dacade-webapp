@@ -260,8 +260,8 @@
   "referrals.reward.text": "You earned the referral reward",
   "submissions.empty-state.title": "No submissions yet.",
   "submissions.empty-state.subtitle": "Be the first!",
-  "submissions.evaluation.points'": "Points",
-  "submissions.evaluation.evaluated'": "Evaluated",
+  "submissions.evaluation.points": "Points",
+  "submissions.evaluation.evaluated": "Evaluated",
   "submissions.feedback.bounty": "Feedback bounty",
   "submissions.feedback.feedbacks": "Feedbacks",
   "submissions.link.github": "GitHub Code",
@@ -273,5 +273,9 @@
   "error.page.button.refresh": "Please refresh this page or try again later",
   "error.page.button.home": "Home Page",
   "navigation.start": "Start",
-  "navigation.next": "Next"
+  "navigation.next": "Next",
+  "navigation.title": "Perfil",
+  "navigation.profile.notifications": "Notifications",
+  "navigation.profile.wallets": "Wallets",
+  "navigation.profile.referrals": "Referrals"
 }

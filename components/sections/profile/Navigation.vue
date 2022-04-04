@@ -52,20 +52,20 @@ export default {
           })),
         },
         {
-          title: 'PROFILE',
+          title: this.$t('navigation.title').toUppercase(),
           items: [
             {
-              label: 'Notifications',
+              label:  this.$t('navigation.profile.notifications'),
               link: '/profile',
               exact: true,
             },
             {
-              label: 'Wallets',
+              label:  this.$t('navigation.profile.wallets'),
               link: '/profile/wallets',
             },
             {
-              label: 'Referrals',
-              link: '/profile/referrals',
+              label:  this.$t('navigation.profile.referrals'),
+              link: '/profile/referrals',  
             },
           ],
         },

@@ -260,7 +260,7 @@
   "submissions.empty-state.title": "No hay propuestas todavía.",
   "submissions.empty-state.subtitle": "¡Sea la primera en enviar su propuesta!",
   "submissions.evaluation.points": "Puntos",
-  "submissions.evaluation.evaluated'": "Evaluado",
+  "submissions.evaluation.evaluated": "Evaluado",
   "submissions.feedback.bounty": "Recompensa por su Feedback",
   "submissions.feedback.feedbacks": "Feedbacks",
   "submissions.link.github": "Código de GitHub",
@@ -270,5 +270,11 @@
   "error.default.title": "Oops!",
   "error.default.message": "Ha ocurrido un error y su petición no puede ser completada.",
   "error.page.button.refresh": "Por favor refresque la página y pruebe de nuevo más tarde",
-  "error.page.button.home": "Home Page"
+  "error.page.button.home": "Home Page",
+  "navigation.start": "Comenzar",
+  "navigation.next": "Siguiente",
+  "navigation.title": "Perfil",
+  "navigation.profile.notifications": "Notificaciones",
+  "navigation.profile.wallets": "Carteras",
+  "navigation.profile.referrals": "Recomendaciones"
 }
