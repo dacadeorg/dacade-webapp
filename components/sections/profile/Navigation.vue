@@ -45,27 +45,27 @@ export default {
     menus() {
       return [
         {
-          title: 'COMMUNITIES',
+          title: this.$t('navigation.profile.communities'),
           items: this.communities?.map((community) => ({
             label: community.name,
             link: `/profile/${community.slug}`,
           })),
         },
         {
-          title: 'PROFILE',
+          title: this.$t('navigation.profile.title'),
           items: [
             {
-              label: 'Notifications',
+              label:  this.$t('navigation.profile.notifications'),
               link: '/profile',
               exact: true,
             },
             {
-              label: 'Wallets',
+              label:  this.$t('navigation.profile.wallets'),
               link: '/profile/wallets',
             },
             {
-              label: 'Referrals',
-              link: '/profile/referrals',
+              label:  this.$t('navigation.profile.referrals'),
+              link: '/profile/referrals',  
             },
           ],
         },
