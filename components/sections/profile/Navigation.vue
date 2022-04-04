@@ -45,7 +45,7 @@ export default {
     menus() {
       return [
         {
-          title: 'COMMUNITIES',
+          title: this.$t('navigation.profile.communities'),
           items: this.communities?.map((community) => ({
             label: community.name,
             link: `/profile/${community.slug}`,

@@ -274,8 +274,9 @@
   "error.page.button.home": "Home Page",
   "navigation.start": "Start",
   "navigation.next": "Next",
-  "navigation.title": "Perfil",
+  "navigation.profile.title": "Perfil",
   "navigation.profile.notifications": "Notifications",
   "navigation.profile.wallets": "Wallets",
-  "navigation.profile.referrals": "Referrals"
+  "navigation.profile.referrals": "Referrals",
+  "navigation.profile.communities": "Communities"
 }
