@@ -1,19 +1,7 @@
 <template>
   <div class="relative lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
     <div
-      class="
-        relative
-        z-10
-        p-6
-        lg:pb-3
-        w-full
-        text-primary
-        h-full
-        min-h-xs
-        flex flex-col
-        justify-between
-        divide-y-2 divide-y divide-dotted divide-theme-accent
-      "
+      class="relative z-10 p-6 lg:pb-3 w-full text-primary h-full min-h-xs flex flex-col justify-between divide-y-2 divide-y divide-dotted divide-theme-accent"
     >
       <div class="max-w-sm">
         <p class="text-2xl font-medium mb-2.5 leading-none">
@@ -32,14 +20,7 @@
         <div class="mt-4 align-middle">
           <a href="mailto:moritz@dacade.org">
             <Button
-              class="
-                hover:bg-primary
-                group-hover:text-white
-                leading-relaxed
-                lg:px-7
-                px-5
-                font-medium
-              "
+              class="hover:bg-primary group-hover:text-white leading-relaxed lg:px-7 px-5 font-medium"
               type="outline-primary"
               :padding="false"
             >

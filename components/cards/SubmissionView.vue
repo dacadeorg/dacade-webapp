@@ -12,14 +12,7 @@
       </p>
     </div>
     <div
-      class="
-        inline-grid
-        space-y-2
-        md:space-y-5 md:contents
-        mt-6
-        space-x-0
-        md:space-x-2
-      "
+      class="inline-grid space-y-2 md:space-y-5 md:contents mt-6 space-x-0 md:space-x-2"
     >
       <ArrowButton
         v-if="submission.link"

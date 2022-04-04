@@ -10,17 +10,7 @@
     <Coin
       v-if="reward"
       :token="reward.token"
-      class="
-        absolute
-        sm:-ml-7
-        left-3
-        sm:left-0
-        top-6
-        sm:top-4
-        w-10
-        h-10
-        sm:w-15 sm:h-15
-      "
+      class="absolute sm:-ml-7 left-3 sm:left-0 top-6 sm:top-4 w-10 h-10 sm:w-15 sm:h-15"
       :bg-color="
         submission.metadata && submission.metadata.evaluation ? '#d2d2d2' : null
       "
@@ -62,16 +52,7 @@
             </div>
           </div>
           <div
-            class="
-              divide-y
-              space-y-4
-              flex-inline
-              text-base
-              font-medium
-              sm:right-8 sm:top-3 sm:absolute
-              pt-4
-              sm:pt-0
-            "
+            class="divide-y space-y-4 flex-inline text-base font-medium sm:right-8 sm:top-3 sm:absolute pt-4 sm:pt-0"
             :class="
               submission.metadata && submission.metadata.evaluation
                 ? 'divide-gray-200 '
@@ -83,14 +64,7 @@
                 submission.challenge.feedbackInfo &&
                 submission.challenge.feedbackInfo.length
               "
-              class="
-                pl-15
-                sm:pl-0
-                flex
-                items-center
-                justify-between
-                cursor-pointer
-              "
+              class="pl-15 sm:pl-0 flex items-center justify-between cursor-pointer"
               @click="infoVisibility = !infoVisibility"
             >
               <p class="text-sm">

@@ -1,13 +1,6 @@
 <template>
   <div
-    class="
-      bg-gray-50
-      text-sm text-gray-700
-      border-solid border border-gray-200
-      rounded-3xl
-      mb-5
-      md:mb-0
-    "
+    class="bg-gray-50 text-sm text-gray-700 border-solid border border-gray-200 rounded-3xl mb-5 md:mb-0"
   >
     <nuxt-link
       :to="localePath($navigation.community.submissionPath(submission.id))"
@@ -18,15 +11,7 @@
         </span>
         <span
           v-if="submission.user.reputation"
-          class="
-            text-xs
-            px-2.5
-            bg-secondary
-            leading-none
-            py-1
-            rounded-full
-            font-medium
-          "
+          class="text-xs px-2.5 bg-secondary leading-none py-1 rounded-full font-medium"
           ><Currency :value="submission.user.reputation" token="REP"
         /></span>
         <span class="block text-sm leading-snug text-gray-700 pb-4">

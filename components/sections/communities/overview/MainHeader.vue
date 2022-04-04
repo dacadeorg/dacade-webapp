@@ -3,51 +3,20 @@
     <div class="py-2 md:py-8 mx-auto">
       <div class="flex flex-col justify-between lg:flex-row">
         <div
-          class="
-            max-w-md
-            mb-4
-            md:max-w-md
-            lg:max-w-lg
-            xl:max-w-xl
-            2xl:max-w-2xl
-            lg:mr-6
-          "
+          class="max-w-md mb-4 md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl lg:mr-6"
         >
           <h1
-            class="
-              text-5xl
-              tracking-tight
-              sm:text-6.5xl
-              xl:text-7.75xl
-              max-w-text-xs
-            "
+            class="text-5xl tracking-tight sm:text-6.5xl xl:text-7.75xl max-w-text-xs"
           >
             {{ community.name }}
           </h1>
           <p
-            class="
-              mt-2
-              text-xl
-              tracking-tight
-              md:text-.5xl
-              leading-tight
-              max-w-text-sm
-              lg:hidden
-            "
+            class="mt-2 text-xl tracking-tight md:text-.5xl leading-tight max-w-text-sm lg:hidden"
           >
             {{ community.summary }}
           </p>
           <p
-            class="
-              hidden
-              mt-4
-              tracking-tight
-              text-lg
-              xl:text-.5xl
-              max-w-text-md
-              font-extralight
-              lg:block
-            "
+            class="hidden mt-4 tracking-tight text-lg xl:text-.5xl max-w-text-md font-extralight lg:block"
           >
             {{ community.summary }}
           </p>
@@ -57,15 +26,7 @@
         </div>
       </div>
       <div
-        class="
-          flex flex-col
-          max-w-xs
-          mt-0
-          sm:-mt-15
-          lg:-mt-8
-          md:max-w-xl
-          lg:flex-row lg:items-center
-        "
+        class="flex flex-col max-w-xs mt-0 sm:-mt-15 lg:-mt-8 md:max-w-xl lg:flex-row lg:items-center"
       >
         <div class="my-2 text-sm">
           <span
