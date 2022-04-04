@@ -259,7 +259,7 @@
   "referrals.reward.text": "Ha ganado una recompensa por recomendación",
   "submissions.empty-state.title": "No hay propuestas todavía.",
   "submissions.empty-state.subtitle": "¡Sea la primera en enviar su propuesta!",
-  "submissions.evaluation.points'": "Puntos",
+  "submissions.evaluation.points": "Puntos",
   "submissions.feedback.bounty": "Recompensa por su Feedback",
   "submissions.feedback.feedbacks": "Feedbacks",
   "submissions.link.github": "Código de GitHub",
