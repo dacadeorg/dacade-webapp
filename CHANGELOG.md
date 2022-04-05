@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.2](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.1...v3.2.2) (2022-04-05)
+
+
+### Features
+
+* add course levels translations ([c0c0bc6](https://gitlab.com/u2467/dacade/dacade/commit/c0c0bc6d5a6a4ba5d200906e646ac774ff144aa2))
+* register json in highlight js ([7e9e6d1](https://gitlab.com/u2467/dacade/dacade/commit/7e9e6d1a93c899ebed9385567e1b72498803008f))
+
 ### [3.2.1](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.0...v3.2.1) (2022-04-04)
 
 
