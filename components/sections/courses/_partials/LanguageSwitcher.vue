@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="course.translations.length > 1 && show"
+    v-if="course.translations && course.translations.length > 1 && show"
     class="message-rectangle flex flex-col divide-y divide-solid divide-yellow-100"
   >
     <div class="pb-4">
