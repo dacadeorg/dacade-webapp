@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.3](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.2...v3.2.3) (2022-04-06)
+
+
+### Bug Fixes
+
+* mobile nav signup translation key ([df711cd](https://gitlab.com/u2467/dacade/dacade/commit/df711cd2b50e5dbb7f75f407da6859e0cb94a4a7))
+* page navigation for other locales ([8d1a5a0](https://gitlab.com/u2467/dacade/dacade/commit/8d1a5a0bd16f3553f22ded445c42733ff194fb3d))
+
 ### [3.2.2](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.1...v3.2.2) (2022-04-05)
 
 
