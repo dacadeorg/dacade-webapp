@@ -76,7 +76,7 @@ export default {
     currentIndex() {
       return this.list.findIndex(
         (el) =>
-          this.stripTrailingSlash(el.link) ===
+          this.stripTrailingSlash(this.localePath(el.link)) ===
           this.stripTrailingSlash(this.$route.fullPath)
       )
     },
