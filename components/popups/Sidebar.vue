@@ -121,7 +121,7 @@
               @click="toggle"
             >
               <nuxt-link lass="w-full" :to="localePath('/signup')">
-                {{ $t('nav.signup') }}
+                {{ $t('nav.sign-up') }}
               </nuxt-link>
             </Button>
 
