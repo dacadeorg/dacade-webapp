@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.4](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.3...v3.2.4) (2022-04-08)
+
+
+### Bug Fixes
+
+* wallet change address translation text ([ecfea7d](https://gitlab.com/u2467/dacade/dacade/commit/ecfea7dda10b3de4b079f77e56586efac1932022))
+
 ### [3.2.3](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.2...v3.2.3) (2022-04-06)
 
 
