@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.5](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.4...v3.2.5) (2022-04-08)
+
+
+### Features
+
+* add course navigation togglering ([4da2ebb](https://gitlab.com/u2467/dacade/dacade/commit/4da2ebb70a2165006f296dbeb0beb611a194f147))
+
 ### [3.2.4](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.3...v3.2.4) (2022-04-08)
 
 
