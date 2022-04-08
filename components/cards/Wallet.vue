@@ -53,9 +53,9 @@
             @click="showEditModal = true"
             >{{
               address
-                ? $t('profile.wallets.change')
-                : $t('profile.wallets.set')
-            }}{{ $t('profile.wallets.address') }}
+                ? $t('profile.wallets.address-change')
+                : $t('profile.wallets.address-set')
+            }}
           </span>
         </div>
         <div v-if="!cashable" class="prose">
