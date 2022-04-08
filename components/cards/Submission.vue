@@ -28,7 +28,7 @@
               >{{ submission.reward.amount }}
               {{ submission.reward.token }}</span
             >
-            {{ $t('submission.feedback.bounty') }}
+            {{ $t('submissions.feedback.bounty') }}
           </div>
           <div
             v-if="submission.metadata && submission.metadata.evaluation"
