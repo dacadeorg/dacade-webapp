@@ -21,11 +21,15 @@ export const actions = {
     this.commit('profile/communities/clear')
   },
 
-  async fetch({ commit, dispatch }, username) {
+  async fetch({ commit, dispatch, getters }, username) {
     if (!username) return
 
     try {
-      await dispatch('clear')
+      const current = getters.current
+      if (!current || current?.username.toLowerCase() !== username.toLowerCase()) {
+        await dispatch('clear')
+      }
+
       const { data } = await this.$api.get('users/' + username)
       commit('setCurrent', data)
       return data
