@@ -15,7 +15,7 @@ export default async function ({ store, redirect, route }) {
 
   if (route.path.startsWith('/profile')) {
     await store.dispatch('profile/users/fetch', route.params?.username)
-    store.dispatch('profile/communities/all', route.params?.username || authUser?.displayName)
+    await store.dispatch('profile/communities/all', route.params?.username || authUser?.displayName)
   }
 }
 
