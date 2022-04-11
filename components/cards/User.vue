@@ -5,7 +5,6 @@
       boxLayout ? 'sm:p-6' : 'pl-5 sm:pl-7.5',
       { 'cursor-pointer': link, 'flex space-x-3': boxLayout },
     ]"
-    @click="goToLink"
   >
     <div
       class="z-10"
@@ -33,6 +32,7 @@
           'pl-10.5 pb-12': !boxLayout,
         },
       ]"
+      @click="goToLink"
     >
       <div class="pb-4">
         <span class="text-lg leading-loose font-medium">

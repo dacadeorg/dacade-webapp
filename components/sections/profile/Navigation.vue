@@ -40,36 +40,49 @@ export default {
   },
   computed: {
     ...mapGetters({
-      communities: 'user/communities/list',
+      communities: 'profile/communities/list',
+      authUser: 'user/get',
     }),
+    username() {
+      return this.$route.params.username || this.authUser?.displayName
+    },
+    isCurrentUser() {
+      return (
+        this.username.toLowerCase() === this.authUser?.displayName?.toLowerCase()
+      )
+    },
     menus() {
-      return [
+      const username = this.username
+      const items = [
         {
           title: this.$t('navigation.profile.communities'),
           items: this.communities?.map((community) => ({
             label: community.name,
-            link: `/profile/${community.slug}`,
+            link: `/profile/${username}/communities/${community.slug}`,
           })),
         },
-        {
+      ]
+      if (this.isCurrentUser) {
+        items.push({
           title: this.$t('navigation.profile.title'),
           items: [
             {
-              label:  this.$t('navigation.profile.notifications'),
+              label: this.$t('navigation.profile.notifications'),
               link: '/profile',
               exact: true,
             },
             {
-              label:  this.$t('navigation.profile.wallets'),
+              label: this.$t('navigation.profile.wallets'),
               link: '/profile/wallets',
             },
             {
-              label:  this.$t('navigation.profile.referrals'),
-              link: '/profile/referrals',  
+              label: this.$t('navigation.profile.referrals'),
+              link: '/profile/referrals',
             },
           ],
-        },
-      ]
+        })
+      }
+      return items
     },
   },
 }

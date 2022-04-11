@@ -41,14 +41,14 @@ export default {
     Currency,
   },
   async fetch({ store, params }) {
-    await store.dispatch('user/communities/find', params.slug)
+    await store.dispatch('profile/communities/find', params)
   },
   computed: {
     ...mapGetters({
-      community: 'user/communities/current',
-      feedbacks: 'user/communities/feedbacks',
-      submissions: 'user/communities/submissions',
-      reputation: 'user/communities/reputation',
+      community: 'profile/communities/current',
+      feedbacks: 'profile/communities/feedbacks',
+      submissions: 'profile/communities/submissions',
+      reputation: 'profile/communities/reputation',
     }),
   },
 }

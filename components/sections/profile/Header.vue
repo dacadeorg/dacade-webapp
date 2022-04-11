@@ -23,7 +23,8 @@ export default {
   computed: {
     ...mapGetters({
       balance: 'user/balance',
-      user: 'user/get',
+      authUser: 'user/get',
+      profileUser: 'profile/users/current',
     }),
     joined() {
       if (!this.user.joined) return null
@@ -32,6 +33,16 @@ export default {
         'MMMM yyyy',
         this.$i18n.locale
       )
+    },
+    user() {
+      if (
+        this.$route.params.username &&
+        this.$route.params.username.toLowerCase() !==
+          this.authUser?.displayName.toLowerCase()
+      ) {
+        return this.profileUser
+      }
+      return this.authUser
     },
   },
 }

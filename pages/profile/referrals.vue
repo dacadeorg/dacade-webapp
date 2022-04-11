@@ -1,46 +1,51 @@
 <template>
-  <Wrapper>
-    <div class="lg:w-9/12 xl:w-2/3">
-      <div v-if="referrals && referrals.length" class="w-full relative">
-        <div
-          class="w-full flex flex-col rounded-3xl border border-solid border-gray-200 divide-y divide-solid divide-gray-200 overflow-hidden"
-        >
-          <Referral
-            v-for="(referral, i) in referrals"
-            :key="i"
-            :referral="referral"
-          />
-        </div>
-        <InfiniteLoading
-          class="invisible"
-          :distance="1000"
-          @infinite="nextPage"
-        ></InfiniteLoading>
+  <div class="lg:w-9/12 xl:w-2/3">
+    <div v-if="referrals && referrals.length" class="w-full relative">
+      <div
+        class="
+          w-full
+          flex flex-col
+          rounded-3xl
+          border border-solid border-gray-200
+          divide-y divide-solid divide-gray-200
+          overflow-hidden
+        "
+      >
+        <Referral
+          v-for="(referral, i) in referrals"
+          :key="i"
+          :referral="referral"
+        />
       </div>
-      <EmptyState
-        v-else
-        :title="$t('referrals.empty-state.title')"
-        :subtitle="$t('referrals.empty-state.subtitle')"
-      />
+      <InfiniteLoading
+        class="invisible"
+        :distance="1000"
+        @infinite="nextPage"
+      ></InfiniteLoading>
     </div>
-  </Wrapper>
+    <EmptyState
+      v-else
+      :title="$t('referrals.empty-state.title')"
+      :subtitle="$t('referrals.empty-state.subtitle')"
+    />
+  </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
-import Wrapper from '@/components/sections/profile/Wrapper'
 import Referral from '@/components/cards/profile/Referral'
 import EmptyState from '@/components/ui/EmptyState'
 
 export default {
   name: 'Referrals',
   components: {
-    Wrapper,
     Referral,
     EmptyState,
     InfiniteLoading,
   },
+  layout: 'profile',
+  middleware: 'auth',
   data() {
     return {
       showButton: true,

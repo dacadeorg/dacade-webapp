@@ -1,10 +1,20 @@
 <template>
   <span
-    :class="[sizeClasses, shapeClasses]"
+    :class="[sizeClasses, shapeClasses, { 'cursor-pointer': user }]"
     :style="{
       backgroundColor: color,
     }"
-    class="bg-primary inline-flex text-white items-center justify-center uppercase leading-none align-middle"
+    class="
+      bg-primary
+      inline-flex
+      text-white
+      items-center
+      justify-center
+      uppercase
+      leading-none
+      align-middle
+    "
+    @click="openLink()"
   >
     <span v-if="user">{{ initials }}</span>
     <img v-if="icon" :src="icon" class="p-2" />
@@ -73,6 +83,13 @@ export default {
           return 'rounded-none'
         default:
           return 'rounded-full'
+      }
+    },
+  },
+  methods: {
+    openLink() {
+      if (this.user && this.user.username) {
+        this.$router.push(`/profile/${this.user.username}`)
       }
     },
   },

@@ -1,18 +1,16 @@
 <template>
-  <Wrapper>
-    <NotificationList extended />
-  </Wrapper>
+  <NotificationList extended />
 </template>
 
 <script>
-import Wrapper from '@/components/sections/profile/Wrapper'
 import NotificationList from '@/components/list/Notification'
 
 export default {
   name: 'Notifications',
   components: {
-    Wrapper,
     NotificationList,
   },
+  layout: 'profile',
+  middleware: 'auth',
 }
 </script>
