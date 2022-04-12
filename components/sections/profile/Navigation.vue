@@ -44,11 +44,11 @@ export default {
       authUser: 'user/get',
     }),
     username() {
-      return this.$route.params.username || this.authUser?.displayName
+      return this.$route.params?.username || this.authUser?.displayName
     },
     isCurrentUser() {
       return (
-        this.username.toLowerCase() === this.authUser?.displayName?.toLowerCase()
+        this.username?.toLowerCase() === this.authUser?.displayName?.toLowerCase()
       )
     },
     menus() {

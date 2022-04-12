@@ -36,9 +36,9 @@ export default {
     },
     user() {
       if (
-        this.$route.params.username &&
-        this.$route.params.username.toLowerCase() !==
-          this.authUser?.displayName.toLowerCase()
+        this.$route.params?.username &&
+        this.$route.params?.username?.toLowerCase() !==
+          this.authUser?.displayName?.toLowerCase()
       ) {
         return this.profileUser
       }
