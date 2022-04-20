@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.9](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.8...v3.2.9) (2022-04-20)
+
+
+### Improvements
+
+* hide review deadline on bounty when expired ([e33fe0c](https://gitlab.com/u2467/dacade/dacade/commit/e33fe0ca490b54c4d873c19e8637824c3d82d51e))
+
 ### [3.2.8](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.7...v3.2.8) (2022-04-20)
 
 
