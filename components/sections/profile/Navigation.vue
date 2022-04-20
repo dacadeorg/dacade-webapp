@@ -48,7 +48,8 @@ export default {
     },
     isCurrentUser() {
       return (
-        this.username?.toLowerCase() === this.authUser?.displayName?.toLowerCase()
+        this.username?.toLowerCase() ===
+        this.authUser?.displayName?.toLowerCase()
       )
     },
     menus() {

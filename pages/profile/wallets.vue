@@ -34,8 +34,8 @@ export default {
     EditProfile,
     Hint,
   },
- layout: 'profile',
- middleware: 'auth',
+  layout: 'profile',
+  middleware: 'auth',
   data: () => ({
     showEditProfile: false,
   }),

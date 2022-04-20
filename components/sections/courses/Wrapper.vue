@@ -10,6 +10,7 @@
         <MobileNav show-top-border />
       </div>
       <div class="w-full lg:w-3/4">
+        <CommunityNavigation />
         <slot />
       </div>
     </div>
@@ -17,6 +18,7 @@
 </template>
 <script>
 import Navigation from '@/components/sections/courses/Navigation'
+import CommunityNavigation from '@/components/sections/courses/CommunityNavigation'
 import Section from '@/components/ui/Section'
 import MobileNav from '@/components/sections/courses/MobileNav'
 
@@ -25,6 +27,7 @@ export default {
     Navigation,
     MobileNav,
     Section,
+    CommunityNavigation,
   },
 }
 </script>

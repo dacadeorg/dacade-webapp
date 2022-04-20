@@ -4,16 +4,7 @@
     :style="{
       backgroundColor: color,
     }"
-    class="
-      bg-primary
-      inline-flex
-      text-white
-      items-center
-      justify-center
-      uppercase
-      leading-none
-      align-middle
-    "
+    class="bg-primary inline-flex text-white items-center justify-center uppercase leading-none align-middle"
     @click="openLink()"
   >
     <span v-if="user">{{ initials }}</span>
