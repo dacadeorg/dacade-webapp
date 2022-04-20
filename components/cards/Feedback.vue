@@ -10,11 +10,12 @@
     :badge="value.ranking"
     :box-layout="preview"
   >
-    <div
-      class="text-base md:text-lg leading-normal relative break-words"
-      :class="{ 'line-clamp-3': preview }"
-      v-html="value.text"
-    />
+    <div class="-my-5" :class="{ 'line-clamp-3': preview }">
+      <Markdown
+        class="text-base md:text-lg leading-normal relative break-words"
+        :value="value.text"
+      />
+    </div>
     <div
       v-if="
         value.metadata &&
@@ -76,6 +77,7 @@ import Button from '@/components/ui/button'
 import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
+import Markdown from '@/components/ui/Markdown'
 
 export default {
   name: 'FeedbackCard',
@@ -85,6 +87,7 @@ export default {
     Tag,
     ArrowRightIcon,
     Reward,
+    Markdown,
   },
   props: {
     value: {
