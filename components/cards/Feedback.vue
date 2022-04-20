@@ -11,7 +11,7 @@
     :box-layout="preview"
   >
     <div
-      class="text-base md:text-lg leading-normal relative break-all"
+      class="text-base md:text-lg leading-normal relative break-words"
       :class="{ 'line-clamp-3': preview }"
       v-html="value.text"
     />
