@@ -2,37 +2,31 @@
   <div
     class="py-5 border rounded-t relative"
     :class="
-      submission.metadata && submission.metadata.evaluation
-        ? 'bg-gray-50 border-gray-200'
-        : 'bg-yellow-50 border-yellow-200'
+      reviewed ? 'bg-gray-50 border-gray-200' : 'bg-yellow-50 border-yellow-200'
     "
   >
     <Coin
       v-if="reward"
       :token="reward.token"
-      class="absolute sm:-ml-7 left-3 sm:left-0 top-6 sm:top-4 w-10 h-10 sm:w-15 sm:h-15"
-      :bg-color="
-        submission.metadata && submission.metadata.evaluation ? '#d2d2d2' : null
+      class="
+        absolute
+        sm:-ml-7
+        left-3
+        sm:left-0
+        top-6
+        sm:top-4
+        w-10
+        h-10
+        sm:w-15 sm:h-15
       "
-      :color="
-        submission.metadata && submission.metadata.evaluation ? '#FFFFFF' : null
-      "
+      :bg-color="reviewed ? '#d2d2d2' : null"
+      :color="reviewed ? '#FFFFFF' : null"
     />
-    <div
-      :class="
-        submission.metadata && submission.metadata.evaluation
-          ? 'text-gray-700'
-          : 'text-yellow-900'
-      "
-    >
+    <div :class="reviewed ? 'text-gray-700' : 'text-yellow-900'">
       <div class="relative">
         <div
           class="divide-y sm:divide-y-0 space-y-4"
-          :class="
-            submission.metadata && submission.metadata.evaluation
-              ? 'divide-gray-200'
-              : 'divide-yellow-200'
-          "
+          :class="reviewed ? 'divide-gray-200' : 'divide-yellow-200'"
         >
           <div class="sm:pl-10 pl-15">
             <div v-if="reward" class="font-medium text-lg">
@@ -41,9 +35,7 @@
             </div>
             <div class="text-sm md">
               {{ $t('feedback.bounty') }}
-              <span
-                v-if="submission.metadata && submission.metadata.evaluation"
-                class="font-medium"
+              <span v-if="reviewed" class="font-medium"
                 >{{ $t('feedback.issued') }}
               </span>
               <span v-if="submission.reviewable" class="font-medium"
@@ -52,19 +44,31 @@
             </div>
           </div>
           <div
-            class="divide-y space-y-4 flex-inline text-base font-medium sm:right-8 sm:top-3 sm:absolute pt-4 sm:pt-0"
-            :class="
-              submission.metadata && submission.metadata.evaluation
-                ? 'divide-gray-200 '
-                : 'divide-yellow-200'
+            class="
+              divide-y
+              space-y-4
+              flex-inline
+              text-base
+              font-medium
+              sm:right-8 sm:top-3 sm:absolute
+              pt-4
+              sm:pt-0
             "
+            :class="reviewed ? 'divide-gray-200 ' : 'divide-yellow-200'"
           >
             <div
               v-if="
                 submission.challenge.feedbackInfo &&
                 submission.challenge.feedbackInfo.length
               "
-              class="pl-15 sm:pl-0 flex items-center justify-between cursor-pointer"
+              class="
+                pl-15
+                sm:pl-0
+                flex
+                items-center
+                justify-between
+                cursor-pointer
+              "
               @click="infoVisibility = !infoVisibility"
             >
               <p class="text-sm">
@@ -83,39 +87,23 @@
           <div
             v-show="infoVisibility === true"
             class="divide-y space-y-4"
-            :class="
-              submission.metadata && submission.metadata.evaluation
-                ? 'border-gray-200'
-                : 'border-yellow-200'
-            "
+            :class="reviewed ? 'border-gray-200' : 'border-yellow-200'"
           >
             <div
               v-for="(item, key) in list"
               :key="key"
               class="pt-6 px-3.75 sm:px-10 pb-0 sm:border-t font-medium"
-              :class="
-                submission.metadata && submission.metadata.evaluation
-                  ? 'border-gray-200'
-                  : 'border-yellow-200'
-              "
+              :class="reviewed ? 'border-gray-200' : 'border-yellow-200'"
             >
               <span class="relative block">{{
                 $t('feedback.criteria.' + item.name)
               }}</span>
               <div
                 class="sm:-ml-6 px-5 sm:p-0"
-                :class="
-                  submission.metadata && submission.metadata.evaluation
-                    ? 'text-gray-600'
-                    : 'text-yellow-900'
-                "
+                :class="reviewed ? 'text-gray-600' : 'text-yellow-900'"
               >
                 <ObjectiveList
-                  :iconcolor="
-                    submission.metadata && submission.metadata.evaluation
-                      ? '#9CA3AF'
-                      : '#F59E0B'
-                  "
+                  :iconcolor="reviewed ? '#9CA3AF' : '#F59E0B'"
                   :crossmark="!item.positive"
                   :objectives="item.criteria"
                 />
@@ -174,6 +162,9 @@ export default {
       return this.submission?.challenge?.rewards.find(
         (reward) => reward.type === 'FEEDBACK'
       )
+    },
+    reviewed() {
+      return this.submission?.metadata?.reviewed
     },
     activeButtonStyle() {
       return {
