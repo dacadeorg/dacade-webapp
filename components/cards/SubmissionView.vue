@@ -8,7 +8,10 @@
   >
     <div class="pb-6">
       <div class="-my-5">
-       <Markdown class="text-base md:text-lg leading-normal text-gray-700" :value="submission.text" />
+        <Markdown
+          class="text-base md:text-lg leading-normal text-gray-700"
+          :value="submission.text"
+        />
       </div>
     </div>
     <div

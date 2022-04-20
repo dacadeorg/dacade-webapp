@@ -26,7 +26,10 @@ export const actions = {
 
     try {
       const current = getters.current
-      if (!current || current?.username.toLowerCase() !== username.toLowerCase()) {
+      if (
+        !current ||
+        current?.username.toLowerCase() !== username.toLowerCase()
+      ) {
         await dispatch('clear')
       }
 
