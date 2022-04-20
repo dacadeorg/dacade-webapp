@@ -13,7 +13,7 @@
     <div class="divide-y divide-gray-200 flex flex-col">
       <div class="pb-6">
         <p
-          class="text-base sm:text-lg line-clamp-3 leading-normal text-gray-700 break-all"
+          class="text-base sm:text-lg line-clamp-3 leading-normal text-gray-700 break-words"
         >
           {{ submission.text }}
         </p>
