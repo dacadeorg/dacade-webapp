@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.8](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.7...v3.2.8) (2022-04-20)
+
+
+### Features
+
+* add support for submission reviewed metadata ([bbf74a8](https://gitlab.com/u2467/dacade/dacade/commit/bbf74a8cad4a94f32f307ce40732b530c95689ef))
+
 ### [3.2.7](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.6...v3.2.7) (2022-04-20)
 
 
