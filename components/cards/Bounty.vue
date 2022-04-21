@@ -1,9 +1,30 @@
 <template>
   <div
-    class="cursor-pointer flex md:flex-row-reverse md:space-x-5 px-5 min-h-32 md:h-auto md:w-full justify-between hover:bg-secondary relative"
+    class="
+      cursor-pointer
+      flex
+      md:flex-row-reverse md:space-x-5
+      px-5
+      min-h-32
+      md:h-auto md:w-full
+      justify-between
+      hover:bg-secondary
+      relative
+    "
   >
     <div
-      class="bg-theme-accent flex-col w-full h-full justify-between md:-space-y-1 pl-3 pr-5 mt-7 mb-5"
+      class="
+        bg-theme-accent
+        flex-col
+        w-full
+        h-full
+        justify-between
+        md:-space-y-1
+        pl-3
+        pr-5
+        mt-7
+        mb-5
+      "
     >
       <div class="relative w-full" @click="goToChallenge(bounty)">
         <div class="font-medium text-md md:pt-1.5">
@@ -12,7 +33,14 @@
       </div>
 
       <div
-        class="inline-flex md:flex h-2/3 md:flex-row flex-col-reverse justify-between"
+        class="
+          inline-flex
+          md:flex
+          h-2/3
+          md:flex-row
+          flex-col-reverse
+          justify-between
+        "
         @click="goToChallenge(bounty)"
       >
         <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">
@@ -24,7 +52,12 @@
       </div>
       <div
         v-if="bounty.submissions && bounty.submissions.length"
-        class="mt-4 space-y-0 divide-y divide-gray-200 border-t border-t-solid border-gray-200"
+        class="
+          mt-4
+          space-y-0
+          divide-y divide-gray-200
+          border-t border-t-solid border-gray-200
+        "
       >
         <nuxt-link
           v-for="submission in bounty.submissions"
@@ -50,7 +83,17 @@
               />
               <div>{{ submission.user.displayName }}</div>
               <div
-                class="flex align-middle text-gray-500 text-middle bg-gray-200 px-2 text-xxs rounded-xl m-0 h-5"
+                class="
+                  flex
+                  align-middle
+                  text-gray-500 text-middle
+                  bg-gray-200
+                  px-2
+                  text-xxs
+                  rounded-xl
+                  m-0
+                  h-5
+                "
               >
                 {{
                   submission.metadata && submission.metadata.feedbacks
@@ -59,12 +102,12 @@
                 }}
               </div>
             </div>
-            <div
-              v-if="submission.reviewable"
-              class="text-gray-500 text-base font-normal"
-            >
-              {{ $t('bounties.prefix.closes') }}
-              {{ convertDate(submission.reviewDeadline) }}
+            <div class="text-gray-500 text-base font-normal">
+              <span v-if="submission.reviewable"
+                >{{ $t('bounties.prefix.closes') }}
+                {{ convertDate(submission.reviewDeadline) }}</span
+              >
+              <span v-else>{{ $t('bounties.closes-soon') }}</span>
             </div>
           </div>
         </nuxt-link>
