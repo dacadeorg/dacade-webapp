@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.12](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.11...v3.2.12) (2022-04-21)
+
+
+### Features
+
+* add closing soon keyword for bounties ([f42a150](https://gitlab.com/u2467/dacade/dacade/commit/f42a1500bf61b9abded7ffa6faadc88fd40cdfd1))
+
 ### [3.2.11](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.10...v3.2.11) (2022-04-21)
 
 
