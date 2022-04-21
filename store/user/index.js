@@ -4,6 +4,7 @@ import { auth as firebaseAuth } from '@/plugins/firebase'
 
 export const state = () => ({
   data: null,
+  auth: null,
   userBalance: null,
   balance: null,
   walletAddresses: null,
@@ -11,10 +12,14 @@ export const state = () => ({
 })
 
 export const mutations = {
+  setAuth(state, auth) {
+    state.auth = auth.toJSON()
+  },
   set(state, payload) {
     state.data = payload
   },
   clear(state) {
+    state.auth = null
     state.data = null
     state.token = null
   },
@@ -75,6 +80,9 @@ export const actions = {
 export const getters = {
   get(state) {
     return state.data
+  },
+  auth(state) {
+    return state.auth
   },
   data(state) {
     return state.data

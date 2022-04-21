@@ -78,21 +78,9 @@ export const actions = {
     this.dispatch('user/clear')
     this.$router.push(this.localePath('/communities'))
   },
-  createVerificationRequest({ dispatch }, payload) {
-    return new Promise((resolve, reject) => {
-      auth
-        .verify(payload)
-        .then((response) => {
-          resolve(response)
-          this.commit('setJobDone', true)
-          this.commit('setBusy', false)
-        })
-        .catch((error) => {
-          reject(error)
-          this.commit('setBusy', false)
-          this.commit('setError', error)
-        })
-    })
+  async resendEmailVerification() {
+    const res = await this.$api.get('auth/resend-email-verification-link')
+    return res
   },
 }
 
