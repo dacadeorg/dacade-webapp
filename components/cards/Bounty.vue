@@ -59,7 +59,10 @@
                 }}
               </div>
             </div>
-            <div v-if="submission.reviewable" class="text-gray-500 text-base font-normal">
+            <div
+              v-if="submission.reviewable"
+              class="text-gray-500 text-base font-normal"
+            >
               {{ $t('bounties.prefix.closes') }}
               {{ convertDate(submission.reviewDeadline) }}
             </div>

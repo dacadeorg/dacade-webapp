@@ -4,24 +4,21 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [3.2.10](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.9...v3.2.10) (2022-04-21)
 
-
 ### Improvements
 
-* adjust submission reviewed attribute to include the evaluation ([5cb5c94](https://gitlab.com/u2467/dacade/dacade/commit/5cb5c94a39de0b7caf2dbc77090ba44f7f7a7b33))
+- adjust submission reviewed attribute to include the evaluation ([5cb5c94](https://gitlab.com/u2467/dacade/dacade/commit/5cb5c94a39de0b7caf2dbc77090ba44f7f7a7b33))
 
 ### [3.2.9](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.8...v3.2.9) (2022-04-20)
 
-
 ### Improvements
 
-* hide review deadline on bounty when expired ([e33fe0c](https://gitlab.com/u2467/dacade/dacade/commit/e33fe0ca490b54c4d873c19e8637824c3d82d51e))
+- hide review deadline on bounty when expired ([e33fe0c](https://gitlab.com/u2467/dacade/dacade/commit/e33fe0ca490b54c4d873c19e8637824c3d82d51e))
 
 ### [3.2.8](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.7...v3.2.8) (2022-04-20)
 
-
 ### Features
 
-* add support for submission reviewed metadata ([bbf74a8](https://gitlab.com/u2467/dacade/dacade/commit/bbf74a8cad4a94f32f307ce40732b530c95689ef))
+- add support for submission reviewed metadata ([bbf74a8](https://gitlab.com/u2467/dacade/dacade/commit/bbf74a8cad4a94f32f307ce40732b530c95689ef))
 
 ### [3.2.7](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.6...v3.2.7) (2022-04-20)
 
