@@ -118,6 +118,7 @@
   "communities.challenge.submission.placeholder.text": "Enter Submission Text",
   "communities.challenge.submission.placeholder.github": "Enter link to GitHub Repository",
   "communities.challenge.submission.feedback.placeholder.text": "Enter your feedback",
+  "communities.challenge.submission.feedback.placeholder.github": "Enter link to your GitHub pull request",
   "communities.challenge.rating.total": "Total",
   "communities.challenge.rating.reward": "Reward",
   "communities.challenge.rating.symbol": "CGLD",

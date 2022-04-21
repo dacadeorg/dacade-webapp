@@ -118,6 +118,7 @@
   "communities.challenge.submission.placeholder.text": "Introduzca el texto para su propuesta",
   "communities.challenge.submission.placeholder.github": "Introduzca el texto a su repositorio de GitHub",
   "communities.challenge.submission.feedback.placeholder.text": "Introduzca su feedback",
+  "communities.challenge.submission.feedback.placeholder.github": "Introduzca el texto a su pull request de GitHub",
   "communities.challenge.rating.total": "Total",
   "communities.challenge.rating.points": "12",
   "communities.challenge.rating.total.points": "/ 20 Puntos",
