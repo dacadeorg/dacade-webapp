@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.10](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.9...v3.2.10) (2022-04-21)
+
+
+### Improvements
+
+* adjust submission reviewed attribute to include the evaluation ([5cb5c94](https://gitlab.com/u2467/dacade/dacade/commit/5cb5c94a39de0b7caf2dbc77090ba44f7f7a7b33))
+
 ### [3.2.9](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.8...v3.2.9) (2022-04-20)
 
 

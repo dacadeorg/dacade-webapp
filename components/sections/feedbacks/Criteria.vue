@@ -164,7 +164,10 @@ export default {
       )
     },
     reviewed() {
-      return this.submission?.metadata?.reviewed
+      return (
+        this.submission?.metadata?.evaluation ||
+        this.submission?.metadata?.reviewed
+      )
     },
     activeButtonStyle() {
       return {
