@@ -21,20 +21,23 @@
         value.metadata.evaluation &&
         value.metadata.evaluation.points
       "
-      class="pt-5"
+      class="pt-5 flex"
     >
-      <Reward
-        v-if="value.metadata.evaluation.reward"
-        type="light-gray"
-        :reward="value.metadata.evaluation.reward"
-      />
-      <div class="inline-block">
+      <span>
+        <Reward
+          v-if="value.metadata.evaluation.reward"
+          type="light-gray"
+          :reward="value.metadata.evaluation.reward"
+        />
+      </span>
+
+      <span class="">
         <Tag
           :value="`${value.metadata.evaluation.points} REP`"
           class="text-sm font-bold"
           type="light-gray"
         />
-      </div>
+      </span>
     </div>
 
     <div
