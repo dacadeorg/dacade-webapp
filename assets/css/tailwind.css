@@ -34,9 +34,6 @@ body {
   width: 100%;
   position: relative;
 }
-.invisible-scrollbar::-webkit-scrollbar {
-  display: none;
-}
 
 .message-rectangle {
   @apply p-6 relative text-base;
