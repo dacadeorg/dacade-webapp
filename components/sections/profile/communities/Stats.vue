@@ -17,11 +17,11 @@
     <div class="p-7 md:text-right justify-self-stretch space-y-2">
       <div class="whitespace-nowrap">
         <span class="font-bold">{{ feedbacks.length }}</span>
-        Feedbacks
+        {{ $t('feedbacks') }}
       </div>
       <div class="whitespace-nowrap">
         <span class="font-bold">{{ submissions.length }}</span>
-        Submission
+        {{ $t('communities.challenge.submission') }}
       </div>
     </div>
   </div>
@@ -41,14 +41,14 @@ export default {
     Currency,
   },
   async fetch({ store, params }) {
-    await store.dispatch('user/communities/find', params.slug)
+    await store.dispatch('profile/communities/find', params)
   },
   computed: {
     ...mapGetters({
-      community: 'user/communities/current',
-      feedbacks: 'user/communities/feedbacks',
-      submissions: 'user/communities/submissions',
-      reputation: 'user/communities/reputation',
+      community: 'profile/communities/current',
+      feedbacks: 'profile/communities/feedbacks',
+      submissions: 'profile/communities/submissions',
+      reputation: 'profile/communities/reputation',
     }),
   },
 }

@@ -3,19 +3,7 @@
     <div class="w-full flex justify-center">
       <div
         v-if="error"
-        class="
-          bg-red-50
-          border border-red-100
-          text-red-900
-          px-4
-          py-3
-          rounded-md
-          relative
-          w-full
-          max-w-md
-          justify-center
-          flex
-        "
+        class="bg-red-50 border border-red-100 text-red-900 px-4 py-3 rounded-md relative w-full max-w-md justify-center flex"
         role="alert"
       >
         <span class="block sm:inline">

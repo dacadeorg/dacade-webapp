@@ -27,10 +27,10 @@ export const actions = {
     const body = document.body
     commit('setLocked', lock)
     if (lock) {
-      body.style.overflow = 'hidden'
+      body.style.position = 'fixed'
       return
     }
-    body.style.overflow = 'visible'
+    body.style.position = 'relative'
   },
   unlockBodyScrolling({ state, dispatch }) {
     if (state.locked) {

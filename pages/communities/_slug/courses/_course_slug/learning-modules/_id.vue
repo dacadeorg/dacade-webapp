@@ -1,13 +1,7 @@
 <template>
   <Wrapper>
     <div
-      class="
-        py-8
-        flex flex-col
-        divide-y divide-solid divide-gray-200
-        space-y-8
-        text-gray-700
-      "
+      class="py-8 flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
     >
       <Header />
       <div class="w-full">

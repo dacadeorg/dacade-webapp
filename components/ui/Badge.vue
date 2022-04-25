@@ -6,16 +6,7 @@
       'text-white bg-gray-900': isCommunity === false,
     }"
     :style="customStyle"
-    class="
-      font-semibold
-      leading-3
-      text-center
-      inline-flex
-      items-center
-      justify-center
-      rounded-full
-      text-xxs
-    "
+    class="font-semibold leading-3 text-center inline-flex items-center justify-center rounded-full text-xxs"
     >{{ value }}</span
   >
 </template>

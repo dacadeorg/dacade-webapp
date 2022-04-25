@@ -2,13 +2,7 @@
   <Wrapper>
     <div
       v-scroll-spy="{ offset: -300 }"
-      class="
-        py-8
-        flex flex-col
-        divide-y divide-solid divide-gray-200
-        space-y-8
-        text-gray-700
-      "
+      class="lg:py-0 lg:pb-8 py-8 flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
     >
       <OverviewSection />
     </div>

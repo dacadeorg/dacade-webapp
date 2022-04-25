@@ -16,7 +16,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Wrapper from './wrapper.vue'
+import Wrapper from '@/components/layout/Wrapper'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'

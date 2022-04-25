@@ -94,7 +94,6 @@ export default {
   },
   layout: 'withoutFooter',
   middleware: 'guest',
-
   data() {
     return {
       form: {
@@ -105,7 +104,6 @@ export default {
       loading: false,
     }
   },
-
   methods: {
     onLogin() {
       const loginData = {
@@ -116,7 +114,7 @@ export default {
       this.$store
         .dispatch('auth/login', loginData)
         .then(() => {
-          this.$router.replace('/bounties')
+          this.$router.replace(this.localePath('/bounties'))
         })
         .catch(() => {
           this.loading = false

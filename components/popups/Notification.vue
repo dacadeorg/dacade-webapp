@@ -29,19 +29,7 @@
           maxHeight: 'calc(100vh - 140px)',
           overflow: 'hidden scroll',
         }"
-        class="
-          z-50
-          w-80
-          absolute
-          top-14
-          right-0
-          bg-white
-          py-4
-          px-4.5
-          rounded-3.5xl
-          text-gray-900
-          no-scrollbar
-        "
+        class="z-50 w-80 absolute top-14 right-0 bg-white py-4 px-4.5 rounded-3.5xl text-gray-900 no-scrollbar"
       >
         <NotificationList />
       </div>

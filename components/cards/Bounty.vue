@@ -103,8 +103,11 @@
               </div>
             </div>
             <div class="text-gray-500 text-base font-normal">
-              {{ $t('bounties.prefix.closes') }}
-              {{ convertDate(submission.reviewDeadline) }}
+              <span v-if="submission.reviewable"
+                >{{ $t('bounties.prefix.closes') }}
+                {{ convertDate(submission.reviewDeadline) }}</span
+              >
+              <span v-else>{{ $t('bounties.closes-soon') }}</span>
             </div>
           </div>
         </nuxt-link>
@@ -170,7 +173,7 @@ export default {
   },
   methods: {
     convertDate(date) {
-      return DateManager.fromNow(date)
+      return DateManager.fromNow(date, this.$i18n.locale)
     },
     goToChallenge(bounty) {
       if (bounty.url) {

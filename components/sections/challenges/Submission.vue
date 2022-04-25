@@ -28,17 +28,7 @@
           </div>
           <div
             v-if="challenge.format.githubLink"
-            class="
-              w-full
-              border border-solid border-gray-200
-              m-0
-              rounded-b
-              text-lg
-              py-0
-              leading-none
-              items-center
-              space-x-2
-            "
+            class="w-full border border-solid border-gray-200 m-0 rounded-b text-lg py-0 leading-none items-center space-x-2"
             :class="{ 'border-t-0': challenge.format.text }"
           >
             <div label-for="input-github">
@@ -57,35 +47,14 @@
                   is-github-link
                   :error="errors[0]"
                   :value="form.githubLink"
-                  class="
-                    p-0
-                    border-none border-transparent
-                    focus:outline-none
-                    outline-none
-                    active:border-none
-                    focus:border-none
-                    block
-                    m-0
-                    flex-grow
-                    w-full
-                    placeholder-gray-400 placeholder-opacity-100
-                  "
+                  class="p-0 border-none border-transparent focus:outline-none outline-none active:border-none focus:border-none block m-0 flex-grow w-full placeholder-gray-400 placeholder-opacity-100"
                   :placeholder="
                     $t('communities.challenge.submission.placeholder.github')
                   "
                   @input="form.githubLink = $event"
                 />
                 <GithubIcon
-                  class="
-                    absolute
-                    ml-4
-                    my-7
-                    flex-none
-                    text-gray-400
-                    m-0
-                    p-0
-                    block
-                  "
+                  class="absolute ml-4 my-7 flex-none text-gray-400 m-0 p-0 block"
                 />
               </ValidationProvider>
             </div>

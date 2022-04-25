@@ -8,21 +8,7 @@
         {{ $t('page.index.main.title') }}
       </h1>
       <p
-        class="
-          lg:text-8xl
-          md:text-6xl
-          text-2xl
-          py-2
-          lg:py-0
-          md:py-0
-          sm:py-0
-          text-black
-          lg:text-gray-400
-          md:text-gray-400
-          sm:text-gray-400
-          leading-none
-          tracking-tighter
-        "
+        class="lg:text-8xl md:text-6xl text-2xl py-2 lg:py-0 md:py-0 sm:py-0 text-black lg:text-gray-400 md:text-gray-400 sm:text-gray-400 leading-none tracking-tighter"
       >
         {{ $t('page.index.main.subtitle') }}
       </p>
@@ -42,16 +28,7 @@
         <VideoPopup />
       </div>
       <div
-        class="
-          flex flex-col
-          md:flex-row md:divide-y-0
-          divide-y divide-gray-900 divide-dotted
-          space-y-5
-          md:space-y-0
-          space-x-0
-          md:space-x-5
-          justify-end
-        "
+        class="flex flex-col md:flex-row md:divide-y-0 divide-y divide-gray-900 divide-dotted space-y-5 md:space-y-0 space-x-0 md:space-x-5 justify-end"
       >
         <div
           v-for="(card, i) in cards"

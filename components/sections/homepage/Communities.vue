@@ -14,19 +14,13 @@
       </div>
     </div>
     <div
-      class="
-        mt-7
-        grid grid-cols-1
-        lg:grid-cols-2
-        gap-x-5 gap-y-0.5
-        lg:gap-y-5
-        md:gap-y-5
-        justify-stretch-items
-      "
+      class="mt-7 grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-0.5 lg:gap-y-5 md:gap-y-5 justify-stretch-items"
     >
-      <div v-for="community in communities" :key="community.id">
-        <CommunityCard :community="community" />
-      </div>
+      <CommunityCard
+        v-for="community in communities"
+        :key="community.id"
+        :community="community"
+      />
       <PartneringCard />
     </div>
   </Section>

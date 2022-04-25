@@ -2,17 +2,7 @@
   <Popup :show="show" @close="close">
     <div class="py-8 overflow-hidden h-full w-full">
       <div
-        class="
-          bg-white
-          my-auto
-          lg:w-10/12
-          w-11/12
-          rounded-3.5xl
-          relative
-          mx-auto
-          h-screen
-          flex flex-col
-        "
+        class="bg-white my-auto lg:w-10/12 w-11/12 rounded-3.5xl relative mx-auto h-screen flex flex-col"
       >
         <div class="w-full flex-none">
           <Header @close="close" />

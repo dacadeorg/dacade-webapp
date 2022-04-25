@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  Terms of Service
+title: Terms of Service
 type: legal
 ---
 

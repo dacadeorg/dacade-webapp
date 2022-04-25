@@ -5,16 +5,7 @@
       :subtitle="$t('communities.navigation.scoreboard')"
     />
     <div
-      class="
-        my-24
-        w-full
-        divide-y divide-gray-200
-        space-y-4
-        bg-gray-50
-        lg:max-w-2xl
-        rounded-3.5xl
-        overflow-hidden
-      "
+      class="my-24 w-full divide-y divide-gray-200 space-y-4 bg-gray-50 lg:max-w-2xl rounded-3.5xl overflow-hidden"
     >
       <ScoreboardCard
         v-for="(item, i) in list"

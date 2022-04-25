@@ -1,6 +1,8 @@
 <template>
   <div class="flex flex-col justify-center content-wrapper">
-    <h1 class="text-4xl sm:text-5xl pt-10 md:pt-20 pb-10">Communities</h1>
+    <h1 class="text-4xl sm:text-5xl pt-10 md:pt-20 pb-10">
+      {{ $t('nav.communities') }}
+    </h1>
     <div v-if="communities" class="row w-full">
       <div
         v-for="community in communities"

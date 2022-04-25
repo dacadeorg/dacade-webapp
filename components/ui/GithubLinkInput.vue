@@ -9,26 +9,7 @@
           'text-red-600': error,
           'text-blue-500': isFocused && !error,
         }"
-        class="
-          absolute
-          top-0
-          left-0
-          text-lg
-          px-5
-          py-5
-          z-10
-          w-full
-          h-full
-          pointer-events-none
-          transform
-          origin-left
-          transition-all
-          duration-100
-          ease-in-out
-          outline-none
-          border-none
-          items-center
-        "
+        class="absolute top-0 left-0 text-lg px-5 py-5 z-10 w-full h-full pointer-events-none transform origin-left transition-all duration-100 ease-in-out outline-none border-none items-center"
       >
         {{ label }}
       </label>
@@ -42,21 +23,7 @@
         :value="value"
         type="text"
         :placeholder="placeholder"
-        class="
-          rounded-b
-          w-10/12
-          max-w-content
-          focus:outline-none
-          active:outline-none active:shadow-none
-          focus:shadow-none
-          border-none
-          focus:border-none
-          outline-none
-          active:border-none
-          text-lg
-          ml-7
-          active:border-0
-        "
+        class="rounded-b w-10/12 max-w-content focus:outline-none active:outline-none active:shadow-none focus:shadow-none border-none focus:border-none outline-none active:border-none text-lg ml-7 active:border-0"
         autocomplete="off"
         :disabled="disabled"
         @focus="isFocused = true"

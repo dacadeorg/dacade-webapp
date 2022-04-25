@@ -2,11 +2,7 @@
   <Section :key="page">
     <div v-if="submissions && submissions.length">
       <div
-        class="
-          sm:border sm:border-gray-200 sm:border-solid
-          rounded-3.5xl
-          relative
-        "
+        class="sm:border sm:border-gray-200 sm:border-solid rounded-3.5xl relative"
       >
         <div class="flex flex-col divide-y">
           <SubmissionCard

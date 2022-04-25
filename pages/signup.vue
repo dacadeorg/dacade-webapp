@@ -183,6 +183,7 @@ export default {
     // Upload,
   },
   layout: 'withoutFooter',
+  middleware: 'guest',
   data() {
     return {
       form: {
@@ -224,7 +225,7 @@ export default {
           referrer: this.referrer,
         })
         .then(() => {
-          this.$router.replace('/profile')
+          this.$router.replace(this.localePath('/profile'))
         })
         .catch((error) => {
           this.loading = false
@@ -257,6 +258,7 @@ export default {
 .link {
   text-decoration: underline;
 }
+
 .link:hover {
   color: blue;
 }

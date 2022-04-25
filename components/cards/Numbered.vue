@@ -2,17 +2,7 @@
   <div>
     <div class="hidden xl:block md:block">
       <div
-        class="
-          w-14
-          h-14
-          border border-solid border-gray-400
-          text-gray-400
-          font-medium
-          rounded-full
-          flex
-          items-center
-          justify-center
-        "
+        class="w-14 h-14 border border-solid border-gray-400 text-gray-400 font-medium rounded-full flex items-center justify-center"
       >
         {{ index }}
       </div>

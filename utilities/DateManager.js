@@ -4,11 +4,16 @@ import {
   formatDuration,
   format as dateFormatter,
 } from 'date-fns'
+import { es, enUS } from 'date-fns/locale'
 
+function getLocale(locale) {
+  return locale === 'es' ? es : enUS
+}
 export default class DateManager {
-  static fromNow(date) {
+  static fromNow(date, locale = 'en') {
     return formatDistance(new Date(date), new Date(), {
       addSuffix: true,
+      locale: getLocale(locale),
     })
   }
 
@@ -16,14 +21,21 @@ export default class DateManager {
     return millisecondsToMinutes(milliseconds)
   }
 
-  static humanize(milliseconds) {
-    return formatDuration({
-      minutes: this.millisecondsToMinutes(milliseconds),
-    })
+  static humanize(milliseconds, locale = 'en') {
+    return formatDuration(
+      {
+        minutes: this.millisecondsToMinutes(milliseconds),
+      },
+      {
+        locale: getLocale(locale),
+      }
+    )
   }
 
-  static format(date, format) {
+  static format(date, format, locale = 'en') {
     const dateParsed = date instanceof Date ? date : new Date(date)
-    return dateFormatter(dateParsed, format)
+    return dateFormatter(dateParsed, format, {
+      locale: getLocale(locale),
+    })
   }
 }

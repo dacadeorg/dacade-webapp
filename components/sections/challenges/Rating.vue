@@ -12,14 +12,7 @@
           criteria.name
         }}</span>
         <div
-          class="
-            grid grid-cols-1
-            space-y-4
-            md:space-y-0 md:grid-cols-2
-            lg:grid-cols-4
-            mt-3
-            gap-y-5 gap-x-5
-          "
+          class="grid grid-cols-1 space-y-4 md:space-y-0 md:grid-cols-2 lg:grid-cols-4 mt-3 gap-y-5 gap-x-5"
         >
           <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm">
             <span
@@ -56,22 +49,25 @@
         class="md:flex space-y-3 md:space-y-0 md:space-x-10 mt-7 font-medium"
       >
         <div>
-          <div class="text-sm leading-loose text-gray-900">Total</div>
+          <div class="text-sm leading-loose text-gray-900">
+            {{ $t('communities.challenge.rating.total') }}
+          </div>
           <div class="text-theme-accent">
             <span class="text-xl">12</span>
-            <span class="text-sm">/ 20 Points</span>
+            <span class="text-sm"> 20 Points </span>
           </div>
         </div>
         <div class="md:w-1/4 w-full">
-          <div class="text-sm leading-loose text-gray-900">Reward</div>
+          <div class="text-sm leading-loose text-gray-900">
+            {{ $t('communities.challenge.rating.reward') }}
+          </div>
           <div class="text-theme-accent">
             <Coin token="CGLD" size="small" class="-ml-5" />
             <span class="text-xl">5</span>
-            CGLD
+            {{ $t('communities.challenge.rating.symbol') }}
           </div>
           <div class="text-sm font-normal leading-loose">
-            Congratulations you gained at least 70% of the available learning
-            points.
+            {{ $t('communities.challenge.rating.message') }}
           </div>
         </div>
       </div>

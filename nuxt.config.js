@@ -54,9 +54,9 @@ export default {
   /*
    ** Global CSS
    */
-  // css: ['@/assets/css/custom.scss', '@/assets/css/main.css'],
   css: [
     '@/assets/css/fonts.css',
+    '@/assets/css/styles.scss',
     'highlight.js/styles/atom-one-dark-reasonable.css',
   ],
   /*
