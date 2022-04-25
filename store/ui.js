@@ -27,10 +27,16 @@ export const actions = {
     const body = document.body
     commit('setLocked', lock)
     if (lock) {
+      body.style.top = `-${document.documentElement.scrollTop}px`
       body.style.position = 'fixed'
+      body.style.overflowY = 'scroll'
       return
     }
-    body.style.position = 'relative'
+    const scrollTop = (body.style.top.match(/(\d+)/) || [0])[0]
+    body.style.removeProperty('position')
+    body.style.removeProperty('top')
+    body.style.removeProperty('overflow-y')
+    window.scrollTo(0, scrollTop)
   },
   unlockBodyScrolling({ state, dispatch }) {
     if (state.locked) {
