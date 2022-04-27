@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.13](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.12...v3.2.13) (2022-04-27)
+
+
+### Features
+
+* change feedback button text ([7f91fb5](https://gitlab.com/u2467/dacade/dacade/commit/7f91fb5cee8034b9afe79c4bf5a0fee4d1b1d113))
+
 ### [3.2.12](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.11...v3.2.12) (2022-04-21)
 
 
