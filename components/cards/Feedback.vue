@@ -50,7 +50,7 @@
         type="outline-primary"
       >
         <span class="flex text-left items-center">
-          {{ $t('submissions.link.github') }}
+          {{ $t('submissions.feedback.link.github') }}
           <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
         </span>
       </Button>
