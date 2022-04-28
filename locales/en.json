@@ -266,6 +266,7 @@
   "submissions.evaluation.evaluated": "Evaluated",
   "submissions.feedback.bounty": "Feedback bounty",
   "submissions.feedback.feedbacks": "Feedbacks",
+  "submissions.feedback.link.github": "GitHub Pull Request",
   "submissions.link.github": "GitHub Code",
   "submissions.submitted": "Submitted",
   "error.404.title": "Page not found",

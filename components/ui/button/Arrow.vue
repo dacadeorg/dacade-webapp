@@ -1,7 +1,7 @@
 <template>
   <Button
     :padding="false"
-    class="action-button py-2 pl-5 pr-3.5 w-44 text-sm"
+    class="action-button py-2 pl-5 pr-3.5 min-w-44 text-sm"
     :disabled="disabled"
     :link="link"
     :loading="loading"
@@ -10,7 +10,7 @@
     :target="target"
   >
     <span class="flex text-left items-center justify-between">
-      <span class="leading-6"><slot /></span>
+      <span class="leading-6 pr-6"><slot /></span>
       <span>
         <ArrowRightIcon v-if="!loading" />
         <Spinner v-else class="animate-spin"
