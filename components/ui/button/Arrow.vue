@@ -1,7 +1,7 @@
 <template>
   <Button
     :padding="false"
-    class="action-button py-2 pl-5 pr-3.5 text-sm"
+    class="action-button py-2 pl-5 pr-3.5 min-w-44 text-sm"
     :disabled="disabled"
     :link="link"
     :loading="loading"
