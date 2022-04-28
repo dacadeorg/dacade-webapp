@@ -41,19 +41,14 @@
       v-if="!preview && value.link"
       class="flex space-y-2 md:space-y-5 space-x-0 md:space-x-2 mt-6"
     >
-      <Button
+      <ArrowButton
         :link="value.link"
         target="__blank"
-        :padding="false"
-        class="action-button py-2 px-5 w-44"
         :custom-style="primaryButtonStyles"
         type="outline-primary"
       >
-        <span class="flex text-left items-center">
-          {{ $t('submissions.feedback.link.github') }}
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-        </span>
-      </Button>
+        {{ $t('submissions.feedback.link.github') }}
+      </ArrowButton>
       <!-- <Button
         :padding="false"
         class="action-button py-2 px-5 w-44"
@@ -72,18 +67,16 @@
 import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import UserCard from '@/components/cards/User'
-import Button from '@/components/ui/button'
+import ArrowButton from '@/components/ui/button/Arrow'
 import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
   name: 'FeedbackCard',
   components: {
     UserCard,
-    Button,
+    ArrowButton,
     Tag,
-    ArrowRightIcon,
     Reward,
   },
   props: {
