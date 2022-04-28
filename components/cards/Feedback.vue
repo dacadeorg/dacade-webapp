@@ -45,21 +45,9 @@
         :link="value.link"
         target="__blank"
         :custom-style="primaryButtonStyles"
-        type="outline-primary"
       >
         {{ $t('submissions.feedback.link.github') }}
       </ArrowButton>
-      <!-- <Button
-        :padding="false"
-        class="action-button py-2 px-5 w-44"
-        :custom-style="outlineButtonStyles"
-        type="outline-primary"
-      >
-        <span class="flex text-left items-center">
-          Website
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-        </span>
-      </Button> -->
     </div>
   </UserCard>
 </template>

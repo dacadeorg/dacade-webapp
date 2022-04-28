@@ -8,7 +8,21 @@
         {{ $t('page.index.main.title') }}
       </h1>
       <p
-        class="lg:text-8xl md:text-6xl text-2xl py-2 lg:py-0 md:py-0 sm:py-0 text-black lg:text-gray-400 md:text-gray-400 sm:text-gray-400 leading-none tracking-tighter"
+        class="
+          lg:text-8xl
+          md:text-6xl
+          text-2xl
+          py-2
+          lg:py-0
+          md:py-0
+          sm:py-0
+          text-black
+          lg:text-gray-400
+          md:text-gray-400
+          sm:text-gray-400
+          leading-none
+          tracking-tighter
+        "
       >
         {{ $t('page.index.main.subtitle') }}
       </p>
@@ -16,19 +30,23 @@
     <div class="flex justify-between">
       <div class="w-full max-w-xs hidden lg:block">
         <nuxt-link :to="localePath('/communities')">
-          <Button :padding="false" class="pl-7.5">
-            <span class="py-2 inline-block align-middle pr-5.75">{{
-              $t('page.index.main.button')
-            }}</span>
-            <span class="inline-block -py-1 pr-3 align-middle">
-              <ArrowRightIcon class="ml-17" />
-            </span>
-          </Button>
+          <ArrowButton min-width-class="min-w-62" class="py-4 pl-7.5 pr-5.75"
+            >{{ $t('page.index.main.button') }}
+          </ArrowButton>
         </nuxt-link>
         <VideoPopup />
       </div>
       <div
-        class="flex flex-col md:flex-row md:divide-y-0 divide-y divide-gray-900 divide-dotted space-y-5 md:space-y-0 space-x-0 md:space-x-5 justify-end"
+        class="
+          flex flex-col
+          md:flex-row md:divide-y-0
+          divide-y divide-gray-900 divide-dotted
+          space-y-5
+          md:space-y-0
+          space-x-0
+          md:space-x-5
+          justify-end
+        "
       >
         <div
           v-for="(card, i) in cards"
@@ -46,14 +64,9 @@
 
     <div class="lg:hidden pt-10">
       <nuxt-link :to="localePath('/communities')">
-        <Button :padding="false" class="pl-7.5">
-          <span class="py-2 inline-block align-middle pr-5.75">{{
-            $t('page.index.main.button')
-          }}</span>
-          <span class="inline-block -py-1 pr-3 align-middle">
-            <ArrowRightIcon class="ml-17" />
-          </span>
-        </Button>
+        <ArrowButton min-width-class="min-w-62" class="py-4 pl-7.5 pr-5.75"
+          >{{ $t('page.index.main.button') }}
+        </ArrowButton>
       </nuxt-link>
       <VideoPopup />
 
@@ -69,17 +82,15 @@
 
 <script>
 import Section from '@/components/ui/Section'
-import Button from '@/components/ui/button'
 import NumberedCard from '@/components/cards/Numbered'
 import VideoPopup from '@/components/popups/Video'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 
 export default {
   name: 'MainSection',
   components: {
     Section,
-    ArrowRightIcon,
-    Button,
+    ArrowButton,
     VideoPopup,
     NumberedCard,
   },

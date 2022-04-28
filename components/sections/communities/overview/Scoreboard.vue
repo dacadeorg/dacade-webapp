@@ -5,7 +5,14 @@
     :description="$t('communities.overview.scoreboard.description')"
   >
     <div
-      class="w-full flex flex-col divide-y divide-solid divide-gray-200 border border-gray-200 border-solid rounded-3xl overflow-hidden"
+      class="
+        w-full
+        flex flex-col
+        divide-y divide-solid divide-gray-200
+        border border-gray-200 border-solid
+        rounded-3xl
+        overflow-hidden
+      "
     >
       <ScoreboardCard
         v-for="(item, i) in list.slice(0, items)"
@@ -15,21 +22,28 @@
       />
       <div
         v-if="items < list.length"
-        class="flex w-full sm:flex space-x-5 space-y-0 sm:flex-row-reverse overflow-hidden bg-gray-50 p-6 sm:px-4 sm:py-7 items-center sm:justify-center"
+        class="
+          flex
+          w-full
+          sm:flex
+          space-x-5 space-y-0
+          sm:flex-row-reverse
+          overflow-hidden
+          bg-gray-50
+          p-6
+          sm:px-4 sm:py-7
+          items-center
+          sm:justify-center
+        "
       >
-        <Button
-          class="py-2 leading-tight px-5"
+        <ArrowButton
           :community-styles="true"
           type="outline-primary"
+          direction="down"
           @click="loadMore"
         >
-          <span class="inline-block align-middle text-sm">{{
-            $t('course.scoreboard.button')
-          }}</span>
-          <span class="inline-block align-middle">
-            <ArrowDownIcon class="ml-7 text-accent group-hover:text-white" />
-          </span>
-        </Button>
+          {{ $t('course.scoreboard.button') }}
+        </ArrowButton>
       </div>
     </div>
   </SectionWrapper>
@@ -38,16 +52,14 @@
 import { mapGetters } from 'vuex'
 import SectionWrapper from './_partials/SectionWrapper'
 import ScoreboardCard from '@/components/cards/Scoreboard'
-import Button from '@/components/ui/button'
-import ArrowDownIcon from '~/assets/icons/arrow-down.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 
 export default {
   name: 'ScoreboardOverview',
   components: {
     ScoreboardCard,
     SectionWrapper,
-    Button,
-    ArrowDownIcon,
+    ArrowButton,
   },
   data() {
     return {

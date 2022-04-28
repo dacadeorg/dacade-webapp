@@ -31,19 +31,13 @@
           @click="$emit('close', true)"
           >{{ $t('profile.edit.close') }}</span
         >
-        <Button
+        <ArrowButton
           :loading="loading"
-          :padding="false"
           :disabled="loading"
-          class="pl-5 pr-0"
           type="outline-primary"
           @click="save"
           >{{ $t('profile.wallet.payout.send') }}
-          <span class="inline-block mr-3.5 ml-4 align-middle">
-            <ArrowRightIcon v-if="!loading" />
-            <Spinner v-else class="animate-spin"
-          /></span>
-        </Button>
+        </ArrowButton>
       </div>
     </div>
   </Modal>
@@ -53,19 +47,15 @@
 // import { mapGetters } from 'vuex'
 import Modal from '@/components/ui/Modal'
 import Tag from '@/components/ui/Tag'
-import Button from '@/components/ui/button'
 import Coin from '@/components/ui/Coin'
 import Currency from '@/components/ui/Currency'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
-import Spinner from '~/assets/icons/spinner.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 
 export default {
   name: 'EditProfile',
   components: {
     Modal,
-    Button,
-    ArrowRightIcon,
-    Spinner,
+    ArrowButton,
     Tag,
     Coin,
     Currency,
