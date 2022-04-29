@@ -1,19 +1,33 @@
 <template>
   <Button
     :padding="false"
-    class="action-button py-2 pl-5 pr-3.5 min-w-44 text-sm"
+    :community-styles="communityStyles"
+    :class="[{ 'py-2 pl-5 pr-3.5': padding }, minWidthClass]"
     :disabled="disabled"
     :link="link"
     :loading="loading"
     :type="type"
     :custom-style="customStyle"
     :target="target"
+    v-on="inputListeners"
   >
-    <span class="flex text-left items-center justify-between">
-      <span class="leading-6 pr-6"><slot /></span>
-      <span>
-        <ArrowRightIcon v-if="!loading" />
+    <span class="flex h-full text-left items-center justify-between">
+      <span v-if="isLeft" :class="{ 'pr-2.5': hasSlot }">
+        <ArrowRightIcon
+          v-if="!loading"
+          class="transform w-full"
+          :class="directionClass" />
         <Spinner v-else class="animate-spin"
+      /></span>
+      <span class="leading-6" :class="{ 'pr-6': !isLeft && hasSlot }"
+        ><slot
+      /></span>
+      <span v-if="!isLeft">
+        <ArrowRightIcon
+          v-if="!loading"
+          class="transform w-full"
+          :class="directionClass" />
+        <Spinner v-else class="animate-spin w-full"
       /></span>
     </span>
   </Button>
@@ -74,6 +88,58 @@ export default {
     communityStyles: {
       default: false,
       type: Boolean,
+    },
+    minWidthClass: {
+      default: 'min-w-44',
+      type: String,
+    },
+    direction: {
+      default: 'right',
+      type: String,
+    },
+  },
+  computed: {
+    hasSlot() {
+      return !!this.$slots.default
+    },
+    inputListeners() {
+      const vm = this
+      // `Object.assign` merges objects together to form a new object
+      return Object.assign(
+        {},
+        // We add all the listeners from the parent
+        this.$listeners,
+        // Then we can add custom listeners or override the
+        // behavior of some listeners.
+        {
+          // This ensures that the component works with v-model
+          input(event) {
+            vm.$emit('input', event.target.value)
+          },
+          click(event) {
+            if (!vm.link) {
+              vm.$emit('click', event)
+              return
+            }
+            vm.navigate()
+          },
+        }
+      )
+    },
+    directionClass() {
+      switch (this.direction.toLowerCase()) {
+        case 'left':
+          return '-rotate-180'
+        case 'down':
+          return 'rotate-90'
+        case 'up':
+          return '-rotate-90'
+        default:
+          return ''
+      }
+    },
+    isLeft() {
+      return this.direction.toLowerCase() === 'left'
     },
   },
 }

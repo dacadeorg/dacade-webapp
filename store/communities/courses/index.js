@@ -28,7 +28,6 @@ export const actions = {
   async find({ commit }, slug) {
     const { data } = await this.$api.get(`courses/${slug}`)
     commit('setCurrent', data)
-    this.dispatch('communities/navigation/init')
   },
   async all({ commit }, slug) {
     const { data } = await this.$api.get(`communities/${slug}/courses`)

@@ -2,173 +2,173 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [3.2.14](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.13...v3.2.14) (2022-04-28)
+### [3.2.15](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.14...v3.2.15) (2022-04-29)
 
+### Features
+
+- use arrow button component everywhere ([217bfd3](https://gitlab.com/u2467/dacade/dacade/commit/217bfd3f68925565219d231b502347a77d5d651c))
+
+### Bug Fixes
+
+- arrow button inconsistencies ([d662c13](https://gitlab.com/u2467/dacade/dacade/commit/d662c13ff9f39ca6c3335af293bda5e2a65f4722))
+- course navigation error 500 ([edf5b67](https://gitlab.com/u2467/dacade/dacade/commit/edf5b6788c4397ced8614741657a82d53f788214))
 
 ### Improvements
 
-* use arrow button component for the feedback link button ([6e83654](https://gitlab.com/u2467/dacade/dacade/commit/6e83654c326a543125b0d60ca5856f8bf25239c0))
+- add error handling to community navigation seeder ([e0d231c](https://gitlab.com/u2467/dacade/dacade/commit/e0d231cd9586e570ce902744e7499b5fb8a7912b))
+- adjust the arrow size ([9b11d5b](https://gitlab.com/u2467/dacade/dacade/commit/9b11d5ba811078500cbbe6612cf92e107e95c4a8))
+- set min width for the arrow button component ([30e5c0f](https://gitlab.com/u2467/dacade/dacade/commit/30e5c0f23079ae092de0c600ee9c1ce4ad5e188c))
+
+### [3.2.14](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.13...v3.2.14) (2022-04-28)
+
+### Improvements
+
+- use arrow button component for the feedback link button ([6e83654](https://gitlab.com/u2467/dacade/dacade/commit/6e83654c326a543125b0d60ca5856f8bf25239c0))
 
 ### [3.2.13](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.12...v3.2.13) (2022-04-27)
 
-
 ### Features
 
-* change feedback button text ([7f91fb5](https://gitlab.com/u2467/dacade/dacade/commit/7f91fb5cee8034b9afe79c4bf5a0fee4d1b1d113))
+- change feedback button text ([7f91fb5](https://gitlab.com/u2467/dacade/dacade/commit/7f91fb5cee8034b9afe79c4bf5a0fee4d1b1d113))
 
 ### [3.2.12](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.11...v3.2.12) (2022-04-21)
 
-
 ### Features
 
-* add closing soon keyword for bounties ([f42a150](https://gitlab.com/u2467/dacade/dacade/commit/f42a1500bf61b9abded7ffa6faadc88fd40cdfd1))
+- add closing soon keyword for bounties ([f42a150](https://gitlab.com/u2467/dacade/dacade/commit/f42a1500bf61b9abded7ffa6faadc88fd40cdfd1))
 
 ### [3.2.11](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.10...v3.2.11) (2022-04-21)
 
-
 ### Bug Fixes
 
-* feedback form placeholder wording ([59dd5df](https://gitlab.com/u2467/dacade/dacade/commit/59dd5df79768d469f4b158ad8266755abe259710))
+- feedback form placeholder wording ([59dd5df](https://gitlab.com/u2467/dacade/dacade/commit/59dd5df79768d469f4b158ad8266755abe259710))
 
 ### [3.2.10](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.9...v3.2.10) (2022-04-21)
 
-
 ### Improvements
 
-* adjust submission reviewed attribute to include the evaluation ([5cb5c94](https://gitlab.com/u2467/dacade/dacade/commit/5cb5c94a39de0b7caf2dbc77090ba44f7f7a7b33))
+- adjust submission reviewed attribute to include the evaluation ([5cb5c94](https://gitlab.com/u2467/dacade/dacade/commit/5cb5c94a39de0b7caf2dbc77090ba44f7f7a7b33))
 
 ### [3.2.9](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.8...v3.2.9) (2022-04-20)
 
-
 ### Improvements
 
-* hide review deadline on bounty when expired ([e33fe0c](https://gitlab.com/u2467/dacade/dacade/commit/e33fe0ca490b54c4d873c19e8637824c3d82d51e))
+- hide review deadline on bounty when expired ([e33fe0c](https://gitlab.com/u2467/dacade/dacade/commit/e33fe0ca490b54c4d873c19e8637824c3d82d51e))
 
 ### [3.2.8](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.7...v3.2.8) (2022-04-20)
 
-
 ### Features
 
-* add support for submission reviewed metadata ([bbf74a8](https://gitlab.com/u2467/dacade/dacade/commit/bbf74a8cad4a94f32f307ce40732b530c95689ef))
+- add support for submission reviewed metadata ([bbf74a8](https://gitlab.com/u2467/dacade/dacade/commit/bbf74a8cad4a94f32f307ce40732b530c95689ef))
 
 ### [3.2.7](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.6...v3.2.7) (2022-04-20)
 
-
 ### Bug Fixes
 
-* word breaks for submissions and feedbacks ([a09f059](https://gitlab.com/u2467/dacade/dacade/commit/a09f05979767271a1b643e00f18e21795cb84c6b))
+- word breaks for submissions and feedbacks ([a09f059](https://gitlab.com/u2467/dacade/dacade/commit/a09f05979767271a1b643e00f18e21795cb84c6b))
 
 ### [3.2.6](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.5...v3.2.6) (2022-04-08)
 
-
 ### Bug Fixes
 
-* submission card bounty translation key ([22b35b1](https://gitlab.com/u2467/dacade/dacade/commit/22b35b1db33caa4c87be26418f7e632e4c5a67f8))
+- submission card bounty translation key ([22b35b1](https://gitlab.com/u2467/dacade/dacade/commit/22b35b1db33caa4c87be26418f7e632e4c5a67f8))
 
 ### [3.2.5](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.4...v3.2.5) (2022-04-08)
 
-
 ### Features
 
-* add course navigation togglering ([4da2ebb](https://gitlab.com/u2467/dacade/dacade/commit/4da2ebb70a2165006f296dbeb0beb611a194f147))
+- add course navigation togglering ([4da2ebb](https://gitlab.com/u2467/dacade/dacade/commit/4da2ebb70a2165006f296dbeb0beb611a194f147))
 
 ### [3.2.4](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.3...v3.2.4) (2022-04-08)
 
-
 ### Bug Fixes
 
-* wallet change address translation text ([ecfea7d](https://gitlab.com/u2467/dacade/dacade/commit/ecfea7dda10b3de4b079f77e56586efac1932022))
+- wallet change address translation text ([ecfea7d](https://gitlab.com/u2467/dacade/dacade/commit/ecfea7dda10b3de4b079f77e56586efac1932022))
 
 ### [3.2.3](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.2...v3.2.3) (2022-04-06)
 
-
 ### Bug Fixes
 
-* mobile nav signup translation key ([df711cd](https://gitlab.com/u2467/dacade/dacade/commit/df711cd2b50e5dbb7f75f407da6859e0cb94a4a7))
-* page navigation for other locales ([8d1a5a0](https://gitlab.com/u2467/dacade/dacade/commit/8d1a5a0bd16f3553f22ded445c42733ff194fb3d))
+- mobile nav signup translation key ([df711cd](https://gitlab.com/u2467/dacade/dacade/commit/df711cd2b50e5dbb7f75f407da6859e0cb94a4a7))
+- page navigation for other locales ([8d1a5a0](https://gitlab.com/u2467/dacade/dacade/commit/8d1a5a0bd16f3553f22ded445c42733ff194fb3d))
 
 ### [3.2.2](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.1...v3.2.2) (2022-04-05)
 
-
 ### Features
 
-* add course levels translations ([c0c0bc6](https://gitlab.com/u2467/dacade/dacade/commit/c0c0bc6d5a6a4ba5d200906e646ac774ff144aa2))
-* register json in highlight js ([7e9e6d1](https://gitlab.com/u2467/dacade/dacade/commit/7e9e6d1a93c899ebed9385567e1b72498803008f))
+- add course levels translations ([c0c0bc6](https://gitlab.com/u2467/dacade/dacade/commit/c0c0bc6d5a6a4ba5d200906e646ac774ff144aa2))
+- register json in highlight js ([7e9e6d1](https://gitlab.com/u2467/dacade/dacade/commit/7e9e6d1a93c899ebed9385567e1b72498803008f))
 
 ### [3.2.1](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.0...v3.2.1) (2022-04-04)
 
-
 ### Bug Fixes
 
-* invalid translation keys ([a9749c3](https://gitlab.com/u2467/dacade/dacade/commit/a9749c30b505170512695fad04b9688419c330d6))
+- invalid translation keys ([a9749c3](https://gitlab.com/u2467/dacade/dacade/commit/a9749c30b505170512695fad04b9688419c330d6))
 
 ## [3.2.0](https://gitlab.com/u2467/dacade/dacade/compare/v3.1.0...v3.2.0) (2022-04-04)
 
-
 ### Features
 
-* activate language switcher and allow content to be translated ([64d1541](https://gitlab.com/u2467/dacade/dacade/commit/64d1541181ba96e20ca6b80ff899fb311f93de03))
-* activate the course language switcher ([c53cc29](https://gitlab.com/u2467/dacade/dacade/commit/c53cc2960e0d00a28498fc6572e77580051c95df))
-* add course level support ([9118d79](https://gitlab.com/u2467/dacade/dacade/commit/9118d79ebee7cef02cee4473238988d5af6f3a41))
-* add near icon ([e569952](https://gitlab.com/u2467/dacade/dacade/commit/e5699521d2e9edf6937231adc033866df49ce073))
-* changes ([3267b2d](https://gitlab.com/u2467/dacade/dacade/commit/3267b2da67dea0e32efd0faad3d77434cb567f88))
-* form select lang ([48b5573](https://gitlab.com/u2467/dacade/dacade/commit/48b5573456f7a99e5d2670aa3cb200d061300fde))
-* lang choice nuxt link backend ([f770758](https://gitlab.com/u2467/dacade/dacade/commit/f77075886b632eec28d07adc7c2cda467645e91d))
-* layout language select ([11ffbbc](https://gitlab.com/u2467/dacade/dacade/commit/11ffbbcc1c6b7114729205f401e42df7ca39bd2f))
-* set design language choice ([92a0e1f](https://gitlab.com/u2467/dacade/dacade/commit/92a0e1f20ed9f03317521195773f8f979097d9bb))
-* update to node 16 ([5e887f5](https://gitlab.com/u2467/dacade/dacade/commit/5e887f50c06597d55c47afa27af3dc921d771dc7))
-
+- activate language switcher and allow content to be translated ([64d1541](https://gitlab.com/u2467/dacade/dacade/commit/64d1541181ba96e20ca6b80ff899fb311f93de03))
+- activate the course language switcher ([c53cc29](https://gitlab.com/u2467/dacade/dacade/commit/c53cc2960e0d00a28498fc6572e77580051c95df))
+- add course level support ([9118d79](https://gitlab.com/u2467/dacade/dacade/commit/9118d79ebee7cef02cee4473238988d5af6f3a41))
+- add near icon ([e569952](https://gitlab.com/u2467/dacade/dacade/commit/e5699521d2e9edf6937231adc033866df49ce073))
+- changes ([3267b2d](https://gitlab.com/u2467/dacade/dacade/commit/3267b2da67dea0e32efd0faad3d77434cb567f88))
+- form select lang ([48b5573](https://gitlab.com/u2467/dacade/dacade/commit/48b5573456f7a99e5d2670aa3cb200d061300fde))
+- lang choice nuxt link backend ([f770758](https://gitlab.com/u2467/dacade/dacade/commit/f77075886b632eec28d07adc7c2cda467645e91d))
+- layout language select ([11ffbbc](https://gitlab.com/u2467/dacade/dacade/commit/11ffbbcc1c6b7114729205f401e42df7ca39bd2f))
+- set design language choice ([92a0e1f](https://gitlab.com/u2467/dacade/dacade/commit/92a0e1f20ed9f03317521195773f8f979097d9bb))
+- update to node 16 ([5e887f5](https://gitlab.com/u2467/dacade/dacade/commit/5e887f50c06597d55c47afa27af3dc921d771dc7))
 
 ### Bug Fixes
 
-* added translation to lang selec ([1045ad6](https://gitlab.com/u2467/dacade/dacade/commit/1045ad644c0a31158627e77ecb328283ec826914))
-* amend number community members ([81e9d72](https://gitlab.com/u2467/dacade/dacade/commit/81e9d726f8d625884c9077be8d643e2fd82b6155))
-* amends after yannicks corrections ([415bc04](https://gitlab.com/u2467/dacade/dacade/commit/415bc04c3e79ce0acaa3197232d5f791786da2f5))
-* check all texts come from files ([2dff79f](https://gitlab.com/u2467/dacade/dacade/commit/2dff79f943e9353dc3627bd415d58da539dcbd0c))
-* corrections language ([ac0243f](https://gitlab.com/u2467/dacade/dacade/commit/ac0243f6181051512aa2dff0ea48d5fdc02a0d73))
-* **deps:** bump actions/cache from 2.1.4 to 3 ([8519e38](https://gitlab.com/u2467/dacade/dacade/commit/8519e38b976ecc0ea91edf43be2651f449942351))
-* **deps:** bump actions/setup-node from 2.1.5 to 3 ([c5f8923](https://gitlab.com/u2467/dacade/dacade/commit/c5f89230cfc0c1b9e1c29e2c33e447558e706108))
-* evaluated translation ([c1235f4](https://gitlab.com/u2467/dacade/dacade/commit/c1235f4870608dd50506d2234c1dd95e491cec48))
-* language corrections ([fba09a6](https://gitlab.com/u2467/dacade/dacade/commit/fba09a624e92b5dd8db8bea7ddd529ddfa68a5f3))
-* language corrections ([d121035](https://gitlab.com/u2467/dacade/dacade/commit/d1210356f6fdfcb831dd9e2e66f0e70f857c5385))
-* link and date translation issue ([e80877a](https://gitlab.com/u2467/dacade/dacade/commit/e80877ae19f89ce6f03d74aced4d51c02738dd68))
-* minor language corrections ([cc9694c](https://gitlab.com/u2467/dacade/dacade/commit/cc9694cba28bb6d2987ff85665365f9e0eb17821))
-* more language corrections ([1eecc7b](https://gitlab.com/u2467/dacade/dacade/commit/1eecc7bc6f379a1befd224365f635e9bb1032356))
-* naming variebles translation file ([f26fd4c](https://gitlab.com/u2467/dacade/dacade/commit/f26fd4c5d42e71107fefc97210c063dc16910363))
-* resize near logo and change near coin ([ca0446b](https://gitlab.com/u2467/dacade/dacade/commit/ca0446bbef644ea442ee576e5667ba4eb44c29dc))
-* resolve conflicts ([f3be740](https://gitlab.com/u2467/dacade/dacade/commit/f3be740d40dd320a976d29792da7b03b0a31f5c1))
-* resolve conflicts for merge ([87beace](https://gitlab.com/u2467/dacade/dacade/commit/87beacef69f95ec9973255b2a5a9e98dbbf21985))
-* resolve conflicts for merge ([34094e5](https://gitlab.com/u2467/dacade/dacade/commit/34094e564de2b693cd5999c83b4adf06e298a075))
-* solve conflicts before merge ([543ed14](https://gitlab.com/u2467/dacade/dacade/commit/543ed142650bcea8c1f0847de8d92efd0b57ea01))
-* solve conflicts for merge ([ce63886](https://gitlab.com/u2467/dacade/dacade/commit/ce63886484e61a59826af28de05cc5faca7a3096))
-* the near logo ([aa4a76a](https://gitlab.com/u2467/dacade/dacade/commit/aa4a76a9f2c1f050a9a8bf65f3af9221230cf0d3))
-* translation issues ([f8665ff](https://gitlab.com/u2467/dacade/dacade/commit/f8665ff03dee62d996fbdb50afbe1e9455ffaff9))
-* translation to spanish ([361f232](https://gitlab.com/u2467/dacade/dacade/commit/361f23245c89da11fa2c54db4851ff15c872b1d2))
-* translation to spanish files ([afed6a1](https://gitlab.com/u2467/dacade/dacade/commit/afed6a1f21c416812d4e5259a2dd7f02086a5729))
-
+- added translation to lang selec ([1045ad6](https://gitlab.com/u2467/dacade/dacade/commit/1045ad644c0a31158627e77ecb328283ec826914))
+- amend number community members ([81e9d72](https://gitlab.com/u2467/dacade/dacade/commit/81e9d726f8d625884c9077be8d643e2fd82b6155))
+- amends after yannicks corrections ([415bc04](https://gitlab.com/u2467/dacade/dacade/commit/415bc04c3e79ce0acaa3197232d5f791786da2f5))
+- check all texts come from files ([2dff79f](https://gitlab.com/u2467/dacade/dacade/commit/2dff79f943e9353dc3627bd415d58da539dcbd0c))
+- corrections language ([ac0243f](https://gitlab.com/u2467/dacade/dacade/commit/ac0243f6181051512aa2dff0ea48d5fdc02a0d73))
+- **deps:** bump actions/cache from 2.1.4 to 3 ([8519e38](https://gitlab.com/u2467/dacade/dacade/commit/8519e38b976ecc0ea91edf43be2651f449942351))
+- **deps:** bump actions/setup-node from 2.1.5 to 3 ([c5f8923](https://gitlab.com/u2467/dacade/dacade/commit/c5f89230cfc0c1b9e1c29e2c33e447558e706108))
+- evaluated translation ([c1235f4](https://gitlab.com/u2467/dacade/dacade/commit/c1235f4870608dd50506d2234c1dd95e491cec48))
+- language corrections ([fba09a6](https://gitlab.com/u2467/dacade/dacade/commit/fba09a624e92b5dd8db8bea7ddd529ddfa68a5f3))
+- language corrections ([d121035](https://gitlab.com/u2467/dacade/dacade/commit/d1210356f6fdfcb831dd9e2e66f0e70f857c5385))
+- link and date translation issue ([e80877a](https://gitlab.com/u2467/dacade/dacade/commit/e80877ae19f89ce6f03d74aced4d51c02738dd68))
+- minor language corrections ([cc9694c](https://gitlab.com/u2467/dacade/dacade/commit/cc9694cba28bb6d2987ff85665365f9e0eb17821))
+- more language corrections ([1eecc7b](https://gitlab.com/u2467/dacade/dacade/commit/1eecc7bc6f379a1befd224365f635e9bb1032356))
+- naming variebles translation file ([f26fd4c](https://gitlab.com/u2467/dacade/dacade/commit/f26fd4c5d42e71107fefc97210c063dc16910363))
+- resize near logo and change near coin ([ca0446b](https://gitlab.com/u2467/dacade/dacade/commit/ca0446bbef644ea442ee576e5667ba4eb44c29dc))
+- resolve conflicts ([f3be740](https://gitlab.com/u2467/dacade/dacade/commit/f3be740d40dd320a976d29792da7b03b0a31f5c1))
+- resolve conflicts for merge ([87beace](https://gitlab.com/u2467/dacade/dacade/commit/87beacef69f95ec9973255b2a5a9e98dbbf21985))
+- resolve conflicts for merge ([34094e5](https://gitlab.com/u2467/dacade/dacade/commit/34094e564de2b693cd5999c83b4adf06e298a075))
+- solve conflicts before merge ([543ed14](https://gitlab.com/u2467/dacade/dacade/commit/543ed142650bcea8c1f0847de8d92efd0b57ea01))
+- solve conflicts for merge ([ce63886](https://gitlab.com/u2467/dacade/dacade/commit/ce63886484e61a59826af28de05cc5faca7a3096))
+- the near logo ([aa4a76a](https://gitlab.com/u2467/dacade/dacade/commit/aa4a76a9f2c1f050a9a8bf65f3af9221230cf0d3))
+- translation issues ([f8665ff](https://gitlab.com/u2467/dacade/dacade/commit/f8665ff03dee62d996fbdb50afbe1e9455ffaff9))
+- translation to spanish ([361f232](https://gitlab.com/u2467/dacade/dacade/commit/361f23245c89da11fa2c54db4851ff15c872b1d2))
+- translation to spanish files ([afed6a1](https://gitlab.com/u2467/dacade/dacade/commit/afed6a1f21c416812d4e5259a2dd7f02086a5729))
 
 ### Improvements
 
-* add missing github button translation text ([3b97224](https://gitlab.com/u2467/dacade/dacade/commit/3b972246b62119911d3128f9424410280f7c7259))
-* add missing translations ([d3dc8e6](https://gitlab.com/u2467/dacade/dacade/commit/d3dc8e60e86c315f745dadbb0516fe3789e45bd1))
-* add missing translations ([34466fe](https://gitlab.com/u2467/dacade/dacade/commit/34466fe182a4e1037ec8cd95f7074398298a01ed))
-* adjust community page title keys ([ef29e72](https://gitlab.com/u2467/dacade/dacade/commit/ef29e7283f16720e6f3c9f5ba64e158e434a12e7))
-* adjust date time translation ([51a6a9c](https://gitlab.com/u2467/dacade/dacade/commit/51a6a9c35c975e36da352c5cb469a9bf75ab0eac))
-* adjust error page translations ([7405c72](https://gitlab.com/u2467/dacade/dacade/commit/7405c7215ebeb09d32a8201ba8c028f17fe458b1))
-* allow test to succeed when no test are present ([04e7d17](https://gitlab.com/u2467/dacade/dacade/commit/04e7d174f57ed91217083feadd263b3ff7787a41))
-* cleanup ([22041d0](https://gitlab.com/u2467/dacade/dacade/commit/22041d07e1c8e93ddc7f3326bc663ae312da9d12))
-* cleanup github workflow ci file ([f4002c0](https://gitlab.com/u2467/dacade/dacade/commit/f4002c0bb619c2500f1e51d946109b0d0f837190))
-* **deps-dev:** bump @commitlint/cli from 12.1.4 to 16.2.3 ([8311f71](https://gitlab.com/u2467/dacade/dacade/commit/8311f715c27d8a7a49c9c5ef7116e8defe1622c7))
-* enable github actions to run on dev ([925e575](https://gitlab.com/u2467/dacade/dacade/commit/925e57599cd6683ac263c98333d3fda688c634a5))
-* enable language switcher triggering config ([b64ec95](https://gitlab.com/u2467/dacade/dacade/commit/b64ec95a218e0dbf9dd73fe4fcbf0cad93b77637))
-* fix dependecies version ([f66f37a](https://gitlab.com/u2467/dacade/dacade/commit/f66f37a01d5e8c5f2a7e3f67f50522bc755ab556))
-* fix linting issues ([116f18a](https://gitlab.com/u2467/dacade/dacade/commit/116f18ad41c2a8d51916d0f5ad275315fb95599d))
-* fix linting issues ([268f7b3](https://gitlab.com/u2467/dacade/dacade/commit/268f7b36c21bfcfd59b2b4e1807e5a19dafd7f06))
-* remove invalid quotes ([a4ef48e](https://gitlab.com/u2467/dacade/dacade/commit/a4ef48e851038aac59843bc5958417a0b5f8bdbc))
-* remove old github workflows ([deef5d5](https://gitlab.com/u2467/dacade/dacade/commit/deef5d56fa89527c5cc7c00b0e7a3b4d8380f617))
-* remove unused files and refactor router guard ([8013cb5](https://gitlab.com/u2467/dacade/dacade/commit/8013cb59980de7acb13c64411e47389f0b243c14))
-* resolve package-lock.json conflicts ([194ad87](https://gitlab.com/u2467/dacade/dacade/commit/194ad87f2102648485830adb92f8b6228ca22c07))
-* update github actions workflows ([e3c948e](https://gitlab.com/u2467/dacade/dacade/commit/e3c948e12b8abd05e860556e07b0feb3277ba4b3))
+- add missing github button translation text ([3b97224](https://gitlab.com/u2467/dacade/dacade/commit/3b972246b62119911d3128f9424410280f7c7259))
+- add missing translations ([d3dc8e6](https://gitlab.com/u2467/dacade/dacade/commit/d3dc8e60e86c315f745dadbb0516fe3789e45bd1))
+- add missing translations ([34466fe](https://gitlab.com/u2467/dacade/dacade/commit/34466fe182a4e1037ec8cd95f7074398298a01ed))
+- adjust community page title keys ([ef29e72](https://gitlab.com/u2467/dacade/dacade/commit/ef29e7283f16720e6f3c9f5ba64e158e434a12e7))
+- adjust date time translation ([51a6a9c](https://gitlab.com/u2467/dacade/dacade/commit/51a6a9c35c975e36da352c5cb469a9bf75ab0eac))
+- adjust error page translations ([7405c72](https://gitlab.com/u2467/dacade/dacade/commit/7405c7215ebeb09d32a8201ba8c028f17fe458b1))
+- allow test to succeed when no test are present ([04e7d17](https://gitlab.com/u2467/dacade/dacade/commit/04e7d174f57ed91217083feadd263b3ff7787a41))
+- cleanup ([22041d0](https://gitlab.com/u2467/dacade/dacade/commit/22041d07e1c8e93ddc7f3326bc663ae312da9d12))
+- cleanup github workflow ci file ([f4002c0](https://gitlab.com/u2467/dacade/dacade/commit/f4002c0bb619c2500f1e51d946109b0d0f837190))
+- **deps-dev:** bump @commitlint/cli from 12.1.4 to 16.2.3 ([8311f71](https://gitlab.com/u2467/dacade/dacade/commit/8311f715c27d8a7a49c9c5ef7116e8defe1622c7))
+- enable github actions to run on dev ([925e575](https://gitlab.com/u2467/dacade/dacade/commit/925e57599cd6683ac263c98333d3fda688c634a5))
+- enable language switcher triggering config ([b64ec95](https://gitlab.com/u2467/dacade/dacade/commit/b64ec95a218e0dbf9dd73fe4fcbf0cad93b77637))
+- fix dependecies version ([f66f37a](https://gitlab.com/u2467/dacade/dacade/commit/f66f37a01d5e8c5f2a7e3f67f50522bc755ab556))
+- fix linting issues ([116f18a](https://gitlab.com/u2467/dacade/dacade/commit/116f18ad41c2a8d51916d0f5ad275315fb95599d))
+- fix linting issues ([268f7b3](https://gitlab.com/u2467/dacade/dacade/commit/268f7b36c21bfcfd59b2b4e1807e5a19dafd7f06))
+- remove invalid quotes ([a4ef48e](https://gitlab.com/u2467/dacade/dacade/commit/a4ef48e851038aac59843bc5958417a0b5f8bdbc))
+- remove old github workflows ([deef5d5](https://gitlab.com/u2467/dacade/dacade/commit/deef5d56fa89527c5cc7c00b0e7a3b4d8380f617))
+- remove unused files and refactor router guard ([8013cb5](https://gitlab.com/u2467/dacade/dacade/commit/8013cb59980de7acb13c64411e47389f0b243c14))
+- resolve package-lock.json conflicts ([194ad87](https://gitlab.com/u2467/dacade/dacade/commit/194ad87f2102648485830adb92f8b6228ca22c07))
+- update github actions workflows ([e3c948e](https://gitlab.com/u2467/dacade/dacade/commit/e3c948e12b8abd05e860556e07b0feb3277ba4b3))
 
 ## [3.1.0](https://gitlab.com/u2467/dacade/dacade/compare/v3.0.11...v3.1.0) (2022-02-23)
 
