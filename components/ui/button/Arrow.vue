@@ -2,7 +2,7 @@
   <Button
     :padding="false"
     :community-styles="communityStyles"
-    :class="['py-2 pl-5 pr-3.5', minWidthClass]"
+    :class="[{ 'py-2 pl-5 pr-3.5': padding }, minWidthClass]"
     :disabled="disabled"
     :link="link"
     :loading="loading"
@@ -11,12 +11,21 @@
     :target="target"
     v-on="inputListeners"
   >
-    <span class="flex text-left items-center justify-between">
-      <span class="leading-6 pr-6"><slot /></span>
-      <span>
+    <span class="flex h-full text-left items-center justify-between">
+      <span v-if="isLeft" :class="{ 'pr-2.5': hasSlot }">
         <ArrowRightIcon
           v-if="!loading"
           class="transform"
+          :class="directionClass" />
+        <Spinner v-else class="animate-spin"
+      /></span>
+      <span class="leading-6" :class="{ 'pr-6': !isLeft && hasSlot }"
+        ><slot
+      /></span>
+      <span v-if="!isLeft">
+        <ArrowRightIcon
+          v-if="!loading"
+          class="transform w-full"
           :class="directionClass" />
         <Spinner v-else class="animate-spin"
       /></span>
@@ -90,6 +99,9 @@ export default {
     },
   },
   computed: {
+    hasSlot() {
+      return !!this.$slots.default
+    },
     inputListeners() {
       const vm = this
       // `Object.assign` merges objects together to form a new object
@@ -125,6 +137,9 @@ export default {
         default:
           return ''
       }
+    },
+    isLeft() {
+      return this.direction.toLowerCase() === 'left'
     },
   },
 }

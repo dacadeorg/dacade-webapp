@@ -2,7 +2,15 @@
   <div>
     <ValidationObserver
       v-slot="{ passes }"
-      class="absolute w-full top-0 min-h-screen flex items-center justify-center"
+      class="
+        absolute
+        w-full
+        top-0
+        min-h-screen
+        flex
+        items-center
+        justify-center
+      "
     >
       <form
         class="content-wrapper"
@@ -10,11 +18,11 @@
       >
         <div class="lg:w-98 xl:w-98 mx-auto">
           <h3 class="text-5xl my-5">
-            {{ $t('login-page.password-reset.title') }}
+            {{ $t('password-reset.title') }}
           </h3>
           <div label-for="input-1">
             <label for="input-2" class="text-sm">{{
-              $t('login-page.password-reset.Description')
+              $t('password-reset.description')
             }}</label>
             <ValidationProvider
               v-slot="{ errors }"
@@ -35,19 +43,13 @@
             </ValidationProvider>
           </div>
           <div class="text-right">
-            <Button
-              :padding="false"
+            <ArrowButton
+              :loading="loading"
               type="submit"
               :disabled="loading"
-              class="btn-primary btn-lg py-2 px-5"
-            >
-              <span class="inline-block text-sm">{{
-                $t('login-page.signin.button')
-              }}</span>
-              <span class="inline-block text-white lg:pl-12 pl-8"
-                ><ArrowRight
-              /></span>
-            </Button>
+              min-width-class="min-w-40"
+              >{{ $t('password-reset.submit') }}
+            </ArrowButton>
           </div>
         </div>
       </form>
@@ -58,15 +60,13 @@
 <script>
 /* eslint-disable no-console */
 
-import Button from '@/components/ui/button'
 import Input from '@/components/ui/Input'
-import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 
 export default {
   components: {
-    Button,
     Input,
-    ArrowRight,
+    ArrowButton,
   },
   layout: 'withoutFooter',
   middleware: 'guest',
