@@ -15,7 +15,7 @@
       <span v-if="isLeft" :class="{ 'pr-2.5': hasSlot }">
         <ArrowRightIcon
           v-if="!loading"
-          class="transform"
+          class="transform w-full"
           :class="directionClass" />
         <Spinner v-else class="animate-spin"
       /></span>
@@ -27,7 +27,7 @@
           v-if="!loading"
           class="transform w-full"
           :class="directionClass" />
-        <Spinner v-else class="animate-spin"
+        <Spinner v-else class="animate-spin w-full"
       /></span>
     </span>
   </Button>
