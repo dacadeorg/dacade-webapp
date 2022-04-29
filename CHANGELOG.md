@@ -2,33 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [3.2.14](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.13...v3.2.14) (2022-04-28)
-
-
-### Improvements
-
-* use arrow button component for the feedback link button ([6e83654](https://gitlab.com/u2467/dacade/dacade/commit/6e83654c326a543125b0d60ca5856f8bf25239c0))
-
-### [3.2.13](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.12...v3.2.13) (2022-04-27)
-
+### [3.2.15](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.14...v3.2.15) (2022-04-29)
 
 ### Features
 
-* change feedback button text ([7f91fb5](https://gitlab.com/u2467/dacade/dacade/commit/7f91fb5cee8034b9afe79c4bf5a0fee4d1b1d113))
-
-### [3.2.12](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.11...v3.2.12) (2022-04-21)
-
-
-### Features
-
-* add closing soon keyword for bounties ([f42a150](https://gitlab.com/u2467/dacade/dacade/commit/f42a1500bf61b9abded7ffa6faadc88fd40cdfd1))
-
-### [3.2.11](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.10...v3.2.11) (2022-04-21)
-
+- use arrow button component everywhere ([217bfd3](https://gitlab.com/u2467/dacade/dacade/commit/217bfd3f68925565219d231b502347a77d5d651c))
 
 ### Bug Fixes
 
-* feedback form placeholder wording ([59dd5df](https://gitlab.com/u2467/dacade/dacade/commit/59dd5df79768d469f4b158ad8266755abe259710))
+- arrow button inconsistencies ([d662c13](https://gitlab.com/u2467/dacade/dacade/commit/d662c13ff9f39ca6c3335af293bda5e2a65f4722))
+- course navigation error 500 ([edf5b67](https://gitlab.com/u2467/dacade/dacade/commit/edf5b6788c4397ced8614741657a82d53f788214))
+
+### Improvements
+
+- add error handling to community navigation seeder ([e0d231c](https://gitlab.com/u2467/dacade/dacade/commit/e0d231cd9586e570ce902744e7499b5fb8a7912b))
+- adjust the arrow size ([9b11d5b](https://gitlab.com/u2467/dacade/dacade/commit/9b11d5ba811078500cbbe6612cf92e107e95c4a8))
+- set min width for the arrow button component ([30e5c0f](https://gitlab.com/u2467/dacade/dacade/commit/30e5c0f23079ae092de0c600ee9c1ce4ad5e188c))
+
+### [3.2.14](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.13...v3.2.14) (2022-04-28)
+
+### Improvements
+
+- use arrow button component for the feedback link button ([6e83654](https://gitlab.com/u2467/dacade/dacade/commit/6e83654c326a543125b0d60ca5856f8bf25239c0))
+
+### [3.2.13](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.12...v3.2.13) (2022-04-27)
+
+### Features
+
+- change feedback button text ([7f91fb5](https://gitlab.com/u2467/dacade/dacade/commit/7f91fb5cee8034b9afe79c4bf5a0fee4d1b1d113))
+
+### [3.2.12](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.11...v3.2.12) (2022-04-21)
+
+### Features
+
+- add closing soon keyword for bounties ([f42a150](https://gitlab.com/u2467/dacade/dacade/commit/f42a1500bf61b9abded7ffa6faadc88fd40cdfd1))
+
+### [3.2.11](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.10...v3.2.11) (2022-04-21)
+
+### Bug Fixes
+
+- feedback form placeholder wording ([59dd5df](https://gitlab.com/u2467/dacade/dacade/commit/59dd5df79768d469f4b158ad8266755abe259710))
 
 ### [3.2.10](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.9...v3.2.10) (2022-04-21)
 

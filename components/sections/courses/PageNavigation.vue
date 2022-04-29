@@ -5,33 +5,24 @@
       :class="{ flex: prevUrl, 'w-full sm:flex': !prevUrl }"
     >
       <nuxt-link v-if="prevUrl" :to="localePath(prevUrl)">
-        <Button class="w-full h-10 min-h-full" :custom-style="buttonStyle">
-          <span class="w-full md:w-1/3 flex text-left items-center text-sm"
-            ><span class="mr-3 w-3"
-              ><ArrowRightIcon class="transform -rotate-180"
-            /></span>
-            {{ $t('nav.page.prev') }}
-          </span>
-        </Button>
+        <ArrowButton
+          :custom-style="buttonStyle"
+          direction="left"
+          :min-width-class="null"
+        >
+          {{ $t('nav.page.prev') }}
+        </ArrowButton>
       </nuxt-link>
       <nuxt-link v-if="nextUrl" :to="localePath(nextUrl)">
-        <Button
-          class="h-10 min-h-full"
+        <ArrowButton
           :class="{
-            'w-full min-w-3/4 h-15 min-h-full  sm:w-64 flex-none': !prevUrl,
+            'text-.5xl py-4.5 pl-6 pr-5.5': !prevUrl,
           }"
+          :min-width-class="prevUrl ? 'min-w-28' : 'min-w-3/4 sm:min-w-64'"
           :custom-style="activeButtonStyle"
         >
-          <span
-            class="pl-2 flex text-left items-center"
-            :class="{ 'text-sm': prevUrl, 'text-lg': !prevUrl }"
-          >
-            {{ !prevUrl ? $t('navigation.start') : $t('navigation.next') }}
-            <span class="ml-auto pr-5 w-3" :class="{ 'ml-6.5': prevUrl }"
-              ><ArrowRightIcon
-            /></span>
-          </span>
-        </Button>
+          {{ !prevUrl ? $t('navigation.start') : $t('navigation.next') }}
+        </ArrowButton>
       </nuxt-link>
     </div>
   </Section>
@@ -40,13 +31,11 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Section from '@/components/sections/communities/_partials/Section.vue'
-import Button from '@/components/ui/button'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 
 export default {
   components: {
-    ArrowRightIcon,
-    Button,
+    ArrowButton,
     Section,
   },
   data() {

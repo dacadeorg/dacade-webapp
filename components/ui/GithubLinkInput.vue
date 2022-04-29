@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <div class="relative">
+  <div class="flex items-center w-full">
+    <div class="flex-none pl-3.75">
+      <GithubIcon
+        class="relative flex-none text-gray-400 m-0 p-0 block -mt-0.5"
+      />
+    </div>
+    <div class="relative flex-1 pl-2 pr-10.75">
       <label
         :class="{
           'text-gray-400 flex items-center': !isFilled && !isFocused,
@@ -9,7 +14,7 @@
           'text-red-600': error,
           'text-blue-500': isFocused && !error,
         }"
-        class="absolute top-0 left-0 text-lg px-5 py-5 z-10 w-full h-full pointer-events-none transform origin-left transition-all duration-100 ease-in-out outline-none border-none items-center"
+        class="absolute top-0 left-0 text-lg px-0 py-5 z-10 w-full h-full pointer-events-none transform origin-left transition-all duration-100 ease-in-out outline-none border-none items-center"
       >
         {{ label }}
       </label>
@@ -23,23 +28,27 @@
         :value="value"
         type="text"
         :placeholder="placeholder"
-        class="rounded-b w-10/12 max-w-content focus:outline-none active:outline-none active:shadow-none focus:shadow-none border-none focus:border-none outline-none active:border-none text-lg ml-7 active:border-0"
+        class="rounded-b w-full focus:outline-none active:outline-none active:shadow-none focus:shadow-none px-0 h-16.25 border-none focus:border-none outline-none active:border-none text-lg active:border-0 leading-7"
         autocomplete="off"
         :disabled="disabled"
         @focus="isFocused = true"
         @blur="isFocused = false"
         v-on="inputListeners"
       />
-    </div>
-    <div v-if="error" class="bg-red-50 help text-sm text-red-900 px-5 py-1.5">
-      <p>
-        {{ error }}
-      </p>
+      <div v-if="error" class="absolute -bottom-7 help text-sm text-red-900">
+        <p>
+          {{ error }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
 <script>
+import GithubIcon from '~/assets/icons/github.svg?inline'
 export default {
+  components: {
+    GithubIcon,
+  },
   props: {
     type: {
       default: 'text',

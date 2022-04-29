@@ -35,12 +35,10 @@
               <ValidationProvider
                 v-slot="{ errors }"
                 name="input-github"
-                class="flex w-full"
+                class="w-full"
                 rules="required|url"
                 mode="passive"
               >
-                <!-- <GithubIcon class="flex-none text-gray-400 m-0 p-0 block" /> -->
-
                 <GithubLinkInput
                   id="input-github"
                   name="githubLink"
@@ -53,15 +51,12 @@
                   "
                   @input="form.githubLink = $event"
                 />
-                <GithubIcon
-                  class="absolute ml-4 my-7 flex-none text-gray-400 m-0 p-0 block"
-                />
               </ValidationProvider>
             </div>
           </div>
         </div>
         <div class="flex justify-between">
-          <div class="flex xl:ml-13 flex-col self-center">
+          <div class="flex xl:pl-10.75 flex-col self-center">
             <div
               v-if="challenge.format.disclaimer"
               class="flex flex-row max-w-xm space-x-3 items-center"
@@ -73,30 +68,21 @@
                 required
                 size="small"
                 type="checkbox"
-                target="_blank"
               />
-              <span class="max-w-none test text-sm leading-none">
+              <span class="max-w-none text-sm leading-none">
                 {{ challenge.format.disclaimer }}
               </span>
             </div>
           </div>
           <div class="flex text-right self-start">
-            <Button
+            <ArrowButton
               type="primary"
               :disabled="disabled"
               :custom-style="activeButtonStyle"
+              :loading="submitting"
             >
-              <!-- @click="submit" -->
-              <span class="flex text-left items-center text-sm w-32 h-6">
-                {{ $t('submit') }}
-                <span v-if="submitting === false" class="ml-16 w-3"
-                  ><ArrowRightIcon
-                /></span>
-                <span v-else class="text-white ml-16">
-                  <Spinner class="animate-spin" />
-                </span>
-              </span>
-            </Button>
+              {{ $t('submit') }}
+            </ArrowButton>
           </div>
         </div>
       </form>
@@ -109,22 +95,16 @@ import Section from '@/components/sections/communities/_partials/Section.vue'
 import Avatar from '@/components/ui/Avatar'
 import TextInput from '@/components/ui/TextInput'
 import GithubLinkInput from '@/components/ui/GithubLinkInput'
-import Button from '@/components/ui/button'
-import GithubIcon from '~/assets/icons/github.svg?inline'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
-import Spinner from '~/assets/icons/spinner.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 
 export default {
   name: 'Submission',
   components: {
     Section,
-    ArrowRightIcon,
-    GithubIcon,
-    Button,
     TextInput,
     GithubLinkInput,
-    Spinner,
     Avatar,
+    ArrowButton,
   },
 
   data() {

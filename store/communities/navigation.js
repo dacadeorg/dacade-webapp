@@ -1,8 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 
-import CommunityNavigation from '~/utilities/CommunityNavigation'
-
 export const state = () => ({
   menus: [],
 })
