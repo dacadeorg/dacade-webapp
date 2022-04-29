@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.15](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.14...v3.2.15) (2022-04-29)
+
+
+### Features
+
+* use arrow button component everywhere ([217bfd3](https://gitlab.com/u2467/dacade/dacade/commit/217bfd3f68925565219d231b502347a77d5d651c))
+
+
+### Bug Fixes
+
+* arrow button inconsistencies ([d662c13](https://gitlab.com/u2467/dacade/dacade/commit/d662c13ff9f39ca6c3335af293bda5e2a65f4722))
+* course navigation error 500 ([edf5b67](https://gitlab.com/u2467/dacade/dacade/commit/edf5b6788c4397ced8614741657a82d53f788214))
+
+
+### Improvements
+
+* add error handling to community navigation seeder ([e0d231c](https://gitlab.com/u2467/dacade/dacade/commit/e0d231cd9586e570ce902744e7499b5fb8a7912b))
+* adjust the arrow size ([9b11d5b](https://gitlab.com/u2467/dacade/dacade/commit/9b11d5ba811078500cbbe6612cf92e107e95c4a8))
+* set min width for the arrow button component ([30e5c0f](https://gitlab.com/u2467/dacade/dacade/commit/30e5c0f23079ae092de0c600ee9c1ce4ad5e188c))
+
 ### [3.2.14](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.13...v3.2.14) (2022-04-28)
 
 
