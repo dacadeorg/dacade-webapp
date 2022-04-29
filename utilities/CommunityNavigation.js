@@ -72,7 +72,9 @@ export default class CommunityNavigation {
     )
   }
 
-  learningModuleLinks(course, community) {
+  learningModuleLinks(course, communitySlug = this._params().slug) {
+    if (!course?.learningModules) return []
+
     const slugger = new Slugger()
     return course.learningModules?.map((learningModule, i) => ({
       id: learningModule.id,
@@ -80,7 +82,7 @@ export default class CommunityNavigation {
       link: this.learningModulePath(
         learningModule.id,
         course.slug,
-        community.slug
+        communitySlug
       ),
       exact: false,
       subitems: learningModule.materials
@@ -96,8 +98,8 @@ export default class CommunityNavigation {
     }))
   }
 
-  bountyLinks(course, community) {
-    if (!course.challenge) return []
+  bountyLinks(course, communitySlug = this._params().slug) {
+    if (!course?.challenge) return []
 
     return [
       {
@@ -106,7 +108,7 @@ export default class CommunityNavigation {
         link: this.challengePath(
           course.challenge.id,
           course.slug,
-          community.slug
+          communitySlug
         ),
         exact: true,
       },
@@ -117,7 +119,7 @@ export default class CommunityNavigation {
           '',
           course.challenge.id,
           course.slug,
-          community.slug
+          communitySlug
         ),
         exact: false,
       },
@@ -141,12 +143,12 @@ export default class CommunityNavigation {
       {
         id: 'learning-modules',
         title: 'communities.navigation.learning-modules',
-        items: this.learningModuleLinks(course, community),
+        items: this.learningModuleLinks(course, community?.slug),
       },
       {
         id: 'bounties',
         title: 'communities.navigation.challenge',
-        items: this.bountyLinks(course, community),
+        items: this.bountyLinks(course, community?.slug),
       },
     ]
     return list
