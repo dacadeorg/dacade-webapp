@@ -42,5 +42,8 @@ export default {
       default: () => {},
     },
   }, // If you prefers you can set a custom layout for the error page
+  mounted() {
+    console.error(this.error)
+  },
 }
 </script>

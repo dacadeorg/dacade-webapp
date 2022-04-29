@@ -134,7 +134,7 @@ export default class CommunityNavigation {
           {
             label: 'communities.navigation.overview',
             exact: true,
-            link: this.coursePath('', course.slug, community.slug),
+            link: this.coursePath('', course?.slug, community?.slug),
           },
         ],
       },

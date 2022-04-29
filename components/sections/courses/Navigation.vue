@@ -13,23 +13,39 @@
             :key="k"
             class="relative mt-4 text-sm"
           >
-            <span class="relative block text-gray-500 cursor-pointer" :class="{ 'activable-link': isCurrentLink(item.link, item.exact) }" :style="isCurrentLink(item.link, item.exact) ? activeLinkStyle : {}" @click="goToLink(item)">
-                <span v-show="isCurrentLink(item.link, item.exact)" class="absolute inline-block top-0 -left-6 nav-icon">
-                  <ChevronRightIcon
-                    :class="{
-                      'transform rotate-90':
-                        item.subitems && item.subitems.length && (isCurrentLink(item.link, item.exact) && expanded),
-                    }"
-                     class="transition-transform duration-200" 
-                  />
-                </span>
-                <span class="nav-label">{{ $t(item.label) }}</span>
+            <span
+              class="relative block text-gray-500 cursor-pointer"
+              :class="{
+                'activable-link': isCurrentLink(item.link, item.exact),
+              }"
+              :style="
+                isCurrentLink(item.link, item.exact) ? activeLinkStyle : {}
+              "
+              @click="goToLink(item)"
+            >
+              <span
+                v-show="isCurrentLink(item.link, item.exact)"
+                class="absolute inline-block top-0 -left-6 nav-icon"
+              >
+                <ChevronRightIcon
+                  :class="{
+                    'transform rotate-90':
+                      item.subitems &&
+                      item.subitems.length &&
+                      isCurrentLink(item.link, item.exact) &&
+                      expanded,
+                  }"
+                  class="transition-transform duration-200"
+                />
+              </span>
+              <span class="nav-label">{{ $t(item.label) }}</span>
             </span>
             <ul
               v-if="
                 item.subitems &&
                 item.subitems.length &&
-                (isCurrentLink(item.link, false) && expanded)
+                isCurrentLink(item.link, false) &&
+                expanded
               "
             >
               <li
@@ -87,21 +103,24 @@ export default {
       }
     },
   },
+  created() {
+    this.$store.dispatch('communities/navigation/init')
+  },
   methods: {
     goToLink(item) {
-      if(this.isCurrentLink(item.link, item.exact)) {
+      if (this.isCurrentLink(item.link, item.exact)) {
         this.expanded = !this.expanded
-        return;
+        return
       }
       this.$router.push(this.localePath(item.link))
     },
     isCurrentLink(link, exact = false) {
-      if(exact){
+      if (exact) {
         return this.$route.path === this.localePath(link)
       }
       return this.$route.path.includes(this.localePath(link))
     },
-  }
+  },
 }
 </script>
 <style lang="scss" scoped>
