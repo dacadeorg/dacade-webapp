@@ -2,15 +2,7 @@
   <div>
     <ValidationObserver
       v-slot="{ passes }"
-      class="
-        absolute
-        w-full
-        top-0
-        min-h-screen
-        flex
-        items-center
-        justify-center
-      "
+      class="absolute w-full top-0 min-h-screen flex items-center justify-center"
     >
       <form
         class="content-wrapper"

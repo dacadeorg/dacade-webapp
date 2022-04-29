@@ -47,19 +47,7 @@
                 is-github-link
                 :error="errors[0]"
                 :value="githubLink"
-                class="
-                  p-0
-                  border border-t-0 border-solid border-gray-200
-                  focus:outline-none
-                  outline-none
-                  active:border-none
-                  focus:border-none
-                  block
-                  m-0
-                  flex-grow
-                  w-full
-                  placeholder-gray-400 placeholder-opacity-100
-                "
+                class="p-0 border border-t-0 border-solid border-gray-200 focus:outline-none outline-none active:border-none focus:border-none block m-0 flex-grow w-full placeholder-gray-400 placeholder-opacity-100"
                 :placeholder="
                   $t(
                     'communities.challenge.submission.feedback.placeholder.github'

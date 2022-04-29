@@ -54,7 +54,7 @@
               <ArrowButton
                 class="group-hover:bg-theme-accent bg-theme-primary border text-theme-accent group-hover:text-theme-primary border-theme-accent"
               >
-               {{ $t('page.index.main.button') }}
+                {{ $t('page.index.main.button') }}
               </ArrowButton>
             </nuxt-link>
           </div>

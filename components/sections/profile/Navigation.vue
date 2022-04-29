@@ -55,17 +55,17 @@ export default {
           title: this.$t('navigation.profile.title'),
           items: [
             {
-              label:  this.$t('navigation.profile.notifications'),
+              label: this.$t('navigation.profile.notifications'),
               link: '/profile',
               exact: true,
             },
             {
-              label:  this.$t('navigation.profile.wallets'),
+              label: this.$t('navigation.profile.wallets'),
               link: '/profile/wallets',
             },
             {
-              label:  this.$t('navigation.profile.referrals'),
-              link: '/profile/referrals',  
+              label: this.$t('navigation.profile.referrals'),
+              link: '/profile/referrals',
             },
           ],
         },

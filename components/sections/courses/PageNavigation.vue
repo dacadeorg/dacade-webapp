@@ -18,7 +18,7 @@
           :class="{
             'text-.5xl py-4.5 pl-6 pr-5.5': !prevUrl,
           }"
-          :min-width-class="prevUrl ? 'min-w-28' : 'min-w-3/4 sm:min-w-64' "
+          :min-width-class="prevUrl ? 'min-w-28' : 'min-w-3/4 sm:min-w-64'"
           :custom-style="activeButtonStyle"
         >
           {{ !prevUrl ? $t('navigation.start') : $t('navigation.next') }}
