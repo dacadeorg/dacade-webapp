@@ -41,7 +41,7 @@ import { mapGetters } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
 import Section from '@/components/sections/communities/_partials/Section.vue'
 import SubmissionCard from '@/components/cards/Submission'
-import Loader from '@/components/ui/Loader'
+import Loader from '@/components/ui/button/Loader'
 import EmptyState from '@/components/ui/EmptyState'
 
 export default {
