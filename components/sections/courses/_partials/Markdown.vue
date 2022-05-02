@@ -1,10 +1,13 @@
 <template>
-  <div v-if="markdown" :style="themeStyles" class="prose">
-    <h2 v-if="markdown.data.title">{{ markdown.data.title }}</h2>
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="markdown-content" v-html="content" />
-    <!-- :style="themeStyles" -->
+  <div v-if="!loading">
+    <div v-if="markdown" :style="themeStyles" class="prose">
+      <h2 v-if="markdown.data.title">{{ markdown.data.title }}</h2>
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div class="markdown-content" v-html="content" />
+      <!-- :style="themeStyles" -->
+    </div>
   </div>
+  <Loader v-else community-styles class="py-32" />
 </template>
 
 <script>
@@ -20,9 +23,13 @@ import CloneDeep from 'lodash.clonedeep'
 import rehypeSlug from 'rehype-slug'
 import Slugger from 'github-slugger'
 import Highlighter from '@/utilities/Highlighter'
+import Loader from '@/components/ui/Loader.vue'
 
 export default {
   name: 'Markdown',
+  components: {
+    Loader,
+  },
   props: {
     url: {
       type: String,
@@ -33,9 +40,11 @@ export default {
     return {
       markdown: '',
       content: '',
+      loading: false,
     }
   },
   async fetch() {
+    this.loading = true
     const content = await fetch(this.url).then((response) => response.text())
     this.markdown = matter(content)
 
@@ -50,6 +59,7 @@ export default {
       .use(rehypeStringify)
       .process(this.markdown.content)
     this.content = value
+    this.loading = false
   },
   computed: {
     ...mapGetters({
