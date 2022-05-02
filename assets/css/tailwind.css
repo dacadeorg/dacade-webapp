@@ -31,6 +31,8 @@ body,
 body {
   font-weight: 400;
   font-family: 'Graphik', sans-serif;
+  width: 100%;
+  position: relative;
 }
 
 .message-rectangle {
@@ -88,7 +90,7 @@ input {
 }
 
 button {
-  @apply bg-primary outline-none focus:outline-none cursor-pointer relative px-4 py-2 text-white rounded-full;
+  @apply bg-primary outline-none focus:outline-none cursor-pointer relative px-4 py-2 text-white rounded-full text-sm;
 }
 
 .floating-input > input::placeholder {

@@ -11,9 +11,9 @@
           {{ $t('page.index.communities.partnering.subtitle') }}
         </p>
       </div>
-      <div class="mt-4 flex-none flex justify-between">
-        <div class="flex flex-col space-y-0">
-          <div class="mt-4 font-light text-theme-accent w-48">
+      <div class="mt-4 flex-none md:flex justify-between">
+        <div class="md:flex md:flex-col space-y-0">
+          <div class="mt-4 font-light text-theme-accent md:w-48">
             {{ $t('partnering.card.text') }}
           </div>
         </div>

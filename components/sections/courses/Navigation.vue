@@ -103,6 +103,9 @@ export default {
       }
     },
   },
+  created() {
+    this.$store.dispatch('communities/navigation/init')
+  },
   methods: {
     goToLink(item) {
       if (this.isCurrentLink(item.link, item.exact)) {

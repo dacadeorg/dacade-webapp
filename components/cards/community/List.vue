@@ -42,19 +42,12 @@
               </div>
               <div class="mt-7 align-middle">
                 <nuxt-link :to="localePath(path)">
-                  <Button
+                  <ArrowButton
                     class="group-hover:bg-primary bg-gray-200 border text-primary group-hover:text-white border-primary"
+                    type="outline-primary"
                   >
-                    <span
-                      class="text-primary group-gover:bg-text-primary group-hover:text-white py-0 inline-block align-middle"
-                      >{{ $t('page.index.main.button') }}</span
-                    >
-                    <span class="inline-block align-middle">
-                      <ArrowRightIcon
-                        class="ml-7 text-primary group-hover:text-white"
-                      />
-                    </span>
-                  </Button>
+                    {{ $t('page.index.main.button') }}
+                  </ArrowButton>
                 </nuxt-link>
               </div>
             </div>
@@ -70,12 +63,11 @@ import Coin from '@/components/ui/Coin'
 import ListIcon from '@/components/cards/community/_partials/ListIcon'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 import DateManager from '@/utilities/DateManager'
-import Button from '@/components/ui/button'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 
 export default {
   name: 'CommunityListCard',
-  components: { Coin, ListIcon, ThemeWrapper, Button, ArrowRightIcon },
+  components: { Coin, ListIcon, ThemeWrapper, ArrowButton },
   props: {
     community: {
       default: () => {},

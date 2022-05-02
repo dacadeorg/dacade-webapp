@@ -57,14 +57,13 @@
         </div>
 
         <div class="text-right ml-auto xl:m-0 hidden sm:block">
-          <Button
+          <ArrowButton
             :padding="false"
-            class="action-button bg-gray-100 inline-flex text-gray-500 items-center justify-center w-10 h-10 sm:w-11 sm:h-11 text-2xl rounded-full"
+            class="action-button inline-flex bg-gray-100 text-gray-500 w-10 h-10 sm:w-11 sm:h-11 text-2xl rounded-full"
+            :min-width-class="null"
             type="none"
             :custom-style="arrowButtonStyles"
-          >
-            <ArrowRightIcon class="w-full" />
-          </Button>
+          />
         </div>
       </div>
       <slot />
@@ -75,17 +74,15 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Badge from '@/components/ui/Badge'
-import Button from '@/components/ui/button'
 import UserCard from '@/components/cards/User'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 
 export default {
   name: 'SubmissionCard',
   components: {
     Badge,
-    Button,
-    ArrowRightIcon,
     UserCard,
+    ArrowButton,
   },
   props: {
     submission: {

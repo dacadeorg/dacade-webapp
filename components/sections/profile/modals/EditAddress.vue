@@ -38,18 +38,12 @@
               @click="$emit('close', true)"
               >{{ $t('profile.edit.close') }}</span
             >
-            <Button
+            <ArrowButton
               :loading="loading"
-              :padding="false"
               :disabled="loading"
-              class="pl-5 pr-0"
               type="outline-primary"
               >{{ $t('profile.edit.save') }}
-              <span class="inline-block mr-3.5 ml-4 align-middle">
-                <ArrowRightIcon v-if="!loading" />
-                <Spinner v-else class="animate-spin"
-              /></span>
-            </Button>
+            </ArrowButton>
           </div>
         </form>
       </ValidationObserver>
@@ -62,18 +56,14 @@
 import Modal from '@/components/ui/Modal'
 import Input from '@/components/ui/Input'
 import Tag from '@/components/ui/Tag'
-import Button from '@/components/ui/button'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
-import Spinner from '~/assets/icons/spinner.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 
 export default {
   name: 'EditProfile',
   components: {
     Modal,
     Input,
-    Button,
-    ArrowRightIcon,
-    Spinner,
+    ArrowButton,
     Tag,
   },
   props: {

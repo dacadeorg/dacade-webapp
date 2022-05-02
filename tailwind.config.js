@@ -94,6 +94,7 @@ module.exports = {
       52: '13rem',
       56: '14rem',
       60: '15rem',
+      62: '15.5rem',
       64: '16rem',
       72: '18rem',
       80: '20rem',
@@ -407,6 +408,7 @@ module.exports = {
       '3/6': '50%',
       '4/6': '66.666667%',
       '5/6': '83.333333%',
+      16.25: '4.25rem',
       full: '100%',
       screen: '100vh',
     }),
@@ -540,7 +542,8 @@ module.exports = {
       full: '100%',
       screen: '100vh',
     },
-    minWidth: {
+    minWidth: (theme) => ({
+      ...theme('spacing'),
       0: '0rem',
       '3xs': '5rem',
       '2xs': '10rem',
@@ -559,7 +562,7 @@ module.exports = {
       full: '100%',
       min: 'min-content',
       max: 'max-content',
-    },
+    }),
     objectPosition: {
       bottom: 'bottom',
       center: 'center',

@@ -21,19 +21,9 @@
       </div>
       <div class="hidden sm:block">
         <nuxt-link :to="localePath(path)">
-          <Button
-            :padding="false"
-            class="py-2 px-5"
-            :community-styles="true"
-            type="outline-primary"
-          >
-            <span class="inline-block align-middle text-sm">{{
-              $t('course.challenge.button')
-            }}</span>
-            <span class="inline-block align-middle">
-              <ArrowRightIcon class="ml-7 text-accent hover:text-white" />
-            </span>
-          </Button>
+          <ArrowButton :community-styles="true" type="outline-primary">
+            {{ $t('course.challenge.button') }}
+          </ArrowButton>
         </nuxt-link>
       </div>
     </div>
@@ -59,19 +49,9 @@
     </div>
     <div class="block sm:hidden pt-6">
       <nuxt-link :to="localePath(path)">
-        <Button
-          :padding="false"
-          class="py-2 px-5"
-          :community-styles="true"
-          type="outline-primary"
-        >
-          <span class="inline-block align-middle text-sm">{{
-            $t('course.challenge.button')
-          }}</span>
-          <span class="inline-block align-middle">
-            <ArrowRightIcon class="ml-7 text-accent hover:text-white" />
-          </span>
-        </Button>
+        <ArrowButton :community-styles="true" type="outline-primary">
+          {{ $t('course.challenge.button') }}
+        </ArrowButton>
       </nuxt-link>
     </div>
   </div>
@@ -80,14 +60,12 @@
 <script>
 import { mapGetters } from 'vuex'
 import Reward from '@/components/cards/course/_partials/Reward.vue'
-import Button from '@/components/ui/button'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 export default {
   name: 'CourseCard',
   components: {
     Reward,
-    Button,
-    ArrowRightIcon,
+    ArrowButton,
   },
   props: {
     course: {

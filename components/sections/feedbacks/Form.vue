@@ -19,7 +19,9 @@
                 id="input-text"
                 name="text"
                 :placeholder="
-                  $t('communities.challenge.submission.feedback.placeholder.text')
+                  $t(
+                    'communities.challenge.submission.feedback.placeholder.text'
+                  )
                 "
                 input-class="border-t-0"
                 :error="errors[0]"
@@ -47,12 +49,11 @@
                 :value="githubLink"
                 class="p-0 border border-t-0 border-solid border-gray-200 focus:outline-none outline-none active:border-none focus:border-none block m-0 flex-grow w-full placeholder-gray-400 placeholder-opacity-100"
                 :placeholder="
-                  $t('communities.challenge.submission.feedback.placeholder.github')
+                  $t(
+                    'communities.challenge.submission.feedback.placeholder.github'
+                  )
                 "
                 @input="githubLink = $event"
-              />
-              <GithubIcon
-                class="absolute ml-4 my-7 flex-none text-gray-400 m-0 p-0 block"
               />
             </ValidationProvider>
           </div>
@@ -76,12 +77,10 @@ import Avatar from '@/components/ui/Avatar'
 import TextInput from '@/components/ui/TextInput'
 import GithubLinkInput from '@/components/ui/GithubLinkInput'
 import ArrowButton from '@/components/ui/button/Arrow'
-import GithubIcon from '~/assets/icons/github.svg?inline'
 
 export default {
   name: 'Feedback',
   components: {
-    GithubIcon,
     ArrowButton,
     Avatar,
     TextInput,
