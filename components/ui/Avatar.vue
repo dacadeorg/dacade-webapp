@@ -7,7 +7,8 @@
     class="bg-primary inline-flex text-white items-center justify-center uppercase leading-none align-middle"
     @click="openLink()"
   >
-    <span v-if="user">{{ initials }}</span>
+    <img v-if="user && user.avatar" :src="user.avatar" alt="img" class="rounded-3xl">
+    <span v-if="user && !user.avatar">{{ initials }}</span>
     <img v-if="icon" :src="icon" class="p-2" />
     <img v-if="image" :src="image" class="p-0" />
   </span>
