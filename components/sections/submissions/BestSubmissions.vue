@@ -14,6 +14,11 @@
           :submission="submission"
         />
       </div>
+      <div class="text-right ml-auto xl:m-0 pt-6">
+      <Arrow type="outline-primary" :custom-style=" outlineButtonStyles" target="__blank">
+        {{ $t('description.best-submissions.button') }}
+      </Arrow>
+      </div>
     </div>
   </Section>
 </template>
@@ -21,11 +26,13 @@
 import { mapGetters } from 'vuex'
 import SubmissionCard from './_partials/SubmissionCard.vue'
 import Section from '@/components/sections/communities/_partials/Section.vue'
+import Arrow from '@/components/ui/button/Arrow.vue'
 export default {
   name: 'BestSubmissions',
   components: {
     Section,
     SubmissionCard,
+    Arrow,
   },
   computed: {
     ...mapGetters({
@@ -33,6 +40,15 @@ export default {
       community: 'communities/current',
       challenge: 'communities/challenges/current',
     }),
+    outlineButtonStyles() {
+      return {
+        borderColor: this.colors.textAccent,
+        color: this.colors.textAccent,
+        '--button-color--hover': this.colors.text,
+        '--button-background-color--hover': this.colors.textAccent,
+        '--button-border-color--hover': this.colors.textAccent,
+      }
+    },
   },
 }
 </script>
