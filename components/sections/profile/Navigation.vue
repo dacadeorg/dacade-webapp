@@ -40,18 +40,31 @@ export default {
   },
   computed: {
     ...mapGetters({
-      communities: 'user/communities/list',
+      communities: 'profile/communities/list',
+      authUser: 'user/get',
     }),
+    username() {
+      return this.$route.params?.username || this.authUser?.displayName
+    },
+    isCurrentUser() {
+      return (
+        this.username?.toLowerCase() ===
+        this.authUser?.displayName?.toLowerCase()
+      )
+    },
     menus() {
-      return [
+      const username = this.username
+      const items = [
         {
           title: this.$t('navigation.profile.communities'),
           items: this.communities?.map((community) => ({
             label: community.name,
-            link: `/profile/${community.slug}`,
+            link: `/profile/${username}/communities/${community.slug}`,
           })),
         },
-        {
+      ]
+      if (this.isCurrentUser) {
+        items.push({
           title: this.$t('navigation.profile.title'),
           items: [
             {
@@ -68,8 +81,9 @@ export default {
               link: '/profile/referrals',
             },
           ],
-        },
-      ]
+        })
+      }
+      return items
     },
   },
 }

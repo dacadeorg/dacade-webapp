@@ -10,31 +10,35 @@
     :badge="value.ranking"
     :box-layout="preview"
   >
-    <div
-      class="text-base md:text-lg leading-normal relative break-words"
-      :class="{ 'line-clamp-3': preview }"
-      v-html="value.text"
-    />
+    <div class="-my-5" :class="{ 'line-clamp-3': preview }">
+      <Markdown
+        class="text-base md:text-lg leading-normal relative break-words"
+        :value="value.text"
+      />
+    </div>
     <div
       v-if="
         value.metadata &&
         value.metadata.evaluation &&
         value.metadata.evaluation.points
       "
-      class="pt-5"
+      class="pt-5 flex"
     >
-      <Reward
-        v-if="value.metadata.evaluation.reward"
-        type="light-gray"
-        :reward="value.metadata.evaluation.reward"
-      />
-      <div class="inline-block">
+      <span>
+        <Reward
+          v-if="value.metadata.evaluation.reward"
+          type="light-gray"
+          :reward="value.metadata.evaluation.reward"
+        />
+      </span>
+
+      <span class="">
         <Tag
           :value="`${value.metadata.evaluation.points} REP`"
           class="text-sm font-bold"
           type="light-gray"
         />
-      </div>
+      </span>
     </div>
 
     <div
@@ -58,6 +62,7 @@ import UserCard from '@/components/cards/User'
 import ArrowButton from '@/components/ui/button/Arrow'
 import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
+import Markdown from '@/components/ui/Markdown'
 
 export default {
   name: 'FeedbackCard',
@@ -66,6 +71,7 @@ export default {
     ArrowButton,
     Tag,
     Reward,
+    Markdown,
   },
   props: {
     value: {

@@ -1,27 +1,36 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 
-export default function ({ store, redirect, route }) {
+export default async function ({ store, redirect, route }) {
   const authUser = store.getters['user/data']
 
-  if (authUser) {
-    if (isGuestRoute(route)) {
-      redirect('/')
-    }
+  if (authUser && isGuestRoute(route)) {
+    redirect('/')
+  }
 
-    if (route.path.startsWith('/profile')) {
-      store.dispatch('user/communities/all')
-    }
-  } else if (isUserRoute(route)) {
+  if (!authUser && isUserRoute(route)) {
     store.commit('setForwardRoute', route.path)
     redirect('/login')
+  }
+
+  if (route.path.startsWith('/profile')) {
+    await store.dispatch('profile/users/fetch', route.params?.username)
+    await store.dispatch(
+      'profile/communities/all',
+      route.params?.username || authUser?.displayName
+    )
   }
 }
 
 function isUserRoute(route) {
   return matchesRoutes(
     route,
-    ['bounties', 'profile', 'profile/notifications'],
+    [
+      'bounties',
+      'profile/wallets',
+      'profile/referrals',
+      'profile/notifications',
+    ],
     'name'
   )
 }

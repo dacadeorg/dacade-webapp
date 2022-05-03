@@ -7,9 +7,12 @@
     }"
   >
     <div class="pb-6">
-      <p class="text-base md:text-lg leading-normal text-gray-700">
-        {{ submission.text }}
-      </p>
+      <div class="-my-5">
+        <Markdown
+          class="text-base md:text-lg leading-normal text-gray-700"
+          :value="submission.text"
+        />
+      </div>
     </div>
     <div
       class="inline-grid space-y-2 md:space-y-5 md:contents mt-6 space-x-0 md:space-x-2"
@@ -31,12 +34,14 @@
 import { mapGetters } from 'vuex'
 import ArrowButton from '@/components/ui/button/Arrow'
 import UserCard from '@/components/cards/User'
+import Markdown from '@/components/ui/Markdown'
 
 export default {
   name: 'SubmissionViewCard',
   components: {
     UserCard,
     ArrowButton,
+    Markdown,
   },
   props: {
     submission: {

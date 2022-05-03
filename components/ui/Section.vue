@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative"
+    class="relative overflow-hidden"
     :class="{
       'bg-white text-gray-900': type == 'default',
       'bg-primary text-white': type == 'primary',
