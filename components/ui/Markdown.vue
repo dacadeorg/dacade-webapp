@@ -42,7 +42,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.value)
     this.parse(this.value)
   },
   methods: {
