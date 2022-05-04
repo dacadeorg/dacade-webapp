@@ -56,7 +56,7 @@ import { mapGetters } from 'vuex'
 import Slugger from 'github-slugger'
 import Section from '@/components/sections/communities/_partials/Section.vue'
 import Duration from '@/components/sections/courses/_partials/Duration.vue'
-import Markdown from '@/components/sections/courses/_partials/Markdown.vue'
+import Markdown from '~/components/sections/learning-modules/_partials/Markdown.vue'
 import ArrowButton from '@/components/ui/button/Arrow'
 import Video from '@/components/ui/Video'
 
