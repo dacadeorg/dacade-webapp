@@ -14,6 +14,13 @@
           :submission="submission"
         />
       </div>
+      <div class="text-right ml-auto xl:m-0 pt-6">
+        <nuxt-link :to="localePath($navigation.community.submissionsPath())">
+          <ArrowButton :community-styles="true" type="outline-primary">
+            {{ $t('challenge.best-submissions.button') }}
+          </ArrowButton>
+        </nuxt-link>
+      </div>
     </div>
   </Section>
 </template>
@@ -21,11 +28,13 @@
 import { mapGetters } from 'vuex'
 import SubmissionCard from './_partials/SubmissionCard.vue'
 import Section from '@/components/sections/communities/_partials/Section.vue'
+import ArrowButton from '@/components/ui/button/Arrow'
 export default {
   name: 'BestSubmissions',
   components: {
     Section,
     SubmissionCard,
+    ArrowButton,
   },
   computed: {
     ...mapGetters({
@@ -33,6 +42,15 @@ export default {
       community: 'communities/current',
       challenge: 'communities/challenges/current',
     }),
+    outlineButtonStyles() {
+      return {
+        borderColor: this.colors.textAccent,
+        color: this.colors.textAccent,
+        '--button-color--hover': this.colors.text,
+        '--button-background-color--hover': this.colors.textAccent,
+        '--button-border-color--hover': this.colors.textAccent,
+      }
+    },
   },
 }
 </script>
