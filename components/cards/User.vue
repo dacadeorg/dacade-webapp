@@ -35,10 +35,10 @@
       @click="goToLink"
     >
       <div class="pb-4">
-        <div class="flex items-center">
-          <span class="text-lg leading-loose font-medium">
+        <div class="flex items-center space-x-1.5 pb-1.5 pt-1">
+          <div class="text-lg leading-tight font-medium">
             {{ user.displayName }}
-          </span>
+          </div>
           <Tag v-if="user.reputation" type="light-gray" class="leading-tight"
             ><Currency :value="user.reputation" token="REP"
           /></Tag>
