@@ -16,7 +16,7 @@
       </div>
       <div class="text-right ml-auto xl:m-0 pt-6">
       <Arrow type="outline-primary" :custom-style=" outlineButtonStyles" target="__blank">
-        {{ $t('description.best-submissions.button') }}
+        {{ $t('challenge.best-submissions.button') }}
       </Arrow>
       </div>
     </div>
