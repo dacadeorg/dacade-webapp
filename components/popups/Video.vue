@@ -2,7 +2,7 @@
   <div>
     <span v-click-outside="externalClick">
       <li
-        class="content-wrapper inline-block align-middle mr-2 max-w-2xl aspect-w-16 lg:aspect-h-9 aspect-h-2 md:aspect-h-9 relative text-gray-500 cursor-pointer"
+        class="content-wrapper inline-block align-middle mr-2 max-w-2xl relative text-gray-500 cursor-pointer"
         @click="toggle"
       >
         <span

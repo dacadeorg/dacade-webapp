@@ -22,22 +22,19 @@
         value.metadata.evaluation &&
         value.metadata.evaluation.points
       "
-      class="pt-5"
+      class="pt-5 flex space-x-1"
     >
       <Reward
         v-if="value.metadata.evaluation.reward"
         type="light-gray"
         :reward="value.metadata.evaluation.reward"
       />
-      <div class="inline-block">
-        <Tag
-          :value="`${value.metadata.evaluation.points} REP`"
-          class="text-sm font-bold"
-          type="light-gray"
-        />
-      </div>
+      <Tag
+        :value="`${value.metadata.evaluation.points} REP`"
+        class="text-sm font-bold"
+        type="light-gray"
+      />
     </div>
-
     <div
       v-if="!preview && value.link"
       class="flex space-y-2 md:space-y-5 space-x-0 md:space-x-2 mt-6"

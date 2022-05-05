@@ -1,18 +1,27 @@
 <template>
-  <span
+  <div
     :class="[sizeClasses, shapeClasses]"
     :style="{
       backgroundColor: bgColor || coin.bgColor,
       color: textColor || coin.textColor,
     }"
-    class="inline-flex items-center justify-items-center text-white uppercase leading-none md:mr-0 mr-2"
+    class="
+      inline-flex
+      items-center
+      justify-items-center
+      text-white
+      uppercase
+      leading-none
+      md:mr-0
+      mr-2
+    "
   >
     <component
       :is="coin.icon"
       v-if="coin.icon"
       class="w-full h-auto max-h-full relative"
     />
-  </span>
+  </div>
 </template>
 
 <script>
