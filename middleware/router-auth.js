@@ -3,7 +3,7 @@
 
 export default async function ({ store, redirect, route }) {
   const authUser = store.getters['user/data']
-  const auth = store.getters['user/auth']
+  const auth = store.getters['auth/data']
   
   if (
     auth &&

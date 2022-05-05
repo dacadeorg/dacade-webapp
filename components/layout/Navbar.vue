@@ -9,7 +9,7 @@
           {{ $t('app.name') }}
         </NavItem>
       </ul>
-      <ul v-if="isAuthenticated" class="hidden lg:block relative self-center">
+      <ul v-if="isAuthenticatedAndVerified" class="hidden lg:block relative self-center">
         <NavItem to="/bounties">
           {{ $t('nav.bounties') }}
         </NavItem>
@@ -148,6 +148,7 @@ export default {
     },
     ...mapGetters({
       user: 'user/get',
+      isAuthenticatedAndVerified: 'auth/isVerified',
       isAuthenticated: 'auth/check',
     }),
   },

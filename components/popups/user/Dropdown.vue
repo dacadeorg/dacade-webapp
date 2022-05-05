@@ -6,7 +6,16 @@
       maxHeight: 'calc(100vh - 100px)',
       overflow: 'hidden scroll',
     }"
-    class="absolute top-14 right-0 z-40 bg-white rounded-3.5xl no-scrollbar text-gray-900"
+    class="
+      absolute
+      top-14
+      right-0
+      z-40
+      bg-white
+      rounded-3.5xl
+      no-scrollbar
+      text-gray-900
+    "
   >
     <div class="divide-y divide-gray-200">
       <div class="flex justify-between hover:bg-gray-50">
@@ -26,16 +35,27 @@
           </div>
         </div>
         <div
-          class="mr-4 mb-6 text-gray-500 self-end text-right whitespace-nowrap align-text-bottom font-normal cursor-pointer text-sm"
+          class="
+            mr-4
+            mb-6
+            text-gray-500
+            self-end
+            text-right
+            whitespace-nowrap
+            align-text-bottom
+            font-normal
+            cursor-pointer
+            text-sm
+          "
           @click="logout"
         >
           <span>{{ $t('nav.sign-out') }}</span>
         </div>
       </div>
-      <div class="p-4">
+      <div v-if="wallets.length" class="p-4" >
         <BalanceList />
       </div>
-      <div v-show="reputations.length > 1" class="p-4">
+      <div v-if="reputations.length > 1" class="p-4">
         <ReputationList />
       </div>
       <div v-if="showLanguageSwitcher" class="p-4">
