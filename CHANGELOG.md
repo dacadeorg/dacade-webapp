@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.0...v3.3.1) (2022-05-09)
+
+
+### Bug Fixes
+
+* show reputations when you have more than one ([5bb3b76](https://github.com/dacadeorg/dacade-webapp/commit/5bb3b764721a2ef5972b9963c806f02343f4cce7))
+
 ## [3.3.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.2.15...v3.3.0) (2022-05-09)
 
 
