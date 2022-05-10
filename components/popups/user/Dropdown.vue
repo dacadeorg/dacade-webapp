@@ -52,10 +52,10 @@
           <span>{{ $t('nav.sign-out') }}</span>
         </div>
       </div>
-      <div v-if="wallets.length" class="p-4" >
+      <div v-if="wallets.length" class="p-4">
         <BalanceList />
       </div>
-      <div v-if="reputations.length > 1" class="p-4">
+      <div v-if="reputations.length" class="p-4">
         <ReputationList />
       </div>
       <div v-if="showLanguageSwitcher" class="p-4">
