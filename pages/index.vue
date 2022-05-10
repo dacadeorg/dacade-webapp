@@ -17,5 +17,6 @@ export default {
     CommunitiesSection,
     TestimonialsSection,
   },
+  layout: 'home',
 }
 </script>
