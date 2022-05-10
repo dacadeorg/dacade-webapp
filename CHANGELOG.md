@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.4](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.3...v3.3.4) (2022-05-10)
+
+
+### Features
+
+* add dacade full logo ([58840e3](https://github.com/dacadeorg/dacade-webapp/commit/58840e39532431805e560bfd189254459204a202))
+
 ### [3.3.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.2...v3.3.3) (2022-05-10)
 
 
