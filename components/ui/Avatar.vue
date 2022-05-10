@@ -1,21 +1,14 @@
 <template>
   <span
-    :class="[sizeClasses, shapeClasses]"
+    :class="[sizeClasses, shapeClasses, { 'cursor-pointer': user }]"
     :style="{
       backgroundColor: color,
     }"
-    class="
-      bg-primary
-      inline-flex
-      text-white
-      items-center
-      justify-center
-      uppercase
-      leading-none
-      align-middle
-    "
+    class="bg-primary inline-flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle"
+    @click="openLink()"
   >
-    <span v-if="user">{{ initials }}</span>
+    <img v-if="user && user.avatar" :src="user.avatar" alt="img" />
+    <span v-if="user && !user.avatar">{{ initials }}</span>
     <img v-if="icon" :src="icon" class="p-2" />
     <img v-if="image" :src="image" class="p-0" />
   </span>
@@ -63,7 +56,7 @@ export default {
         case 'large':
           return 'w-15 h-15 text-2xl'
         case 'medium':
-          return 'w-10 h-10 sm:h-12 sm:w-12 md:w-15 md:h-15 text-2xl'
+          return 'w-10 h-10 sm:h-12 sm:w-12 md:w-15 md:h-15 text-xl sm:text-2xl'
         case 'medium-fixed':
           return 'w-10 h-10 text-2xl'
         case 'mini':
@@ -82,6 +75,13 @@ export default {
           return 'rounded-none'
         default:
           return 'rounded-full'
+      }
+    },
+  },
+  methods: {
+    openLink() {
+      if (this.user && this.user.username) {
+        this.$router.push(`/profile/${this.user.username}`)
       }
     },
   },

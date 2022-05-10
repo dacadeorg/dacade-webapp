@@ -1,37 +1,13 @@
 <template>
-  <Wrapper>
-    <div class="relative min-h-screen flex flex-col">
-      <div class="relative flex-grow-0">
-        <Navbar />
-        <NotificationBar />
-      </div>
-      <div class="relative flex-grow">
-        <nuxt />
-      </div>
-      <DiscordButton />
-      <div class="relative flex-grow-0">
-        <Footer v-if="localePath('/')" background-color="true" />
-        <PrivacyPolicyBanner />
-      </div>
-    </div>
-  </Wrapper>
+  <DefaultLayout>
+    <nuxt />
+  </DefaultLayout>
 </template>
 <script>
-import Wrapper from './wrapper.vue'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
-import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
-import NotificationBar from '@/components/layout/NotificationBar'
-import DiscordButton from '@/components/ui/DiscordButton'
-
+import DefaultLayout from '@/components/layout/Default'
 export default {
   components: {
-    Navbar,
-    PrivacyPolicyBanner,
-    NotificationBar,
-    Footer,
-    Wrapper,
-    DiscordButton,
+    DefaultLayout,
   },
 }
 </script>

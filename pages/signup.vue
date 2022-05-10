@@ -137,25 +137,13 @@
             </div>
 
             <div class="flex text-right self-start">
-              <Button
+              <ArrowButton
                 :loading="loading"
-                :padding="false"
+                type="submit"
                 :disabled="loading"
-                class="flex btn-primary btn-lg py-2 px-5 align-middle"
-              >
-                <span class="text-sm">{{
-                  $t('login-page.signup.button')
-                }}</span>
-                <span
-                  v-if="loading === false"
-                  class="text-white mt-0.5 lg:pl-12 pl-8"
-                >
-                  <ArrowRight />
-                </span>
-                <span v-else class="text-white lg:pl-12 pl-8">
-                  <Spinner class="animate-spin" />
-                </span>
-              </Button>
+                min-width-class="min-w-40"
+                >{{ $t('login-page.signup.button') }}
+              </ArrowButton>
             </div>
           </div>
         </div>
@@ -166,23 +154,20 @@
 
 <script>
 /* eslint-disable no-console */
-import Button from '@/components/ui/button'
+import ArrowButton from '@/components/ui/button/Arrow'
 import Input from '@/components/ui/Input'
-import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 // import Upload from '~/assets/icons/upload.svg?inline'
 import ReferralList from '@/components/popups/referral/List'
-import Spinner from '~/assets/icons/spinner.svg?inline'
 
 export default {
   components: {
-    Button,
+    ArrowButton,
     Input,
-    ArrowRight,
-    Spinner,
     ReferralList,
     // Upload,
   },
   layout: 'withoutFooter',
+  middleware: 'guest',
   data() {
     return {
       form: {
@@ -224,7 +209,7 @@ export default {
           referrer: this.referrer,
         })
         .then(() => {
-          this.$router.replace('/profile')
+          this.$router.replace(this.localePath('/profile'))
         })
         .catch((error) => {
           this.loading = false
@@ -257,6 +242,7 @@ export default {
 .link {
   text-decoration: underline;
 }
+
 .link:hover {
   color: blue;
 }

@@ -31,6 +31,27 @@ body,
 body {
   font-weight: 400;
   font-family: 'Graphik', sans-serif;
+  width: 100%;
+  position: relative;
+}
+
+.message-rectangle {
+  @apply p-6 relative text-base;
+
+  background: #fefce8;
+  color: #713f12;
+  width: 80%;
+}
+
+.message-rectangle::before {
+  width: 0;
+  height: 0;
+  content: '';
+  position: absolute;
+  border-left: 28px solid transparent;
+  bottom: 0;
+  border-right: 28px solid transparent;
+  border-bottom: 28px solid #fefce8;
 }
 
 .message-bubble {
@@ -69,7 +90,7 @@ input {
 }
 
 button {
-  @apply bg-primary outline-none focus:outline-none cursor-pointer relative px-4 py-2 text-white rounded-full;
+  @apply bg-primary outline-none focus:outline-none cursor-pointer relative px-4 py-2 text-white rounded-full text-sm;
 }
 
 .floating-input > input::placeholder {
@@ -161,10 +182,10 @@ div {
 
 .pt-0\! {
   @apply pt-0 !important;
-} 
+}
 
 .list li {
-line-height: 0.5rem;
+  line-height: 0.5rem;
 }
 
 .list li::before {
@@ -176,5 +197,11 @@ line-height: 0.5rem;
   .list li {
     height: 44px;
     line-height: 1rem;
-    }   
+  }
+}
+
+.translation {
+  background-color: #fefce8;
+  width: -webkit-fill-available;
+  margin-top: 1rem;
 }

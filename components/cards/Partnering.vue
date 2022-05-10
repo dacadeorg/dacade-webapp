@@ -1,30 +1,9 @@
 <template>
   <div
-    class="
-      relative
-      lg:mt-0
-      xl:pt-0
-      rounded-3.5xl
-      overflow-hidden
-      mt-5
-      md:mt-0
-      border border-solid border-grayLight
-      md:border-none
-    "
+    class="relative lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden mt-5 md:mt-0 border border-solid border-grayLight md:border-none"
   >
     <div
-      class="
-        relative
-        z-10
-        lg:p-6 lg:pb-3 lg:pt-9
-        p-7
-        w-full
-        text-primary
-        h-full
-        flex flex-col
-        justify-between
-        divide-y-2 divide-y divide-dotted divide-theme-accent
-      "
+      class="relative z-10 p-6 lg:pb-3 w-full text-primary h-full min-h-xs flex flex-col justify-between divide-y-2 divide-y divide-dotted divide-theme-accent"
     >
       <div class="max-w-sm">
         <p class="text-2xl font-medium mb-2.5 leading-none">
@@ -34,23 +13,16 @@
           {{ $t('page.index.communities.partnering.subtitle') }}
         </p>
       </div>
-      <div class="mt-4 flex-none flex justify-between">
-        <div class="md:flex flex-col space-y-0 hidden">
-          <div class="mt-4 font-light text-theme-accent w-48">
+      <div class="mt-4 flex-none md:flex justify-between">
+        <div class="md:flex md:flex-col space-y-0">
+          <div class="mt-4 font-light text-theme-accent md:w-48">
             {{ $t('partnering.card.text') }}
           </div>
         </div>
         <div class="mt-4 align-middle">
           <a href="mailto:moritz@dacade.org">
             <Button
-              class="
-                hover:bg-primary
-                group-hover:text-white
-                leading-relaxed
-                lg:px-7
-                px-5
-                font-medium
-              "
+              class="hover:bg-primary group-hover:text-white leading-relaxed lg:px-7 px-5 font-medium"
               type="outline-primary"
               :padding="false"
             >

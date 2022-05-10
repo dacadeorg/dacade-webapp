@@ -12,6 +12,7 @@ export default function attacher({ include, exclude, prefix, languages } = {}) {
     'javascript',
     require('highlight.js/lib/languages/javascript')
   )
+  lowlight.registerLanguage('json', require('highlight.js/lib/languages/json'))
   return (ast) => visit(ast, 'code', visitor)
 
   function visitor(node) {

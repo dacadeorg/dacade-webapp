@@ -4,40 +4,36 @@
   >
     <div class="relative p-6 text-center">
       <div v-if="error.statusCode === 404">
-        <h1 class="text-3xl font-medium mb-6">Page not found</h1>
+        <h1 class="text-3xl font-medium mb-6">
+          {{ $t('error.404.title') }}
+        </h1>
         <p class="text-lg mb-6">
-          The page you're trying to reach doesn't appear to exist.
+          {{ $t('error.404.message') }}
         </p>
       </div>
       <div v-else>
-        <h1 class="text-3xl font-medium mb-6">Oops!</h1>
+        <h1 class="text-3xl font-medium mb-6">
+          {{ $t('error.default.title') }}
+        </h1>
         <p class="text-lg mb-2">
-          An error occured and your request couldn't be completed.
+          {{ $t('error.default.message') }}
         </p>
-        <p class="text-lg mb-6">Please refresh this page or try again later</p>
+        <p class="text-lg mb-6">{{ $t('error.page.button.refresh') }}</p>
       </div>
       <div class="text-center">
-        <Button
-          link="/"
-          target="_self"
-          class="inline-flex btn-primary btn-lg py-2 px-5 align-middle"
-          ><span class="text-sm">Home Page</span>
-          <span class="text-white mt-0.5 pl-4">
-            <ArrowRight />
-          </span>
-        </Button>
+        <ArrowButton link="/" target="_self" class="inline-flex align-middle"
+          >{{ $t('error.page.button.home') }}
+        </ArrowButton>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Button from '@/components/ui/button'
-import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 export default {
   components: {
-    Button,
-    ArrowRight,
+    ArrowButton,
   },
   layout: 'withoutFooter',
   props: {
@@ -46,5 +42,8 @@ export default {
       default: () => {},
     },
   }, // If you prefers you can set a custom layout for the error page
+  mounted() {
+    console.error(this.error)
+  },
 }
 </script>

@@ -11,7 +11,7 @@
   </Wrapper>
 </template>
 <script>
-import Wrapper from './wrapper.vue'
+import Wrapper from '@/components/layout/Wrapper'
 import Navbar from '@/components/layout/Navbar'
 import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
 import NotificationBar from '@/components/layout/NotificationBar'

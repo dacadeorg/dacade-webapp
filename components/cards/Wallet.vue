@@ -25,7 +25,7 @@
           </div>
           <div class="flex">
             <div class="w-1/2 pt-5 text-sm">
-              <h1>Balance</h1>
+              <h1>{{ $t('profile.wallets.balance') }}</h1>
             </div>
             <div class="w-1/2 pt-3.5 text-right text-2xl font-medium">
               <h1>
@@ -51,8 +51,12 @@
           <span
             class="cursor-pointer hover:underline"
             @click="showEditModal = true"
-            >{{ address ? 'Change' : 'Set' }} address</span
-          >
+            >{{
+              address
+                ? $t('profile.wallets.address-change')
+                : $t('profile.wallets.address-set')
+            }}
+          </span>
         </div>
         <div v-if="!cashable" class="prose">
           <p
@@ -65,18 +69,14 @@
           />
         </div>
         <div v-if="cashable" class="right-2 absolute bottom-2 mt-5">
-          <Button
-            :padding="false"
+          <ArrowButton
             :disabled="disabled || !details.balance || !details.address"
-            class="py-2"
             type="outline-primary"
+            min-width-class="min-w-40"
             @click="showPayoutModal = true"
           >
-            <span class="inline-block text-sm">Cash out </span>
-            <span class="inline-block lg:pl-12 pl-3 align-middle"
-              ><ArrowRight
-            /></span>
-          </Button>
+            {{ $t('profile.wallets.cash-out') }}
+          </ArrowButton>
         </div>
       </div>
     </div>
@@ -91,20 +91,18 @@
 
 <script>
 import Coin from '@/components/ui/Coin'
-import Button from '@/components/ui/button'
+import ArrowButton from '@/components/ui/button/Arrow'
 import Tag from '@/components/ui/Tag'
 import Currency from '@/components/ui/Currency'
 import EditAddress from '@/components/sections/profile/modals/EditAddress'
 import Payout from '@/components/sections/profile/modals/Payout.vue'
 import Hint from '@/components/ui/Hint'
-import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
   name: 'Wallet',
   components: {
     Coin,
-    Button,
-    ArrowRight,
+    ArrowButton,
     Tag,
     Currency,
     EditAddress,

@@ -1,15 +1,7 @@
 <template>
   <div class="relative">
     <li
-      class="
-        inline-block
-        align-middle
-        z-40
-        relative
-        ease-linear
-        transition-all
-        duration-150
-      "
+      class="inline-block align-middle z-40 relative ease-linear transition-all duration-150"
       @click="toggle"
     >
       <div
@@ -31,20 +23,7 @@
       @close="externalClick"
     >
       <div
-        class="
-          max-h-full
-          overflow-scroll
-          md:max-w-sidebar
-          relative
-          ml-auto
-          mt-0
-          md:mr-12
-          w-full
-          z-40
-          bg-secondary
-          rounded-3.5xl
-          text-gray-900
-        "
+        class="max-h-full overflow-scroll md:max-w-sidebar relative ml-auto mt-0 md:mr-12 w-full z-40 bg-secondary rounded-3.5xl text-gray-900"
       >
         <div class="divide-y divide-gray-200">
           <div class="flex flex-col text-left justify-between">
@@ -99,29 +78,14 @@
                   <Avatar class="p-3 w-10 h-10" :user="user" />
                   <div class="py-2 px-2">
                     <span
-                      class="
-                        font-medium
-                        text-lg
-                        block
-                        leading-normal
-                        capitalize
-                      "
+                      class="font-medium text-lg block leading-normal capitalize"
                       >{{ user.displayName }}</span
                     >
                   </div>
                 </nuxt-link>
               </div>
               <div
-                class="
-                  py-2
-                  self-end
-                  text-right
-                  whitespace-nowrap
-                  align-text-bottom
-                  font-normal
-                  text-sm text-gray-500
-                  cursor-pointer
-                "
+                class="py-2 self-end text-right whitespace-nowrap align-text-bottom font-normal text-sm text-gray-500 cursor-pointer"
                 @click="logout"
               >
                 <span>{{ $t('nav.sign-out') }}</span>
@@ -153,7 +117,7 @@
               @click="toggle"
             >
               <nuxt-link class="w-full" :to="localePath('/login')">
-                Login
+                {{ $t('nav.login') }}
               </nuxt-link>
             </Button>
             <Button
@@ -162,7 +126,7 @@
               @click="toggle"
             >
               <nuxt-link lass="w-full" :to="localePath('/signup')">
-                Sign up
+                {{ $t('nav.sign-up') }}
               </nuxt-link>
             </Button>
 

@@ -1,16 +1,6 @@
 <template>
   <div
-    class="
-      px-5
-      pt-5
-      pb-8
-      bg-gray-50
-      rounded-3xl
-      min-h-2xs
-      w-full
-      border-solid border-2 border-gray-100
-      md:mt-0
-    "
+    class="px-5 pt-5 pb-8 bg-gray-50 rounded-3xl min-h-2xs w-full border-solid border-2 border-gray-100 md:mt-0"
   >
     <nuxt-link
       :to="
@@ -24,18 +14,7 @@
           </h4>
           <span
             v-if="learningModule.duration"
-            class="
-              text-xxs
-              mt-4
-              uppercase
-              font-semibold
-              px-2
-              mb-2
-              bg-gray-200
-              rounded-3xl
-              inline-block
-              text-gray-500
-            "
+            class="text-xxs mt-4 uppercase font-semibold px-2 mb-2 bg-gray-200 rounded-3xl inline-block text-gray-500"
             >{{ duration(learningModule.duration) }}</span
           >
         </div>
@@ -71,7 +50,7 @@ export default {
       if (!value) {
         return 0
       }
-      return DateManager.humanize(value)
+      return DateManager.humanize(value, this.$i18n.locale)
     },
   },
 }

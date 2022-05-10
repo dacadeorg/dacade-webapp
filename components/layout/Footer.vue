@@ -4,38 +4,15 @@
     :type="backgroundColor === 'true' ? 'secondary-light' : 'default'"
   >
     <div
-      class="
-        border-t border-t-solid border-gray-200
-        lg:flex
-        md:flex
-        py-8
-        text-gray-400 text-base
-        lg:text-left
-        text-center
-      "
+      class="border-t border-t-solid border-gray-200 lg:flex md:flex py-8 text-gray-400 text-base lg:text-left text-center"
     >
       <div
-        class="
-          lg:w-1/2
-          w-full
-          lg:border-none
-          md:border-none
-          border-b border-b-solid border-gray-200
-        "
+        class="lg:w-1/2 w-full lg:border-none md:border-none border-b border-b-solid border-gray-200"
       >
         <!-- eslint-disable-next-line vue/no-v-html -->
         <p class="text-with-links block" v-html="$t('footer.text')" />
         <div
-          class="
-            mt-8
-            mb-12
-            lg:mb-0
-            flex
-            justify-center
-            lg:justify-start
-            items-center
-            space-x-9
-          "
+          class="mt-8 mb-12 lg:mb-0 flex justify-center lg:justify-start items-center space-x-9"
         >
           <a
             v-for="(partner, i) in partners"

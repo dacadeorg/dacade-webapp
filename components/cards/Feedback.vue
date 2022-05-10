@@ -10,61 +10,42 @@
     :badge="value.ranking"
     :box-layout="preview"
   >
-    <div
-      class="text-base md:text-lg leading-normal relative break-all"
-      :class="{ 'line-clamp-3': preview }"
-      v-html="value.text"
-    />
+    <div class="-my-5" :class="{ 'line-clamp-3': preview }">
+      <Markdown
+        class="text-base md:text-lg leading-normal relative break-words"
+        :value="value.text"
+      />
+    </div>
     <div
       v-if="
         value.metadata &&
         value.metadata.evaluation &&
         value.metadata.evaluation.points
       "
-      class="pt-5"
+      class="pt-5 flex space-x-1"
     >
       <Reward
         v-if="value.metadata.evaluation.reward"
         type="light-gray"
         :reward="value.metadata.evaluation.reward"
       />
-      <div class="inline-block">
-        <Tag
-          :value="`${value.metadata.evaluation.points} REP`"
-          class="text-sm font-bold"
-          type="light-gray"
-        />
-      </div>
+      <Tag
+        :value="`${value.metadata.evaluation.points} REP`"
+        class="text-sm font-bold"
+        type="light-gray"
+      />
     </div>
-
     <div
       v-if="!preview && value.link"
       class="flex space-y-2 md:space-y-5 space-x-0 md:space-x-2 mt-6"
     >
-      <Button
+      <ArrowButton
         :link="value.link"
         target="__blank"
-        :padding="false"
-        class="action-button py-2 px-5 w-44"
         :custom-style="primaryButtonStyles"
-        type="outline-primary"
       >
-        <span class="flex text-left items-center">
-          GitHub Code
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-        </span>
-      </Button>
-      <!-- <Button
-        :padding="false"
-        class="action-button py-2 px-5 w-44"
-        :custom-style="outlineButtonStyles"
-        type="outline-primary"
-      >
-        <span class="flex text-left items-center">
-          Website
-          <span class="absolute right-4 w-3"><ArrowRightIcon /></span>
-        </span>
-      </Button> -->
+        {{ $t('submissions.feedback.link.github') }}
+      </ArrowButton>
     </div>
   </UserCard>
 </template>
@@ -72,19 +53,19 @@
 import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import UserCard from '@/components/cards/User'
-import Button from '@/components/ui/button'
+import ArrowButton from '@/components/ui/button/Arrow'
 import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
-import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
+import Markdown from '@/components/ui/Markdown'
 
 export default {
   name: 'FeedbackCard',
   components: {
     UserCard,
-    Button,
+    ArrowButton,
     Tag,
-    ArrowRightIcon,
     Reward,
+    Markdown,
   },
   props: {
     value: {

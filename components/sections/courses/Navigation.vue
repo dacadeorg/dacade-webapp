@@ -8,52 +8,13 @@
           >{{ $t(menu.title) }}</span
         >
         <ul>
-          <li
-            v-for="(item, k) in menu.items"
-            :key="k"
-            class="relative mt-4 text-sm"
-          >
-            <span class="relative block" :style="activeLinkStyle">
-              <nuxt-link
-                :to="localePath(item.link)"
-                class="relative text-gray-500"
-                :class="{ 'activable-link': !item.exact }"
-              >
-                <span class="absolute inline-block -top-1 -left-6 nav-icon">
-                  <ChevronRightIcon
-                    :class="{
-                      'transform rotate-90':
-                        item.subitems && item.subitems.length,
-                    }"
-                  />
-                </span>
-                <span class="nav-label">{{ $t(item.label) }}</span>
-              </nuxt-link>
-            </span>
-            <ul
-              v-if="
-                item.subitems &&
-                item.subitems.length &&
-                $route.path === item.link
-              "
-            >
-              <li
-                v-for="(subitem, j) in item.subitems"
-                :key="j"
-                class="relative mt-4 text-sm text-gray-500"
-                :style="activeLinkStyle"
-              >
-                <nuxt-link
-                  :to="localePath({ path: item.link, hash: subitem.link })"
-                  class="relative text-gray-500 opacity-50 hover:opacity-100"
-                  :class="{ 'activable-link': !subitem.exact }"
-                >
-                  <span class="nav-label">{{ $t(subitem.label) }}</span>
-                </nuxt-link>
-              </li>
-            </ul>
+          <li v-for="(item, k) in menu.items" :key="k" class="relative mt-4">
+            <NavigationLink :item="item" />
           </li>
         </ul>
+      </li>
+      <li>
+        <LanguageSwitcher />
       </li>
     </ul>
   </ThemeWrapper>
@@ -61,16 +22,20 @@
 <script>
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
+import LanguageSwitcher from './_partials/LanguageSwitcher'
+import NavigationLink from './_partials/navigation/link'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
-import ChevronRightIcon from '~/assets/icons/chevron-right.svg?inline'
 
 export default {
   components: {
     ThemeWrapper,
-    ChevronRightIcon,
+    LanguageSwitcher,
+    NavigationLink,
   },
   data() {
-    return {}
+    return {
+      expanded: true,
+    }
   },
   computed: {
     ...mapGetters({
@@ -79,17 +44,15 @@ export default {
       colors: 'ui/colors',
       menus: 'communities/navigation/list',
     }),
-    activeLinkStyle() {
-      return {
-        color: this.colors.primary,
-      }
-    },
+  },
+  created() {
+    this.$store.dispatch('communities/navigation/init')
   },
 }
 </script>
 <style lang="scss" scoped>
 .nav-icon {
-  display: none;
+  display: block;
 }
 .nuxt-link-active + ul {
   display: block;
@@ -99,7 +62,6 @@ export default {
   color: inherit !important;
   opacity: 1;
 }
-
 .nuxt-link-exact-active > .nav-icon,
 .activable-link.nuxt-link-active > .nav-icon {
   display: block;

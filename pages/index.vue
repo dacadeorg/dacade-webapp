@@ -17,12 +17,5 @@ export default {
     CommunitiesSection,
     TestimonialsSection,
   },
-  async fetch({ store, error }) {
-    try {
-      await store.dispatch('communities/all')
-    } catch (e) {
-      error(e)
-    }
-  },
 }
 </script>

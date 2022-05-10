@@ -1,13 +1,6 @@
 <template>
   <div
-    class="
-      text-base text-left
-      flex
-      sm:flex-start
-      flex-row
-      justify-between
-      sm:flex-col sm:space-y-4
-    "
+    class="text-base text-left flex sm:flex-start flex-row justify-between sm:flex-col sm:space-y-4"
   >
     <div
       class="text-xxs tracking-wider px-1 font-semibold uppercase text-gray-500"

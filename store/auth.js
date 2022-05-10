@@ -48,6 +48,7 @@ export const actions = {
     this.commit('setBusy', true)
     this.commit('clearError')
     try {
+      this.dispatch('user/clear')
       await signInWithEmailAndPassword(firebaseAuth, email, password)
       await this.dispatch('user/fetch')
       this.commit('setJobDone', true)

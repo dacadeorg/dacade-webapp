@@ -11,7 +11,8 @@
             :custom-style="buttonStyles"
             :padding="false"
             type="secondary"
-            class="p-0.5 pr-5 bg-gray-100 bg-opacity-75 hover:bg-gray-50"
+            :class="{ 'pr-5': mainWallet }"
+            class="p-0.5 bg-gray-100 bg-opacity-75 hover:bg-gray-50"
           >
             <Avatar :user="user" />
             <span
@@ -77,42 +78,6 @@ export default {
       reputations: 'user/reputations/list',
       user: 'user/get',
     }),
-    referrals() {
-      return [
-        {
-          name: 'Celo Development 101',
-          icon: '/img/communities/celo.svg',
-          type: 'Referral',
-          colors: {
-            text: '#fff',
-            accent: '#2E3337',
-            textAccent: '#34b276',
-            primary: '#35C07D',
-          },
-          reward: {
-            amount: 25,
-            token: 'cUSD',
-          },
-          url: 'https://forms.gle/PLjPugvJpj9m2Qn7A',
-        },
-        {
-          name: 'Tezos Starter Course',
-          image: '/img/communities/tacode.webp',
-          type: 'Challenge',
-          colors: {
-            text: '#0D61FF',
-            accent: '#0D61FF',
-            textAccent: '#fff',
-            primary: '#0D61FF',
-          },
-          reward: {
-            amount: 12,
-            token: 'tez',
-          },
-          url: 'https://tacode.dev/courses/dev-starter',
-        },
-      ]
-    },
   },
   created() {
     this.$store.dispatch('user/wallets/all')

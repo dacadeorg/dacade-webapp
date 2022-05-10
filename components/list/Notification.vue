@@ -1,17 +1,10 @@
 <template>
   <div class="text-left relative">
     <span
-      class="
-        uppercase
-        block
-        text-xs
-        font-semibold
-        text-gray-500
-        leading-relaxed
-      "
+      class="uppercase block text-xs font-semibold text-gray-500 leading-relaxed"
       >{{ $t('nav.notification') }}</span
     >
-    <div :class="{ 'space-y-4 mt-3': !extended, 'space-y-16 mt-4': extended }">
+    <div :class="{ 'space-y-4 mt-3': !extended, 'space-y-4 mt-4': extended }">
       <NotificationCard
         v-for="notification in notifications"
         :key="notification.id"

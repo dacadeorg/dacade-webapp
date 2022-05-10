@@ -57,20 +57,13 @@
             </span>
           </div>
           <div class="text-right self-end">
-            <Button
+            <ArrowButton
               :loading="loading"
-              :padding="false"
+              type="submit"
               :disabled="loading"
-              class="flex btn-primary btn-lg py-2 px-5 align-middle"
-            >
-              <span class="text-sm">{{ $t('login-page.signin.button') }}</span>
-              <span v-if="!loading" class="text-white mt-0.5 lg:pl-12 pl-8">
-                <ArrowRight />
-              </span>
-              <span v-else class="text-white lg:pl-12 pl-8">
-                <Spinner class="animate-spin" />
-              </span>
-            </Button>
+              min-width-class="min-w-40"
+              >{{ $t('login-page.signin.button') }}
+            </ArrowButton>
           </div>
         </div>
       </div>
@@ -79,22 +72,17 @@
 </template>
 
 <script>
-import Button from '@/components/ui/button'
+import ArrowButton from '@/components/ui/button/Arrow'
 import Input from '@/components/ui/Input'
-import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
-import Spinner from '~/assets/icons/spinner.svg?inline'
 /* eslint-disable no-console */
 
 export default {
   components: {
-    Button,
+    ArrowButton,
     Input,
-    ArrowRight,
-    Spinner,
   },
   layout: 'withoutFooter',
   middleware: 'guest',
-
   data() {
     return {
       form: {
@@ -105,7 +93,6 @@ export default {
       loading: false,
     }
   },
-
   methods: {
     onLogin() {
       const loginData = {
@@ -116,7 +103,7 @@ export default {
       this.$store
         .dispatch('auth/login', loginData)
         .then(() => {
-          this.$router.replace('/bounties')
+          this.$router.replace(this.localePath('/bounties'))
         })
         .catch(() => {
           this.loading = false

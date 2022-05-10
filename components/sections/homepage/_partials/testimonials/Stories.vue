@@ -4,13 +4,7 @@
     <span
       v-for="(grid, i) in grids"
       :key="i"
-      class="
-        border border-solid border-gray-200
-        m-auto
-        rounded-full
-        absolute
-        inset-0
-      "
+      class="border border-solid border-gray-200 m-auto rounded-full absolute inset-0"
       :style="{
         width: `${getSize(i)}vh`,
         height: `${getSize(i)}vh`,

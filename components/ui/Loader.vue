@@ -1,37 +1,33 @@
 <template>
   <div
-    class="
-      h-15
-      w-15
-      rounded-full
-      border border-solid
-      cursor-pointer
-      flex
-      items-center
-      justify-center
-      text-gray-400
-      bg-white
-    "
-    :class="{ 'bg-gray-50': loading, 'hover:bg-gray-200': !loading }"
+    class="flex items-center justify-center"
+    :class="{ 'text-primary': !communityStyles }"
+    :style="{
+      ...(communityStyles ? styles : {}),
+    }"
     v-on="inputListeners"
   >
-    <RefreshIcon :class="{ 'spinning-animation': loading }" />
+    <Spinner class="animate-spin h-12 w-12" />
   </div>
 </template>
 <script>
-import RefreshIcon from '~/assets/icons/refresh.svg?inline'
+import { mapGetters } from 'vuex'
+import Spinner from '~/assets/icons/spinner.svg?inline'
 export default {
-  name: 'DALoader',
+  name: 'Loader',
   components: {
-    RefreshIcon,
+    Spinner,
   },
   props: {
-    loading: {
+    communityStyles: {
       default: false,
       type: Boolean,
     },
   },
   computed: {
+    ...mapGetters({
+      colors: 'ui/colors',
+    }),
     inputListeners() {
       const vm = this
       // `Object.assign` merges objects together to form a new object
@@ -55,6 +51,11 @@ export default {
           },
         }
       )
+    },
+    styles() {
+      return {
+        color: this.colors.textAccent,
+      }
     },
   },
 }

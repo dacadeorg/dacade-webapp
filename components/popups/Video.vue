@@ -2,32 +2,11 @@
   <div>
     <span v-click-outside="externalClick">
       <li
-        class="
-          content-wrapper
-          inline-block
-          align-middle
-          mr-2
-          max-w-2xl
-          aspect-w-16
-          lg:aspect-h-9
-          aspect-h-2
-          md:aspect-h-9
-          relative
-          text-gray-500
-          cursor-pointer
-        "
+        class="content-wrapper inline-block align-middle mr-2 max-w-2xl relative text-gray-500 cursor-pointer"
         @click="toggle"
       >
         <span
-          class="
-            flex
-            space-x-1
-            text-primary
-            hover:text-primary-dark
-            mt-3
-            text-base
-            leading-normal
-          "
+          class="flex space-x-1 text-primary hover:text-primary-dark mt-3 text-base leading-normal"
         >
           <PlayIcon class="-mt-1" fill="white" />
           <div class="leading-normal font-light">
@@ -39,37 +18,10 @@
       <div class="flex justify-center">
         <div
           v-if="show"
-          class="
-            z-50
-            mt-0
-            w-full
-            inline-block
-            fixed
-            top-14
-            md:top-24
-            left-0
-            right-0
-            bg-transparent
-            px-auto
-            rounded-3.5xl
-            text-gray-900
-            no-scrollbar
-            max-w-full
-            h-auto
-            content-wrapper
-            justify-self-center
-            sm:m-auto
-          "
+          class="z-50 mt-0 w-full inline-block fixed top-14 md:top-24 left-0 right-0 bg-transparent px-auto rounded-3.5xl text-gray-900 no-scrollbar max-w-full h-auto content-wrapper justify-self-center sm:m-auto"
         >
           <Video
-            class="
-              z-50
-              aspect-w-16 aspect-h-8
-              max-w-full
-              m-auto
-              justify-center
-              bg-black
-            "
+            class="z-50 aspect-w-16 aspect-h-8 max-w-full m-auto justify-center bg-black"
             url="https://youtube.com/embed/GmVrQDulaLY"
           />
         </div>

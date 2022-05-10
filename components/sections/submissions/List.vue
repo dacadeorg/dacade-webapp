@@ -2,11 +2,7 @@
   <Section :key="page">
     <div v-if="submissions && submissions.length">
       <div
-        class="
-          sm:border sm:border-gray-200 sm:border-solid
-          rounded-3.5xl
-          relative
-        "
+        class="sm:border sm:border-gray-200 sm:border-solid rounded-3.5xl relative"
       >
         <div class="flex flex-col divide-y">
           <SubmissionCard
@@ -45,7 +41,7 @@ import { mapGetters } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
 import Section from '@/components/sections/communities/_partials/Section.vue'
 import SubmissionCard from '@/components/cards/Submission'
-import Loader from '@/components/ui/Loader'
+import Loader from '@/components/ui/button/Loader'
 import EmptyState from '@/components/ui/EmptyState'
 
 export default {

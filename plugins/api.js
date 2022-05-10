@@ -1,6 +1,6 @@
 import Package from '../package.json'
 
-export default function ({ $axios, store }, inject) {
+export default function ({ $axios, store, app }, inject) {
   // Create a custom axios instance
   const api = $axios.create({
     headers: {
@@ -16,6 +16,7 @@ export default function ({ $axios, store }, inject) {
     await api.setToken(token)
     config.headers['app-name'] = Package.name
     config.headers['app-domain'] = window.location.hostname
+    config.headers['Accept-Language'] = app.i18n.locale
     return config
   })
 

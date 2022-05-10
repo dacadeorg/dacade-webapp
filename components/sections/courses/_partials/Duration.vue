@@ -37,7 +37,7 @@ export default {
       if (!this.value) {
         return 0
       }
-      return DateManager.humanize(this.value)
+      return DateManager.humanize(this.value, this.$i18n.locale)
     },
   },
 }

@@ -1,14 +1,11 @@
 <template>
   <div>
     <div v-if="submissions && submissions.length" class="py-10">
-      <p class="font-medium text-xs text-gray-600">SUBMISSIONS</p>
+      <p class="font-medium text-xs text-gray-600 uppercase">
+        {{ $t('communities.submissions') }}
+      </p>
       <div
-        class="
-          my-5
-          sm:border sm:border-gray-200 sm:border-solid
-          rounded-3.5xl
-          relative
-        "
+        class="my-5 sm:border sm:border-gray-200 sm:border-solid rounded-3.5xl relative"
       >
         <div class="flex flex-col divide-y">
           <SubmissionCard
@@ -30,14 +27,11 @@
       </div>
     </div>
     <div v-if="feedbacks && feedbacks.length" class="py-10">
-      <p class="font-medium text-xs text-gray-600">FEEDBACKS</p>
+      <p class="font-medium text-xs text-gray-600">
+        {{ $t('communities.challenge.feedbacks.cap') }}
+      </p>
       <div
-        class="
-          my-5
-          sm:border sm:border-gray-200 sm:border-solid
-          rounded-3.5xl
-          relative
-        "
+        class="my-5 sm:border sm:border-gray-200 sm:border-solid rounded-3.5xl relative"
       >
         <div class="flex flex-col divide-y">
           <div v-for="feedback in feedbacks" :key="feedback.id">
@@ -85,10 +79,10 @@ export default {
   computed: {
     ...mapGetters({
       colors: 'ui/colors',
-      community: 'user/communities/current',
-      feedbacks: 'user/communities/feedbacks',
-      submissions: 'user/communities/submissions',
-      reputation: 'user/communities/reputation',
+      community: 'profile/communities/current',
+      feedbacks: 'profile/communities/feedbacks',
+      submissions: 'profile/communities/submissions',
+      reputation: 'profile/communities/reputation',
     }),
   },
 }

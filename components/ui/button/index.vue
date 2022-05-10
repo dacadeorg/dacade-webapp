@@ -1,13 +1,6 @@
 <template>
   <button
-    class="
-      outline-none
-      focus:outline-none
-      hover:outline-none
-      cursor-pointer
-      relative
-      disabled:border-opacity-60 disabled:cursor-not-allowed
-    "
+    class="outline-none focus:outline-none hover:outline-none cursor-pointer relative disabled:border-opacity-60 disabled:cursor-not-allowed"
     :disabled="disabled"
     type="submit"
     :class="{
