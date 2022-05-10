@@ -1,7 +1,7 @@
 <template>
   <Section
     padding="pt-20"
-    :type="$router.history.current.path === '/' ? 'secondary-light' : 'default'"
+    :type="backgroundColor === 'true' ? 'secondary-light' : 'default'"
   >
     <div
       class="
@@ -74,6 +74,12 @@ export default {
   components: {
     Section,
     SocialLink,
+  },
+  props: {
+    backgroundColor: {
+      default: false,
+      type: Boolean,
+    },
   },
   data() {
     return {

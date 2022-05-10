@@ -10,7 +10,7 @@
       </div>
       <DiscordButton />
       <div class="relative flex-grow-0">
-        <Footer />
+        <Footer v-if="localePath('/')" background-color="true" />
         <PrivacyPolicyBanner />
       </div>
     </div>
