@@ -1,5 +1,5 @@
 <template>
-  <DefaultLayout footer-background-color>
+  <DefaultLayout footer-background-color >
     <nuxt />
   </DefaultLayout>
 </template>

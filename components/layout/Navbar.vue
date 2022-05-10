@@ -18,7 +18,7 @@
         </NavItem>
       </ul>
       <ul class="ml-auto text-right relative flex lg:hidden items-center">
-        <Sidebar />
+        <Sidebar :burger-color="sidebarBurgerColor"/>
       </ul>
       <ul
         v-if="!isAuthenticated"
@@ -116,6 +116,11 @@ export default {
         return {}
       },
       type: Object,
+    },
+
+    sidebarBurgerColor: {
+      default: false,
+      type: Boolean,
     },
   },
   computed: {

@@ -6,11 +6,8 @@
     >
       <div
         v-if="!show"
-        :class="
-          $router.history.current.path === '/' ? 'text-black' : 'text-white'
-        "
       >
-        <MobileMenuLogo />
+        <MobileMenuLogo :class=" burgerColor  ? 'text-white' : 'text-black'"/>
       </div>
       <div v-else>
         <CloseIcon />
@@ -177,6 +174,11 @@ export default {
     buttonStyles: {
       default: null,
       type: Object,
+    },
+
+    burgerColor: {
+      default: false,
+      type: Boolean,
     },
   },
   data() {
