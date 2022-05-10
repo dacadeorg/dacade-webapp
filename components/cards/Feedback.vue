@@ -37,7 +37,7 @@
     </div>
     <div
       v-if="!preview && value.link"
-      class="flex space-y-2 md:space-y-5 space-x-0 md:space-x-2 mt-6"
+      class="pt-6"
     >
       <ArrowButton
         :link="value.link"

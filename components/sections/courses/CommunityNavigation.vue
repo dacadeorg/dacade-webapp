@@ -1,16 +1,13 @@
 <template>
   <div>
-    <div class="text-sm relative pt-4 py-4 md:pt-7 lg:border-0 border-b-2">
-      <span class="flex">
-        <nuxt-link :to="localePath(path)">
-          <div class="text-gray-500">{{ community.name }}</div>
-        </nuxt-link>
-
-        <div class="px-0.5">
-          <ChevronRightIcon class="w-3" />
+    <div class="text-sm relative pt-4 py-4 md:pt-7 lg:border-0 border-b-2 flex items-center">
+        <div class="text-gray-500 leading-none">
+          <nuxt-link :to="localePath(path)">{{ community.name }}</nuxt-link>
         </div>
-        <div class="font-medium">{{ course.name }}</div>
-      </span>
+        <div class="px-0.5">
+          <ChevronRightIcon class="w-3 h-3" />
+        </div>
+        <div class="font-medium leading-none">{{ course.name }}</div>
     </div>
   </div>
 </template>
