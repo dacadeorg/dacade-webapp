@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.2...v3.3.3) (2022-05-10)
+
+
+### Bug Fixes
+
+* aligmnent well community navigation ([adf875e](https://github.com/dacadeorg/dacade-webapp/commit/adf875ef556e65d9f12826f428bbaafe14b2afc4))
+
 ### [3.3.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.1...v3.3.2) (2022-05-10)
 
 
