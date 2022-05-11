@@ -3,7 +3,15 @@
     class="flex items-center justify-center absolute min-h-screen top-0 w-full"
   >
     <div class="relative p-6 text-center">
-      <div v-if="error.statusCode === 404">
+      <div v-if="error.statusCode === 403">
+        <h1 class="text-3xl font-medium mb-6">
+          {{ $t('error.default.title') }}
+        </h1>
+        <p class="text-lg mb-6">
+          {{ error.message }}
+        </p>
+      </div>
+      <div v-else-if="error.statusCode === 404">
         <h1 class="text-3xl font-medium mb-6">
           {{ $t('error.404.title') }}
         </h1>
@@ -21,7 +29,7 @@
         <p class="text-lg mb-6">{{ $t('error.page.button.refresh') }}</p>
       </div>
       <div class="text-center">
-        <ArrowButton link="/" target="_self" class="inline-flex align-middle"
+        <ArrowButton link="/" target="_self"
           >{{ $t('error.page.button.home') }}
         </ArrowButton>
       </div>
@@ -41,9 +49,6 @@ export default {
       type: Object,
       default: () => {},
     },
-  }, // If you prefers you can set a custom layout for the error page
-  mounted() {
-    console.error(this.error)
-  },
+  }, // If you prefer you can set a custom layout for the error page
 }
 </script>

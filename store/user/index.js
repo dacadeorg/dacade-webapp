@@ -29,6 +29,7 @@ export const actions = {
     this.commit('user/notifications/clear')
     this.commit('user/reputations/clear')
     this.commit('user/wallets/clear')
+    this.commit('auth/clear')
   },
 
   async fetch({ commit, dispatch }, payload) {

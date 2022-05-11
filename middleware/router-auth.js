@@ -3,14 +3,27 @@
 
 export default async function ({ store, redirect, route }) {
   const authUser = store.getters['user/data']
+  const auth = store.getters['auth/data']
+  console.log(route)
+  if (route.fullPath.startsWith('/verify-email?code=')) {
+    return
+  }
+
+  if (
+    auth &&
+    !auth.emailVerified &&
+    !route.path.startsWith('/email-verification')
+  ) {
+    return redirect('/email-verification')
+  }
 
   if (authUser && isGuestRoute(route)) {
-    redirect('/')
+    return redirect('/')
   }
 
   if (!authUser && isUserRoute(route)) {
     store.commit('setForwardRoute', route.path)
-    redirect('/login')
+    return redirect('/login')
   }
 
   if (route.path.startsWith('/profile')) {
