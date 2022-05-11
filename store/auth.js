@@ -89,7 +89,13 @@ export const actions = {
     this.$router.push(this.localePath('/communities'))
   },
   async resendEmailVerification() {
-    const res = await this.$api.get('auth/resend-email-verification-link')
+    const res = await this.$api.get('auth/send-verification-email')
+    return res
+  },
+  async verifyEmail({ dispatch }, { code }) {
+    const res = await this.$api.post('auth/verify-email', {
+      code,
+    })
     return res
   },
 }

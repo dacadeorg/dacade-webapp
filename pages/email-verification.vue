@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="user"
     class="flex items-center justify-center absolute min-h-screen top-0 w-full"
   >
     <div class="relative p-6 text-center">
@@ -16,23 +17,9 @@
       </div>
 
       <div class="text-center mt-1">
-        <Button
-          :loading="loading"
-          :padding="false"
-          :disabled="loading"
-          class="inline-flex btn-primary btn-lg py-2 px-5 align-middle"
-          @click="resendEmail()"
-        >
-          <span class="text-sm">{{
-            $t('email-verification.buttons.resend')
-          }}</span>
-          <span v-if="!loading" class="text-white mt-0.5 lg:pl-12 pl-8">
-            <ArrowRight />
-          </span>
-          <span v-else class="text-white lg:pl-12 pl-8">
-            <Spinner class="animate-spin" />
-          </span>
-        </Button>
+        <ArrowButton :loading="loading" @click="resendEmail()">
+          {{ $t('email-verification.buttons.resend') }}
+        </ArrowButton>
       </div>
     </div>
   </div>
@@ -40,16 +27,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Button from '@/components/ui/button'
-import ArrowRight from '~/assets/icons/arrow-right.svg?inline'
-import Spinner from '~/assets/icons/spinner.svg?inline'
+import ArrowButton from '@/components/ui/button/Arrow'
 /* eslint-disable no-console */
 
 export default {
   components: {
-    Button,
-    ArrowRight,
-    Spinner,
+    ArrowButton,
   },
   layout: 'withoutFooter',
   middleware: 'not-verified',
@@ -76,6 +59,5 @@ export default {
       }
     },
   },
-  resendPassword() {},
 }
 </script>
