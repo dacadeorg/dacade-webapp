@@ -4,8 +4,8 @@
 export default async function ({ store, redirect, route }) {
   const authUser = store.getters['user/data']
   const auth = store.getters['auth/data']
-  console.log(route)
-  if (route.fullPath.startsWith('/verify-email?code=')) {
+
+  if (route.path.startsWith('/verify-email')) {
     return
   }
 
