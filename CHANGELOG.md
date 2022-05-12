@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.5](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.4...v3.3.5) (2022-05-12)
+
+
+### Bug Fixes
+
+* arrow button browser inconsitencies ([a9fd9b7](https://github.com/dacadeorg/dacade-webapp/commit/a9fd9b7dc17c7bec73c0d66fb3851a8c683efcd7))
+
+
+### Improvements
+
+* rename full logo ([c01594b](https://github.com/dacadeorg/dacade-webapp/commit/c01594b82ae49d7b15ee5d1795102e5df51d6fcb))
+
 ### [3.3.4](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.3...v3.3.4) (2022-05-10)
 
 
