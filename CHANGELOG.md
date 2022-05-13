@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.6](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.5...v3.3.6) (2022-05-13)
+
+
+### Bug Fixes
+
+* signup page loading speed ([cd3e3fe](https://github.com/dacadeorg/dacade-webapp/commit/cd3e3fea090895f1fda6e17f8039de263c73f228))
+
 ### [3.3.5](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.4...v3.3.5) (2022-05-12)
 
 
