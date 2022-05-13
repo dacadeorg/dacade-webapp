@@ -12,22 +12,20 @@
     v-on="inputListeners"
   >
     <span class="flex h-full text-left items-center justify-between">
-      <span v-if="isLeft" :class="{ 'pr-2.5': hasSlot }">
+      <span v-if="isLeft" :class="['block', { 'pr-2.5': hasSlot }]">
         <ArrowRightIcon
           v-if="!loading"
-          class="transform w-full"
-          :class="directionClass" />
-        <Spinner v-else class="animate-spin"
+         :class="[directionClass, arrowClasses, 'transform']" />
+        <Spinner v-else :class="[arrowClasses, 'animate-spin']"
       /></span>
-      <span class="leading-6" :class="{ 'pr-6': !isLeft && hasSlot }"
+      <span class="leading-6 block" :class="{ 'pr-6': !isLeft && hasSlot }"
         ><slot
       /></span>
-      <span v-if="!isLeft">
+      <span v-if="!isLeft" class="block">
         <ArrowRightIcon
           v-if="!loading"
-          class="transform w-full"
-          :class="directionClass" />
-        <Spinner v-else class="animate-spin w-full"
+          :class="[directionClass, arrowClasses, 'transform']" />
+        <Spinner v-else :class="[arrowClasses, 'animate-spin']"
       /></span>
     </span>
   </Button>
@@ -95,6 +93,10 @@ export default {
     },
     direction: {
       default: 'right',
+      type: String,
+    },
+    arrowClasses: {
+      default: '',
       type: String,
     },
   },
