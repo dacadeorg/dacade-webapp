@@ -9,7 +9,7 @@
       :text="material.subtitle"
       :value="material.duration"
     />
-    <span v-if="!isAdditional" class="block text-lg">{{
+    <span v-if="!isAdditional" class="block text-lg mb-6 mt-2">{{
       material.description
     }}</span>
 

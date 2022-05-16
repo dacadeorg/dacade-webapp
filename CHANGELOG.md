@@ -44,50 +44,46 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [3.3.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.0...v3.3.1) (2022-05-09)
 
-
 ### Bug Fixes
 
-* show reputations when you have more than one ([5bb3b76](https://github.com/dacadeorg/dacade-webapp/commit/5bb3b764721a2ef5972b9963c806f02343f4cce7))
+- show reputations when you have more than one ([5bb3b76](https://github.com/dacadeorg/dacade-webapp/commit/5bb3b764721a2ef5972b9963c806f02343f4cce7))
 
 ## [3.3.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.2.15...v3.3.0) (2022-05-09)
 
-
 ### Features
 
-* add loading animation to markdown ([ffdcfec](https://github.com/dacadeorg/dacade-webapp/commit/ffdcfec371e22ee16a819de9824aef01f37ba31b))
-* add markdown parsing to submissions and feedbacks ([e3872c2](https://github.com/dacadeorg/dacade-webapp/commit/e3872c22096ec2ded19287933c2098a379f1b538))
-* add open profiles ([48c5f1e](https://github.com/dacadeorg/dacade-webapp/commit/48c5f1e9a5135a45ee3431f47d6767b12c2940f7))
-* adding button of see all ([75f3fb8](https://github.com/dacadeorg/dacade-webapp/commit/75f3fb87e95c25e581cbc05234f1528d372435ce))
-* adjust avatar icon size ([3c17adb](https://github.com/dacadeorg/dacade-webapp/commit/3c17adb96b173280890b561d69d6fc225b3d47a0))
-* create community navbar ([a1dfda9](https://github.com/dacadeorg/dacade-webapp/commit/a1dfda98379bb0fad85233b18095440261edf5cc))
-* display user discord avatar ([58dee6d](https://github.com/dacadeorg/dacade-webapp/commit/58dee6df64771e7c9201928126c8cf2d9e4663ef))
-* move the markdown file into learning modules ([3988a73](https://github.com/dacadeorg/dacade-webapp/commit/3988a73b46303954774b7b3084030e4a22d981cf))
-* prevent scroll bar hidding on modal open ([a1df994](https://github.com/dacadeorg/dacade-webapp/commit/a1df9942f4ab06b94dc5c7b40c40bc85e059de5c))
-
+- add loading animation to markdown ([ffdcfec](https://github.com/dacadeorg/dacade-webapp/commit/ffdcfec371e22ee16a819de9824aef01f37ba31b))
+- add markdown parsing to submissions and feedbacks ([e3872c2](https://github.com/dacadeorg/dacade-webapp/commit/e3872c22096ec2ded19287933c2098a379f1b538))
+- add open profiles ([48c5f1e](https://github.com/dacadeorg/dacade-webapp/commit/48c5f1e9a5135a45ee3431f47d6767b12c2940f7))
+- adding button of see all ([75f3fb8](https://github.com/dacadeorg/dacade-webapp/commit/75f3fb87e95c25e581cbc05234f1528d372435ce))
+- adjust avatar icon size ([3c17adb](https://github.com/dacadeorg/dacade-webapp/commit/3c17adb96b173280890b561d69d6fc225b3d47a0))
+- create community navbar ([a1dfda9](https://github.com/dacadeorg/dacade-webapp/commit/a1dfda98379bb0fad85233b18095440261edf5cc))
+- display user discord avatar ([58dee6d](https://github.com/dacadeorg/dacade-webapp/commit/58dee6df64771e7c9201928126c8cf2d9e4663ef))
+- move the markdown file into learning modules ([3988a73](https://github.com/dacadeorg/dacade-webapp/commit/3988a73b46303954774b7b3084030e4a22d981cf))
+- prevent scroll bar hidding on modal open ([a1df994](https://github.com/dacadeorg/dacade-webapp/commit/a1df9942f4ab06b94dc5c7b40c40bc85e059de5c))
 
 ### Bug Fixes
 
-* align coin and tag ([8b5e368](https://github.com/dacadeorg/dacade-webapp/commit/8b5e368b47aeb656e654707f697da492ba0ede13))
-* change the naming ([09cc036](https://github.com/dacadeorg/dacade-webapp/commit/09cc036e80b9d08ba553bd240fb0d5ef80db9b53))
-* coin and tag alignment issue ([1b5c0fe](https://github.com/dacadeorg/dacade-webapp/commit/1b5c0fea9a086972b736d0a922a10754819f42e6))
-* icon button to be on the same line ([a5f02d5](https://github.com/dacadeorg/dacade-webapp/commit/a5f02d5b499a6138d8c71482a18bd1c18f824639))
-* invalid user isssue for the profile navigation ([91ad8d2](https://github.com/dacadeorg/dacade-webapp/commit/91ad8d26e2299de2430ce195793fe53c524b579c))
-* scroll issue ([3c111bc](https://github.com/dacadeorg/dacade-webapp/commit/3c111bc883f3bb0c3b3e70836a32d42cc09f9ff6))
-* the responsiveness issue ([0169bce](https://github.com/dacadeorg/dacade-webapp/commit/0169bced306b23f45d859035c3896e76f7be27b7))
-* the responsiveness on tablet ([829bb39](https://github.com/dacadeorg/dacade-webapp/commit/829bb394e81dfcbea30b77622e4e31cb7394878b))
-
+- align coin and tag ([8b5e368](https://github.com/dacadeorg/dacade-webapp/commit/8b5e368b47aeb656e654707f697da492ba0ede13))
+- change the naming ([09cc036](https://github.com/dacadeorg/dacade-webapp/commit/09cc036e80b9d08ba553bd240fb0d5ef80db9b53))
+- coin and tag alignment issue ([1b5c0fe](https://github.com/dacadeorg/dacade-webapp/commit/1b5c0fea9a086972b736d0a922a10754819f42e6))
+- icon button to be on the same line ([a5f02d5](https://github.com/dacadeorg/dacade-webapp/commit/a5f02d5b499a6138d8c71482a18bd1c18f824639))
+- invalid user isssue for the profile navigation ([91ad8d2](https://github.com/dacadeorg/dacade-webapp/commit/91ad8d26e2299de2430ce195793fe53c524b579c))
+- scroll issue ([3c111bc](https://github.com/dacadeorg/dacade-webapp/commit/3c111bc883f3bb0c3b3e70836a32d42cc09f9ff6))
+- the responsiveness issue ([0169bce](https://github.com/dacadeorg/dacade-webapp/commit/0169bced306b23f45d859035c3896e76f7be27b7))
+- the responsiveness on tablet ([829bb39](https://github.com/dacadeorg/dacade-webapp/commit/829bb394e81dfcbea30b77622e4e31cb7394878b))
 
 ### Improvements
 
-* add see all link ([e392fa2](https://github.com/dacadeorg/dacade-webapp/commit/e392fa2269a2c040253760fcab9fb63ba3d5323f))
-* adjust the user avatar when main wallet is not available ([e158f1d](https://github.com/dacadeorg/dacade-webapp/commit/e158f1dd806a9304f0aeeda914caf24a58249b20))
-* fix linting ([f8c0ff4](https://github.com/dacadeorg/dacade-webapp/commit/f8c0ff4a1f170a0f1c479beb4eb97f013b0d4490))
-* fix linting issues ([4f1caa7](https://github.com/dacadeorg/dacade-webapp/commit/4f1caa7cb2ab362891e5b8d2ec43191580d32afb))
-* load page when profile communities are available ([641c152](https://github.com/dacadeorg/dacade-webapp/commit/641c15277233c7af3d2339803ff2067270f6aa32))
-* move markdown file to learning partials ([0f8988c](https://github.com/dacadeorg/dacade-webapp/commit/0f8988c4c57888ccbade484d8bdbf28139490199))
-* remove consolel log statement ([f2abf54](https://github.com/dacadeorg/dacade-webapp/commit/f2abf548928cfead5f27226c66fad193f27b8c8d))
-* remove left overs ([6bb9c4c](https://github.com/dacadeorg/dacade-webapp/commit/6bb9c4c58f12d857ca032f4354f910d1487030d3))
-* speedup profile community loading ([ebda8d6](https://github.com/dacadeorg/dacade-webapp/commit/ebda8d64d987c646c882800e1cf3b71498042164))
+- add see all link ([e392fa2](https://github.com/dacadeorg/dacade-webapp/commit/e392fa2269a2c040253760fcab9fb63ba3d5323f))
+- adjust the user avatar when main wallet is not available ([e158f1d](https://github.com/dacadeorg/dacade-webapp/commit/e158f1dd806a9304f0aeeda914caf24a58249b20))
+- fix linting ([f8c0ff4](https://github.com/dacadeorg/dacade-webapp/commit/f8c0ff4a1f170a0f1c479beb4eb97f013b0d4490))
+- fix linting issues ([4f1caa7](https://github.com/dacadeorg/dacade-webapp/commit/4f1caa7cb2ab362891e5b8d2ec43191580d32afb))
+- load page when profile communities are available ([641c152](https://github.com/dacadeorg/dacade-webapp/commit/641c15277233c7af3d2339803ff2067270f6aa32))
+- move markdown file to learning partials ([0f8988c](https://github.com/dacadeorg/dacade-webapp/commit/0f8988c4c57888ccbade484d8bdbf28139490199))
+- remove consolel log statement ([f2abf54](https://github.com/dacadeorg/dacade-webapp/commit/f2abf548928cfead5f27226c66fad193f27b8c8d))
+- remove left overs ([6bb9c4c](https://github.com/dacadeorg/dacade-webapp/commit/6bb9c4c58f12d857ca032f4354f910d1487030d3))
+- speedup profile community loading ([ebda8d6](https://github.com/dacadeorg/dacade-webapp/commit/ebda8d64d987c646c882800e1cf3b71498042164))
 
 ### [3.2.15](https://gitlab.com/u2467/dacade/dacade/compare/v3.2.14...v3.2.15) (2022-04-29)
 

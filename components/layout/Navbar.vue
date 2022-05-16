@@ -2,7 +2,7 @@
   <div class="text-gray-900" :style="containerStyle">
     <div class="content-wrapper lg:py-12 py-6 flex relative">
       <ul class="relative">
-        <NavItem type="logo">
+        <NavItem type="logo" class="w-8 h-8 md:w-11 md:h-11">
           <Logo />
         </NavItem>
         <NavItem type="brand mx-0.5">
@@ -18,7 +18,7 @@
         </NavItem>
       </ul>
       <ul class="ml-auto text-right relative flex lg:hidden items-center">
-        <Sidebar />
+        <Sidebar :burger-color="sidebarBurgerColor"/>
       </ul>
       <ul
         v-if="!isAuthenticated"
@@ -116,6 +116,11 @@ export default {
         return {}
       },
       type: Object,
+    },
+
+    sidebarBurgerColor: {
+      default: false,
+      type: Boolean,
     },
   },
   computed: {
