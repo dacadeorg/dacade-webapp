@@ -30,7 +30,7 @@
   "lint-staged": {
     "*.{js,vue}": "eslint --quiet --fix",
     "*.{css,scss,sass,html,vue}": "stylelint",
-    "*.**": "prettier --check --ignore-unknown"
+    "*.**": "prettier --write --list-different"
   },
   "husky": {
     "hooks": {
