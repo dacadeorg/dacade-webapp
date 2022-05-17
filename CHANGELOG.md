@@ -4,43 +4,37 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [3.3.6](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.5...v3.3.6) (2022-05-13)
 
-
 ### Bug Fixes
 
-* signup page loading speed ([cd3e3fe](https://github.com/dacadeorg/dacade-webapp/commit/cd3e3fea090895f1fda6e17f8039de263c73f228))
+- signup page loading speed ([cd3e3fe](https://github.com/dacadeorg/dacade-webapp/commit/cd3e3fea090895f1fda6e17f8039de263c73f228))
 
 ### [3.3.5](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.4...v3.3.5) (2022-05-12)
 
-
 ### Bug Fixes
 
-* arrow button browser inconsitencies ([a9fd9b7](https://github.com/dacadeorg/dacade-webapp/commit/a9fd9b7dc17c7bec73c0d66fb3851a8c683efcd7))
-
+- arrow button browser inconsitencies ([a9fd9b7](https://github.com/dacadeorg/dacade-webapp/commit/a9fd9b7dc17c7bec73c0d66fb3851a8c683efcd7))
 
 ### Improvements
 
-* rename full logo ([c01594b](https://github.com/dacadeorg/dacade-webapp/commit/c01594b82ae49d7b15ee5d1795102e5df51d6fcb))
+- rename full logo ([c01594b](https://github.com/dacadeorg/dacade-webapp/commit/c01594b82ae49d7b15ee5d1795102e5df51d6fcb))
 
 ### [3.3.4](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.3...v3.3.4) (2022-05-10)
 
-
 ### Features
 
-* add dacade full logo ([58840e3](https://github.com/dacadeorg/dacade-webapp/commit/58840e39532431805e560bfd189254459204a202))
+- add dacade full logo ([58840e3](https://github.com/dacadeorg/dacade-webapp/commit/58840e39532431805e560bfd189254459204a202))
 
 ### [3.3.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.2...v3.3.3) (2022-05-10)
 
-
 ### Bug Fixes
 
-* aligmnent well community navigation ([adf875e](https://github.com/dacadeorg/dacade-webapp/commit/adf875ef556e65d9f12826f428bbaafe14b2afc4))
+- aligmnent well community navigation ([adf875e](https://github.com/dacadeorg/dacade-webapp/commit/adf875ef556e65d9f12826f428bbaafe14b2afc4))
 
 ### [3.3.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.1...v3.3.2) (2022-05-10)
 
-
 ### Improvements
 
-* divide community navigation into smaller components ([cb8928f](https://github.com/dacadeorg/dacade-webapp/commit/cb8928f10543a0b3d1659b56a86ccf3804852b82))
+- divide community navigation into smaller components ([cb8928f](https://github.com/dacadeorg/dacade-webapp/commit/cb8928f10543a0b3d1659b56a86ccf3804852b82))
 
 ### [3.3.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.0...v3.3.1) (2022-05-09)
 

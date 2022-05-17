@@ -9,7 +9,10 @@
           {{ $t('app.name') }}
         </NavItem>
       </ul>
-      <ul v-if="isAuthenticatedAndVerified" class="hidden lg:block relative self-center">
+      <ul
+        v-if="isAuthenticatedAndVerified"
+        class="hidden lg:block relative self-center"
+      >
         <NavItem to="/bounties">
           {{ $t('nav.bounties') }}
         </NavItem>
@@ -18,7 +21,7 @@
         </NavItem>
       </ul>
       <ul class="ml-auto text-right relative flex lg:hidden items-center">
-        <Sidebar :burger-color="sidebarBurgerColor"/>
+        <Sidebar :burger-color="sidebarBurgerColor" />
       </ul>
       <ul
         v-if="!isAuthenticated"

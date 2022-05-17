@@ -4,10 +4,8 @@
       class="inline-block align-middle z-40 relative ease-linear transition-all duration-150"
       @click="toggle"
     >
-      <div
-        v-if="!show"
-      >
-        <MobileMenuLogo :class=" burgerColor  ? 'text-white' : 'text-black'"/>
+      <div v-if="!show">
+        <MobileMenuLogo :class="burgerColor ? 'text-white' : 'text-black'" />
       </div>
       <div v-else>
         <CloseIcon />
