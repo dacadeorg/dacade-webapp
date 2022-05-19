@@ -63,6 +63,7 @@ import NumberedCard from '@/components/cards/Numbered'
 import VideoPopup from '@/components/popups/Video'
 import ArrowButton from '@/components/ui/button/Arrow'
 
+
 export default {
   name: 'MainSection',
   components: {
@@ -89,5 +90,6 @@ export default {
       ],
     }
   },
+
 }
 </script>

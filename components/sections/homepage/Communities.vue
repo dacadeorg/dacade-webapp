@@ -32,9 +32,15 @@ import { mapGetters } from 'vuex'
 import Section from '@/components/ui/Section'
 import CommunityCard from '@/components/cards/community'
 import PartneringCard from '@/components/cards/Partnering'
+import 'v-skeletor/dist/v-skeletor.css';
 
 export default {
   name: 'CommunitiesSection',
+  // data() {
+  //   return {
+  //     loading: Boolean
+  //   }
+  // },
   components: {
     Section,
     CommunityCard,
@@ -44,9 +50,15 @@ export default {
     ...mapGetters({
       communities: 'communities/list',
     }),
+
+    isLoading() {
+      return this.$store.state.communities.loading
+    }
   },
   created(){
     this.$store.dispatch('communities/all')
-  }
+  },
 }
 </script>
+
+
