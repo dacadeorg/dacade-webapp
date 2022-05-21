@@ -19,6 +19,7 @@ export default {
   layout: 'profile',
   fetch({ store, params, error }) {
     return store.dispatch('profile/communities/find', params).catch((e) => {
+      console.log({e});
       error(e)
     })
   },
