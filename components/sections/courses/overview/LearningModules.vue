@@ -22,13 +22,13 @@
 import { mapGetters } from 'vuex'
 import Section from '@/components/sections/communities/_partials/Section.vue'
 import DateManager from '@/utilities/DateManager'
-import LearningModuleCard from '@/components/cards/Learning.vue'
+// import LearningModuleCard from '@/components/cards/Learning.vue'
 
 export default {
   name: 'LearningModuleSection',
   components: {
     Section,
-    LearningModuleCard,
+    // LearningModuleCard,
   },
   computed: {
     ...mapGetters({

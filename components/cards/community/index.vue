@@ -2,7 +2,8 @@
   <ThemeWrapper class="h-full" :colors="community.colors">
     <nuxt-link class="block h-full" :to="localePath(path)">
       <div
-        class="group p-6 pb-3 bg-theme-primary text-theme-text space-y-5 divide-y-2 divide-y divide-dotted divide-theme-accent h-full flex flex-col"
+        :class="{'bg-theme-primary' : !loading}"
+        class="group p-6 pb-3  text-theme-text space-y-5 divide-y-2 divide-y divide-dotted divide-theme-accent h-full flex flex-col"
       >
         <div class="flex-grow">
           <div
@@ -12,7 +13,7 @@
               class="text-.5xl md:text-2xl max-w-sm min-h-2xs md:min-h-3xs lg:min-h-2xs xl:min-h-2xs font-medium pb-5"
             >
               <h1 class="tracking-tight max-w-text-xs text-theme-text">
-                <Skeleton pill :loading="loading">
+                <Skeleton :loading="loading">
                   {{ community.name }}
                 </Skeleton>
               </h1>
@@ -21,7 +22,7 @@
                   :count="2"
                   as="div"
                   class-name="mt-1 w-full"
-                  pill
+
                   min-height="10px"
                   :loading="loading"
                 >
@@ -32,7 +33,7 @@
             <div
               class="self-end max-w-lg sm:h-full sm:-mb-0 md:mb-2 md:h-auto pb-5"
             >
-              <Skeleton as="div" pill :loading="loading">
+              <Skeleton as="div" :loading="loading">
                 <img :src="community.icon" class="relative h-44 w-44" />
               </Skeleton>
             </div>
@@ -106,7 +107,7 @@ export default {
       type: Object,
     },
     loading: {
-      default: true,
+      default: false,
       type: Boolean,
     },
   },

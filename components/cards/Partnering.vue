@@ -7,19 +7,39 @@
     >
       <div class="max-w-sm">
         <p class="text-2xl font-medium mb-2.5 leading-none">
+          <Skeleton :loading="loading">
           {{ $t('page.index.communities.partnering.title') }}
+          </Skeleton>
         </p>
         <p class="text-base mt-0 mb-20 lg:mb-0 leading-normal">
-          {{ $t('page.index.communities.partnering.subtitle') }}
+          <Skeleton
+            :count="2"
+            as="div"
+            class-name="mt-1 w-full"
+
+            min-height="10px"
+            :loading="loading"
+          >
+            {{ $t('page.index.communities.partnering.subtitle') }}
+          </Skeleton>
         </p>
       </div>
       <div class="mt-4 flex-none md:flex justify-between">
         <div class="md:flex md:flex-col space-y-0">
           <div class="mt-4 font-light text-theme-accent md:w-48">
+            <Skeleton
+            :count="2"
+            as="div"
+            class-name="mt-1 w-full"
+            min-height="10px"
+            :loading="loading"
+          >
             {{ $t('partnering.card.text') }}
+            </Skeleton>
           </div>
         </div>
         <div class="mt-4 align-middle">
+          <Skeleton as="div" pill :loading="loading">
           <a href="mailto:moritz@dacade.org">
             <Button
               class="hover:bg-primary group-hover:text-white leading-relaxed lg:px-7 px-5 font-medium"
@@ -29,6 +49,7 @@
               {{ $t('page.index.communities.partnering.button-text') }}
             </Button>
           </a>
+          </Skeleton>
         </div>
       </div>
       <!-- <div class="self-start absolute bottom-8">
@@ -57,10 +78,19 @@
 
 <script>
 import Button from '@/components/ui/button'
+import Skeleton from '@/components/ui/Skeleton.vue'
 export default {
   name: 'PartneringCard',
   components: {
     Button,
+    Skeleton
   },
+
+  props: {
+    loading: {
+      default: false,
+      type: Boolean
+    }
+  }
 }
 </script>

@@ -20,6 +20,7 @@
         v-for="community in communities"
         :key="community.id"
         :community="community"
+        
       />
       <PartneringCard />
     </div>

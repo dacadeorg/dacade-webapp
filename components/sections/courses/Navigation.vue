@@ -15,7 +15,7 @@
       </li>
       <li>
         <LanguageSwitcher />
-      </li>
+      </li> 
     </ul>
   </ThemeWrapper>
 </template>
