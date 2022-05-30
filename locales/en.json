@@ -283,5 +283,6 @@
   "navigation.profile.wallets": "Wallets",
   "navigation.profile.referrals": "Referrals",
   "navigation.profile.communities": "Communities",
-  "challenge.best-submissions.button": "See all"
+  "challenge.best-submissions.button": "See all",
+  "profile.referrals.button-text": "Get invite codes"
 }

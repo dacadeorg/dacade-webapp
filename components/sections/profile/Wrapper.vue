@@ -14,9 +14,10 @@
             <h6
               class="text-xs leading-relaxed font-semibold py-11 text-gray-500"
             >
-              Achievement
+              ACHIEVEMENTS
             </h6>
-            <div class="flex space-x-4">
+            <div class="flex md:flex-row flex-wrap justify-between md:space-x-4">
+              <AchievementCard />
               <AchievementCard />
               <AchievementCard />
               <AchievementCard />
@@ -28,13 +29,28 @@
             <h6
               class="text-xs leading-relaxed font-semibold pt-11 pb-5 text-gray-500"
             >
-              Communities
+              COMMUNITIES
             </h6>
-            <div class="flex space-x-4">
-              <Test title="Celo Blockchain"/>
-              <Test title="Ethereum Blockchain"/>
+            <div class="flex md:flex-row flex-col md:space-x-4">
+              <Communities title="Celo Blockchain"/>
+              <Communities title="Ethereum Blockchain"/>
             </div>
           </div>
+
+          <div>
+            <h6
+              class="text-xs leading-relaxed font-semibold pt-11 pb-5 text-gray-500"
+            >
+              REFERRAL
+            </h6>
+            <div class="flex space-x-4">
+              <ReferralsList text="Invite your friends to Dacade and earn referral bounties"/>
+            </div>
+          </div>
+
+            <div class="flex space-x-4 pt-10">
+             <NotificationList />
+            </div>
         </div>
         <!-- <slot /> -->
       </div>
@@ -47,7 +63,9 @@ import Header from '@/components/sections/profile/Header'
 import Navigation from '@/components/sections/profile/Navigation'
 import Section from '@/components/ui/Section'
 import AchievementCard from '@/components/cards/Achievement.vue'
-import Test from '@/components/cards/Test.vue'
+import Communities from '~/components/cards/Communities.vue'
+import NotificationList from '@/components/list/Notification'
+import ReferralsList from '@/components/list/ReferralsList'
 
 export default {
   name: 'ProfileWrapper',
@@ -56,7 +74,9 @@ export default {
     Section,
     Navigation,
     AchievementCard,
-    Test,
+    Communities,
+    NotificationList,
+    ReferralsList,
   },
 }
 </script>
