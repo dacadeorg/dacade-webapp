@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center md:pb-24 pb-10">
+  <div class="text-center">
     <Avatar size="extra" :user="user" />
     <span class="block capitalize text-5xl mt-5 leading-none">{{
       user.displayName
