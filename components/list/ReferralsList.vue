@@ -4,7 +4,7 @@
       <p class="inline-block px-2 text-primary text-lg font-normal pb-3 md:pb-0">{{ text }}</p>
     </div>
 
-    <div class="md:ml-auto">
+    <div class="md:ml-auto mr-auto">
         <Button
           class="hover:bg-primary group-hover:text-white leading-relaxed lg:px-7 px-5 font-medium"
           type="outline-primary"
