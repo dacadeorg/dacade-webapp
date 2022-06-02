@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.7](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.6...v3.3.7) (2022-06-02)
+
+
+### Bug Fixes
+
+* navbar color issue in some communities ([19f5dd3](https://github.com/dacadeorg/dacade-webapp/commit/19f5dd3c4e40e756bbb423b3e0aa7c4ac77e2dad))
+
 ### [3.3.6](https://github.com/dacadeorg/dacade-webapp/compare/v3.3.5...v3.3.6) (2022-05-13)
 
 
