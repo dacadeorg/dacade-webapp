@@ -30,7 +30,7 @@ export const actions = {
   },
   async all({ commit }, username) {
     if (!username) return
-    const { data } = await this.$api.get(`certificates?userId=${username}`)
+    const { data } = await this.$api.get(`certificates?username=${username}`)
     commit('setCertificates', data)
   },
 }

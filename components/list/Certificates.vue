@@ -24,15 +24,9 @@ export default {
   components: {
     CertificatesCard
   },
-  fetch({ store, error }) {
-    return store.dispatch("user/certificates/all", this.user.username).catch((e) => {
-      error(e);
-    });
-  },
   computed: {
     ...mapGetters({
-      certificates: "user/certificates/certificates",
-      user: 'user/get',
+      certificates: "user/certificates/certificates"
     })
   }
 };
