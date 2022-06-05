@@ -50,17 +50,15 @@
             @click="toggleInvite"
             >{{ $t('nav.view-profile-codes') }}
           </Button>
-
-          <a target="_blank" :href="connectDiscordUrl">
           <Button
 
             :padding="false"
-
             type="outline-primary"
             class="flex btn-primary btn-lg py-2 px-5 mt-3 align-middle text-sm"
+            @click="triggerDiscordOauth"
           >{{ $t('nav.connect-discord') }}
           </Button>
-          </a>
+
         </div>
       </div>
     </div>
@@ -99,11 +97,6 @@ export default {
     showLanguageSwitcher() {
       return process.env.NUXT_ENV_SHOW_LANGUAGE_SELECTOR === 'true'
     },
-    connectDiscordUrl(){
-
-      // Todo: store this in a config file
-      return `https://discord.com/api/oauth2/authorize?client_id=910924469546139649&redirect_uri=https%3A%2F%2Feurope-west1-dacade-mvp-1.cloudfunctions.net%2Fapi%2Fdiscord-bot%2Foauth%2Fcallback&response_type=code&scope=identify`
-    }
   },
   methods: {
     logout() {
@@ -114,6 +107,10 @@ export default {
     toggleInvite() {
       this.$emit('close')
       this.$store.dispatch('ui/toggleShowReferralPopup', true)
+    },
+    triggerDiscordOauth() {
+      const discordOauthUrl = `${process.env.NUXT_ENV_DISCORD_OAUTH_BASE_URL}?client_id=${process.env.NUXT_ENV_DISCORD_CLIENT_ID}&redirect_uri=${process.env.NUXT_ENV_DISCORD_CALLBACK_URL}&response_type=code&scope=${process.env.NUXT_ENV_DISCORD_SCOPE}`
+      window.location.href = discordOauthUrl;
     },
   },
 }
