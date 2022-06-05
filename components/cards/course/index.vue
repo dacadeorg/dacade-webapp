@@ -103,7 +103,7 @@ export default {
       type: Object,
     },
     loading: {
-      default: true,
+      default: false,
       type: Boolean
     }
   },
