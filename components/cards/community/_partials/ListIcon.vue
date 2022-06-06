@@ -23,7 +23,7 @@
                 :count="2"
                 as="div"
                 class-name="mt-1 w-full"
-
+ 
                 min-height="10px"
                 :loading="loading"
               >
