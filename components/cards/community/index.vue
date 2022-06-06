@@ -107,7 +107,7 @@ export default {
       type: Object,
     },
     loading: {
-      default: false,
+      default: true,
       type: Boolean,
     },
   },
