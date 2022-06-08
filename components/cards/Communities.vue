@@ -7,13 +7,12 @@
         class="inline-block md:mx-auto"
       >
         <div class="w-10 h-10 rounded-full border border-solid flex items-center">
-          <img :src="partner.logo"  class="mx-auto text-center flex items-center w-3"/>
+          <img :src="partner.logo"  class="mx-auto text-center flex items-center w-5"/>
         </div>
       </a>
-
     <p class="inline-block px-2">{{ title }}</p>
     <div
-      class="bg-yellow-50 text-yellow-900 text-sm border border-solid border-yellow-100 rounded px-3 py-0.5 inline-block mr-4"
+      class="bg-orange text-orange_light text-sm border border-solid border-yellow-100 rounded px-3 py-0.5 inline-block mr-4"
     >
       <span class="font-semibold"> 100 REP</span>
     </div>
@@ -21,7 +20,8 @@
 </template>
 
 <script>
-import Ethereum from '@/assets/icons/partners/ethereum.svg?data'
+// import EthereumLogo from '@/assets/icons/partners/ethereum.svg?data'
+import CeloLogo from '@/assets/img/celo-logo.png'
 export default {
   name: 'Communities',
   components: {},
@@ -35,7 +35,7 @@ export default {
     return {
       partners: [
         {
-          logo: Ethereum,
+          logo: CeloLogo,
         },
       ],
     }

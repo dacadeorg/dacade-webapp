@@ -6,12 +6,12 @@
         <Navigation />
       </div>
 
-      <div class="lg:w-3/4">
+      <div class="lg:w-3/5">
         <div
           class="flex flex-col divide-y divide-solid divide-gray-200 lg:py-5 space-y-8 text-gray-700"
         >
           <div>
-            <div class="flex items-center pt-11 pb-5">
+            <div class="flex items-center pt-11">
               <h6
                 class="text-xs leading-relaxed font-semibold py-11 text-gray-500"
               >
@@ -26,9 +26,8 @@
             </div>
 
             <div
-              class="flex md:flex-row flex-wrap justify-between md:space-x-4"
+              class="flex md:flex-row flex-wrap justify-between"
             >
-              <AchievementCard />
               <AchievementCard />
               <AchievementCard />
               <AchievementCard />

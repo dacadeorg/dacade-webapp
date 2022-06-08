@@ -1,7 +1,7 @@
 <template>
-  <div class=" bg-gray-100 border border-solid border-gray-200 w-full rounded-3.5xl items-center flex md:flex-row flex-col pt-6 pb-4 md:pl-8 pl-5 pr-4">
+  <div class="bg-blue_lighter border border-solid border-blue_light w-full rounded-3.5xl items-center flex md:flex-row flex-col pt-6 pb-4 md:pl-8 pl-5 pr-4">
     <div class="md:w-96">
-      <p class="inline-block px-2 text-primary text-lg font-normal pb-3 md:pb-0">{{ text }}</p>
+      <p class="inline-block px-2 text-primary text-lg font-medium pb-3 md:pb-0">{{ text }}</p>
     </div>
 
     <div class="md:ml-auto mr-auto">
