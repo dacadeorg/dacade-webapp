@@ -44,7 +44,6 @@
         </Skeleton>
       </div>
     </div>
-
     <div
       class="text-base text-left sm:flex flex-start flex flex-col pt-6 sm:pt-0 space-y-4 pb-5 sm:pl-7 sm:pb-10 w-full sm:w-2/5 lg:w-1/3 tracking-wider"
     >

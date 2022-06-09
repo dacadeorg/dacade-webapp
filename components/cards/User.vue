@@ -10,7 +10,11 @@
       class="z-10"
       :class="[boxLayout ? 'relative flex-none' : 'absolute top-0 left-0']"
     >
+    <Skeleton circle :loading="loading">
       <Avatar :user="user" size="medium" />
+    </Skeleton>
+
+    <Skeleton pill :loading="loading">
       <Badge
         v-if="badge"
         :value="badge"
@@ -22,6 +26,7 @@
           backgroundColor: colors.textAccent,
         }"
       />
+    </Skeleton>
     </div>
     <div
       class="relative z-0 flex-1"
@@ -36,13 +41,18 @@
     >
       <div class="pb-4">
         <div class="flex items-center space-x-1.5 pb-1.5 pt-1">
+          <Skeleton :loading="loading">
           <div class="text-lg leading-tight font-medium">
             {{ user.displayName }}
           </div>
+          </Skeleton>
+          <Skeleton pill :loading="loading" height="14px">
           <Tag v-if="user.reputation" type="light-gray" class="leading-tight"
             ><Currency :value="user.reputation" token="REP"
           /></Tag>
+          </Skeleton>
         </div>
+        <Skeleton :loading="loading">
         <span class="block text-sm leading-snug text-gray-700">
           {{ timestamp.text }}
           <span
@@ -53,6 +63,7 @@
             >{{ date }}</span
           >
         </span>
+        </Skeleton>
       </div>
       <slot />
     </div>
@@ -66,6 +77,7 @@ import Badge from '@/components/ui/Badge'
 import DateManager from '@/utilities/DateManager'
 import Currency from '@/components/ui/Currency'
 import Tag from '@/components/ui/Tag.vue'
+import Skeleton from '@/components/ui/Skeleton.vue'
 
 export default {
   name: 'UserCard',
@@ -74,8 +86,13 @@ export default {
     Currency,
     Badge,
     Tag,
+    Skeleton
   },
   props: {
+    loading: {
+      default: true,
+      type: Boolean
+    },
     user: {
       default: () => {
         return {}

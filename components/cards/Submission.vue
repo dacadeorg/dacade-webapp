@@ -12,14 +12,25 @@
   >
     <div class="divide-y divide-gray-200 flex flex-col">
       <div class="pb-6">
+        <Skeleton
+            :count="3"
+            as="div"
+            className="mt-1 line-clamp-3 break-words w-32"
+            min-width="100%"
+            min-height="10px"
+            :loading="loading"
+            >
         <p
           class="text-base sm:text-lg line-clamp-3 leading-normal text-gray-700 break-words"
         >
+        
           {{ submission.text }}
         </p>
+        </Skeleton>
       </div>
       <div class="flex items-center py-4 w-full justify-between">
         <div class="flex space-x-4 items-center">
+          <Skeleton :loading="loading">
           <div
             v-if="submission.reward && !reviewed"
             class="bg-yellow-50 text-yellow-900 text-sm border border-solid border-yellow-100 rounded px-3 py-0.5 inline-block"
@@ -30,6 +41,7 @@
             >
             {{ $t('submissions.feedback.bounty') }}
           </div>
+          </Skeleton>
           <div
             v-if="submission.metadata && submission.metadata.evaluation"
             class="inline-flex flex-1 items-center space-x-1"
@@ -57,6 +69,7 @@
         </div>
 
         <div class="text-right ml-auto xl:m-0 hidden sm:block">
+          <Skeleton circle :loading="loading">
           <ArrowButton
             :padding="false"
             class="action-button inline-flex bg-gray-100 text-gray-500 w-10 h-10 sm:w-11 sm:h-11 text-2xl rounded-full"
@@ -65,6 +78,7 @@
             arrow-classes="w-full"
             :custom-style="arrowButtonStyles"
           />
+          </Skeleton>
         </div>
       </div>
       <slot />
@@ -77,6 +91,7 @@ import { mapGetters } from 'vuex'
 import Badge from '@/components/ui/Badge'
 import UserCard from '@/components/cards/User'
 import ArrowButton from '@/components/ui/button/Arrow'
+import Skeleton from '~/components/ui/Skeleton.vue'
 
 export default {
   name: 'SubmissionCard',
@@ -84,8 +99,13 @@ export default {
     Badge,
     UserCard,
     ArrowButton,
+    Skeleton
   },
   props: {
+    loading: {
+      default: true,
+      type: Boolean
+    },
     submission: {
       default: () => {
         return {}
