@@ -9,7 +9,9 @@
         >
         <ul>
           <li v-for="(item, k) in menu.items" :key="k" class="relative mt-4">
-            <NavigationLink :item="item" />
+            <!-- <Skeleton :loading="loading" > -->
+              <NavigationLink :item="item" />
+            <!-- </Skeleton> -->
           </li>
         </ul>
       </li>
@@ -25,12 +27,20 @@ import { mapGetters } from 'vuex'
 import LanguageSwitcher from './_partials/LanguageSwitcher'
 import NavigationLink from './_partials/navigation/link'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
+// import Skeleton from '@/components/ui/Skeleton.vue'
 
 export default {
   components: {
     ThemeWrapper,
     LanguageSwitcher,
     NavigationLink,
+    // Skeleton
+  },
+  props: {
+    loading: {
+      default: true,
+      type: Boolean
+    }
   },
   data() {
     return {

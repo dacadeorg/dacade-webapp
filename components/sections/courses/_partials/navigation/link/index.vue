@@ -16,6 +16,7 @@
         expanded
       "
     >
+    <!-- <Skeleton :loading="loading" :count="7" height="10px" className="mt-1"> -->
       <SubLink
         v-for="(subitem, j) in item.subitems"
         :key="j"
@@ -23,6 +24,7 @@
         :subitem="subitem"
         :active-link-style="activeLinkStyle"
       />
+    <!-- </Skeleton> -->
     </ul>
   </span>
 </template>
@@ -31,17 +33,24 @@ import { mapGetters } from 'vuex'
 import LinkContent from './content.vue'
 import LinkAction from './action.vue'
 import SubLink from './sub.vue'
+// import Skeleton from '@/components/ui/Skeleton.vue'
+
 export default {
   components: {
     LinkContent,
     LinkAction,
     SubLink,
+    // Skeleton
   },
   props: {
     item: {
       type: Object,
       required: true,
     },
+    loading: {
+      default: true,
+      type: Boolean
+    }
   },
   data() {
     return {

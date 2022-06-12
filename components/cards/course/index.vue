@@ -36,7 +36,7 @@
       </div>
       <div class="hidden sm:block">
         <Skeleton pill className="w-1/2" :loading="loading" height="40px">
-        <nuxt-link :to="localePath(path)" v-if="!loading">
+        <nuxt-link :to="localePath(path)" v-if="loading">
           <ArrowButton :community-styles="true" type="outline-primary">
             {{ $t('course.challenge.button') }}
           </ArrowButton>
@@ -81,7 +81,7 @@
 import { mapGetters } from 'vuex'
 import Reward from '@/components/cards/course/_partials/Reward.vue'
 import ArrowButton from '@/components/ui/button/Arrow'
-import Skeleton from '~/components/ui/Skeleton.vue'
+import Skeleton from '@/components/ui/Skeleton.vue'
 
 export default {
   name: 'CourseCard',

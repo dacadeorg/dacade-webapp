@@ -1,4 +1,5 @@
 <template>
+  <Skeleton :loading="loading" height="20px">
   <li class="relative mt-4 text-sm text-gray-500" :style="activeLinkStyle">
     <nuxt-link
       :to="localePath({ path: item.link, hash: subitem.link })"
@@ -8,10 +9,15 @@
       <span class="nav-label">{{ $t(subitem.label) }}</span>
     </nuxt-link>
   </li>
+  </Skeleton>
 </template>
 
 <script>
+import Skeleton from '@/components/ui/Skeleton.vue'
 export default {
+  components:{
+    Skeleton
+  },
   props: {
     item: {
       type: Object,
@@ -20,6 +26,10 @@ export default {
     activeLinkStyle: {
       type: Object,
       default: () => ({}),
+    },
+    loading: {
+      default: true,
+      type: Boolean
     },
     subitem: {
       type: Object,
