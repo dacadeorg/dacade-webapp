@@ -13,6 +13,9 @@ export const mutations = {
   setList(state, payload) {
     state.list = payload
   },
+  setText(state, payload) {
+    state.current.text = payload
+  },
 }
 
 export const actions = {
@@ -63,6 +66,10 @@ export const actions = {
     this.commit('communities/setCurrent', data.community)
     this.commit('communities/courses/setCurrent', data.course)
     this.commit('communities/challenges/setCurrent', data.challenge)
+  },
+
+  updateText({ commit }, { text }) {
+    commit('setText', text)
   },
 }
 

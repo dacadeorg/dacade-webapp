@@ -1,6 +1,6 @@
 <template>
   <div v-if="submission">
-    <SubmissionViewCard :submission="submission" />
+    <SubmissionViewCard :submission="submission" @click="$emit('translateSubmission')" />
     <Evaluation v-if="submission.evaluation" />
     <Feedback />
   </div>

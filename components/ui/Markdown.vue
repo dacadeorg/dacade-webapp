@@ -41,6 +41,12 @@ export default {
       }
     },
   },
+  watch: {
+    value(newValue) {
+      this.content = newValue
+    },
+  },
+
   mounted() {
     this.parse(this.value)
   },
