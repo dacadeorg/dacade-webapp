@@ -13,17 +13,9 @@
           >
             <div class="w-full">
               <div class="xl:pr-52 w-full text-lg pb-10">
-                <Skeleton
-                  :count="4"
-                  as="div"
-                  class-name="mt-2 w-full"
-                  :width="'300px'"
-                  :height="'20px'"
-                  min-height="20px"
-                  :loading="loading"
-                >
+                
                 {{ community.summary }}
-                </Skeleton>
+                
               </div>
             </div>
             <div class="space-y-5">
@@ -31,30 +23,18 @@
                 <div class="text-base pt-7 text-left flex-start flex flex-col">
                   <div class="flex space-x-3">
                     <div class="flex space-x-2">
-                      <Skeleton as="div" circle :loading="loading">
+                      
                         <Coin :token="reward.token" size="normal" />
-                      </Skeleton>
+                      
                       <div class="flex flex-col text-sm leading-tight pt-1">
                         <div class="font-normal leading-tight">
-                          <Skeleton
-                            as="div"
-                            class-name=" w-full"
-                            :height="'20px'"
-                            min-height="20px"
-                            :loading="loading"
-                          >
+                         
                           {{ $t('communities.list-card.earn') }}
                           <span class="font-bold">{{ reward.token }}</span>
-                          </Skeleton>
+                          
                         </div>
                         <div class="font-light leading-tight">
-                          <Skeleton
-                            as="div"
-                            class-name="mt-2 w-full"
-                            :height="'10px'"
-                            min-height="10px"
-                            :loading="loading"
-                          >
+                         
                           {{
                             $t(
                               community.courses !== 1
@@ -65,14 +45,14 @@
                               }
                             )
                           }}
-                          </Skeleton>
+                          
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="mt-7 align-middle">
-                  <Skeleton as="div" pill :loading="loading">
+                  
                   <nuxt-link :to="localePath(path)">
                     <ArrowButton
                       class="group-hover:bg-primary bg-gray-200 border text-primary group-hover:text-white border-primary"
@@ -81,7 +61,7 @@
                       {{ $t('page.index.main.button') }}
                     </ArrowButton>
                   </nuxt-link>
-                  </Skeleton>
+                  
                 </div>
               </div>
             </div>
@@ -99,21 +79,18 @@ import ListIcon from '@/components/cards/community/_partials/ListIcon'
 import ThemeWrapper from '@/components/wrappers/ThemeWrapper'
 import DateManager from '@/utilities/DateManager'
 import ArrowButton from '@/components/ui/button/Arrow'
-import Skeleton from '~/components/ui/Skeleton.vue'
+
 
 export default {
   name: 'CommunityListCard',
-  components: { Coin, ListIcon, ThemeWrapper, ArrowButton, Skeleton },
+  components: { Coin, ListIcon, ThemeWrapper, ArrowButton },
   props: {
     community: {
       default: () => {},
       type: Object,
     },
 
-    loading: {
-      default: true,
-      type: Boolean
-    }
+    
   },
   computed: {
     path() {
