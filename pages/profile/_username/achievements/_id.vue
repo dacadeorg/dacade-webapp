@@ -1,5 +1,5 @@
 <template>
-   <main class="flex border border-midGray mx-24 rounded-3xl">
+   <main class="flex border border-midGray mx-28 rounded-3xl">
        <div class="flex justify-center items-center bg-midGray p-7 rounded-l-3xl w-1/2">
            <img :src="image" alt="certificate badge" />
        </div>
