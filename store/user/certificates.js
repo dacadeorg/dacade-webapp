@@ -2,22 +2,22 @@
 /* eslint-disable no-unused-vars */
 
 export const state = () => ({
-  certificates: [],
-  certificate: [],
+  list: [],
+  current: [],
 })
 
 export const mutations = {
-  setCertificate(state, payload) {
-    state.certificate = payload
+  setCurrent(state, payload) {
+    state.current = payload
   },
 
-  setCertificates(state, payload) {
-    state.certificates = payload
+  setList(state, payload) {
+    state.list = payload
   },
 
   clear(state, payload) {
-    state.certificates = []
-    state.certificate = []
+    state.list = []
+    state.current = []
   },
 }
 
@@ -26,20 +26,20 @@ export const actions = {
     const { data } = await this.$api.get(
       `certificates/${id}}`
     )
-    commit('setCertificate', data)
+    commit('setCurrent', data)
   },
   async all({ commit }, username) {
     if (!username) return
     const { data } = await this.$api.get(`certificates?username=${username}`)
-    commit('setCertificates', data)
+    commit('setList', data)
   },
 }
 
 export const getters = {
-  certificate(state) {
-    return state.certificate
+  current(state) {
+    return state.current
   },
-  certificates(state) {
-    return state.certificates
+  list(state) {
+    return state.list
   }
 }
