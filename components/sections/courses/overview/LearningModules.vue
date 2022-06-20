@@ -9,10 +9,10 @@
           $t('communities.overview.learning-modules-description')
         }}</span>
       </div>
-      <!-- <LearningModuleCard
+      <LearningModuleCard
         v-for="(learningModule, i) in course.learningModules"
         :key="i"
-        :learning-module="learningModule" -->
+        :learning-module="learningModule"
       />
     </div>
   </Section>
