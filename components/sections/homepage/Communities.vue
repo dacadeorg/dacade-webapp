@@ -45,8 +45,8 @@ export default {
       communities: 'communities/list',
     }),
   },
-  created(){
+  created() {
     this.$store.dispatch('communities/all')
-  }
+  },
 }
 </script>

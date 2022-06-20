@@ -35,10 +35,7 @@
         type="light-gray"
       />
     </div>
-    <div
-      v-if="!preview && value.link"
-      class="pt-6"
-    >
+    <div v-if="!preview && value.link" class="pt-6">
       <ArrowButton
         :link="value.link"
         target="__blank"

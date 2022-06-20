@@ -4,7 +4,7 @@
       class="py-8 flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
     >
       <Header />
-      <div class="w-full">
+      <div class="w-full divide-y divide-solid divide-gray-200">
         <MaterialSection
           v-for="(material, i) in materials"
           :key="i"

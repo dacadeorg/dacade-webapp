@@ -15,7 +15,7 @@
       <span v-if="isLeft" :class="['block', { 'pr-2.5': hasSlot }]">
         <ArrowRightIcon
           v-if="!loading"
-         :class="[directionClass, arrowClasses, 'transform']" />
+          :class="[directionClass, arrowClasses, 'transform']" />
         <Spinner v-else :class="[arrowClasses, 'animate-spin']"
       /></span>
       <span class="leading-6 block" :class="{ 'pr-6': !isLeft && hasSlot }"

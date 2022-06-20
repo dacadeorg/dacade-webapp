@@ -4,6 +4,6 @@ import Package from '../package.json'
 export default ({ store }) => {
   createPersistedState({
     key: `${Package.name}-data`,
-    paths: ['user', 'bounties', 'banners'],
+    paths: ['user/notifications', 'bounties', 'banners'],
   })(store)
 }
