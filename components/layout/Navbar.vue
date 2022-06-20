@@ -34,14 +34,15 @@
             >{{ $t('nav.signup.already-exist') }}</span
           >
           <NavItem to="/login">
+           
             <span
               class="py-2 text-sm"
               :class="
                 $router.history.current.path === '/signup'
                   ? 'text-primary'
-                  : 'text-gray-900'
+                  : 'inherit'
               "
-              >{{ $t('nav.login') }}</span
+              > {{ $t('nav.login') }}</span
             >
           </NavItem>
         </div>
