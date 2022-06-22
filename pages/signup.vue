@@ -17,10 +17,13 @@
               {{ $t('signup-page.referrer.title') }}
               {{ $t('app.name') }}
             </h1>
-            <p class="my-px text-gray-700">
+            <p
+              class="my-px text-gray-700"
+              :class="{ invisible: !(referrals && referrals.length) }"
+            >
               {{ $t('signup-page.referrer.subtitle') }}
             </p>
-            <div class="my-8">
+            <div v-if="referrals && referrals.length" class="my-8">
               <ReferralList bounty />
             </div>
           </div>
@@ -153,6 +156,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import ArrowButton from '@/components/ui/button/Arrow'
 import Input from '@/components/ui/Input'
@@ -184,9 +188,12 @@ export default {
     }
   },
   fetch({ store }) {
-    return store.dispatch('referrals/all')
+    store.dispatch('referrals/all')
   },
   computed: {
+    ...mapGetters({
+      referrals: 'referrals/list',
+    }),
     referrer() {
       // console.log(this.$route.query)
       return this.$route.query?.invite

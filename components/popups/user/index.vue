@@ -11,8 +11,10 @@
             :custom-style="buttonStyles"
             :padding="false"
             type="secondary"
-            :class="{ 'pr-5': mainWallet }"
-            class="p-0.5 bg-gray-100 bg-opacity-75 hover:bg-gray-50"
+            :class="[
+              'p-0.5 bg-gray-100 bg-opacity-75 hover:bg-gray-50',
+              { 'pr-5': mainWallet },
+            ]"
           >
             <Avatar :user="user" />
             <span

@@ -15,6 +15,7 @@
   "nav.reputation": "Reputation",
   "nav.view-profile": "View your profile",
   "nav.view-profile-codes": "Get invite codes",
+  "nav.connect-discord": "Connect to discord",
   "nav.mobile.pages": "Navigate between pages",
   "page.index.main.title": "Peer to peer learning",
   "page.index.main.subtitle": "Dacade makes learning multiplayer",
@@ -283,5 +284,14 @@
   "navigation.profile.wallets": "Wallets",
   "navigation.profile.referrals": "Referrals",
   "navigation.profile.communities": "Communities",
+  "email-verification.title": "Verify your email address",
+  "email-verification.subtitle": "You are almost there! We sent an email to",
+  "email-verification.message": "Just click on the link in that email to complete your signup.<br/>If you don't see the email, check your spam folder.",
+  "email-verification.foot-note": "If you didn't receive the email, click this button to resend it.",
+  "email-verification.buttons.resend": "Resend email",
+  "email-verification.success.title": "Your email has been verified!🎉",
+  "email-verification.success.subtitle": "You're all set!",
+  "email-verification.success.message": "You can now login to the platform.",
+  "email-verification.success.button": "Proceed",
   "challenge.best-submissions.button": "See all"
 }

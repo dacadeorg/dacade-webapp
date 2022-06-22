@@ -62,6 +62,7 @@
             class="action-button inline-flex bg-gray-100 text-gray-500 w-10 h-10 sm:w-11 sm:h-11 text-2xl rounded-full"
             :min-width-class="null"
             type="none"
+            arrow-classes="w-full"
             :custom-style="arrowButtonStyles"
           />
         </div>

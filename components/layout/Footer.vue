@@ -1,5 +1,8 @@
 <template>
-  <Section padding="pt-20" type="secondary-light">
+  <Section
+    padding="pt-20"
+    :type="backgroundColor ? 'secondary-light' : 'default'"
+  >
     <div
       class="border-t border-t-solid border-gray-200 lg:flex md:flex py-8 text-gray-400 text-base lg:text-left text-center"
     >
@@ -48,6 +51,12 @@ export default {
   components: {
     Section,
     SocialLink,
+  },
+  props: {
+    backgroundColor: {
+      default: false,
+      type: Boolean,
+    },
   },
   data() {
     return {
