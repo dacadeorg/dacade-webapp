@@ -1,28 +1,22 @@
 <template>
   <div>
     <NotificationList extended />
+    <AchievementList extended />
   </div>
 
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import NotificationList from '@/components/list/Notification'
+import AchievementList from '@/components/list/Certificates'
 
 export default {
   name: 'Notifications',
   components: {
+    AchievementList,
     NotificationList,
   },
   layout: 'profile',
   middleware: 'auth',
-  computed : {
-    ...mapGetters({
-      user: 'user/get',
-    }),
-  },
-  mounted() {
-    this.$store.dispatch("user/certificates/all", this.user.username);
-  }
 }
 </script>
