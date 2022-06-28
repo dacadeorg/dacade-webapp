@@ -1,8 +1,5 @@
 <template>
-  <div>
     <NotificationList extended />
-  </div>
-
 </template>
 
 <script>
