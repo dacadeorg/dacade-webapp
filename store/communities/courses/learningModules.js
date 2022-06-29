@@ -23,6 +23,9 @@ export const actions = {
     const { data } = await this.$api.get(`courses/${slug}/learning-modules`)
     commit('setList', data)
   },
+  submitModuleAnswer({ commit }, slug) {
+    return this.$api.put(`courses/${slug}/interactive-modules/answer`)
+  },
 }
 
 export const getters = {
