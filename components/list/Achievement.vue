@@ -14,7 +14,6 @@
 <script>
 import { mapGetters } from 'vuex'
 
-// import NotificationCard from '@/components/cards/Notification'
 import AchievementCard from '@/components/cards/Achievement'
 export default {
   name: 'AchievementList',

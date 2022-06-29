@@ -28,10 +28,6 @@
             <div
               class="flex md:flex-row flex-wrap justify-between"
             >
-              <!-- <AchievementCard />
-              <AchievementCard />
-              <AchievementCard />
-              <AchievementCard /> -->
               <AchievementList />
             </div>
             <div class="text-primary flex items-center pt-5 cursor-pointer">
