@@ -28,10 +28,11 @@
             <div
               class="flex md:flex-row flex-wrap justify-between"
             >
+              <!-- <AchievementCard />
               <AchievementCard />
               <AchievementCard />
-              <AchievementCard />
-              <AchievementCard />
+              <AchievementCard /> -->
+              <AchievementList />
             </div>
             <div class="text-primary flex items-center pt-5 cursor-pointer">
               <span><PlusIcon class="w-3.5 h-3.5" /></span>
@@ -92,9 +93,10 @@
 import Header from '@/components/sections/profile/Header'
 import Navigation from '@/components/sections/profile/Navigation'
 import Section from '@/components/ui/Section'
-import AchievementCard from '@/components/cards/Achievement.vue'
+// import AchievementCard from '@/components/cards/Achievement.vue'
 import Communities from '~/components/cards/Communities.vue'
 import NotificationList from '@/components/list/Notification'
+import AchievementList from '@/components/list/Achievement'
 import ReferralsList from '@/components/list/ReferralsList'
 import Request from '@/components/cards/profile/Request'
 import PlusIcon from '~/assets/icons/plus.svg?inline'
@@ -106,7 +108,8 @@ export default {
     Header,
     Section,
     Navigation,
-    AchievementCard,
+    // AchievementCard,
+    AchievementList,
     Communities,
     NotificationList,
     ReferralsList,
