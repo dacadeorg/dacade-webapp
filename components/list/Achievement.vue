@@ -32,7 +32,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      notifications: 'user/notifications/get',
       achievements: 'user/certificates/list',
       user: 'user/get',
     }),
