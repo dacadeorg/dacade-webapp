@@ -11,5 +11,5 @@
 </template>
 <script>
 export default {
-  name: 'AchievementCard',
+  name: 'AchievementCard'
 }

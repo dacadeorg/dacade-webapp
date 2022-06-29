@@ -14,7 +14,7 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import AchievementCard from '@/components/cards/Achievement'
+import AchievementCard from '@/components/cards/Achievement.vue'
 export default {
   name: 'AchievementList',
   components: {
