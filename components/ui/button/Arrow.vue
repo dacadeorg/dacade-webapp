@@ -36,7 +36,7 @@ import Spinner from '~/assets/icons/spinner.svg?inline'
 import ArrowRightIcon from '~/assets/icons/arrow-right.svg?inline'
 
 export default {
-  name: 'DAButton',
+  name: 'ArrowButton',
   components: {
     Button,
     Spinner,
