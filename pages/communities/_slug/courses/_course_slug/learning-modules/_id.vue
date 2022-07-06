@@ -12,7 +12,6 @@
         />
         <AdditionalMaterialsSection :materials="additionalMaterials" />
          <InteractiveModule/>
-<!--        <TestModule checked="1"/>-->
       </div>
 
       <PageNavigation />
