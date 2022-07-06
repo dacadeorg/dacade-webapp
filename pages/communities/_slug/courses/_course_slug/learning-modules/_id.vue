@@ -11,7 +11,8 @@
           :material="material"
         />
         <AdditionalMaterialsSection :materials="additionalMaterials" />
-        <InteractiveModule/>
+        <!-- <InteractiveModule/> -->
+        <TestModule checked="1"/>
       </div>
 
       <PageNavigation />
@@ -25,7 +26,8 @@
 import { mapGetters } from 'vuex'
 import PageNavigation from '@/components/sections/courses/PageNavigation.vue'
 import Header from '@/components/sections/learning-modules/Header'
-import InteractiveModule from '@/components/sections/learning-modules/InteractiveModule'
+// import InteractiveModule from '@/components/sections/learning-modules/InteractiveModule'
+import TestModule from '@/components/sections/learning-modules/TestModule'
 import MaterialSection from '@/components/sections/learning-modules/Material'
 import AdditionalMaterialsSection from '@/components/sections/learning-modules/AdditionalMaterials'
 import Wrapper from '@/components/sections/courses/Wrapper'
@@ -37,7 +39,8 @@ export default {
     MaterialSection,
     PageNavigation,
     AdditionalMaterialsSection,
-    InteractiveModule,
+    // InteractiveModule,
+    TestModule
   },
   scrollToTop: true,
   fetch({ store, params, error }) {

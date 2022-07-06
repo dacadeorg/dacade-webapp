@@ -1,12 +1,23 @@
 <template>
-  <div class=" bg-green-200 h-3 rounded-lg">
-    <div class="h-full bg-green-500 w-24 rounded-lg">
-    </div>
+  <div class="bg-green-100 h-3 rounded-lg">
+    <div
+      :style="{
+        backgroundColor: colors.textAccent,
+      }"
+      class="h-full w-24 rounded-lg"
+    ></div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-name: 'Progress',
+  name: 'Progress',
+  computed: {
+    ...mapGetters({
+      colors: 'ui/colors',
+      community: 'communities/current',
+    }),
+  },
 }
 </script>
