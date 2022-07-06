@@ -1,33 +1,24 @@
 <template>
   <InteractiveModuleWrapper
-    title="Cryptography" subtitle="Explanation" section-title="Blockchain Concepts"
+    :title="stepTitle" :subtitle="stepSubtitle" :section-title="data.title"
+    :percentage="completion"
     duration="15 minutes">
-    <div v-if="!started">
-      Cryptography (from greek: kryptós "hidden, secret") is the practice and
-      study of techniques for secure communication. Secure communication can
-      guarantee: Privacy - Only the receiver is able to read the message.
-      Integrity - A message has not been tampered with by a third party.
-      Authenticity - A message was sent by the described sender. Cryptographic
-      techniques allow us to send sensitive information via unsecured
-      communication channels. To send a secure message, a sender can encrypt it.
-      In this process, the original information (plaintext) gets converted into
-      an encrypted version (ciphertext) via an algorithm (cipher). In order for
-      the receiver of the message to read it, they need to decrypt it, which
-      describes the process of converting the ciphertext back to plaintext, via
-      a key. Public-key cryptography is one of the most widely used forms of
-      encryption. It is used in blockchain technology to create addresses and
-      private keys.
+    <div v-if="!started && !ended">
+      {{ data.description }}
       <div class="mx-auto w-full text-center mt-8">
         <Button type="outline-primary" community-styles @click="start"> Understood
         </Button>
       </div>
     </div>
     <div v-else class="relative">
-      <InteractiveModuleAnswer
-        v-for="(answer, index) in answers" :key="index" :data="answer"
-        :selected="selected === index"
-        :correct="correct === index"
-        @select="select(index)"/>
+      <div v-for="(question, index) in data.questions" :key="index">
+        <InteractiveModuleQuestion
+          v-if="current === index" :data="question" :disable="disabled"
+          @correct="goToNextQuestion"/>
+      </div>
+    </div>
+    <div v-if="ended">
+      {{ data.closing.text }}
     </div>
   </InteractiveModuleWrapper>
 </template>
@@ -35,30 +26,28 @@
 <script>
 import {mapGetters} from 'vuex'
 import InteractiveModuleWrapper from "./Wrapper";
-import InteractiveModuleAnswer from "./Answer";
 import Button from "~/components/ui/button";
+import InteractiveModuleQuestion from "~/components/sections/learning-modules/InteractiveModule/Question";
 
 export default {
   name: 'InteractiveModule',
   components: {
+    InteractiveModuleQuestion,
     Button,
-    InteractiveModuleAnswer,
     InteractiveModuleWrapper,
+  },
+  props: {
+    data: {
+      default: null,
+      type: Object,
+    },
   },
   data() {
     return {
-      answers: [
-        {
-          text: 'The practice and study of techniques for secure communication.',
-        }, {
-          text: 'The practice and study of techniques for securing information.'
-        }, {
-          text: 'The practice and study of techniques for securing data.'
-        }
-      ],
-      selected: null,
-      correct: 2,
       started: false,
+      current: 0,
+      disabled: false,
+      ended: false,
     }
   },
   computed: {
@@ -66,17 +55,57 @@ export default {
       colors: 'ui/colors',
       community: 'communities/current',
     }),
+    questions() {
+      return this.data?.questions?.length ? this.data.questions : [];
+    },
+    stepTitle() {
+      if (this.ended && this.data?.closing?.title) {
+        return this.data?.closing?.title
+      }
+      return this.data?.title
+    },
+    stepSubtitle() {
+      if (this.started) {
+        return 'Knowledge test - Select the best option'
+      }
+      if (this.ended) {
+        return 'Lesson end'
+      }
+      return 'Explanation'
+    },
+    completion() {
+      if (this.ended) {
+        return 100
+      }
+      return Math.round(this.current / this.questions.length * 100)
+    }
+  },
+  created() {
+    this.$store.dispatch('communities/navigation/hidePageNavigation');
+  },
+  mounted() {
+    this.$store.dispatch('communities/navigation/hidePageNavigation');
+  },
+  beforeDestroy() {
+    this.$store.dispatch('communities/navigation/showPageNavigation');
   },
   methods: {
-    select(index) {
-      if (this.selected === index) {
-        this.selected = null
-        return;
-      }
-      this.selected = index;
-    },
     start() {
       this.started = true;
+    },
+    nextQuestion() {
+      this.current++;
+      if (this.questions.length > this.current) return;
+      this.ended = true;
+      this.started = false;
+      this.$store.dispatch('communities/navigation/showPageNavigation');
+    },
+    goToNextQuestion() {
+      this.disabled = true;
+      setTimeout(() => {
+        this.nextQuestion()
+        this.disabled = false;
+      }, 1000);
     },
   }
 }

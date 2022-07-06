@@ -6,9 +6,9 @@
     <div
       class="flex items-center space-x-3 relative z-50 w-full md:p-4.5 p-4 border-solid bg-transparent checked-color"
     >
-      <span><Checkbox :checked="selected" community-styles /></span>
+      <span><Checkbox :checked="selected" community-styles @click="checkboxClick"/></span>
       <span class="text-gray-500"
-      >{{ data.text }}</span
+      >{{ text }}</span
       >
     </div>
     <div
@@ -40,9 +40,13 @@ export default {
       default: false,
       type: Boolean,
     },
-    data: {
-      default: null,
-      type: Object
+    text: {
+      default: '',
+      type: String,
+    },
+    disable: {
+      default: false,
+      type: Boolean,
     }
   },
   computed: {
@@ -55,7 +59,7 @@ export default {
       }
       return 'border-red-200 divide-red-200';
     },
-    bannerColor(){
+    bannerColor() {
       if (!this.selected) {
         return null;
       }
@@ -63,6 +67,15 @@ export default {
         return 'bg-green-100 text-green-600';
       }
       return 'bg-red-100 text-red-900';
+    }
+  },
+  methods: {
+    checkboxClick(event) {
+      if (!this.disable) {
+        return;
+      }
+      event.preventDefault();
+      event.stopPropagation();
     }
   }
 }
