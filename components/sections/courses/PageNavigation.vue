@@ -1,5 +1,5 @@
 <template>
-  <Section >
+  <Section>
     <div
       v-if="show"
       class="text-center justify-center space-x-10 pt-3"
