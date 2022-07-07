@@ -9,7 +9,7 @@
         width: `${percentage}%`,
         ...styles,
       }"
-      class="h-full relative z-10 bg-primary animate"
+      class="h-full relative z-10 bg-primary transition-all"
     ></div>
   </div>
 </template>
