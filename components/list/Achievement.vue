@@ -1,6 +1,6 @@
 <template>
   <div class="text-left relative">
-    <div :class="{ 'space-y-4 mt-3': !extended, 'space-y-4 mt-4': extended }">
+    <div :class="{ 'flex md:flex-row items-center justify-center space-y-4 mt-3': !extended, 'space-y-4 mt-4': extended }">
       <AchievementCard
         v-for="achievement in achievements"
         :key="achievement.id"
