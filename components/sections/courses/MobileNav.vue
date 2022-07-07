@@ -5,7 +5,7 @@
       class="text-sm font-medium -mt-4 relative pt-4 py-4 md:py-7 border-b-2 border-t-2"
       :class="[showTopBorder === false ? 'border-t-2' : '-mt-12']"
     >
-      <span class="flex">
+      <div class="flex">
         <div v-if="state.visiblity === true" class="pr-1 mt-2">
           <ChevronBottomIcon />
         </div>
@@ -15,7 +15,7 @@
         <p class="px-4" @click="state.visiblity = !state.visiblity">
           {{ $t('nav.mobile.pages') }}
         </p>
-      </span>
+      </div>
       <div v-if="state.visiblity === true" class="px-10 py-2 pb-0 -mb-2">
         <Navigation />
       </div>

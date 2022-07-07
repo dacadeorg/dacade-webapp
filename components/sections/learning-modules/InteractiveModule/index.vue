@@ -22,11 +22,9 @@
         <Markdown :value="data.closing.text"/>
       </div>
       <Hint v-if="!isLoggedIn" class="mt-6">
-        <p>Since you are not logged in, your progress won't be saved</p>
+        <p>Since you are not logged in, your progress won't be saved.</p>
         <p>
-          <nuxt-link :to="localePath('/login')">
-            Login
-          </nuxt-link>
+          <nuxt-link :to="localePath('/login')">Login</nuxt-link>
           to make sure your progress doesn't get lost
         </p>
       </Hint>
