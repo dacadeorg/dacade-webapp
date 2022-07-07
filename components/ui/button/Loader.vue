@@ -10,7 +10,7 @@
 <script>
 import RefreshIcon from '~/assets/icons/refresh.svg?inline'
 export default {
-  name: 'DAButtonLoader',
+  name: 'ButtonLoader',
   components: {
     RefreshIcon,
   },
