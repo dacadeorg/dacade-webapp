@@ -1,7 +1,10 @@
 <template>
   <InteractiveModuleWrapper
-    title="Cryptography" subtitle="Explanation" section-title="Blockchain Concepts"
-    duration="15 minutes">
+    title="Cryptography"
+    subtitle="Explanation"
+    section-title="Blockchain Concepts"
+    duration="15 minutes"
+  >
     <div v-if="!started">
       Cryptography (from greek: kryptós "hidden, secret") is the practice and
       study of techniques for secure communication. Secure communication can
@@ -18,25 +21,29 @@
       encryption. It is used in blockchain technology to create addresses and
       private keys.
       <div class="mx-auto w-full text-center mt-8">
-        <Button type="outline-primary" community-styles @click="start"> Understood
+        <Button type="outline-primary" community-styles @click="start">
+          Understood
         </Button>
       </div>
     </div>
     <div v-else class="relative">
       <InteractiveModuleAnswer
-        v-for="(answer, index) in answers" :key="index" :data="answer"
+        v-for="(answer, index) in answers"
+        :key="index"
+        :data="answer"
         :selected="selected === index"
         :correct="correct === index"
-        @select="select(index)"/>
+        @select="select(index)"
+      />
     </div>
   </InteractiveModuleWrapper>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import InteractiveModuleWrapper from "./Wrapper";
-import InteractiveModuleAnswer from "./Answer";
-import Button from "~/components/ui/button";
+import { mapGetters } from 'vuex'
+import InteractiveModuleWrapper from './Wrapper'
+import InteractiveModuleAnswer from './Answer'
+import Button from '~/components/ui/button'
 
 export default {
   name: 'InteractiveModule',
@@ -50,11 +57,13 @@ export default {
       answers: [
         {
           text: 'The practice and study of techniques for secure communication.',
-        }, {
-          text: 'The practice and study of techniques for securing information.'
-        }, {
-          text: 'The practice and study of techniques for securing data.'
-        }
+        },
+        {
+          text: 'The practice and study of techniques for securing information.',
+        },
+        {
+          text: 'The practice and study of techniques for securing data.',
+        },
       ],
       selected: null,
       correct: 2,
@@ -71,13 +80,13 @@ export default {
     select(index) {
       if (this.selected === index) {
         this.selected = null
-        return;
+        return
       }
-      this.selected = index;
+      this.selected = index
     },
     start() {
-      this.started = true;
+      this.started = true
     },
-  }
+  },
 }
 </script>

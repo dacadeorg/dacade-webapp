@@ -1,29 +1,23 @@
 <template>
   <div
-    class="flex flex-col divide-y divide-solid divide-gray-200  space-y-8 text-gray-700"
+    class="flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
   >
     <div>
       <div class="flex items-center">
-        <h6
-          class="text-xs leading-relaxed font-semibold pb-11 text-gray-500"
-        >
+        <h6 class="text-xs leading-relaxed font-semibold pb-11 text-gray-500">
           ACHIEVEMENTS
         </h6>
-        <div
-          class="text-primary flex items-center ml-auto cursor-pointer"
-        >
+        <div class="text-primary flex items-center ml-auto cursor-pointer">
           <span class="mr-2 text-sm"><a>See all</a></span>
-          <span><Angleright/></span>
+          <span><Angleright /></span>
         </div>
       </div>
 
-      <div
-        class="flex md:flex-row flex-wrap justify-between"
-      >
-        <AchievementList/>
+      <div class="flex md:flex-row flex-wrap justify-between">
+        <AchievementList />
       </div>
       <div class="text-primary flex items-center pt-5 cursor-pointer">
-        <span><PlusIcon class="w-3.5 h-3.5"/></span>
+        <span><PlusIcon class="w-3.5 h-3.5" /></span>
         <span class="ml-2 text-sm"><a>See all</a></span>
       </div>
     </div>
@@ -35,8 +29,8 @@
         COMMUNITIES
       </h6>
       <div class="flex md:flex-row flex-col md:space-x-4">
-        <Communities title="Celo Blockchain"/>
-        <Communities title="Ethereum Blockchain"/>
+        <Communities title="Celo Blockchain" />
+        <Communities title="Ethereum Blockchain" />
       </div>
     </div>
 
@@ -45,11 +39,9 @@
         <h6 class="text-xs leading-relaxed font-semibold text-gray-500">
           REFERRAL
         </h6>
-        <div
-          class="text-primary flex items-center ml-auto cursor-pointer"
-        >
+        <div class="text-primary flex items-center ml-auto cursor-pointer">
           <span class="mr-2 text-sm"><a>See all</a></span>
-          <span><Angleright/></span>
+          <span><Angleright /></span>
         </div>
       </div>
 
@@ -59,14 +51,14 @@
         />
       </div>
       <div class="pt-8">
-        <Request/>
+        <Request />
       </div>
     </div>
 
     <div class="pt-10">
-      <NotificationList extended/>
+      <NotificationList extended />
       <div class="text-primary flex items-center pt-5 cursor-pointer">
-        <span><PlusIcon/></span>
+        <span><PlusIcon /></span>
         <span class="ml-2"><a>See all</a></span>
       </div>
     </div>
@@ -74,13 +66,13 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import { mapGetters } from 'vuex'
 import NotificationList from '@/components/list/Notification'
 // import AchievementCard from "~/components/cards/Achievement";
-import AchievementList from '@/components/list/Achievement';
-import Communities from "~/components/cards/Communities";
-import ReferralsList from "~/components/list/ReferralsList";
-import Request from "~/components/cards/profile/Request";
+import AchievementList from '@/components/list/Achievement'
+import Communities from '~/components/cards/Communities'
+import ReferralsList from '~/components/list/ReferralsList'
+import Request from '~/components/cards/profile/Request'
 import PlusIcon from '~/assets/icons/plus.svg?inline'
 import Angleright from '~/assets/icons/angle-right.svg?inline'
 
@@ -103,7 +95,7 @@ export default {
     }),
   },
   mounted() {
-    this.$store.dispatch("user/certificates/all", this.user.username);
-  }
+    this.$store.dispatch('user/certificates/all', this.user.username)
+  },
 }
 </script>

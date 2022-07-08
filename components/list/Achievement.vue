@@ -1,12 +1,18 @@
 <template>
   <div class="text-left relative">
-    <div :class="{ 'flex md:flex-row items-center justify-center mt-3': !extended, 'space-y-4 mt-4': extended }">
+    <div
+      :class="{
+        'flex md:flex-row items-center justify-center mt-3': !extended,
+        'space-y-4 mt-4': extended,
+      }"
+    >
       <AchievementCard
         v-for="achievement in achievements"
         :key="achievement.id"
         :user="user"
         :details="achievement"
-        :extended="extended"/>
+        :extended="extended"
+      />
     </div>
   </div>
 </template>
@@ -18,7 +24,7 @@ import AchievementCard from '@/components/cards/Achievement.vue'
 export default {
   name: 'AchievementList',
   components: {
-    AchievementCard
+    AchievementCard,
   },
   props: {
     value: {

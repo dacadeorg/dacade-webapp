@@ -13,7 +13,7 @@
       </span>
       Interactive lessons
     </p>
-    <Progress community-styles/>
+    <Progress community-styles />
     <div class="pt-9">
       <h3 class="leading-normal text-default capitalize font-medium">
         {{ title }}
@@ -22,13 +22,13 @@
     </div>
     <div class="pt-6">
       <!--equivalent to children in react-->
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import Progress from '@/components/ui/Progress'
 
 export default {
@@ -51,14 +51,13 @@ export default {
     },
     duration: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     ...mapGetters({
       colors: 'ui/colors',
     }),
-
   },
 }
 </script>

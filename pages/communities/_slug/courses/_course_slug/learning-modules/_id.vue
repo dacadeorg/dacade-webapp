@@ -11,7 +11,7 @@
           :material="material"
         />
         <AdditionalMaterialsSection :materials="additionalMaterials" />
-         <InteractiveModule/>
+        <InteractiveModule />
       </div>
 
       <PageNavigation />
