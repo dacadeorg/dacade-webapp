@@ -27,7 +27,7 @@
         {{ $t('submissions.link.github') }}
       </ArrowButton>
 
-<SubmissionTranslate @translateSubmission="translateSubmission" />
+<SubmissionTranslate :submission="submission" />
     </div>
   </UserCard>
 </template>
@@ -87,40 +87,5 @@ export default {
       }
     },
   },
-
-  methods: {
-    async translateSubmission({ currentLocale, newLocale }) {
-
-      try {
-        const fromLang = currentLocale ;
-        const toLang = newLocale
-        const text = this.submission.text;
-
-        // Todo replace env with a new one
-        const API_KEY = 'AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM';
-
-        let url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
-        url += '&q=' + encodeURI(text);
-        url += `&source=${fromLang}`;
-        url += `&target=${toLang}`;
-
-        const res = await fetch(url, {
-          method: 'GET',
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          }
-        })
-        const { data } = await res.json();
-        const translatedText = data.translations[0]?.translatedText;
-        await this.$store.dispatch('communities/challenges/submissions/updateText', {
-            text : translatedText})
-        this.$forceUpdate();
-      }
-      catch (e) {
-          console.log("There was an error with the translation request: ", e);
-      }
-    },
-  }
 }
 </script>

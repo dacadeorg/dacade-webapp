@@ -26,6 +26,14 @@
 /* eslint-disable no-console */
 
 export default {
+  props: {
+    submission: {
+      default: () => {
+        return {}
+      },
+      type: Object,
+    },
+  },
   data() {
     return {
       translations: [
@@ -34,11 +42,7 @@ export default {
           locale: 'en',
           name: 'English',
         },
-        {
-          id: 'no',
-          locale: 'no',
-          name: 'Norwegian',
-        },
+
         // spanish
         {
           id: 'es',
@@ -67,14 +71,46 @@ export default {
         const currentLocale = this.locale
         const newLocale = locale
         this.locale = newLocale
-        this.$emit('translateSubmission', { currentLocale, newLocale })
+        this.translateSubmission({ currentLocale, newLocale })
       },
     },
   },
   methods : {
     changeLocale(locale) {
       this.$i18n.locale = locale
-    }
+    },
+    async translateSubmission({ currentLocale, newLocale }) {
+
+      try {
+        const fromLang = currentLocale ;
+        const toLang = newLocale
+        const text = this.submission.text;
+
+        const API_KEY = process.env.NUXT_ENV_TRANSLATE_API_KEY;
+
+        let url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
+        url += '&q=' + encodeURI(text);
+        url += `&source=${fromLang}`;
+        url += `&target=${toLang}`;
+
+        const res = await fetch(url, {
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          }
+        })
+        const { data } = await res.json();
+        const translatedText = data.translations[0]?.translatedText;
+        await this.$store.dispatch('communities/challenges/submissions/updateText', {
+          text : translatedText})
+        this.$forceUpdate();
+      }
+      catch (e) {
+        console.log("There was an error with the translation request: ", e);
+      }
+    },
+
   },
 
 }
