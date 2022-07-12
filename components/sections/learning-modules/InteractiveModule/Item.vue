@@ -10,6 +10,8 @@
     <div v-else class="relative">
       <InteractiveModuleQuestion
         :data="data.question" :disable="disabled"
+        @retry="disabled = false"
+        @wrong="disabled = true"
         @correct="completed"/>
     </div>
   </div>

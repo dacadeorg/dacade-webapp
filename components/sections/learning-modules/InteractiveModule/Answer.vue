@@ -15,7 +15,7 @@
       v-if="selected"
       :class="['w-full p-2.5 px-4 md:px-4.5 z-10 text-sm', bannerColor]"
     >
-      {{ correct ? 'Well done!' : 'This answer is wrong. Try again.' }}
+      {{ correct ? 'Well done!' : errorMessage }}
     </div>
   </div>
 </template>
@@ -47,7 +47,11 @@ export default {
     disable: {
       default: false,
       type: Boolean,
-    }
+    },
+    timerCount: {
+      default: 0,
+      type: Number,
+    },
   },
   computed: {
     borderColor() {
@@ -67,6 +71,10 @@ export default {
         return 'bg-green-100 text-green-600';
       }
       return 'bg-red-100 text-red-900';
+    },
+    errorMessage() {
+      if (!this.timerCount) return 'This answer is wrong. Try again!';
+      return `This answer is wrong. Try again in ${this.timerCount} seconds`;
     }
   },
   methods: {

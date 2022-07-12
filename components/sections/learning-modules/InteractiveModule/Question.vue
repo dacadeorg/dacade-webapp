@@ -6,6 +6,9 @@
       :selected="selected === index"
       :correct="correct === index"
       :disable="disable"
+      :timer-count="timerCount"
+      @retry="$emit('retry')"
+      @wrong="$emit('wrong')"
       @select="select(index)"/>
   </div>
 </template>
@@ -32,6 +35,7 @@ export default {
   data() {
     return {
       selected: null,
+      timerCount: 0,
     }
   },
   computed: {
@@ -45,6 +49,27 @@ export default {
       return this.data?.correct ? this.data.correct : 0;
     },
   },
+  watch: {
+    timerCount(value, oldValue) {
+
+
+      if (value === 0 && oldValue > 0) {
+        this.$emit('retry');
+        return;
+      }
+
+      if (value <= 0) return;
+
+      setTimeout(() => {
+        this.timerCount--;
+      }, 1000);
+    },
+    select(value) {
+      if (!value) {
+        this.timerCount = 14;
+      }
+    },
+  },
   methods: {
     select(index) {
       if (this.disable) {
@@ -56,8 +81,11 @@ export default {
       }
       this.selected = index;
       if (index === this.correct) {
-        this.$emit('correct', index)
+        return this.$emit('correct', index)
       }
+      this.timerCount = 14;
+      // this.disable = true;
+      this.$emit('wrong', index);
     }
   }
 }
