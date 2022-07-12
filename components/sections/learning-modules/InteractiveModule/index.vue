@@ -4,21 +4,14 @@
     :percentage="completion"
     duration="15 minutes">
     <div v-if="!loading">
-      <div v-if="!started && !ended">
-        <Markdown :value="data.description"/>
-        <div class="mx-auto w-full text-center mt-8">
-          <Button type="outline-primary" community-styles @click="start"> Understood
-          </Button>
+      <div v-if="!ended">
+        <div v-for="(item, index) in items" :key="index">
+          <InteractiveModuleItem
+            v-if="current === index" :data="item" @completed="goToNextItem"
+            @answering="answering = true"/>
         </div>
       </div>
-      <div v-else class="relative">
-        <div v-for="(question, index) in data.questions" :key="index">
-          <InteractiveModuleQuestion
-            v-if="current === index" :data="question" :disable="disabled"
-            @correct="goToNextQuestion"/>
-        </div>
-      </div>
-      <div v-if="ended">
+      <div v-else>
         <Markdown :value="data.closing.text"/>
       </div>
       <Hint v-if="!isLoggedIn" class="mt-6">
@@ -36,19 +29,17 @@
 <script>
 import {mapGetters} from 'vuex'
 import InteractiveModuleWrapper from "./Wrapper";
-import Button from "~/components/ui/button";
-import InteractiveModuleQuestion from "~/components/sections/learning-modules/InteractiveModule/Question";
 import Markdown from '@/components/ui/Markdown'
 import Loader from "~/components/ui/Loader";
 import Hint from "~/components/ui/Hint";
+import InteractiveModuleItem from "~/components/sections/learning-modules/InteractiveModule/Item";
 
 export default {
   name: 'InteractiveModule',
   components: {
+    InteractiveModuleItem,
     Hint,
     Loader,
-    InteractiveModuleQuestion,
-    Button,
     InteractiveModuleWrapper,
     Markdown,
   },
@@ -65,6 +56,9 @@ export default {
       disabled: false,
       ended: false,
       loading: true,
+      title: '',
+      subtitle: '',
+      answering: false,
     }
   },
   computed: {
@@ -73,17 +67,17 @@ export default {
       community: 'communities/current',
       isLoggedIn: 'auth/check',
     }),
-    questions() {
-      return this.data?.questions?.length ? this.data.questions : [];
+    items() {
+      return this.data?.items?.length ? this.data.items : [];
     },
     stepTitle() {
       if (this.ended && this.data?.closing?.title) {
         return this.data?.closing?.title
       }
-      return this.data?.subtitle
+      return this.items[this.current]?.title;
     },
     stepSubtitle() {
-      if (this.started) {
+      if (this.answering) {
         return 'Knowledge test - Select the best option'
       }
       if (this.ended) {
@@ -95,7 +89,7 @@ export default {
       if (this.ended) {
         return 100
       }
-      return Math.round(this.current / this.questions.length * 100)
+      return Math.round(this.current / this.items.length * 100)
     }
   },
   created() {
@@ -109,24 +103,21 @@ export default {
     this.$store.dispatch('communities/navigation/showPageNavigation');
   },
   methods: {
-    start() {
-      this.started = true;
-    },
-    nextQuestion() {
+    nextItem() {
       this.current++;
-      if (this.questions.length > this.current) return;
+      this.answering = false;
+      if (this.items.length > this.current) return;
       this.completed();
     },
-    goToNextQuestion() {
+    goToNextItem() {
       this.disabled = true;
       setTimeout(() => {
-        this.nextQuestion()
+        this.nextItem()
         this.disabled = false;
       }, 1000);
     },
     completed() {
       this.ended = true;
-      this.started = false;
       this.$store.dispatch('communities/navigation/showPageNavigation');
       if (!this.isLoggedIn) return
       this.$store.dispatch('communities/courses/learningModules/submitModuleAnswer', this.data.ref);
@@ -136,7 +127,7 @@ export default {
         if (!this.isLoggedIn) return
         const answers = await this.$store.dispatch('communities/courses/learningModules/checkAnswer', this.data.ref);
         if (!answers.length) return;
-        this.current = this.questions.length;
+        this.current = this.items.length;
         this.started = true;
         this.ended = true;
       } catch (e) {
