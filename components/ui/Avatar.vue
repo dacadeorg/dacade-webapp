@@ -7,10 +7,10 @@
     class="bg-primary inline-flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle"
     @click="openLink()"
   >
-    <img v-if="user && user.avatar" :src="user.avatar" alt="img" />
+    <img v-if="user && user.avatar" :src="user.avatar" alt="img" class="object-cover w-full h-full" />
     <span v-if="user && !user.avatar">{{ initials }}</span>
     <img v-if="icon" :src="icon" class="p-2" />
-    <img v-if="image" :src="image" class="p-0" />
+    <img v-if="image" :src="image" class="p-0 object-cover w-full h-full" />
   </span>
 </template>
 

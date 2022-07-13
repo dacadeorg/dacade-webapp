@@ -5,8 +5,11 @@
         'opacity-20': communityStyles,
       }]"/>
     <div
-      :style="styles"
-      class="h-full w-24 relative z-10 bg-primary"
+      :style="{
+        width: `${percentage}%`,
+        ...styles,
+      }"
+      class="h-full relative z-10 bg-primary transition-all"
     ></div>
   </div>
 </template>
@@ -20,6 +23,10 @@ export default {
     communityStyles: {
       default: false,
       type: Boolean
+    },
+    percentage: {
+      default: 0,
+      type: Number
     }
   },
   computed: {
@@ -28,7 +35,7 @@ export default {
     }),
     styles() {
       if (!this.communityStyles) {
-        return null;
+        return {}
       }
       return {
         backgroundColor: this.colors.textAccent,

@@ -6,16 +6,16 @@
     <div
       class="flex items-center space-x-3 relative z-50 w-full md:p-4.5 p-4 border-solid bg-transparent checked-color"
     >
-      <span><Checkbox :checked="selected" community-styles /></span>
+      <span><Checkbox :checked="selected" community-styles @click="checkboxClick"/></span>
       <span class="text-gray-500"
-      >{{ data.text }}</span
+      >{{ text }}</span
       >
     </div>
     <div
       v-if="selected"
       :class="['w-full p-2.5 px-4 md:px-4.5 z-10 text-sm', bannerColor]"
     >
-      {{ correct ? 'Well done!' : 'This answer is wrong. Try again.' }}
+      {{ correct ? 'Well done!' : errorMessage }}
     </div>
   </div>
 </template>
@@ -40,10 +40,18 @@ export default {
       default: false,
       type: Boolean,
     },
-    data: {
-      default: null,
-      type: Object
-    }
+    text: {
+      default: '',
+      type: String,
+    },
+    disable: {
+      default: false,
+      type: Boolean,
+    },
+    timerCount: {
+      default: 0,
+      type: Number,
+    },
   },
   computed: {
     borderColor() {
@@ -55,7 +63,7 @@ export default {
       }
       return 'border-red-200 divide-red-200';
     },
-    bannerColor(){
+    bannerColor() {
       if (!this.selected) {
         return null;
       }
@@ -63,6 +71,19 @@ export default {
         return 'bg-green-100 text-green-600';
       }
       return 'bg-red-100 text-red-900';
+    },
+    errorMessage() {
+      if (!this.timerCount) return 'This answer is wrong. Try again!';
+      return `This answer is wrong. Try again in ${this.timerCount} seconds`;
+    }
+  },
+  methods: {
+    checkboxClick(event) {
+      if (!this.disable) {
+        return;
+      }
+      event.preventDefault();
+      event.stopPropagation();
     }
   }
 }

@@ -13,7 +13,7 @@
       </span>
       Interactive lessons
     </p>
-    <Progress community-styles/>
+    <Progress :percentage="percentage" community-styles/>
     <div class="pt-9">
       <h3 class="leading-normal text-default capitalize font-medium">
         {{ title }}
@@ -52,6 +52,10 @@ export default {
     duration: {
       type: String,
       default: ''
+    },
+    percentage: {
+      type: Number,
+      default: 0
     }
   },
   computed: {
