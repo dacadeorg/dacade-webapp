@@ -18,7 +18,7 @@
         <p>Since you are not logged in, your progress won't be saved.</p>
         <p>
           <nuxt-link :to="localePath('/login')">Login</nuxt-link>
-          to make sure your progress doesn't get lost
+          to make sure your progress doesn't get lost.
         </p>
       </Hint>
     </div>
