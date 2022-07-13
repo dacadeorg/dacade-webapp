@@ -11,7 +11,7 @@
           :material="material"
         />
         <AdditionalMaterialsSection :materials="additionalMaterials" />
-        <InteractiveModule />
+        <InteractiveModule v-if="interactiveModules.length" :data="interactiveModules[0]"/>
       </div>
 
       <PageNavigation />
@@ -67,6 +67,11 @@ export default {
       return this.learningModule.materials.filter(
         (material) => material.type === 'ADDITIONAL'
       )
+    },
+    interactiveModules() {
+      if (!this.learningModule?.interactiveModules) return []
+
+      return this.learningModule?.interactiveModules
     },
   },
 }

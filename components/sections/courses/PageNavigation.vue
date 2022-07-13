@@ -1,6 +1,7 @@
 <template>
   <Section>
     <div
+      v-if="show"
       class="text-center justify-center space-x-10 pt-3"
       :class="{ flex: prevUrl, 'w-full sm:flex': !prevUrl }"
     >
@@ -45,6 +46,7 @@ export default {
     ...mapGetters({
       colors: 'ui/colors',
       menus: 'communities/navigation/list',
+      show: 'communities/navigation/showPageNavigation',
     }),
     buttonStyle() {
       return {

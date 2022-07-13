@@ -1,92 +1,141 @@
 <template>
   <InteractiveModuleWrapper
-    title="Cryptography"
-    subtitle="Explanation"
-    section-title="Blockchain Concepts"
-    duration="15 minutes"
-  >
-    <div v-if="!started">
-      Cryptography (from greek: kryptós "hidden, secret") is the practice and
-      study of techniques for secure communication. Secure communication can
-      guarantee: Privacy - Only the receiver is able to read the message.
-      Integrity - A message has not been tampered with by a third party.
-      Authenticity - A message was sent by the described sender. Cryptographic
-      techniques allow us to send sensitive information via unsecured
-      communication channels. To send a secure message, a sender can encrypt it.
-      In this process, the original information (plaintext) gets converted into
-      an encrypted version (ciphertext) via an algorithm (cipher). In order for
-      the receiver of the message to read it, they need to decrypt it, which
-      describes the process of converting the ciphertext back to plaintext, via
-      a key. Public-key cryptography is one of the most widely used forms of
-      encryption. It is used in blockchain technology to create addresses and
-      private keys.
-      <div class="mx-auto w-full text-center mt-8">
-        <Button type="outline-primary" community-styles @click="start">
-          Understood
-        </Button>
+    :title="stepTitle" :subtitle="stepSubtitle" :section-title="data.title"
+    :percentage="completion"
+    duration="15 minutes">
+    <div v-if="!loading">
+      <div v-if="!ended">
+        <div v-for="(item, index) in items" :key="index">
+          <InteractiveModuleItem
+            v-if="current === index" :data="item" @completed="goToNextItem"
+            @answering="answering = true"/>
+        </div>
       </div>
+      <div v-else>
+        <Markdown :value="data.closing.text"/>
+      </div>
+      <Hint v-if="!isLoggedIn" class="mt-6">
+        <p>Since you are not logged in, your progress won't be saved.</p>
+        <p>
+          <nuxt-link :to="localePath('/login')">Login</nuxt-link>
+          to make sure your progress doesn't get lost.
+        </p>
+      </Hint>
     </div>
-    <div v-else class="relative">
-      <InteractiveModuleAnswer
-        v-for="(answer, index) in answers"
-        :key="index"
-        :data="answer"
-        :selected="selected === index"
-        :correct="correct === index"
-        @select="select(index)"
-      />
-    </div>
+    <Loader v-else class="h-48" community-styles/>
   </InteractiveModuleWrapper>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import InteractiveModuleWrapper from './Wrapper'
-import InteractiveModuleAnswer from './Answer'
-import Button from '~/components/ui/button'
+import {mapGetters} from 'vuex'
+import InteractiveModuleWrapper from "./Wrapper";
+import Markdown from '@/components/ui/Markdown'
+import Loader from "~/components/ui/Loader";
+import Hint from "~/components/ui/Hint";
+import InteractiveModuleItem from "~/components/sections/learning-modules/InteractiveModule/Item";
 
 export default {
   name: 'InteractiveModule',
   components: {
-    Button,
-    InteractiveModuleAnswer,
+    InteractiveModuleItem,
+    Hint,
+    Loader,
     InteractiveModuleWrapper,
+    Markdown,
+  },
+  props: {
+    data: {
+      default: null,
+      type: Object,
+    },
   },
   data() {
     return {
-      answers: [
-        {
-          text: 'The practice and study of techniques for secure communication.',
-        },
-        {
-          text: 'The practice and study of techniques for securing information.',
-        },
-        {
-          text: 'The practice and study of techniques for securing data.',
-        },
-      ],
-      selected: null,
-      correct: 2,
       started: false,
+      current: 0,
+      disabled: false,
+      ended: false,
+      loading: true,
+      title: '',
+      subtitle: '',
+      answering: false,
     }
   },
   computed: {
     ...mapGetters({
       colors: 'ui/colors',
       community: 'communities/current',
+      isLoggedIn: 'auth/check',
     }),
+    items() {
+      return this.data?.items?.length ? this.data.items : [];
+    },
+    stepTitle() {
+      if (this.ended && this.data?.closing?.title) {
+        return this.data?.closing?.title
+      }
+      return this.items[this.current]?.title;
+    },
+    stepSubtitle() {
+      if (this.answering) {
+        return 'Knowledge test - Select the best option'
+      }
+      if (this.ended) {
+        return 'Lesson end'
+      }
+      return 'Explanation'
+    },
+    completion() {
+      if (this.ended) {
+        return 100
+      }
+      return Math.round(this.current / this.items.length * 100)
+    }
+  },
+  created() {
+    this.$store.dispatch('communities/navigation/hidePageNavigation');
+  },
+  mounted() {
+    this.$store.dispatch('communities/navigation/hidePageNavigation');
+    this.checkIfAnswered();
+  },
+  beforeDestroy() {
+    this.$store.dispatch('communities/navigation/showPageNavigation');
   },
   methods: {
-    select(index) {
-      if (this.selected === index) {
-        this.selected = null
-        return
+    nextItem() {
+      this.current++;
+      this.answering = false;
+      if (this.items.length > this.current) return;
+      this.completed();
+    },
+    goToNextItem() {
+      this.disabled = true;
+      setTimeout(() => {
+        this.nextItem()
+        this.disabled = false;
+      }, 1000);
+    },
+    completed() {
+      this.ended = true;
+      this.$store.dispatch('communities/navigation/showPageNavigation');
+      if (!this.isLoggedIn) return
+      this.$store.dispatch('communities/courses/learningModules/submitModuleAnswer', this.data.ref);
+    },
+    async checkIfAnswered() {
+      try {
+        if (!this.isLoggedIn) return
+        const answers = await this.$store.dispatch('communities/courses/learningModules/checkAnswer', this.data.ref);
+        if (!answers.length) return;
+        this.current = this.items.length;
+        this.started = true;
+        this.ended = true;
+      } catch (e) {
+        console.log(e);
+      } finally {
+        this.loading = false;
       }
-      this.selected = index
-    },
-    start() {
-      this.started = true
-    },
-  },
+    }
+  }
 }
 </script>
