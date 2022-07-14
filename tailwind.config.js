@@ -32,7 +32,7 @@ module.exports = {
       primary: '#1B66F8',
       secondary: '#F3F4F6',
       orange:'rgba(255, 187, 1, 0.17)',
-      orange_light:'rgba(173, 87, 0, 1)',
+      'orange-light':'rgba(173, 87, 0, 1)',
       blue_lighter:'#F8FAFF',
       blue_light:'#DDE9FF',
       grayLight: '#1b66f8',
