@@ -64,6 +64,7 @@ export default {
     ...mapGetters({
       colors: 'ui/colors',
       community: 'communities/current',
+      course: 'communities/courses/current',
       isLoggedIn: 'auth/check',
     }),
     items() {
@@ -117,7 +118,10 @@ export default {
       this.ended = true;
       this.$store.dispatch('communities/navigation/showPageNavigation');
       if (!this.isLoggedIn) return
-      this.$store.dispatch('communities/courses/learningModules/submitModuleAnswer', this.data.ref);
+      this.$store.dispatch('communities/courses/learningModules/submitModuleAnswer', {
+        ref: this.data.ref,
+        course: this.course.ref,
+      });
     },
     async checkIfAnswered() {
       try {

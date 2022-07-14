@@ -23,9 +23,10 @@ export const actions = {
     const {data} = await this.$api.get(`courses/${slug}/learning-modules`)
     commit('setList', data)
   },
-  submitModuleAnswer({commit}, ref) {
+  submitModuleAnswer({commit}, {ref, course}) {
     return this.$api.put(`interactive-modules/answer`, {
       module: ref,
+      course,
       score: 100,
     })
   },
