@@ -76,6 +76,7 @@ export default {
   methods: {
     completed() {
       this.$emit('completed', true)
+      this.disabled = true
     },
     start() {
       this.answering = true;

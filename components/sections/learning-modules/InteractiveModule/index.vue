@@ -53,7 +53,6 @@ export default {
     return {
       started: false,
       current: 0,
-      disabled: false,
       ended: false,
       loading: true,
       title: '',
@@ -110,10 +109,8 @@ export default {
       this.completed();
     },
     goToNextItem() {
-      this.disabled = true;
       setTimeout(() => {
         this.nextItem()
-        this.disabled = false;
       }, 1000);
     },
     completed() {
