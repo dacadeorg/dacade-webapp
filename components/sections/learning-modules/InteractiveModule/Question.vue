@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <p>{{ data.title }}</p>
+    <h4 class="pt-6 font-normal">{{ data.title }}</h4>
     <InteractiveModuleAnswer
       v-for="(answer, index) in randomizedAnswers" :key="index" :text="answer.text"
       :selected="selected === answer.id"

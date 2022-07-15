@@ -1,8 +1,8 @@
 <template>
   <div class="pt-14">
-    <h3 class="leading-normal text-default capitalize font-medium">
+    <H3>
       {{ sectionTitle }}
-    </h3>
+    </H3>
     <p class="text-sm pb-3 pt-1">
       <span
         :style="{
@@ -15,12 +15,12 @@
     </p>
     <Progress :percentage="percentage" community-styles/>
     <div class="pt-9">
-      <h3 class="leading-normal text-default capitalize font-medium">
+      <H3>
         {{ title }}
-      </h3>
+      </H3>
       <span class="pt-1 text-gray-500 text-sm">{{ subtitle }}</span>
     </div>
-    <div class="pt-6">
+    <div class="revolution">
       <!--equivalent to children in react-->
       <slot/>
     </div>
@@ -30,10 +30,12 @@
 <script>
 import {mapGetters} from 'vuex'
 import Progress from '@/components/ui/Progress'
+import H3 from "~/components/ui/text/H3";
 
 export default {
   name: 'InteractiveModuleWrapper',
   components: {
+    H3,
     Progress,
   },
   props: {

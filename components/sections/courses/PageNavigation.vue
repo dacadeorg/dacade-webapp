@@ -1,7 +1,6 @@
 <template>
-  <Section>
+  <Section v-if="show">
     <div
-      v-if="show"
       class="text-center justify-center space-x-10 pt-3"
       :class="{ flex: prevUrl, 'w-full sm:flex': !prevUrl }"
     >
