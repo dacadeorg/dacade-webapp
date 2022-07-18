@@ -22,13 +22,13 @@
     </div>
     <div class="revolution">
       <!--equivalent to children in react-->
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import Progress from '@/components/ui/Progress'
 import H3 from "~/components/ui/text/H3";
 
@@ -64,7 +64,6 @@ export default {
     ...mapGetters({
       colors: 'ui/colors',
     }),
-
   },
 }
 </script>

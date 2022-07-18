@@ -1,8 +1,12 @@
 <template>
   <div
-    :class="['my-5 relative border-2 rounded cursor-pointer select-none flex flex-col divide-y-2 divide-solid', borderColor]"
+    :class="[
+      'my-5 relative border-2 rounded cursor-pointer select-none flex flex-col divide-y-2 divide-solid',
+      borderColor,
+    ]"
     role="button"
-    @click="$emit('select', true)">
+    @click="$emit('select', true)"
+  >
     <div
       class="flex items-center space-x-3 relative z-50 w-full md:p-4.5 p-4 border-solid bg-transparent checked-color"
     >
@@ -20,7 +24,7 @@
   </div>
 </template>
 <script>
-import Checkbox from "~/components/ui/Checkbox";
+import Checkbox from '~/components/ui/Checkbox'
 
 export default {
   name: 'InteractiveModuleAnswer',
@@ -56,19 +60,19 @@ export default {
   computed: {
     borderColor() {
       if (!this.selected) {
-        return 'border-gray-200';
+        return 'border-gray-200'
       }
       if (this.correct) {
-        return 'border-green-200 divide-green-200';
+        return 'border-green-200 divide-green-200'
       }
-      return 'border-red-200 divide-red-200';
+      return 'border-red-200 divide-red-200'
     },
     bannerColor() {
       if (!this.selected) {
-        return null;
+        return null
       }
       if (this.correct) {
-        return 'bg-green-100 text-green-600';
+        return 'bg-green-100 text-green-600'
       }
       return 'bg-red-100 text-red-900';
     },

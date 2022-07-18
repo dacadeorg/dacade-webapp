@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col divide-y divide-solid divide-gray-200  space-y-8 text-gray-700"
+    class="flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
   >
     <ProfileOverviewAchievements/>
 
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import { mapGetters } from 'vuex'
 import NotificationList from '@/components/list/Notification'
 import ProfileOverviewCommunities from "~/components/sections/profile/overview/Communities";
 import ProfileOverviewAchievements from "~/components/sections/profile/overview/Achievements";
@@ -24,7 +24,7 @@ import ProfileOverviewReferrals from "~/components/sections/profile/overview/Ref
 import ProfileOverviewSection from "~/components/sections/profile/overview/Section";
 
 export default {
-  name: 'Notifications',
+  name: 'ProfileOverview',
   components: {
     ProfileOverviewSection,
     ProfileOverviewReferrals,
@@ -40,7 +40,7 @@ export default {
     }),
   },
   mounted() {
-    this.$store.dispatch("user/certificates/all", this.user.username);
-  }
+    this.$store.dispatch('user/certificates/all', this.user.username)
+  },
 }
 </script>

@@ -51,16 +51,14 @@
    </main>
 </template>
 
-
 <script>
-    export default {
-        name: 'Achievement',
-        data() {
-            return{
-                image: require('~/assets/img/cert/intro.svg'),
-                profilePic: require('~/assets/img/moritz-pic.png')
-            }
-        }
+export default {
+  name: 'Achievement',
+  data() {
+    return {
+      image: require('~/assets/img/cert/intro.svg'),
+      profilePic: require('~/assets/img/moritz-pic.png'),
     }
+  },
+}
 </script>
-

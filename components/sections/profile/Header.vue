@@ -6,7 +6,7 @@
     }}</span>
     <div class="flex justify-center mt-2 leading-snug text-sm">
       <div class="border-r border-solid flex items-center px-3">
-        <span class="inline-block"><GithubIcon/></span>
+        <span class="inline-block"><GithubIcon /></span>
         <span class="ml-1 inline-block">Github</span>
       </div>
       <div class="border-r border-solid flex items-center px-3">
@@ -15,11 +15,10 @@
         <span v-if="joined" class="inline-block text-sm">{{ joined }}</span>
       </div>
       <div class="border-r border-solid flex items-center px-3">
-        <span class="inline-block"><CompassIcon/></span>
+        <span class="inline-block"><CompassIcon /></span>
         <span class="ml-1 inline-block">GMT+2</span>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -30,7 +29,6 @@ import DateManager from '@/utilities/DateManager'
 import TimeIcon from '~/assets/icons/time.svg?inline'
 import GithubIcon from '~/assets/icons/github.svg?inline'
 import CompassIcon from '~/assets/icons/compass.svg?inline'
-
 
 export default {
   name: 'ProfileHeader',
