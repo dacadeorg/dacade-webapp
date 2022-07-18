@@ -1,22 +1,28 @@
 <template>
-  <div>
-    <div
-      class="border border-solid rounded-3.5xl px-7 pt-6 pb-4 w-40 mb-3 mr-4 ml-4"
-    >
-      <div class="mx-auto w-full text-left">
+  <div
+    class="border border-solid rounded-3.5xl px-7 py-9 w-full"
+  >
+    <div class="mx-auto w-full text-left">
+      <div class="w-20 h-20 p-5 mx-auto rounded-full mb-5" :style="{backgroundColor: data.community.colors.primary,}">
         <img
-          src="~/assets/img/courseLogo.svg"
-          class="relative h-20 mx-auto w-20 mb-5"
+          :src="data.metadata.image"
+          class="relative"
         />
-        <p class="text-sm font-medium text-center">
-          Introduction to blockchain
-        </p>
       </div>
+      <p class="text-sm font-medium text-center">
+        {{ data.metadata.name }}
+      </p>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: 'AchievementCard',
+  props: {
+    data: {
+      type: Object,
+      required: true,
+    }
+  }
 }
 </script>

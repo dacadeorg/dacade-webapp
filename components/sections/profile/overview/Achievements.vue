@@ -1,22 +1,26 @@
 <template>
   <ProfileOverviewSection title="Achievements" see-more see-all>
     <div
-      class="flex md:flex-row flex-wrap justify-between"
+      class="grid grid-cols-4 gap-4"
     >
-      <AchievementCard/>
-      <AchievementCard/>
-      <AchievementCard/>
-      <AchievementCard/>
+      <AchievementCard v-for="(achievement, index) in achievements" :key="index" :data="achievement"/>
+
     </div>
   </ProfileOverviewSection>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 import ProfileOverviewSection from "~/components/sections/profile/overview/Section";
 import AchievementCard from "~/components/cards/Achievement";
 
 export default {
   name: "ProfileOverviewAchievements",
-  components: {AchievementCard, ProfileOverviewSection}
+  components: {AchievementCard, ProfileOverviewSection},
+  computed: {
+    ...mapGetters({
+      achievements: 'user/certificates/list',
+    }),
+  },
 }
 </script>

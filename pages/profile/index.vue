@@ -24,7 +24,7 @@ import ProfileOverviewReferrals from "~/components/sections/profile/overview/Ref
 import ProfileOverviewSection from "~/components/sections/profile/overview/Section";
 
 export default {
-  name: 'Notifications',
+  name: 'ProfileOverview',
   components: {
     ProfileOverviewSection,
     ProfileOverviewReferrals,
