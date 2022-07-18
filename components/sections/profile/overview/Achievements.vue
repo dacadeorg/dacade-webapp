@@ -1,5 +1,5 @@
 <template>
-  <ProfileOverviewSection title="Achievements" see-more see-all>
+  <ProfileOverviewSection v-if="achievements && achievements.length" title="Achievements" see-more see-all>
     <div
       class="grid grid-cols-4 gap-4"
     >
