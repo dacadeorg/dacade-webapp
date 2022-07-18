@@ -1,5 +1,5 @@
 <template>
-  <ProfileOverviewSection title="Communities">
+  <ProfileOverviewSection v-if="reputations && reputations.length" title="Communities">
     <div class="grid md:grid-cols-2 gap-4">
       <div v-for="(reputation, i) in reputations" :key="i" class="block">
         <CommunityCardSmall title="Celo Blockchain" :data="reputation"/>
@@ -19,8 +19,23 @@ export default {
   components: {ProfileOverviewSection, CommunityCardSmall},
   computed: {
     ...mapGetters({
-      reputations: 'user/reputations/list',
+      reputations: 'profile/reputations/list',
+      communities: 'profile/communities/list',
+      authUser: 'user/get',
     }),
+    username() {
+      return this.$route.params?.username || this.authUser?.displayName
+    },
+    isCurrentUser() {
+      return (
+        this.username?.toLowerCase() ===
+        this.authUser?.displayName?.toLowerCase()
+      )
+    },
+  },
+  mounted() {
+    console.log('profile reputations all')
+    this.$store.dispatch("profile/reputations/all", this.username);
   }
 }
 </script>

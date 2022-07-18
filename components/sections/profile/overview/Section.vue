@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="py-5.5">
     <div class="flex items-center">
       <h6
-        class="text-xs leading-relaxed font-semibold pt-11 pb-5 text-gray-500 uppercase"
+        class="text-xs leading-relaxed font-semibold pb-5 text-gray-500 uppercase"
       >
         {{ title }}
       </h6>
