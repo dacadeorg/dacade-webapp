@@ -33,8 +33,5 @@ export default {
       return this.referrals.slice(0, 3);
     }
   },
-  mounted() {
-    console.log('this is the referrals', this.referrals)
-  }
 }
 </script>

@@ -34,7 +34,6 @@ export default {
     },
   },
   mounted() {
-    console.log('profile reputations all')
     this.$store.dispatch("profile/reputations/all", this.username);
   }
 }
