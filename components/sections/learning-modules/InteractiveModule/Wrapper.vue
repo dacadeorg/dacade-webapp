@@ -53,17 +53,12 @@ export default {
     },
     duration: {
       type: String,
-<<<<<<< HEAD
-      default: '',
-    },
-=======
       default: ''
     },
     percentage: {
       type: Number,
       default: 0
     }
->>>>>>> dev
   },
   computed: {
     ...mapGetters({
