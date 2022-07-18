@@ -12,11 +12,21 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
 import ReferralsList from "~/components/list/ReferralsList";
 import Request from "~/components/cards/profile/Request";
 import ProfileOverviewSection from "~/components/sections/profile/overview/Section";
+
 export default {
   name: "ProfileOverviewReferrals",
-  components: {ProfileOverviewSection, Request, ReferralsList}
+  components: {ProfileOverviewSection, Request, ReferralsList},
+  computed: {
+    ...mapGetters({
+      referrals: 'user/referrals/list',
+    })
+  },
+  mounted(){
+    this.$store.dispatch('user/referrals/all');
+  }
 }
 </script>
