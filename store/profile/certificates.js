@@ -23,7 +23,7 @@ export const mutations = {
 
 export const actions = {
   async find({ commit }, { id }) {
-    const { data } = await this.$api.get(`certificates/${id}}`)
+    const { data } = await this.$api.get(`certificates/${id}`)
     commit('setCurrent', data)
   },
   async all({ commit }, username) {
