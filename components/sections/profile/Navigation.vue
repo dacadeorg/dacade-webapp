@@ -1,17 +1,12 @@
 <template>
   <ul class="relative hidden lg:block xl:block">
     <li v-for="(menu, i) in menus" :key="i" class="mb-8 relative">
-      <div v-if="menu.items && menu.items.length">
-        <span
-          v-if="!menu.hideTitle"
-          class="text-xs uppercase font-semibold relative text-gray-500"
-          >{{ menu.title }}</span
-        >
-        <ul>
+      <ProfileOverviewSection :title="menu.title" class="pb-0">
+        <ul class="space-y-4 flex flex-col">
           <li
             v-for="(item, k) in menu.items"
             :key="k"
-            class="text-sm mt-4 relative text-primary"
+            class="text-sm relative text-primary"
           >
             <nuxt-link
               :to="localePath(item.link)"
@@ -19,23 +14,25 @@
               :class="{ 'activable-link': !item.exact }"
             >
               <span class="inline-block absolute -left-6 nav-icon">
-                <ChevronRightIcon />
+                <ChevronRightIcon/>
               </span>
               <span class="nav-label">{{ item.label }}</span>
             </nuxt-link>
           </li>
         </ul>
-      </div>
+      </ProfileOverviewSection>
     </li>
   </ul>
 </template>
 <script>
 /* eslint-disable no-console */
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 import ChevronRightIcon from '~/assets/icons/chevron-right.svg?inline'
+import ProfileOverviewSection from "~/components/sections/profile/overview/Section";
 
 export default {
   components: {
+    ProfileOverviewSection,
     ChevronRightIcon,
   },
   computed: {
@@ -68,7 +65,7 @@ export default {
           title: this.$t('navigation.profile.title'),
           items: [
             {
-              label: this.$t('navigation.profile.notifications'),
+              label: this.$t('navigation.profile.overview'),
               link: '/profile',
               exact: true,
             },
@@ -92,13 +89,16 @@ export default {
 .nav-icon {
   display: none;
 }
+
 .nuxt-link-active + ul {
   display: block;
 }
+
 .nuxt-link-exact-active,
 .activable-link.nuxt-link-active {
   color: inherit !important;
 }
+
 .nuxt-link-exact-active > .nav-icon,
 .activable-link.nuxt-link-active > .nav-icon {
   display: block;

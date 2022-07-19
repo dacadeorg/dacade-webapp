@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Avatar',
+  name: 'Video',
   props: {
     url: {
       default: null,

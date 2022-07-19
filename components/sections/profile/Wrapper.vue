@@ -9,7 +9,7 @@
       </div>
 
       <div class="lg:w-3/5 relative">
-         <slot />
+        <slot />
       </div>
     </div>
   </Section>
@@ -19,8 +19,6 @@
 import Header from '@/components/sections/profile/Header'
 import Navigation from '@/components/sections/profile/Navigation'
 import Section from '@/components/ui/Section'
-
-
 
 export default {
   name: 'ProfileWrapper',

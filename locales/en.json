@@ -281,6 +281,7 @@
   "navigation.start": "Start",
   "navigation.next": "Next",
   "navigation.profile.title": "Profile",
+  "navigation.profile.overview": "Overview",
   "navigation.profile.notifications": "Notifications",
   "navigation.profile.wallets": "Wallets",
   "navigation.profile.referrals": "Referrals",

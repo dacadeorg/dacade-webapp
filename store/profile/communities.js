@@ -48,6 +48,7 @@ export const actions = {
     commit('setReputation', data.reputation)
   },
   async all({ commit }, username) {
+    commit('clear')
     if (!username) return
     const { data } = await this.$api.get(`profile/${username}/communities`)
     commit('setList', data)

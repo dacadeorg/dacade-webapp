@@ -31,7 +31,10 @@
         v-on="inputListeners"
       />
     </div>
-    <div v-if="error" class="bg-red-50 help text-sm rounded-b-md border border-t-0 border-red-100 text-red-900 px-5 py-1.5">
+    <div
+      v-if="error"
+      class="bg-red-50 help text-sm rounded-b-md border border-t-0 border-red-100 text-red-900 px-5 py-1.5"
+    >
       <p>
         {{ error }}
       </p>

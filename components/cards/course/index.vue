@@ -94,9 +94,7 @@ export default {
   },
   methods: {
     debug(event) {
-      console.log('course', this.course)
-      console.log('course challenge', this.course.slug)
-      console.log('colors', this.colors)
+
     },
   },
 }
