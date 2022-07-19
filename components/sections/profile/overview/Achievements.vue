@@ -1,7 +1,7 @@
 <template>
   <ProfileOverviewSection v-if="achievements && achievements.length" title="Achievements" see-more see-all>
     <div
-      class="grid grid-cols-4 gap-4"
+      class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4"
     >
       <AchievementCard v-for="(achievement, index) in achievements" :key="index" :data="achievement"/>
 
