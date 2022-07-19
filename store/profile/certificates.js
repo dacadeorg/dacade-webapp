@@ -27,6 +27,7 @@ export const actions = {
     commit('setCurrent', data)
   },
   async all({ commit }, username) {
+    commit('clear')
     if (!username) return
     const { data } = await this.$api.get(`certificates?username=${username}`)
     commit('setList', data)

@@ -40,7 +40,7 @@ export default {
     }),
   },
   mounted() {
-    this.$store.dispatch('user/certificates/all', this.user.username)
+    this.$store.dispatch('profile/certificates/all', this.user.username)
   },
 }
 </script>

@@ -19,7 +19,7 @@ export default {
   components: {AchievementCard, ProfileOverviewSection},
   computed: {
     ...mapGetters({
-      achievements: 'user/certificates/list',
+      achievements: 'profile/certificates/list',
     }),
   },
 }
