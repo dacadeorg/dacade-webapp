@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 rounded-full pl-2 py-2 flex items-center w-fit">
+  <div class="bg-gray-100 rounded-full pl-2 py-2 flex items-center w-fit">
     <a
       target="__blank"
       class="block flex-none"

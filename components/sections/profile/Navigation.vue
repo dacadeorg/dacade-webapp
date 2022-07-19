@@ -65,7 +65,7 @@ export default {
           title: this.$t('navigation.profile.title'),
           items: [
             {
-              label: this.$t('navigation.profile.notifications'),
+              label: this.$t('navigation.profile.overview'),
               link: '/profile',
               exact: true,
             },
