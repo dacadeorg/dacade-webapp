@@ -60,26 +60,33 @@ export default {
           })),
         },
       ]
+      const mainItems = [];
       if (this.isCurrentUser) {
-        items.push({
-          title: this.$t('navigation.profile.title'),
-          items: [
-            {
-              label: this.$t('navigation.profile.overview'),
-              link: '/profile',
-              exact: true,
-            },
-            {
-              label: this.$t('navigation.profile.wallets'),
-              link: '/profile/wallets',
-            },
-            {
-              label: this.$t('navigation.profile.referrals'),
-              link: '/profile/referrals',
-            },
-          ],
+        mainItems.push(
+          {
+            label: this.$t('navigation.profile.overview'),
+            link: '/profile',
+            exact: true,
+          },
+          {
+            label: this.$t('navigation.profile.wallets'),
+            link: '/profile/wallets',
+          },
+          {
+            label: this.$t('navigation.profile.referrals'),
+            link: '/profile/referrals',
+          });
+      } else {
+        mainItems.push({
+          label: this.$t('navigation.profile.overview'),
+          link: `/profile/${username}`,
+          exact: true,
         })
       }
+      items.push({
+        title: this.$t('navigation.profile.title'),
+        items: mainItems,
+      })
       return items
     },
   },
