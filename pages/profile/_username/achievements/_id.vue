@@ -70,8 +70,9 @@
               <div
                 class="border-2 relative p-2 rounded mt-1 md:mt-0"
               >
-                <p :title="achievement.metadata.linkToWork"
-                   class="text-gray-500 line-clamp-1 break-all flex-1 text-xs md:text-base overflow-hidden">
+                <p
+                  :title="achievement.metadata.linkToWork"
+                  class="text-gray-500 line-clamp-1 break-all flex-1 text-xs md:text-base overflow-hidden">
                   {{ achievement.metadata.linkToWork }}
                 </p>
                 <div
