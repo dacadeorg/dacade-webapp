@@ -11,7 +11,7 @@
     <div class="divide-y divide-gray-200">
       <div class="flex justify-between hover:bg-gray-50">
         <div class="w-full p-4 text-left flex">
-          <div class="pr-3.5"><Avatar :user="user" size="medium" /></div>
+          <div class="pr-3.5"><Avatar :user="user" size="medium" :use-link="false" /></div>
           <div class="pt-2">
             <span
               class="font-medium text-base block leading-normal capitalize"

@@ -70,7 +70,7 @@
                   class="flex text-sm leading-normal"
                   :to="localePath('/profile')"
                 >
-                  <Avatar class="p-3 w-10 h-10" :user="user" />
+                  <Avatar class="p-3 w-10 h-10" :user="user" :use-link="false" />
                   <div class="py-2 px-2">
                     <span
                       class="font-medium text-lg block leading-normal capitalize"
