@@ -244,3 +244,7 @@ div {
   vertical-align: text-top;
   width: 1rem;
 }
+
+.input-background {
+  background: linear-gradient(270deg, #F9FAFB 53.08%, rgba(249, 250, 251, 0) 133.61%);
+}

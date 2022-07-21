@@ -63,6 +63,8 @@ export default {
           return 'w-10 h-10 sm:h-12 sm:w-12 md:w-15 md:h-15 text-xl sm:text-2xl'
         case 'medium-fixed':
           return 'w-10 h-10 text-2xl'
+        case 'small':
+          return 'w-7 h-7 text-xl'
         case 'mini':
           return 'w-5 h-5 text-xl'
         default:
