@@ -34,9 +34,6 @@ export default {
         this.authUser?.displayName?.toLowerCase()
       )
     },
-  },
-  mounted() {
-    this.$store.dispatch('profile/reputations/all', this.username)
-  },
+  }
 }
 </script>
