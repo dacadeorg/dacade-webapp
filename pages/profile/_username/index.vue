@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import ProfileOverviewCommunities from '~/components/sections/profile/overview/Communities'
 import ProfileOverviewAchievements from '~/components/sections/profile/overview/Achievements'
 
@@ -16,16 +15,14 @@ export default {
   name: 'Profile',
   components: { ProfileOverviewAchievements, ProfileOverviewCommunities },
   layout: 'profile',
-  computed: {
-    ...mapGetters({
-      authUser: 'user/get',
-    }),
-    username() {
-      return this.$route.params?.username || this.authUser?.displayName
-    },
-  },
-  mounted() {
-    this.$store.dispatch('profile/certificates/all', this.username)
+  fetch({store, params, error}) {
+    const username = params.username;
+    return Promise.all([
+      store.dispatch('profile/certificates/all', username),
+      store.dispatch('profile/reputations/all', username)
+    ]).catch((e) => {
+      error(e)
+    })
   },
 }
 </script>
