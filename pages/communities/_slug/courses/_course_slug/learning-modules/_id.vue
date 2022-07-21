@@ -11,7 +11,10 @@
           :material="material"
         />
         <AdditionalMaterialsSection :materials="additionalMaterials" />
-        <InteractiveModule v-if="interactiveModules.length" :data="interactiveModules[0]"/>
+        <InteractiveModule
+          v-if="interactiveModules.length"
+          :data="interactiveModules[0]"
+        />
         <PageNavigation />
       </div>
     </div>

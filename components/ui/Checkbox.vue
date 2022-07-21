@@ -78,7 +78,7 @@ export default {
     },
     checked(newValue) {
       this.checkedValue = newValue
-    }
-  }
+    },
+  },
 }
 </script>

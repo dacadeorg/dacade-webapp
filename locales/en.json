@@ -287,5 +287,11 @@
   "navigation.profile.referrals": "Referrals",
   "navigation.profile.communities": "Communities",
   "challenge.best-submissions.button": "See all",
-  "profile.referrals.button-text": "Get invite codes"
+  "profile.referrals.button-text": "Get invite codes",
+  "profile.achievement.copy-button": "copy",
+  "profile.achievement.link": "Link",
+  "profile.achievement.date": "Date",
+  "profile.achievement.award": "Awarded to",
+  "profile.achievement.issued": "Issued by",
+  "profile.achievement.comment": "Comment"
 }

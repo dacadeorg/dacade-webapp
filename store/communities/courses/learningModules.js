@@ -15,23 +15,23 @@ export const mutations = {
 }
 
 export const actions = {
-  async find({commit}, id) {
-    const {data} = await this.$api.get(`learning-modules/${id}`)
+  async find({ commit }, id) {
+    const { data } = await this.$api.get(`learning-modules/${id}`)
     commit('setCurrent', data)
   },
-  async all({commit}, slug) {
-    const {data} = await this.$api.get(`courses/${slug}/learning-modules`)
+  async all({ commit }, slug) {
+    const { data } = await this.$api.get(`courses/${slug}/learning-modules`)
     commit('setList', data)
   },
-  submitModuleAnswer({commit}, {ref, course}) {
+  submitModuleAnswer({ commit }, { ref, course }) {
     return this.$api.put(`interactive-modules/answer`, {
       module: ref,
       course,
       score: 100,
     })
   },
-  async checkAnswer({commit}, ref) {
-    const {data} = await this.$api.post(`interactive-modules/check-answer`, {
+  async checkAnswer({ commit }, ref) {
+    const { data } = await this.$api.post(`interactive-modules/check-answer`, {
       module: ref,
     })
     return data

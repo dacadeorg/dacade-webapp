@@ -1,6 +1,7 @@
 <template>
   <div
-    class="bg-blue-lighter border border-solid border-blue-light w-full rounded-3.5xl items-center justify-between flex md:flex-row flex-col py-6 px-5">
+    class="bg-blue-lighter border border-solid border-blue-light w-full rounded-3.5xl items-center justify-between flex md:flex-row flex-col py-6 px-5"
+  >
     <div class="md:w-96">
       <p
         class="inline-block px-2 text-primary text-lg font-medium pb-3 md:pb-0"
@@ -28,7 +29,7 @@ import Button from '@/components/ui/button'
 export default {
   name: 'ReferralsList',
   components: {
-    Button
+    Button,
   },
   props: {
     text: {

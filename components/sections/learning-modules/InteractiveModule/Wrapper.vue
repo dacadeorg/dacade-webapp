@@ -13,7 +13,7 @@
       </span>
       Interactive lessons
     </p>
-    <Progress :percentage="percentage" community-styles/>
+    <Progress :percentage="percentage" community-styles />
     <div class="pt-9">
       <H3>
         {{ title }}
@@ -30,7 +30,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import Progress from '@/components/ui/Progress'
-import H3 from "~/components/ui/text/H3";
+import H3 from '~/components/ui/text/H3'
 
 export default {
   name: 'InteractiveModuleWrapper',
@@ -53,12 +53,12 @@ export default {
     },
     duration: {
       type: String,
-      default: ''
+      default: '',
     },
     percentage: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   computed: {
     ...mapGetters({

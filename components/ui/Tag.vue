@@ -7,12 +7,12 @@
       'bg-gray-100 text-gray-500': type == 'light-gray',
       'bg-yellow-100 text-yellow-900': type == 'warn',
       'rounded-full': rounded,
-      'rounded': !rounded,
+      rounded: !rounded,
     }"
   >
     <span class="text-xs font-medium block leading-none">
       <span v-if="value">{{ value }}</span>
-      <slot v-else/>
+      <slot v-else />
     </span>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
     rounded: {
       default: true,
       type: Boolean,
-    }
+    },
   },
 }
 </script>

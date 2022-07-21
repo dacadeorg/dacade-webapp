@@ -6,23 +6,23 @@
       >
         {{ title }}
       </h6>
-<!--      <div-->
-<!--        v-if="seeAll"-->
-<!--        class="text-primary flex items-center ml-auto cursor-pointer"-->
-<!--        @click="$emit('showAll')"-->
-<!--      >-->
-<!--        <span class="mr-2 text-sm"><a>See all</a></span>-->
-<!--        <span><Angleright/></span>-->
-<!--      </div>-->
+      <!--      <div-->
+      <!--        v-if="seeAll"-->
+      <!--        class="text-primary flex items-center ml-auto cursor-pointer"-->
+      <!--        @click="$emit('showAll')"-->
+      <!--      >-->
+      <!--        <span class="mr-2 text-sm"><a>See all</a></span>-->
+      <!--        <span><Angleright/></span>-->
+      <!--      </div>-->
     </div>
 
-    <slot/>
-<!--    <div-->
-<!--      v-if="seeMore" class="text-primary flex items-center pt-5 cursor-pointer text-sm space-x-2"-->
-<!--      @click="$emit('loadMore')">-->
-<!--      <span class="block"><PlusIcon/></span>-->
-<!--      <span class="block leading-none">See more</span>-->
-<!--    </div>-->
+    <slot />
+    <!--    <div-->
+    <!--      v-if="seeMore" class="text-primary flex items-center pt-5 cursor-pointer text-sm space-x-2"-->
+    <!--      @click="$emit('loadMore')">-->
+    <!--      <span class="block"><PlusIcon/></span>-->
+    <!--      <span class="block leading-none">See more</span>-->
+    <!--    </div>-->
   </div>
 </template>
 
@@ -31,7 +31,7 @@
 // import Angleright from '~/assets/icons/angle-right.svg?inline'
 
 export default {
-  name: "ProfileOverviewSection",
+  name: 'ProfileOverviewSection',
   // components: {PlusIcon, Angleright},
   props: {
     title: {
@@ -49,4 +49,3 @@ export default {
   },
 }
 </script>
-

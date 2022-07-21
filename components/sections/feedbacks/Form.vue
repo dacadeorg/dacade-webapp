@@ -36,7 +36,7 @@
           >
             <ValidationProvider
               v-slot="{ errors }"
-              name="input-github"
+              name="-github"
               class="flex w-full"
               rules="url"
               mode="passive"

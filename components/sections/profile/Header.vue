@@ -4,20 +4,22 @@
     <span class="block capitalize text-5xl mt-5 leading-none">{{
       user.displayName
     }}</span>
-    <div class="flex justify-center mt-2 leading-snug text-sm divide-x divide-solid">
-<!--      <div class="flex items-center px-3">-->
-<!--        <span class="inline-block"><GithubIcon /></span>-->
-<!--        <span class="ml-1 inline-block">Github</span>-->
-<!--      </div>-->
+    <div
+      class="flex justify-center mt-2 leading-snug text-sm divide-x divide-solid"
+    >
+      <!--      <div class="flex items-center px-3">-->
+      <!--        <span class="inline-block"><GithubIcon /></span>-->
+      <!--        <span class="ml-1 inline-block">Github</span>-->
+      <!--      </div>-->
       <div class="flex items-center px-3">
         <span class="inline-block"><TimeIcon /></span>
         <span class="inline-block mx-1">joined</span>
         <span v-if="joined" class="inline-block text-sm">{{ joined }}</span>
       </div>
-<!--      <div class="flex items-center px-3">-->
-<!--        <span class="inline-block"><CompassIcon /></span>-->
-<!--        <span class="ml-1 inline-block">GMT+2</span>-->
-<!--      </div>-->
+      <!--      <div class="flex items-center px-3">-->
+      <!--        <span class="inline-block"><CompassIcon /></span>-->
+      <!--        <span class="ml-1 inline-block">GMT+2</span>-->
+      <!--      </div>-->
     </div>
   </div>
 </template>
