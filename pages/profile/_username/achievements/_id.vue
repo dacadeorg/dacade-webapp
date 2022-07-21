@@ -1,5 +1,7 @@
 <template>
-  <div class="content-wrapper achievement-content mx-auto h-screen flex items-center">
+  <div
+    class="content-wrapper achievement-content mx-auto h-screen flex items-center"
+  >
     <div class="w-full">
       <div class="flex flex-col md:flex-row border rounded-3xl">
         <div
@@ -14,7 +16,9 @@
         </div>
         <div class="p-2 md:pt-7 md:px-7 md:pb-14 w-full md:w-1/2">
           <div>
-            <h2 class="font-medium leading-7 text-xl md:text-3xl mb-3 md:mb-1.5">
+            <h2
+              class="font-medium leading-7 text-xl md:text-3xl mb-3 md:mb-1.5"
+            >
               {{ achievement.metadata.name }}
             </h2>
             <p class="text-gray-700 md:text-base text-xs">
@@ -26,7 +30,9 @@
             <p class="font-medium text-sm md:text-base">
               {{ $t('profile.achievement.award') }}
             </p>
-            <div class="flex items-center col-span-2 bg-gray-200 p-1 rounded-full">
+            <div
+              class="flex items-center col-span-2 bg-gray-200 p-1 rounded-full"
+            >
               <Avatar :user="achievement.user" size="small-fixed" />
               <p class="text-xs md:text-base px-2">
                 {{ achievement.metadata.recipientName }}

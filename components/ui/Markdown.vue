@@ -1,5 +1,5 @@
 <template>
-  <div v-if="content" :style="themeStyles" class="prose ">
+  <div v-if="content" :style="themeStyles" class="prose">
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div class="markdown-content" v-html="content" />
     <!-- :style="themeStyles" -->

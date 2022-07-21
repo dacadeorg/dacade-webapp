@@ -2,15 +2,14 @@
   <div
     class="flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
   >
-    <ProfileOverviewAchievements/>
+    <ProfileOverviewAchievements />
 
+    <ProfileOverviewCommunities />
 
-    <ProfileOverviewCommunities/>
-
-    <ProfileOverviewReferrals/>
+    <ProfileOverviewReferrals />
 
     <ProfileOverviewSection title="Notifications" see-more>
-      <NotificationList extended/>
+      <NotificationList extended />
     </ProfileOverviewSection>
   </div>
 </template>
@@ -18,10 +17,10 @@
 <script>
 import { mapGetters } from 'vuex'
 import NotificationList from '@/components/list/Notification'
-import ProfileOverviewCommunities from "~/components/sections/profile/overview/Communities";
-import ProfileOverviewAchievements from "~/components/sections/profile/overview/Achievements";
-import ProfileOverviewReferrals from "~/components/sections/profile/overview/Referrals";
-import ProfileOverviewSection from "~/components/sections/profile/overview/Section";
+import ProfileOverviewCommunities from '~/components/sections/profile/overview/Communities'
+import ProfileOverviewAchievements from '~/components/sections/profile/overview/Achievements'
+import ProfileOverviewReferrals from '~/components/sections/profile/overview/Referrals'
+import ProfileOverviewSection from '~/components/sections/profile/overview/Section'
 
 export default {
   name: 'ProfileOverview',

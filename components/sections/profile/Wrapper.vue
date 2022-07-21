@@ -1,6 +1,6 @@
 <template>
   <Section padding="py-12">
-    <Header  />
+    <Header />
     <div class="lg:flex relative">
       <div class="lg:w-1/4 relative">
         <div class="sticky top-0">

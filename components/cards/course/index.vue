@@ -93,9 +93,7 @@ export default {
     },
   },
   methods: {
-    debug(event) {
-
-    },
+    debug(event) {},
   },
 }
 </script>

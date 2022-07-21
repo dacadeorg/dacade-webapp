@@ -10,10 +10,10 @@
     <div
       class="flex items-center space-x-3 relative z-50 w-full md:p-4.5 p-4 border-solid bg-transparent checked-color"
     >
-      <span><Checkbox :checked="selected" community-styles @click="checkboxClick"/></span>
-      <span class="text-gray-500"
-      >{{ text }}</span
-      >
+      <span
+        ><Checkbox :checked="selected" community-styles @click="checkboxClick"
+      /></span>
+      <span class="text-gray-500">{{ text }}</span>
     </div>
     <div
       v-if="selected"
@@ -74,21 +74,21 @@ export default {
       if (this.correct) {
         return 'bg-green-100 text-green-600'
       }
-      return 'bg-red-100 text-red-900';
+      return 'bg-red-100 text-red-900'
     },
     errorMessage() {
-      if (!this.timerCount) return 'This answer is wrong. Try again!';
-      return `This answer is wrong. Try again in ${this.timerCount} seconds`;
-    }
+      if (!this.timerCount) return 'This answer is wrong. Try again!'
+      return `This answer is wrong. Try again in ${this.timerCount} seconds`
+    },
   },
   methods: {
     checkboxClick(event) {
       if (!this.disable) {
-        return;
+        return
       }
-      event.preventDefault();
-      event.stopPropagation();
-    }
-  }
+      event.preventDefault()
+      event.stopPropagation()
+    },
+  },
 }
 </script>
