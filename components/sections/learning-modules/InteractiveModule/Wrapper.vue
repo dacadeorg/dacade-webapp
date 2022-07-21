@@ -1,5 +1,7 @@
 <template>
-  <div class="pt-14">
+  <div class="pt-14" :style="{
+    maxWidth: '65ch'
+  }">
     <H3>
       {{ sectionTitle }}
     </H3>
