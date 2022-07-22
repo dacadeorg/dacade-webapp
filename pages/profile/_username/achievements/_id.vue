@@ -14,14 +14,14 @@
             <img :src="achievement.metadata.image" alt="certificate badge" />
           </div>
         </div>
-        <div class="p-2 md:pt-7 md:px-7 md:pb-14 w-full md:w-1/2">
+        <div class="p-5 md:pt-7 md:px-7 md:pb-14 w-full md:w-1/2">
           <div>
             <h2
               class="font-medium leading-7 text-xl md:text-3xl mb-3 md:mb-1.5"
             >
               {{ achievement.metadata.name }}
             </h2>
-            <p class="text-gray-700 md:text-base text-xs">
+            <p class="text-gray-700 md:text-base text-sm">
               {{ achievement.metadata.description }}
             </p>
           </div>
@@ -34,7 +34,7 @@
               class="flex items-center col-span-2 bg-gray-200 p-1 rounded-full"
             >
               <Avatar :user="achievement.user" size="small-fixed" />
-              <p class="text-xs md:text-base px-2">
+              <p class="text-sm md:text-base px-2">
                 {{ achievement.metadata.recipientName }}
               </p>
             </div>
@@ -59,7 +59,7 @@
             <p class="font-medium text-sm md:text-base">
               {{ $t('profile.achievement.issued') }}
             </p>
-            <p class="text-gray-500 col-span-2 text-xs md:text-base">
+            <p class="text-gray-500 col-span-2 text-sm md:text-base flex items-center">
               {{ achievement.metadata.issuerName }}
             </p>
 
@@ -91,11 +91,11 @@
             </p>
             <div
               v-if="achievement.metadata.linkToWork"
-              class="border relative p-2 md:col-span-2 col-span-3 rounded mt-1 md:mt-0"
+              class="border relative p-2 mb-5 md:mb-0 md:col-span-2 col-span-3 rounded mt-1 md:mt-0"
             >
               <p
                 :title="achievement.metadata.linkToWork"
-                class="text-gray-500 line-clamp-1 break-all flex-1 text-xs md:text-base overflow-hidden"
+                class="text-gray-500 line-clamp-1 break-all flex-1 text-sm md:text-base overflow-hidden"
               >
                 {{ achievement.metadata.linkToWork }}
               </p>
