@@ -22,17 +22,13 @@
       <!--      </div>-->
     </div>
     <div class="pt-5">
-      <a
-        href="https://discord.gg/eHYZr9dzan"
-        target="_blank"
+      <Button
+        type="outline-primary"
+        class="flex mx-auto"
+        @click="triggerDiscordOauth"
       >
-        <Button
-          type="outline-primary"
-          class="flex mx-auto"
-        >
-          Connect to Discord <DiscordIcon class="ml-3"
-        /></Button>
-      </a>
+        Connect to Discord <DiscordIcon class="ml-3"
+      /></Button>
     </div>
   </div>
 </template>
@@ -80,6 +76,12 @@ export default {
         return this.profileUser
       }
       return this.authUser
+    },
+  },
+  methods: {
+    triggerDiscordOauth() {
+      const discordOauthUrl = `${process.env.NUXT_ENV_DISCORD_OAUTH_BASE_URL}?client_id=${process.env.NUXT_ENV_DISCORD_CLIENT_ID}&redirect_uri=${process.env.NUXT_ENV_DISCORD_CALLBACK_URL}&response_type=code&scope=${process.env.NUXT_ENV_DISCORD_SCOPE}`
+      window.location.href = discordOauthUrl
     },
   },
 }
