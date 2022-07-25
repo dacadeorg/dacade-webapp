@@ -21,6 +21,19 @@
       <!--        <span class="ml-1 inline-block">GMT+2</span>-->
       <!--      </div>-->
     </div>
+    <div class="pt-5">
+      <a
+        href="https://discord.gg/eHYZr9dzan"
+        target="_blank"
+      >
+        <Button
+          type="outline-primary"
+          class="flex mx-auto"
+        >
+          Connect to Discord <DiscordIcon class="ml-3"
+        /></Button>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -28,7 +41,9 @@
 import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import DateManager from '@/utilities/DateManager'
+import Button from '@/components/ui/button'
 import TimeIcon from '~/assets/icons/time.svg?inline'
+import DiscordIcon from '~/assets/icons/discordIcon.svg?inline'
 // import GithubIcon from '~/assets/icons/github.svg?inline'
 // import CompassIcon from '~/assets/icons/compass.svg?inline'
 
@@ -37,6 +52,8 @@ export default {
   components: {
     Avatar,
     TimeIcon,
+    DiscordIcon,
+    Button,
     // GithubIcon,
     // CompassIcon,
   },
