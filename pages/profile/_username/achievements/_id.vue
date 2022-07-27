@@ -47,11 +47,11 @@
               {{ issuedOn }}
             </AchievementViewItem>
 
-            <AchievementViewItem v-if="achievement.metadata.comment" :name="$t('profile.achievement.comment')">
+            <AchievementViewItem v-if="achievement.metadata.comment" :name="$t('profile.achievement.comment')" mobile-block>
               {{ achievement.metadata.comment }}
             </AchievementViewItem>
 
-            <AchievementViewItem :name="$t('profile.achievement.link')" mobile-block>
+            <AchievementViewItem v-if="achievement.metadata.linkToWork" :name="$t('profile.achievement.link')" mobile-block>
               <AchievementLinkField :link="achievement.metadata.linkToWork"/>
             </AchievementViewItem>
 
