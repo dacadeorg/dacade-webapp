@@ -51,12 +51,10 @@
               {{ achievement.metadata.comment }}
             </AchievementViewItem>
 
-            <AchievementViewItem :name="$t('profile.achievement.link')" class="hidden md:grid">
-              <AchievementLinkField :link="achievement.metadata.linkToWork" />
+            <AchievementViewItem :name="$t('profile.achievement.link')" mobile-block>
+              <AchievementLinkField :link="achievement.metadata.linkToWork"/>
             </AchievementViewItem>
-            <AchievementViewItem :name="$t('profile.achievement.link')" :columns="1" class="gap-y-3 md:hidden">
-              <AchievementLinkField :link="achievement.metadata.linkToWork" />
-            </AchievementViewItem>
+
           </div>
         </div>
       </div>
