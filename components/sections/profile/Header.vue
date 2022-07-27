@@ -21,6 +21,15 @@
       <!--        <span class="ml-1 inline-block">GMT+2</span>-->
       <!--      </div>-->
     </div>
+    <div class="pt-5">
+      <Button
+        type="outline-primary"
+        class="flex mx-auto"
+        @click="triggerDiscordOauth"
+      >
+        Connect to Discord <DiscordIcon class="ml-3"
+      /></Button>
+    </div>
   </div>
 </template>
 
@@ -28,7 +37,9 @@
 import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import DateManager from '@/utilities/DateManager'
+import Button from '@/components/ui/button'
 import TimeIcon from '~/assets/icons/time.svg?inline'
+import DiscordIcon from '~/assets/icons/discordIcon.svg?inline'
 // import GithubIcon from '~/assets/icons/github.svg?inline'
 // import CompassIcon from '~/assets/icons/compass.svg?inline'
 
@@ -37,6 +48,8 @@ export default {
   components: {
     Avatar,
     TimeIcon,
+    DiscordIcon,
+    Button,
     // GithubIcon,
     // CompassIcon,
   },
@@ -63,6 +76,12 @@ export default {
         return this.profileUser
       }
       return this.authUser
+    },
+  },
+  methods: {
+    triggerDiscordOauth() {
+      const discordOauthUrl = `${process.env.NUXT_ENV_DISCORD_OAUTH_BASE_URL}?client_id=${process.env.NUXT_ENV_DISCORD_CLIENT_ID}&redirect_uri=${process.env.NUXT_ENV_DISCORD_CALLBACK_URL}&response_type=code&scope=${process.env.NUXT_ENV_DISCORD_SCOPE}`
+      window.location.href = discordOauthUrl
     },
   },
 }
