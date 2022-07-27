@@ -47,7 +47,7 @@
               {{ issuedOn }}
             </AchievementViewItem>
 
-            <AchievementViewItem v-if="achievement.metadata.comment" :name="$t('profile.achievement.comment')" mobile-block>
+            <AchievementViewItem v-if="achievement.metadata.comment" :name="$t('profile.achievement.comment')" mobile-block items-start>
               {{ achievement.metadata.comment }}
             </AchievementViewItem>
 
