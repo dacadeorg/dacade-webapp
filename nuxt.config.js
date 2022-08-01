@@ -151,6 +151,14 @@ export default {
         code: 'es',
         name: 'Español',
       },
+      {
+        code: 'hr',
+        name: 'Croatian',
+      },
+      {
+        code: 'bg',
+        name: 'Bulgarian',
+      }
     ],
     defaultLocale: 'en',
     vueI18n: {
@@ -158,6 +166,8 @@ export default {
       messages: {
         en: require('./locales/en.json'),
         es: require('./locales/es.json'),
+        hr: require('./locales/hr.json'),
+        bg: require('./locales/bg.json'),
       },
     },
   },
