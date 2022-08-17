@@ -152,6 +152,7 @@
   "communities.card.course": "in {count} Course",
   "communities.list-card.earn": "Earn",
   "course.challenge.button": "Start now",
+  "course.challenge.level-0": "Beginner",
   "course.challenge.level-1": "Beginner",
   "course.challenge.level-2": "Intermediate",
   "course.challenge.reward": "REWARD",
