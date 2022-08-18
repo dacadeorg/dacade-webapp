@@ -57,6 +57,9 @@
               />
             </ValidationProvider>
           </div>
+          <div>
+            <MarkdownIcon/>
+          </div>
           <div class="text-right mt-5">
             <ArrowButton
               :disabled="saving"
@@ -76,7 +79,9 @@ import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import TextInput from '@/components/ui/TextInput'
 import GithubLinkInput from '@/components/ui/GithubLinkInput'
+import MarkdownIcon from '@/components/ui/MarkdownIcon'
 import ArrowButton from '@/components/ui/button/Arrow'
+
 
 export default {
   name: 'Feedback',
@@ -85,6 +90,7 @@ export default {
     Avatar,
     TextInput,
     GithubLinkInput,
+    MarkdownIcon,
   },
   data() {
     return {
