@@ -57,9 +57,8 @@
               />
             </ValidationProvider>
           </div>
-          <div class="mt-4 flex items-center">
-            <span class="w-6 h-4"><Markdown /></span>
-           <span class="text-sm text-gray-500"><a href="https://www.markdownguide.org/cheat-sheet/" class="underline cursor-pointer" target="__blank">Markdown</a> is supported</span>
+          <div>
+            <MarkdownIcon/>
           </div>
           <div class="text-right mt-5">
             <ArrowButton
@@ -80,8 +79,9 @@ import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import TextInput from '@/components/ui/TextInput'
 import GithubLinkInput from '@/components/ui/GithubLinkInput'
+import MarkdownIcon from '@/components/ui/MarkdownIcon'
 import ArrowButton from '@/components/ui/button/Arrow'
-import Markdown from '~/assets/icons/markdown-fill.svg?inline'
+
 
 export default {
   name: 'Feedback',
@@ -90,7 +90,7 @@ export default {
     Avatar,
     TextInput,
     GithubLinkInput,
-    Markdown
+    MarkdownIcon,
   },
   data() {
     return {
