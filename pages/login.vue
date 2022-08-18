@@ -51,9 +51,9 @@
         <div class="flex flex-col justify-between mt-4">
           <div>
             <span class="text-primary text-sm">
-              <NuxtLink to="/password-reset" class="fs-1 dark-white">
+              <nuxt-link to="/password-reset" class="fs-1 dark-white">
                 {{ $t('login-page.forget-password') }}
-              </NuxtLink>
+              </nuxt-link>
             </span>
           </div>
           <div class="text-right self-end">
