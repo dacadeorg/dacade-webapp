@@ -17,7 +17,7 @@
           <div class="pt-2">
             <span
               class="font-medium text-base block leading-normal capitalize"
-              >{{ user.displayName }}</span
+              >{{ username }}</span
             >
             <nuxt-link
               class="self-end text-sm block leading-normal"
@@ -90,6 +90,9 @@ export default {
     showLanguageSwitcher() {
       return process.env.NUXT_ENV_SHOW_LANGUAGE_SELECTOR === 'true'
     },
+    username(){
+      return this.user?.displayName
+    }
   },
   methods: {
     logout() {

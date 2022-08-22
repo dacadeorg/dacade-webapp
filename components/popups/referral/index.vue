@@ -48,7 +48,7 @@ import Crossmark from '~/assets/icons/crossmark-2.svg?inline'
 import Modal from '@/components/ui/Modal'
 
 export default {
-  name: 'UserPopup',
+  name: 'ReferralPopup',
   directives: {
     clickOutside: vClickOutside.directive,
   },

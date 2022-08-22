@@ -78,7 +78,7 @@
                   <div class="py-2 px-2">
                     <span
                       class="font-medium text-lg block leading-normal capitalize"
-                      >{{ user.displayName }}</span
+                      >{{ username }}</span
                     >
                   </div>
                 </nuxt-link>
@@ -199,6 +199,9 @@ export default {
       user: 'user/get',
       unread: 'user/notifications/unread',
     }),
+    username(){
+      return this.user?.displayName
+    }
   },
   methods: {
     // I added watch property.

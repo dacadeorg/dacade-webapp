@@ -21,10 +21,10 @@ export default {
       default: false,
       type: Boolean,
     },
-    value: {
-      default: false,
-      type: Boolean,
-    },
+    // value: {
+    //   default: false,
+    //   type: Boolean,
+    // },
     required: {
       default: false,
       type: Boolean,

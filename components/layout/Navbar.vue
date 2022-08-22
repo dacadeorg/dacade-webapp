@@ -105,6 +105,7 @@ import UserPopup from '@/components/popups/user'
 import Button from '@/components/ui/button'
 
 export default {
+  name: 'Navbar',
   components: {
     Logo,
     NavItem,
