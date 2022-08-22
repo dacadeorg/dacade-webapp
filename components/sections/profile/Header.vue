@@ -1,9 +1,9 @@
 <template>
   <div class="text-center pb-24 relative">
-    <Avatar size="extra" :user="user" :use-link="false"/>
+    <Avatar size="extra" :user="user" :use-link="false" />
     <span class="block capitalize text-5xl mt-5 leading-none">{{
-        user.displayName
-      }}</span>
+      username
+    }}</span>
     <div
       class="flex justify-center mt-2 leading-snug text-sm divide-x divide-solid"
     >
@@ -12,7 +12,7 @@
       <!--        <span class="ml-1 inline-block">Github</span>-->
       <!--      </div>-->
       <div class="flex items-center px-3">
-        <span class="inline-block"><TimeIcon/></span>
+        <span class="inline-block"><TimeIcon /></span>
         <span class="inline-block mx-1">{{ $t('profile.header.joined') }}</span>
         <span v-if="joined" class="inline-block text-sm">{{ joined }}</span>
       </div>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import DateManager from '@/utilities/DateManager'
 import Button from '@/components/ui/button'
@@ -69,11 +69,14 @@ export default {
       if (
         this.$route.params?.username &&
         this.$route.params?.username?.toLowerCase() !==
-        this.authUser?.displayName?.toLowerCase()
+          this.authUser?.displayName?.toLowerCase()
       ) {
         return this.profileUser
       }
       return this.authUser
+    },
+    username() {
+      return this.user?.displayName
     },
   },
   methods: {
