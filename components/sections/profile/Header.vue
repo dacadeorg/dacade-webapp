@@ -24,11 +24,10 @@
     <div class="pt-5">
       <Button
         type="outline-primary"
-        class="flex mx-auto"
+        class="flex mx-auto text-base"
         @click="triggerDiscordOauth"
       >
-        Connect to Discord <DiscordIcon class="ml-3"
-      /></Button>
+        Connect to Discord </Button>
     </div>
   </div>
 </template>
@@ -39,7 +38,6 @@ import Avatar from '@/components/ui/Avatar'
 import DateManager from '@/utilities/DateManager'
 import Button from '@/components/ui/button'
 import TimeIcon from '~/assets/icons/time.svg?inline'
-import DiscordIcon from '~/assets/icons/discordIcon.svg?inline'
 // import GithubIcon from '~/assets/icons/github.svg?inline'
 // import CompassIcon from '~/assets/icons/compass.svg?inline'
 
@@ -48,7 +46,6 @@ export default {
   components: {
     Avatar,
     TimeIcon,
-    DiscordIcon,
     Button,
     // GithubIcon,
     // CompassIcon,
