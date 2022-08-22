@@ -74,6 +74,7 @@
 <script>
 import ArrowButton from '@/components/ui/button/Arrow'
 import Input from '@/components/ui/Input'
+import {getMetadataTitle} from "~/utilities/Metadata";
 /* eslint-disable no-console */
 
 export default {
@@ -91,6 +92,11 @@ export default {
         password: '',
       },
       loading: false,
+    }
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('login-page.signin.title')),
     }
   },
   methods: {

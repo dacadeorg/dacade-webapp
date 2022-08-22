@@ -9,6 +9,7 @@
 import { mapGetters } from 'vuex'
 import List from '@/components/sections/profile/communities/List'
 import CommunityStats from '@/components/sections/profile/communities/Stats'
+import {getMetadataDescription, getMetadataTitle} from "~/utilities/Metadata";
 
 export default {
   name: 'Profile',
@@ -21,6 +22,12 @@ export default {
     return store.dispatch('profile/communities/find', params).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.community?.name, this.$route?.params?.username),
+      meta: getMetadataDescription(this.community?.description)
+    }
   },
   computed: {
     ...mapGetters({

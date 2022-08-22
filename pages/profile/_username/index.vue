@@ -10,6 +10,7 @@
 <script>
 import ProfileOverviewCommunities from '~/components/sections/profile/overview/Communities'
 import ProfileOverviewAchievements from '~/components/sections/profile/overview/Achievements'
+import {getMetadataTitle} from "~/utilities/Metadata";
 
 export default {
   name: 'Profile',
@@ -23,6 +24,12 @@ export default {
     ]).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$route.params.username),
+      // meta: getMetadataDescription(this.challenge.description)
+    }
   },
 }
 </script>

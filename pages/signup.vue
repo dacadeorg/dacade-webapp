@@ -163,6 +163,7 @@ import Input from '@/components/ui/Input'
 import Checkbox from '@/components/ui/Checkbox'
 // import Upload from '~/assets/icons/upload.svg?inline'
 import ReferralList from '@/components/popups/referral/List'
+import {getMetadataTitle} from "~/utilities/Metadata";
 
 export default {
   components: {
@@ -191,6 +192,11 @@ export default {
   },
   fetch({ store }) {
     store.dispatch('referrals/all')
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('login-page.signup.title')),
+    }
   },
   computed: {
     ...mapGetters({

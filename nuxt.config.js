@@ -8,7 +8,7 @@ export default {
     packageName: process.env.npm_package_name || '',
   },
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Dacade',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

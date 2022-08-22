@@ -89,6 +89,7 @@
 /* eslint-disable no-console */
 import ArrowButton from '@/components/ui/button/Arrow'
 import Input from '@/components/ui/Input'
+import {getMetadataTitle} from "~/utilities/Metadata";
 
 export default {
   components: {
@@ -103,6 +104,11 @@ export default {
         email: '',
       },
       loading: false,
+    }
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('password-reset.title')),
     }
   },
   methods: {

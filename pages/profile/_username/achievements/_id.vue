@@ -80,6 +80,7 @@ import Avatar from '~/components/ui/Avatar'
 import DateManager from '~/utilities/DateManager'
 import AchievementViewItem from "~/components/sections/profile/achievements/ListItem";
 import AchievementLinkField from "~/components/sections/profile/achievements/LinkField";
+import {getMetadataDescription, getMetadataTitle} from "~/utilities/Metadata";
 // import Checkmark from '~/assets/icons/checkmark.svg?inline'
 
 export default {
@@ -99,6 +100,12 @@ export default {
     ]).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.achievement?.metadata?.name, this.$t('profile.achievement.title')),
+      meta: getMetadataDescription(this.achievement?.metadata?.description)
+    }
   },
   computed: {
     ...mapGetters({

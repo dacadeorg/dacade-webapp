@@ -21,6 +21,7 @@ import ProfileOverviewCommunities from '~/components/sections/profile/overview/C
 import ProfileOverviewAchievements from '~/components/sections/profile/overview/Achievements'
 import ProfileOverviewReferrals from '~/components/sections/profile/overview/Referrals'
 import ProfileOverviewSection from '~/components/sections/profile/overview/Section'
+import {getMetadataTitle} from "~/utilities/Metadata";
 
 export default {
   name: 'ProfileOverview',
@@ -33,15 +34,26 @@ export default {
   },
   layout: 'profile',
   middleware: 'auth',
+  data(){
+    return {
+      username: '',
+    }
+  },
   fetch({store, params, error}) {
-    const username = store.getters['auth/get'].displayName;
+    this.username = store.getters['auth/get'].displayName;
 
     return Promise.all([
-      store.dispatch('profile/certificates/all', username),
-      store.dispatch('profile/reputations/all', username)
+      store.dispatch('profile/certificates/all', this.username),
+      store.dispatch('profile/reputations/all', this.username)
     ]).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.user?.displayName),
+      // meta: getMetadataDescription(this.challenge.description)
+    }
   },
   computed: {
     ...mapGetters({
