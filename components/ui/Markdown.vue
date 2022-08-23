@@ -43,7 +43,7 @@ export default {
   },
   watch: {
     value(newValue) {
-      this.content = newValue
+      this.parse(newValue)
     },
   },
 

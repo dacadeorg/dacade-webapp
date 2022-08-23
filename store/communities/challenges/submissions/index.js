@@ -67,10 +67,6 @@ export const actions = {
     this.commit('communities/courses/setCurrent', data.course)
     this.commit('communities/challenges/setCurrent', data.challenge)
   },
-
-  updateText({ commit }, { text }) {
-    commit('setText', text)
-  },
 }
 
 export const getters = {
