@@ -7,29 +7,29 @@
     }"
   >
     <TranslateBox
+      class="pb-5"
       :text="submission.text"
       :default-locale="language"
       text-css-classes="text-base md:text-lg leading-normal text-gray-700"
+    />
+    <div
+      class="inline-grid space-y-2 md:space-y-5 md:contents space-x-0 md:space-x-2"
     >
-      <div
-        class="inline-grid space-y-2 md:space-y-5 md:contents mt-6 space-x-0 md:space-x-2"
+      <ArrowButton
+        v-if="submission.link"
+        :link="submission.link"
+        target="__blank"
+        :custom-style="primaryButtonStyles"
+        type="outline-primary"
       >
-        <ArrowButton
-          v-if="submission.link"
-          :link="submission.link"
-          target="__blank"
-          :custom-style="primaryButtonStyles"
-          type="outline-primary"
-        >
-          {{ $t('submissions.link.github') }}
-        </ArrowButton>
-      </div>
-    </TranslateBox>
+        {{ $t('submissions.link.github') }}
+      </ArrowButton>
+    </div>
   </UserCard>
 </template>
 <script>
 /* eslint-disable no-console */
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 import ArrowButton from '@/components/ui/button/Arrow'
 import UserCard from '@/components/cards/User'
 import TranslateBox from '~/components/cards/TranslateBox'

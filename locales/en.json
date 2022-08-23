@@ -311,5 +311,8 @@
   "email-verification.success.title": "Your email has been verified!🎉",
   "email-verification.success.subtitle": "You're all set!",
   "email-verification.success.message": "You can now login to the platform.",
-  "email-verification.success.button": "Proceed"
+  "email-verification.success.button": "Proceed",
+  "ui.translate": "Translate to",
+  "ui.translated": "Translated to",
+  "ui.translation.action.original": "See original"
 }
