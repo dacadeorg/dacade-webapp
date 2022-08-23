@@ -13,6 +13,9 @@ export const mutations = {
   setList(state, payload) {
     state.list = payload
   },
+  setText(state, payload) {
+    state.current.text = payload
+  },
 }
 
 export const actions = {
