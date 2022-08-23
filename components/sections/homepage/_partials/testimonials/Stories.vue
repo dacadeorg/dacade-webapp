@@ -1,10 +1,10 @@
 /* eslint-disable vue/no-v-html */
 <template>
-  <div class="absolute w-full top-0 h-screen left-0 z-0 hidden sm:block">
+  <div class="relative w-full top-0 h-screen left-0 z-0 hidden md:block md:max-h-3xl lg:max-h-4xl xl:max-h-7.1xl">
     <span
       v-for="(grid, i) in grids"
       :key="i"
-      class="border border-solid border-gray-200 m-auto rounded-full absolute inset-0"
+      class="border border-solid border-gray-200 m-auto rounded-full absolute inset-0 xl:max-w-6xl xl:max-h-6xl md:max-h-.5xl md:max-w-.5xl lg:max-w-3xl lg:max-h-3xl"
       :style="{
         width: `${getSize(i)}vh`,
         height: `${getSize(i)}vh`,
@@ -15,7 +15,6 @@
         v-for="(story, k) in grid"
         :key="k"
         :story="story"
-        :container-size="getSize(i)"
         :position="k"
         :count="grid.length"
         :grid-position="i"

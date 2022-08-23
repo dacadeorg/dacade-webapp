@@ -11,11 +11,13 @@
     <div class="divide-y divide-gray-200">
       <div class="flex justify-between hover:bg-gray-50">
         <div class="w-full p-4 text-left flex">
-          <div class="pr-3.5"><Avatar :user="user" size="medium" /></div>
+          <div class="pr-3.5">
+            <Avatar :user="user" size="medium" :use-link="false" />
+          </div>
           <div class="pt-2">
             <span
               class="font-medium text-base block leading-normal capitalize"
-              >{{ user.displayName }}</span
+              >{{ username }}</span
             >
             <nuxt-link
               class="self-end text-sm block leading-normal"
@@ -32,10 +34,10 @@
           <span>{{ $t('nav.sign-out') }}</span>
         </div>
       </div>
-      <div class="p-4">
+      <div v-if="wallets.length" class="p-4">
         <BalanceList />
       </div>
-      <div v-show="reputations.length > 1" class="p-4">
+      <div v-if="reputations.length" class="p-4">
         <ReputationList />
       </div>
       <div v-if="showLanguageSwitcher" class="p-4">
@@ -88,6 +90,9 @@ export default {
     showLanguageSwitcher() {
       return process.env.NUXT_ENV_SHOW_LANGUAGE_SELECTOR === 'true'
     },
+    username(){
+      return this.user?.displayName
+    }
   },
   methods: {
     logout() {

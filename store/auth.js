@@ -16,6 +16,15 @@ export const state = () => ({
   walletAddresses: null,
 })
 
+export const mutations = {
+  set(state, auth) {
+    state.data = auth?.toJSON() || null
+  },
+  clear(state) {
+    state.data = null
+  },
+}
+
 export const actions = {
   async signUp({ dispatch, commit }, payload) {
     this.commit('setBusy', true)
@@ -48,6 +57,7 @@ export const actions = {
     this.commit('setBusy', true)
     this.commit('clearError')
     try {
+      this.dispatch('user/clear')
       await signInWithEmailAndPassword(firebaseAuth, email, password)
       await this.dispatch('user/fetch')
       this.commit('setJobDone', true)
@@ -78,26 +88,29 @@ export const actions = {
     this.dispatch('user/clear')
     this.$router.push(this.localePath('/communities'))
   },
-  createVerificationRequest({ dispatch }, payload) {
-    return new Promise((resolve, reject) => {
-      auth
-        .verify(payload)
-        .then((response) => {
-          resolve(response)
-          this.commit('setJobDone', true)
-          this.commit('setBusy', false)
-        })
-        .catch((error) => {
-          reject(error)
-          this.commit('setBusy', false)
-          this.commit('setError', error)
-        })
+  async resendEmailVerification() {
+    const res = await this.$api.get('auth/send-verification-email')
+    return res
+  },
+  async verifyEmail({ dispatch }, { code }) {
+    const res = await this.$api.post('auth/verify-email', {
+      code,
     })
+    return res
   },
 }
 
 export const getters = {
-  check(state, getters, rootState, rootGetters) {
-    return rootState.user.data !== null && rootState.user.data !== undefined
+  get(state) {
+    return state.data
+  },
+  data(state) {
+    return state.data
+  },
+  check(state) {
+    return state.data !== null && state.data !== undefined
+  },
+  isVerified(state) {
+    return state.data && state.data?.emailVerified
   },
 }

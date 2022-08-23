@@ -40,13 +40,13 @@ export default {
     CommunityCard,
     PartneringCard,
   },
-  fetch({ store }) {
-    return store.dispatch('communities/all')
-  },
   computed: {
     ...mapGetters({
       communities: 'communities/list',
     }),
+  },
+  created() {
+    this.$store.dispatch('communities/all')
   },
 }
 </script>

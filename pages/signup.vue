@@ -17,10 +17,13 @@
               {{ $t('signup-page.referrer.title') }}
               {{ $t('app.name') }}
             </h1>
-            <p class="my-px text-gray-700">
+            <p
+              class="my-px text-gray-700"
+              :class="{ invisible: !(referrals && referrals.length) }"
+            >
               {{ $t('signup-page.referrer.subtitle') }}
             </p>
-            <div class="my-8">
+            <div v-if="referrals && referrals.length" class="my-8">
               <ReferralList bounty />
             </div>
           </div>
@@ -111,25 +114,25 @@
 
           <div class="flex justify-between mt-4">
             <div class="flex flex-col self-start">
-              <div class="flex flex-row max-w-xm space-x-3">
-                <input
-                  id="agree1"
-                  v-model="checkedTerms"
-                  class="w-5 h-5"
-                  name="agree"
-                  required
-                  size="small"
-                  type="checkbox"
-                  target="_blank"
-                />
-                <span class="max-w-none test">
-                  I agree to {{ $t('app.name') }}'s
-                  <nuxt-link
-                    class="underline"
-                    :to="localePath('/terms-conditions')"
-                    >{{ $t('signup-page.terms') }}</nuxt-link
-                  >
-                </span>
+              <div class="max-w-xm">
+                <div class="flex space-x-3">
+                  <div>
+                    <Checkbox
+                      id="terms-checkbox"
+                      v-model="checkedTerms"
+                      :required="true"
+                      name="terms"
+                    />
+                  </div>
+                  <div class="max-w-none test">
+                    I agree to {{ $t('app.name') }}'s
+                    <nuxt-link
+                      class="underline"
+                      :to="localePath('/terms-conditions')"
+                      >{{ $t('signup-page.terms') }}
+                    </nuxt-link>
+                  </div>
+                </div>
                 <span v-if="warningTerms" class="form-text-red"
                   >{{ $t('signup-page.terms.warning') }}
                 </span>
@@ -153,17 +156,21 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import ArrowButton from '@/components/ui/button/Arrow'
 import Input from '@/components/ui/Input'
+import Checkbox from '@/components/ui/Checkbox'
 // import Upload from '~/assets/icons/upload.svg?inline'
 import ReferralList from '@/components/popups/referral/List'
+import {getMetadataTitle} from "~/utilities/Metadata";
 
 export default {
   components: {
     ArrowButton,
     Input,
     ReferralList,
+    Checkbox,
     // Upload,
   },
   layout: 'withoutFooter',
@@ -184,9 +191,17 @@ export default {
     }
   },
   fetch({ store }) {
-    return store.dispatch('referrals/all')
+    store.dispatch('referrals/all')
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('login-page.signup.title')),
+    }
   },
   computed: {
+    ...mapGetters({
+      referrals: 'referrals/list',
+    }),
     referrer() {
       // console.log(this.$route.query)
       return this.$route.query?.invite

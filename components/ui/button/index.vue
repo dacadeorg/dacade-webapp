@@ -36,7 +36,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'DAButton',
+  name: 'Button',
   props: {
     text: {
       default: '',

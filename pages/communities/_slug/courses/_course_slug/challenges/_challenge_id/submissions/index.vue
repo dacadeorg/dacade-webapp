@@ -5,7 +5,7 @@
         :title="course.name"
         :subtitle="$t('communities.submission.title')"
       />
-      <List />
+      <List/>
     </div>
     <SubmissionPopup
       :show="!!selectedSubmission"
@@ -15,12 +15,13 @@
   </Wrapper>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 
 import Header from '@/components/sections/communities/_partials/Header'
 import List from '@/components/sections/submissions/List'
 import Wrapper from '@/components/sections/courses/Wrapper'
 import SubmissionPopup from '~/components/popups/submission'
+import {getMetadataTitle} from "~/utilities/Metadata";
 
 export default {
   components: {
@@ -41,7 +42,7 @@ export default {
       selectedSubmission: '',
     }
   },
-  fetch({ store, params, error }) {
+  fetch({store, params, error}) {
     return Promise.all([
       store.dispatch('communities/find', params.slug),
       store.dispatch('communities/courses/find', params.course_slug),
@@ -51,6 +52,12 @@ export default {
     ]).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('communities.submission.title'), this.course?.name),
+      // meta: getMetadataDescription(this.challenge.description)
+    }
   },
   computed: {
     ...mapGetters({

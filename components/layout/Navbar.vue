@@ -2,14 +2,17 @@
   <div class="text-gray-900" :style="containerStyle">
     <div class="content-wrapper lg:py-12 py-6 flex relative">
       <ul class="relative">
-        <NavItem type="logo">
+        <NavItem type="logo" class="w-8 h-8 md:w-11 md:h-11">
           <Logo />
         </NavItem>
         <NavItem type="brand mx-0.5">
           {{ $t('app.name') }}
         </NavItem>
       </ul>
-      <ul v-if="isAuthenticated" class="hidden lg:block relative self-center">
+      <ul
+        v-if="isAuthenticatedAndVerified"
+        class="hidden lg:block relative self-center"
+      >
         <NavItem to="/bounties">
           {{ $t('nav.bounties') }}
         </NavItem>
@@ -18,7 +21,7 @@
         </NavItem>
       </ul>
       <ul class="ml-auto text-right relative flex lg:hidden items-center">
-        <Sidebar />
+        <Sidebar :burger-color="sidebarBurgerColor" />
       </ul>
       <ul
         v-if="!isAuthenticated"
@@ -39,9 +42,10 @@
               :class="
                 $router.history.current.path === '/signup'
                   ? 'text-primary'
-                  : 'text-gray-900'
+                  : 'inherit'
               "
-              >{{ $t('nav.login') }}</span
+            >
+              {{ $t('nav.login') }}</span
             >
           </NavItem>
         </div>
@@ -101,6 +105,7 @@ import UserPopup from '@/components/popups/user'
 import Button from '@/components/ui/button'
 
 export default {
+  name: 'Navbar',
   components: {
     Logo,
     NavItem,
@@ -116,6 +121,11 @@ export default {
         return {}
       },
       type: Object,
+    },
+
+    sidebarBurgerColor: {
+      default: false,
+      type: Boolean,
     },
   },
   computed: {
@@ -148,6 +158,7 @@ export default {
     },
     ...mapGetters({
       user: 'user/get',
+      isAuthenticatedAndVerified: 'auth/isVerified',
       isAuthenticated: 'auth/check',
     }),
   },

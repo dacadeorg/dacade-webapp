@@ -17,7 +17,7 @@
         :class="{
           'text-gray-400 scale-75 -translate-y-3 translate-x-1 bg-gray-50':
             disabled,
-          'border-red-100': error,
+          'border-red-100 rounded-b-none': error,
           'focus:border-gray-200 border-gray-200': !error,
         }"
         :value="value"
@@ -31,7 +31,10 @@
         v-on="inputListeners"
       />
     </div>
-    <div v-if="error" class="bg-red-50 help text-sm text-red-900 px-5 py-1.5">
+    <div
+      v-if="error"
+      class="bg-red-50 help text-sm rounded-b-md border border-t-0 border-red-100 text-red-900 px-5 py-1.5"
+    >
       <p>
         {{ error }}
       </p>

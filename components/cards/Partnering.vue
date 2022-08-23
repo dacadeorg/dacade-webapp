@@ -1,5 +1,7 @@
 <template>
-  <div class="relative lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden">
+  <div
+    class="relative lg:mt-0 xl:pt-0 rounded-3.5xl overflow-hidden mt-5 md:mt-0 border border-solid border-gray-light md:border-none"
+  >
     <div
       class="relative z-10 p-6 lg:pb-3 w-full text-primary h-full min-h-xs flex flex-col justify-between divide-y-2 divide-y divide-dotted divide-theme-accent"
     >

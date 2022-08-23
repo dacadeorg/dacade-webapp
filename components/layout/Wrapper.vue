@@ -9,6 +9,7 @@ import { mapGetters } from 'vuex'
 import ReferralPopup from '@/components/popups/referral'
 
 export default {
+  name: 'LayoutWrapper',
   components: {
     ReferralPopup,
   },

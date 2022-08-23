@@ -87,13 +87,13 @@ export default class CommunityNavigation {
       exact: false,
       subitems: learningModule.materials
         ? learningModule.materials.map((material) => {
-            slugger.reset()
-            return {
-              label: material.title,
-              link: slugger.slug(material.title),
-              exact: false,
-            }
-          })
+          slugger.reset()
+          return {
+            label: material.title,
+            link: slugger.slug(material.title),
+            exact: false,
+          }
+        })
         : [],
     }))
   }
@@ -126,7 +126,9 @@ export default class CommunityNavigation {
     ]
   }
 
-  init({ course, community }) {
+  init({course, community}) {
+    const challenges = this.bountyLinks(course, community?.slug);
+    const learningModules = this.learningModuleLinks(course, community?.slug);
     const list = [
       {
         id: 'introduction',
@@ -140,17 +142,23 @@ export default class CommunityNavigation {
           },
         ],
       },
-      {
+    ];
+
+    if (learningModules.length) {
+      list.push({
         id: 'learning-modules',
         title: 'communities.navigation.learning-modules',
-        items: this.learningModuleLinks(course, community?.slug),
-      },
-      {
+        items: learningModules,
+      });
+    }
+
+    if (challenges.length) {
+      list.push({
         id: 'bounties',
         title: 'communities.navigation.challenge',
-        items: this.bountyLinks(course, community?.slug),
-      },
-    ]
+        items: challenges
+      });
+    }
     return list
   }
 }

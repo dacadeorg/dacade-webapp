@@ -18,6 +18,7 @@
 import { mapGetters } from 'vuex'
 import Navigation from '@/components/sections/bounties/Navigation'
 import BountyList from '@/components/list/Bounty'
+import {getMetadataTitle} from "~/utilities/Metadata";
 
 export default {
   components: { Navigation, BountyList },
@@ -28,6 +29,11 @@ export default {
     ]).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('nav.bounties')),
+    }
   },
   computed: {
     ...mapGetters({

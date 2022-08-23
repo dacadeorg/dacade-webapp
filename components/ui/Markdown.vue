@@ -1,7 +1,7 @@
 <template>
   <div v-if="content" :style="themeStyles" class="prose">
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="markdown-wrapper" v-html="content" />
+    <div class="markdown-content" v-html="content" />
     <!-- :style="themeStyles" -->
   </div>
 </template>

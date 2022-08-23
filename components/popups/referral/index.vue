@@ -17,7 +17,7 @@
         <p class="mb-3 leading-normal">
           {{
             $t('modal.referral.text-1', {
-              username: user.displayName,
+              username,
             })
           }}
         </p>
@@ -48,7 +48,7 @@ import Crossmark from '~/assets/icons/crossmark-2.svg?inline'
 import Modal from '@/components/ui/Modal'
 
 export default {
-  name: 'UserPopup',
+  name: 'ReferralPopup',
   directives: {
     clickOutside: vClickOutside.directive,
   },
@@ -66,11 +66,14 @@ export default {
     }),
     referralLink() {
       return `${window.location.origin}${this.localePath('/signup')}?invite=${
-        this.user.displayName
+        this.user?.displayName
       }`
     },
     referralCode() {
-      return this.user.displayName
+      return this.user?.displayName
+    },
+    username() {
+      return this.user?.displayName
     },
   },
   methods: {

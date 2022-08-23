@@ -23,6 +23,19 @@ export const actions = {
     const { data } = await this.$api.get(`courses/${slug}/learning-modules`)
     commit('setList', data)
   },
+  submitModuleAnswer({ commit }, { ref, course }) {
+    return this.$api.put(`interactive-modules/answer`, {
+      module: ref,
+      course,
+      score: 100,
+    })
+  },
+  async checkAnswer({ commit }, ref) {
+    const { data } = await this.$api.post(`interactive-modules/check-answer`, {
+      module: ref,
+    })
+    return data
+  },
 }
 
 export const getters = {

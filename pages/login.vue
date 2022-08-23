@@ -51,9 +51,9 @@
         <div class="flex flex-col justify-between mt-4">
           <div>
             <span class="text-primary text-sm">
-              <NuxtLink to="/password-reset" class="fs-1 dark-white">
+              <nuxt-link to="/password-reset" class="fs-1 dark-white">
                 {{ $t('login-page.forget-password') }}
-              </NuxtLink>
+              </nuxt-link>
             </span>
           </div>
           <div class="text-right self-end">
@@ -74,6 +74,7 @@
 <script>
 import ArrowButton from '@/components/ui/button/Arrow'
 import Input from '@/components/ui/Input'
+import {getMetadataTitle} from "~/utilities/Metadata";
 /* eslint-disable no-console */
 
 export default {
@@ -91,6 +92,11 @@ export default {
         password: '',
       },
       loading: false,
+    }
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('login-page.signin.title')),
     }
   },
   methods: {

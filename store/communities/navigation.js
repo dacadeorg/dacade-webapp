@@ -3,11 +3,15 @@
 
 export const state = () => ({
   menus: [],
+  showPageNavigation: true,
 })
 
 export const mutations = {
   setList(state, payload) {
     state.menus = payload
+  },
+  setShowPageNavigation(state, payload) {
+    state.showPageNavigation = payload
   },
 }
 
@@ -27,10 +31,19 @@ export const actions = {
     })
     commit('setList', menus)
   },
+  hidePageNavigation({ commit }) {
+    commit('setShowPageNavigation', false)
+  },
+  showPageNavigation({ commit }) {
+    commit('setShowPageNavigation', true)
+  },
 }
 
 export const getters = {
   list(state) {
     return state.menus
+  },
+  showPageNavigation(state) {
+    return state.showPageNavigation
   },
 }

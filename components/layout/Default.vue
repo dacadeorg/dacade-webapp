@@ -10,7 +10,7 @@
       </div>
       <DiscordButton />
       <div class="relative flex-grow-0">
-        <Footer />
+        <Footer :background-color="footerBackgroundColor" />
         <PrivacyPolicyBanner />
       </div>
     </div>
@@ -33,6 +33,13 @@ export default {
     Footer,
     Wrapper,
     DiscordButton,
+  },
+
+  props: {
+    footerBackgroundColor: {
+      default: false,
+      type: Boolean,
+    },
   },
 }
 </script>
