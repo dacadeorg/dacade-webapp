@@ -6,7 +6,7 @@
       text: $t('submissions.submitted'),
     }"
   >
-    <TranslateBox
+    <TranslationBox
       class="pb-5"
       :text="submission.text"
       :default-locale="language"
@@ -32,12 +32,12 @@
 import {mapGetters} from 'vuex'
 import ArrowButton from '@/components/ui/button/Arrow'
 import UserCard from '@/components/cards/User'
-import TranslateBox from '~/components/cards/TranslateBox'
+import TranslationBox from '~/components/cards/TranslationBox'
 
 export default {
   name: 'SubmissionViewCard',
   components: {
-    TranslateBox,
+    TranslationBox,
     UserCard,
     ArrowButton,
   },

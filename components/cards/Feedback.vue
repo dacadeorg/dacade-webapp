@@ -10,7 +10,7 @@
     :badge="value.ranking"
     :box-layout="preview"
   >
-    <TranslateBox
+    <TranslationBox
       class="pb-3"
       :text="value.text"
       :default-locale="language"
@@ -55,7 +55,7 @@ import UserCard from '@/components/cards/User'
 import ArrowButton from '@/components/ui/button/Arrow'
 import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
-import TranslateBox from '~/components/cards/TranslateBox'
+import TranslationBox from '~/components/cards/TranslationBox'
 
 export default {
   name: 'FeedbackCard',
@@ -64,7 +64,7 @@ export default {
     ArrowButton,
     Tag,
     Reward,
-    TranslateBox,
+    TranslationBox,
   },
   props: {
     value: {

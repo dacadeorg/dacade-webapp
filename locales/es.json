@@ -307,6 +307,7 @@
   "email-verification.success.subtitle": "You're all set!",
   "email-verification.success.message": "You can now login to the platform.",
   "email-verification.success.button": "Proceed",
+  "ui.translating": "Traductorio",
   "ui.translate": "Traducir al",
   "ui.translated": "Traducido al",
   "ui.translation.action.original": "Ver originales"

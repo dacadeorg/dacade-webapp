@@ -3,13 +3,21 @@
     <div v-if="currentText" :class="['-my-5', textContainerCssClasses]">
       <Markdown :class="textCssClasses" :value="currentText"/>
     </div>
-    <div v-if="translatable" class="flex divide-x pt-5 text-gray-400 divide-gray-200">
-      <div :class="['pr-3', { 'cursor-pointer underline': !translated}]" @click="translate">
-        <span>{{ $t(translated ? 'ui.translated' : 'ui.translate') }} {{ getLocaleName(currentLocale) }}</span>
+    <div v-if="translatable" class="pt-5 text-gray-400">
+      <div v-if="loading">
+        <span>{{ $t('ui.translating') }}...</span>
       </div>
-      <div v-if="translated" class="pl-3 cursor-pointer underline" @click="revert">
-        <span>{{ $t('ui.translation.action.original', getDefaultLocale()) }} ({{ getLocaleName(getDefaultLocale()) }})</span>
+      <div v-else class="flex divide-x divide-gray-200">
+        <div :class="['pr-3', { 'cursor-pointer underline': !translated}]" @click="translate">
+          <span>{{ $t(translated ? 'ui.translated' : 'ui.translate') }} {{ getLocaleName(currentLocale) }}</span>
+        </div>
+        <div v-if="translated" class="pl-3 cursor-pointer underline" @click="revert">
+          <span>{{ $t('ui.translation.action.original', getDefaultLocale()) }} ({{
+              getLocaleName(getDefaultLocale())
+            }})</span>
+        </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -19,7 +27,7 @@ import {Translate} from '~/utilities/Translate'
 import Markdown from '@/components/ui/Markdown'
 
 export default {
-  name: 'TranslateBox',
+  name: 'TranslationBox',
   components: {Markdown},
   props: {
     text: {
@@ -47,6 +55,7 @@ export default {
     return {
       currentText: '',
       locale: '',
+      loading: false,
     }
   },
   computed: {
@@ -54,14 +63,21 @@ export default {
       return this.$i18n.locale
     },
     translatable() {
-      return this.currentLocale !== this.getDefaultLocale() && !this.disabled;
+      return this.currentLocale !== this.getDefaultLocale() && !this.disabled && this.getLocaleName(this.getDefaultLocale());
     },
     translated() {
       return this.locale !== this.getDefaultLocale()
     },
     locales() {
+      const values = [
+        ...this.$i18n.locales,
+        {
+          code: 'fr',
+          name: 'Français'
+        }
+      ];
       const list = {};
-      this.$i18n.locales.forEach((locale) => {
+      values.forEach((locale) => {
         list[locale.code] = locale
       })
       return list;
@@ -70,14 +86,17 @@ export default {
   watch: {
     defaultLocale(value) {
       this.locale = value || 'en'
+      this.loading = false
       this.translate()
     },
     text(value) {
       this.currentText = value
       this.locale = this.getDefaultLocale()
+      this.loading = false
     },
     currentLocale(value) {
       this.locale = this.getDefaultLocale()
+      this.loading = false
       this.translate()
     },
   },
@@ -89,6 +108,7 @@ export default {
   methods: {
     async translate() {
       if (this.translated) return
+      this.loading = true
       try {
         this.currentText = await Translate({
           currentLocale: this.getDefaultLocale(),
@@ -99,6 +119,7 @@ export default {
       } catch (e) {
         console.log('There was an error with the translation request: ', e)
       }
+      this.loading = false
     },
     getDefaultLocale() {
       return this.defaultLocale || 'en'
