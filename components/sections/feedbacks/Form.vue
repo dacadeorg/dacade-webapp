@@ -58,7 +58,7 @@
             </ValidationProvider>
           </div>
           <div>
-            <MarkdownIcon/>
+            <MarkdownIcon />
           </div>
           <div class="text-right mt-5">
             <ArrowButton
@@ -81,7 +81,6 @@ import TextInput from '@/components/ui/TextInput'
 import GithubLinkInput from '@/components/ui/GithubLinkInput'
 import MarkdownIcon from '@/components/ui/MarkdownIcon'
 import ArrowButton from '@/components/ui/button/Arrow'
-
 
 export default {
   name: 'Feedback',

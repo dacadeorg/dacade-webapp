@@ -2,13 +2,15 @@
   <UserCard
     :user="submission.user"
     :timestamp="{
-      'date': submission.created_at,
-      'text': $t('submissions.submitted')
+      date: submission.created_at,
+      text: $t('submissions.submitted'),
     }"
   >
     <TranslateBox
-      :text="submission.text" :default-locale="language"
-      text-css-classes="text-base md:text-lg leading-normal text-gray-700">
+      :text="submission.text"
+      :default-locale="language"
+      text-css-classes="text-base md:text-lg leading-normal text-gray-700"
+    >
       <div
         class="inline-grid space-y-2 md:space-y-5 md:contents mt-6 space-x-0 md:space-x-2"
       >
@@ -27,11 +29,10 @@
 </template>
 <script>
 /* eslint-disable no-console */
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import ArrowButton from '@/components/ui/button/Arrow'
 import UserCard from '@/components/cards/User'
-import TranslateBox from "~/components/cards/TranslateBox";
-
+import TranslateBox from '~/components/cards/TranslateBox'
 
 export default {
   name: 'SubmissionViewCard',
@@ -60,7 +61,7 @@ export default {
       }
     },
     language() {
-      return this.submission?.metadata?.language || 'en';
+      return this.submission?.metadata?.language || 'en'
     },
     primaryButtonStyles() {
       return {
@@ -81,6 +82,6 @@ export default {
         '--button-border-color--hover': this.colors.textAccent,
       }
     },
-  }
+  },
 }
 </script>

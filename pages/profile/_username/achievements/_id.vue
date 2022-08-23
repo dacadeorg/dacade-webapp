@@ -11,7 +11,7 @@
             class="p-12 h-52 w-52 rounded-full"
             :style="{ backgroundColor: achievement.community.colors.primary }"
           >
-            <img :src="achievement.metadata.image" alt="certificate badge"/>
+            <img :src="achievement.metadata.image" alt="certificate badge" />
           </div>
         </div>
         <div class="p-5 md:pt-7 md:px-7 md:pb-14 w-full md:w-1/2">
@@ -31,7 +31,7 @@
               <div
                 class="inline-flex items-center space-x-2 pr-3 bg-gray-200 p-1 rounded-full"
               >
-                <Avatar :user="achievement.user" size="small-fixed"/>
+                <Avatar :user="achievement.user" size="small-fixed" />
                 <p class="text-sm md:text-base">
                   {{ achievement.metadata.recipientName }}
                 </p>
@@ -42,26 +42,33 @@
               {{ achievement.metadata.issuerName }}
             </AchievementViewItem>
 
-
             <AchievementViewItem :name="$t('profile.achievement.date')">
               {{ issuedOn }}
             </AchievementViewItem>
 
-            <AchievementViewItem v-if="achievement.metadata.comment" :name="$t('profile.achievement.comment')" mobile-block items-start>
+            <AchievementViewItem
+              v-if="achievement.metadata.comment"
+              :name="$t('profile.achievement.comment')"
+              mobile-block
+              items-start
+            >
               {{ achievement.metadata.comment }}
             </AchievementViewItem>
 
-            <AchievementViewItem v-if="achievement.metadata.linkToWork" :name="$t('profile.achievement.link')" mobile-block>
-              <AchievementLinkField :link="achievement.metadata.linkToWork"/>
+            <AchievementViewItem
+              v-if="achievement.metadata.linkToWork"
+              :name="$t('profile.achievement.link')"
+              mobile-block
+            >
+              <AchievementLinkField :link="achievement.metadata.linkToWork" />
             </AchievementViewItem>
-
           </div>
         </div>
       </div>
       <div class="text-center pt-16">
         <ul class="relative">
           <NavItem type="logo" class="w-8 h-8 md:w-11 md:h-11">
-            <Logo/>
+            <Logo />
           </NavItem>
           <NavItem type="brand mx-0.5">
             {{ $t('app.name') }}
@@ -73,14 +80,14 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import Logo from '@/components/layout/Logo'
 import NavItem from '@/components/ui/NavItem'
 import Avatar from '~/components/ui/Avatar'
 import DateManager from '~/utilities/DateManager'
-import AchievementViewItem from "~/components/sections/profile/achievements/ListItem";
-import AchievementLinkField from "~/components/sections/profile/achievements/LinkField";
-import {getMetadataDescription, getMetadataTitle} from "~/utilities/Metadata";
+import AchievementViewItem from '~/components/sections/profile/achievements/ListItem'
+import AchievementLinkField from '~/components/sections/profile/achievements/LinkField'
+import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 // import Checkmark from '~/assets/icons/checkmark.svg?inline'
 
 export default {
@@ -94,17 +101,20 @@ export default {
     // Checkmark,
   },
   layout: 'achievement',
-  fetch({store, params, error}) {
+  fetch({ store, params, error }) {
     return Promise.all([
-      store.dispatch('profile/certificates/find', {id: params.id}),
+      store.dispatch('profile/certificates/find', { id: params.id }),
     ]).catch((e) => {
       error(e)
     })
   },
   head() {
     return {
-      title: getMetadataTitle(this.achievement?.metadata?.name, this.$t('profile.achievement.title')),
-      meta: getMetadataDescription(this.achievement?.metadata?.description)
+      title: getMetadataTitle(
+        this.achievement?.metadata?.name,
+        this.$t('profile.achievement.title')
+      ),
+      meta: getMetadataDescription(this.achievement?.metadata?.description),
     }
   },
   computed: {

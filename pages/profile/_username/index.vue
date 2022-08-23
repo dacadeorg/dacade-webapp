@@ -2,27 +2,27 @@
   <div
     class="flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
   >
-    <ProfileOverviewAchievements/>
-    <ProfileOverviewCommunities/>
+    <ProfileOverviewAchievements />
+    <ProfileOverviewCommunities />
 
     <div v-if="isCurrentUser">
-      <ProfileOverviewReferrals/>
+      <ProfileOverviewReferrals />
 
       <ProfileOverviewSection title="Notifications" see-more>
-        <NotificationList extended/>
+        <NotificationList extended />
       </ProfileOverviewSection>
     </div>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import NotificationList from '@/components/list/Notification'
 import ProfileOverviewCommunities from '~/components/sections/profile/overview/Communities'
 import ProfileOverviewAchievements from '~/components/sections/profile/overview/Achievements'
 import ProfileOverviewReferrals from '~/components/sections/profile/overview/Referrals'
 import ProfileOverviewSection from '~/components/sections/profile/overview/Section'
-import {getMetadataTitle} from "~/utilities/Metadata";
+import { getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   name: 'Profile',
@@ -34,11 +34,11 @@ export default {
     NotificationList,
   },
   layout: 'profile',
-  fetch({store, params, error}) {
-    const username = params.username;
+  fetch({ store, params, error }) {
+    const username = params.username
     return Promise.all([
       store.dispatch('profile/certificates/all', username),
-      store.dispatch('profile/reputations/all', username)
+      store.dispatch('profile/reputations/all', username),
     ]).catch((e) => {
       error(e)
     })
@@ -62,6 +62,6 @@ export default {
         this.authUser?.displayName?.toLowerCase()
       )
     },
-  }
+  },
 }
 </script>

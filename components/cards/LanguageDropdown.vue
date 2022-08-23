@@ -25,12 +25,12 @@
 
 <script>
 export default {
-  name: "LanguageDropdown",
+  name: 'LanguageDropdown',
   props: {
     value: {
       type: [String, Number],
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     currentLocale: {

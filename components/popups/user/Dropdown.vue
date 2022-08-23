@@ -90,9 +90,9 @@ export default {
     showLanguageSwitcher() {
       return process.env.NUXT_ENV_SHOW_LANGUAGE_SELECTOR === 'true'
     },
-    username(){
+    username() {
       return this.user?.displayName
-    }
+    },
   },
   methods: {
     logout() {

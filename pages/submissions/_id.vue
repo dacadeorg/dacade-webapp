@@ -14,7 +14,7 @@ import { mapGetters } from 'vuex'
 import SubmissionView from '@/components/sections/submissions/View'
 import Section from '@/components/ui/Section'
 import Header from '@/components/sections/communities/_partials/Header'
-import {getMetadataTitle} from "~/utilities/Metadata";
+import { getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {
@@ -35,7 +35,10 @@ export default {
   },
   head() {
     return {
-      title: getMetadataTitle(this.$t('communities.submission.title'), this.course?.name),
+      title: getMetadataTitle(
+        this.$t('communities.submission.title'),
+        this.course?.name
+      ),
       // meta: getMetadataDescription(this.challenge.description)
     }
   },

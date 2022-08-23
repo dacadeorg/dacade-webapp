@@ -4,7 +4,7 @@
       {{ name }}
     </p>
     <div class="text-gray-500 col-span-2 leading-normal">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
@@ -33,10 +33,7 @@ export default {
   computed: {
     gridClasses() {
       if (!this.mobileBlock) {
-        return [
-          'grid',
-          `grid-cols-${this.columns}`,
-        ]
+        return ['grid', `grid-cols-${this.columns}`]
       }
       return [
         'grid',
@@ -49,7 +46,7 @@ export default {
         return 'items-center'
       }
       return 'items-start'
-    }
+    },
   },
 }
 </script>

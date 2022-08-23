@@ -158,7 +158,7 @@ export default {
       {
         code: 'bg',
         name: 'Bulgarian',
-      }
+      },
     ],
     defaultLocale: 'en',
     vueI18n: {

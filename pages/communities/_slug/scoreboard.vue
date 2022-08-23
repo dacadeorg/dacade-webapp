@@ -17,10 +17,10 @@
   </div>
 </template>
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import Header from '@/components/sections/communities/_partials/Header'
 import ScoreboardCard from '@/components/cards/Scoreboard'
-import {getMetadataDescription, getMetadataTitle} from "~/utilities/Metadata";
+import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   name: 'ScoreboardList',
@@ -36,7 +36,7 @@ export default {
       type: Object,
     },
   },
-  fetch({store, params, error}) {
+  fetch({ store, params, error }) {
     return Promise.all([
       store.dispatch('communities/find', params.slug),
       store.dispatch('communities/scoreboard/all', params.slug),
@@ -46,8 +46,11 @@ export default {
   },
   head() {
     return {
-      title: getMetadataTitle(this.$t('communities.navigation.scoreboard'), this.community?.name),
-      meta: getMetadataDescription(this.community?.description)
+      title: getMetadataTitle(
+        this.$t('communities.navigation.scoreboard'),
+        this.community?.name
+      ),
+      meta: getMetadataDescription(this.community?.description),
     }
   },
   computed: {

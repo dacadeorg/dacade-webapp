@@ -1,6 +1,8 @@
 /* eslint-disable vue/no-v-html */
 <template>
-  <div class="p-7 bg-primary rounded-3.5xl mx-auto text-white relative md:absolute md:top-28 lg:top-32">
+  <div
+    class="p-7 bg-primary rounded-3.5xl mx-auto text-white relative md:absolute md:top-28 lg:top-32"
+  >
     <h3 class="m-0 text-4.5xl w-3/4">
       {{ $t('testimonials.community.title') }}
     </h3>

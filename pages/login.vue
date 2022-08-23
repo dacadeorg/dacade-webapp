@@ -74,7 +74,7 @@
 <script>
 import ArrowButton from '@/components/ui/button/Arrow'
 import Input from '@/components/ui/Input'
-import {getMetadataTitle} from "~/utilities/Metadata";
+import { getMetadataTitle } from '~/utilities/Metadata'
 /* eslint-disable no-console */
 
 export default {

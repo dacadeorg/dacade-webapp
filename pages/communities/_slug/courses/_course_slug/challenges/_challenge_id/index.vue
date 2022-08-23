@@ -32,7 +32,7 @@ import SubmissionForm from '@/components/sections/challenges/Submission'
 import SubmissionCard from '@/components/cards/Submission'
 import Wrapper from '@/components/sections/courses/Wrapper'
 import BestSubmissions from '@/components/sections/submissions/BestSubmissions'
-import {getMetadataDescription, getMetadataTitle} from "~/utilities/Metadata";
+import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {
@@ -56,8 +56,11 @@ export default {
   },
   head() {
     return {
-      title: getMetadataTitle(this.$t('communities.challenge.title'), this.course?.name),
-      meta: getMetadataDescription(this.challenge?.description)
+      title: getMetadataTitle(
+        this.$t('communities.challenge.title'),
+        this.course?.name
+      ),
+      meta: getMetadataDescription(this.challenge?.description),
     }
   },
   computed: {

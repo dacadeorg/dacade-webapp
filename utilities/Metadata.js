@@ -1,7 +1,7 @@
 export const getMetadataTitle = (...args) => {
-  const elements = args.filter(n => n)
-  if (!elements.length) return 'Dacade';
-  return `${elements.join(' - ')} | Dacade`;
+  const elements = args.filter((n) => n)
+  if (!elements.length) return 'Dacade'
+  return `${elements.join(' - ')} | Dacade`
 }
 
 export const getMetadataDescription = (description) => {
@@ -16,6 +16,6 @@ export const getMetadataDescription = (description) => {
     {
       name: 'og:description',
       content: description,
-    }
+    },
   ]
 }

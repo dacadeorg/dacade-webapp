@@ -45,7 +45,11 @@
       :community-styles="true"
       type="outline-primary"
     >
-      {{ material.type === 'TEXT' ? $t('learning-module.material.open.lesson') : $t('learning-module.material.open.article') }}
+      {{
+        material.type === 'TEXT'
+          ? $t('learning-module.material.open.lesson')
+          : $t('learning-module.material.open.article')
+      }}
     </ArrowButton>
   </Section>
 </template>

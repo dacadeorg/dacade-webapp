@@ -6,10 +6,12 @@
       <h1 class="text-3xl font-medium mb-6">
         {{ title }}
       </h1>
-      <p class="text-lg" :class="{'mb-6': !showRefresh, 'mb-2': showRefresh}">
+      <p class="text-lg" :class="{ 'mb-6': !showRefresh, 'mb-2': showRefresh }">
         {{ message }}
       </p>
-      <p v-if="showRefresh" class="text-lg mb-6">{{ $t('error.page.button.refresh') }}</p>
+      <p v-if="showRefresh" class="text-lg mb-6">
+        {{ $t('error.page.button.refresh') }}
+      </p>
       <div class="text-center">
         <ArrowButton link="/" target="_self">
           {{ $t('error.page.button.home') }}
@@ -21,7 +23,7 @@
 
 <script>
 import ArrowButton from '@/components/ui/button/Arrow'
-import {getMetadataDescription, getMetadataTitle} from "~/utilities/Metadata";
+import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {
@@ -31,14 +33,13 @@ export default {
   props: {
     error: {
       type: Object,
-      default: () => {
-      },
+      default: () => {},
     },
   }, // If you prefer you can set a custom layout for the error page
   head() {
     return {
       title: getMetadataTitle(this.$t('error.title'), this.title),
-      meta: getMetadataDescription(this.message)
+      meta: getMetadataDescription(this.message),
     }
   },
   computed: {
@@ -64,7 +65,7 @@ export default {
     },
     showRefresh() {
       return this.error?.statusCode !== 403 && this.error?.statusCode !== 404
-    }
-  }
+    },
+  },
 }
 </script>

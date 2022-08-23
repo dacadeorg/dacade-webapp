@@ -34,6 +34,6 @@ export default {
         this.authUser?.displayName?.toLowerCase()
       )
     },
-  }
+  },
 }
 </script>

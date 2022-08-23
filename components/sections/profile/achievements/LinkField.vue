@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="border relative p-2 rounded"
-  >
+  <div class="border relative p-2 rounded">
     <p
       :title="link"
       class="text-gray-500 line-clamp-1 break-all flex-1 text-sm md:text-base overflow-hidden"
@@ -23,7 +21,7 @@
 
 <script>
 export default {
-  name: "AchievementLinkField",
+  name: 'AchievementLinkField',
   props: {
     link: {
       default: null,
@@ -32,7 +30,7 @@ export default {
   },
   methods: {
     copy() {
-      navigator.clipboard.writeText(this.link);
+      navigator.clipboard.writeText(this.link)
     },
   },
 }

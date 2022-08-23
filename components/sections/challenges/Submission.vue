@@ -56,7 +56,7 @@
           </div>
         </div>
         <div class="pl-7.5">
-            <MarkdownIcon/>
+          <MarkdownIcon />
         </div>
         <div class="flex justify-between">
           <div class="flex xl:pl-10.75 flex-col self-center">
@@ -109,7 +109,7 @@ export default {
     GithubLinkInput,
     Avatar,
     ArrowButton,
-    MarkdownIcon
+    MarkdownIcon,
   },
 
   data() {

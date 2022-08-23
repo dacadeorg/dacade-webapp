@@ -1,9 +1,11 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <div
-    :ref="(el) => {
+    :ref="
+      (el) => {
         bubbleRef = el
-    }"
+      }
+    "
     v-click-outside="externalClick"
     class="absolute border border-solid border-gray-200 bg-gray-50 rounded-full p-1 top-2/4 left-2/4 -m-7 flex flex-row-reverse"
     :style="{
@@ -11,7 +13,7 @@
     }"
     @click="toggleBubble()"
   >
-    <img class="object-cover h-14 w-14 rounded-full" :src="story.icon"/>
+    <img class="object-cover h-14 w-14 rounded-full" :src="story.icon" />
     <div
       v-show="showBubble"
       :v-if="content"
@@ -107,8 +109,8 @@ export default {
       }
     },
     changeHeight(ref) {
-      this.height = ref?.parentElement?.clientHeight || 0;
-    }
+      this.height = ref?.parentElement?.clientHeight || 0
+    },
   },
 }
 </script>

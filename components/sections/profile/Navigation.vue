@@ -14,7 +14,7 @@
               :class="{ 'activable-link': !item.exact }"
             >
               <span class="inline-block absolute -left-6 nav-icon">
-                <ChevronRightIcon/>
+                <ChevronRightIcon />
               </span>
               <span class="nav-label">{{ item.label }}</span>
             </nuxt-link>
@@ -26,7 +26,7 @@
 </template>
 <script>
 /* eslint-disable no-console */
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import ChevronRightIcon from '~/assets/icons/chevron-right.svg?inline'
 import ProfileOverviewSection from '~/components/sections/profile/overview/Section'
 
@@ -59,14 +59,16 @@ export default {
             label: community.name,
             link: `/profile/${username}/communities/${community.slug}`,
           })),
-        },)
+        })
       }
       const mainItems = []
       if (this.isCurrentUser) {
         mainItems.push(
           {
             label: this.$t('navigation.profile.overview'),
-            link: this.$route.params?.username ? '/profile/'+ this.username : '/profile',
+            link: this.$route.params?.username
+              ? '/profile/' + this.username
+              : '/profile',
             exact: true,
           },
           {

@@ -1,6 +1,8 @@
 /* eslint-disable vue/no-v-html */
 <template>
-  <div class="relative w-full top-0 h-screen left-0 z-0 hidden md:block md:max-h-3xl lg:max-h-4xl xl:max-h-7.1xl">
+  <div
+    class="relative w-full top-0 h-screen left-0 z-0 hidden md:block md:max-h-3xl lg:max-h-4xl xl:max-h-7.1xl"
+  >
     <span
       v-for="(grid, i) in grids"
       :key="i"

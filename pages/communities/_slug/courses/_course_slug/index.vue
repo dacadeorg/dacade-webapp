@@ -12,7 +12,7 @@
 import { mapGetters } from 'vuex'
 import OverviewSection from '@/components/sections/courses/overview'
 import Wrapper from '@/components/sections/courses/Wrapper'
-import {getMetadataDescription, getMetadataTitle} from "~/utilities/Metadata";
+import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {
@@ -31,7 +31,7 @@ export default {
   head() {
     return {
       title: getMetadataTitle(this.course?.name),
-      meta: getMetadataDescription(this.course?.description)
+      meta: getMetadataDescription(this.course?.description),
     }
   },
   computed: {

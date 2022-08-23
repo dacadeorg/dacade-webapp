@@ -3,7 +3,7 @@
     :user="value.user"
     :timestamp="{
       date: value.created_at,
-      text: 'Feedback'
+      text: 'Feedback',
     }"
     :link="link"
     :bordered="!last"
@@ -11,15 +11,18 @@
     :box-layout="preview"
   >
     <TranslateBox
-      :text="value.text" :default-locale="language" :disabled="preview"
+      :text="value.text"
+      :default-locale="language"
+      :disabled="preview"
       text-css-classes="text-base md:text-lg leading-normal relative break-words"
-      :text-container-css-classes="{ 'line-clamp-3': preview }">
+      :text-container-css-classes="{ 'line-clamp-3': preview }"
+    >
       <div
         v-if="
-        value.metadata &&
-        value.metadata.evaluation &&
-        value.metadata.evaluation.points
-      "
+          value.metadata &&
+          value.metadata.evaluation &&
+          value.metadata.evaluation.points
+        "
         class="pt-5 flex space-x-1"
       >
         <Reward
@@ -46,13 +49,13 @@
   </UserCard>
 </template>
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import UserCard from '@/components/cards/User'
 import ArrowButton from '@/components/ui/button/Arrow'
 import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
-import TranslateBox from "~/components/cards/TranslateBox";
+import TranslateBox from '~/components/cards/TranslateBox'
 
 export default {
   name: 'FeedbackCard',
@@ -108,8 +111,8 @@ export default {
       }
     },
     language() {
-      return this.value?.metadata?.language || 'en';
-    }
+      return this.value?.metadata?.language || 'en'
+    },
   },
 }
 </script>

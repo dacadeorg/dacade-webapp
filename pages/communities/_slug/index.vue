@@ -1,21 +1,21 @@
 <template>
   <div class="relative">
-    <MainHeaderSection/>
+    <MainHeaderSection />
     <Section>
       <div class="w-full mx-auto divide-y divide-solid divide-gray-200">
-        <Courses/>
-        <Scoreboard/>
+        <Courses />
+        <Scoreboard />
       </div>
     </Section>
   </div>
 </template>
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
 import Scoreboard from '@/components/sections/communities/overview/Scoreboard'
 import Courses from '@/components/sections/communities/overview/Courses'
 import Section from '@/components/ui/Section'
-import {getMetadataDescription, getMetadataTitle} from "~/utilities/Metadata";
+import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {
@@ -26,7 +26,7 @@ export default {
   },
   layout: 'community',
   scrollToTop: true,
-  fetch({store, params, error}) {
+  fetch({ store, params, error }) {
     return Promise.all([
       store.dispatch('communities/find', params.slug),
       store.dispatch('communities/courses/all', params.slug),
@@ -38,7 +38,7 @@ export default {
   head() {
     return {
       title: getMetadataTitle(this.community?.name),
-      meta: getMetadataDescription(this.community?.description)
+      meta: getMetadataDescription(this.community?.description),
     }
   },
   computed: {
@@ -48,6 +48,5 @@ export default {
       scoreboard: 'communities/scoreboard/list',
     }),
   },
-
 }
 </script>

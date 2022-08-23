@@ -89,7 +89,7 @@
 /* eslint-disable no-console */
 import ArrowButton from '@/components/ui/button/Arrow'
 import Input from '@/components/ui/Input'
-import {getMetadataTitle} from "~/utilities/Metadata";
+import { getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {

@@ -54,7 +54,7 @@
 
 import Input from '@/components/ui/Input'
 import ArrowButton from '@/components/ui/button/Arrow'
-import {getMetadataTitle} from "~/utilities/Metadata";
+import { getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {

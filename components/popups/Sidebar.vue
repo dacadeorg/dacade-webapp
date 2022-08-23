@@ -199,9 +199,9 @@ export default {
       user: 'user/get',
       unread: 'user/notifications/unread',
     }),
-    username(){
+    username() {
       return this.user?.displayName
-    }
+    },
   },
   methods: {
     // I added watch property.
