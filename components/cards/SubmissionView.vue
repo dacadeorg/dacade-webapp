@@ -6,16 +6,14 @@
       text: $t('submissions.submitted'),
     }"
   >
-    <div class="pb-6">
-      <div class="-my-5">
-        <Markdown
-          class="text-base md:text-lg leading-normal text-gray-700"
-          :value="submission.text"
-        />
-      </div>
-    </div>
+    <TranslationBox
+      class="pb-5"
+      :text="submission.text"
+      :default-locale="language"
+      text-css-classes="text-base md:text-lg leading-normal text-gray-700"
+    />
     <div
-      class="inline-grid space-y-2 md:space-y-5 md:contents mt-6 space-x-0 md:space-x-2"
+      class="inline-grid space-y-2 md:space-y-5 md:contents space-x-0 md:space-x-2"
     >
       <ArrowButton
         v-if="submission.link"
@@ -31,17 +29,17 @@
 </template>
 <script>
 /* eslint-disable no-console */
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 import ArrowButton from '@/components/ui/button/Arrow'
 import UserCard from '@/components/cards/User'
-import Markdown from '@/components/ui/Markdown'
+import TranslationBox from '~/components/cards/TranslationBox'
 
 export default {
   name: 'SubmissionViewCard',
   components: {
+    TranslationBox,
     UserCard,
     ArrowButton,
-    Markdown,
   },
   props: {
     submission: {
@@ -61,6 +59,9 @@ export default {
         backgroundColor: this.colors.textAccent,
         color: this.colors.text,
       }
+    },
+    language() {
+      return this.submission?.metadata?.language || 'en'
     },
     primaryButtonStyles() {
       return {

@@ -18,6 +18,8 @@
 <script>
 import { mapGetters } from 'vuex'
 import CommunityListCard from '@/components/cards/community/List'
+import { getMetadataTitle } from '~/utilities/Metadata'
+
 export default {
   components: {
     CommunityListCard,
@@ -26,6 +28,11 @@ export default {
     return store.dispatch('communities/all').catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('nav.communities')),
+    }
   },
   computed: {
     ...mapGetters({

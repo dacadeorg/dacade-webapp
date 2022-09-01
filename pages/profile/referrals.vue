@@ -29,6 +29,7 @@ import { mapGetters } from 'vuex'
 import InfiniteLoading from 'vue-infinite-loading'
 import Referral from '@/components/cards/profile/Referral'
 import EmptyState from '@/components/ui/EmptyState'
+import { getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   name: 'Referrals',
@@ -50,6 +51,12 @@ export default {
     return Promise.all([store.dispatch('user/referrals/all')]).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('navigation.profile.referrals')),
+      // meta: getMetadataDescription(this.challenge.description)
+    }
   },
   computed: {
     ...mapGetters({

@@ -1,12 +1,8 @@
 <template>
   <div :id="id" class="text-xl md:text-.5xl px-0 py-5 md:py-10 md:pb-5">
-    <h3
-      v-if="title !== ''"
-      class="leading-normal text-default capitalize"
-      :class="{ 'font-medium': titleBold, 'font-normal': !titleBold }"
-    >
+    <H3 v-if="title" :bold="titleBold">
       {{ title }}
-    </h3>
+    </H3>
     <p
       class="text-base md:text-.5xl font-normal leading-normal"
       :class="{ hidden: hideSubtitleOnMobile }"
@@ -19,8 +15,10 @@
   </div>
 </template>
 <script>
+import H3 from '~/components/ui/text/H3'
 export default {
   name: 'OverviewRewards',
+  components: { H3 },
   props: {
     title: {
       default: null,

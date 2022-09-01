@@ -11,11 +11,13 @@
     <div class="divide-y divide-gray-200">
       <div class="flex justify-between hover:bg-gray-50">
         <div class="w-full p-4 text-left flex">
-          <div class="pr-3.5"><Avatar :user="user" size="medium" /></div>
+          <div class="pr-3.5">
+            <Avatar :user="user" size="medium" :use-link="false" />
+          </div>
           <div class="pt-2">
             <span
               class="font-medium text-base block leading-normal capitalize"
-              >{{ user.displayName }}</span
+              >{{ username }}</span
             >
             <nuxt-link
               class="self-end text-sm block leading-normal"
@@ -50,15 +52,6 @@
             @click="toggleInvite"
             >{{ $t('nav.view-profile-codes') }}
           </Button>
-          <Button
-
-            :padding="false"
-            type="outline-primary"
-            class="flex btn-primary btn-lg py-2 px-5 mt-3 align-middle text-sm"
-            @click="triggerDiscordOauth"
-          >{{ $t('nav.connect-discord') }}
-          </Button>
-
         </div>
       </div>
     </div>
@@ -97,6 +90,9 @@ export default {
     showLanguageSwitcher() {
       return process.env.NUXT_ENV_SHOW_LANGUAGE_SELECTOR === 'true'
     },
+    username() {
+      return this.user?.displayName
+    },
   },
   methods: {
     logout() {
@@ -107,10 +103,6 @@ export default {
     toggleInvite() {
       this.$emit('close')
       this.$store.dispatch('ui/toggleShowReferralPopup', true)
-    },
-    triggerDiscordOauth() {
-      const discordOauthUrl = `${process.env.NUXT_ENV_DISCORD_OAUTH_BASE_URL}?client_id=${process.env.NUXT_ENV_DISCORD_CLIENT_ID}&redirect_uri=${process.env.NUXT_ENV_DISCORD_CALLBACK_URL}&response_type=code&scope=${process.env.NUXT_ENV_DISCORD_SCOPE}`
-      window.location.href = discordOauthUrl;
     },
   },
 }

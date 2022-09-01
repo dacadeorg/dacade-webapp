@@ -12,7 +12,7 @@
   />
 </template>
 <script>
-import {mapGetters} from "vuex";
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Checkbox',
@@ -21,10 +21,10 @@ export default {
       default: false,
       type: Boolean,
     },
-    value: {
-      default: false,
-      type: Boolean,
-    },
+    // value: {
+    //   default: false,
+    //   type: Boolean,
+    // },
     required: {
       default: false,
       type: Boolean,
@@ -39,8 +39,8 @@ export default {
     },
     communityStyles: {
       default: false,
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   data() {
     return {
@@ -53,7 +53,7 @@ export default {
     }),
     styles() {
       if (!this.communityStyles) {
-        return null;
+        return null
       }
       return {
         color: this.colors.textAccent,
@@ -78,7 +78,7 @@ export default {
     },
     checked(newValue) {
       this.checkedValue = newValue
-    }
-  }
+    },
+  },
 }
 </script>

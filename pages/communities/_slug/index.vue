@@ -15,6 +15,7 @@ import MainHeaderSection from '@/components/sections/communities/overview/MainHe
 import Scoreboard from '@/components/sections/communities/overview/Scoreboard'
 import Courses from '@/components/sections/communities/overview/Courses'
 import Section from '@/components/ui/Section'
+import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {
@@ -33,6 +34,12 @@ export default {
     ]).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.community?.name),
+      meta: getMetadataDescription(this.community?.description),
+    }
   },
   computed: {
     ...mapGetters({

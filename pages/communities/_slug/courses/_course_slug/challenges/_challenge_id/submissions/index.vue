@@ -21,6 +21,7 @@ import Header from '@/components/sections/communities/_partials/Header'
 import List from '@/components/sections/submissions/List'
 import Wrapper from '@/components/sections/courses/Wrapper'
 import SubmissionPopup from '~/components/popups/submission'
+import { getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {
@@ -51,6 +52,15 @@ export default {
     ]).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(
+        this.$t('communities.submission.title'),
+        this.course?.name
+      ),
+      // meta: getMetadataDescription(this.challenge.description)
+    }
   },
   computed: {
     ...mapGetters({

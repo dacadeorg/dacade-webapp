@@ -11,10 +11,12 @@
           :material="material"
         />
         <AdditionalMaterialsSection :materials="additionalMaterials" />
-        <InteractiveModule v-if="interactiveModules.length" :data="interactiveModules[0]"/>
+        <InteractiveModule
+          v-if="interactiveModules.length"
+          :data="interactiveModules[0]"
+        />
+        <PageNavigation />
       </div>
-
-      <PageNavigation />
     </div>
   </Wrapper>
 </template>
@@ -29,6 +31,7 @@ import InteractiveModule from '@/components/sections/learning-modules/Interactiv
 import MaterialSection from '@/components/sections/learning-modules/Material'
 import AdditionalMaterialsSection from '@/components/sections/learning-modules/AdditionalMaterials'
 import Wrapper from '@/components/sections/courses/Wrapper'
+import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {
@@ -49,9 +52,16 @@ export default {
       error(e)
     })
   },
+  head() {
+    return {
+      title: getMetadataTitle(this.learningModule?.title, this.course?.name),
+      meta: getMetadataDescription(this.learningModule?.description),
+    }
+  },
   computed: {
     ...mapGetters({
       community: 'communities/current',
+      course: 'communities/courses/current',
       learningModule: 'communities/courses/learningModules/current',
     }),
     materials() {

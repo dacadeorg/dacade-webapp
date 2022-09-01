@@ -37,7 +37,6 @@
             >{{ $t('nav.signup.already-exist') }}</span
           >
           <NavItem to="/login">
-           
             <span
               class="py-2 text-sm"
               :class="
@@ -45,7 +44,8 @@
                   ? 'text-primary'
                   : 'inherit'
               "
-              > {{ $t('nav.login') }}</span
+            >
+              {{ $t('nav.login') }}</span
             >
           </NavItem>
         </div>
@@ -105,6 +105,7 @@ import UserPopup from '@/components/popups/user'
 import Button from '@/components/ui/button'
 
 export default {
+  name: 'Navbar',
   components: {
     Logo,
     NavItem,

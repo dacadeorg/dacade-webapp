@@ -24,7 +24,7 @@
               {{ $t('signup-page.referrer.subtitle') }}
             </p>
             <div v-if="referrals && referrals.length" class="my-8">
-              <ReferralList bounty/>
+              <ReferralList bounty />
             </div>
           </div>
           <div v-else>
@@ -129,13 +129,12 @@
                     <nuxt-link
                       class="underline"
                       :to="localePath('/terms-conditions')"
-                    >{{ $t('signup-page.terms') }}
-                    </nuxt-link
-                    >
+                      >{{ $t('signup-page.terms') }}
+                    </nuxt-link>
                   </div>
                 </div>
                 <span v-if="warningTerms" class="form-text-red"
-                >{{ $t('signup-page.terms.warning') }}
+                  >{{ $t('signup-page.terms.warning') }}
                 </span>
               </div>
             </div>
@@ -146,7 +145,7 @@
                 type="submit"
                 :disabled="loading"
                 min-width-class="min-w-40"
-              >{{ $t('login-page.signup.button') }}
+                >{{ $t('login-page.signup.button') }}
               </ArrowButton>
             </div>
           </div>
@@ -157,13 +156,14 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import ArrowButton from '@/components/ui/button/Arrow'
 import Input from '@/components/ui/Input'
 import Checkbox from '@/components/ui/Checkbox'
 // import Upload from '~/assets/icons/upload.svg?inline'
 import ReferralList from '@/components/popups/referral/List'
+import { getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {
@@ -190,8 +190,13 @@ export default {
       // warningPrivacy: false,
     }
   },
-  fetch({store}) {
+  fetch({ store }) {
     store.dispatch('referrals/all')
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('login-page.signup.title')),
+    }
   },
   computed: {
     ...mapGetters({

@@ -8,20 +8,23 @@
     :link="link"
     :bordered="!last"
   >
-    <p class="text-base md:text-lg leading-normal">
-      {{ evaluation.comment }}
-    </p>
-    <slot />
+    <TranslationBox
+      :text="evaluation.comment"
+      text-css-classes="text-base md:text-lg leading-normal"
+      :default-locale="language"/>
+    <slot/>
   </UserCard>
 </template>
 <script>
 /* eslint-disable no-console */
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 import UserCard from '@/components/cards/User'
+import TranslationBox from "~/components/cards/TranslationBox";
 
 export default {
   name: 'EvaluationCard',
   components: {
+    TranslationBox,
     UserCard,
   },
   props: {
@@ -58,6 +61,9 @@ export default {
         backgroundColor: this.colors.textAccent,
         color: this.colors.text,
       }
+    },
+    language() {
+      return this.evaluation?.metadata?.language || 'en'
     },
   },
 }

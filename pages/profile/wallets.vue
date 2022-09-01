@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:w-9/12 xl:w-2/3">
+  <div class="w-full lg:w-9/12 xl:w-2/">
     <div v-if="!cashable">
       <Hint class="mb-5"
         >{{ $t('profile.wallets.missing-info.warning') }}
@@ -25,6 +25,7 @@ import { mapGetters } from 'vuex'
 import EditProfile from '@/components/sections/profile/modals/EditProfile'
 import WalletCard from '@/components/cards/Wallet'
 import Hint from '@/components/ui/Hint'
+import { getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   name: 'Wallet',
@@ -44,7 +45,12 @@ export default {
       error(e)
     })
   },
-
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('navigation.profile.wallets')),
+      // meta: getMetadataDescription(this.challenge.description)
+    }
+  },
   computed: {
     ...mapGetters({
       wallets: 'user/wallets/list',

@@ -17,6 +17,7 @@ import { mapGetters } from 'vuex'
 // import firebase from '@/plugins/firebase'
 import Navigation from '@/components/sections/bounties/Navigation'
 import BountyList from '@/components/list/Bounty'
+import { getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: { Navigation, BountyList },
@@ -27,6 +28,11 @@ export default {
     ]).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$route.params.slug, this.$t('nav.bounties')),
+    }
   },
   computed: {
     ...mapGetters({

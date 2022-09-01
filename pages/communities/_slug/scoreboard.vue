@@ -20,6 +20,7 @@
 import { mapGetters } from 'vuex'
 import Header from '@/components/sections/communities/_partials/Header'
 import ScoreboardCard from '@/components/cards/Scoreboard'
+import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   name: 'ScoreboardList',
@@ -42,6 +43,15 @@ export default {
     ]).catch((e) => {
       error(e)
     })
+  },
+  head() {
+    return {
+      title: getMetadataTitle(
+        this.$t('communities.navigation.scoreboard'),
+        this.community?.name
+      ),
+      meta: getMetadataDescription(this.community?.description),
+    }
   },
   computed: {
     ...mapGetters({

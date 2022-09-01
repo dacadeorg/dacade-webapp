@@ -7,7 +7,12 @@
     class="bg-primary inline-flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle"
     @click="openLink()"
   >
-    <img v-if="user && user.avatar" :src="user.avatar" alt="img" class="object-cover w-full h-full" />
+    <img
+      v-if="user && user.avatar"
+      :src="user.avatar"
+      alt="img"
+      class="object-cover w-full h-full"
+    />
     <span v-if="user && !user.avatar">{{ initials }}</span>
     <img v-if="icon" :src="icon" class="p-2" />
     <img v-if="image" :src="image" class="p-0 object-cover w-full h-full" />
@@ -44,10 +49,14 @@ export default {
       default: 'circular',
       type: String,
     },
+    useLink: {
+      default: true,
+      type: Boolean,
+    },
   },
   computed: {
     initials() {
-      return this.user.displayName ? this.user.displayName[0] : null
+      return this.user?.displayName ? this.user?.displayName[0] : null
     },
     sizeClasses() {
       switch (this.size) {
@@ -59,6 +68,8 @@ export default {
           return 'w-10 h-10 sm:h-12 sm:w-12 md:w-15 md:h-15 text-xl sm:text-2xl'
         case 'medium-fixed':
           return 'w-10 h-10 text-2xl'
+        case 'small-fixed':
+          return 'w-7 h-7 text-xl'
         case 'mini':
           return 'w-5 h-5 text-xl'
         default:
@@ -80,9 +91,9 @@ export default {
   },
   methods: {
     openLink() {
-      if (this.user && this.user.username) {
-        this.$router.push(`/profile/${this.user.username}`)
-      }
+      if (!this.user || !this.user.username || !this.useLink) return
+
+      this.$router.push(`/profile/${this.user.username}`)
     },
   },
 }

@@ -28,6 +28,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import ArrowButton from '@/components/ui/button/Arrow'
+import { getMetadataTitle } from '~/utilities/Metadata'
 /* eslint-disable no-console */
 
 export default {
@@ -39,6 +40,11 @@ export default {
   data() {
     return {
       loading: false,
+    }
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('email-verification.title')),
     }
   },
   computed: {

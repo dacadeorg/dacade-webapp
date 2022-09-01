@@ -5,7 +5,7 @@
     <div class="relative p-6 text-center">
       <div v-if="!verified">
         <Loader />
-        <p class="mt-5">Verifying email</p>
+        <p class="mt-5">{{ $t('email-verification.processing') }}</p>
       </div>
       <div v-else>
         <div>
@@ -33,6 +33,7 @@
 <script>
 import Loader from '~/components/ui/Loader.vue'
 import ArrowButton from '@/components/ui/button/Arrow'
+import { getMetadataTitle } from '~/utilities/Metadata'
 /* eslint-disable no-console */
 
 export default {
@@ -44,6 +45,15 @@ export default {
   data() {
     return {
       verified: false,
+    }
+  },
+  head() {
+    return {
+      title: getMetadataTitle(
+        this.verified
+          ? this.$t('email-verification.success.title')
+          : this.$t('email-verification.processing')
+      ),
     }
   },
   created() {

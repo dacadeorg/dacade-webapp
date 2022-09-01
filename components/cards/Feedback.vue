@@ -10,18 +10,20 @@
     :badge="value.ranking"
     :box-layout="preview"
   >
-    <div class="-my-5" :class="{ 'line-clamp-3': preview }">
-      <Markdown
-        class="text-base md:text-lg leading-normal relative break-words"
-        :value="value.text"
-      />
-    </div>
+    <TranslationBox
+      class="pb-3"
+      :text="value.text"
+      :default-locale="language"
+      :disabled="preview"
+      text-css-classes="text-base md:text-lg leading-normal relative break-words"
+      :text-container-css-classes="{ 'line-clamp-3': preview }"
+    />
     <div
       v-if="
-        value.metadata &&
-        value.metadata.evaluation &&
-        value.metadata.evaluation.points
-      "
+          value.metadata &&
+          value.metadata.evaluation &&
+          value.metadata.evaluation.points
+        "
       class="pt-5 flex space-x-1"
     >
       <Reward
@@ -47,13 +49,13 @@
   </UserCard>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 /* eslint-disable no-console */
 import UserCard from '@/components/cards/User'
 import ArrowButton from '@/components/ui/button/Arrow'
 import Reward from '@/components/badges/Reward'
 import Tag from '@/components/ui/Tag'
-import Markdown from '@/components/ui/Markdown'
+import TranslationBox from '~/components/cards/TranslationBox'
 
 export default {
   name: 'FeedbackCard',
@@ -62,7 +64,7 @@ export default {
     ArrowButton,
     Tag,
     Reward,
-    Markdown,
+    TranslationBox,
   },
   props: {
     value: {
@@ -107,6 +109,9 @@ export default {
         '--button-background-color--hover': this.colors.accent,
         '--button-border-color--hover': this.colors.accent,
       }
+    },
+    language() {
+      return this.value?.metadata?.language || 'en'
     },
   },
 }

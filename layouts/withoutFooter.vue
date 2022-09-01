@@ -17,6 +17,7 @@ import PrivacyPolicyBanner from '@/components/banner/PrivacyPolicy'
 import NotificationBar from '@/components/layout/NotificationBar'
 
 export default {
+  name: 'LayoutWithoutFooter',
   components: {
     Navbar,
     PrivacyPolicyBanner,

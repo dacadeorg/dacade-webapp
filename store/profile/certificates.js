@@ -23,12 +23,11 @@ export const mutations = {
 
 export const actions = {
   async find({ commit }, { id }) {
-    const { data } = await this.$api.get(
-      `certificates/${id}}`
-    )
+    const { data } = await this.$api.get(`certificates/${id}`)
     commit('setCurrent', data)
   },
-  async all({ commit }, username) {
+  async all({ commit, getters }, username) {
+    commit('clear')
     if (!username) return
     const { data } = await this.$api.get(`certificates?username=${username}`)
     commit('setList', data)
@@ -41,5 +40,5 @@ export const getters = {
   },
   list(state) {
     return state.list
-  }
+  },
 }

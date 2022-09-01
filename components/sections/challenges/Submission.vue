@@ -55,6 +55,9 @@
             </div>
           </div>
         </div>
+        <div class="pl-7.5">
+          <MarkdownIcon />
+        </div>
         <div class="flex justify-between">
           <div class="flex xl:pl-10.75 flex-col self-center">
             <div
@@ -95,6 +98,7 @@ import Section from '@/components/sections/communities/_partials/Section.vue'
 import Avatar from '@/components/ui/Avatar'
 import TextInput from '@/components/ui/TextInput'
 import GithubLinkInput from '@/components/ui/GithubLinkInput'
+import MarkdownIcon from '@/components/ui/MarkdownIcon'
 import ArrowButton from '@/components/ui/button/Arrow'
 
 export default {
@@ -105,6 +109,7 @@ export default {
     GithubLinkInput,
     Avatar,
     ArrowButton,
+    MarkdownIcon,
   },
 
   data() {

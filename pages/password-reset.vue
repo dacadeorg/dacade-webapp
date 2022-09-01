@@ -54,6 +54,7 @@
 
 import Input from '@/components/ui/Input'
 import ArrowButton from '@/components/ui/button/Arrow'
+import { getMetadataTitle } from '~/utilities/Metadata'
 
 export default {
   components: {
@@ -68,6 +69,11 @@ export default {
         email: '',
       },
       loading: false,
+    }
+  },
+  head() {
+    return {
+      title: getMetadataTitle(this.$t('password-reset.title')),
     }
   },
   methods: {
