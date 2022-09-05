@@ -58,9 +58,9 @@ export default {
       profileUser: 'profile/users/current',
     }),
     joined() {
-      if (!this.user.joined) return null
+      if (!this.user?.joined) return null
       return DateManager.format(
-        this.user.joined,
+        this.user?.joined,
         'MMMM yyyy',
         this.$i18n.locale
       )
