@@ -5,14 +5,14 @@ export default async function ({ store, redirect, route }) {
   const authUser = store.getters['user/data']
   const auth = store.getters['auth/data']
 
-  if (route.path.startsWith('/verify-email')) {
+  if (route?.path?.startsWith('/verify-email')) {
     return
   }
 
   if (
     auth &&
     !auth.emailVerified &&
-    !route.path.startsWith('/email-verification')
+    !route?.path?.startsWith('/email-verification')
   ) {
     return redirect('/email-verification')
   }
@@ -26,7 +26,7 @@ export default async function ({ store, redirect, route }) {
     return redirect('/login')
   }
 
-  if (route.path.startsWith('/profile')) {
+  if (route?.path?.startsWith('/profile')) {
     await store.dispatch('profile/users/fetch', route.params?.username)
     await store.dispatch(
       'profile/communities/all',
