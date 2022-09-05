@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.4.1...v3.4.2) (2022-09-05)
+
+
+### Bug Fixes
+
+* course language switcher undefined name ([385aa95](https://github.com/dacadeorg/dacade-webapp/commit/385aa95779ee439990c7a47c6197da66aac6944d))
+
 ### [3.4.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.4.0...v3.4.1) (2022-08-22)
 
 

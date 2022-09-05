@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="course.translations && course.translations.length > 1 && show"
+    v-if="locales.length > 1 && show"
     class="message-rectangle flex flex-col divide-y divide-solid divide-yellow-100"
   >
     <div class="pb-4">
@@ -12,12 +12,8 @@
         v-model="currentLocale"
         class="translation outline-none focus:outline-none"
       >
-        <option
-          v-for="translation in course.translations"
-          :key="translation.id"
-          :value="translation.locale"
-        >
-          {{ availableLocales[translation.locale].name }}
+        <option v-for="locale in locales" :key="locale.id" :value="locale.code">
+          {{ locale.name }}
         </option>
       </select>
     </div>
@@ -55,6 +51,22 @@ export default {
           this.$i18n.setLocale(locale)
         }
       },
+    },
+    locales() {
+      return (
+        this.course?.translations
+          ?.filter((locale) => locale)
+          ?.map((translation) => ({
+            id: translation.id,
+            code: translation.locale,
+            name: this.getLocale(translation.locale),
+          })) || []
+      )
+    },
+  },
+  methods: {
+    getLocale(locale) {
+      return this.availableLocales[locale]?.name || locale
     },
   },
 }
