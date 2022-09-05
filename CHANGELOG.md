@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.5.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.4.2...v3.5.0) (2022-09-05)
+
+
+### Features
+
+* add translation loading state ([3d3b404](https://github.com/dacadeorg/dacade-webapp/commit/3d3b4044aacddaf76481df4bb1891637f14ec515))
+* improve the checkbox component behavior ([9feccf0](https://github.com/dacadeorg/dacade-webapp/commit/9feccf0fd9d39bb0f9158c9452c80942dadbf890))
+* redesign text translation box ([f82b41d](https://github.com/dacadeorg/dacade-webapp/commit/f82b41d3b3d1f9be2eb9259cffa8de4239290253))
+* submission translation [#99](https://github.com/dacadeorg/dacade-webapp/issues/99) ([c45b746](https://github.com/dacadeorg/dacade-webapp/commit/c45b746e9fc0c2f553c7ebb5029b319f463105f6))
+
+
+### Bug Fixes
+
+* add error handling for invalid link ([abebd53](https://github.com/dacadeorg/dacade-webapp/commit/abebd53287f16c1994ab746999bee38ca19d4f72))
+* invalid attributes issue on the notification links and achievement page ([2abb5ec](https://github.com/dacadeorg/dacade-webapp/commit/2abb5ecb9e85272f9d2fb4b36a6bd1713a733c10))
+* refactor translate componenent and hide env ([ed6d789](https://github.com/dacadeorg/dacade-webapp/commit/ed6d789e97797a1e5c0c652687436c45bd54baf6))
+
+
+### Improvements
+
+* fix linting issues ([e8873b7](https://github.com/dacadeorg/dacade-webapp/commit/e8873b7b4052cd47b86688f22c4990a42070f4c6))
+* language dropdown field and api integration ([e81768c](https://github.com/dacadeorg/dacade-webapp/commit/e81768c83a0c798848994414d6d0fe76e0222778))
+
 ### [3.4.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.4.1...v3.4.2) (2022-09-05)
 
 
