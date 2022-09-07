@@ -1,14 +1,15 @@
 <template>
   <input
     :id="id"
-    v-model="checkedValue"
+    ref="input"
+    v-model="vModalValue"
+    :value="data"
     class="w-5 h-5 bg-gray-100 rounded border-gray-300 border-gray-200 text-primary cursor-pointer"
     :name="name"
     :required="required"
     :style="styles"
     size="small"
     type="checkbox"
-    v-on="inputListeners"
   />
 </template>
 <script>
@@ -21,10 +22,14 @@ export default {
       default: false,
       type: Boolean,
     },
-    // value: {
-    //   default: false,
-    //   type: Boolean,
-    // },
+    value: {
+      default: false,
+      type: [Boolean, String, Object, Array, Number],
+    },
+    data: {
+      default: true,
+      type: [Boolean, String, Object, Array, Number],
+    },
     required: {
       default: false,
       type: Boolean,
@@ -41,11 +46,6 @@ export default {
       default: false,
       type: Boolean,
     },
-  },
-  data() {
-    return {
-      checkedValue: this.checked,
-    }
   },
   computed: {
     ...mapGetters({
@@ -71,14 +71,23 @@ export default {
         {}
       )
     },
+    vModalValue: {
+      get() {
+        return this.value
+      },
+      set(val) {
+        this.$emit('input', val)
+      },
+    },
   },
   watch: {
-    checkedValue(newValue) {
-      this.$emit('input', newValue)
-    },
     checked(newValue) {
-      this.checkedValue = newValue
+      // this.checkedValue = newValue
+      this.$refs.input.checked = newValue
     },
+  },
+  mounted() {
+    this.$refs.input.checked = this.checked
   },
 }
 </script>

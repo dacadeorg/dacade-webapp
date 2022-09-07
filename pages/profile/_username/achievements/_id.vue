@@ -9,9 +9,9 @@
         >
           <div
             class="p-12 h-52 w-52 rounded-full"
-            :style="{ backgroundColor: achievement.community.colors.primary }"
+            :style="{ backgroundColor: backgroundColor  }"
           >
-            <img :src="achievement.metadata.image" alt="certificate badge" />
+            <img :src="achievement?.metadata?.image" alt="certificate badge" />
           </div>
         </div>
         <div class="p-5 md:pt-7 md:px-7 md:pb-14 w-full md:w-1/2">
@@ -19,10 +19,10 @@
             <h2
               class="font-medium leading-7 text-xl md:text-3xl mb-3 md:mb-1.5"
             >
-              {{ achievement.metadata.name }}
+              {{ achievement?.metadata?.name }}
             </h2>
             <p class="text-gray-700 md:text-base text-sm">
-              {{ achievement.metadata.description }}
+              {{ achievement?.metadata?.description }}
             </p>
           </div>
 
@@ -31,15 +31,15 @@
               <div
                 class="inline-flex items-center space-x-2 pr-3 bg-gray-200 p-1 rounded-full"
               >
-                <Avatar :user="achievement.user" size="small-fixed" />
+                <Avatar :user="achievement?.user" size="small-fixed" />
                 <p class="text-sm md:text-base">
-                  {{ achievement.metadata.recipientName }}
+                  {{ achievement?.metadata?.recipientName }}
                 </p>
               </div>
             </AchievementViewItem>
 
             <AchievementViewItem :name="$t('profile.achievement.issued')">
-              {{ achievement.metadata.issuerName }}
+              {{ achievement?.metadata?.issuerName }}
             </AchievementViewItem>
 
             <AchievementViewItem :name="$t('profile.achievement.date')">
@@ -47,20 +47,20 @@
             </AchievementViewItem>
 
             <AchievementViewItem
-              v-if="achievement.metadata.comment"
+              v-if="achievement?.metadata?.comment"
               :name="$t('profile.achievement.comment')"
               mobile-block
               items-start
             >
-              {{ achievement.metadata.comment }}
+              {{ achievement?.metadata?.comment }}
             </AchievementViewItem>
 
             <AchievementViewItem
-              v-if="achievement.metadata.linkToWork"
+              v-if="achievement?.metadata?.linkToWork"
               :name="$t('profile.achievement.link')"
               mobile-block
             >
-              <AchievementLinkField :link="achievement.metadata.linkToWork" />
+              <AchievementLinkField :link="achievement?.metadata?.linkToWork" />
             </AchievementViewItem>
           </div>
         </div>
@@ -122,11 +122,15 @@ export default {
       achievement: 'profile/certificates/current',
     }),
     issuedOn() {
+      if(!this.achievement?.metadata?.issuedOn) return null;
       return DateManager.format(
         this.achievement.metadata.issuedOn,
         'do MMMM yyyy',
         this.$i18n.locale
       )
+    },
+    backgroundColor() {
+      return this.achievement?.community?.colors?.primary
     },
   },
 }

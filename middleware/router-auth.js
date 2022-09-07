@@ -2,17 +2,17 @@
 /* eslint-disable no-unused-vars */
 
 export default async function ({ store, redirect, route }) {
-  const authUser = store.getters['user/data']
-  const auth = store.getters['auth/data']
+  const authUser = store?.getters['user/data']
+  const auth = store?.getters['auth/data']
 
-  if (route.path.startsWith('/verify-email')) {
+  if (route?.path?.startsWith('/verify-email')) {
     return
   }
 
   if (
     auth &&
     !auth.emailVerified &&
-    !route.path.startsWith('/email-verification')
+    !route?.path?.startsWith('/email-verification')
   ) {
     return redirect('/email-verification')
   }
@@ -22,13 +22,13 @@ export default async function ({ store, redirect, route }) {
   }
 
   if (!authUser && isUserRoute(route)) {
-    store.commit('setForwardRoute', route.path)
+    store?.commit('setForwardRoute', route.path)
     return redirect('/login')
   }
 
-  if (route.path.startsWith('/profile')) {
-    await store.dispatch('profile/users/fetch', route.params?.username)
-    await store.dispatch(
+  if (route?.path?.startsWith('/profile')) {
+    await store?.dispatch('profile/users/fetch', route.params?.username)
+    await store?.dispatch(
       'profile/communities/all',
       route.params?.username || authUser?.displayName
     )
@@ -53,8 +53,8 @@ function isGuestRoute(route) {
 }
 
 function matchesRoutes(route, list, key = 'path') {
-  const matches = list.filter((el) =>
-    route.matched.some((record) => record[key].includes(el))
+  const matches = list?.filter((el) =>
+    route?.matched?.some((record) => record[key]?.includes(el))
   )
-  return matches.length > 0
+  return matches?.length > 0
 }

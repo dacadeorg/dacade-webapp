@@ -58,6 +58,7 @@ export default {
   },
   methods: {
     goToLink() {
+      if(!this.link) return
       /* 
         check if string starts with /
       */
