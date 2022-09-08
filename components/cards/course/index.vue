@@ -48,6 +48,23 @@
         }}
       </div>
     </div>
+    <div
+      v-else
+      class="text-base text-left sm:flex flex-start flex flex-col pt-6 sm:pt-0 space-y-4 pb-5 sm:pl-7 sm:pb-10 w-full sm:w-2/5 lg:w-1/3 tracking-wider"
+    >
+      <span
+        class="text-xxs tracking-wider px-1 font-semibold uppercase text-gray-500"
+        >{{ $t(`course.challenge.certificate`) }}</span
+      >
+      <div
+        class="bg-theme-primary sm:-mb-0 md:mb-2 w-24 h-24 flex items-center text-center px-5 py-2 rounded-3xl font-light text-sm pb-2 text-gray-700"
+      >
+        <img :src="community.icon" class="relative mx-auto" />
+      </div>
+      <div class="font-light text-sm max-w-xs pb-2 text-gray-700">
+        <p>{{ $t(`course.challenge.certificate.description`) }}</p>
+      </div>
+    </div>
     <div class="block sm:hidden pt-6">
       <nuxt-link :to="localePath(path)">
         <ArrowButton :community-styles="true" type="outline-primary">
