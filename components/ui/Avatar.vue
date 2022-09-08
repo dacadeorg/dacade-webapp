@@ -80,6 +80,8 @@ export default {
       switch (this.shape) {
         case 'rounded':
           return 'rounded-xl'
+        case 'rounded-3xl':
+          return 'rounded-3xl'
         case 'full':
           return 'rounded-full'
         case 'squared':

@@ -56,11 +56,15 @@
         class="text-xxs tracking-wider px-1 font-semibold uppercase text-gray-500"
         >{{ $t(`course.challenge.certificate`) }}</span
       >
-      <div
-        class="bg-theme-primary sm:-mb-0 md:mb-2 w-24 h-24 flex items-center text-center px-5 py-2 rounded-3xl font-light text-sm pb-2 text-gray-700"
-      >
-        <img :src="community.icon" class="relative mx-auto" />
-      </div>
+
+      <Avatar
+        class="w-15 h-15 rounded-xl overflow-hidden"
+        :icon="community.icon"
+        :color="community.colors.primary"
+        size="extra"
+        shape="rounded-3xl"
+      />
+
       <div class="font-light text-sm max-w-xs pb-2 text-gray-700">
         <p>{{ $t(`course.challenge.certificate.description`) }}</p>
       </div>
@@ -78,12 +82,14 @@
 <script>
 import { mapGetters } from 'vuex'
 import Reward from '@/components/cards/course/_partials/Reward.vue'
+import Avatar from '@/components/ui/Avatar'
 import ArrowButton from '@/components/ui/button/Arrow'
 export default {
   name: 'CourseCard',
   components: {
     Reward,
     ArrowButton,
+    Avatar,
   },
   props: {
     course: {
