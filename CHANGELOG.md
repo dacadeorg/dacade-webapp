@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.5.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.5.0...v3.5.1) (2022-09-09)
+
+
+### Bug Fixes
+
+* date localization ([551521c](https://github.com/dacadeorg/dacade-webapp/commit/551521c585a91203b23fa443ff6be807f06aac87))
+
 ## [3.5.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.4.2...v3.5.0) (2022-09-05)
 
 

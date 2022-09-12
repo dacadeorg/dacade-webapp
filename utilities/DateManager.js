@@ -3,15 +3,32 @@ import {
   millisecondsToMinutes,
   formatDuration,
   format as dateFormatter,
+  // formatISO9075 as formatterISO9075,
+  intlFormat,
 } from 'date-fns'
-import { es, enUS } from 'date-fns/locale'
+import { es, enUS, hr, bg, fr } from 'date-fns/locale'
 
 function getLocale(locale) {
-  return locale === 'es' ? es : enUS
+  switch (locale) {
+    case 'es':
+      return es
+    case 'hr':
+      return hr
+    case 'bg':
+      return bg
+    case 'fr':
+      return fr
+    default:
+      return enUS
+  }
 }
 export default class DateManager {
+  static getDate(date) {
+    return date instanceof Date ? date : new Date(date)
+  }
+
   static fromNow(date, locale = 'en') {
-    return formatDistance(new Date(date), new Date(), {
+    return formatDistance(this.getDate(date), new Date(), {
       addSuffix: true,
       locale: getLocale(locale),
     })
@@ -33,9 +50,33 @@ export default class DateManager {
   }
 
   static format(date, format, locale = 'en') {
-    const dateParsed = date instanceof Date ? date : new Date(date)
-    return dateFormatter(dateParsed, format, {
+    return dateFormatter(this.getDate(date), format, {
       locale: getLocale(locale),
+    })
+  }
+
+  static intlFormat(
+    date,
+    locale = 'en',
+    options = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      timeZoneName: 'short',
+    }
+  ) {
+    return intlFormat(this.getDate(date), options, {
+      locale: getLocale(locale).code,
+    })
+  }
+
+  static getTimezone(locale = 'en') {
+    return intlFormat(new Date(), {
+      timeZoneName: 'short',
+    }, {
+      locale: getLocale(locale).code
     })
   }
 }

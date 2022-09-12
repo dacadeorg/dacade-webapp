@@ -46,11 +46,12 @@
         <span class="block text-sm leading-snug text-gray-700">
           {{ timestamp.text }}
           <span
+            :title="date"
             class="font-medium"
             :style="{
               color: colors.textAccent,
             }"
-            >{{ date }}</span
+            >{{ humanizedDate }}</span
           >
         </span>
       </div>
@@ -113,8 +114,11 @@ export default {
       colors: 'ui/colors',
       community: 'communities/current',
     }),
-    date() {
+    humanizedDate() {
       return DateManager.fromNow(this.timestamp.date, this.$i18n.locale)
+    },
+    date() {
+      return DateManager.intlFormat(this.timestamp.date, this.$i18n.locale)
     },
   },
   methods: {
