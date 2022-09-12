@@ -58,7 +58,7 @@
       >
 
       <Avatar
-        class="w-15 h-15 rounded-xl overflow-hidden"
+        class="w-15 h-15 p-3 overflow-hidden"
         :icon="community.icon"
         :color="community.colors.primary"
         size="extra"
