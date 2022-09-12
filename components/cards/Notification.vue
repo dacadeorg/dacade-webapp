@@ -9,7 +9,7 @@
     </div>
     <div class="pt-1 -mt-2">
       <span class="block text-base text-gray-700">{{ details.message }}</span>
-      <span class="block text-gray-900 font-medium text-sm">{{ date }}</span>
+      <span :title="date" class="block text-gray-900 font-medium text-sm">{{ humanizedDate }}</span>
     </div>
   </div>
 </template>
@@ -42,8 +42,11 @@ export default {
     },
   },
   computed: {
-    date() {
+    humanizedDate() {
       return DateManager.fromNow(this.details.created_at, this.$i18n.locale)
+    },
+    date() {
+      return DateManager.intlFormat(this.details.created_at, this.$i18n.locale)
     },
     link() {
       switch (this.details.type) {

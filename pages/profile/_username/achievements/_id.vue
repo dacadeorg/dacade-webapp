@@ -9,7 +9,7 @@
         >
           <div
             class="p-12 h-52 w-52 rounded-full"
-            :style="{ backgroundColor: backgroundColor  }"
+            :style="{ backgroundColor: backgroundColor }"
           >
             <img :src="achievement?.metadata?.image" alt="certificate badge" />
           </div>
@@ -122,11 +122,15 @@ export default {
       achievement: 'profile/certificates/current',
     }),
     issuedOn() {
-      if(!this.achievement?.metadata?.issuedOn) return null;
-      return DateManager.format(
+      if (!this.achievement?.metadata?.issuedOn) return null
+      return DateManager.intlFormat(
         this.achievement.metadata.issuedOn,
-        'do MMMM yyyy',
-        this.$i18n.locale
+        this.$i18n.locale,
+        {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+        }
       )
     },
     backgroundColor() {
