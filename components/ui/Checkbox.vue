@@ -4,12 +4,13 @@
     ref="input"
     v-model="vModalValue"
     :value="data"
-    class="w-5 h-5 bg-gray-100 rounded border-gray-300 border-gray-200 text-primary cursor-pointer"
+    :class="['w-5 h-5 bg-gray-100 rounded border-gray-200 text-primary', disabled ? 'cursor-not-allowed' : 'cursor-pointer']"
     :name="name"
     :required="required"
     :style="styles"
     size="small"
     type="checkbox"
+    :disabled="disabled"
   />
 </template>
 <script>
@@ -19,6 +20,10 @@ export default {
   name: 'Checkbox',
   props: {
     checked: {
+      default: false,
+      type: Boolean,
+    },
+    disabled: {
       default: false,
       type: Boolean,
     },
