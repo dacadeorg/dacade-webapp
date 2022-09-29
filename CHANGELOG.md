@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.7.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.6.0...v3.7.0) (2022-09-27)
+
+
+### Bug Fixes
+
+* interactive module answer question checkbox ([91740b9](https://github.com/dacadeorg/dacade-webapp/commit/91740b97e433ef4cbc43c71dfad2db9164ae4c80))
+
+## [3.6.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.5.1...v3.6.0) (2022-09-22)
+
+
+### Bug Fixes
+
+* padding issue ([7b83db3](https://github.com/dacadeorg/dacade-webapp/commit/7b83db3ff66cfce376c1bbe43b098511859a4107))
+* replace the image with the avatar ([f28311e](https://github.com/dacadeorg/dacade-webapp/commit/f28311e142b176c333166feeac470061b5ac5f30))
+
+
+### Improvements
+
+* show the certificate that the users can earn on course with no reward ([351cfdc](https://github.com/dacadeorg/dacade-webapp/commit/351cfdc4c5bc569593a56705ba0937d2da9f88ed))
+
 ### [3.5.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.5.0...v3.5.1) (2022-09-09)
 
 

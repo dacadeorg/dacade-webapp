@@ -48,6 +48,27 @@
         }}
       </div>
     </div>
+    <div
+      v-else
+      class="text-base text-left sm:flex flex-start flex flex-col pt-6 sm:pt-0 space-y-4 pb-5 sm:pl-7 sm:pb-10 w-full sm:w-2/5 lg:w-1/3 tracking-wider"
+    >
+      <span
+        class="text-xxs tracking-wider px-1 font-semibold uppercase text-gray-500"
+        >{{ $t(`course.challenge.certificate`) }}</span
+      >
+
+      <Avatar
+        class="w-15 h-15 p-3 overflow-hidden"
+        :icon="community.icon"
+        :color="community.colors.primary"
+        size="extra"
+        shape="rounded-3xl"
+      />
+
+      <div class="font-light text-sm max-w-xs pb-2 text-gray-700">
+        <p>{{ $t(`course.challenge.certificate.description`) }}</p>
+      </div>
+    </div>
     <div class="block sm:hidden pt-6">
       <nuxt-link :to="localePath(path)">
         <ArrowButton :community-styles="true" type="outline-primary">
@@ -61,12 +82,14 @@
 <script>
 import { mapGetters } from 'vuex'
 import Reward from '@/components/cards/course/_partials/Reward.vue'
+import Avatar from '@/components/ui/Avatar'
 import ArrowButton from '@/components/ui/button/Arrow'
 export default {
   name: 'CourseCard',
   components: {
     Reward,
     ArrowButton,
+    Avatar,
   },
   props: {
     course: {
