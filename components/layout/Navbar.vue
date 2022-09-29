@@ -100,7 +100,6 @@
 import hexToRgba from 'hex-to-rgba'
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
-import vClickOutside from 'v-click-outside'
 import Logo from '@/components/layout/Logo'
 import Sidebar from '@/components/popups/Sidebar'
 
@@ -111,9 +110,7 @@ import Button from '@/components/ui/button'
 import LanguageSwitcherPopup from '@/components/popups/LanguageSwitcher.vue'
 export default {
   name: 'Navbar',
-  directives: {
-    clickOutside: vClickOutside.directive,
-  },
+  
   components: {
     Logo,
     NavItem,
@@ -147,9 +144,6 @@ export default {
         backgroundColor: this.settings.colors.primary,
         color: this.settings.colors.text,
       }
-    },
-    currentLocale() {
-      return this.$i18n.locale
     },
     buttonStyle() {
       if (!this.settings || !this.settings.colors) {
@@ -185,14 +179,6 @@ export default {
     },
   },
   methods: {
-    toggle() {
-      this.show = !this.show
-      this.$store.dispatch('ui/toggleBodyScrolling', this.show)
-    },
-    toggleInvite() {
-      this.$emit('close')
-      this.$store.dispatch('ui/toggleShowReferralPopup', true)
-    },
     externalClick() {
       if (this.show) {
         this.show = false
