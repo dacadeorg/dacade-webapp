@@ -13,7 +13,7 @@
 }
 
 .nav-brand {
-  @apply font-semibold mr-3.5;
+  @apply font-semibold mr-1.5;
 }
 
 .content-wrapper {
