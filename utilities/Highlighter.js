@@ -6,6 +6,8 @@ export default function attacher({ include, exclude, prefix, languages } = {}) {
   lowlight.registerLanguage('solidity', require('highlightjs-solidity').definer)
   lowlight.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
   lowlight.registerLanguage('css', require('highlight.js/lib/languages/css'))
+  lowlight.registerLanguage('toml', require('highlight.js/lib/languages/ini'))
+  lowlight.registerLanguage('rust', require('highlight.js/lib/languages/rust'))
   //   lowlight.registerLanguage('scss', require('highlight.js/lib/languages/scss'))
   lowlight.registerLanguage('bash', require('highlight.js/lib/languages/bash'))
   lowlight.registerLanguage(
