@@ -16,13 +16,12 @@
             >
               <TextInput
                 id="input-text"
+                v-model="form.text"
                 name="text"
                 :placeholder="
                   $t('communities.challenge.submission.placeholder.text')
                 "
                 :error="errors[0]"
-                :value="form.text"
-                @input="form.text = $event"
               />
             </ValidationProvider>
           </div>
@@ -41,15 +40,14 @@
               >
                 <GithubLinkInput
                   id="input-github"
+                  v-model.trim="form.githubLink"
                   name="githubLink"
                   is-github-link
                   :error="errors[0]"
-                  :value="form.githubLink"
                   class="p-0 border-none border-transparent focus:outline-none outline-none active:border-none focus:border-none block m-0 flex-grow w-full placeholder-gray-400 placeholder-opacity-100"
                   :placeholder="
                     $t('communities.challenge.submission.placeholder.github')
                   "
-                  @input="form.githubLink = $event"
                 />
               </ValidationProvider>
             </div>
