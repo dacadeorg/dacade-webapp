@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.7.0...v3.7.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* markdown parsing errors caused by whitespace ([79c18ed](https://github.com/dacadeorg/dacade-webapp/commit/79c18ed7ea4f721f6ac001797ce98fe1a586a89c))
+
+
+### Improvements
+
+* trim github links ([f6f8b3b](https://github.com/dacadeorg/dacade-webapp/commit/f6f8b3b30bf3b5502fa962d83ff18bbd4b8de7e2))
+
 ## [3.7.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.6.0...v3.7.0) (2022-09-27)
 
 
