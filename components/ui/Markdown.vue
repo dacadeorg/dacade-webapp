@@ -60,7 +60,7 @@ export default {
         .use(rehypeExternalLinks, { target: '_blank' })
         .use(rehypeSlug)
         .use(rehypeStringify)
-        .process(content)
+        .process(content?.trim())
       this.content = value
     },
   },
