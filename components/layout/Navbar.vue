@@ -79,6 +79,9 @@
             </Button>
           </NavItem>
         </div>
+        <div class="inline-block">
+          <LanguageSwitcherPopup />
+        </div>
       </ul>
       <ul
         v-if="isAuthenticated"
@@ -99,13 +102,15 @@ import hexToRgba from 'hex-to-rgba'
 import { mapGetters } from 'vuex'
 import Logo from '@/components/layout/Logo'
 import Sidebar from '@/components/popups/Sidebar'
+
 import NavItem from '@/components/ui/NavItem'
 import NotificationPopup from '@/components/popups/Notification'
 import UserPopup from '@/components/popups/user'
 import Button from '@/components/ui/button'
-
+import LanguageSwitcherPopup from '@/components/popups/LanguageSwitcher.vue'
 export default {
   name: 'Navbar',
+  
   components: {
     Logo,
     NavItem,
@@ -113,6 +118,7 @@ export default {
     Sidebar,
     NotificationPopup,
     UserPopup,
+    LanguageSwitcherPopup,
   },
 
   props: {
@@ -128,6 +134,7 @@ export default {
       type: Boolean,
     },
   },
+
   computed: {
     containerStyle() {
       if (!this.settings || !this.settings.colors) {
@@ -162,6 +169,7 @@ export default {
       isAuthenticated: 'auth/check',
     }),
   },
+
   watch: {
     $route: {
       immediate: true,
@@ -171,6 +179,7 @@ export default {
     },
   },
   methods: {
+    
     logOut() {
       this.$store.dispatch('auth/logout')
     },

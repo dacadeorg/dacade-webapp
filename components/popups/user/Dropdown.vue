@@ -1,13 +1,5 @@
 <template>
-  <div
-    :style="{
-      width: 'calc(100vw - 40px)',
-      maxWidth: '340px',
-      maxHeight: 'calc(100vh - 100px)',
-      overflow: 'hidden scroll',
-    }"
-    class="absolute top-14 right-0 z-40 bg-white rounded-3.5xl no-scrollbar text-gray-900"
-  >
+  <DropdownPopup>
     <div class="divide-y divide-gray-200">
       <div class="flex justify-between hover:bg-gray-50">
         <div class="w-full p-4 text-left flex">
@@ -55,7 +47,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </DropdownPopup>
 </template>
 
 <script>
@@ -65,6 +57,7 @@ import ReputationList from '@/components/list/Reputation'
 import LanguageList from '@/components/list/Language'
 import Avatar from '@/components/ui/Avatar'
 import Button from '@/components/ui/button'
+import DropdownPopup from '~/components/ui/DropdownPopup'
 
 export default {
   name: 'UserProfileDropdown',
@@ -74,6 +67,7 @@ export default {
     BalanceList,
     ReputationList,
     LanguageList,
+    DropdownPopup,
   },
   props: {
     buttonStyles: {
