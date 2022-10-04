@@ -3,7 +3,7 @@
     :class="[
       'my-5 relative border-2 rounded select-none flex flex-col divide-y-2 divide-solid',
       borderColor,
-      disable ? 'cursor-not-allowed' : 'cursor-pointer'
+      disable ? 'cursor-not-allowed' : 'cursor-pointer',
     ]"
     role="button"
     @click="$emit('select', true)"
@@ -12,7 +12,12 @@
       class="flex items-center space-x-3 relative z-50 w-full md:p-4.5 p-4 border-solid bg-transparent checked-color"
     >
       <span
-        ><Checkbox :checked="selected" :disabled="disable" :community-styles="correct" :class="!correct ? 'text-red-900' : ''"  @click="checkboxClick"
+        ><Checkbox
+          :checked="selected"
+          :disabled="disable"
+          :community-styles="correct"
+          :class="!correct ? 'text-red-900' : ''"
+          @click="checkboxClick"
       /></span>
       <span class="text-gray-500">{{ text }}</span>
     </div>

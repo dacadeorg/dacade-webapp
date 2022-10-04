@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     goToLink() {
-      if(!this.item?.link) return;
+      if (!this.item?.link) return
 
       if (this.isCurrentLink(this.item.link, this.item.exact)) {
         this.expanded = !this.expanded

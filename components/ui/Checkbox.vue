@@ -4,7 +4,10 @@
     ref="input"
     v-model="vModalValue"
     :value="data"
-    :class="['w-5 h-5 bg-gray-100 rounded border-gray-200 text-primary', disabled ? 'cursor-not-allowed' : 'cursor-pointer']"
+    :class="[
+      'w-5 h-5 bg-gray-100 rounded border-gray-200 text-primary',
+      disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+    ]"
     :name="name"
     :required="required"
     :style="styles"

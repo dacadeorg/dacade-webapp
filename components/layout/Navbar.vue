@@ -110,7 +110,7 @@ import Button from '@/components/ui/button'
 import LanguageSwitcherPopup from '@/components/popups/LanguageSwitcher.vue'
 export default {
   name: 'Navbar',
-  
+
   components: {
     Logo,
     NavItem,
@@ -179,7 +179,6 @@ export default {
     },
   },
   methods: {
-    
     logOut() {
       this.$store.dispatch('auth/logout')
     },

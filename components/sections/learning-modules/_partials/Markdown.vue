@@ -3,17 +3,17 @@
     <div v-if="markdown" :style="themeStyles" class="prose">
       <h2 v-if="markdown.data.title">{{ markdown.data.title }}</h2>
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div class="markdown-content" v-html="content"/>
+      <div class="markdown-content" v-html="content" />
       <!-- :style="themeStyles" -->
     </div>
   </div>
-  <Loader v-else community-styles class="py-32"/>
+  <Loader v-else community-styles class="py-32" />
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import matter from 'gray-matter'
-import {unified} from 'unified'
+import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeExternalLinks from 'rehype-external-links'
@@ -51,11 +51,11 @@ export default {
 
       this.handleNavigation(this.markdown.content)
 
-      const {value} = await unified()
+      const { value } = await unified()
         .use(remarkParse)
         .use(Highlighter)
         .use(remarkRehype)
-        .use(rehypeExternalLinks, {target: '_blank'})
+        .use(rehypeExternalLinks, { target: '_blank' })
         .use(rehypeSlug)
         .use(rehypeStringify)
         .process(this.markdown.content)

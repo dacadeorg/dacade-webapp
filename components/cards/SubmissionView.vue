@@ -29,7 +29,7 @@
 </template>
 <script>
 /* eslint-disable no-console */
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import ArrowButton from '@/components/ui/button/Arrow'
 import UserCard from '@/components/cards/User'
 import TranslationBox from '~/components/cards/TranslationBox'

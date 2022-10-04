@@ -5,7 +5,9 @@
       class="inline-block text-gray-900 text-sm ml-3 cursor-pointer"
       @click="toggle"
     >
-      <span class="inline-block text-gray-500 uppercase">{{ currentLocale }}</span>
+      <span class="inline-block text-gray-500 uppercase">{{
+        currentLocale
+      }}</span>
       <span class="inline-block"><ArrowDown /></span>
     </div>
 
