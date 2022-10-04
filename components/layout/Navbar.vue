@@ -179,12 +179,7 @@ export default {
     },
   },
   methods: {
-    externalClick() {
-      if (this.show) {
-        this.show = false
-        this.$store.dispatch('ui/toggleBodyScrolling', this.show)
-      }
-    },
+    
     logOut() {
       this.$store.dispatch('auth/logout')
     },
