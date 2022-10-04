@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.7.1...v3.7.2) (2022-10-04)
+
+
+### Features
+
+* activate toml and rust hightlight js languages ([f4f16b3](https://github.com/dacadeorg/dacade-webapp/commit/f4f16b368c1a8f76693c66ab0f762d63f905774e))
+
 ### [3.7.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.7.0...v3.7.1) (2022-10-03)
 
 
