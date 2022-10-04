@@ -32,7 +32,7 @@
       <div v-if="reputations.length" class="p-4">
         <ReputationList />
       </div>
-      <div v-if="showLanguageSwitcher" class="p-4">
+      <div v-if="showLanguageSwitcher">
         <LanguageList />
       </div>
       <div class="p-4 flex justify-center bg-indigo-50">

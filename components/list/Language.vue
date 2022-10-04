@@ -1,5 +1,5 @@
 <template>
-  <div class="text-left">
+  <div class="text-left p-4">
     <span
       class="uppercase block text-xs font-semibold text-gray-500 leading-relaxed"
       >{{ $t('nav.language') }}</span
