@@ -256,3 +256,11 @@ div {
 .achievement-content {
   max-width: 1024px;
 }
+
+.prose ul {
+  max-width: 730px;
+}
+
+.prose ol {
+  max-width: 730px;
+}
