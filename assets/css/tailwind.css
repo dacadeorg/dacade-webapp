@@ -261,6 +261,6 @@ div {
   max-width: 730px;
 }
 
-.prose ol {
+.prose ol li p {
   max-width: 730px;
 }
