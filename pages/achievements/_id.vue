@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="achievement"
     class="content-wrapper achievement-content mx-auto h-screen flex items-center"
   >
     <div class="w-full">
@@ -81,8 +82,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Logo from '@/components/layout/Logo'
-import NavItem from '@/components/ui/NavItem'
+import Logo from '~/components/layout/Logo'
+import NavItem from '~/components/ui/NavItem'
 import Avatar from '~/components/ui/Avatar'
 import DateManager from '~/utilities/DateManager'
 import AchievementViewItem from '~/components/sections/profile/achievements/ListItem'

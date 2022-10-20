@@ -17,7 +17,7 @@ export const mutations = {
 
   clear(state, payload) {
     state.list = []
-    state.current = []
+    state.current = null
   },
 }
 
