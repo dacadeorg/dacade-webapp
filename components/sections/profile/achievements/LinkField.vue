@@ -3,6 +3,7 @@
     <p
       :title="link"
       class="text-gray-500 line-clamp-1 break-all flex-1 text-sm md:text-base overflow-hidden"
+      @click="copy"
     >
       {{ link }}
     </p>
@@ -13,7 +14,6 @@
 
       <button
         class="p-1 py-0 bg-white border border-blue-600 text-blue-600"
-        @click="copy"
       >
         {{ $t('profile.achievement.open') }}
       </button>
@@ -21,7 +21,7 @@
     </nuxt-link>
     </div>
   </div>
-  
+
 </template>
 
 <script>
