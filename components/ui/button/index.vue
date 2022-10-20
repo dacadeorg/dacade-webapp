@@ -6,21 +6,21 @@
     type="submit"
     :class="{
       'disabled:bg-gray-100 disabled:text-gray-400':
-        type == 'primary' || type == 'secondary',
+        type === 'primary' || type === 'secondary',
       'disabled:border-gray-400 disabled:text-gray-400 disabled:bg-transparent':
         type.includes('outline'),
-      'bg-primary hover:bg-primary-dark  text-white': type == 'primary',
+      'bg-primary hover:bg-primary-dark  text-white': type === 'primary',
       'lg:px-7 px-5': padding,
-      'bg-secondary text-primary': type == 'secondary',
+      'bg-secondary text-primary': type === 'secondary',
       'text-primary border border-solid border-primary bg-transparent hover:bg-primary hover:text-white':
-        type == 'outline-primary',
+        type === 'outline-primary',
       'text-secondary border border-solid border-secondary bg-transparent hover:bg-secondary hover:text-gray-900':
-        type == 'outline-secondary',
+        type === 'outline-secondary',
       'text-white border border-solid border-white bg-transparent hover:bg-white hover:text-primary':
-        type == 'outline-white',
+        type === 'outline-white',
       'text-gray-400 border border-solid border-gray-400 bg-transparent hover:bg-gray-500 hover:text-gray-200':
-        type == 'outline-gray',
-      'bg-transparent text-primary': type == 'link',
+        type === 'outline-gray',
+      'bg-transparent text-primary': type === 'link',
       'rounded-full': rounded,
       'community-button': communityStyles,
     }"
