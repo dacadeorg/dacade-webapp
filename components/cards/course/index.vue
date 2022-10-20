@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="block sm:hidden pt-6">
-      <nuxt-link :to="localePath('/communities')">
+      <nuxt-link :to="localePath(path)">
         <ArrowButton :community-styles="true" type="outline-primary">
           {{ $t('course.challenge.button') }}
         </ArrowButton>
