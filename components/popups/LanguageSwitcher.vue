@@ -2,10 +2,12 @@
   <div>
     <div
       v-click-outside="externalClick"
-      class="inline-block text-gray-900 text-sm ml-3 cursor-pointer"
+      class="inline-block opacity-70 hover:opacity-100 text-sm ml-3 cursor-pointer"
       @click="toggle"
     >
-      <span class="inline-block text-gray-500 uppercase">{{ currentLocale }}</span>
+      <span class="inline-block uppercase">{{
+        currentLocale
+      }}</span>
       <span class="inline-block"><ArrowDown /></span>
     </div>
 
@@ -59,3 +61,4 @@ export default {
   },
 }
 </script>
+

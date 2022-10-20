@@ -1,34 +1,45 @@
 <template>
   <div class="w-full relative">
     <div v-if="currentText" :class="['-my-5', textContainerCssClasses]">
-      <Markdown :class="textCssClasses" :value="currentText"/>
+      <Markdown :class="textCssClasses" :value="currentText" />
     </div>
     <div v-if="translatable" class="pt-5 text-gray-400">
       <div v-if="loading">
         <span>{{ $t('ui.translating') }}...</span>
       </div>
       <div v-else class="flex divide-x divide-gray-200">
-        <div :class="['pr-3', { 'cursor-pointer underline': !translated}]" @click="translate">
-          <span>{{ $t(translated ? 'ui.translated' : 'ui.translate') }} {{ getLocaleName(currentLocale) }}</span>
+        <div
+          :class="['pr-3', { 'cursor-pointer underline': !translated }]"
+          @click="translate"
+        >
+          <span
+            >{{ $t(translated ? 'ui.translated' : 'ui.translate') }}
+            {{ getLocaleName(currentLocale) }}</span
+          >
         </div>
-        <div v-if="translated" class="pl-3 cursor-pointer underline" @click="revert">
-          <span>{{ $t('ui.translation.action.original', getDefaultLocale()) }} ({{
+        <div
+          v-if="translated"
+          class="pl-3 cursor-pointer underline"
+          @click="revert"
+        >
+          <span
+            >{{ $t('ui.translation.action.original', getDefaultLocale()) }} ({{
               getLocaleName(getDefaultLocale())
-            }})</span>
+            }})</span
+          >
         </div>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
-import {Translate} from '~/utilities/Translate'
+import { Translate } from '~/utilities/Translate'
 import Markdown from '@/components/ui/Markdown'
 
 export default {
   name: 'TranslationBox',
-  components: {Markdown},
+  components: { Markdown },
   props: {
     text: {
       type: String,
@@ -63,7 +74,11 @@ export default {
       return this.$i18n.locale
     },
     translatable() {
-      return this.currentLocale !== this.getDefaultLocale() && !this.disabled && this.getLocaleName(this.getDefaultLocale());
+      return (
+        this.currentLocale !== this.getDefaultLocale() &&
+        !this.disabled &&
+        this.getLocaleName(this.getDefaultLocale())
+      )
     },
     translated() {
       return this.locale !== this.getDefaultLocale()
@@ -73,15 +88,15 @@ export default {
         ...this.$i18n.locales,
         {
           code: 'fr',
-          name: 'Français'
-        }
-      ];
-      const list = {};
+          name: 'Français',
+        },
+      ]
+      const list = {}
       values.forEach((locale) => {
         list[locale.code] = locale
       })
-      return list;
-    }
+      return list
+    },
   },
   watch: {
     defaultLocale(value) {
@@ -130,7 +145,7 @@ export default {
     },
     getLocaleName(code) {
       return this.locales[code]?.name
-    }
+    },
   },
 }
 </script>

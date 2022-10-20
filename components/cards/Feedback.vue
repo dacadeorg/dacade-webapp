@@ -20,10 +20,10 @@
     />
     <div
       v-if="
-          value.metadata &&
-          value.metadata.evaluation &&
-          value.metadata.evaluation.points
-        "
+        value.metadata &&
+        value.metadata.evaluation &&
+        value.metadata.evaluation.points
+      "
       class="pt-5 flex space-x-1"
     >
       <Reward
@@ -49,7 +49,7 @@
   </UserCard>
 </template>
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 /* eslint-disable no-console */
 import UserCard from '@/components/cards/User'
 import ArrowButton from '@/components/ui/button/Arrow'

@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.8.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.7.2...v3.8.0) (2022-10-04)
+
+
+### Features
+
+* implement the language switcher ([8f6b94b](https://github.com/dacadeorg/dacade-webapp/commit/8f6b94b409d5160686c890c8b6e376c22b6e63cb))
+
+
+### Bug Fixes
+
+* remove the external click ([509c6e2](https://github.com/dacadeorg/dacade-webapp/commit/509c6e2fa70d38699db15e64dced591cd4be2469))
+* remove uneccesarry methods ([900d1c0](https://github.com/dacadeorg/dacade-webapp/commit/900d1c093014f2cd2749619731d14c686f7e4273))
+* the padding issue ([bb406dd](https://github.com/dacadeorg/dacade-webapp/commit/bb406ddc423ce6ca5aec1ee9e0fff3d2e64de346))
+
+
+### Improvements
+
+* fix linting issues ([7f6e9fd](https://github.com/dacadeorg/dacade-webapp/commit/7f6e9fd54491fb5eb53bada219bb4871eb24b048))
+
 ### [3.7.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.7.1...v3.7.2) (2022-10-04)
 
 

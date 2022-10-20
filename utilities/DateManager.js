@@ -73,10 +73,14 @@ export default class DateManager {
   }
 
   static getTimezone(locale = 'en') {
-    return intlFormat(new Date(), {
-      timeZoneName: 'short',
-    }, {
-      locale: getLocale(locale).code
-    })
+    return intlFormat(
+      new Date(),
+      {
+        timeZoneName: 'short',
+      },
+      {
+        locale: getLocale(locale).code,
+      }
+    )
   }
 }

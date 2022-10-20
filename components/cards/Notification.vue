@@ -9,7 +9,9 @@
     </div>
     <div class="pt-1 -mt-2">
       <span class="block text-base text-gray-700">{{ details.message }}</span>
-      <span :title="date" class="block text-gray-900 font-medium text-sm">{{ humanizedDate }}</span>
+      <span :title="date" class="block text-gray-900 font-medium text-sm">{{
+        humanizedDate
+      }}</span>
     </div>
   </div>
 </template>
@@ -61,7 +63,7 @@ export default {
   },
   methods: {
     goToLink() {
-      if(!this.link) return
+      if (!this.link) return
       /* 
         check if string starts with /
       */
