@@ -1,5 +1,6 @@
 <template>
-  <button
+  <component
+    :is="component"
     class="outline-none focus:outline-none hover:outline-none cursor-pointer relative disabled:border-opacity-60 disabled:cursor-not-allowed"
     :disabled="disabled"
     type="submit"
@@ -26,14 +27,16 @@
     :padding="[padding]"
     :margin="[margin]"
     :style="!disabled ? styles : null"
+    :target="target"
+    :href="link"
     v-on="inputListeners"
   >
-    <slot />
-  </button>
+    <slot/>
+  </component>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'Button',
@@ -104,9 +107,7 @@ export default {
           click(event) {
             if (!vm.link) {
               vm.$emit('click', event)
-              return
             }
-            vm.navigate()
           },
         }
       )
@@ -134,12 +135,9 @@ export default {
         ...(this.customStyle || {}),
       }
     },
-  },
-  methods: {
-    navigate() {
-      if (!this.link) return
-      window.open(this.link, this.target || undefined)
-    },
+    component() {
+      return this.link ? 'a' : 'button'
+    }
   },
 }
 </script>
