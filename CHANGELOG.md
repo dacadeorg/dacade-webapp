@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.9.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.8.0...v3.9.0) (2022-10-21)
+
+
+### Features
+
+* make clickable links actual links to allow link copying ([d4a30de](https://github.com/dacadeorg/dacade-webapp/commit/d4a30de7f57b218a5653203ea689d6a5b1984cf8))
+
+
+### Bug Fixes
+
+* the color of the language switch ([24e93b7](https://github.com/dacadeorg/dacade-webapp/commit/24e93b71d50390ffe92600d23f69b3b7e493816e))
+* the color of the language switcher ([ce356da](https://github.com/dacadeorg/dacade-webapp/commit/ce356dac90a836287f000d7e00ae2a2bf84311ed))
+
+
+### Improvements
+
+* add achievement page redirects ([17abf0f](https://github.com/dacadeorg/dacade-webapp/commit/17abf0f7fa521a9985b286651459fd5922971783))
+* fix button type condition format ([e59693c](https://github.com/dacadeorg/dacade-webapp/commit/e59693c56a2008a87be054e4928c439258eda3be))
+* move achievement folder and fix changed url ([1915a9b](https://github.com/dacadeorg/dacade-webapp/commit/1915a9bf688e5baf4ab44aafb6f170c6f24aeedb))
+
 ## [3.8.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.7.2...v3.8.0) (2022-10-04)
 
 
