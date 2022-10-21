@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.10.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.9.0...v3.10.0) (2022-10-21)
+
+
+### Features
+
+* add remark unwrap images ([b12bad4](https://github.com/dacadeorg/dacade-webapp/commit/b12bad4451995e0a6669b835459892469c08c8bd))
+
+
+### Bug Fixes
+
+* max width issues ([bf645ff](https://github.com/dacadeorg/dacade-webapp/commit/bf645ffc1b219b30797b6db93f01e849c786b9d5))
+* the max-width ([f0b5b01](https://github.com/dacadeorg/dacade-webapp/commit/f0b5b01c55933af33c0ff99dbf20c4cfb697fb8d))
+* the maximum width of contents ([de97fbf](https://github.com/dacadeorg/dacade-webapp/commit/de97fbfe2334405bc53e6409a679f9671b5c2e6e))
+
 ## [3.9.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.8.0...v3.9.0) (2022-10-21)
 
 
