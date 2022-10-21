@@ -4,7 +4,7 @@
       <div v-for="(reward, i) in rewards" :key="i">
         <Reward :reward="reward" size="medium" />
       </div>
-      <div class="mt-5 flex items-end pb-2">
+      <div class="md:mt-0 mt-5 flex items-end pb-2">
         <p class="text-sm w-full">
           {{
             $t('communities.challenge.rewards.description', {

@@ -18,6 +18,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeStringify from 'rehype-stringify'
+import remarkUnwrapAllImages from 'remark-unwrap-all-images'
 import ExtractToc from 'remark-extract-toc'
 import CloneDeep from 'lodash.clonedeep'
 import rehypeSlug from 'rehype-slug'
@@ -51,7 +52,8 @@ export default {
 
       this.handleNavigation(this.markdown.content)
 
-      const { value } = await unified()
+      const {value} = await unified()
+        .use(remarkUnwrapAllImages) 
         .use(remarkParse)
         .use(Highlighter)
         .use(remarkRehype)
