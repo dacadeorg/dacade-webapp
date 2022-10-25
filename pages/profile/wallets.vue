@@ -11,6 +11,7 @@
       >
       <EditProfile :show="showEditProfile" @close="showEditProfile = false" />
     </div>
+    <WalletConnect />
     <WalletCard
       v-for="wallet in wallets"
       :key="wallet.id"
@@ -26,11 +27,13 @@ import EditProfile from '@/components/sections/profile/modals/EditProfile'
 import WalletCard from '@/components/cards/Wallet'
 import Hint from '@/components/ui/Hint'
 import { getMetadataTitle } from '~/utilities/Metadata'
+import WalletConnect from "~/components/cards/WalletConnect";
 
 export default {
   name: 'Wallet',
 
   components: {
+    WalletConnect,
     WalletCard,
     EditProfile,
     Hint,
