@@ -1,19 +1,20 @@
 <template>
   <div>
-    {{ address }}
-    <button v-if="!connected" @click="connect">
-      Connect button
-    </button>
-    <button v-if="connected" @click="disconnect">
-      Disconnect
-    </button>
+    <Button v-if="!connected" @click="connect">
+      Connect wallet
+    </Button>
+    <Button v-if="connected" @click="disconnect">
+      Disconnect wallet
+    </Button>
   </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
+import Button from "~/components/ui/button";
 
 export default {
+  components: {Button},
   computed: {
     ...mapGetters({
       address: 'wallet/address',

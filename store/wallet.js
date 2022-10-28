@@ -37,11 +37,17 @@ export const mutations = {
   setAddress(state, address) {
     state.address = address
   },
+  setChainId(state, chainId) {
+    state.chainId = chainId
+  },
+  setNetworkName(state, name) {
+    state.networkName = name
+  },
   setConnect(state, status) {
     state.connected = status;
   },
-  setData(state, {address, chainId, networkName}){
-    state.address  = address
+  setData(state, {address, chainId, networkName}) {
+    state.address = address
     state.chainId = chainId
     state.networkName = networkName;
   },
@@ -69,6 +75,7 @@ export const actions = {
     const network = await web3Provider.getNetwork();
     const networkName = network.name;
     currentChainId = network.chainId;
+    dispatch('subscribeProvider', provider)
 
     // dispatch(subscribeProvider(provider));
     // The value we return becomes the `fulfilled` action payload
@@ -81,14 +88,25 @@ export const actions = {
 
     return data;
   },
-  check({dispatch, commit}){
+  check({dispatch, commit}) {
     if (web3Modal && web3Modal.cachedProvider) {
       dispatch('connect');
     }
   },
-  async disconnect({dispatch, commit}){
+  async getSignature({dispatch, commit}) {
+    try {
+      const web3Provider = new providers.Web3Provider(provider);
+      const signer = web3Provider.getSigner();
+      const signature = await signer.signMessage("Authenticate with Dacade");
+      return signature;
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  },
+  async disconnect({dispatch, commit}) {
     console.log("disconnect wallet");
-    if(!web3Modal) return;
+    if (!web3Modal) return;
     const provider = await web3Modal.cachedProvider;
     await web3Modal.clearCachedProvider();
     commit('setConnect', false);
@@ -96,6 +114,24 @@ export const actions = {
       await provider.disconnect();
     }
     commit('clear')
+  },
+  subscribeProvider({dispatch, commit}, provider){
+    if (!provider?.on) {
+      return;
+    }
+    provider.on("disconnect", () => dispatch('disconnect'));
+    provider.on("accountsChanged", async (accounts) => {
+      if (!accounts.length) {
+        return dispatch('disconnect');
+      }
+      await commit('setAddress', accounts[0]);
+    });
+    provider.on("chainChanged", async (chainId) => {
+      currentChainId = chainId;
+      commit('setChainId', chainId)
+      const {name} = await new providers.Web3Provider(provider).getNetwork();
+      await commit('setNetworkName', name)
+    });
   }
 }
 
