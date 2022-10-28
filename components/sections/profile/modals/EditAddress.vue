@@ -13,7 +13,14 @@
           }}
           {{ $t('profile.wallets.address') }}
         </p>
-        <Tag class="text-gray-500" :value="wallet.token" />
+        <Tag class="text-gray-500" :value="wallet.token"/>
+      </div>
+      <div v-if="currentAddress" class="mb-4">
+        <p class="font-medium">Current: </p>
+        <small>{{ currentAddress }}</small>
+      </div>
+      <div v-if="requireWalletConnection" class="mb-4">
+        <WalletConnect/>
       </div>
       <ValidationObserver ref="form" v-slot="{ passes }">
         <form @submit.prevent="passes(onSave)">
@@ -25,10 +32,20 @@
               mode="passive"
             >
               <Input
+                v-if="requireWalletConnection"
+                :value="walletAddress"
+                required
+                :label="$t('profile.edit.label.account-address')"
+                :error="errors[0]"
+                disabled
+              />
+              <Input
+                v-else
                 v-model="address"
                 required
                 :label="$t('profile.edit.label.account-address')"
                 :error="errors[0]"
+                :disabled="requireWalletConnection"
               />
             </ValidationProvider>
           </div>
@@ -36,13 +53,13 @@
             <span
               class="cursor-pointer text-sm font-medium text-primary"
               @click="$emit('close', true)"
-              >{{ $t('profile.edit.close') }}</span
+            >{{ $t('profile.edit.close') }}</span
             >
             <ArrowButton
               :loading="loading"
-              :disabled="loading"
+              :disabled="loading || !filled"
               type="outline-primary"
-              >{{ $t('profile.edit.save') }}
+            >{{ $t('profile.edit.save') }}
             </ArrowButton>
           </div>
         </form>
@@ -53,14 +70,17 @@
 
 <script>
 // import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 import Modal from '@/components/ui/Modal'
 import Input from '@/components/ui/Input'
 import Tag from '@/components/ui/Tag'
 import ArrowButton from '@/components/ui/button/Arrow'
+import WalletConnect from "~/components/cards/WalletConnect";
 
 export default {
   name: 'EditProfile',
   components: {
+    WalletConnect,
     Modal,
     Input,
     ArrowButton,
@@ -81,17 +101,20 @@ export default {
   },
   data() {
     return {
-      address: this.wallet?.address || '',
+      address: '',
       loading: false,
     }
   },
   methods: {
-    onSave() {
+    async onSave() {
       this.loading = true
+      const signature = await this.retrieveSignature()
+      if(!signature && this.requireWalletConnection) return;
       this.$store
         .dispatch('user/wallets/update', {
           id: this.wallet.id,
-          address: this.address,
+          address: this.newAddress,
+          signature,
         })
         .then(() => {
           this.loading = false
@@ -104,6 +127,36 @@ export default {
           }
         })
     },
+    async retrieveSignature(){
+      if(!this.requireWalletConnection) return null;
+      try {
+        return await this.$store.dispatch('wallet/getSignature');
+      }catch (e){
+        console.log(e);
+        return null;
+      }
+    }
   },
+  computed: {
+    ...mapGetters({
+      walletAddress: 'wallet/address',
+    }),
+    requireWalletConnection() {
+      return this.wallet?.require_wallet_connection || false;
+    },
+    currentAddress() {
+      return this.wallet?.address;
+    },
+    filled(){
+      if(this.currentAddress === this.newAddress) return false;
+      return !!this.newAddress;
+    },
+    newAddress() {
+      if (this.requireWalletConnection) {
+        return this.walletAddress;
+      }
+      return this.address;
+    }
+  }
 }
 </script>
