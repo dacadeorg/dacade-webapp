@@ -142,7 +142,7 @@ export default {
       walletAddress: 'wallet/address',
     }),
     requireWalletConnection() {
-      return true;
+      return this.wallet?.require_wallet_connection || false;
     },
     currentAddress() {
       return this.wallet?.address;
