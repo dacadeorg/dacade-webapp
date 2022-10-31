@@ -1,22 +1,23 @@
 <template>
-  <span
-    :class="[sizeClasses, shapeClasses, { 'cursor-pointer': user }]"
-    :style="{
-      backgroundColor: color,
-    }"
-    class="bg-primary inline-flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle"
-    @click="openLink()"
-  >
-    <img
-      v-if="user && user.avatar"
-      :src="user.avatar"
-      alt="img"
-      class="object-cover w-full h-full"
-    />
-    <span v-if="user && !user.avatar">{{ initials }}</span>
-    <img v-if="icon" :src="icon" class="p-2" />
-    <img v-if="image" :src="image" class="p-0 object-cover w-full h-full" />
-  </span>
+  <nuxt-link :to="localePath(`/profile/${user.username}`)">
+    <span
+      :class="[sizeClasses, shapeClasses, { 'cursor-pointer': user }]"
+      :style="{
+        backgroundColor: color,
+      }"
+      class="bg-primary inline-flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle"
+    >
+      <img
+        v-if="user && user.avatar"
+        :src="user.avatar"
+        alt="img"
+        class="object-cover w-full h-full"
+      />
+      <span v-if="user && !user.avatar">{{ initials }}</span>
+      <img v-if="icon" :src="icon" class="p-2" />
+      <img v-if="image" :src="image" class="p-0 object-cover w-full h-full" />
+    </span>
+  </nuxt-link>
 </template>
 
 <script>
@@ -91,12 +92,12 @@ export default {
       }
     },
   },
-  methods: {
-    openLink() {
-      if (!this.user || !this.user.username || !this.useLink) return
+  // methods: {
+  //   openLink() {
+  //     if (!this.user || !this.user.username || !this.useLink) return
 
-      this.$router.push(`/profile/${this.user.username}`)
-    },
-  },
+  //     this.$router.push(`/profile/${this.user.username}`)
+  //   },
+  // },
 }
 </script>
