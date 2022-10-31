@@ -1,6 +1,7 @@
 import {providers} from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import {SIGNATURE_HASH_STRING} from "~/constants/wallet";
 
 const INFURA_ID = "460f40a260564ac4a4f4b3fffb032dad";
 
@@ -94,15 +95,10 @@ export const actions = {
     }
   },
   async getSignature({dispatch, commit}) {
-    try {
       const web3Provider = new providers.Web3Provider(provider);
       const signer = web3Provider.getSigner();
-      const signature = await signer.signMessage("Authenticate with Dacade");
+      const signature = await signer.signMessage(SIGNATURE_HASH_STRING);
       return signature;
-    } catch (e) {
-      console.log(e);
-      return null;
-    }
   },
   async disconnect({dispatch, commit}) {
     console.log("disconnect wallet");

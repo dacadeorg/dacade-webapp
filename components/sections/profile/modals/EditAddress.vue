@@ -23,8 +23,8 @@
         <WalletConnect/>
       </div>
       <ValidationObserver ref="form" v-slot="{ passes }">
-        <form @submit.prevent="passes(onSave)">
-          <div class="mb-8">
+        <form class="flex flex-col space-y-4" @submit.prevent="passes(onSave)">
+          <div>
             <ValidationProvider
               v-slot="{ errors }"
               name="address"
@@ -49,7 +49,8 @@
               />
             </ValidationProvider>
           </div>
-          <div class="flex pb-2 items-center justify-between">
+          <ErrorBox v-if="error" :error="error"/>
+          <div class="flex pb-2 items-center justify-between pt-4">
             <span
               class="cursor-pointer text-sm font-medium text-primary"
               @click="$emit('close', true)"
@@ -76,10 +77,12 @@ import Input from '@/components/ui/Input'
 import Tag from '@/components/ui/Tag'
 import ArrowButton from '@/components/ui/button/Arrow'
 import WalletConnect from "~/components/cards/WalletConnect";
+import ErrorBox from "~/components/ui/ErrorBox";
 
 export default {
   name: 'EditProfile',
   components: {
+    ErrorBox,
     WalletConnect,
     Modal,
     Input,
@@ -103,38 +106,35 @@ export default {
     return {
       address: '',
       loading: false,
+      error: null,
     }
   },
   methods: {
     async onSave() {
       this.loading = true
-      const signature = await this.retrieveSignature()
-      if(!signature && this.requireWalletConnection) return;
-      this.$store
-        .dispatch('user/wallets/update', {
-          id: this.wallet.id,
-          address: this.newAddress,
-          signature,
-        })
-        .then(() => {
-          this.loading = false
-          this.$emit('close', true)
-        })
-        .catch((error) => {
-          this.loading = false
-          if (error.details) {
-            this.$refs.form.setErrors(error.details)
-          }
-        })
-    },
-    async retrieveSignature(){
-      if(!this.requireWalletConnection) return null;
+      this.error = null
       try {
-        return await this.$store.dispatch('wallet/getSignature');
-      }catch (e){
-        console.log(e);
-        return null;
+        const signature = await this.retrieveSignature()
+        if (!signature && this.requireWalletConnection) return;
+        await this.$store
+          .dispatch('user/wallets/update', {
+            id: this.wallet.id,
+            address: this.newAddress,
+            signature,
+          });
+        this.loading = false
+        this.$emit('close', true)
+      } catch (error) {
+        this.loading = false
+        this.error = error;
+        if (error.details) {
+          this.$refs.form.setErrors(error.details)
+          console.log(error.details)
+        }
       }
+    },
+    async retrieveSignature() {
+      return await this.$store.dispatch('wallet/getSignature');
     }
   },
   computed: {
@@ -147,8 +147,8 @@ export default {
     currentAddress() {
       return this.wallet?.address;
     },
-    filled(){
-      if(this.currentAddress === this.newAddress) return false;
+    filled() {
+      if (this.currentAddress === this.newAddress) return false;
       return !!this.newAddress;
     },
     newAddress() {
@@ -156,6 +156,16 @@ export default {
         return this.walletAddress;
       }
       return this.address;
+    }
+  },
+  watch: {
+    newAddress(newValue, oldValue) {
+      if (newValue === oldValue) return;
+      this.error = null;
+    },
+    show(newValue, oldValue) {
+      if (newValue === oldValue) return;
+      this.error = null;
     }
   }
 }
