@@ -21,7 +21,7 @@
       <!--        <span class="ml-1 inline-block">GMT+2</span>-->
       <!--      </div>-->
     </div>
-    <div class="pt-5">
+    <div v-show="!isDiscordConnected" class="pt-5">
       <Button
         type="outline-primary"
         class="flex mx-auto text-base"
@@ -78,6 +78,9 @@ export default {
     username() {
       return this.user?.displayName
     },
+    isDiscordConnected(){
+      return this.user?.discordConnected
+    }
   },
   methods: {
     triggerDiscordOauth() {
