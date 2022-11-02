@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.11.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.10.0...v3.11.0) (2022-11-02)
+
+
+### Features
+
+* add wallet edit error handling and submit signature ([4650860](https://github.com/dacadeorg/dacade-webapp/commit/46508601bdcef7a912fe21dd8835609a49f5c200))
+* get require wallet connection policy from the backend ([768ba3f](https://github.com/dacadeorg/dacade-webapp/commit/768ba3f33c28914fa9331bbdf0eb719e62618c6c))
+* hide discord button when connected ([a9283cc](https://github.com/dacadeorg/dacade-webapp/commit/a9283cc712fca68363b43a9f14d927c7ce13b824))
+* integrate metamask and wallet connect ([0a5431c](https://github.com/dacadeorg/dacade-webapp/commit/0a5431c1b7a65ea25e0b9a67042b161cec6d222a))
+* request signature when connect address to wallet ([1809e48](https://github.com/dacadeorg/dacade-webapp/commit/1809e48ac2ec8584f9a06d5505cffdb914086659))
+
+
+### Improvements
+
+* activate connect discord button ([028e04a](https://github.com/dacadeorg/dacade-webapp/commit/028e04ab948c257603b700c730f351f6d565c158))
+
 ## [3.10.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.9.0...v3.10.0) (2022-10-21)
 
 
