@@ -12,7 +12,7 @@
           }}</span> -->
         </div>
 
-        <span class="text-sm text-gray-500 truncate">{{address}}</span>
+        <span class="text-sm text-gray-500 truncate block">{{address}}</span>
       </div>
     </div>
   </nuxt-link>
