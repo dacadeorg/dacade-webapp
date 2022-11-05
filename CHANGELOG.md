@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.11.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.0...v3.11.1) (2022-11-05)
+
+
+### Features
+
+* show connect to discord for current user only ([2b84199](https://github.com/dacadeorg/dacade-webapp/commit/2b8419917ea909e8bc37fac76b3c26b6873172cf))
+
 ## [3.11.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.10.0...v3.11.0) (2022-11-02)
 
 
