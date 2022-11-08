@@ -1,8 +1,9 @@
 <template>
-  <div
+  <component
+    :is="notificationsLink ? 'nuxt-link' : 'div'"
+    :to="notificationsLink"
     :class="extended ? 'rounded-3xl' : ''"
     class="flex hover:bg-gray-50 py-4 -mx-5 px-5 cursor-pointer"
-    @click="goToLink()"
   >
     <div class="flex mr-2">
       <Avatar :user="user" class="w-10 h-10" />
@@ -13,7 +14,7 @@
         humanizedDate
       }}</span>
     </div>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -59,6 +60,11 @@ export default {
         default:
           return this.details.link
       }
+    },
+    notificationsLink() {
+      if (!this.link) return null;
+      return this.localePath(this.link)
+      // window.open(this.link, '_blank')
     },
   },
   methods: {
