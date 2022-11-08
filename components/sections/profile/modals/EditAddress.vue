@@ -115,7 +115,6 @@ export default {
       this.error = null
       try {
         const signature = await this.retrieveSignature()
-        if (!signature && this.requireWalletConnection) return;
         await this.$store
           .dispatch('user/wallets/update', {
             id: this.wallet.id,
@@ -134,6 +133,7 @@ export default {
       }
     },
     async retrieveSignature() {
+      if (!this.requireWalletConnection) return null;
       return await this.$store.dispatch('wallet/getSignature');
     }
   },
