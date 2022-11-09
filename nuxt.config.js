@@ -66,6 +66,7 @@ export default {
     { src: '~/plugins/vee-validate.js' },
     '~/plugins/globals.js',
     '~/plugins/api.js',
+    '~/plugins/fetch.js',
     '~/plugins/auth.js',
     '~/plugins/bugsnag.js',
     // '~/plugins/highlight',
