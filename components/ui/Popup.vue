@@ -43,5 +43,10 @@ export default {
       this.$emit('close', true)
     },
   },
+  beforeDestroy() {
+    if(this.show){
+      this.$store.dispatch('ui/toggleBodyScrolling', false)
+    }
+  }
 }
 </script>

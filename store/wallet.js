@@ -101,7 +101,6 @@ export const actions = {
       return signature;
   },
   async disconnect({dispatch, commit}) {
-    console.log("disconnect wallet");
     if (!web3Modal) return;
     const provider = await web3Modal.cachedProvider;
     await web3Modal.clearCachedProvider();
