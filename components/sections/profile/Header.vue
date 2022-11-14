@@ -11,15 +11,16 @@
       <!--        <span class="inline-block"><GithubIcon /></span>-->
       <!--        <span class="ml-1 inline-block">Github</span>-->
       <!--      </div>-->
-      <div class="flex items-center px-3">
+      <div v-if="!canConnectDiscord" class="flex items-center px-2">
+        <span class="inline-block"><DiscordIcon/></span>
+        <span class="inline-block mx-1">{{ $t('profile.header.discord') }}</span>
+      </div>
+      <div class="flex items-center px-2">
         <span class="inline-block"><TimeIcon/></span>
         <span class="inline-block mx-1">{{ $t('profile.header.joined') }}</span>
         <span v-if="joined" class="inline-block text-sm">{{ joined }}</span>
       </div>
-      <div v-if="!canConnectDiscord" class="flex items-center px-3">
-        <span class="inline-block"><DiscordIcon/></span>
-        <span class="inline-block mx-1">{{ $t('profile.header.discord') }}</span>
-      </div>
+      
       <!--      <div class="flex items-center px-3">-->
       <!--        <span class="inline-block"><CompassIcon /></span>-->
       <!--        <span class="ml-1 inline-block">GMT+2</span>-->
