@@ -71,7 +71,6 @@
                   :to="localePath('/profile')"
                 >
                   <Avatar
-                    class="p-3 w-10 h-10"
                     :user="user"
                     :use-link="false"
                   />
