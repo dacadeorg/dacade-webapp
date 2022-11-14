@@ -12,16 +12,16 @@
           }}</span> -->
         </div>
 
-        <span class="text-sm text-gray-500 truncate block">{{address}}</span>
+        <span class="text-sm text-gray-500 truncate block">{{address || details.title}}</span>
       </div>
     </div>
   </nuxt-link>
 </template>
 
 <script>
-import truncateEthAddress from 'truncate-eth-address'
 import Coin from '@/components/ui/Coin'
 import Currency from '@/components/ui/Currency'
+import {truncateAddress} from "~/utilities/Address";
 
 export default {
   name: 'Balance',
@@ -54,7 +54,7 @@ export default {
   computed: {
     address() {
       if (!this.details.address) return null
-      return truncateEthAddress(this.details.address)
+      return truncateAddress(this.details.address, this.details.token)
     },
   },
 }
