@@ -5,13 +5,13 @@
     :description="$t('communities.overview.scoreboard.description')"
   >
   <div class="w-full flex flex-row mt-10">
-<div class="flex flex-col w-2/4 mr-8">
-
+<div class="flex flex-col w-2/4 mr-8 divide-y divide-solid divide-gray-200">
+<div></div>
 <div class="divide-y divide-gray-200">
       <!-- <Filter/> -->
-  <div class="block">
-  <span class="text-gray-700">Filter by</span>
-  <div class="mt-2">
+  <div class="block mt-6 mb-6">
+  <span class="text-gray-700 mb-4">Filter by</span>
+  <div class="mt-6 mb-6">
     <div class="mt-2 mb-2">
       <label class="inline-flex items-center">
         <input type="checkbox" class="sr-only" checked/>
@@ -44,11 +44,11 @@
  </div>
 </div>  
 
-<div class="divide-y">
+<div class="pt-4">
       <!-- <Filter/> -->
   <div class="block">
-  <span class="text-gray-700">Sort</span>
-  <div class="mt-2">
+  <span class="text-gray-700 mb-4">Sort</span>
+  <div class="mt-6 mb-6">
     <div class="mt-2 mb-2">
       <label class="inline-flex items-center">
         <input type="checkbox" class="sr-only" checked/>
@@ -66,6 +66,7 @@
   </div>
  </div>
 </div> 
+<div></div>
 
 </div>
    
