@@ -9,6 +9,7 @@
     :type="type"
     :custom-style="customStyle"
     :target="target"
+    :variant="variant"
     v-on="inputListeners"
   >
     <span class="flex h-full text-left items-center justify-between">
@@ -61,6 +62,10 @@ export default {
     },
     type: {
       default: 'primary',
+      type: String,
+    },
+    variant: {
+      default: 'submit',
       type: String,
     },
     padding: {

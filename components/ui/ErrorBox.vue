@@ -15,7 +15,7 @@ export default {
   name: "ErrorBox",
   props: {
     error: {
-      type: Error,
+      type: [Error, Object],
       default: null,
     },
   }
