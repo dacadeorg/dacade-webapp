@@ -19,12 +19,12 @@
         <p class="font-medium">Switch from: </p>
         <small>{{ currentAddress }}</small>
       </div>
-      <div class="mb-4">
-        <p class="font-medium">To: </p>
+      <div class="mb-4" :class="{'pb-16': !showInput}">
+        <p class="font-medium">{{newAddressTitle}} </p>
       </div>
       <ValidationObserver ref="form" v-slot="{ passes }">
         <form class="flex flex-col space-y-4" @submit.prevent="passes(onSave)">
-          <div>
+          <div v-if="showInput">
             <ValidationProvider v-slot="{ errors }" name="address" rules="required|min:2" mode="passive">
               <Input v-if="requireWalletConnection" :value="newAddress" required
                      :label="$t('profile.edit.label.account-address')" :error="errors[0]" disabled/>
@@ -33,6 +33,9 @@
             </ValidationProvider>
           </div>
           <ErrorBox v-if="error" :error="error"/>
+          <div v-if="filled && currentAddress === newAddress">
+            <p class="font-medium">New address matches the existing one</p>
+          </div>
           <div class="flex pb-2 items-center justify-between pt-4">
             <span class="cursor-pointer text-sm font-medium text-primary" @click="$emit('close', true)">{{
                 $t('profile.edit.close')
@@ -40,7 +43,7 @@
             <ArrowButton v-if="requireWalletConnection && !newAddress" @click="connect" variant="button">
               Connect Wallet
             </ArrowButton>
-            <ArrowButton v-else :loading="loading" :disabled="loading || !filled" type="outline-primary">{{
+            <ArrowButton v-else :loading="loading" :disabled="loading || !filled">{{
                 $t('profile.edit.save')
               }}
             </ArrowButton>
@@ -146,6 +149,21 @@ export default {
         return this.walletAddress?.toLowerCase();
       }
       return this.address?.toLowerCase();
+    },
+    showInput(){
+      return (this.requireWalletConnection && this.newAddress) || !this.requireWalletConnection
+    },
+    newAddressTitle(){
+      if(!this.requireWalletConnection && !this.currentAddress ){
+        return  'Enter new address';
+      }
+      if(this.requireWalletConnection && !this.newAddress){
+        return 'Connect a wallet to add a new address.'
+      }
+      if(this.requireWalletConnection && this.newAddress && !this.currentAddress){
+        return 'New address';
+      }
+      return 'To:'
     }
   },
   watch: {
