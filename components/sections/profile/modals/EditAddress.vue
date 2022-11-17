@@ -1,7 +1,7 @@
 <template>
   <Modal :show="show" @close="$emit('close', $event)">
-    <div class="px-6 pt-6 relative">
-      <div class="mb-12">
+    <div class="px-6 pt-6">
+      <div class="pb-7">
         <p class="text-.5xl leading-snug font-medium">
           {{ wallet.title }}
         </p>
@@ -13,44 +13,46 @@
           }}
           {{ $t('profile.wallets.address') }}
         </p>
-        <Tag class="text-gray-500" :value="wallet.token"/>
+        <Tag class="text-gray-500 mt-2" :value="wallet.token"/>
       </div>
-      <div v-if="currentAddress" class="mb-4">
-        <p class="font-medium">Switch from: </p>
-        <small>{{ currentAddress }}</small>
+      <div class="flex flex-col space-y-1">
+        <p v-if="currentAddress" class="font-medium text-base">Switch from: </p>
+        <p v-if="currentAddress" class="text-base">{{ currentAddress }}</p>
+        <div class="mb-4" :class="[showInput ? 'pb-2': 'pb-20']">
+          <p class="font-medium text-base">{{ newAddressTitle }} </p>
+        </div>
       </div>
-      <div class="mb-4" :class="{'pb-16': !showInput}">
-        <p class="font-medium">{{newAddressTitle}} </p>
-      </div>
-      <ValidationObserver ref="form" v-slot="{ passes }">
-        <form class="flex flex-col space-y-4" @submit.prevent="passes(onSave)">
-          <div v-if="showInput">
-            <ValidationProvider v-slot="{ errors }" name="address" rules="required|min:2" mode="passive">
-              <Input v-if="requireWalletConnection" :value="newAddress" required
-                     :label="$t('profile.edit.label.account-address')" :error="errors[0]" disabled/>
-              <Input v-else v-model="address" required :label="$t('profile.edit.label.account-address')"
-                     :error="errors[0]" :disabled="requireWalletConnection"/>
-            </ValidationProvider>
-          </div>
+    </div>
+    <ValidationObserver ref="form" v-slot="{ passes }">
+      <form class="flex flex-col space-y-4" @submit.prevent="passes(onSave)">
+        <div class="px-6">
+          <ValidationProvider v-if="showInput" v-slot="{ errors }" name="address" rules="required|min:2"
+                              mode="passive">
+            <Input v-if="requireWalletConnection" :value="newAddress" required
+                   :label="$t('profile.edit.label.account-address')" :error="errors[0]" disabled/>
+            <Input v-else v-model="address" required :label="$t('profile.edit.label.account-address')"
+                   :error="errors[0]" :disabled="requireWalletConnection"/>
+          </ValidationProvider>
+
           <ErrorBox v-if="error" :error="error"/>
-          <div v-if="filled && currentAddress === newAddress">
-            <p class="font-medium">New address matches the existing one</p>
+          <div v-if="newAddress && currentAddress === newAddress" class="pt-4">
+            <p class="text-base">New address matches the existing one</p>
           </div>
-          <div class="flex pb-2 items-center justify-between pt-4">
+        </div>
+        <div class="flex items-center justify-between pt-4 pl-6 pr-2 pb-2">
             <span class="cursor-pointer text-sm font-medium text-primary" @click="$emit('close', true)">{{
                 $t('profile.edit.close')
               }}</span>
-            <ArrowButton v-if="requireWalletConnection && !newAddress" @click="connect" variant="button">
-              Connect Wallet
-            </ArrowButton>
-            <ArrowButton v-else :loading="loading" :disabled="loading || !filled">{{
-                $t('profile.edit.save')
-              }}
-            </ArrowButton>
-          </div>
-        </form>
-      </ValidationObserver>
-    </div>
+          <ArrowButton v-if="requireWalletConnection && !newAddress" @click="connect" variant="button">
+            Connect Wallet
+          </ArrowButton>
+          <ArrowButton v-else :loading="loading" :disabled="loading || !filled">{{
+              $t('profile.edit.save')
+            }}
+          </ArrowButton>
+        </div>
+      </form>
+    </ValidationObserver>
   </Modal>
 </template>
 
@@ -150,17 +152,17 @@ export default {
       }
       return this.address?.toLowerCase();
     },
-    showInput(){
+    showInput() {
       return (this.requireWalletConnection && this.newAddress) || !this.requireWalletConnection
     },
-    newAddressTitle(){
-      if(!this.requireWalletConnection && !this.currentAddress ){
-        return  'Enter new address';
+    newAddressTitle() {
+      if (!this.requireWalletConnection && !this.currentAddress) {
+        return 'Enter new address';
       }
-      if(this.requireWalletConnection && !this.newAddress){
+      if (this.requireWalletConnection && !this.newAddress) {
         return 'Connect a wallet to add a new address.'
       }
-      if(this.requireWalletConnection && this.newAddress && !this.currentAddress){
+      if (this.requireWalletConnection && this.newAddress && !this.currentAddress) {
         return 'New address';
       }
       return 'To:'
