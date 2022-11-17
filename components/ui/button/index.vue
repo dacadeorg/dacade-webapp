@@ -3,7 +3,7 @@
     :is="component"
     class="outline-none focus:outline-none hover:outline-none cursor-pointer relative disabled:border-opacity-60 disabled:cursor-not-allowed"
     :disabled="disabled"
-    type="submit"
+    :type="variant"
     :class="{
       'disabled:bg-gray-100 disabled:text-gray-400':
         type === 'primary' || type === 'secondary',
@@ -59,6 +59,10 @@ export default {
     },
     type: {
       default: 'primary',
+      type: String,
+    },
+    variant: {
+      default: 'submit',
       type: String,
     },
     padding: {
