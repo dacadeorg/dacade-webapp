@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.11.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.2...v3.11.3) (2022-11-22)
+
+
+### Bug Fixes
+
+* link button style ([3d6ab13](https://github.com/dacadeorg/dacade-webapp/commit/3d6ab13d823090b68afdcd980065c8c7da6cbcb0))
+
 ### [3.11.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.1...v3.11.2) (2022-11-08)
 
 
