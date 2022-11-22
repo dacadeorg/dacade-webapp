@@ -88,9 +88,11 @@ body {
 input {
   @apply px-5 border border-solid block xl:mx-auto lg:mx-auto lg:w-98 xl:w-98 w-full h-17;
 }
-
 button {
-  @apply bg-primary outline-none focus:outline-none cursor-pointer relative px-4 py-2 text-white rounded-full text-sm;
+  @apply bg-primary px-4 py-2 text-white rounded-full;
+}
+button, .btn {
+  @apply inline-block items-start outline-none focus:outline-none cursor-pointer relative text-sm;
 }
 
 .floating-input > input::placeholder {
