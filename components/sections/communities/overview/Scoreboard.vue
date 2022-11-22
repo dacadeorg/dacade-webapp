@@ -8,7 +8,6 @@
 <div class="flex flex-col w-2/4 mr-8 divide-y divide-solid divide-gray-200">
 <div></div>
 <div class="divide-y divide-gray-200">
-      <!-- <Filter/> -->
   <div class="block mt-6 mb-6">
   <span class="text-gray-700 mb-4">Filter by</span>
   <div class="mt-6 mb-6">
@@ -42,24 +41,25 @@
     </div>
   </div>
  </div>
-</div>  
+</div> 
+
+<!------------------------>
 
 <div class="pt-4">
-      <!-- <Filter/> -->
   <div class="block">
   <span class="text-gray-700 mb-4">Sort</span>
   <div class="mt-6 mb-6">
     <div class="mt-2 mb-2">
       <label class="inline-flex items-center">
         <input type="checkbox" class="sr-only" checked/>
-        <span class="form-checkbox text-blue-400 rounded-full w-5	h-5 border-2 border-zinc-800" aria-hidden="true"></span>
+        <span class="form-checkbox text-transparent rounded-full w-5	h-5 border-2 border-zinc-800" aria-hidden="true"></span>
         <span class="ml-2">Reputation</span>
       </label>
     </div>
     <div class="mt-2 mb-2">
       <label class="inline-flex items-center">
         <input type="checkbox" class="sr-only"/>
-        <span class="form-checkbox text-blue-400 rounded-full w-5	h-5 border-2 border-zinc-800" aria-hidden="true"></span>
+        <span class="form-checkbox text-transparent rounded-full w-5	h-5 border-2 border-zinc-800" aria-hidden="true"></span>
         <span class="ml-2">Submission points</span>
       </label>
     </div>
@@ -101,7 +101,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import SectionWrapperCol from './_partials/SectionWrapperCol'
+import SectionWrapperCol from './scoreboard/index.vue'
 import ScoreboardCard from '@/components/cards/Scoreboard'
 import ArrowButton from '@/components/ui/button/Arrow'
 // import Filter from '@/components/ui/Filter'
@@ -125,6 +125,7 @@ export default {
       community: 'communities/current',
       list: 'communities/scoreboard/list',
       colors: 'ui/colors',
+      submissions: 'communities/challenges/submissions/list'
     }),
   },
   methods: {
@@ -134,3 +135,13 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+/* .form-checkbox {
+  color: red;
+} */
+
+.test {
+  width: 12rem;
+}
+</style>
