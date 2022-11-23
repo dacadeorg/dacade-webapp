@@ -13,7 +13,7 @@
   <div class="mt-6 mb-6">
     <div class="mt-2 mb-2">
       <label class="inline-flex items-center">
-        <input type="checkbox" class="sr-only" checked/>
+        <input type="radio" class="sr-only" checked/>
         <span class="form-checkbox text-blue-400 rounded-full w-5	h-5 border-2 border-zinc-800" aria-hidden="true"></span>
         <span class="ml-2">Month</span>
       </label>
@@ -63,12 +63,15 @@
         <span class="ml-2">Submission points</span>
       </label>
     </div>
+    <ScoreboardFilter/>
   </div>
  </div>
 </div> 
 <div></div>
 
 </div>
+
+<ScoreboardFilter/>
    
        
     <div
@@ -104,7 +107,7 @@ import { mapGetters } from 'vuex'
 import SectionWrapperCol from './scoreboard/index.vue'
 import ScoreboardCard from '@/components/cards/Scoreboard'
 import ArrowButton from '@/components/ui/button/Arrow'
-// import Filter from '@/components/ui/Filter'
+import ScoreboardFilter from '@/components/ui/Filter'
 
 
 export default {
@@ -113,7 +116,7 @@ export default {
     ScoreboardCard,
     SectionWrapperCol,
     ArrowButton,
-    // Filter,
+    ScoreboardFilter,
   },
   data() {
     return {
