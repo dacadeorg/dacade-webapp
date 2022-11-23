@@ -1,8 +1,19 @@
 # dacade
 
-> blockchain education platform
+## Project description (gabs just the first rough version)
 
-## Build Setup
+Learning and community are the core principles that dacade approaches with a multiplayer game spirit. Dacade is a Peer to peer learning platform designed to motivate developers in all stages of their learning process to continue learning and help others to do so. The platform is divided in communities and each community offers a set of courses related to the technologies that have been used to build them. 
+Through incentives in the form of micro transactions, students can earn rewards if they submit a challenge or provide feedback. The ultimate goal of the learning process is to become proficient in the technologies that have been used to build real platforms, and contribute to develop and build them further. 
+
+
+
+## API descriptions (Maybe later)
+
+## Setup guidelines
+
+
+### 1. Guide on how to install it and how to run with the project connected to the firebase dummy database
+
 
 ```bash
 # install dependencies
@@ -19,36 +30,16 @@ $ npm start
 $ npm run generate
 ```
 
-#
+### 2. Requirements (what tools, node version e.g.) (gabs)
 
-## Project description (gabs just the first rough version)
-
-Learning and community are the core principles that dacade approaches with a multiplayer game spirit. Dacade is a Peer to peer learning platform designed to motivate developers in all stages of their learning process to continue learning and help others to do so. The platform is divided in communities and each community offers a set of courses related to the technologies that have been used to build them. 
-Through incentives in the form of micro transactions, students can earn rewards if they submit a challenge or provide feedback. The ultimate goal of the learning process is to become proficient in the technologies that have been used to build real platforms, and contribute to develop and build them further. 
-
+- vue.js
+- node.js version 16.0.0.
+- tailwinds
 
 
-## API descriptions (Maybe later)
+### 3. Provide env file, dummy firebase database
 
-## Setup guidelines
-
-### Installation
-
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
-
-
-### Style and components guideline
+### 4. Style and components guideline
 
 - Add fonts used in Figma inside the project
 - Add colors defined in the Figma styleguide inside the project
@@ -60,26 +51,7 @@ $ npm run generate
 - Add icons used in the Figma design to the project.
 - Look for components that are used across different pages and create them and make sure they are reusable across the different pages.
 
-
-
-### Requirements (what tools, node version e.g.) (gabs)
-
-- vue.js
-- node.js version 16.0.0.
-- tailwinds
--feedbacks"
-
-
-
-### Provide env file, dummy firebase database
-
-
-### Guide on how to install it and how to run with the project connected to the firebase dummy database (gabs)
-
-
-### Contribution guidelines on how to contribute to the project (nice to have) (template https://gist.github.com/PurpleBooth/b24679402957c63ec426)
-
-
+### 5. Contribution guidelines on how to contribute to the project (nice to have) (template https://gist.github.com/PurpleBooth/b24679402957c63ec426)
 #### Branching
 
 - Before making any new changes make sure to go back to the `dev` branch pull and create a new branch from there
