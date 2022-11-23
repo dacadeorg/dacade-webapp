@@ -5,12 +5,9 @@
 Learning and community are the core principles that dacade approaches with a multiplayer game spirit. Dacade is a Peer to peer learning platform designed to motivate developers in all stages of their learning process to continue learning and help others to do so. The platform is divided in communities and each community offers a set of courses related to the technologies that have been used to build them. 
 Through incentives in the form of micro transactions, students can earn rewards if they submit a challenge or provide feedback. The ultimate goal of the learning process is to become proficient in the technologies that have been used to build real platforms, and contribute to develop and build them further. 
 
-
-
-## API descriptions (Maybe later)
+## API descriptions
 
 ## Setup guidelines
-
 
 ### 1. Guide on how to install it and how to run with the project connected to the firebase dummy database
 
@@ -34,8 +31,9 @@ $ npm run generate
 
 - vue.js
 - node.js version 16.0.0.
-- tailwinds
+- tailwinds.css
 - cloud functions
+- firebase
 
 ### 3. Provide env file, dummy firebase database
 
@@ -71,7 +69,9 @@ NUXT_ENV_GOOGLE_TRANSLATE_API_KEY="AIzaSyC6XYHCctzfWaxQK6Lbl9eZ0JUzbATcjpM"
 - Add icons used in the Figma design to the project.
 - Look for components that are used across different pages and create them and make sure they are reusable across the different pages.
 
-### 5. Contribution guidelines on how to contribute to the project
+### 5. Components guideline
+
+### 6. Contribution guidelines on how to contribute to the project
 #### Branching
 
 - Before making any new changes make sure to go back to the `dev` branch pull and create a new branch from there
