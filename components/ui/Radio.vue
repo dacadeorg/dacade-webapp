@@ -5,13 +5,13 @@
     v-model="vModalValue"
     :value="data"
     :class="[
-      'w-5 h-5 bg-gray-100 rounded border-gray-200 text-primary rounded-full',
+      'w-8 h-8 bg-gray-100 rounded border-gray-200 text-primary rounded-full',
       disabled ? 'cursor-not-allowed' : 'cursor-pointer',
     ]"
     :name="name"
     :required="required"
     :style="styles"
-    size="small"
+    size="medium"
     type="radio"
     :disabled="disabled"
   />
