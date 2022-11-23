@@ -141,7 +141,4 @@ export default {
   color: red;
 } */
 
-.test {
-  width: 12rem;
-}
 </style>
