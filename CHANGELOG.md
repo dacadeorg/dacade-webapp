@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.11.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.2...v3.11.3) (2022-11-22)
+
+
+### Bug Fixes
+
+* link button style ([3d6ab13](https://github.com/dacadeorg/dacade-webapp/commit/3d6ab13d823090b68afdcd980065c8c7da6cbcb0))
+
+### [3.11.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.1...v3.11.2) (2022-11-08)
+
+
+### Bug Fixes
+
+* invalid signature requirement ([6f93b06](https://github.com/dacadeorg/dacade-webapp/commit/6f93b066adf9593c8d352f9f461f722bcfad701a))
+
+### [3.11.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.0...v3.11.1) (2022-11-05)
+
+
+### Features
+
+* show connect to discord for current user only ([2b84199](https://github.com/dacadeorg/dacade-webapp/commit/2b8419917ea909e8bc37fac76b3c26b6873172cf))
+
 ## [3.11.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.10.0...v3.11.0) (2022-11-02)
 
 
