@@ -5,8 +5,8 @@
     v-model="vModalValue"
     :value="data"
     :class="[
-      'w-8 h-8 bg-gray-100 rounded border-gray-200 text-primary rounded-full',
-      disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+      'w-9 h-9 rounded border-gray-400 text-primary rounded-full',
+      disabled ? 'cursor-not-allowed border-4' : 'cursor-pointer'
     ]"
     :name="name"
     :required="required"
