@@ -13,7 +13,7 @@
               :required="true"
               name="month"
             />
-            <span class="ml-2">Month</span>
+            <span class="ml-4">Month</span>
           </label>
         </div>
         <div class="mt-2 mb-2">
@@ -25,7 +25,7 @@
               name="month"
               size="medium"
             />
-            <span class="ml-2">Quarter</span>
+            <span class="ml-4">Quarter</span>
           </label>
         </div>
         <div class="mt-2 mb-2">
@@ -37,7 +37,7 @@
               name="month"
               class="w-8"
             />
-            <span class="ml-2">Year</span>
+            <span class="ml-4">Year</span>
           </label>
         </div>
         <div class="mt-2 mb-2">
@@ -48,7 +48,7 @@
               :required="true"
               name="month"
             />
-            <span class="ml-2">All time</span>
+            <span class="ml-4">All time</span>
           </label>
         </div>
       </div>
@@ -69,7 +69,7 @@
               :required="true"
               name="month"
             />
-            <span class="ml-2">Reputation</span>
+            <span class="ml-4">Reputation</span>
           </label>
         </div>
         <div class="mt-2 mb-2">
@@ -80,7 +80,7 @@
               :required="true"
               name="month"
             />
-            <span class="ml-2">Submission points</span>
+            <span class="ml-4">Submission points</span>
           </label>
         </div>
         <ScoreboardFilter/>
