@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.12.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.3...v3.12.0) (2022-11-24)
+
+
+### Features
+
+* add radio input component ([67cadbd](https://github.com/dacadeorg/dacade-webapp/commit/67cadbd3052e64a387e29eb7b5e10337a9c35089))
+* adjust wallet connect design ([d865bd2](https://github.com/dacadeorg/dacade-webapp/commit/d865bd2221834f8990aa4e7abc4ae75ca92c4e7d))
+
+
+### Bug Fixes
+
+* add nuxt link to notifications ([f79c844](https://github.com/dacadeorg/dacade-webapp/commit/f79c8444be6696e21261ace1c11add3625b7f83f))
+* add the nuxt link in the whole website ([c3a8cb8](https://github.com/dacadeorg/dacade-webapp/commit/c3a8cb82083128b3e12d9b06b3cd3ba65118b120))
+* add truncate class ([03a3dd8](https://github.com/dacadeorg/dacade-webapp/commit/03a3dd8532c18b73186bdae52680f76aaf865c0c))
+* address truncating for non eth addresses ([73d2118](https://github.com/dacadeorg/dacade-webapp/commit/73d21180e0a246005fe192af10f9038b74fb29a8))
+* aeternity truncating ([f7c1dd7](https://github.com/dacadeorg/dacade-webapp/commit/f7c1dd76e8859ca1b6ace50ab309e49aeedd5165))
+* arranging the discord icon ([f5ecbb1](https://github.com/dacadeorg/dacade-webapp/commit/f5ecbb109f54f936ad5ceb59b01039d076b44698))
+* avatar navbar padding issue ([295a471](https://github.com/dacadeorg/dacade-webapp/commit/295a4717cbcb577d57a0fe4d9c98ee433cc90437))
+* show nuxt-link only when the link is available ([846b68f](https://github.com/dacadeorg/dacade-webapp/commit/846b68fccfcc2ee91d9324f2bb1bda6baaf4891a))
+
+
+### Improvements
+
+* add discord button on profile ([720567b](https://github.com/dacadeorg/dacade-webapp/commit/720567b42fd7255b7a2c8f7709bbb03e3809abc5))
+* adding nuxt link on avatar of user ([b686b29](https://github.com/dacadeorg/dacade-webapp/commit/b686b29b3652a9c397f3c29dfc156c7c21f3c02c))
+* adjust modal design for wallet connect ([a1cddb6](https://github.com/dacadeorg/dacade-webapp/commit/a1cddb641d62ed142f2d3de14f4881ad414c9d27))
+* adjust the wallet connect design and make sure all text are consistent ([1d24072](https://github.com/dacadeorg/dacade-webapp/commit/1d240726350150d1410431b6c190d7ca60a83c18))
+* Show the truncated address under the users balance in the main user menu ([7b8df73](https://github.com/dacadeorg/dacade-webapp/commit/7b8df73bc0f5fed57b3fb869d21dde8474b8c279))
+
 ### [3.11.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.2...v3.11.3) (2022-11-22)
 
 
