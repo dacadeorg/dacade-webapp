@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.12.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.12.0...v3.12.1) (2022-11-25)
+
+
+### Bug Fixes
+
+* aeternity address truncating ([545e95e](https://github.com/dacadeorg/dacade-webapp/commit/545e95e09b21f2a4d354b10f00d82cde8ef16a86))
+
 ## [3.12.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.3...v3.12.0) (2022-11-24)
 
 
