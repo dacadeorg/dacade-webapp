@@ -63,6 +63,15 @@
             >
               <AchievementLinkField :link="achievement?.metadata?.linkToWork" />
             </AchievementViewItem>
+            <MintCertificate :show="showMintCertificate" @close="showMintCertificate = false" />
+            <ArrowButton
+              target="__blank"
+              type="primary"
+              class="flex ml-auto mt-5"
+              @click="showMintCertificate = true"
+            >
+              Mint certificate
+            </ArrowButton>
           </div>
         </div>
       </div>
@@ -89,6 +98,8 @@ import DateManager from '~/utilities/DateManager'
 import AchievementViewItem from '~/components/sections/profile/achievements/ListItem'
 import AchievementLinkField from '~/components/sections/profile/achievements/LinkField'
 import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
+import ArrowButton from '@/components/ui/button/Arrow'
+import MintCertificate from '@/components/sections/profile/modals/MintCertificate.vue'
 // import Checkmark from '~/assets/icons/checkmark.svg?inline'
 
 export default {
@@ -99,9 +110,17 @@ export default {
     Avatar,
     Logo,
     NavItem,
+    ArrowButton,
+    MintCertificate,
     // Checkmark,
   },
   layout: 'achievement',
+
+  data() {
+    return {
+      showMintCertificate: false,
+    }
+  },
   fetch({ store, params, error }) {
     return Promise.all([
       store.dispatch('profile/certificates/find', { id: params.id }),
