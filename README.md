@@ -9,7 +9,19 @@ Through incentives in the form of micro transactions, students can earn rewards 
 
 ## Setup guidelines
 
-### 1. Guide on how to install it and how to run with the project connected to the firebase dummy database
+### 1. Requirements (what tools, node version e.g.) (gabs)
+
+- node.js version 16.0.0.
+
+### 2. Tech stack (included in repo)
+
+- vue.js
+- tailwinds.css
+- cloud functions
+- firebase
+
+
+### 3. Guide on how to install it and how to run with the project connected to the firebase dummy database
 
 
 ```bash
@@ -27,15 +39,8 @@ $ npm start
 $ npm run generate
 ```
 
-### 2. Requirements (what tools, node version e.g.) (gabs)
 
-- vue.js
-- node.js version 16.0.0.
-- tailwinds.css
-- cloud functions
-- firebase
-
-### 3. Provide env file, dummy firebase database
+### 4. Provide env file, dummy firebase database
 
 ```bash
 NUXT_ENV_FIREBASE_API_KEY="AIzaSyDjGCuQB-aOc0qFZPNJTfF9Is-UywXakUg"
@@ -57,7 +62,7 @@ NUXT_ENV_DISCORD_SCOPE="identify email"
 NUXT_ENV_GOOGLE_TRANSLATE_API_KEY="AIzaSyC6XYHCctzfWaxQK6Lbl9eZ0JUzbATcjpM"
 ```
 
-### 4. Style and components guideline
+### 5. Style and components guideline
 
 - Add fonts used in Figma inside the project
 - Add colors defined in the Figma styleguide inside the project
@@ -69,9 +74,9 @@ NUXT_ENV_GOOGLE_TRANSLATE_API_KEY="AIzaSyC6XYHCctzfWaxQK6Lbl9eZ0JUzbATcjpM"
 - Add icons used in the Figma design to the project.
 - Look for components that are used across different pages and create them and make sure they are reusable across the different pages.
 
-### 5. Components guideline
+### 6. Components guideline
 
-### 6. Contribution guidelines on how to contribute to the project
+### 7. Contribution guidelines on how to contribute to the project
 #### Branching
 
 - Before making any new changes make sure to go back to the `dev` branch pull and create a new branch from there
