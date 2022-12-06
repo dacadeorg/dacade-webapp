@@ -19,6 +19,7 @@ Through incentives in the form of micro transactions, students can earn rewards 
 - tailwinds.css
 - cloud functions
 - firebase
+- nuxt.js
 
 
 ### 3. Guide on how to install it and how to run with the project connected to the firebase dummy database
