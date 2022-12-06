@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.12.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.12.1...v3.12.2) (2022-12-06)
+
+
+### Improvements
+
+* prevent converting addresses to lowercase ([58de4d7](https://github.com/dacadeorg/dacade-webapp/commit/58de4d763c19dce80d8c12d0514392befd2c66d8))
+
 ### [3.12.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.12.0...v3.12.1) (2022-11-25)
 
 
