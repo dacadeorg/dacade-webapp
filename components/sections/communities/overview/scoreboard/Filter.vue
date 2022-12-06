@@ -13,11 +13,11 @@
               :required="true"
               name="month"
             />
-            <span class="ml-4">Month</span>
+            <span :class="!checked ? 'font-medium' : 'font-normal'" class="ml-4">Month</span>
           </label>
         </div>
         <div class="mt-2 mb-2">
-          <label class="inline-flex items-center">
+          <label :class="checked ? 'font-medium' : 'font-normal'" class="inline-flex items-center">
             <Radio
               id="filter-month"
               v-model="checked"
@@ -29,7 +29,7 @@
           </label>
         </div>
         <div class="mt-2 mb-2">
-          <label class="inline-flex items-center">
+          <label :class="checked ? 'font-medium' : 'font-normal'" class="inline-flex items-center">
             <Radio
               id="filter-month"
               v-model="checked"
@@ -41,7 +41,7 @@
           </label>
         </div>
         <div class="mt-2 mb-2">
-          <label class="inline-flex items-center">
+          <label :class="checked ? 'font-medium' : 'font-normal'" class="inline-flex items-center">
             <Radio
               id="filter-month"
               v-model="checked"
@@ -69,7 +69,7 @@
               :required="true"
               name="month"
             />
-            <span class="ml-4">Reputation</span>
+            <span :class="checked ? 'font-medium' : 'font-normal'" class="ml-4">Reputation</span>
           </label>
         </div>
         <div class="mt-2 mb-2">
@@ -80,7 +80,7 @@
               :required="true"
               name="month"
             />
-            <span class="ml-4">Submission points</span>
+            <span :class="checked ? 'font-medium' : 'font-normal'" class="ml-4">Submission points</span>
           </label>
         </div>
         <ScoreboardFilter/>

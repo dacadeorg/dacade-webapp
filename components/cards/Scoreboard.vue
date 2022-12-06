@@ -15,7 +15,7 @@
       </div>
       <div class="flex flex-row divide-x divide-solid divide-gray-300">
         <div class="whitespace-nowrap text-base pr-4">
-            <span class="font-medium text-xs">
+            <span class="font-normal text-xs">
               {{ value.feedbacks }}
               <span class="font-normal text-xs">
                 {{ $t(value.feedbacks == 1 ? 'Submission' : 'Submissions') }}
@@ -23,7 +23,7 @@
             </span>
           </div>
           <div class="whitespace-nowrap text-base px-4">
-            <span class="font-medium text-xs">
+            <span class="font-normal text-xs">
               {{ value.score }}
               <span class="font-normal text-xs">
                 {{ $t(value.score == 1 ? 'Total Point' : 'Total Points') }}
@@ -31,10 +31,10 @@
             </span>
           </div>
           <div class="whitespace-nowrap text-base px-4">
-            <span class="font-medium text-xs">
+            <span class="font-normal text-xs">
               {{ value.feedbacks }}
               <span class="font-normal text-xs">
-                {{ $t(value.feedbacks == 1 ? 'Feedback' : 'Feedbacks') }}
+                {{ $t(value.feedbacks == 1 ? 'Feedback' : 'Feedback') }}
               </span>
             </span>
           </div>

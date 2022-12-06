@@ -222,6 +222,7 @@ div {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-color: transparent;
+  border: currentColor 3px solid;
 }
 [type='checkbox'],
 [type='radio'] {
@@ -232,9 +233,6 @@ div {
   appearance: none;
   background-color: #fff;
   background-origin: border-box;
-  /*border-color: #6b7280;*/
-  /* border-width: 1px; */
-  /*color: inherit;*/
   display: inline-block;
   flex-shrink: 0;
   height: 1.3rem;

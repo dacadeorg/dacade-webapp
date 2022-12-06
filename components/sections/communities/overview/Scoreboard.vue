@@ -68,10 +68,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-/* .form-checkbox {
-  color: red;
-} */
-
-</style>
