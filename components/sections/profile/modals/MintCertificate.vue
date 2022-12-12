@@ -26,7 +26,7 @@
             knowledge from the Solidity Development 101 course.
           </p>
           <div
-            v-if="requireWalletConnection"
+            v-if="!connected"
             class="border-t border-gray-100 border-solid"
           >
             <p class="pt-4">Minting this certificate will cost gas fees.</p>
@@ -53,7 +53,7 @@
           >close</span
         >
         <ArrowButton type="primary">{{
-          requireWalletConnection
+          connected
             ? $t('profile.mint.certificate.button')
             : $t('profile.connect.wallet.button')
         }}</ArrowButton>
@@ -91,6 +91,7 @@ export default {
       type: Object,
     },
   },
+  
   data() {
     return {
       amount: 0,
@@ -101,8 +102,8 @@ export default {
     ...mapGetters({
       achievement: 'profile/certificates/current',
     }),
-    requireWalletConnection() {
-      return this.wallet?.require_wallet_connection || false
+    connected() {
+      return false
     },
   },
 

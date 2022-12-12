@@ -16,8 +16,12 @@
         <p class="text-base text-center font-normal">Mintable</p>
       </div> -->
       <div class="border-t flex justify-center items-center rounded-b-3.5xl border-solid bg-gray-100 mt-4 py-4">
-        <Checkmark/>
-        <p class="text-base text-center font-normal ml-1">NFT</p>
+        <div v-if="!minted"><Checkmark/></div>
+        <p class="text-base text-center font-normal ml-1">{{
+          minted
+            ? "Mintable"
+            : "NFT"
+        }}</p>
       </div>
     </nuxt-link>
   </div>
@@ -45,6 +49,9 @@ export default {
     username() {
       return this.$route.params?.username || this.authUser?.displayName
     },
+    minted(){
+      return false
+    }
   },
 }
 </script>
