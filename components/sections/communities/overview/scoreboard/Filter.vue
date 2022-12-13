@@ -5,84 +5,19 @@
       <div class="block mt-6 mb-6">
       <span class="text-gray-700 mb-4">Filter by</span>
       <div class="mt-6 mb-6">
-        <div class="mt-2 mb-2">
-          <label class="inline-flex items-center">
-            <Radio
-              id="filter-month"
-              v-model="checked"
-              :required="true"
-              name="month"
-            />
-            <span :class="!checked ? 'font-medium' : 'font-normal'" class="ml-4">Month</span>
-          </label>
-        </div>
-        <div class="mt-2 mb-2">
-          <label :class="checked ? 'font-medium' : 'font-normal'" class="inline-flex items-center">
-            <Radio
-              id="filter-month"
-              v-model="checked"
-              :required="true"
-              name="month"
-              size="medium"
-            />
-            <span class="ml-4">Quarter</span>
-          </label>
-        </div>
-        <div class="mt-2 mb-2">
-          <label :class="checked ? 'font-medium' : 'font-normal'" class="inline-flex items-center">
-            <Radio
-              id="filter-month"
-              v-model="checked"
-              :required="true"
-              name="month"
-              class="w-8"
-            />
-            <span class="ml-4">Year</span>
-          </label>
-        </div>
-        <div class="mt-2 mb-2">
-          <label :class="checked ? 'font-medium' : 'font-normal'" class="inline-flex items-center">
-            <Radio
-              id="filter-month"
-              v-model="checked"
-              :required="true"
-              name="month"
-            />
-            <span class="ml-4">All time</span>
-          </label>
-        </div>
+        <FilterOption label="Quarter"/>
+        <FilterOption label="Year"/>
+        <FilterOption label="Something"/>
       </div>
     </div>
     </div> 
-
-    <!------------------------>
 
     <div class="pt-4">
       <div class="block">
       <span class="text-gray-700 mb-4">Sort</span>
       <div class="mt-6 mb-6">
-        <div class="mt-2 mb-2">
-          <label class="inline-flex items-center">
-            <Radio
-              id="filter-month"
-              v-model="checked"
-              :required="true"
-              name="month"
-            />
-            <span :class="checked ? 'font-medium' : 'font-normal'" class="ml-4">Reputation</span>
-          </label>
-        </div>
-        <div class="mt-2 mb-2">
-          <label class="inline-flex items-center">
-            <Radio
-              id="filter-month"
-              v-model="checked"
-              :required="true"
-              name="month"
-            />
-            <span :class="checked ? 'font-medium' : 'font-normal'" class="ml-4">Submission points</span>
-          </label>
-        </div>
+        <FilterOption label="Reputation"/>
+        <FilterOption label="Submission points"/>
         <ScoreboardFilter/>
       </div>
     </div>
@@ -92,16 +27,16 @@
 </template>
 
 <script>
-import Radio from '~/components/ui/Radio.vue'
+import FilterOption from './_partials/FilterOption.vue'
+
 export default {
   name: 'Filter',
-  components: { Radio },
+  components: { FilterOption },
   data() {
     return {
       checked: false,
     }
   },
-
 }
 </script>
   
