@@ -3,13 +3,15 @@
   <div class="mt-2 mb-2">
     <label class="inline-flex items-center">
       <Radio
-        id="filter-month"
+        id="radio btn"
         v-model="checked"
         :required="true"
-        name="month"
+        name="radio btn"
         class="w-8"
       />
-      <span :class="!checked ? 'font-normal' : 'font-medium'" class="ml-4">{{ label }}</span>
+      <span :class="checked ? 'font-medium' : 'font-normal'" class="ml-4">{{ label }}</span>
+      <!-- <span :class="checked ? 'font-medium' : 'font-normal'" class="ml-4">{{ checked }}</span> -->
+
     </label>
   </div>
 </template>
@@ -24,10 +26,14 @@ export default {
       default: null,
       type: String,
     },
+      select: {
+      default: false,
+      type: Boolean,
+    }
   },
   data() {
     return {
-      checked: false,
+      checked: !this.select,
     }
   },
 }
