@@ -10,7 +10,7 @@
         v-for="(achievement, index) in achievements"
         :key="index"
         :data="achievement"
-        
+        class="h-full"
       />
     </div>
   </ProfileOverviewSection>

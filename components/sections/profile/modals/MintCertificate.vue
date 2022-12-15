@@ -18,17 +18,14 @@
             role="alert"
           >
             <span class="block sm:inline">
-                An error coccured please try again.
+              An error coccured please try again.
             </span>
           </div>
           <p class="pb-4">
             This certificate is awarded for passing solidity development
             knowledge from the Solidity Development 101 course.
           </p>
-          <div
-            v-if="!connected"
-            class="border-t border-gray-100 border-solid"
-          >
+          <div v-if="!connected" class="border-t border-gray-100 border-solid">
             <p class="pt-4">Minting this certificate will cost gas fees.</p>
             <input
               type="text"
@@ -46,11 +43,11 @@
           </div>
         </div>
       </div>
-      <div class="flex pl-4 pr-2 my-8 items-center justify-between">
-        <span
+      <div class="flex my-8 items-center justify-between">
+        <a
           class="cursor-pointer text-sm font-medium text-primary"
           @click="$emit('close', true)"
-          >close</span
+          >Close</a
         >
         <ArrowButton type="primary">{{
           connected
@@ -91,7 +88,7 @@ export default {
       type: Object,
     },
   },
-  
+
   data() {
     return {
       amount: 0,
