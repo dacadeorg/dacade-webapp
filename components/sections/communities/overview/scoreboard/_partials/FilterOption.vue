@@ -10,7 +10,7 @@
         :name="name"
         class="w-8"
       />
-      <span :class="value ? 'font-medium' : 'font-normal'" class="ml-4">{{
+      <span :class="checked ? 'font-medium' : 'font-normal'" class="ml-4">{{
         label
       }}</span>
     </label>
@@ -49,6 +49,9 @@ export default {
         this.$emit('input', val)
       },
     },
+    checked() {
+      return this.value === this.data;
+    }
   },
 }
 </script>
