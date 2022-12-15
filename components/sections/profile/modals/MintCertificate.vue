@@ -1,5 +1,5 @@
 <template>
-  <Modal :show="show">
+  <Modal :show="show" size="medium">
     <div class="px-6 pt-6">
       <div class="pb-7">
         <p class="text-.5xl font-medium leading-snug">
