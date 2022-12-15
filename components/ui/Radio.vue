@@ -6,7 +6,7 @@
     :value="data"
     :class="[
       'w-9 h-9 rounded border-gray-400 text-primary rounded-full',
-      disabled ? 'cursor-not-allowed border-4' : 'cursor-pointer'
+      disabled ? 'cursor-not-allowed border-4' : 'cursor-pointer',
     ]"
     :name="name"
     :required="required"
@@ -95,7 +95,18 @@ export default {
     },
   },
   mounted() {
-    this.$refs.input.checked = this.checked
+    this.handleCheck()
+  },
+  methods: {
+    handleCheck() {
+      if (this.checked) {
+        this.$refs.input.checked = this.checked
+        return
+      }
+      if (this.value === this.data) {
+        this.$refs.input.checked = true
+      }
+    },
   },
 }
 </script>

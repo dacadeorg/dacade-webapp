@@ -4,14 +4,15 @@
     <label class="inline-flex items-center">
       <Radio
         id="radio btn"
-        v-model="checked"
+        v-model="vModalValue"
+        :data="data"
         :required="true"
-        name="radio btn"
+        :name="name"
         class="w-8"
       />
-      <span :class="checked ? 'font-medium' : 'font-normal'" class="ml-4">{{ label }}</span>
-      <!-- <span :class="checked ? 'font-medium' : 'font-normal'" class="ml-4">{{ checked }}</span> -->
-
+      <span :class="value ? 'font-medium' : 'font-normal'" class="ml-4">{{
+        label
+      }}</span>
     </label>
   </div>
 </template>
@@ -26,15 +27,28 @@ export default {
       default: null,
       type: String,
     },
-      select: {
+    value: {
       default: false,
-      type: Boolean,
-    }
+      type: [Boolean, String, Object, Array, Number],
+    },
+    data: {
+      default: "",
+      type: String,
+    },
+    name: {
+      default: null,
+      type: String,
+    },
   },
-  data() {
-    return {
-      checked: !this.select,
-    }
+  computed: {
+    vModalValue: {
+      get() {
+        return this.value
+      },
+      set(val) {
+        this.$emit('input', val)
+      },
+    },
   },
 }
 </script>

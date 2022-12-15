@@ -5,9 +5,9 @@
       <div class="block mt-6 mb-6">
       <span class="text-gray-700 mb-4">Filter by</span>
       <div class="mt-6 mb-6">
-        <FilterOption label="Quarter" select="false"/>
-        <FilterOption label="Year" select="false"/>
-        <FilterOption label="Something" select="false"/>
+        <FilterOption v-model="filterBy" label="Quarter" data="quarter" name="filter-by-option" />
+        <FilterOption v-model="filterBy" label="Year" data="year" name="filter-by-option" />
+        <FilterOption v-model="filterBy" label="Something" data="something" name="filter-by-option" />
       </div>
     </div>
     </div> 
@@ -16,9 +16,8 @@
       <div class="block">
       <span class="text-gray-700 mb-4">Sort</span>
       <div class="mt-6 mb-6">
-        <FilterOption label="Reputation" select="false"/>
-        <FilterOption label="Submission points" select="false"/>
-        <ScoreboardFilter/>
+        <FilterOption v-model="sortBy" label="Reputation" data="reputation" name="sort-by-option" />
+        <FilterOption v-model="sortBy" label="Submission points" data="submission-points" name="sort-by-option" />
       </div>
     </div>
     </div> 
@@ -32,6 +31,20 @@ import FilterOption from './_partials/FilterOption.vue'
 export default {
   name: 'Filter',
   components: { FilterOption },
+  data() {
+    return {
+      filterBy: "year",
+      sortBy: "reputation",
+    }
+  },
+  watch: {
+    filterBy(val){
+      console.log(val)
+    },
+    sortBy(val){
+      console.log(val)
+    }
+  }
 }
 </script>
   
