@@ -36,14 +36,6 @@ export default {
       filterBy: "year",
       sortBy: "reputation",
     }
-  },
-  watch: {
-    filterBy(val){
-      console.log(val)
-    },
-    sortBy(val){
-      console.log(val)
-    }
   }
 }
 </script>
