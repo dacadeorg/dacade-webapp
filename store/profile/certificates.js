@@ -29,7 +29,6 @@ export const mutations = {
 export const actions = {
   async find({ commit }, { id }) {
     const { data } = await this.$api.get(`certificates/${id}`)
-    console.log(data)
     commit('setCurrent', data)
     commit('setCurrentMintingStatus', !!data?.minting?.tx)
   },

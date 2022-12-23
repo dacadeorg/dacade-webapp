@@ -24,7 +24,7 @@
         >
           <div v-if="minted"><Checkmark /></div>
           <p class="text-base text-center font-normal">
-            {{ !minted && !minting ? 'Mintable' : 'NFT' }}
+            {{ !minted && !minting ? $t('profile.achievement.mintable') : 'NFT' }}
           </p>
         </div>
       </div>

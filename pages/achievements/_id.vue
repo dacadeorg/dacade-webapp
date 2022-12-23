@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="achievement"
-    class="content-wrapper achievement-content mx-auto h-screen flex items-center"
+    class="content-wrapper achievement-content mx-auto min-h-screen flex items-center py-16"
   >
     <div class="w-full">
       <div class="flex flex-col md:flex-row border rounded-3xl">
@@ -64,12 +64,12 @@
               <AchievementLinkField :link="achievement?.metadata?.linkToWork" />
             </AchievementViewItem>
             <MintCertificate
-              v-if="!achievementMinted"
+              v-if="!achievementMinted && belongsToCurrentUser"
               :show="showMintCertificate"
               @close="showMintCertificate = false"
             />
             <ArrowButton
-              v-if="!minted"
+              v-if="belongsToCurrentUser && !minted"
               target="__blank"
               type="primary"
               class="flex ml-auto mt-5"
@@ -174,6 +174,7 @@ export default {
     ...mapGetters({
       achievement: 'profile/certificates/current',
       achievementMinted: 'profile/certificates/currentMinted',
+      user: 'user/get',
     }),
     issuedOn() {
       if (!this.achievement?.metadata?.issuedOn) return null
@@ -204,6 +205,10 @@ export default {
     },
     txURL() {
       return `${process.env.NUXT_ENV_BLOCK_EXPLORER_URL}/tx/${this.achievement?.minting?.tx}`
+    },
+    belongsToCurrentUser() {
+      if (!this.user) return false
+      return this.user.id === this.achievement?.user_id
     },
   },
 }

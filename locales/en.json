@@ -256,6 +256,7 @@
   "profile.achievement.mint-tx": "Mint tx",
   "profile.achievement.token-id": "Token id",
   "profile.achievement.ipfs-metadata": "Ipfs Metadata",
+  "profile.achievement.mintable": "Mintable",
   "profile.connect.wallet.button": "Connect wallet",
   "faq.title": "FAQ",
   "faq.subtitle": "If you have any additional questions or need help visit our ",
