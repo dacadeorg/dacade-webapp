@@ -23,7 +23,7 @@
           </div>
 
 
-          <ErrorBox :error="hello" class="my-4"/>
+          <ErrorBox class="my-4"> An error coccured please try again. </ErrorBox>
 
           <p class="pb-4">
             This certificate is awarded for passing solidity development
