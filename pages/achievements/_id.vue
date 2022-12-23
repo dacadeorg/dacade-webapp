@@ -83,10 +83,10 @@
             class="pt-5 mt-5 flex flex-col md:gap-3 gap-3 border-t border-t-solid"
           >
             <AchievementViewItem :name="$t('profile.achievement.issued-to')">
-              <span class="text-xs">{{ receiver }}</span>
+              <a :href="addressURL" target="_blank" class="text-xs">{{ receiver }}</a>
             </AchievementViewItem>
             <AchievementViewItem :name="$t('profile.achievement.contract')">
-              <span class="text-xs"> {{ contract }}</span>
+              <a :href="contractURL" target="_blank" class="text-xs"> {{ contract }}</a>
             </AchievementViewItem>
             <AchievementViewItem :name="$t('profile.achievement.token-id')">
               <span class="text-xs"> {{ achievement.minting.tokenId }}</span>
@@ -205,6 +205,12 @@ export default {
     },
     txURL() {
       return `${process.env.NUXT_ENV_BLOCK_EXPLORER_URL}/tx/${this.achievement?.minting?.tx}`
+    },
+    addressURL() {
+      return `${process.env.NUXT_ENV_BLOCK_EXPLORER_URL}/address/${this.achievement?.minting?.receiver}`
+    },
+    contractURL() {
+      return `${process.env.NUXT_ENV_BLOCK_EXPLORER_URL}/address/${this.achievement?.minting?.contract}`
     },
     belongsToCurrentUser() {
       if (!this.user) return false
