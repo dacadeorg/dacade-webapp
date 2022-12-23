@@ -1,7 +1,8 @@
 <template>
   <div class="relative">
-    <div class="floating-input relative">
+    <div class="relative dac-input" :class="{'floating-input': label}">
       <label
+        v-if="label"
         :class="{
           'text-gray-400 flex items-center': !isFilled && !isFocused,
           'text-gray-400 scale-75 -translate-y-3 translate-x-1':
@@ -14,16 +15,16 @@
         {{ label }}
       </label>
       <input
-        :class="{
+        :class="[{
           'text-gray-400 scale-75 -translate-y-3 translate-x-1 bg-gray-50':
             disabled,
           'border-red-100 rounded-b-none': error,
           'focus:border-gray-200 border-gray-200': !error,
-        }"
+        }, inputClass, fontSizeClasses]"
         :value="value"
         :type="type"
         :placeholder="placeholder"
-        class="rounded-md focus:outline-none focus:shadow-sm text-lg w-full"
+        class="rounded-md focus:outline-none focus:shadow-sm w-full"
         autocomplete="off"
         :disabled="disabled"
         @focus="isFocused = true"
@@ -48,31 +49,34 @@ export default {
       default: 'text',
       type: String,
     },
-
     value: {
       default: '',
       type: [String, Number],
     },
-
     label: {
       default: null,
       type: String,
     },
-
     disabled: {
       type: Boolean,
       default: false,
     },
-
     placeholder: {
       default: null,
       type: String,
     },
-
     error: {
       default: null,
       type: String,
     },
+    inputClass: {
+      type: String,
+      default: null,
+    },
+    fontSize: {
+      type: String,
+      default: 'lg',
+    }
   },
 
   data() {
@@ -103,6 +107,18 @@ export default {
         }
       )
     },
+    fontSizeClasses() {
+      switch (this.fontSize) {
+        case '2xl':
+        case 'xl':
+        case 'lg':
+        case 'sm':
+        case 'xs':
+          return 'text-' + this.fontSize;
+        default:
+          return 'text-base'
+      }
+    }
   },
 }
 </script>

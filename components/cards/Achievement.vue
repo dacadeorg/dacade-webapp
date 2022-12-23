@@ -19,14 +19,15 @@
           </p>
         </div>
         <div
-          class="rounded-b-3.5xl border-t border-solid bg-gray-100 mt-4 py-4 bort flex flex-none justify-center items-center"
+          class="rounded-b-3.5xl border-t border-solid mt-4 py-4 bort flex flex-none justify-center items-center space-x-1"
+          :class="{'bg-gray-100': minted}"
         >
-          
-            <div v-if="!minted"><Checkmark /></div>
-            <p class="text-base text-center font-normal ml-1">
-              {{ minted ? 'Mintable' : 'NFT' }}
+
+            <div v-if="minted"><Checkmark /></div>
+            <p class="text-base text-center font-normal">
+              {{ !minted && !minting ? 'Mintable' : 'NFT' }}
             </p>
-          
+
         </div>
       </div>
     </nuxt-link>
@@ -46,6 +47,10 @@ export default {
       type: Object,
       required: true,
     },
+    minting: {
+      type: Boolean,
+      default: false,
+    }
   },
 
   computed: {
@@ -56,7 +61,7 @@ export default {
       return this.$route.params?.username || this.authUser?.displayName
     },
     minted() {
-      return false
+      return !!this.data?.minting?.tx
     },
   },
 }

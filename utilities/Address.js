@@ -27,8 +27,10 @@ export const truncateAlgoAddress = (address) => {
 };
 
 export const truncateAddress = (rawAddress, token = "eth") => {
-  const address = rawAddress.trim();
+  if (!rawAddress) return;
   
+  const address = rawAddress.trim();
+
   switch (token.trim().toLowerCase()) {
     case 'near':
       return truncateNearAddress(address);

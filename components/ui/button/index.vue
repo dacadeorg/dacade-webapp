@@ -28,7 +28,7 @@
     :margin="[margin]"
     :style="!disabled ? styles : null"
     :target="target"
-    :href="link"
+    v-bind="{...componentProps}"
     v-on="inputListeners"
   >
     <slot/>
@@ -139,8 +139,27 @@ export default {
         ...(this.customStyle || {}),
       }
     },
+    isNuxtLink() {
+      return this.link?.startsWith('/');
+    },
     component() {
-      return this.link ? 'a' : 'button'
+      if (!this.link) return 'button';
+      if (this.isNuxtLink) return 'nuxt-link';
+      return 'a';
+    },
+    componentProps() {
+      switch (this.component) {
+        case 'nuxt-link':
+          return {
+            to: this.link
+          };
+        case 'a':
+          return {
+            href: this.link
+          };
+        default:
+          return {}
+      }
     }
   },
 }
