@@ -20,14 +20,12 @@
         </div>
         <div
           class="rounded-b-3.5xl border-t border-solid mt-4 py-4 bort flex flex-none justify-center items-center space-x-1"
-          :class="{'bg-gray-100': minted}"
+          :class="{ 'bg-gray-100': minted }"
         >
-
-            <div v-if="minted"><Checkmark /></div>
-            <p class="text-base text-center font-normal">
-              {{ !minted && !minting ? 'Mintable' : 'NFT' }}
-            </p>
-
+          <div v-if="minted"><Checkmark /></div>
+          <p class="text-base text-center font-normal">
+            {{ !minted && !minting ? 'Mintable' : 'NFT' }}
+          </p>
         </div>
       </div>
     </nuxt-link>
@@ -50,7 +48,7 @@ export default {
     minting: {
       type: Boolean,
       default: false,
-    }
+    },
   },
 
   computed: {

@@ -28,15 +28,15 @@
     :margin="[margin]"
     :style="!disabled ? styles : null"
     :target="target"
-    v-bind="{...componentProps}"
+    v-bind="{ ...componentProps }"
     v-on="inputListeners"
   >
-    <slot/>
+    <slot />
   </component>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Button',
@@ -140,27 +140,27 @@ export default {
       }
     },
     isNuxtLink() {
-      return this.link?.startsWith('/');
+      return this.link?.startsWith('/')
     },
     component() {
-      if (!this.link) return 'button';
-      if (this.isNuxtLink) return 'nuxt-link';
-      return 'a';
+      if (!this.link) return 'button'
+      if (this.isNuxtLink) return 'nuxt-link'
+      return 'a'
     },
     componentProps() {
       switch (this.component) {
         case 'nuxt-link':
           return {
-            to: this.link
-          };
+            to: this.link,
+          }
         case 'a':
           return {
-            href: this.link
-          };
+            href: this.link,
+          }
         default:
           return {}
       }
-    }
+    },
   },
 }
 </script>

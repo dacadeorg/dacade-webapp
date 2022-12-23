@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div class="relative dac-input" :class="{'floating-input': label}">
+    <div class="relative dac-input" :class="{ 'floating-input': label }">
       <label
         v-if="label"
         :class="{
@@ -15,12 +15,16 @@
         {{ label }}
       </label>
       <input
-        :class="[{
-          'text-gray-400 scale-75 -translate-y-3 translate-x-1 bg-gray-50':
-            disabled,
-          'border-red-100 rounded-b-none': error,
-          'focus:border-gray-200 border-gray-200': !error,
-        }, inputClass, fontSizeClasses]"
+        :class="[
+          {
+            'text-gray-400 scale-75 -translate-y-3 translate-x-1 bg-gray-50':
+              disabled,
+            'border-red-100 rounded-b-none': error,
+            'focus:border-gray-200 border-gray-200': !error,
+          },
+          inputClass,
+          fontSizeClasses,
+        ]"
         :value="value"
         :type="type"
         :placeholder="placeholder"
@@ -76,7 +80,7 @@ export default {
     fontSize: {
       type: String,
       default: 'lg',
-    }
+    },
   },
 
   data() {
@@ -114,11 +118,11 @@ export default {
         case 'lg':
         case 'sm':
         case 'xs':
-          return 'text-' + this.fontSize;
+          return 'text-' + this.fontSize
         default:
           return 'text-base'
       }
-    }
+    },
   },
 }
 </script>

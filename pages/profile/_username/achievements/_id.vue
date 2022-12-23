@@ -1,5 +1,5 @@
 <template>
-<div></div>
+  <div></div>
 </template>
 
 <script>
@@ -8,8 +8,10 @@
 
 export default {
   name: 'AchievementRedirect',
-  created(){
-    this.$router.replace(this.localePath(`/achievements/${this.$route.params.id}`));
-  }
+  created() {
+    this.$router.replace(
+      this.localePath(`/achievements/${this.$route.params.id}`)
+    )
+  },
 }
 </script>

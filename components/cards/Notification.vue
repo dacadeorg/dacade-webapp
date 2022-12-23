@@ -62,7 +62,7 @@ export default {
       }
     },
     notificationsLink() {
-      if (!this.link) return null;
+      if (!this.link) return null
       return this.localePath(this.link)
       // window.open(this.link, '_blank')
     },

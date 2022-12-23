@@ -1,7 +1,7 @@
 <template>
   <Popup :show="show" class="py-8" @close="$emit('close', $event)">
     <div
-    :class="[sizeClasses]"
+      :class="[sizeClasses]"
       class="bg-white my-auto rounded-3.5xl relative mx-auto"
     >
       <slot />
@@ -37,6 +37,6 @@ export default {
           return 'w-11/12 md:w-9/12 lg:w-8/12 xl:w-2/5'
       }
     },
-  }
+  },
 }
 </script>

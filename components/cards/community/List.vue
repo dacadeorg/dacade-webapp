@@ -15,7 +15,9 @@
           </div>
           <div class="space-y-5">
             <div class="md:flex flex-row justify-between">
-              <div class="text-base pt-7 pb-3 md:pb-0 text-left flex-start flex flex-col">
+              <div
+                class="text-base pt-7 pb-3 md:pb-0 text-left flex-start flex flex-col"
+              >
                 <div class="flex space-x-3">
                   <div class="flex space-x-2">
                     <Coin :token="reward.token" size="normal" />

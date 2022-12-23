@@ -38,15 +38,15 @@ export default {
       }
     },
   },
+  beforeDestroy() {
+    if (this.show) {
+      this.$store.dispatch('ui/toggleBodyScrolling', false)
+    }
+  },
   methods: {
     externalClick(event) {
       this.$emit('close', true)
     },
   },
-  beforeDestroy() {
-    if(this.show){
-      this.$store.dispatch('ui/toggleBodyScrolling', false)
-    }
-  }
 }
 </script>
