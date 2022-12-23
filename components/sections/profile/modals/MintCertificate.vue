@@ -21,6 +21,10 @@
               An error coccured please try again.
             </span>
           </div>
+
+
+          <ErrorBox :error="hello" class="my-4"/>
+
           <p class="pb-4">
             This certificate is awarded for passing solidity development
             knowledge from the Solidity Development 101 course.
@@ -63,7 +67,9 @@
 import { mapGetters } from 'vuex'
 import Modal from '@/components/ui/Modal'
 import AchievementCard from '~/components/cards/Achievement'
+
 import ArrowButton from '@/components/ui/button/Arrow'
+import ErrorBox from "~/components/ui/ErrorBox";
 
 export default {
   name: 'MintCertificate',
@@ -71,6 +77,7 @@ export default {
     Modal,
     AchievementCard,
     ArrowButton,
+    ErrorBox,
   },
   props: {
     show: {
@@ -111,6 +118,8 @@ export default {
         this.$emit('close', true)
       })
     },
+
+    
   },
 }
 </script>
