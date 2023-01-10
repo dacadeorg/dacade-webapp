@@ -1,9 +1,9 @@
 <template>
   <component
     :is="component"
-    class="outline-none focus:outline-none hover:outline-none cursor-pointer relative disabled:border-opacity-60 disabled:cursor-not-allowed"
+    class="btn outline-none focus:outline-none hover:outline-none cursor-pointer relative disabled:border-opacity-60 disabled:cursor-not-allowed"
     :disabled="disabled"
-    type="submit"
+    :type="variant"
     :class="{
       'disabled:bg-gray-100 disabled:text-gray-400':
         type === 'primary' || type === 'secondary',
@@ -28,15 +28,15 @@
     :margin="[margin]"
     :style="!disabled ? styles : null"
     :target="target"
-    :href="link"
+    v-bind="{ ...componentProps }"
     v-on="inputListeners"
   >
-    <slot/>
+    <slot />
   </component>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Button',
@@ -59,6 +59,10 @@ export default {
     },
     type: {
       default: 'primary',
+      type: String,
+    },
+    variant: {
+      default: 'submit',
       type: String,
     },
     padding: {
@@ -135,9 +139,28 @@ export default {
         ...(this.customStyle || {}),
       }
     },
+    isNuxtLink() {
+      return this.link?.startsWith('/')
+    },
     component() {
-      return this.link ? 'a' : 'button'
-    }
+      if (!this.link) return 'button'
+      if (this.isNuxtLink) return 'nuxt-link'
+      return 'a'
+    },
+    componentProps() {
+      switch (this.component) {
+        case 'nuxt-link':
+          return {
+            to: this.link,
+          }
+        case 'a':
+          return {
+            href: this.link,
+          }
+        default:
+          return {}
+      }
+    },
   },
 }
 </script>
