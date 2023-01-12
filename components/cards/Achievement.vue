@@ -1,6 +1,7 @@
 <template>
   <div
     class="border border-solid rounded-3.5xl pt-9 overflow-hidden w-full h-full"
+    :class="{'pb-9': !mintable}"
   >
     <nuxt-link
       :to="localePath(`/achievements/${data.id}`)"
@@ -19,12 +20,15 @@
           </p>
         </div>
         <div
+          v-if="mintable"
           class="rounded-b-3.5xl border-t border-solid mt-4 py-4 bort flex flex-none justify-center items-center space-x-1"
           :class="{ 'bg-gray-100': minted }"
         >
           <div v-if="minted"><Checkmark /></div>
           <p class="text-base text-center font-normal">
-            {{ !minted && !minting ? $t('profile.achievement.mintable') : 'NFT' }}
+            {{
+              !minted && !minting ? $t('profile.achievement.mintable') : 'NFT'
+            }}
           </p>
         </div>
       </div>
@@ -60,6 +64,9 @@ export default {
     },
     minted() {
       return !!this.data?.minting?.tx
+    },
+    mintable() {
+      return this.data?.community?.can_mint_certificates
     },
   },
 }

@@ -63,46 +63,52 @@
             >
               <AchievementLinkField :link="achievement?.metadata?.linkToWork" />
             </AchievementViewItem>
-            <MintCertificate
-              v-if="!achievementMinted && belongsToCurrentUser"
-              :show="showMintCertificate"
-              @close="showMintCertificate = false"
-            />
-            <ArrowButton
-              v-if="belongsToCurrentUser && !minted"
-              target="__blank"
-              type="primary"
-              class="flex ml-auto mt-5"
-              @click="showMintCertificate = true"
-            >
-              Mint certificate
-            </ArrowButton>
+            <div v-if="mintable" class="w-full flex">
+              <MintCertificate
+                v-if="!achievementMinted && belongsToCurrentUser"
+                :show="showMintCertificate"
+                @close="showMintCertificate = false"
+              />
+              <ArrowButton
+                v-if="belongsToCurrentUser && !minted"
+                target="__blank"
+                type="primary"
+                class="flex ml-auto mt-5"
+                @click="showMintCertificate = true"
+              >
+                Mint certificate
+              </ArrowButton>
+            </div>
           </div>
           <div
             v-if="minted"
             class="pt-5 mt-5 flex flex-col md:gap-3 gap-3 border-t border-t-solid"
           >
             <AchievementViewItem :name="$t('profile.achievement.issued-to')">
-              <a :href="addressURL" target="_blank" class="text-xs">{{ receiver }}</a>
+              <a :href="addressURL" target="_blank" class="text-xs">{{
+                receiver
+              }}</a>
             </AchievementViewItem>
-            <AchievementViewItem :name="$t('profile.achievement.contract')">
-              <a :href="contractURL" target="_blank" class="text-xs"> {{ contract }}</a>
+            <!-- <AchievementViewItem :name="$t('profile.achievement.contract')">
+              <a :href="contractURL" target="_blank" class="text-xs">
+                {{ contract }}</a
+              >
             </AchievementViewItem>
             <AchievementViewItem :name="$t('profile.achievement.token-id')">
-              <span class="text-xs"> {{ achievement.minting.tokenId }}</span>
-            </AchievementViewItem>
+              <span class="text-xs"> {{ achievement.minting.tokenId }}</span> -->
+            <!-- </AchievementViewItem> -->
             <AchievementViewItem :name="$t('profile.achievement.mint-tx')">
               <a :href="txURL" target="_blank" class="text-xs underline">
                 {{ achievement.minting.tx }}</a
               >
             </AchievementViewItem>
-            <AchievementViewItem
+            <!-- <AchievementViewItem
               :name="$t('profile.achievement.ipfs-metadata')"
             >
               <a :href="ipfsUrl" target="_blank" class="text-xs underline">
                 {{ achievement.minting.tokenURI }}</a
               >
-            </AchievementViewItem>
+            </AchievementViewItem> -->
           </div>
         </div>
       </div>
@@ -215,6 +221,9 @@ export default {
     belongsToCurrentUser() {
       if (!this.user) return false
       return this.user.id === this.achievement?.user_id
+    },
+    mintable() {
+      return this.achievement?.community?.can_mint_certificates
     },
   },
 }
