@@ -6,12 +6,12 @@
           {{ $t('profile.mint.certificate') }}
         </p>
       </div>
-      <div class="flex gap-5">
-        <div class="">
+      <div class="flex flex-col md:flex-row gap-5">
+        <div class="w-1/2 md:w-auto mx-auto md:mx-0">
           <AchievementCard :data="achievement" minting />
         </div>
 
-        <div class="w-3/4 font-primary">
+        <div class="w-full md:w-3/4 font-primary">
           <ErrorBox v-if="error" class="my-4" :error="error" />
           <div v-if="minted" class="flex flex-col gap-3">
             <div

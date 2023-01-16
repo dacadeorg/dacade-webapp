@@ -2,7 +2,7 @@
   <Popup :show="show" class="py-8" @close="$emit('close', $event)">
     <div
       :class="[sizeClasses]"
-      class="bg-white my-auto rounded-3.5xl relative mx-auto"
+      class="bg-white my-auto rounded-3.5xl relative mx-auto max-w-5xl"
     >
       <slot />
     </div>
