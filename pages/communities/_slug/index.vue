@@ -46,6 +46,7 @@ export default {
       community: 'communities/current',
       courses: 'communities/courses/list',
       scoreboard: 'communities/scoreboard/list',
+      scoreboardFilter: 'communities/scoreboard/filter'
     }),
   },
 }
