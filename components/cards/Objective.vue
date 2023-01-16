@@ -4,9 +4,8 @@
       class="mr-2 py-0 pt-px mt-px"
       :style="{ color: iconcolor || colors.primary }"
     >
-      <div v-if="crossmark">
-        <Crossmark />
-      </div>
+      <Crossmark v-if="crossmark" />
+
       <div v-else>
         <Checkmark />
       </div>
