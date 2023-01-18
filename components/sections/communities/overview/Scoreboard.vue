@@ -3,10 +3,11 @@
     v-if="list && list.length"
     :title="$t('communities.overview.scoreboard.title')"
     :description="$t('communities.overview.scoreboard.description')"
-  >
-    <div
+  >    
+      <div
       class="w-full flex flex-col divide-y divide-solid divide-gray-200 border border-gray-200 border-solid rounded-3xl overflow-hidden"
     >
+
       <ScoreboardCard
         v-for="(item, i) in list.slice(0, items)"
         :key="i"
@@ -51,6 +52,7 @@ export default {
     ...mapGetters({
       community: 'communities/current',
       list: 'communities/scoreboard/list',
+      filteredList: 'communities/scoreboard/filteredList',
       colors: 'ui/colors',
     }),
   },

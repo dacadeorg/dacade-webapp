@@ -4,6 +4,7 @@
     <Section>
       <div class="w-full mx-auto divide-y divide-solid divide-gray-200">
         <Courses />
+        <!-- <div>{{  filteredList }}</div> -->
         <Scoreboard />
       </div>
     </Section>
@@ -31,6 +32,7 @@ export default {
       store.dispatch('communities/find', params.slug),
       store.dispatch('communities/courses/all', params.slug),
       store.dispatch('communities/scoreboard/all', params.slug),
+      store.dispatch('communities/scoreboard/filteredList', params.slug),
     ]).catch((e) => {
       error(e)
     })
@@ -46,7 +48,7 @@ export default {
       community: 'communities/current',
       courses: 'communities/courses/list',
       scoreboard: 'communities/scoreboard/list',
-      scoreboardFilter: 'communities/scoreboard/filter'
+      filteredList: 'communities/scoreboard/filteredList'
     }),
   },
 }

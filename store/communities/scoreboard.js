@@ -3,15 +3,15 @@
 
 export const state = () => ({
   list: [],
-  filter: [],
+  filteredList: [],
 })
 
 export const mutations = {
   setList(state, payload) {
     state.list = payload
   },
-  setFilter(state, payload) {
-    state.filter = payload
+  setFilteredList(state, payload) {
+    state.filteredList = payload
   },
 }
 
@@ -20,9 +20,13 @@ export const actions = {
     const { data } = await this.$api.get(`communities/${slug}/scoreboard`)
     commit('setList', data)
   },
-  async filterAll({ commit }, slug) {
-    const { data } = await this.$api.get(`communities/${slug}/scoreboard?filter-by=all`)
-    commit('setFilter', data)
+    async filter({ commit }, { slug, filterBy }) {
+    const { data } = await this.$api.get(`communities/${slug}/scoreboard`, {
+      params: {
+        "filter-by": filterBy,
+      }
+    })
+    commit('setFilteredList', data)
   },
 }
 
@@ -30,7 +34,7 @@ export const getters = {
   list(state) {
     return state.list
   },
-  filter(state) {
-    return state.filter
+  filteredList(state) {
+    return state.filteredList
   },
 }
