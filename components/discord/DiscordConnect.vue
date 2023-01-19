@@ -19,9 +19,9 @@
 
       <div class="pb-7">
         <Button
-:class="discordLoading && 'text-gray-500'" :disabled="discordLoading"
-                class="bg-white disabled:text-gray-500 -ml-4 text-blue-500 font-semibold py-2 px-4 border-none! rounded"
-                @click="closeModal()">
+          :disabled="discordLoading" class="-ml-4 font-semibold border-none!"
+          type="outline-primary"
+          @click="closeModal()">
           {{ $t('profile.header.discord.close') }}
         </Button>
       </div>
@@ -32,11 +32,13 @@
 <script>
 import Modal from "~/components/ui/Modal.vue";
 import Loader from "~/components/ui/Loader.vue";
+import Button from '@/components/ui/button'
 export default {
   name: "DiscordConnect",
   components: {
     Loader,
     Modal,
+    Button
   },
   data() {
     return {
