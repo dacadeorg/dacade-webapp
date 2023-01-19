@@ -3,15 +3,11 @@
 
 export const state = () => ({
   list: [],
-  filteredList: [],
 })
 
 export const mutations = {
   setList(state, payload) {
     state.list = payload
-  },
-  setFilteredList(state, payload) {
-    state.filteredList = payload
   },
 }
 
@@ -26,15 +22,12 @@ export const actions = {
         "filter-by": filterBy,
       }
     })
-    commit('setFilteredList', data)
+    commit('setList', data)
   },
 }
 
 export const getters = {
   list(state) {
     return state.list
-  },
-  filteredList(state) {
-    return state.filteredList
   },
 }

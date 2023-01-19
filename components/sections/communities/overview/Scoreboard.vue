@@ -7,6 +7,7 @@
       <div
       class="w-full flex flex-col divide-y divide-solid divide-gray-200 border border-gray-200 border-solid rounded-3xl overflow-hidden"
     >
+    {{ list }}
 
       <ScoreboardCard
         v-for="(item, i) in list.slice(0, items)"
@@ -52,7 +53,6 @@ export default {
     ...mapGetters({
       community: 'communities/current',
       list: 'communities/scoreboard/list',
-      filteredList: 'communities/scoreboard/filteredList',
       colors: 'ui/colors',
     }),
   },
