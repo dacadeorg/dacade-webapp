@@ -280,6 +280,7 @@
   "error.default.message": "Ha ocurrido un error y su petición no puede ser completada.",
   "error.page.button.refresh": "Por favor refresque la página y pruebe de nuevo más tarde",
   "error.page.button.home": "Home Page",
+  "success.page.button.profile": "Profile Page",
   "navigation.start": "Comenzar",
   "navigation.next": "Siguiente",
   "navigation.profile.title": "Perfil",
@@ -310,5 +311,7 @@
   "ui.translating": "Traductorio",
   "ui.translate": "Traducir al",
   "ui.translated": "Traducido al",
-  "ui.translation.action.original": "Ver originales"
+  "ui.translation.action.original": "Ver originales",
+  "discord-verification.error.title": "Verificación de discordia fallida",
+  "discord-verification.success.title": "Discord se ha vinculado con éxito"
 }
