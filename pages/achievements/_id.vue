@@ -85,7 +85,7 @@
             class="pt-5 mt-5 flex flex-col md:gap-3 gap-3 border-t border-t-solid"
           >
             <AchievementViewItem :name="$t('profile.achievement.issued-to')">
-              <a :href="addressURL" target="_blank" class="text-xs">{{
+              <a :href="addressURL" target="_blank" class="text-xs underline">{{
                 receiver
               }}</a>
             </AchievementViewItem>
