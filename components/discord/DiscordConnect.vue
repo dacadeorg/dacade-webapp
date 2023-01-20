@@ -88,6 +88,8 @@ export default {
           return
         }
         this.discordSuccess = true
+        await this.$store.dispatch('user/fetch')
+
       } catch (e) {
         console.log({e})
         this.discordError = true
