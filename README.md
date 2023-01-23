@@ -42,11 +42,13 @@ $ npm run generate
 
 #### Step by step installation manual
 
-- copy the link from the repository
-- clone the repo with the link in your local machine, ideally in a new folder
-- install the dependencies running ```npm i```
-- add the ```.env ``` file that is provided below
+- copy the link from the repository https://github.com/dacadeorg/dacade-webapp/
+- usually the link to clone should go as follows: git@github.com:dacadeorg/dacade-webapp.git
+- clone the repo with the link in your local machine, ideally in a new folder, with the command ```git clone [ repo link ] 
+- install the dependencies running ```npm i``` (make sure to be using the right node version before installing the dependencies)
+- add the ```.env ``` file that is provided below and add it to the root folder in the repository
 - to run the application in the browser, initiate the local server with the command ```npm run dev ```
+
 
 ### 4. Provide env file, dummy firebase database
 
