@@ -77,9 +77,11 @@ NUXT_ENV_GOOGLE_TRANSLATE_API_KEY="AIzaSyC6XYHCctzfWaxQK6Lbl9eZ0JUzbATcjpM"
 
 ### User Roles and Privileges 
 
+```bash
 - Administrator 
 - Editor
 - Guest
+```
 
 ### Accessibility Instructions 
 
@@ -89,10 +91,12 @@ information about how users with disabilities can access and use the web applica
 
 which browsers the web application supports, and any special instructions for using the application in certain browsers. Additionally, you should provide any warnings about using certain browsers, as well as any technical requirements or limitations of the application.
 
+```bash
 - Chrome
 - Firefox
 - Safari
 - Edge
+```
 
 If the wrong browser is used, then the web application may not operate as expected, or may malfunction in certain areas. Additionally, using the wrong browser may lead to reduced performance of the application or incompatible features.
 
