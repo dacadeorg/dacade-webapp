@@ -76,6 +76,11 @@ NUXT_ENV_GOOGLE_TRANSLATE_API_KEY="AIzaSyC6XYHCctzfWaxQK6Lbl9eZ0JUzbATcjpM"
 
 ### Application features and capabilities 
 
+- authentication feature:
+    - how users can create accounts, log in, and reset passwords
+- information about the application's data storage capabilities, as well as any analytics tools available to track user activity
+- information about any other features available in the application
+
 ### User Roles and Privileges 
 
 ```bash
