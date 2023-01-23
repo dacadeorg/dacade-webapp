@@ -9,7 +9,7 @@ Through incentives in the form of micro transactions, students can earn rewards 
 
 ## Setup guidelines
 
-### 1. Requirements (what tools, node version e.g.) (gabs)
+### 1. Requirements
 
 - node.js version 16.0.0.
 
@@ -24,6 +24,16 @@ Through incentives in the form of micro transactions, students can earn rewards 
 
 ### 3. Guide on how to install it and how to run with the project connected to the firebase dummy database
 
+#### Step by step installation manual
+
+- copy the link from the repository https://github.com/dacadeorg/dacade-webapp/
+- usually the link to clone should go as follows: ``` git@github.com:dacadeorg/dacade-webapp.git ```
+- clone the repo with the link in your local machine, ideally in a new folder, with the command ```git clone [ repo link ] 
+- install the dependencies running ```npm i``` (make sure to be using the right node version before installing the dependencies)
+- add the ```.env ``` file that is provided below and add it to the root folder in the repository
+- to run the application in the browser, initiate the local server with the command ```npm run dev ```
+
+#### Relevant commands
 
 ```bash
 # install dependencies
@@ -39,15 +49,6 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
-
-#### Step by step installation manual
-
-- copy the link from the repository https://github.com/dacadeorg/dacade-webapp/
-- usually the link to clone should go as follows: git@github.com:dacadeorg/dacade-webapp.git
-- clone the repo with the link in your local machine, ideally in a new folder, with the command ```git clone [ repo link ] 
-- install the dependencies running ```npm i``` (make sure to be using the right node version before installing the dependencies)
-- add the ```.env ``` file that is provided below and add it to the root folder in the repository
-- to run the application in the browser, initiate the local server with the command ```npm run dev ```
 
 
 ### 4. Provide env file, dummy firebase database
@@ -72,27 +73,22 @@ NUXT_ENV_DISCORD_SCOPE="identify email"
 NUXT_ENV_GOOGLE_TRANSLATE_API_KEY="AIzaSyC6XYHCctzfWaxQK6Lbl9eZ0JUzbATcjpM"
 ```
 
+### Application features and capabilities 
 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
+### User Roles and Privileges 
+
+- Administrator 
+- Editor
+- Guest.
+
+### Accessibility Instructions 
+
+### Browsers and Compatibility  
+
+### Troubleshooting and Problem-Solving Guide 
+
+### Appendix
+
 * 
 * 
 
