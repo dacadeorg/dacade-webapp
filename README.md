@@ -87,12 +87,12 @@ NUXT_ENV_GOOGLE_TRANSLATE_API_KEY="AIzaSyC6XYHCctzfWaxQK6Lbl9eZ0JUzbATcjpM"
 - information about the application's data storage capabilities, as well as any analytics tools available to track user activity
     - https://firebase.google.com/
 - information about any other features available in the application
-    - rewards 
+    - the user can claim their their rewards that they either have earned by submitting a challenge or by giving feedback to another user's challenge.  
 
 ### User Roles and Privileges 
 
 ```bash
-- Administrator 
+- Admin 
 - Editor
 - Guest
 ```
