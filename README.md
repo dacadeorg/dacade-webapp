@@ -40,6 +40,13 @@ $ npm start
 $ npm run generate
 ```
 
+#### Step by step installation manual
+
+- copy the link from the repository
+- clone the repo with the link in your local machine, ideally in a new folder
+- install the dependencies running ```npm i```
+- add the ```.env ``` file that is provided below
+- to run the application in the browser, initiate the local server with the command ```npm run dev ```
 
 ### 4. Provide env file, dummy firebase database
 
