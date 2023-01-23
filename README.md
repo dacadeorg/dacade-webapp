@@ -11,7 +11,7 @@ Through incentives in the form of micro transactions, students can earn rewards 
 
 ### 1. Requirements
 
-- node.js version ``` 16.0.0. 
+- node.js version ``` 16.0.0. ``` 
 
 ### 2. Tech stack (included in repo)
 
