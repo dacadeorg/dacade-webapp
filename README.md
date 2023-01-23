@@ -85,7 +85,9 @@ NUXT_ENV_GOOGLE_TRANSLATE_API_KEY="AIzaSyC6XYHCctzfWaxQK6Lbl9eZ0JUzbATcjpM"
             4. User can reset their password if they have forgotten it. 
             5. User is logged in and can access the application.   
 - information about the application's data storage capabilities, as well as any analytics tools available to track user activity
+    - https://firebase.google.com/
 - information about any other features available in the application
+    - rewards 
 
 ### User Roles and Privileges 
 
