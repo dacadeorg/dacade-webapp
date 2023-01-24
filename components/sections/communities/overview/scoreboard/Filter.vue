@@ -9,8 +9,8 @@
             v-for="(option, i) in options"
             :key="i"
             v-model="filterBy"
-            :label="option"
-            :data="option"
+            :label="option.label"
+            :data="option.value"
             name="filter-by-option"
           />
         </div>
@@ -22,15 +22,11 @@
         <span class="text-gray-700 mb-4">Sort</span>
         <div class="mt-6 mb-6">
           <FilterOption
+            v-for="(option, i) in sortingOptions"
+            :key="i"
             v-model="sortBy"
-            label="Reputation"
-            data="reputation"
-            name="sort-by-option"
-          />
-          <FilterOption
-            v-model="sortBy"
-            label="Submission points"
-            data="submission-points"
+            :label="option.label"
+            :data="option.value"
             name="sort-by-option"
           />
         </div>
@@ -48,13 +44,42 @@ export default {
   components: { FilterOption },
   data() {
     return {
-      filterBy: 'All',
+      filterBy: 'all',
       sortBy: 'reputation',
     }
   },
   computed: {
     options() {
-      return ['All', 'Month', 'Quarter', 'Year']
+      return [
+        {
+          label: 'All',
+          value: 'all',
+        },
+        {
+          label: 'Month',
+          value: 'month',
+        },
+        {
+          label: 'Quarter',
+          value: 'quarter',
+        },
+        {
+          label: 'Year',
+          value: 'year',
+        },
+      ]
+    },
+    sortingOptions() {
+      return [
+        {
+          label: 'Reputation',
+          value: 'reputation',
+        },
+        {
+          label: 'Submission points',
+          value: 'submission-points',
+        },
+      ]
     },
   },
   watch: {
@@ -62,7 +87,7 @@ export default {
       if (newValue === oldValue) return
       this.$store.dispatch('communities/scoreboard/filter', {
         slug: this.$route.params.slug,
-        filterBy: newValue.toLowerCase(),
+        filterBy: newValue,
       })
     },
   },
