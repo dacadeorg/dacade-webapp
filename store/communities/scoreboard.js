@@ -16,6 +16,14 @@ export const actions = {
     const { data } = await this.$api.get(`communities/${slug}/scoreboard`)
     commit('setList', data)
   },
+    async filter({ commit }, { slug, filterBy }) {
+    const { data } = await this.$api.get(`communities/${slug}/scoreboard`, {
+      params: {
+        "filter-by": filterBy,
+      }
+    })
+    commit('setList', data)
+  },
 }
 
 export const getters = {

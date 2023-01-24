@@ -4,6 +4,7 @@
     <Section>
       <div class="w-full mx-auto divide-y divide-solid divide-gray-200">
         <Courses />
+        {{ scoreboard }}        
         <Scoreboard />
       </div>
     </Section>
@@ -16,7 +17,6 @@ import Scoreboard from '@/components/sections/communities/overview/Scoreboard'
 import Courses from '@/components/sections/communities/overview/Courses'
 import Section from '@/components/ui/Section'
 import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
-
 export default {
   components: {
     MainHeaderSection,
@@ -31,6 +31,7 @@ export default {
       store.dispatch('communities/find', params.slug),
       store.dispatch('communities/courses/all', params.slug),
       store.dispatch('communities/scoreboard/all', params.slug),
+      // store.dispatch('communities/scoreboard/filter', params.slug),
     ]).catch((e) => {
       error(e)
     })
