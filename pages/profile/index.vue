@@ -25,7 +25,7 @@ import ProfileOverviewAchievements from '~/components/sections/profile/overview/
 import ProfileOverviewReferrals from '~/components/sections/profile/overview/Referrals'
 import ProfileOverviewSection from '~/components/sections/profile/overview/Section'
 import {getMetadataTitle} from '~/utilities/Metadata'
-import DiscordConnect from "~/components/discord/DiscordConnect.vue";
+import DiscordConnect from "~/components/popups/DiscordConnect.vue";
 
 export default {
   name: 'ProfileOverview',
