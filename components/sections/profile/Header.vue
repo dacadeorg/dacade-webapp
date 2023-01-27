@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     triggerDiscordOauth() {
-      window.location.href = `${process.env.NUXT_ENV_DISCORD_OAUTH_BASE_URL}?client_id=${process.env.NUXT_ENV_DISCORD_CLIENT_ID}&redirect_uri=${process.env.NUXT_ENV_DISCORD_CALLBACK_URL}&response_type=code&scope=${process.env.NUXT_ENV_DISCORD_SCOPE}`
+      window.location.href = `${process.env.NUXT_ENV_DISCORD_OAUTH_BASE_URL}?response_type=code&client_id=${process.env.NUXT_ENV_DISCORD_CLIENT_ID}&scope=${process.env.NUXT_ENV_DISCORD_SCOPE}&state=15773059ghq9183habn&redirect_uri=${process.env.NUXT_ENV_DISCORD_CALLBACK_URL}&prompt=consent`
     },
   },
 }

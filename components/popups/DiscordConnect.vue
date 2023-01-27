@@ -1,3 +1,4 @@
+<!-- eslint-disable camelcase -->
 <template>
   <!--     connecting to discord modal -->
   <Modal :show="showDiscordModal" size="medium">
@@ -11,17 +12,26 @@
       <div class="pb-7 flex space-x-3">
         <Loader v-if="discordLoading" class="h-6 w-6 text-green-400 pt-6" />
         <p
-          :class="discordError ? 'bg-red-50 text-red-700' : discordSuccess ? 'bg-green-50 text-green-700' : 'bg-white'"
-           class="p-3 rounded text-.2xl font-medium leading-snug flex-1">
+          :class="
+            discordError
+              ? 'bg-red-50 text-red-700'
+              : discordSuccess
+              ? 'bg-green-50 text-green-700'
+              : 'bg-white'
+          "
+          class="p-3 rounded text-.2xl font-medium leading-snug flex-1"
+        >
           {{ getDiscordMessage() }}
         </p>
       </div>
 
       <div class="pb-7">
         <Button
-          :disabled="discordLoading" class="-ml-4 font-semibold border-none!"
+          :disabled="discordLoading"
+          class="-ml-4 font-semibold border-none!"
           type="outline-primary"
-          @click="closeModal()">
+          @click="closeModal()"
+        >
           {{ $t('profile.header.discord.close') }}
         </Button>
       </div>
@@ -30,15 +40,15 @@
 </template>
 
 <script>
-import Modal from "~/components/ui/Modal.vue";
-import Loader from "~/components/ui/Loader.vue";
+import Modal from '~/components/ui/Modal.vue'
+import Loader from '~/components/ui/Loader.vue'
 import Button from '@/components/ui/button'
 export default {
-  name: "DiscordConnect",
+  name: 'DiscordConnect',
   components: {
     Loader,
     Modal,
-    Button
+    Button,
   },
   data() {
     return {
@@ -72,7 +82,7 @@ export default {
 
     async discordCallback() {
       try {
-        const code = this.$route.query.code
+        const { code } = this.$route.query
         if (!code) {
           return
         }
@@ -80,6 +90,7 @@ export default {
         this.discordLoading = true
         this.showDiscordModal = true
 
+        // eslint-disable-next-line camelcase
         const res = await this.$api.post('auth/discord', {
           code,
         })
@@ -89,16 +100,14 @@ export default {
         }
         this.discordSuccess = true
         await this.$store.dispatch('user/fetch')
-
       } catch (e) {
-        console.log({e})
+        console.log({ e })
         this.discordError = true
       } finally {
         this.discordLoading = false
+        this.$router.replace({ query: {} });
       }
-
     },
-
   },
 }
 </script>
