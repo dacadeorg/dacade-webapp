@@ -72,7 +72,7 @@ export default {
 
     getDiscordMessage() {
       if (this.discordError) {
-        return this.$t('profile.header.discord.error')
+        return this.discordError
       }
       if (this.discordSuccess) {
         return this.$t('profile.header.discord.success')
@@ -101,8 +101,8 @@ export default {
         this.discordSuccess = true
         await this.$store.dispatch('user/fetch')
       } catch (e) {
-        console.log({ e })
-        this.discordError = true
+        console.log({e})
+        this.discordError = e?.message?.message || this.$t('profile.header.discord.error')
       } finally {
         this.discordLoading = false
         this.$router.replace({ query: {} });
