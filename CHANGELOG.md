@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.13.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.12.2...v3.13.0) (2023-01-30)
+
+
+### Features
+
+* add api connections to the minting ([4e7c6ff](https://github.com/dacadeorg/dacade-webapp/commit/4e7c6ff76c1b8f0402eabe9f5d086fb9e7f547ef))
+* implement mint certificate design ([d072a74](https://github.com/dacadeorg/dacade-webapp/commit/d072a74dcd86bd7797d6fa11a261c14092d488ab))
+* prevent showing minting button for non owned certs ([acbde28](https://github.com/dacadeorg/dacade-webapp/commit/acbde28d211deb15dff81ee57328ef4b35bc9bf8))
+* remove minting feature on non mintable certificates ([05c0592](https://github.com/dacadeorg/dacade-webapp/commit/05c05923ea3a3cb1fad6513f0404b4a1d3ed5802))
+
+
+### Bug Fixes
+
+* add errobox for the errors ([26469e0](https://github.com/dacadeorg/dacade-webapp/commit/26469e0a38e506575081b6d7ffc61a8c4352eed6))
+* remove unused icons ([6caec85](https://github.com/dacadeorg/dacade-webapp/commit/6caec85ec72fd4cb0b404d3d84ba6f5e8b0b270a))
+* resolving comments ([284f8f7](https://github.com/dacadeorg/dacade-webapp/commit/284f8f773cd279234e6155cab4e842bbcd16273f))
+* space issues ([afa56ff](https://github.com/dacadeorg/dacade-webapp/commit/afa56ff4afb0cba8af1a50d00a4bad163ffc7960))
+* the error msg ([1e54f6f](https://github.com/dacadeorg/dacade-webapp/commit/1e54f6f1f0b03f157f760efacb8dea7d7c8a1585))
+* the modal size ([293c7bf](https://github.com/dacadeorg/dacade-webapp/commit/293c7bfc0b54e7f8ad7b9a07b7631b30fec453f3))
+* the space between flex ([634fc50](https://github.com/dacadeorg/dacade-webapp/commit/634fc50745ad06f73759ed6076995ecf180756e9))
+* update user after discord connect ([739c08f](https://github.com/dacadeorg/dacade-webapp/commit/739c08fee1c9533537c68f7e06f3cb1167c809bb))
+* use button component ([5d07976](https://github.com/dacadeorg/dacade-webapp/commit/5d07976fa8902b64f0878da5bad881e953d08cb5))
+
+
+### Improvements
+
+* add link to address and contract ([d3b23a9](https://github.com/dacadeorg/dacade-webapp/commit/d3b23a90f34ad7c0c6337cee8e46d4a3bd4531f0))
+* adjust achivement card text ([5860d87](https://github.com/dacadeorg/dacade-webapp/commit/5860d87f73cd1fd1cc2d6ca7293d49deaf2cf5e3))
+* adjust disconnect connector ([5b38351](https://github.com/dacadeorg/dacade-webapp/commit/5b38351ceec8e45c5f0dd7224dddfd89c593598c))
+* adjust mobile certificate minting design ([616ac32](https://github.com/dacadeorg/dacade-webapp/commit/616ac32c450d6c8ba23897f6059b940589c11200))
+* adjust pre commit script ([1f6d568](https://github.com/dacadeorg/dacade-webapp/commit/1f6d568a0db8958d3e759c55acc6acc7cf881e9d))
+* adjust the minting text ([c67b116](https://github.com/dacadeorg/dacade-webapp/commit/c67b116cbafc24f2cce156d6aa2f56408ff8df93))
+* cleanup ([eb6b97a](https://github.com/dacadeorg/dacade-webapp/commit/eb6b97a255ce5c462cfc88cebfc0af53f2d7656b))
+* fix linting issues ([6d74365](https://github.com/dacadeorg/dacade-webapp/commit/6d74365b3496ab4d46160c0e6da7cf057ddef297))
+* fix linting issues ([ff34bf2](https://github.com/dacadeorg/dacade-webapp/commit/ff34bf2e4056b46f76c3ecf0b64781568c38ac63))
+* underline achivement reciever address ([56f3375](https://github.com/dacadeorg/dacade-webapp/commit/56f3375a5190cda3e9e01b9596b77f09f97d1914))
+
 ### [3.12.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.12.1...v3.12.2) (2022-12-06)
 
 
