@@ -13,7 +13,6 @@
     </ProfileOverviewSection>
 
     <DiscordConnect />
-
   </div>
 </template>
 
@@ -24,8 +23,8 @@ import ProfileOverviewCommunities from '~/components/sections/profile/overview/C
 import ProfileOverviewAchievements from '~/components/sections/profile/overview/Achievements'
 import ProfileOverviewReferrals from '~/components/sections/profile/overview/Referrals'
 import ProfileOverviewSection from '~/components/sections/profile/overview/Section'
-import {getMetadataTitle} from '~/utilities/Metadata'
-import DiscordConnect from "~/components/popups/DiscordConnect.vue";
+import { getMetadataTitle } from '~/utilities/Metadata'
+import DiscordConnect from '~/components/popups/DiscordConnect.vue'
 
 export default {
   name: 'ProfileOverview',
@@ -41,10 +40,10 @@ export default {
   middleware: 'auth',
   data() {
     return {
-      username: ''
+      username: '',
     }
   },
-  fetch({store, params, error}) {
+  fetch({ store, params, error }) {
     this.username = store.getters['auth/get'].displayName
 
     return Promise.all([

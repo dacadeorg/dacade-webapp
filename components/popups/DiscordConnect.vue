@@ -101,11 +101,12 @@ export default {
         this.discordSuccess = true
         await this.$store.dispatch('user/fetch')
       } catch (e) {
-        console.log({e})
-        this.discordError = e?.message?.message || this.$t('profile.header.discord.error')
+        console.log({ e })
+        this.discordError =
+          e?.message?.message || this.$t('profile.header.discord.error')
       } finally {
         this.discordLoading = false
-        this.$router.replace({ query: {} });
+        this.$router.replace({ query: {} })
       }
     },
   },

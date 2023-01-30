@@ -20,13 +20,11 @@
         </div>
         <div
           class="rounded-b-3.5xl border-t border-solid mt-4 py-4 bort flex flex-none justify-center items-center space-x-1"
-          :class="{ 'bg-gray-100': minted, 'invisible': !mintable }"
+          :class="{ 'bg-gray-100': minted, invisible: !mintable }"
         >
           <div v-if="minted"><Checkmark /></div>
           <p class="text-base text-center font-normal">
-            {{
-              badgeText
-            }}
+            {{ badgeText }}
           </p>
         </div>
       </div>
@@ -66,12 +64,14 @@ export default {
     mintable() {
       return this.data?.community?.can_mint_certificates
     },
-    badgeText(){
-      if(!this.mintable){
+    badgeText() {
+      if (!this.mintable) {
         return 'Minting N/A'
       }
-      return  !this.minted && !this.minting ? this.$t('profile.achievement.mintable') : 'NFT'; 
-    }
+      return !this.minted && !this.minting
+        ? this.$t('profile.achievement.mintable')
+        : 'NFT'
+    },
   },
 }
 </script>
