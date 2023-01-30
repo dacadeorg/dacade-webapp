@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.13.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.0...v3.13.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* fix discord connection check ([89fd9c9](https://github.com/dacadeorg/dacade-webapp/commit/89fd9c927766de0e8f8bae156539485da4fb0a8d))
+
 ## [3.13.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.12.2...v3.13.0) (2023-01-30)
 
 
