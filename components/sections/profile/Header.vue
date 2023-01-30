@@ -94,7 +94,7 @@ export default {
       )
     },
     canConnectDiscord() {
-      return this.isCurrentUser && !this.user?.discordConnected
+      return this.isCurrentUser && !this.user?.discord?.connected
     },
   },
   methods: {
