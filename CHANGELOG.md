@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.13.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.1...v3.13.2) (2023-02-07)
+
+
+### Bug Fixes
+
+* increase the margin between side navigation and courses ([3df7668](https://github.com/dacadeorg/dacade-webapp/commit/3df766808113276c2fd355fbad2fac3dc6771281))
+
 ### [3.13.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.0...v3.13.1) (2023-01-30)
 
 
