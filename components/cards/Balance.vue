@@ -12,7 +12,9 @@
           }}</span> -->
         </div>
 
-        <span class="text-sm text-gray-500 truncate block">{{address || details.title}}</span>
+        <span class="text-sm text-gray-500 truncate block">{{
+          address || details.title
+        }}</span>
       </div>
     </div>
   </nuxt-link>
@@ -21,7 +23,7 @@
 <script>
 import Coin from '@/components/ui/Coin'
 import Currency from '@/components/ui/Currency'
-import {truncateAddress} from "~/utilities/Address";
+import { truncateAddress } from '~/utilities/Address'
 
 export default {
   name: 'Balance',

@@ -10,22 +10,16 @@
     <div
       class="bg-gradient-to-l input-background absolute h-full w-40 top-0 flex justify-end items-center pr-2 right-0"
     >
-    <nuxt-link :to="localePath(`/submissions/${currentSubmissionId}`)">
-
-      <button
-        class="p-1 py-0 bg-white border border-blue-600 text-blue-600"
-      >
-        {{ $t('profile.achievement.open') }}
-      </button>
-
-    </nuxt-link>
+      <nuxt-link :to="localePath(`/submissions/${currentSubmissionId}`)">
+        <button class="p-1 py-0 bg-white border border-blue-600 text-blue-600">
+          {{ $t('profile.achievement.open') }}
+        </button>
+      </nuxt-link>
     </div>
   </div>
-
 </template>
 
 <script>
-
 import { mapGetters } from 'vuex'
 
 export default {
@@ -46,7 +40,7 @@ export default {
     },
     currentSubmissionId() {
       return this.current.submission.id
-    }
+    },
   },
   methods: {
     copy() {

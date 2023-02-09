@@ -11,17 +11,17 @@
       :class="[boxLayout ? 'relative flex-none' : 'absolute top-0 left-0']"
     >
       <nuxt-link :to="profileURL">
-        <Avatar :user="user" size="medium"/>
+        <Avatar :user="user" size="medium" />
         <Badge
           v-if="badge"
           :value="badge"
           class="absolute"
           size="medium"
           :custom-style="{
-          bottom: '-1px',
-          right: '-3px',
-          backgroundColor: colors.textAccent,
-        }"
+            bottom: '-1px',
+            right: '-3px',
+            backgroundColor: colors.textAccent,
+          }"
         />
       </nuxt-link>
     </div>
@@ -42,10 +42,8 @@
               {{ user.displayName }}
             </nuxt-link>
           </div>
-          <Tag v-if="user.reputation" type="light-gray" class="leading-tight"
-          >
-            <Currency :value="user.reputation" token="REP"
-            />
+          <Tag v-if="user.reputation" type="light-gray" class="leading-tight">
+            <Currency :value="user.reputation" token="REP" />
           </Tag>
         </div>
         <span class="block text-sm leading-snug text-gray-700">
@@ -56,20 +54,20 @@
             :style="{
               color: colors.textAccent,
             }"
-          >{{ humanizedDate }}</span
+            >{{ humanizedDate }}</span
           >
         </span>
       </div>
       <nuxt-link v-if="link" :to="link">
-        <slot/>
+        <slot />
       </nuxt-link>
-      <slot v-else/>
+      <slot v-else />
     </div>
   </div>
 </template>
 <script>
 /* eslint-disable no-console */
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import Badge from '@/components/ui/Badge'
 import DateManager from '@/utilities/DateManager'
@@ -130,7 +128,7 @@ export default {
     },
     profileURL() {
       return '/profile/' + this.user.username
-    }
+    },
   },
   methods: {
     goToLink() {

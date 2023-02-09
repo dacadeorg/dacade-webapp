@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="achievement"
-    class="content-wrapper achievement-content mx-auto h-screen flex items-center"
+    class="content-wrapper achievement-content mx-auto min-h-screen flex items-center py-16"
   >
     <div class="w-full">
       <div class="flex flex-col md:flex-row border rounded-3xl">
@@ -63,6 +63,52 @@
             >
               <AchievementLinkField :link="achievement?.metadata?.linkToWork" />
             </AchievementViewItem>
+            <div v-if="mintable" class="w-full flex">
+              <MintCertificate
+                v-if="!achievementMinted && belongsToCurrentUser"
+                :show="showMintCertificate"
+                @close="showMintCertificate = false"
+              />
+              <ArrowButton
+                v-if="belongsToCurrentUser && !minted"
+                target="__blank"
+                type="primary"
+                class="flex ml-auto mt-5"
+                @click="showMintCertificate = true"
+              >
+                Mint certificate
+              </ArrowButton>
+            </div>
+          </div>
+          <div
+            v-if="minted"
+            class="pt-5 mt-5 flex flex-col md:gap-3 gap-3 border-t border-t-solid"
+          >
+            <AchievementViewItem :name="$t('profile.achievement.issued-to')">
+              <a :href="addressURL" target="_blank" class="text-xs underline">{{
+                receiver
+              }}</a>
+            </AchievementViewItem>
+            <!-- <AchievementViewItem :name="$t('profile.achievement.contract')">
+              <a :href="contractURL" target="_blank" class="text-xs">
+                {{ contract }}</a
+              >
+            </AchievementViewItem>
+            <AchievementViewItem :name="$t('profile.achievement.token-id')">
+              <span class="text-xs"> {{ achievement.minting.tokenId }}</span> -->
+            <!-- </AchievementViewItem> -->
+            <AchievementViewItem :name="$t('profile.achievement.mint-tx')">
+              <a :href="txURL" target="_blank" class="text-xs underline">
+                {{ achievement.minting.tx }}</a
+              >
+            </AchievementViewItem>
+            <!-- <AchievementViewItem
+              :name="$t('profile.achievement.ipfs-metadata')"
+            >
+              <a :href="ipfsUrl" target="_blank" class="text-xs underline">
+                {{ achievement.minting.tokenURI }}</a
+              >
+            </AchievementViewItem> -->
           </div>
         </div>
       </div>
@@ -89,6 +135,10 @@ import DateManager from '~/utilities/DateManager'
 import AchievementViewItem from '~/components/sections/profile/achievements/ListItem'
 import AchievementLinkField from '~/components/sections/profile/achievements/LinkField'
 import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
+import ArrowButton from '@/components/ui/button/Arrow'
+import MintCertificate from '@/components/sections/profile/modals/MintCertificate.vue'
+import { truncateAddress } from '~/utilities/Address'
+import { IPFS_URL } from '~/constants/wallet'
 // import Checkmark from '~/assets/icons/checkmark.svg?inline'
 
 export default {
@@ -99,9 +149,17 @@ export default {
     Avatar,
     Logo,
     NavItem,
+    ArrowButton,
+    MintCertificate,
     // Checkmark,
   },
   layout: 'achievement',
+
+  data() {
+    return {
+      showMintCertificate: false,
+    }
+  },
   fetch({ store, params, error }) {
     return Promise.all([
       store.dispatch('profile/certificates/find', { id: params.id }),
@@ -121,6 +179,8 @@ export default {
   computed: {
     ...mapGetters({
       achievement: 'profile/certificates/current',
+      achievementMinted: 'profile/certificates/currentMinted',
+      user: 'user/get',
     }),
     issuedOn() {
       if (!this.achievement?.metadata?.issuedOn) return null
@@ -136,6 +196,34 @@ export default {
     },
     backgroundColor() {
       return this.achievement?.community?.colors?.primary
+    },
+    minted() {
+      return !!this.achievement?.minting?.tx
+    },
+    contract() {
+      return truncateAddress(this.achievement?.minting?.contract)
+    },
+    receiver() {
+      return truncateAddress(this.achievement?.minting?.receiver)
+    },
+    ipfsUrl() {
+      return IPFS_URL + this.achievement?.minting?.tokenURI
+    },
+    txURL() {
+      return `${process.env.NUXT_ENV_BLOCK_EXPLORER_URL}/tx/${this.achievement?.minting?.tx}`
+    },
+    addressURL() {
+      return `${process.env.NUXT_ENV_BLOCK_EXPLORER_URL}/address/${this.achievement?.minting?.receiver}`
+    },
+    contractURL() {
+      return `${process.env.NUXT_ENV_BLOCK_EXPLORER_URL}/address/${this.achievement?.minting?.contract}`
+    },
+    belongsToCurrentUser() {
+      if (!this.user) return false
+      return this.user.id === this.achievement?.user_id
+    },
+    mintable() {
+      return this.achievement?.community?.can_mint_certificates
     },
   },
 }
