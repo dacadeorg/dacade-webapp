@@ -4,7 +4,6 @@
     <Section>
       <div class="w-full mx-auto divide-y divide-solid divide-gray-200">
         <Courses />
-        {{ scoreboard }}        
         <Scoreboard />
       </div>
     </Section>
@@ -31,7 +30,6 @@ export default {
       store.dispatch('communities/find', params.slug),
       store.dispatch('communities/courses/all', params.slug),
       store.dispatch('communities/scoreboard/all', params.slug),
-      // store.dispatch('communities/scoreboard/filter', params.slug),
     ]).catch((e) => {
       error(e)
     })
