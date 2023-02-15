@@ -33,12 +33,12 @@ export const actions = {
     commit('setList', data)
     commit('setLoading', false)
   },
-
   sort({ commit, state }, { sortBy }) {
     const sortedList = [...state.list].sort((a, b) => {
       return b[sortBy] - a[sortBy]
       }
     )
+    console.log(sortedList);
     commit('setList', sortedList)
   },
 }

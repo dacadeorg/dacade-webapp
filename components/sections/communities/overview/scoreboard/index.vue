@@ -1,34 +1,69 @@
 <template>
-    <div class="py-12 flex flex-col lg:flex-col">
+  <SectionWrapperCol
+    :title="$t('communities.overview.scoreboard.title')"
+    :description="$t('communities.overview.scoreboard.description')"
+  >
+    <div class="w-full flex flex-row mt-10">
+      <ScoreboardFilter />
       <div
-        class="w-full lg:w-3/12 xl:w-2/5 flex flex-col text-gray-700 space-y-2"
+        v-if="list && list.length"
+        class="w-full flex flex-col divide-y divide-solid divide-gray-200 border border-gray-200 border-solid rounded-3xl overflow-hidden"
       >
-        <div class="font-medium text-.5xl leading-snug">{{ title }}</div>
-  
-        <div class="text-sm font-light w-3/4 xl:w-3/4 lg:w-full lg:pr-7">
-          {{ description }}
+        <ScoreboardCard
+          v-for="(item, i) in list.slice(0, items)"
+          :key="i"
+          :index="i + 1"
+          :value="item"
+        />
+        <div
+          v-if="items < list.length"
+          class="flex w-full sm:flex space-x-5 space-y-0 sm:flex-row-reverse overflow-hidden bg-gray-50 p-6 sm:px-4 sm:py-7 items-center sm:justify-center"
+        >
+          <ArrowButton
+            :community-styles="true"
+            type="outline-primary"
+            direction="down"
+            @click="loadMore"
+          >
+            {{ $t('course.scoreboard.button') }}
+          </ArrowButton>
         </div>
       </div>
-      <div
-        class="w-full mt-5 items-center flex flex-col"
-      >
-        <slot />
-      </div>
     </div>
-  </template>
-  <script>
-  export default {
-    name: 'SectionWrapper',
-    props: {
-      title: {
-        default: '',
-        type: String,
-      },
-      description: {
-        default: '',
-        type: String,
-      },
+  </SectionWrapperCol>
+</template>
+<script>
+import { mapGetters } from 'vuex'
+import SectionWrapperCol from './Wrapper.vue'
+import ScoreboardCard from '@/components/cards/Scoreboard'
+import ArrowButton from '@/components/ui/button/Arrow'
+import ScoreboardFilter from '@/components/sections/communities/overview/scoreboard/Filter.vue'
+
+export default {
+  name: 'ScoreboardOverview',
+  components: {
+    ScoreboardCard,
+    SectionWrapperCol,
+    ArrowButton,
+    ScoreboardFilter,
+  },
+  data() {
+    return {
+      items: 3,
+    }
+  },
+  computed: {
+    ...mapGetters({
+      community: 'communities/current',
+      list: 'communities/scoreboard/list',
+      colors: 'ui/colors',
+      submissions: 'communities/challenges/submissions/list',
+    }),
+  },
+  methods: {
+    loadMore() {
+      this.items = this.items + 10
     },
-  }
-  </script>
-  
+  },
+}
+</script>
