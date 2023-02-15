@@ -1,7 +1,7 @@
 <template>
   <Modal :show="show" @close="$emit('close', $event)">
     <div class="pt-6 px-6 relative">
-      <div class="mb-6 ">
+      <div class="mb-6">
         <p class="text-.5xl leading-snug font-medium">
           {{ wallet.title }}
         </p>
@@ -27,17 +27,17 @@
       </div>
     </div>
     <div class="flex pl-6 pr-2 pb-2 items-center justify-between">
-        <span
-          class="cursor-pointer text-sm font-medium text-primary"
-          @click="$emit('close', true)"
+      <span
+        class="cursor-pointer text-sm font-medium text-primary"
+        @click="$emit('close', true)"
         >{{ $t('profile.edit.close') }}</span
-        >
+      >
       <ArrowButton
         :loading="loading"
         :disabled="loading"
         type="outline-primary"
         @click="save"
-      >{{ $t('profile.wallet.payout.send') }}
+        >{{ $t('profile.wallet.payout.send') }}
       </ArrowButton>
     </div>
   </Modal>

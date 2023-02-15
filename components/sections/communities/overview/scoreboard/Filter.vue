@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       filterBy: 'all',
-      sortBy: 'reputation',
+      sortBy: 'score',
     }
   },
   computed: {
@@ -73,11 +73,11 @@ export default {
       return [
         {
           label: 'Reputation',
-          value: 'reputation',
+          value: 'score',
         },
         {
           label: 'Submission points',
-          value: 'submission-points',
+          value: 'submissionPoints',
         },
       ]
     },
@@ -88,6 +88,12 @@ export default {
       this.$store.dispatch('communities/scoreboard/filter', {
         slug: this.$route.params.slug,
         filterBy: newValue,
+      })
+    },
+    sortBy(newValue, oldValue) {
+      if (newValue === oldValue) return
+      this.$store.dispatch('communities/scoreboard/sort', {
+        sortBy: newValue,
       })
     },
   },

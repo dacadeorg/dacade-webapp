@@ -1,9 +1,9 @@
 <template>
   <div class="text-center pb-24 relative">
-    <Avatar size="extra" :user="user" :use-link="false"/>
+    <Avatar size="extra" :user="user" :use-link="false" />
     <span class="block capitalize text-5xl mt-5 leading-none">{{
-        username
-      }}</span>
+      username
+    }}</span>
     <div
       class="flex justify-center mt-2 leading-snug text-sm divide-x divide-solid"
     >
@@ -12,15 +12,17 @@
       <!--        <span class="ml-1 inline-block">Github</span>-->
       <!--      </div>-->
       <div v-if="!canConnectDiscord" class="flex items-center px-2">
-        <span class="inline-block"><DiscordIcon/></span>
-        <span class="inline-block mx-1">{{ $t('profile.header.discord') }}</span>
+        <span class="inline-block"><DiscordIcon /></span>
+        <span class="inline-block mx-1">{{
+          $t('profile.header.discord')
+        }}</span>
       </div>
       <div class="flex items-center px-2">
-        <span class="inline-block"><TimeIcon/></span>
+        <span class="inline-block"><TimeIcon /></span>
         <span class="inline-block mx-1">{{ $t('profile.header.joined') }}</span>
         <span v-if="joined" class="inline-block text-sm">{{ joined }}</span>
       </div>
-      
+
       <!--      <div class="flex items-center px-3">-->
       <!--        <span class="inline-block"><CompassIcon /></span>-->
       <!--        <span class="ml-1 inline-block">GMT+2</span>-->
@@ -39,7 +41,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import Avatar from '@/components/ui/Avatar'
 import DateManager from '@/utilities/DateManager'
 import Button from '@/components/ui/button'
@@ -76,7 +78,7 @@ export default {
       if (
         this.$route.params?.username &&
         this.$route.params?.username?.toLowerCase() !==
-        this.authUser?.displayName?.toLowerCase()
+          this.authUser?.displayName?.toLowerCase()
       ) {
         return this.profileUser
       }
@@ -92,12 +94,12 @@ export default {
       )
     },
     canConnectDiscord() {
-      return this.isCurrentUser && !this.user?.discordConnected;
-    }
+      return this.isCurrentUser && !this.user?.discord?.connected
+    },
   },
   methods: {
     triggerDiscordOauth() {
-      window.location.href = `${process.env.NUXT_ENV_DISCORD_OAUTH_BASE_URL}?client_id=${process.env.NUXT_ENV_DISCORD_CLIENT_ID}&redirect_uri=${process.env.NUXT_ENV_DISCORD_CALLBACK_URL}&response_type=code&scope=${process.env.NUXT_ENV_DISCORD_SCOPE}`
+      window.location.href = `${process.env.NUXT_ENV_DISCORD_OAUTH_BASE_URL}?response_type=code&client_id=${process.env.NUXT_ENV_DISCORD_CLIENT_ID}&scope=${process.env.NUXT_ENV_DISCORD_SCOPE}&state=15773059ghq9183habn&redirect_uri=${process.env.NUXT_ENV_DISCORD_CALLBACK_URL}&prompt=consent`
     },
   },
 }

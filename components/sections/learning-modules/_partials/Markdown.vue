@@ -52,8 +52,8 @@ export default {
 
       this.handleNavigation(this.markdown.content)
 
-      const {value} = await unified()
-        .use(remarkUnwrapAllImages) 
+      const { value } = await unified()
+        .use(remarkUnwrapAllImages)
         .use(remarkParse)
         .use(Highlighter)
         .use(remarkRehype)

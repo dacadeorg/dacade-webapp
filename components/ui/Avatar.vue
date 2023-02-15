@@ -1,11 +1,19 @@
 <template>
   <component
-    :is="link ? 'nuxt-link' : 'span'" :to="link"
-    :class="[sizeClasses, shapeClasses, { 'cursor-pointer': user }]" :style="{
+    :is="link ? 'nuxt-link' : 'span'"
+    :to="link"
+    :class="[sizeClasses, shapeClasses, { 'cursor-pointer': user }]"
+    :style="{
       backgroundColor: color,
     }"
-    class="bg-primary inline-flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle">
-    <img v-if="user && user.avatar" :src="user.avatar" alt="img" class="object-cover w-full h-full" />
+    class="bg-primary inline-flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle"
+  >
+    <img
+      v-if="user && user.avatar"
+      :src="user.avatar"
+      alt="img"
+      class="object-cover w-full h-full"
+    />
     <span v-if="user && !user.avatar">{{ initials }}</span>
     <img v-if="icon" :src="icon" class="p-2" />
     <img v-if="image" :src="image" class="p-0 object-cover w-full h-full" />
@@ -52,7 +60,7 @@ export default {
       return this.user?.displayName ? this.user?.displayName[0] : null
     },
     link() {
-      if (!this.user || !this.user.username || !this.useLink) return null;
+      if (!this.user || !this.user.username || !this.useLink) return null
       return this.localePath(`/profile/${this.user.username}`)
     },
     sizeClasses() {
@@ -86,7 +94,7 @@ export default {
         default:
           return 'rounded-full'
       }
-    }
-  }
+    },
+  },
 }
 </script>

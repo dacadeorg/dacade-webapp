@@ -1,7 +1,8 @@
 <template>
   <Popup :show="show" class="py-8" @close="$emit('close', $event)">
     <div
-      class="bg-white my-auto w-11/12 md:w-9/12 lg:w-8/12 xl:w-2/5 rounded-3.5xl relative mx-auto"
+      :class="[sizeClasses]"
+      class="bg-white my-auto rounded-3.5xl relative mx-auto max-w-5xl"
     >
       <slot />
     </div>
@@ -21,6 +22,20 @@ export default {
     show: {
       type: Boolean,
       default: false,
+    },
+    size: {
+      default: '',
+      type: String,
+    },
+  },
+  computed: {
+    sizeClasses() {
+      switch (this.size) {
+        case 'medium':
+          return 'w-11/12 md:w-9/12 lg:w-8/12 xl:w-1/2'
+        default:
+          return 'w-11/12 md:w-9/12 lg:w-8/12 xl:w-2/5'
+      }
     },
   },
 }
