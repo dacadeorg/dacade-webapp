@@ -34,7 +34,7 @@
             <span class="font-normal text-xs">
               {{ value.feedbacks }}
               <span class="font-normal text-xs">
-                {{ $t(value.feedbacks == 1 ? 'Feedback' : 'Feedback') }}
+                {{ $t(value.feedbacks == 1 ? 'Feedback' : 'Feedbacks') }}
               </span>
             </span>
           </div>

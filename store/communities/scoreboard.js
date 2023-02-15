@@ -38,7 +38,6 @@ export const actions = {
       return b[sortBy] - a[sortBy]
       }
     )
-    console.log(sortedList);
     commit('setList', sortedList)
   },
 }
