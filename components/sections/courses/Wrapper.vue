@@ -2,7 +2,7 @@
   <Section>
     <div class="lg:flex h-auto">
       <div
-        class="hidden lg:block sticky top-0 self-start w-1/4 py-3 pr-4 lg:py-14"
+        class="hidden lg:block sticky top-0 self-start w-1/4 py-3 pr-9 lg:py-14"
       >
         <Navigation />
       </div>

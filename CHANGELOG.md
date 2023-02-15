@@ -2,6 +2,178 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.13.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.2...v3.13.3) (2023-02-09)
+
+
+### Bug Fixes
+
+* markdown linebreak parsing ([abbe765](https://github.com/dacadeorg/dacade-webapp/commit/abbe7655d1f111104700315fee02db7ed8560ac2))
+
+### [3.13.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.1...v3.13.2) (2023-02-07)
+
+
+### Bug Fixes
+
+* increase the margin between side navigation and courses ([3df7668](https://github.com/dacadeorg/dacade-webapp/commit/3df766808113276c2fd355fbad2fac3dc6771281))
+
+### [3.13.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.0...v3.13.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* fix discord connection check ([89fd9c9](https://github.com/dacadeorg/dacade-webapp/commit/89fd9c927766de0e8f8bae156539485da4fb0a8d))
+
+## [3.13.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.12.2...v3.13.0) (2023-01-30)
+
+
+### Features
+
+* add api connections to the minting ([4e7c6ff](https://github.com/dacadeorg/dacade-webapp/commit/4e7c6ff76c1b8f0402eabe9f5d086fb9e7f547ef))
+* implement mint certificate design ([d072a74](https://github.com/dacadeorg/dacade-webapp/commit/d072a74dcd86bd7797d6fa11a261c14092d488ab))
+* prevent showing minting button for non owned certs ([acbde28](https://github.com/dacadeorg/dacade-webapp/commit/acbde28d211deb15dff81ee57328ef4b35bc9bf8))
+* remove minting feature on non mintable certificates ([05c0592](https://github.com/dacadeorg/dacade-webapp/commit/05c05923ea3a3cb1fad6513f0404b4a1d3ed5802))
+
+
+### Bug Fixes
+
+* add errobox for the errors ([26469e0](https://github.com/dacadeorg/dacade-webapp/commit/26469e0a38e506575081b6d7ffc61a8c4352eed6))
+* remove unused icons ([6caec85](https://github.com/dacadeorg/dacade-webapp/commit/6caec85ec72fd4cb0b404d3d84ba6f5e8b0b270a))
+* resolving comments ([284f8f7](https://github.com/dacadeorg/dacade-webapp/commit/284f8f773cd279234e6155cab4e842bbcd16273f))
+* space issues ([afa56ff](https://github.com/dacadeorg/dacade-webapp/commit/afa56ff4afb0cba8af1a50d00a4bad163ffc7960))
+* the error msg ([1e54f6f](https://github.com/dacadeorg/dacade-webapp/commit/1e54f6f1f0b03f157f760efacb8dea7d7c8a1585))
+* the modal size ([293c7bf](https://github.com/dacadeorg/dacade-webapp/commit/293c7bfc0b54e7f8ad7b9a07b7631b30fec453f3))
+* the space between flex ([634fc50](https://github.com/dacadeorg/dacade-webapp/commit/634fc50745ad06f73759ed6076995ecf180756e9))
+* update user after discord connect ([739c08f](https://github.com/dacadeorg/dacade-webapp/commit/739c08fee1c9533537c68f7e06f3cb1167c809bb))
+* use button component ([5d07976](https://github.com/dacadeorg/dacade-webapp/commit/5d07976fa8902b64f0878da5bad881e953d08cb5))
+
+
+### Improvements
+
+* add link to address and contract ([d3b23a9](https://github.com/dacadeorg/dacade-webapp/commit/d3b23a90f34ad7c0c6337cee8e46d4a3bd4531f0))
+* adjust achivement card text ([5860d87](https://github.com/dacadeorg/dacade-webapp/commit/5860d87f73cd1fd1cc2d6ca7293d49deaf2cf5e3))
+* adjust disconnect connector ([5b38351](https://github.com/dacadeorg/dacade-webapp/commit/5b38351ceec8e45c5f0dd7224dddfd89c593598c))
+* adjust mobile certificate minting design ([616ac32](https://github.com/dacadeorg/dacade-webapp/commit/616ac32c450d6c8ba23897f6059b940589c11200))
+* adjust pre commit script ([1f6d568](https://github.com/dacadeorg/dacade-webapp/commit/1f6d568a0db8958d3e759c55acc6acc7cf881e9d))
+* adjust the minting text ([c67b116](https://github.com/dacadeorg/dacade-webapp/commit/c67b116cbafc24f2cce156d6aa2f56408ff8df93))
+* cleanup ([eb6b97a](https://github.com/dacadeorg/dacade-webapp/commit/eb6b97a255ce5c462cfc88cebfc0af53f2d7656b))
+* fix linting issues ([6d74365](https://github.com/dacadeorg/dacade-webapp/commit/6d74365b3496ab4d46160c0e6da7cf057ddef297))
+* fix linting issues ([ff34bf2](https://github.com/dacadeorg/dacade-webapp/commit/ff34bf2e4056b46f76c3ecf0b64781568c38ac63))
+* underline achivement reciever address ([56f3375](https://github.com/dacadeorg/dacade-webapp/commit/56f3375a5190cda3e9e01b9596b77f09f97d1914))
+
+### [3.12.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.12.1...v3.12.2) (2022-12-06)
+
+
+### Improvements
+
+* prevent converting addresses to lowercase ([58de4d7](https://github.com/dacadeorg/dacade-webapp/commit/58de4d763c19dce80d8c12d0514392befd2c66d8))
+
+### [3.12.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.12.0...v3.12.1) (2022-11-25)
+
+
+### Bug Fixes
+
+* aeternity address truncating ([545e95e](https://github.com/dacadeorg/dacade-webapp/commit/545e95e09b21f2a4d354b10f00d82cde8ef16a86))
+
+## [3.12.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.3...v3.12.0) (2022-11-24)
+
+
+### Features
+
+* add radio input component ([67cadbd](https://github.com/dacadeorg/dacade-webapp/commit/67cadbd3052e64a387e29eb7b5e10337a9c35089))
+* adjust wallet connect design ([d865bd2](https://github.com/dacadeorg/dacade-webapp/commit/d865bd2221834f8990aa4e7abc4ae75ca92c4e7d))
+
+
+### Bug Fixes
+
+* add nuxt link to notifications ([f79c844](https://github.com/dacadeorg/dacade-webapp/commit/f79c8444be6696e21261ace1c11add3625b7f83f))
+* add the nuxt link in the whole website ([c3a8cb8](https://github.com/dacadeorg/dacade-webapp/commit/c3a8cb82083128b3e12d9b06b3cd3ba65118b120))
+* add truncate class ([03a3dd8](https://github.com/dacadeorg/dacade-webapp/commit/03a3dd8532c18b73186bdae52680f76aaf865c0c))
+* address truncating for non eth addresses ([73d2118](https://github.com/dacadeorg/dacade-webapp/commit/73d21180e0a246005fe192af10f9038b74fb29a8))
+* aeternity truncating ([f7c1dd7](https://github.com/dacadeorg/dacade-webapp/commit/f7c1dd76e8859ca1b6ace50ab309e49aeedd5165))
+* arranging the discord icon ([f5ecbb1](https://github.com/dacadeorg/dacade-webapp/commit/f5ecbb109f54f936ad5ceb59b01039d076b44698))
+* avatar navbar padding issue ([295a471](https://github.com/dacadeorg/dacade-webapp/commit/295a4717cbcb577d57a0fe4d9c98ee433cc90437))
+* show nuxt-link only when the link is available ([846b68f](https://github.com/dacadeorg/dacade-webapp/commit/846b68fccfcc2ee91d9324f2bb1bda6baaf4891a))
+
+
+### Improvements
+
+* add discord button on profile ([720567b](https://github.com/dacadeorg/dacade-webapp/commit/720567b42fd7255b7a2c8f7709bbb03e3809abc5))
+* adding nuxt link on avatar of user ([b686b29](https://github.com/dacadeorg/dacade-webapp/commit/b686b29b3652a9c397f3c29dfc156c7c21f3c02c))
+* adjust modal design for wallet connect ([a1cddb6](https://github.com/dacadeorg/dacade-webapp/commit/a1cddb641d62ed142f2d3de14f4881ad414c9d27))
+* adjust the wallet connect design and make sure all text are consistent ([1d24072](https://github.com/dacadeorg/dacade-webapp/commit/1d240726350150d1410431b6c190d7ca60a83c18))
+* Show the truncated address under the users balance in the main user menu ([7b8df73](https://github.com/dacadeorg/dacade-webapp/commit/7b8df73bc0f5fed57b3fb869d21dde8474b8c279))
+
+### [3.11.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.2...v3.11.3) (2022-11-22)
+
+
+### Bug Fixes
+
+* link button style ([3d6ab13](https://github.com/dacadeorg/dacade-webapp/commit/3d6ab13d823090b68afdcd980065c8c7da6cbcb0))
+
+### [3.11.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.1...v3.11.2) (2022-11-08)
+
+
+### Bug Fixes
+
+* invalid signature requirement ([6f93b06](https://github.com/dacadeorg/dacade-webapp/commit/6f93b066adf9593c8d352f9f461f722bcfad701a))
+
+### [3.11.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.11.0...v3.11.1) (2022-11-05)
+
+
+### Features
+
+* show connect to discord for current user only ([2b84199](https://github.com/dacadeorg/dacade-webapp/commit/2b8419917ea909e8bc37fac76b3c26b6873172cf))
+
+## [3.11.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.10.0...v3.11.0) (2022-11-02)
+
+
+### Features
+
+* add wallet edit error handling and submit signature ([4650860](https://github.com/dacadeorg/dacade-webapp/commit/46508601bdcef7a912fe21dd8835609a49f5c200))
+* get require wallet connection policy from the backend ([768ba3f](https://github.com/dacadeorg/dacade-webapp/commit/768ba3f33c28914fa9331bbdf0eb719e62618c6c))
+* hide discord button when connected ([a9283cc](https://github.com/dacadeorg/dacade-webapp/commit/a9283cc712fca68363b43a9f14d927c7ce13b824))
+* integrate metamask and wallet connect ([0a5431c](https://github.com/dacadeorg/dacade-webapp/commit/0a5431c1b7a65ea25e0b9a67042b161cec6d222a))
+* request signature when connect address to wallet ([1809e48](https://github.com/dacadeorg/dacade-webapp/commit/1809e48ac2ec8584f9a06d5505cffdb914086659))
+
+
+### Improvements
+
+* activate connect discord button ([028e04a](https://github.com/dacadeorg/dacade-webapp/commit/028e04ab948c257603b700c730f351f6d565c158))
+
+## [3.10.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.9.0...v3.10.0) (2022-10-21)
+
+
+### Features
+
+* add remark unwrap images ([b12bad4](https://github.com/dacadeorg/dacade-webapp/commit/b12bad4451995e0a6669b835459892469c08c8bd))
+
+
+### Bug Fixes
+
+* max width issues ([bf645ff](https://github.com/dacadeorg/dacade-webapp/commit/bf645ffc1b219b30797b6db93f01e849c786b9d5))
+* the max-width ([f0b5b01](https://github.com/dacadeorg/dacade-webapp/commit/f0b5b01c55933af33c0ff99dbf20c4cfb697fb8d))
+* the maximum width of contents ([de97fbf](https://github.com/dacadeorg/dacade-webapp/commit/de97fbfe2334405bc53e6409a679f9671b5c2e6e))
+
+## [3.9.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.8.0...v3.9.0) (2022-10-21)
+
+
+### Features
+
+* make clickable links actual links to allow link copying ([d4a30de](https://github.com/dacadeorg/dacade-webapp/commit/d4a30de7f57b218a5653203ea689d6a5b1984cf8))
+
+
+### Bug Fixes
+
+* the color of the language switch ([24e93b7](https://github.com/dacadeorg/dacade-webapp/commit/24e93b71d50390ffe92600d23f69b3b7e493816e))
+* the color of the language switcher ([ce356da](https://github.com/dacadeorg/dacade-webapp/commit/ce356dac90a836287f000d7e00ae2a2bf84311ed))
+
+
+### Improvements
+
+* add achievement page redirects ([17abf0f](https://github.com/dacadeorg/dacade-webapp/commit/17abf0f7fa521a9985b286651459fd5922971783))
+* fix button type condition format ([e59693c](https://github.com/dacadeorg/dacade-webapp/commit/e59693c56a2008a87be054e4928c439258eda3be))
+* move achievement folder and fix changed url ([1915a9b](https://github.com/dacadeorg/dacade-webapp/commit/1915a9bf688e5baf4ab44aafb6f170c6f24aeedb))
+
 ## [3.8.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.7.2...v3.8.0) (2022-10-04)
 
 

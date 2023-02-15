@@ -5,8 +5,8 @@
   >
     <div class="flex space-x-3 text-left hover:bg-gray-50 pb-3 -mx-5 px-5">
       <Avatar
-        :icon="details.community.icon"
-        :color="details.community.colors.primary"
+        :icon="details.community?.icon"
+        :color="details.community?.colors?.primary"
         size="medium"
         shape="rounded"
       />

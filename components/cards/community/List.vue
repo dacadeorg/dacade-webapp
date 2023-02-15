@@ -9,13 +9,15 @@
           class="flex-col justify-between flex p-3 md:p-7 text-gray-700 flex-1 divide-y divide-dotted divide-gray-500"
         >
           <div class="w-full">
-            <div class="xl:pr-52 w-full text-lg pb-10">
+            <div class="xl:pr-52 w-full text-base md:text-lg pb-10">
               {{ community.summary }}
             </div>
           </div>
           <div class="space-y-5">
-            <div class="hidden md:flex flex-row justify-between">
-              <div class="text-base pt-7 text-left flex-start flex flex-col">
+            <div class="md:flex flex-row justify-between">
+              <div
+                class="text-base pt-7 pb-3 md:pb-0 text-left flex-start flex flex-col"
+              >
                 <div class="flex space-x-3">
                   <div class="flex space-x-2">
                     <Coin :token="reward.token" size="normal" />
@@ -40,7 +42,7 @@
                   </div>
                 </div>
               </div>
-              <div class="mt-7 align-middle">
+              <div class="mt-7 hidden md:block align-middle">
                 <nuxt-link :to="localePath(path)">
                   <ArrowButton
                     class="group-hover:bg-primary bg-gray-200 border text-primary group-hover:text-white border-primary"

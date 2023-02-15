@@ -5,15 +5,22 @@
     <div
       class="bg-theme-accent flex-col w-full h-full justify-between md:-space-y-1 pl-3 pr-5 mt-7 mb-5"
     >
-      <div class="relative w-full" @click="goToChallenge(bounty)">
+      <component
+        :is="!isExternalLink ? 'nuxt-link' : 'a'"
+        class="relative w-full block"
+        :to="link"
+        :href="link"
+      >
         <div class="font-medium text-md md:pt-1.5">
           {{ bounty.course ? bounty.course.name : bounty.name }}
         </div>
-      </div>
+      </component>
 
-      <div
+      <component
+        :is="!isExternalLink ? 'nuxt-link' : 'a'"
+        :to="link"
+        :href="link"
         class="inline-flex md:flex h-2/3 md:flex-row flex-col-reverse justify-between"
-        @click="goToChallenge(bounty)"
       >
         <div class="text-sm pt-8 md:pt-2 md:pb-4 text-gray-600">
           {{ type }}
@@ -21,7 +28,7 @@
         <div>
           <Reward type="gray" :reward="bounty.reward" />
         </div>
-      </div>
+      </component>
       <div
         v-if="bounty.submissions && bounty.submissions.length"
         class="mt-4 space-y-0 divide-y divide-gray-200 border-t border-t-solid border-gray-200"
@@ -70,9 +77,11 @@
         </nuxt-link>
       </div>
     </div>
-    <div
+    <component
+      :is="!isExternalLink ? 'nuxt-link' : 'a'"
+      :to="link"
+      :href="link"
       class="self-start relative mt-15 md:mt-7"
-      @click="goToChallenge(bounty)"
     >
       <Avatar
         class="w-15 h-15 rounded-xl overflow-hidden"
@@ -94,7 +103,7 @@
         size="medium"
         :value="bounty.totalSubmissions"
       />
-    </div>
+    </component>
   </div>
 </template>
 
@@ -127,39 +136,37 @@ export default {
     isChallenge() {
       return this.bounty.reward.type === 'SUBMISSION'
     },
+    link() {
+      if (this.bounty.url) {
+        return this.bounty.url
+      }
+      if (this.bounty.link) {
+        return this.localePath(this.bounty.link)
+      }
+      if (this.isChallenge) {
+        return this.localePath(
+          this.$navigation.community.challengePath(
+            this.bounty.challenge,
+            this.bounty.course.slug,
+            this.bounty.slug
+          )
+        )
+      }
+      return this.localePath(
+        this.$navigation.community.submissionsPath(
+          this.bounty.challenge,
+          this.bounty.course.slug,
+          this.bounty.slug
+        )
+      )
+    },
+    isExternalLink() {
+      return this.link?.startsWith('http')
+    },
   },
   methods: {
     convertDate(date) {
       return DateManager.fromNow(date, this.$i18n.locale)
-    },
-    goToChallenge(bounty) {
-      if (bounty.url) {
-        return window.open(bounty.url)
-      }
-      if (bounty.link) {
-        this.$router.push(this.localePath(bounty.link))
-        return
-      }
-      if (this.isChallenge) {
-        return this.$router.push(
-          this.localePath(
-            this.$navigation.community.challengePath(
-              bounty.challenge,
-              bounty.course.slug,
-              bounty.slug
-            )
-          )
-        )
-      }
-      return this.$router.push(
-        this.localePath(
-          this.$navigation.community.submissionsPath(
-            bounty.challenge,
-            bounty.course.slug,
-            bounty.slug
-          )
-        )
-      )
     },
   },
 }

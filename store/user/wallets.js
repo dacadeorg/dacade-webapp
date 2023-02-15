@@ -37,9 +37,10 @@ export const actions = {
     }
   },
 
-  async update({ dispatch }, { id, address }) {
+  async update({ dispatch }, { id, address, signature }) {
     await this.$api.patch(`wallets/update/${id}`, {
       address,
+      signature,
     })
     await dispatch('all')
   },

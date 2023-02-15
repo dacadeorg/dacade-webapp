@@ -281,6 +281,7 @@
   "error.default.message": "An error occured and your request couldn't be completed.",
   "error.page.button.refresh": "Please refresh this page or try again later",
   "error.page.button.home": "Home Page",
+  "success.page.button.profile": "Profile Page",
   "navigation.start": "Start",
   "navigation.next": "Next",
   "navigation.profile.title": "Profile",
@@ -296,5 +297,7 @@
   "profile.achievement.date": "Date",
   "profile.achievement.award": "Awarded to",
   "profile.achievement.issued": "Issued by",
-  "profile.achievement.comment": "Comment"
+  "profile.achievement.comment": "Comment",
+  "discord-verification.error.title": "Discord verification failed",
+  "discord-verification.success.title": "Discord has been linked successfully"
 }

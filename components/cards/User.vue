@@ -10,18 +10,20 @@
       class="z-10"
       :class="[boxLayout ? 'relative flex-none' : 'absolute top-0 left-0']"
     >
-      <Avatar :user="user" size="medium" />
-      <Badge
-        v-if="badge"
-        :value="badge"
-        class="absolute"
-        size="medium"
-        :custom-style="{
-          bottom: '-1px',
-          right: '-3px',
-          backgroundColor: colors.textAccent,
-        }"
-      />
+      <nuxt-link :to="profileURL">
+        <Avatar :user="user" size="medium" />
+        <Badge
+          v-if="badge"
+          :value="badge"
+          class="absolute"
+          size="medium"
+          :custom-style="{
+            bottom: '-1px',
+            right: '-3px',
+            backgroundColor: colors.textAccent,
+          }"
+        />
+      </nuxt-link>
     </div>
     <div
       class="relative z-0 flex-1"
@@ -32,16 +34,17 @@
           'pl-10.5 pb-12': !boxLayout,
         },
       ]"
-      @click="goToLink"
     >
       <div class="pb-4">
         <div class="flex items-center space-x-1.5 pb-1.5 pt-1">
           <div class="text-lg leading-tight font-medium">
-            {{ user.displayName }}
+            <nuxt-link :to="profileURL">
+              {{ user.displayName }}
+            </nuxt-link>
           </div>
-          <Tag v-if="user.reputation" type="light-gray" class="leading-tight"
-            ><Currency :value="user.reputation" token="REP"
-          /></Tag>
+          <Tag v-if="user.reputation" type="light-gray" class="leading-tight">
+            <Currency :value="user.reputation" token="REP" />
+          </Tag>
         </div>
         <span class="block text-sm leading-snug text-gray-700">
           {{ timestamp.text }}
@@ -55,7 +58,10 @@
           >
         </span>
       </div>
-      <slot />
+      <nuxt-link v-if="link" :to="link">
+        <slot />
+      </nuxt-link>
+      <slot v-else />
     </div>
   </div>
 </template>
@@ -119,6 +125,9 @@ export default {
     },
     date() {
       return DateManager.intlFormat(this.timestamp.date, this.$i18n.locale)
+    },
+    profileURL() {
+      return '/profile/' + this.user.username
     },
   },
   methods: {

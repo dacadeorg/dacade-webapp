@@ -11,6 +11,8 @@
     <ProfileOverviewSection title="Notifications" see-more>
       <NotificationList extended />
     </ProfileOverviewSection>
+
+    <DiscordConnect />
   </div>
 </template>
 
@@ -22,10 +24,12 @@ import ProfileOverviewAchievements from '~/components/sections/profile/overview/
 import ProfileOverviewReferrals from '~/components/sections/profile/overview/Referrals'
 import ProfileOverviewSection from '~/components/sections/profile/overview/Section'
 import { getMetadataTitle } from '~/utilities/Metadata'
+import DiscordConnect from '~/components/popups/DiscordConnect.vue'
 
 export default {
   name: 'ProfileOverview',
   components: {
+    DiscordConnect,
     ProfileOverviewSection,
     ProfileOverviewReferrals,
     ProfileOverviewAchievements,
