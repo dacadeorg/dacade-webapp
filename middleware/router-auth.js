@@ -9,6 +9,10 @@ export default async function ({ store, redirect, route }) {
     return
   }
 
+  if (route?.path?.startsWith('/notifications/email-unsubscribe')) {
+    return
+  }
+
   if (
     auth &&
     !auth.emailVerified &&
