@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.13.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.2...v3.13.3) (2023-02-09)
+
+
+### Bug Fixes
+
+* markdown linebreak parsing ([abbe765](https://github.com/dacadeorg/dacade-webapp/commit/abbe7655d1f111104700315fee02db7ed8560ac2))
+
 ### [3.13.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.1...v3.13.2) (2023-02-07)
 
 

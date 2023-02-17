@@ -10,11 +10,13 @@
 import { mapGetters } from 'vuex'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
+import rehypeRaw from 'rehype-raw'
 import remarkRehype from 'remark-rehype'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import remarkBreaks from 'remark-breaks'
 import Highlighter from '@/utilities/Highlighter'
 
 export default {
@@ -54,13 +56,15 @@ export default {
     async parse(content) {
       const { value } = await unified()
         .use(remarkParse)
+        .use(remarkBreaks)
         .use(remarkGfm)
         .use(Highlighter)
-        .use(remarkRehype)
+        .use(remarkRehype, { allowDangerousHtml: true })
+        .use(rehypeRaw)
         .use(rehypeExternalLinks, { target: '_blank' })
         .use(rehypeSlug)
         .use(rehypeStringify)
-        .process(content?.trim())
+        .process(content)
       this.content = value
     },
   },
