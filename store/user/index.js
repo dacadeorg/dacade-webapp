@@ -8,6 +8,7 @@ export const state = () => ({
   balance: null,
   walletAddresses: null,
   token: null,
+  sumsubToken: null,
 })
 
 export const mutations = {
@@ -21,6 +22,9 @@ export const mutations = {
   setToken(state, payload) {
     state.token = payload
   },
+  setSumsubToken(state, payload) {
+    state.sumsubToken = payload
+  }
 }
 
 export const actions = {
@@ -42,6 +46,7 @@ export const actions = {
     try {
       await dispatch('getToken')
       const { data } = await this.$api.get('users/current')
+      console.log({data})
       commit('set', data)
       return data
     } catch (e) {
@@ -71,6 +76,27 @@ export const actions = {
     }
     return null
   },
+
+  async getSumsubToken({ commit, dispatch }, payload) {
+    const user = firebaseAuth.currentUser
+    if (user) {
+      try {
+        const { data } = await this.$api.post('users/sumsub/getAccessToken')
+        commit('setSumsubToken', data.token)
+        return data
+      } catch (e) {
+        console.log(e)
+        dispatch('clear')
+        return null
+      }
+    }
+    return null
+  },
+  async completeSumSubVerification({commit, dispatch }) {
+    await dispatch('fetch')
+    commit('setSumsubToken', null)
+
+  }
 }
 
 export const getters = {
@@ -95,4 +121,7 @@ export const getters = {
   walletAddresses(state) {
     return state.data?.walletAddresses
   },
+  sumsubToken(state) {
+    return state.sumsubToken
+  }
 }
