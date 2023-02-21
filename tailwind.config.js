@@ -2,7 +2,6 @@ const colors = require('tailwindcss/colors')
 const typography = require('@tailwindcss/typography')
 const aspectRatio = require('@tailwindcss/aspect-ratio')
 const lineClamp = require('@tailwindcss/line-clamp')
-const forms = require('tailwind-forms')()
 
 module.exports = {
   purge: {
@@ -1043,5 +1042,5 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [typography, aspectRatio, lineClamp, forms]
+  plugins: [typography, aspectRatio, lineClamp]
 }
