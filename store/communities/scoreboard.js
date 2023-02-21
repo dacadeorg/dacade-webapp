@@ -23,13 +23,18 @@ export const actions = {
     commit('setLoading', false)
   },
 
-  async filter({ commit }, { slug, filterBy }) {
-      commit('setLoading', true)
-    const { data } = await this.$api.get(`communities/${slug}/scoreboard`, {
+  async filter({ commit }, { slug, filterBy, sortBy }) {
+    commit('setLoading', true)
+    let { data } = await this.$api.get(`communities/${slug}/scoreboard`, {
       params: {
         "filter-by": filterBy,
       }
     })
+    if(sortBy){
+      data = data.sort((a, b) => {
+        return b[sortBy] - a[sortBy]
+      })
+    }
     commit('setList', data)
     commit('setLoading', false)
   },

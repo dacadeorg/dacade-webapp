@@ -87,6 +87,7 @@ export default {
       this.$store.dispatch('communities/scoreboard/filter', {
         slug: this.$route.params.slug,
         filterBy: newValue,
+        sortBy: this.sortBy,
       })
     },
     sortBy(newValue, oldValue) {
