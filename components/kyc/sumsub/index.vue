@@ -52,7 +52,7 @@ export default {
 
     async getNewAccessToken() {
       // get a new access token from your backend
-      const resp = await this.$api.post('users/sumsub/getAccessToken', {refreshToken: this.refreshToken})
+      const resp = await this.$api.post('users/sumsub/get-access-token', {refreshToken: this.refreshToken})
       const {token} = resp.data
       return token
     },

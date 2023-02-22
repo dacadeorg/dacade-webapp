@@ -81,7 +81,7 @@ export const actions = {
     const user = firebaseAuth.currentUser
     if (user) {
       try {
-        const { data } = await this.$api.post('users/sumsub/getAccessToken')
+        const { data } = await this.$api.post('users/sumsub/get-access-token')
         commit('setSumsubToken', data.token)
         return data
       } catch (e) {
