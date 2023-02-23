@@ -13,14 +13,34 @@
       <div class="text-lg font-medium">
         {{ value.user.displayName }}
       </div>
-      <div class="whitespace-nowrap text-base">
-        <span class="font-medium text-xs">
-          {{ value.feedbacks }}
-          <span class="font-normal text-xs">
-            {{ $t(value.feedbacks == 1 ? 'feedback' : 'feedbacks') }}
-          </span>
-        </span>
+      <div class="flex flex-row divide-x divide-solid divide-gray-300">
+        <div class="whitespace-nowrap text-base pr-4">
+            <span class="font-normal text-xs">
+              {{ value.feedbacks }}
+              <span class="font-normal text-xs">
+                {{ $t(value.feedbacks == 1 ? 'Submission' : 'Submissions') }}
+              </span>
+            </span>
+          </div>
+          <div class="whitespace-nowrap text-base px-4">
+            <span class="font-normal text-xs">
+              {{ value.score }}
+              <span class="font-normal text-xs">
+                {{ $t(value.score == 1 ? 'Total Point' : 'Total Points') }}
+              </span>
+            </span>
+          </div>
+          <div class="whitespace-nowrap text-base px-4">
+            <span class="font-normal text-xs">
+              {{ value.feedbacks }}
+              <span class="font-normal text-xs">
+                {{ $t(value.feedbacks == 1 ? 'Feedback' : 'Feedbacks') }}
+              </span>
+            </span>
+          </div>
+
       </div>
+  
     </div>
 
     <div class="relative sm:flex-none pt-9 sm:p-0">

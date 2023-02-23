@@ -5,13 +5,13 @@
     v-model="vModalValue"
     :value="data"
     :class="[
-      'w-5 h-5 bg-gray-100 rounded border-gray-200 text-primary rounded-full',
-      disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+      'w-9 h-9 rounded border-gray-400 text-primary rounded-full',
+      disabled ? 'cursor-not-allowed border-4' : 'cursor-pointer',
     ]"
     :name="name"
     :required="required"
     :style="styles"
-    size="small"
+    size="medium"
     type="radio"
     :disabled="disabled"
   />
@@ -95,7 +95,18 @@ export default {
     },
   },
   mounted() {
-    this.$refs.input.checked = this.checked
+    this.handleCheck()
+  },
+  methods: {
+    handleCheck() {
+      if (this.checked) {
+        this.$refs.input.checked = this.checked
+        return
+      }
+      if (this.value === this.data) {
+        this.$refs.input.checked = true
+      }
+    },
   },
 }
 </script>
