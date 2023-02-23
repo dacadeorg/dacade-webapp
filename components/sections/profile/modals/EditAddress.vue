@@ -15,31 +15,56 @@
         </p>
         <Tag class="text-gray-500 mt-2" :value="wallet.token" />
       </div>
-      <div class="flex flex-col space-y-1">
-        <p v-if="currentAddress" class="font-medium text-base">Switch from:</p>
+      <div v-if="showInput" class="flex flex-col space-y-1">
+        <div v-if="currentAddress" class="flex">
+          <p class="font-medium text-base">current address:</p>
+          <a @click="showInput" class="font-medium cursor-pointer text-base ml-auto text-primary">
+            Change address
+          </a>
+        </div>
+
         <p v-if="currentAddress" class="text-base">{{ currentAddress }}</p>
-        <div class="mb-4" :class="[showInput ? 'pb-2' : 'pb-20']">
+        <div class="pb-2">
           <p class="font-medium text-base">{{ newAddressTitle }}</p>
         </div>
       </div>
+
+      <div v-else>
+          <p class="font-medium text-base mb-5">
+            How would you like to add your address?
+          </p>
+          <div
+            @close="showEditAddress = true"
+            class="border border-solid border-gray-400 rounded-xl"
+          >
+            <WalletButton @click="showEditAddress = true"
+              >Enter address manually</WalletButton
+            >
+            <WalletButton
+              @click="connect"
+              class="border-t border-solid border-gray-400"
+              >Connect a wallet</WalletButton
+            >
+          </div>
+        </div>
+
     </div>
     <ValidationObserver ref="form" v-slot="{ passes }">
       <form class="flex flex-col space-y-4" @submit.prevent="passes(onSave)">
         <div class="px-6">
           <ValidationProvider
-            v-if="showInput"
+            v-if="!showInput || showEditAddress === true"
             v-slot="{ errors }"
             name="address"
             rules="required|min:2"
             mode="passive"
           >
             <Input
-              v-if="requireWalletConnection"
+              v-if="requireWalletConnection || showEditAddress === true"
               :value="newAddress"
               required
               :label="$t('profile.edit.label.account-address')"
               :error="errors[0]"
-              disabled
             />
             <Input
               v-else
@@ -47,7 +72,6 @@
               required
               :label="$t('profile.edit.label.account-address')"
               :error="errors[0]"
-              :disabled="requireWalletConnection"
             />
           </ValidationProvider>
 
@@ -63,11 +87,15 @@
             >{{ $t('profile.edit.close') }}</span
           >
           <ArrowButton
-            v-if="requireWalletConnection && !newAddress"
+            v-if="
+              requireWalletConnection ||
+              (showEditAddress === true && !newAddress)
+            "
             variant="button"
+            :disabled="loading || !filled"
             @click="connect"
           >
-            Connect Wallet
+            Change address
           </ArrowButton>
           <ArrowButton v-else :loading="loading" :disabled="loading || !filled"
             >{{ $t('profile.edit.save') }}
@@ -85,6 +113,7 @@ import Modal from '@/components/ui/Modal'
 import Input from '@/components/ui/Input'
 import Tag from '@/components/ui/Tag'
 import ArrowButton from '@/components/ui/button/Arrow'
+import WalletButton from '@/components/ui/button/Wallet'
 import ErrorBox from '~/components/ui/ErrorBox'
 
 export default {
@@ -94,6 +123,7 @@ export default {
     Modal,
     Input,
     ArrowButton,
+    WalletButton,
     Tag,
   },
   props: {
@@ -114,8 +144,11 @@ export default {
       address: '',
       loading: false,
       error: null,
+      showEditModal: false,
+      showEditAddress: false,
     }
   },
+
   computed: {
     ...mapGetters({
       walletAddress: 'wallet/address',
@@ -159,6 +192,7 @@ export default {
       return 'To:'
     },
   },
+
   watch: {
     newAddress(newValue, oldValue) {
       if (newValue === oldValue) return
@@ -171,6 +205,7 @@ export default {
       this.disconnect()
     },
   },
+
   methods: {
     async onSave() {
       this.loading = true
