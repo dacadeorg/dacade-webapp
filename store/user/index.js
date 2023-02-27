@@ -46,7 +46,6 @@ export const actions = {
     try {
       await dispatch('getToken')
       const { data } = await this.$api.get('users/current')
-      console.log({data})
       commit('set', data)
       return data
     } catch (e) {
@@ -77,20 +76,20 @@ export const actions = {
     return null
   },
 
-  async getSumsubToken({ commit, dispatch }, payload) {
+  async getSumsubToken({ commit }) {
     const user = firebaseAuth.currentUser
     if (user) {
       try {
         const { data } = await this.$api.post('users/sumsub/get-access-token')
-        commit('setSumsubToken', data.token)
-        return data
+        const token = data?.token
+        if(!token) return
+        commit('setSumsubToken', token)
+        return token
       } catch (e) {
         console.log(e)
-        dispatch('clear')
         return null
       }
     }
-    return null
   },
   async completeSumSubVerification({commit, dispatch }) {
     await dispatch('fetch')

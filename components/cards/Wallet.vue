@@ -73,7 +73,7 @@
             :disabled="disabled || !details.balance || !details.address"
             type="outline-primary"
             min-width-class="min-w-40"
-            @click="triggerKycOrPayout"
+            @click="showPayoutModal = true"
           >
             {{ $t('profile.wallets.cash-out') }}
           </ArrowButton>
@@ -86,18 +86,10 @@
       /></span>
       {{ $t('profile.wallet.payout.text') }}
     </Hint>
-
-<!--    display sumsub when user has not performed previous verification   -->
-    <Modal :show="canShowKycModal" size="medium">
-      <Sumsub  />
-    </Modal>
-
-
   </div>
 </template>
 
 <script>
-import {mapGetters} from "vuex";
 import Coin from '@/components/ui/Coin'
 import ArrowButton from '@/components/ui/button/Arrow'
 import Tag from '@/components/ui/Tag'
@@ -105,14 +97,10 @@ import Currency from '@/components/ui/Currency'
 import EditAddress from '@/components/sections/profile/modals/EditAddress'
 import Payout from '@/components/sections/profile/modals/Payout.vue'
 import Hint from '@/components/ui/Hint'
-import Sumsub from "~/components/kyc/sumsub/index.vue";
-import Modal from "~/components/ui/Modal.vue";
 
 export default {
   name: 'Wallet',
   components: {
-    Modal,
-    Sumsub,
     Coin,
     ArrowButton,
     Tag,
@@ -138,7 +126,6 @@ export default {
     return {
       showEditModal: false,
       showPayoutModal: false,
-      showKycModal: false,
     }
   },
   computed: {
@@ -148,22 +135,6 @@ export default {
     },
     cashable() {
       return String(this.details.token).toUpperCase() !== 'DAC'
-    },
-    canShowKycModal() {
-      return this.user.kycStatus !== 'VERIFIED' && this.showKycModal
-    },
-    ...mapGetters({
-      user: 'user/get',
-    }),
-  },
-  methods: {
-    triggerKycOrPayout() {
-      const kycStatus = this.user.kycStatus
-      if (!kycStatus || kycStatus !== 'VERIFIED') {
-        this.showKycModal = true
-        return
-      }
-      this.showPayoutModal = true
     },
   },
 }

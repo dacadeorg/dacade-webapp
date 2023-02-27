@@ -37,6 +37,8 @@
         {{ $t('profile.header.connect-discord') }}
       </Button>
     </div>
+
+    <Sumsub />
   </div>
 </template>
 
@@ -47,12 +49,14 @@ import DateManager from '@/utilities/DateManager'
 import Button from '@/components/ui/button'
 import TimeIcon from '~/assets/icons/time.svg?inline'
 import DiscordIcon from '~/assets/icons/discordIcon.svg?inline'
+import Sumsub from "~/components/kyc/sumsub/index.vue";
 // import GithubIcon from '~/assets/icons/github.svg?inline'
 // import CompassIcon from '~/assets/icons/compass.svg?inline'
 
 export default {
   name: 'ProfileHeader',
   components: {
+    Sumsub,
     Avatar,
     TimeIcon,
     Button,
