@@ -1,6 +1,7 @@
 <template>
   <div class="py-7">
     <Button
+      v-if="sumsubToken"
       :disabled="isUserVerified"
       type="outline-primary"
       class="flex mx-auto text-base"
