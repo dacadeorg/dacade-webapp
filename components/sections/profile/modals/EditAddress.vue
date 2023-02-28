@@ -15,16 +15,16 @@
         </p>
         <Tag class="text-gray-500 mt-2" :value="wallet.token" />
       </div>
-      <div v-if="showInput" class="flex flex-col space-y-1">
+      <div v-if="showInput" class="flex flex-col space-y-3">
         <div v-if="currentAddress" class="flex">
           <p class="font-medium text-base">current address:</p>
-          <a @click="showInput" class="font-medium cursor-pointer text-base ml-auto text-primary">
+          <a class="font-medium cursor-pointer text-base ml-auto text-primary" @click="showInput">
             Change address
           </a>
         </div>
 
-        <p v-if="currentAddress" class="text-base">{{ currentAddress }}</p>
-        <div class="pb-2">
+        <p v-if="currentAddress" class="text-base mb-3">{{ currentAddress }}</p>
+        <div v-if="!currentAddress" class="pb-2">
           <p class="font-medium text-base">{{ newAddressTitle }}</p>
         </div>
       </div>
@@ -34,17 +34,18 @@
             How would you like to add your address?
           </p>
           <div
-            @close="showEditAddress = true"
-            class="border border-solid border-gray-400 rounded-xl"
+            class="border border-solid border-gray-400 rounded-xl divide-y"
           >
+         
             <WalletButton @click="showEditAddress = true"
               >Enter address manually</WalletButton
             >
+            
             <WalletButton
               @click="connect"
-              class="border-t border-solid border-gray-400"
               >Connect a wallet</WalletButton
             >
+          
           </div>
         </div>
 
@@ -53,14 +54,14 @@
       <form class="flex flex-col space-y-4" @submit.prevent="passes(onSave)">
         <div class="px-6">
           <ValidationProvider
-            v-if="!showInput || showEditAddress === true"
+            v-if="showInput && showEditAddress"
             v-slot="{ errors }"
             name="address"
             rules="required|min:2"
             mode="passive"
           >
             <Input
-              v-if="requireWalletConnection || showEditAddress === true"
+              v-if="requireWalletConnection"
               :value="newAddress"
               required
               :label="$t('profile.edit.label.account-address')"

@@ -7,7 +7,7 @@
     :custom-style="customStyle"
     :target="target"
     :variant="variant"
-    class="py-5.5 pl-5 pr-3.5 w-full rounded-none text-gray-400 bg-transparent hover:bg-gray-500 hover:text-gray-200"
+    class="py-5.5 pl-5 pr-3.5 w-full rounded-none text-gray-400 bg-transparent z-999 hover:bg-gray-100 hover:text-gray-800"
     v-on="inputListeners"
   >
     <span class="flex h-full text-left items-center justify-between">
