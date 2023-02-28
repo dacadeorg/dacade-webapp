@@ -105,6 +105,7 @@ export default {
     },
 
     openKycModal() {
+      if(!this.sumsubToken) return
       this.showSumsubModal = true
       this.launchWebSdk(this.sumsubToken, this.user.email)
     },
