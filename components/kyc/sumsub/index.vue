@@ -41,7 +41,7 @@ export default {
   computed: {
     ...mapGetters({
       user: 'user/get',
-      sumsubToken: 'user/sumsubToken',
+      sumsubToken: 'kyc/sumsubToken',
     }),
     isUserVerified() {
       return this.user?.kycStatus === 'VERIFIED'
@@ -51,8 +51,8 @@ export default {
     },
   },
   async mounted() {
-    if(this.isUserVerified) return
-    await this.$store.dispatch('user/getSumsubToken');
+    // if(this.isUserVerified) return
+    await this.$store.dispatch('kyc/getSumsubToken');
   },
   methods: {
     /**
@@ -99,7 +99,7 @@ export default {
         // complete verification
         // delay for 2 seconds to allow the user to see the success message
         setTimeout(() => {
-          this.$store.dispatch('user/completeSumSubVerification')
+          this.$store.dispatch('kyc/completeSumSubVerification')
           this.closeKycModal()
         }, 2000)
       }
