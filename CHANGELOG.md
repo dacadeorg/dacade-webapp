@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.13.4](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.3...v3.13.4) (2023-03-02)
+
+
+### Features
+
+* add email notification unsubscribe page ([242fad1](https://github.com/dacadeorg/dacade-webapp/commit/242fad1282b35dfca586d15b32dd36a7e61b0771))
+* complete scoreboard filter ([cfaa83f](https://github.com/dacadeorg/dacade-webapp/commit/cfaa83f0dbd13b0d5eb99e0df7c742c0b710f4bc))
+* trigger api filtering on the scoreboard filter option change ([c3f6fcb](https://github.com/dacadeorg/dacade-webapp/commit/c3f6fcb132a602e1271864e630815aa49eacf129))
+
+
+### Bug Fixes
+
+* handle radio button state change ([3971bc5](https://github.com/dacadeorg/dacade-webapp/commit/3971bc5d5e40fec337964ed98e79a58520e36f3f))
+* resolve sorting implementation ([6c9bfbb](https://github.com/dacadeorg/dacade-webapp/commit/6c9bfbb2b6435e043aa3141d552d5061da142bb5))
+
+
+### Improvements
+
+* add celo certificates icons ([b99e715](https://github.com/dacadeorg/dacade-webapp/commit/b99e715ccb240be141de1568bbe1e1687908b926))
+* add checked state in filter option ([0174d49](https://github.com/dacadeorg/dacade-webapp/commit/0174d49ac978de44c8c75bf75ba5e558b18984ff))
+* adjust style of the objective list ([16e6e76](https://github.com/dacadeorg/dacade-webapp/commit/16e6e76507753097e8784513e6601a1c5099ec52))
+* cleanup ([4738a54](https://github.com/dacadeorg/dacade-webapp/commit/4738a54e5f5096500605bf8c28152245256649cd))
+* cleanup ([7893da6](https://github.com/dacadeorg/dacade-webapp/commit/7893da6c16510952b1efb5461bf93708c2b07f4f))
+* cleanup ([ac65cf1](https://github.com/dacadeorg/dacade-webapp/commit/ac65cf1e18c3b7b8fdfa8e1cd5288de4b5e10946))
+* cleanup filter rendering ([db20a3d](https://github.com/dacadeorg/dacade-webapp/commit/db20a3dc47b9dc07afd87628e57de4db262021e5))
+
 ### [3.13.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.2...v3.13.3) (2023-02-09)
 
 
