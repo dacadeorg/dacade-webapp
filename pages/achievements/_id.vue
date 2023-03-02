@@ -9,8 +9,8 @@
           class="flex justify-center items-center p-7 md:rounded-l-3xl rounded-t-3xl md:rounded-t-none w-full md:w-1/2 md:bg-none bg-gray-100"
         >
           <div
-            class="p-12 h-52 w-52 rounded-full"
-            :style="{ backgroundColor: backgroundColor }"
+            :class="['h-52 w-52', { 'p-12 rounded-full': isSVG }]"
+            :style="{ backgroundColor: isSVG && backgroundColor }"
           >
             <img :src="achievement?.metadata?.image" alt="certificate badge" />
           </div>
@@ -224,6 +224,9 @@ export default {
     },
     mintable() {
       return this.achievement?.community?.can_mint_certificates
+    },
+    isSVG() {
+      return this.achievement?.metadata?.image?.includes('.svg') || false
     },
   },
 }

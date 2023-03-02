@@ -9,8 +9,8 @@
       <div class="h-full flex flex-col">
         <div class="mx-auto flex-grow w-full text-left px-7">
           <div
-            class="w-20 h-20 p-5 mx-auto rounded-full mb-5"
-            :style="{ backgroundColor: data.community.colors.primary }"
+            :class="['mx-auto rounded-full mb-5', { 'w-20 h-20 p-5': isSVG }]"
+            :style="{ backgroundColor: isSVG && data.community.colors.primary }"
           >
             <img :src="data.metadata.image" class="relative" />
           </div>
@@ -71,6 +71,9 @@ export default {
       return !this.minted && !this.minting
         ? this.$t('profile.achievement.mintable')
         : 'NFT'
+    },
+    isSVG() {
+      return this.data?.metadata?.image?.includes('.svg') || false
     },
   },
 }
