@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.13.5](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.4...v3.13.5) (2023-03-03)
+
+
+### Features
+
+* hide the certificate title for the new icons ([52b0655](https://github.com/dacadeorg/dacade-webapp/commit/52b06553d86432955487fe9c47c6fbef311bf6d9))
+
+
+### Improvements
+
+* add updated certificates icons for all courses ([855a3e2](https://github.com/dacadeorg/dacade-webapp/commit/855a3e2f598431f06640ef5c61f33a2eacf5e82d))
+* adjust none svg certificate achievement image ([2fa589c](https://github.com/dacadeorg/dacade-webapp/commit/2fa589c0abed30d94f315511a3721ee7fb9afcb8))
+* adjust the celo development 101 certificate image ([17ee633](https://github.com/dacadeorg/dacade-webapp/commit/17ee6332ab8dae5423d0718e5205007d5b60b897))
+
 ### [3.13.4](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.3...v3.13.4) (2023-03-02)
 
 
