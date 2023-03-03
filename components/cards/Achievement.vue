@@ -14,7 +14,7 @@
           >
             <img :src="data.metadata.image" class="relative" />
           </div>
-          <p class="text-sm font-medium text-center">
+          <p v-if="isSVG" class="text-sm font-medium text-center">
             {{ data.metadata.name }}
           </p>
         </div>
