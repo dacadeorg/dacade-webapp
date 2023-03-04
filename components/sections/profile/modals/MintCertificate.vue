@@ -34,7 +34,7 @@
           <div v-if="!minted">
             <p class="pb-4 pt-3">
               This certificate is awarded for passing the
-              {{ certificate?.metadata?.name }} course.
+              {{ achievement?.metadata?.name }} course.
             </p>
             <div
               v-if="!connected"
