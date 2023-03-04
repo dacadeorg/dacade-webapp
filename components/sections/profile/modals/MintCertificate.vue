@@ -11,7 +11,7 @@
           <AchievementCard :data="achievement" minting />
         </div>
 
-        <div class="flex-1 font-primary">
+        <div class="flex-1 font-primary overflow-hidden">
           <ErrorBox v-if="error" class="my-4" :error="error" />
           <div v-if="minted" class="flex flex-col gap-3">
             <div
