@@ -7,11 +7,11 @@
         </p>
       </div>
       <div class="flex flex-col md:flex-row gap-5">
-        <div class="w-1/2 md:w-auto mx-auto md:mx-0">
+        <div class="w-2/3 md:w-1/3 2xl:w-1/4 flex-none mx-auto md:mx-0">
           <AchievementCard :data="achievement" minting />
         </div>
 
-        <div class="w-full md:w-3/4 font-primary">
+        <div class="flex-1 font-primary">
           <ErrorBox v-if="error" class="my-4" :error="error" />
           <div v-if="minted" class="flex flex-col gap-3">
             <div
