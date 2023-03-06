@@ -12,6 +12,11 @@
         :show="showPayoutModal"
         @close="showPayoutModal = false"
       />
+      <KycVerification
+        :wallet="details"
+        :show="showKycVerificationModel"
+        @close="showKycVerificationModel = false"
+      />
       <div class="bg-gray-50 lg:w-60 md:w-60 sm:w-60 rounded-3.5xl">
         <div class="p-6">
           <div class="border-b border-dotted border-gray-900">
@@ -73,7 +78,7 @@
             :disabled="disabled || !details.balance || !details.address"
             type="outline-primary"
             min-width-class="min-w-40"
-            @click="showPayoutModal = true"
+            @click="showKycVerificationModel = true"
           >
             {{ $t('profile.wallets.cash-out') }}
           </ArrowButton>
@@ -90,6 +95,7 @@
 </template>
 
 <script>
+import KycVerification from '../sections/profile/modals/KycVerification.vue'
 import Coin from '@/components/ui/Coin'
 import ArrowButton from '@/components/ui/button/Arrow'
 import Tag from '@/components/ui/Tag'
@@ -108,7 +114,8 @@ export default {
     EditAddress,
     Payout,
     Hint,
-  },
+    KycVerification
+},
   props: {
     details: {
       type: Object,
@@ -126,6 +133,7 @@ export default {
     return {
       showEditModal: false,
       showPayoutModal: false,
+      showKycVerificationModel: false,
     }
   },
   computed: {
