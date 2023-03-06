@@ -78,6 +78,10 @@ export default {
           {
             label: this.$t('navigation.profile.referrals'),
             link: '/profile/referrals',
+          },
+          {
+            label: this.$t('navigation.profile.settings'),
+            link: '/profile/settings',
           }
         )
       } else {
