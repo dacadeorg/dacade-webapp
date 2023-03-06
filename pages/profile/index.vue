@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import NotificationList from '@/components/list/Notification'
 import ProfileOverviewCommunities from '~/components/sections/profile/overview/Communities'
 import ProfileOverviewAchievements from '~/components/sections/profile/overview/Achievements'
@@ -25,7 +24,6 @@ import ProfileOverviewReferrals from '~/components/sections/profile/overview/Ref
 import ProfileOverviewSection from '~/components/sections/profile/overview/Section'
 import { getMetadataTitle } from '~/utilities/Metadata'
 import DiscordConnect from '~/components/popups/DiscordConnect.vue'
-
 export default {
   name: 'ProfileOverview',
   components: {
@@ -58,11 +56,6 @@ export default {
       title: getMetadataTitle(this.user?.displayName),
       // meta: getMetadataDescription(this.challenge.description)
     }
-  },
-  computed: {
-    ...mapGetters({
-      user: 'user/get',
-    }),
   },
 }
 </script>
