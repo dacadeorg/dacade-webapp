@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import { auth as firebaseAuth } from '@/plugins/firebase'
+import {auth as firebaseAuth} from '@/plugins/firebase'
 
 export const state = () => ({
   data: null,
@@ -24,7 +24,7 @@ export const mutations = {
 }
 
 export const actions = {
-  clear({ commit }, payload) {
+  clear({commit}, payload) {
     commit('clear')
     this.commit('user/notifications/clear')
     this.commit('user/reputations/clear')
@@ -32,7 +32,7 @@ export const actions = {
     this.commit('auth/clear')
   },
 
-  async fetch({ commit, dispatch }, payload) {
+  async fetch({commit, dispatch}, payload) {
     const user = firebaseAuth.currentUser
     if (!user) {
       dispatch('clear')
@@ -41,7 +41,7 @@ export const actions = {
 
     try {
       await dispatch('getToken')
-      const { data } = await this.$api.get('users/current')
+      const {data} = await this.$api.get('users/current')
       commit('set', data)
       return data
     } catch (e) {
@@ -50,12 +50,12 @@ export const actions = {
     }
   },
 
-  async update({ dispatch }, payload) {
+  async update({dispatch}, payload) {
     await this.$api.patch('users/update', payload)
     dispatch('fetch')
   },
 
-  async getToken({ commit, dispatch }, payload) {
+  async getToken({commit, dispatch}, payload) {
     const user = firebaseAuth.currentUser
     if (user) {
       try {
@@ -94,5 +94,8 @@ export const getters = {
   },
   walletAddresses(state) {
     return state.data?.walletAddresses
+  },
+  isKycVerified(state) {
+    return state.data?.kycStatus === 'VERIFIED'
   }
 }
