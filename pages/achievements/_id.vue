@@ -23,7 +23,7 @@
               {{ achievement?.metadata?.name }}
             </h2>
             <p class="text-gray-700 md:text-base text-sm">
-              {{ achievement?.metadata?.description }}
+              {{ achievement?.metadata?.narrative || achievement?.metadata?.description }}
             </p>
           </div>
 
