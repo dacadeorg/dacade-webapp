@@ -18,7 +18,7 @@ Through incentives in the form of micro transactions, students can earn rewards 
 ```bash
 - vue.js
 - tailwinds.css
-- cloud functions
+- google cloud functions
 - firebase
 - nuxt.js
 ```
