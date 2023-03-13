@@ -9,7 +9,7 @@ v-for="(info, i) in userInfo" :key="i"
       class="grid grid-cols-3 gap-4 p-4">
          <div class="text-gray text-sm">{{ info.title }}</div>
          <div class="text-gray text-sm">{{ info.content}}</div>
-         <div class="flex justify-end text-sm text-primary">{{ info.status }}</div>
+         <button class="bg-transparent hover:bg-transparent text-blue-700" @click="togglePopUp">{{ info.status }}</button>
       </div>
     </ProfileSettingsSection>
   </template>
@@ -53,6 +53,11 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    togglePopUp() {
+      this.$store.dispatch('ui/toggleShowInformationPopup', true)
+    },
   },
 }
 </script>

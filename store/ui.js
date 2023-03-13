@@ -5,6 +5,7 @@ export const state = () => ({
   colors: {},
   locked: false,
   showReferralPopup: false,
+  showInformationPopup: false,
 })
 
 export const mutations = {
@@ -19,6 +20,9 @@ export const mutations = {
   },
   setShowReferralPopup(state, payload) {
     state.showReferralPopup = payload
+  },
+  setShowInformationPopup(state, payload) {
+    state.showInformationPopup = payload
   },
 }
 
@@ -47,6 +51,10 @@ export const actions = {
     dispatch('toggleBodyScrolling', show)
     commit('setShowReferralPopup', show)
   },
+  toggleShowInformationPopup({ commit, state, dispatch }, show) {
+    dispatch('toggleBodyScrolling', show)
+    commit('setShowInformationPopup', show)
+  },
 }
 
 export const getters = {
@@ -55,5 +63,8 @@ export const getters = {
   },
   showReferralPopup(state) {
     return state.showReferralPopup
+  },
+  showInformationPopup(state) {
+    return state.showInformationPopup
   },
 }

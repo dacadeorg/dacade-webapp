@@ -6,14 +6,11 @@
   
       <ProfileSettingsLinking />
   
-      <Logout />
-
-      {{ user }}
+      <!-- <Logout /> -->
 
       <Button
         type="outline-secondary "
         class="flex items-start mx-auto text-base"
-        @click="triggerDiscordOauth"
       >
         {{ $t('profile.header.disconnect') }}
       </Button>
