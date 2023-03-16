@@ -1,5 +1,5 @@
 <template>
-    <Modal v-if="user" :show="showInformation" @close="close">
+    <Modal v-if="user" :show="showModal" @close="close">
       <div class="w-full p-7 relative">
 
         <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
@@ -38,15 +38,19 @@
     computed: {
       ...mapGetters({
         user: 'user/get',
-        showInformation: 'ui/showInformationPopup',
       }),
     },
     methods: {
       close() {
-        if (this.showInformation) {
-          this.$store.dispatch('ui/toggleShowInformationPopup', false)
+        if (this.showModal) {
+            this.show = !this.show
         }
       },
+      showModal() {
+      if (this.show) {
+        this.show = !this.show
+      }
+    },
     },
   }
   </script>

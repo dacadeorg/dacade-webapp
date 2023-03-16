@@ -11,15 +11,20 @@ v-for="(info, i) in userInfo" :key="i"
          <div class="text-gray text-sm">{{ info.content}}</div>
          <button class="bg-transparent hover:bg-transparent text-blue-700" @click="togglePopUp">{{ info.status }}</button>
       </div>
+      <Popup v-show="showPopup" :show="showPopup" />
+      <div v-show="showPopup">hello</div>
     </ProfileSettingsSection>
   </template>
   
 <script>
 import ProfileSettingsSection from '~/components/sections/profile/overview/Section'
-
+import Popup from '~/components/popups/profile'
 export default {
   name: 'ProfileSettingsInformation',
-  components: { ProfileSettingsSection },
+  components: { 
+    ProfileSettingsSection,
+    Popup
+   },
   props: {
     user: {
         default: () => {
@@ -30,6 +35,7 @@ export default {
   },
   data() {
     return {
+      showPopup: false,
       userInfo: [
         {
           title: 'Username',
@@ -56,7 +62,7 @@ export default {
   },
   methods: {
     togglePopUp() {
-      this.$store.dispatch('ui/toggleShowInformationPopup', true)
+      this.showPopup = !this.showPopup
     },
   },
 }
