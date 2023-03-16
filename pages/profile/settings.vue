@@ -6,14 +6,16 @@
   
       <ProfileSettingsLinking />
   
-      <!-- <Logout /> -->
-
-      <Button
-        type="outline-secondary "
-        class="flex items-start mx-auto text-base"
-      >
-        {{ $t('profile.header.disconnect') }}
-      </Button>
+      <div class="w-full flex justify-start mx-auto text-base">
+        <Button
+          type="outline-primary"
+          class="bg-transparent border text-red-700 border-red-700 flex text-base mt-4"
+        >
+          {{ $t('profile.header.disconnect') }}
+        </Button>
+      </div>
+      
+    
 
       </div>
   </template>

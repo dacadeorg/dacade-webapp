@@ -5,14 +5,15 @@
       see-all
     >
       <div
-v-for="(info, i) in userInfo" :key="i"
-      class="grid grid-cols-3 gap-4 p-4">
+        v-for="(info, i) in userInfo" :key="i"
+        class="grid grid-cols-3 gap-4 p-4">
          <div class="text-gray text-sm">{{ info.title }}</div>
          <div class="text-gray text-sm">{{ info.content}}</div>
-         <button class="bg-transparent hover:bg-transparent text-blue-700" @click="togglePopUp">{{ info.status }}</button>
+         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="togglePopUp">{{ info.status }}</button>
       </div>
       <Popup v-show="showPopup" :show="showPopup" />
-      <div v-show="showPopup">hello</div>
+      <div v-show="showPopup">{{ togglePopUp }}</div>
+
     </ProfileSettingsSection>
   </template>
   
@@ -45,12 +46,12 @@ export default {
         {
           title: 'Email',
           content : this.user.email,
-          status: 'Change',
+          status: this.user.email.length === 0 ? 'Set' : 'Change',
         },
         {
           title: 'Names',
-          content : '',
-          status: 'Set',
+          content : this.user.firstName,
+          status: this.user.firstName.length > 0 ? 'Change':'Set' ,
         },
         {
           title: 'Password',
