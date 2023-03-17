@@ -11,7 +11,7 @@
          <div class="text-gray text-sm">{{ info.content}}</div>
          <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="togglePopUp">{{ info.status }}</button>
       </div>
-      <Popup class="w-3/5" v-show="showPopup" :show="showPopup" />
+      <Popup v-show="showPopup" class="w-3/5" :show="showPopup" @close="$emit('close', $event)"  />
       <div v-show="showPopup">{{ togglePopUp }}</div>
 
     </ProfileSettingsSection>

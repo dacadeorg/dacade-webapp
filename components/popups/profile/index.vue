@@ -1,5 +1,5 @@
 <template>
-    <Modal v-if="user" :show="showModal" :size="small" @close="close">
+    <Modal v-if="user" :show="showModal" size="small" @close="$emit('close', $event)">
       <div class="w-full p-7 relative">
 
         <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
@@ -97,6 +97,7 @@
     },
     data() {
     return {
+      show: false,
       form: {
         username: '',
         email: '',
@@ -113,23 +114,24 @@
     },
     methods: {
       close() {
-        if (this.show) {
-            this.show = !this.show
+        if (this.showModal) {
+            this.showModal = !this.showModal
+            this.$emit('close')
         }
       },
       showModal() {
-      if (this.show) {
-        this.show = !this.show
-      }
-    },
-      submit() {
-      this.$router.push(this.localePath('/'))
+        if (this.show) {
+          this.show = !this.show
+        }
       },
-      externalClick(event) {
-      if (!this.show) return
-      this.show = false
-      this.$store.dispatch('ui/toggleBodyScrolling', this.show)
-    },
+      submit() {
+        this.$router.push(this.localePath('/'))
+        },
+        externalClick(event) {
+        if (!this.show) return
+        this.show = false
+        this.$store.dispatch('ui/toggleBodyScrolling', this.show)
+      },
     },
   }
   </script>
