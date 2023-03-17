@@ -1,5 +1,5 @@
 <template>
-    <Modal v-if="user" :show="showModal" @close="close">
+    <Modal v-if="user" :show="showModal" :size="small" @close="close">
       <div class="w-full p-7 relative">
 
         <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
