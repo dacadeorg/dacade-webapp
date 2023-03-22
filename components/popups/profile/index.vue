@@ -1,9 +1,9 @@
 <template>
-    <Modal v-if="user" :show="showModal" size="small" @close="$emit('close', $event)">
+    <Modal v-if="user" :show="showPopup" size="small" @close="close">
       <div class="w-full p-7 relative">
 
         <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
-          Change names
+          {{  getPopupTitle }}
         </h1>
 
       <form
@@ -12,44 +12,29 @@
         @submit.prevent="passes(submit)"
       >
         <div class="lg:w-98 xl:w-98 mx-auto">
-          <div label-for="input-1" class="mb-5 relative">
+
+
+          <div
+          label-for="input-1" class="mb-5 relative">
             <ValidationProvider
               v-slot="{ errors }"
-              name="email"
+              name="form"
               rules="required|email"
               mode="passive"
             >
               <div>
                 <Input
-                  id="input-1"
-                  v-model="form.email"
+                v-for="(field, i) in selectedInfo.form" id="input"
+                  :key="i"
+                  v-model="form.field"
                   required
-                  type="email"
-                  :placeholder="$t('login-page.email.placeholder')"
-                  :label="$t('login-page.email.label')"
+                  type="form"
+                  :placeholder="field"
+                  :label="field"
                   class="mb-5"
                   :error="errors[0]"
                 />
               </div>
-            </ValidationProvider>
-          </div>
-
-          <div label-for="input-2">
-            <ValidationProvider
-              v-slot="{ errors }"
-              name="username"
-              rules="required|min:3|username"
-              mode="aggressive"
-            >
-              <Input
-                id="input-2"
-                v-model="form.username"
-                name="username"
-                :placeholder="$t('login-page.username.placeholder')"
-                :label="$t('login-page.username.label')"
-                class="mb-5"
-                :error="errors[0]"
-              />
             </ValidationProvider>
           </div>
 
@@ -95,12 +80,32 @@
       ArrowButton,
       Input,
     },
+    props: {
+    showPopup: {
+        default: false,
+      type: Boolean,
+    },
+    togglePopup: {
+      default: () => {},
+      type: Function,
+    },
+    userInfo: {
+      default: () => [],
+      type: Array,
+    },
+    selectedInfo: {
+      default: () => {
+        return {}
+      },
+      type: Object,
+    },
+  },
     data() {
     return {
+      // userInfo: [],
       show: false,
       form: {
-        username: '',
-        email: '',
+        field: '',
       },
       loading: false,
     }
@@ -111,27 +116,35 @@
       ...mapGetters({
         user: 'user/get',
       }),
+     getFormField() {
+      return this.selectedInfo
+     },
+      getPopupTitle(selectedInfo) {
+        switch (selectedInfo.title) {
+        case ('Username'):
+          return 'Change Names'
+        case 'Email':
+          return 'Change Email'
+        case 'Names':
+          return 'Change Name'
+        case 'Password':
+          return 'Change Password'
+        default:
+          return 'Change Default'
+        }
+      },
     },
     methods: {
       close() {
-        if (this.showModal) {
-            this.showModal = !this.showModal
-            this.$emit('close')
-        }
+          this.$emit('close')
+    
       },
       showModal() {
-        if (this.show) {
-          this.show = !this.show
-        }
+        this.$emit('togglePopUp')
       },
       submit() {
         this.$router.push(this.localePath('/'))
         },
-        externalClick(event) {
-        if (!this.show) return
-        this.show = false
-        this.$store.dispatch('ui/toggleBodyScrolling', this.show)
-      },
     },
   }
   </script>
