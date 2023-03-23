@@ -119,20 +119,6 @@
      getFormField() {
       return this.selectedInfo
      },
-      getPopupTitle(selectedInfo) {
-        switch (selectedInfo.title) {
-        case ('Username'):
-          return 'Change Names'
-        case 'Email':
-          return 'Change Email'
-        case 'Names':
-          return 'Change Name'
-        case 'Password':
-          return 'Change Password'
-        default:
-          return 'Change Default'
-        }
-      },
     },
     methods: {
       close() {
