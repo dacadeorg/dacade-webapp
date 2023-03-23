@@ -7,7 +7,7 @@
       <div
         v-for="(info, i) in userInfo" :key="i"
         class="grid grid-cols-3 gap-4 p-4">
-         <div class="text-gray text-sm">{{ info.title }}</div>
+         <div class="text-gray text-sm">{{ info.info }}</div>
          <div class="text-gray text-sm">{{ info.content}}</div>
          <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp(info)">{{ info.status }}</button>
       </div>
@@ -44,25 +44,29 @@ export default {
       showPopup: false,
       userInfo: [
         {
-          title: 'Username',
+          title: 'Change Names',
+          info: 'Username',
           content : this.user.displayName,
           status: '',
           form: ['Last name','First name ']
         },
         {
-          title: 'Email',
+          title: 'Change Email',
+          info: 'Email',
           content : this.user.email,
           status: this.user.email.length === 0 ? 'Set' : 'Change',
           form: ['Change your email']
         },
         {
-          title: 'Names',
+          title: 'Change Name',
+          info: 'Username',
           content : this.user.firstName,
           status: this.user.firstName.length > 0 ? 'Change':'Set' ,
           form: ['Last name','First name ']
         },
         {
-          title: 'Password',
+          title: 'Change Password',
+          info: 'Username',
           content : '*******',
           status: 'Change',
           form: ['Type your current password','Type new password' ,'Type new password']

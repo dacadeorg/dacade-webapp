@@ -2,9 +2,7 @@
     <Modal v-if="user" :show="showPopup" size="small" @close="close">
       <div class="w-full p-7 relative">
 
-        <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
-          {{  getPopupTitle }}
-        </h1>
+    
 
       <form
         class=""
@@ -12,7 +10,9 @@
         @submit.prevent="passes(submit)"
       >
         <div class="lg:w-98 xl:w-98 mx-auto">
-
+            <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
+          {{  selectedInfo.title }}
+        </h1>
 
           <div
           label-for="input-1" class="mb-5 relative">
@@ -137,7 +137,6 @@
     methods: {
       close() {
           this.$emit('close')
-    
       },
       showModal() {
         this.$emit('togglePopUp')
