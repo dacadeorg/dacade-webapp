@@ -9,8 +9,8 @@
           class="flex justify-center items-center p-7 md:rounded-l-3xl rounded-t-3xl md:rounded-t-none w-full md:w-1/2 md:bg-none bg-gray-100"
         >
           <div
-            :class="['h-52 w-52', { 'p-12 rounded-full': isSVG }]"
-            :style="{ backgroundColor: isSVG && backgroundColor }"
+            :class="['h-52 w-52', { 'p-12 rounded-full': isNotCertificateIcon }]"
+            :style="{ backgroundColor: isNotCertificateIcon && backgroundColor }"
           >
             <img :src="achievement?.metadata?.image" alt="certificate badge" />
           </div>
@@ -102,13 +102,13 @@
                 {{ achievement.minting.tx }}</a
               >
             </AchievementViewItem>
-            <!-- <AchievementViewItem
+            <AchievementViewItem
               :name="$t('profile.achievement.ipfs-metadata')"
             >
               <a :href="ipfsUrl" target="_blank" class="text-xs underline">
                 {{ achievement.minting.tokenURI }}</a
               >
-            </AchievementViewItem> -->
+            </AchievementViewItem>
           </div>
         </div>
       </div>
@@ -225,8 +225,8 @@ export default {
     mintable() {
       return this.achievement?.community?.can_mint_certificates
     },
-    isSVG() {
-      return this.achievement?.metadata?.image?.includes('.svg') || false
+    isNotCertificateIcon() {
+      return !this.achievement?.metadata?.image?.includes('/img/certificates/')
     },
   },
 }

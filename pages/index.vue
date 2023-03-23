@@ -5,6 +5,7 @@
     <TestimonialsSection />
   </div>
 </template>
+
 <script>
 import MainSection from '@/components/sections/homepage/Main'
 import CommunitiesSection from '@/components/sections/homepage/Communities'
