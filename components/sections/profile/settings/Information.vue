@@ -78,7 +78,6 @@ export default {
   methods: {
     togglePopUp(info) {
       this.selectedInfo = info
-      console.log(info, "info")
       this.showPopup = !this.showPopup
     },
   },

@@ -12,7 +12,7 @@
             <div class="text-sm self-center">Discord</div>      
         </div>
         <div class="flex justify-end text-primary text-sm">
-          <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs">Connected</button>
+          <button class="bg-transparent hover:bg-transparent flex justify-end text-gray-400 text-xs">Connected</button>
         </div>
         
 

@@ -41,11 +41,12 @@
           <div class="flex justify-end mt-4">
             <div class="flex text-right self-end">
               <ArrowButton
+                :disabled="disabled" 
+                :custom-style="activeButtonStyle"
                 :loading="loading"
                 type="submit"
-                :disabled="loading"
                 min-width-class="min-w-40"
-                >{{ $t('login-page.signup.button') }}
+                >{{ $t('profile.settings.popup.button') }}
               </ArrowButton>
             </div>
           </div>
@@ -110,15 +111,20 @@
       loading: false,
     }
   },
-
-
     computed: {
       ...mapGetters({
         user: 'user/get',
+        colors: 'ui/colors',
       }),
      getFormField() {
       return this.selectedInfo
      },
+     activeButtonStyle() {
+      return {
+        color: this.colors.text,
+        backgroundColor: this.colors.textAccent,
+      }
+    },
     },
     methods: {
       close() {
