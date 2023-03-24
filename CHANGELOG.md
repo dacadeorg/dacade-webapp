@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.13.6](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.5...v3.13.6) (2023-03-23)
+
+
+### Features
+
+* change certificate icons to svg ([c65affb](https://github.com/dacadeorg/dacade-webapp/commit/c65affb0fb59e111ea652cfb2b30435fc8cf1477))
+
+### [3.13.5](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.4...v3.13.5) (2023-03-03)
+
+
+### Features
+
+* hide the certificate title for the new icons ([52b0655](https://github.com/dacadeorg/dacade-webapp/commit/52b06553d86432955487fe9c47c6fbef311bf6d9))
+
+
+### Improvements
+
+* add updated certificates icons for all courses ([855a3e2](https://github.com/dacadeorg/dacade-webapp/commit/855a3e2f598431f06640ef5c61f33a2eacf5e82d))
+* adjust none svg certificate achievement image ([2fa589c](https://github.com/dacadeorg/dacade-webapp/commit/2fa589c0abed30d94f315511a3721ee7fb9afcb8))
+* adjust the celo development 101 certificate image ([17ee633](https://github.com/dacadeorg/dacade-webapp/commit/17ee6332ab8dae5423d0718e5205007d5b60b897))
+
+### [3.13.4](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.3...v3.13.4) (2023-03-02)
+
+
+### Features
+
+* add email notification unsubscribe page ([242fad1](https://github.com/dacadeorg/dacade-webapp/commit/242fad1282b35dfca586d15b32dd36a7e61b0771))
+* complete scoreboard filter ([cfaa83f](https://github.com/dacadeorg/dacade-webapp/commit/cfaa83f0dbd13b0d5eb99e0df7c742c0b710f4bc))
+* trigger api filtering on the scoreboard filter option change ([c3f6fcb](https://github.com/dacadeorg/dacade-webapp/commit/c3f6fcb132a602e1271864e630815aa49eacf129))
+
+
+### Bug Fixes
+
+* handle radio button state change ([3971bc5](https://github.com/dacadeorg/dacade-webapp/commit/3971bc5d5e40fec337964ed98e79a58520e36f3f))
+* resolve sorting implementation ([6c9bfbb](https://github.com/dacadeorg/dacade-webapp/commit/6c9bfbb2b6435e043aa3141d552d5061da142bb5))
+
+
+### Improvements
+
+* add celo certificates icons ([b99e715](https://github.com/dacadeorg/dacade-webapp/commit/b99e715ccb240be141de1568bbe1e1687908b926))
+* add checked state in filter option ([0174d49](https://github.com/dacadeorg/dacade-webapp/commit/0174d49ac978de44c8c75bf75ba5e558b18984ff))
+* adjust style of the objective list ([16e6e76](https://github.com/dacadeorg/dacade-webapp/commit/16e6e76507753097e8784513e6601a1c5099ec52))
+* cleanup ([4738a54](https://github.com/dacadeorg/dacade-webapp/commit/4738a54e5f5096500605bf8c28152245256649cd))
+* cleanup ([7893da6](https://github.com/dacadeorg/dacade-webapp/commit/7893da6c16510952b1efb5461bf93708c2b07f4f))
+* cleanup ([ac65cf1](https://github.com/dacadeorg/dacade-webapp/commit/ac65cf1e18c3b7b8fdfa8e1cd5288de4b5e10946))
+* cleanup filter rendering ([db20a3d](https://github.com/dacadeorg/dacade-webapp/commit/db20a3dc47b9dc07afd87628e57de4db262021e5))
+
+### [3.13.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.2...v3.13.3) (2023-02-09)
+
+
+### Bug Fixes
+
+* markdown linebreak parsing ([abbe765](https://github.com/dacadeorg/dacade-webapp/commit/abbe7655d1f111104700315fee02db7ed8560ac2))
+
 ### [3.13.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.1...v3.13.2) (2023-02-07)
 
 

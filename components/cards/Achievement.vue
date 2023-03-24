@@ -9,12 +9,12 @@
       <div class="h-full flex flex-col">
         <div class="mx-auto flex-grow w-full text-left px-7">
           <div
-            class="w-20 h-20 p-5 mx-auto rounded-full mb-5"
-            :style="{ backgroundColor: data.community.colors.primary }"
+            :class="['mx-auto rounded-full mb-5', { 'w-20 h-20 p-5': isNotCertificateIcon }]"
+            :style="{ backgroundColor: isNotCertificateIcon && data.community.colors.primary }"
           >
             <img :src="data.metadata.image" class="relative" />
           </div>
-          <p class="text-sm font-medium text-center">
+          <p v-if="isNotCertificateIcon" class="text-sm font-medium text-center">
             {{ data.metadata.name }}
           </p>
         </div>
@@ -71,6 +71,9 @@ export default {
       return !this.minted && !this.minting
         ? this.$t('profile.achievement.mintable')
         : 'NFT'
+    },
+    isNotCertificateIcon() {
+      return !this.data?.metadata?.image?.includes('/img/certificates/')
     },
   },
 }
