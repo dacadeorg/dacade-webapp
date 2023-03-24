@@ -2,42 +2,10 @@
   <Modal :show="show" @close="closeModal()">
     <div class="px-6 pt-6">
 
-      <WalletHeader :wallet="wallet" />
+      <WalletHeader :wallet="wallet"/>
 
-      <!--   display manual address update  -->
-      <div v-if="shouldDisplayEditAddress" class="flex flex-col space-y-3">
-        <div class="flex">
-
-          <!--    display text based on show edit address      -->
-          <p v-if="currentAddress" class="font-medium text-base">Current Address:</p>
-          <p v-else class="font-medium text-base">Enter Address:</p>
-
-          <a v-if="!showEditAddress || isWalletConnected"
-             class="font-medium cursor-pointer text-base ml-auto text-primary" @click="openEditAddress()">
-            Change
-          </a>
-        </div>
-
-        <!--     display current address when not editting address -->
-        <p v-if="currentAddress" class="text-base mb-3">{{ currentAddress }}</p>
-
-        <div v-else class="pb-2">
-          <p class="font-medium text-base">{{ newAddressTitle }}</p>
-        </div>
-
-        <!--    display uneditable field when user connects with wallet   -->
-        <p v-if="currentAddress && showEditAddress && !isWalletConnected" class="font-medium text-base pb-2">
-          {{ getChangeAddressText }}</p>
-        <p v-if="isWalletConnected && !isFirstTimeAddressSetup" class="font-medium text-base pb-2">New address</p>
-
-      </div>
-
-      <!--   display manual address update end   -->
-
-
-      <!--   display wallet modal when showWalletConnect is true   -->
-
-      <div v-if="showWalletConnect">
+      <!--   display wallet modal when showWalletConnectionMethod is true   -->
+      <div v-if="showWalletConnectionMethod">
         <p class="font-medium text-base mb-5">
           How would you like to add your address?
         </p>
@@ -45,13 +13,13 @@
           class="border border-solid border-gray-400 rounded-xl divide-y"
         >
 
-          <WalletButton @click="closeShowWalletConnect()"
+          <WalletButton @click="setConnectionMethod('manual')"
           >Enter address manually
           </WalletButton
           >
 
           <WalletButton
-            @click="connect"
+            @click="setConnectionMethod('wallet')"
           >Connect a wallet
           </WalletButton
           >
@@ -62,27 +30,53 @@
       <!--   display wallet modal end   -->
 
 
+      <!--   display manual address update  -->
+      <div v-if="showWalletInfo && !showWalletConnectionMethod" class="flex flex-col space-y-3">
+        <div class="flex">
+
+          <!--    display text based on show edit address      -->
+          <p v-if="currentAddress" class="font-medium text-base">Current Address:</p>
+          <p v-else class="font-medium text-base">Enter Address:</p>
+
+          <a
+            v-if="currentAddress"
+            class="font-medium cursor-pointer text-base ml-auto text-primary" @click="openEditAddress()">
+            Change
+          </a>
+        </div>
+
+        <!--     display current address when not editting address -->
+        <p v-if="currentAddress && !showWalletConnectionMethod" class="text-base mb-3">{{ currentAddress }}</p>
+
+        <div v-if="currentAddress  " class="pb-2">
+          <p class="font-medium text-base">{{ newAddressTitle }}</p>
+        </div>
+
+      </div>
+
+
     </div>
     <ValidationObserver ref="form" v-slot="{ passes }">
       <form class="flex flex-col space-y-4" @submit.prevent="passes(onSave)">
         <div class="px-6">
           <ValidationProvider
-            v-if="shouldDisplayEditAddress && showEditAddress "
+            v-if="showEditAddress && !showWalletConnectionMethod"
             v-slot="{ errors }"
             mode="passive"
             name="address"
             rules="required|min:2"
           >
-            <div v-if="!isWalletConnected">
+            <div v-if="connectionMethod">
               <Input
-                v-if="requireWalletConnection"
+                v-if="connectionMethod === 'wallet'"
                 :error="errors[0]"
                 :label="$t('profile.edit.label.account-address')"
                 :value="newAddress"
+                disabled
                 required
               />
               <Input
-                v-else
+                v-if="connectionMethod === 'manual'"
                 v-model="address"
                 :error="errors[0]"
                 :label="$t('profile.edit.label.account-address')"
@@ -91,17 +85,8 @@
             </div>
 
             <!--    display when user connects via wallet   -->
-            <p v-if="isWalletConnected && currentAddress" class="text-base mb-3">{{ newAddress }}</p>
+            <p v-if="isWalletConnected && !currentAddress" class="text-base mb-3">{{ newAddress }}</p>
 
-            <!--    display when user first time address setup    -->
-            <Input
-              v-if="isFirstTimeAddressSetup && isWalletConnected"
-              v-model="newAddress"
-              :error="errors[0]"
-              :label="$t('profile.edit.label.account-address')"
-              disabled
-              required
-            />
           </ValidationProvider>
 
           <ErrorBox v-if="error" :error="error"/>
@@ -123,7 +108,7 @@
             Change address
           </ArrowButton>
           <ArrowButton v-else :disabled="loading || !filled" :loading="loading" @click="onSave"
-          >{{ $t('profile.edit.save') }}
+          >{{ getChangeAddressText }}
           </ArrowButton>
         </div>
       </form>
@@ -172,7 +157,9 @@ export default {
       error: null,
       showEditModal: false,
       showEditAddress: false,
-      showWalletConnect: false,
+      showWalletConnectionMethod: false,
+      showWalletInfo: false,
+      connectionMethod: '',
     }
   },
 
@@ -188,7 +175,8 @@ export default {
     },
     filled() {
       if (this.currentAddress === this.newAddress) return false
-      return Boolean(this.newAddress || this.address)
+      if (this.connectionMethod === 'wallet') return Boolean(this.newAddress)
+      return Boolean(this.address)
     },
     newAddress() {
       if (this.requireWalletConnection) {
@@ -203,11 +191,11 @@ export default {
       return Boolean(!this.currentAddress && this.newAddress)
     },
     newAddressTitle() {
-      if (!this.requireWalletConnection && !this.currentAddress) {
+      if (this.connectionMethod === 'manual') {
         return 'Enter new address'
       }
-      if (this.requireWalletConnection && !this.newAddress) {
-        return 'Connect a wallet to add a new address.'
+      if (this.connectionMethod === 'wallet') {
+        return 'New address'
       }
       if (
         this.requireWalletConnection &&
@@ -215,15 +203,16 @@ export default {
       ) {
         return 'New address'
       }
-      return 'To:'
+      return ''
     },
 
-    shouldDisplayEditAddress() {
-      // if user has not connected address, display enter address or connect modal
-      return !this.showWalletConnect
-    },
+    // shouldDisplayEditAddress() {
+    //   console.log("connection methid ", this.connectionMethod)
+    //   // if user has not connected address, display enter address or connect modal
+    //   return this.connectionMethod === 'manual'
+    // },
     getChangeAddressText() {
-      return this.filled ? 'New address' : 'Enter new address'
+      return this.filled ? 'Save Address' : 'Change address'
     },
   },
 
@@ -237,17 +226,16 @@ export default {
       this.error = null
       this.loading = false
 
-      // enable edit address workflow for users who have not connected address
-      if (!this.currentAddress) {
-        if (this.requireWalletConnection) {
-          this.showWalletConnect = true
-          this.showEditAddress = false
-          return
-        }
-
-        this.showWalletConnect = false
-        this.showEditAddress = true
+      if (this.currentAddress) {
+        this.showWalletInfo = true
+        return
       }
+
+      if (this.requireWalletConnection) {
+        this.showWalletConnectionMethod = true
+        return
+      }
+
       this.disconnect()
     },
   },
@@ -283,7 +271,6 @@ export default {
     async connect() {
       try {
         await this.$store.dispatch('wallet/connect')
-        this.showWalletConnect = false
         this.showEditAddress = true
 
       } catch (e) {
@@ -294,29 +281,47 @@ export default {
       this.$store.dispatch('wallet/disconnect')
     },
     openEditAddress() {
-      if (this.isWalletConnected) {
-        this.$store.dispatch('wallet/clearAddress')
-      }
       if (this.requireWalletConnection) {
-        this.showEditAddress = false
-        this.showWalletConnect = true
+        this.showWalletConnectionMethod = true
         return
       }
 
       this.showEditAddress = true
-      this.showWalletConnect = false
+      this.connectionMethod = 'manual'
 
     },
-    closeShowWalletConnect() {
+    setConnectionMethod(method) {
+
+      if (!method) return
+
       if (this.isWalletConnected) {
         this.$store.dispatch('wallet/clearAddress')
       }
-      this.showWalletConnect = false
+
+      this.showWalletConnectionMethod = false
+      this.connectionMethod = method
       this.showEditAddress = true
+      switch (method) {
+        case  'wallet':
+          this.connect()
+          break
+
+        case 'manual':
+          this.showWalletInfo = true
+          break
+
+        default:
+          break
+
+      }
+
     },
     clearState() {
       this.showEditModal = false
       this.showEditAddress = false
+      this.connectionMethod = ''
+      this.showWalletConnectionMethod = false
+      this.showWalletInfo = false
     },
     closeModal() {
       this.clearState()
