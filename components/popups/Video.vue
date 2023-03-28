@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <span v-click-outside="externalClick">
       <li
         class="content-wrapper inline-block align-middle mr-2 max-w-2xl relative text-gray-500 cursor-pointer"
