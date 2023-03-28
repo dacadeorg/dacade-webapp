@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import snsWebSdk from "@sumsub/websdk";
-import {auth as firebaseAuth} from '@/plugins/firebase'
-import {sleep} from "~/utilities";
+import { auth as firebaseAuth } from '@/plugins/firebase'
+import { sleep } from "~/utilities";
 
 let snsWebSdkInstance = null;
 export const state = () => ({
@@ -10,7 +10,13 @@ export const state = () => ({
   showModal: false,
   loading: false,
   verifying: false,
-  completed: false
+  completed: false,
+  reasonText: null,
+  title: null,
+  completedText: null,
+  actionText: null,
+  completedActionText: null,
+  completedAction: null,
 })
 
 export const mutations = {
@@ -28,16 +34,24 @@ export const mutations = {
   },
   setCompleted(state, payload) {
     state.completed = payload
-  }
+  },
+  setText(state, payload) {
+    state.reasonText = payload.reasonText;
+    state.title = payload.title;
+    state.completedText = payload.completedText;
+    state.actionText = payload.actionText;
+    state.completedActionText = payload.completedActionText;
+    state.completedAction = payload.completedAction;
+  },
 }
 
 export const actions = {
 
-  async getSumsubToken({commit}) {
+  async getSumsubToken({ commit }) {
     const user = firebaseAuth.currentUser
     if (user) {
       try {
-        const {data} = await this.$api.post('users/sumsub/get-access-token')
+        const { data } = await this.$api.post('users/sumsub/get-access-token')
         const token = data?.token
         commit('setSumsubToken', token)
         return token
@@ -47,11 +61,17 @@ export const actions = {
       }
     }
   },
-  openVerificationModal({commit, dispatch}) {
+  openVerificationModal({ commit, dispatch }, payload) {
+    if(this.getters['user/isKycVerified']){
+      dispatch('closeVerificationModal');
+      dispatch('triggerCompleteAction');
+      return;
+    }
     commit('setShowModal', true);
     // dispatch('launchWebSdk');
+    commit('setText', payload || {});
   },
-  closeVerificationModal({commit}) {
+  closeVerificationModal({ commit }) {
     commit('setShowModal', false);
     commit('setLoading', false);
     commit('setVerifying', false);
@@ -59,7 +79,15 @@ export const actions = {
       snsWebSdkInstance?.destroy()
     }
   },
-  async completeSumSubVerification({commit, dispatch}, payload) {
+  async triggerCompleteAction({ commit, dispatch, state }) {
+    if (!state.completedAction) return;
+    try {
+      await state.completedAction()
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async completeSumSubVerification({ commit, dispatch }, payload) {
     // const {reviewStatus, reviewResult} = payload
     // if (reviewStatus === 'completed' && reviewResult?.reviewAnswer === 'GREEN') {
     // complete verification
@@ -72,7 +100,7 @@ export const actions = {
     commit('setLoading', false);
     // }
   },
-  async launchWebSdk({commit, dispatch, getters}) {
+  async launchWebSdk({ commit, dispatch, getters }) {
     commit('setLoading', true);
     const accessToken = await dispatch('getSumsubToken');
     if (!accessToken) return;
@@ -91,7 +119,7 @@ export const actions = {
         //   customCss: "https://url.com/styles.css"
         // },
       })
-      .withOptions({addViewportTag: false, adaptIframeHeight: true})
+      .withOptions({ addViewportTag: false, adaptIframeHeight: true })
       .on('idCheck.applicantStatus', (payload) => {
         dispatch('completeSumSubVerification');
       })
@@ -123,5 +151,20 @@ export const getters = {
   },
   completed(state) {
     return state.completed;
-  }
+  },
+  reasonText(state) {
+    return state.reasonText;
+  },
+  title(state) {
+    return state.title;
+  },
+  completedText(state) {
+    return state.completedText;
+  },
+  actionText(state) {
+    return state.actionText;
+  },
+  completedActionText(state) {
+    return state.completedActionText;
+  },
 }
