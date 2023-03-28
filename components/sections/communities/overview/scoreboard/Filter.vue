@@ -1,5 +1,5 @@
 <template>
-  <div class="md:flex flex-col w-2/4 mr-8 divide-y divide-solid divide-gray-200 hidden">
+  <div class="lg:flex flex-col w-2/4 mr-8 divide-y divide-solid divide-gray-200 hidden">
     <div class="divide-y divide-gray-200">
       <div class="block mt-6 mb-6">
         <span class="text-gray-700 mb-4">Filter by</span>

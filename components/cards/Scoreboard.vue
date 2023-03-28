@@ -14,7 +14,7 @@
         {{ value.user.displayName }}
       </div>
       <div class="flex flex-row divide-x divide-solid divide-gray-300">
-        <div class="whitespace-nowrap text-base pr-4">
+        <div class="whitespace-nowrap text-base md:pr-4 pr-3">
             <span class="font-normal text-xs">
               {{ value.feedbacks }}
               <span class="font-normal text-xs">
@@ -22,7 +22,7 @@
               </span>
             </span>
           </div>
-          <div class="whitespace-nowrap text-base px-4">
+          <div class="whitespace-nowrap text-base md:px-4 px-3">
             <span class="font-normal text-xs">
               {{ value.score }}
               <span class="font-normal text-xs">
@@ -30,7 +30,7 @@
               </span>
             </span>
           </div>
-          <div class="whitespace-nowrap text-base px-4">
+          <div class="whitespace-nowrap text-base md:px-4 px-3">
             <span class="font-normal text-xs">
               {{ value.feedbacks }}
               <span class="font-normal text-xs">
