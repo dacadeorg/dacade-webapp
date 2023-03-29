@@ -17,7 +17,7 @@
         @click="closeModal"
       >{{ $t('profile.edit.close') }}</span
       >
-      <ArrowButton v-if="!verifying" @click="startVerification" :loading="loading" :disabled="loading"
+      <ArrowButton v-if="!verifying" :loading="loading" :disabled="loading" @click="startVerification"
       >{{ completed ? 'Go to profile' : 'Start verification'}}
       </ArrowButton>
     </div>
