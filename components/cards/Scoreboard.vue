@@ -1,8 +1,8 @@
 <template>
   <div
-    class="relative w-full flex sm:space-x-5 space-y-0 sm:flex-row-reverse sm:space-x-reverse sm:justify-between overflow-hidden bg-gray-50 sm:p-7 py-5 px-6 sm:items-center"
+    class="relative w-full md:flex sm:space-x-5 space-y-0 sm:flex-row-reverse sm:space-x-reverse sm:justify-between overflow-hidden bg-gray-50 sm:p-7 py-5 px-6 sm:items-center"
   >
-    <div class="sm:flex-none absolute bottom-5 left-6 sm:relative sm:inset-0">
+    <div class="md:flex-none absolute bottom-5 left-6 md:relative md:inset-0">
       <div
         class="font-medium text-gray-500 px-2.5 py-0.5 h-6 text-xxs bg-gray-200 rounded-full"
       >
@@ -14,7 +14,7 @@
         {{ value.user.displayName }}
       </div>
       <div class="flex flex-row divide-x divide-solid divide-gray-300">
-        <div class="whitespace-nowrap text-base pr-4">
+        <div class="whitespace-nowrap text-base sm:pr-4 pr-3">
             <span class="font-normal text-xs">
               {{ value.feedbacks }}
               <span class="font-normal text-xs">
@@ -22,7 +22,7 @@
               </span>
             </span>
           </div>
-          <div class="whitespace-nowrap text-base px-4">
+          <div class="whitespace-nowrap text-base sm:px-4 px-3">
             <span class="font-normal text-xs">
               {{ value.score }}
               <span class="font-normal text-xs">
@@ -30,7 +30,7 @@
               </span>
             </span>
           </div>
-          <div class="whitespace-nowrap text-base px-4">
+          <div class="whitespace-nowrap text-base sm:px-4 px-3">
             <span class="font-normal text-xs">
               {{ value.feedbacks }}
               <span class="font-normal text-xs">
@@ -43,7 +43,7 @@
   
     </div>
 
-    <div class="relative sm:flex-none pt-9 sm:p-0">
+    <div class="relative float-right md:float-left sm:flex-none pt-1 sm:p-0">
       <div class="relative sm:inset-0">
         <Avatar :user="value.user" size="large" />
         <Badge
