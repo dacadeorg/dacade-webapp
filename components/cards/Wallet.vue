@@ -73,7 +73,7 @@
             :disabled="disabled || !details.balance || !details.address"
             type="outline-primary"
             min-width-class="min-w-40"
-            @click="showPayoutModal = true"
+            @click="cashout"
           >
             {{ $t('profile.wallets.cash-out') }}
           </ArrowButton>
@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Coin from '@/components/ui/Coin'
 import ArrowButton from '@/components/ui/button/Arrow'
 import Tag from '@/components/ui/Tag'
@@ -126,15 +127,34 @@ export default {
     return {
       showEditModal: false,
       showPayoutModal: false,
+      showKycModal: false,
     }
   },
   computed: {
+    ...mapGetters({
+      isKycVerified: 'kyc/isVerified',
+    }),
     address() {
       if (!this.details.address) return null
       return this.details.address.match(/.{1,4}/g)
     },
     cashable() {
       return String(this.details.token).toUpperCase() !== 'DAC'
+    },
+  },
+  methods: {
+    cashout() {
+      if (this.isKycVerified) {
+        this.showPayoutModal = true
+        return
+      }
+      this.$store.dispatch('kyc/openVerificationModal', {
+        reasonText: this.$t('kyc.payout.reason'),
+        completedActionText: this.$t('kyc.payout.button.completed'),
+        completedAction: () => {
+          this.showPayoutModal = true
+        },
+      });
     },
   },
 }
