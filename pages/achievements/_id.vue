@@ -9,8 +9,13 @@
           class="flex justify-center items-center p-7 md:rounded-l-3xl rounded-t-3xl md:rounded-t-none w-full md:w-1/2 md:bg-none bg-gray-100"
         >
           <div
-            :class="['h-52 w-52', { 'p-12 rounded-full': isSVG }]"
-            :style="{ backgroundColor: isSVG && backgroundColor }"
+            :class="[
+              'h-52 w-52',
+              { 'p-12 rounded-full': isNotCertificateIcon },
+            ]"
+            :style="{
+              backgroundColor: isNotCertificateIcon && backgroundColor,
+            }"
           >
             <img :src="achievement?.metadata?.image" alt="certificate badge" />
           </div>
@@ -23,7 +28,10 @@
               {{ achievement?.metadata?.name }}
             </h2>
             <p class="text-gray-700 md:text-base text-sm">
-              {{ achievement?.metadata?.description }}
+              {{
+                achievement?.metadata?.narrative ||
+                achievement?.metadata?.description
+              }}
             </p>
           </div>
 
@@ -63,23 +71,34 @@
             >
               <AchievementLinkField :link="achievement?.metadata?.linkToWork" />
             </AchievementViewItem>
-            <div v-if="mintable" class="w-full flex">
-              <MintCertificate
-                v-if="!achievementMinted && belongsToCurrentUser"
-                :show="showMintCertificate"
-                @close="showMintCertificate = false"
-              />
-              <ArrowButton
-                v-if="belongsToCurrentUser && !minted"
-                target="__blank"
-                type="primary"
-                class="flex ml-auto mt-5"
-                @click="showMintCertificate = true"
-              >
-                Mint certificate
-              </ArrowButton>
+            <div v-if="mintable">
+              <AchievementViewItem v-if="belongsToCurrentUser && !minted" :name="$t('profile.achievement.ipfs-metadata')">
+                <a
+                  :href="metadataPreviewURL"
+                  target="_blank"
+                  class="text-xs underline"
+                  >Preview</a
+                >
+              </AchievementViewItem>
+              <div class="w-full flex">
+                <MintCertificate
+                  v-if="!achievementMinted && belongsToCurrentUser"
+                  :show="showMintCertificate"
+                  @close="showMintCertificate = false"
+                />
+                <ArrowButton
+                  v-if="belongsToCurrentUser && !minted"
+                  target="__blank"
+                  type="primary"
+                  class="flex ml-auto mt-5"
+                  @click="showMintCertificate = true"
+                >
+                  Mint certificate
+                </ArrowButton>
+              </div>
             </div>
           </div>
+
           <div
             v-if="minted"
             class="pt-5 mt-5 flex flex-col md:gap-3 gap-3 border-t border-t-solid"
@@ -102,13 +121,13 @@
                 {{ achievement.minting.tx }}</a
               >
             </AchievementViewItem>
-            <!-- <AchievementViewItem
+            <AchievementViewItem
               :name="$t('profile.achievement.ipfs-metadata')"
             >
               <a :href="ipfsUrl" target="_blank" class="text-xs underline">
                 {{ achievement.minting.tokenURI }}</a
               >
-            </AchievementViewItem> -->
+            </AchievementViewItem>
           </div>
         </div>
       </div>
@@ -218,6 +237,9 @@ export default {
     contractURL() {
       return `${process.env.NUXT_ENV_BLOCK_EXPLORER_URL}/address/${this.achievement?.minting?.contract}`
     },
+    metadataPreviewURL() {
+      return `${process.env.NUXT_ENV_API_BASE_URL}/certificates/${this.achievement?.id}/metadata-preview`
+    },
     belongsToCurrentUser() {
       if (!this.user) return false
       return this.user.id === this.achievement?.user_id
@@ -225,8 +247,8 @@ export default {
     mintable() {
       return this.achievement?.community?.can_mint_certificates
     },
-    isSVG() {
-      return this.achievement?.metadata?.image?.includes('.svg') || false
+    isNotCertificateIcon() {
+      return !this.achievement?.metadata?.image?.includes('/img/certificates/')
     },
   },
 }

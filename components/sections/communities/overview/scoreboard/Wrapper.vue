@@ -10,7 +10,7 @@
         </div>
       </div>
       <div
-        class="w-full mt-5 items-center flex flex-col"
+        class="w-full mt-5 items-center md:flex md:flex-col"
       >
         <slot />
       </div>

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.13.6](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.5...v3.13.6) (2023-03-23)
+
+
+### Features
+
+* change certificate icons to svg ([c65affb](https://github.com/dacadeorg/dacade-webapp/commit/c65affb0fb59e111ea652cfb2b30435fc8cf1477))
+
 ### [3.13.5](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.4...v3.13.5) (2023-03-03)
 
 

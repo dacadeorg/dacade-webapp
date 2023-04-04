@@ -15,7 +15,7 @@
           </div>
         </span>
       </li>
-      <div class="flex justify-center">
+      <div class="absolute w-full flex justify-center top-0">
         <div
           v-if="show"
           class="z-50 mt-0 w-full inline-block fixed top-14 md:top-24 left-0 right-0 bg-transparent px-auto rounded-3.5xl text-gray-900 no-scrollbar max-w-full h-auto content-wrapper justify-self-center sm:m-auto"
