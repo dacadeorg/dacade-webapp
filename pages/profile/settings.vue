@@ -3,6 +3,8 @@
       class="flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
     >
       <ProfileSettingsInformation :user="user" />
+
+      {{ user }}
   
       <ProfileSettingsLinking />
   

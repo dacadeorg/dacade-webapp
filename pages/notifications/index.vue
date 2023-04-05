@@ -93,7 +93,7 @@
   }
   </script>
   
-  <style scoped>
+  <style lang="scss" scoped>
   .notification {
     border: 1.6px solid #0000;
     border-radius: 0.35rem;

@@ -7,12 +7,14 @@
       <form
         class=""
         target="_blank"
-        @submit.prevent="passes(submit)"
+        @submit.prevent="passes(onSave)"
       >
         <div class="lg:w-98 xl:w-98 mx-auto">
             <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
           {{  selectedInfo.title }}
         </h1>
+
+        {{  selectedInfo }}
 
           <div
           label-for="input-1" class="mb-5 relative">
@@ -133,9 +135,29 @@
       showModal() {
         this.$emit('togglePopUp')
       },
-      submit() {
-        this.$router.push(this.localePath('/'))
-        },
+      // submit() {
+      //   this.$router.push(this.localePath('/'))
+      //   },
+      onSave() {
+              this.loading = true
+      this.$store
+        .dispatch('user/update', {
+          userName: this.userName,
+          email: this.email,
+        })
+        .then(() => {
+          this.userName = null
+          this.email = null
+          this.loading = false
+          this.$emit('close', true)
+        })
+        .catch((error) => {
+          this.loading = false
+          if (error.details) {
+            this.$refs.form.setErrors(error.details)
+          }
+        })
+      }
     },
   }
   </script>

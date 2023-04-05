@@ -240,7 +240,9 @@ export default {
 }
 </script>
 
-<style scoped>
+
+<style lang="scss" scoped>
+/* stylelint-disable */
 .form-checkbox {
   height: 1rem;
 }
