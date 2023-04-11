@@ -142,8 +142,8 @@
               this.loading = true
       this.$store
         .dispatch('user/update', {
-          userName: this.userName,
-          email: this.email,
+          form.field: this.form.field,
+
         })
         .then(() => {
           this.userName = null
