@@ -3,6 +3,7 @@
       <div class="w-full p-7 relative">
 
     
+        <ValidationObserver ref="form" v-slot="{ passes }">
 
       <form
         class=""
@@ -13,24 +14,24 @@
             <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
           {{  selectedInfo.title }}
         </h1>
+        {{  selectedInfo.info }}
 
           <div
           label-for="input-1" class="mb-5 relative">
             <ValidationProvider
               v-slot="{ errors }"
               name="form"
-              rules="required|email"
               mode="passive"
             >
               <div>
                 <Input
                 v-for="(field, i) in selectedInfo.form" id="input"
                   :key="i"
-                  v-model="form.field"
+                  v-model="userData[field.id]"
                   required
                   type="form"
-                  :placeholder="field"
-                  :label="field"
+                  :placeholder="field.title"
+                  :label="field.title"
                   class="mb-5"
                   :error="errors[0]"
                 />
@@ -41,7 +42,6 @@
           <div class="flex justify-end mt-4">
             <div class="flex text-right self-end">
               <ArrowButton
-                :disabled="disabled" 
                 :custom-style="activeButtonStyle"
                 :loading="loading"
                 type="submit"
@@ -59,6 +59,7 @@
         </button>
         </div>
       </form>
+     </ValidationObserver>
       </div>
     </Modal>
   </template>
@@ -103,13 +104,16 @@
   },
     data() {
     return {
-      // userInfo: [],
       show: false,
       form: {
         field: '',
       },
       input: '',
       loading: false,
+      firstName: '',
+      secondName: '',
+      email: '',
+      userData: {} 
     }
   },
     computed: {
@@ -134,19 +138,15 @@
       showModal() {
         this.$emit('togglePopUp')
       },
-      // submit() {
-      //   this.$router.push(this.localePath('/'))
-      //   },
       onSave() {
               this.loading = true
-      this.$store
-        .dispatch('user/update', {
-          input: this.form.field,
-
+              console.log('userData', this.userData)
+        this.$store
+        .dispatch('user/updateEmail', {
+          ...this.userData
         })
         .then(() => {
-          this.userName = null
-          this.email = null
+          this.userData = {}
           this.loading = false
           this.$emit('close', true)
         })

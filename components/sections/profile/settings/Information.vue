@@ -48,28 +48,66 @@ export default {
           info: 'Username',
           content : this.user.displayName,
           status: '',
-          form: ['Last name','First name ']
+          form:[
+            {
+            title: 'First Name',
+            id: 'firstName'
+          },
+          {
+            title: 'Last Name',
+            id: 'lastName'
+          },
+
+          ]
         },
         {
           title: 'Change Email',
           info: 'Email',
           content : this.user.email,
           status: this.user.email.length === 0 ? 'Set' : 'Change',
-          form: ['Change your email']
+          form:[
+            {
+            title: 'Change your email',
+            id: 'email'
+          },
+          ]
         },
         {
           title: 'Change Name',
           info: 'Username',
-          content : this.user.firstName,
+          content : this.user.firstName + ' ' + this.user.lastName,
           status: this.user.firstName.length > 0 ? 'Change':'Set' ,
-          form: ['Last name','First name ']
+          form:[
+            {
+            title: 'First Name',
+            id: 'firstName'
+          },
+          {
+            title: 'Last Name',
+            id: 'lastName'
+          },
+
+          ]
         },
         {
           title: 'Change Password',
-          info: 'Username',
+          info: 'Password',
           content : '*******',
           status: 'Change',
-          form: ['Type your current password','Type new password' ,'Type new password']
+          form:[
+            {
+            title: 'Type your current password',
+            id: 'currentPassword'
+            },
+            {
+            title: 'Type new password',
+            id: 'newPassword'
+            },
+            {
+            title: 'Type new password',
+            id: 'confirmPassword'
+            },
+          ]
         },
       ],
       selectedInfo: {}
