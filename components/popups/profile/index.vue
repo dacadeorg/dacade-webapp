@@ -14,8 +14,6 @@
           {{  selectedInfo.title }}
         </h1>
 
-        {{  selectedInfo }}
-
           <div
           label-for="input-1" class="mb-5 relative">
             <ValidationProvider
@@ -110,6 +108,7 @@
       form: {
         field: '',
       },
+      input: '',
       loading: false,
     }
   },
@@ -142,7 +141,7 @@
               this.loading = true
       this.$store
         .dispatch('user/update', {
-          form.field: this.form.field,
+          input: this.form.field,
 
         })
         .then(() => {
