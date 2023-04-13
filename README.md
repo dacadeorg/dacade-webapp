@@ -105,10 +105,10 @@ If the wrong browser is used, then the web application may not operate as expect
 
 ### Contributing
 Contributions to the project are welcome. To contribute, follow these steps:
-	1.	Fork the project to your GitHub account.
-	2.	Create a new branch for your changes.
-	3.	Make your changes and commit them to your branch.
-	4.	Submit a pull request to merge your changes into the main branch.
+	* Fork the project to your GitHub account.
+	* Create a new branch for your changes.
+	* Make your changes and commit them to your branch.
+	* Submit a pull request to merge your changes into the main branch.
 
 ### License
 
