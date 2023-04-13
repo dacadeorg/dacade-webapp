@@ -2,7 +2,7 @@
     <Modal v-if="user" :show="showPopup" size="small" @close="close">
       <div class="w-full p-7 relative">
 
-    
+
         <ValidationObserver ref="form" v-slot="{ passes }">
 
       <form
@@ -63,7 +63,7 @@
       </div>
     </Modal>
   </template>
-  
+
   <script>
   import { mapGetters } from 'vuex'
   import vClickOutside from 'v-click-outside'
@@ -113,7 +113,7 @@
       firstName: '',
       secondName: '',
       email: '',
-      userData: {} 
+      userData: {}
     }
   },
     computed: {
@@ -138,26 +138,45 @@
       showModal() {
         this.$emit('togglePopUp')
       },
-      onSave() {
-              this.loading = true
-              console.log('userData', this.userData)
-        this.$store
-        .dispatch('user/updateEmail', {
-          ...this.userData
-        })
-        .then(() => {
-          this.userData = {}
-          this.loading = false
-          this.$emit('close', true)
-        })
-        .catch((error) => {
-          this.loading = false
-          if (error.details) {
-            this.$refs.form.setErrors(error.details)
+      async onSave() {
+        try {
+          this.loading = true
+          switch (this.selectedInfo.info) {
+            case 'Name':
+              await this.$store
+                .dispatch('user/updateNames', {
+                  ...this.userData
+                })
+              break;
+
+            case 'Email':
+              await this.$store
+                .dispatch('user/updateEmail', {
+                  ...this.userData
+                })
+              break;
+
+              default:
+                break;
           }
-        })
+
+          this.userData = {}
+          this.$emit('close', true)
+
+          // display success notification
+
+        }catch (e) {
+          if (e.details) {
+            this.$refs.form.setErrors(e.details)
+          }
+          console.log({e})
+        }
+        finally {
+          this.loading = false
+        }
+
+
       }
     },
   }
   </script>
-  

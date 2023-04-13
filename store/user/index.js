@@ -56,7 +56,7 @@ export const actions = {
   },
 
   async updateNames({dispatch}, payload) {
-    await this.$api.patch('users/update', payload)
+    await this.$api.patch('users/update/name', payload)
     dispatch('fetch')
   },
 
