@@ -4,13 +4,42 @@
       see-more
       see-all
     >
-      <div
+      <!-- <div
         v-for="(info, i) in userInfo" :key="i"
         class="grid grid-cols-3 gap-4 p-4">
          <div class="text-gray text-sm">{{ info.info }}</div>
          <div class="text-gray text-sm">{{ info.content}}</div>
          <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp(info)">{{ info.status }}</button>
+      </div> -->
+
+      <div
+        class="grid grid-cols-3 gap-4 p-4">
+         <div class="text-gray text-sm">Username</div>
+         <div class="text-gray text-sm">{{ user.displayName }}</div>
+         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp()"></button>
       </div>
+
+      <div
+        class="grid grid-cols-3 gap-4 p-4">
+         <div class="text-gray text-sm">Email</div>
+         <div class="text-gray text-sm">{{ user.email }}</div>
+         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp()">{{ user.email.length === 0 ? 'Set' : 'Change' }}</button>
+      </div>
+
+      <div
+        class="grid grid-cols-3 gap-4 p-4">
+         <div class="text-gray text-sm">Username</div>
+         <div class="text-gray text-sm">{{ user.firstName + ' ' + user.lastName }}</div>
+         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp()">{{ user.firstName.length > 0 ? 'Change':'Set' }}</button>
+      </div>
+
+      <div
+        class="grid grid-cols-3 gap-4 p-4">
+         <div class="text-gray text-sm">Password</div>
+         <div class="text-gray text-sm">*******</div>
+         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp()">Change</button>
+      </div>
+
       <Popup
         v-show="showPopup" 
         class="w-3/5" 
