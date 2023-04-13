@@ -16,28 +16,28 @@
         class="grid grid-cols-3 gap-4 p-4">
          <div class="text-gray text-sm">Username</div>
          <div class="text-gray text-sm">{{ user.displayName }}</div>
-         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp()"></button>
+         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp(userInfo[0].info)"></button>
       </div>
 
       <div
         class="grid grid-cols-3 gap-4 p-4">
          <div class="text-gray text-sm">Email</div>
          <div class="text-gray text-sm">{{ user.email }}</div>
-         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp()">{{ user.email.length === 0 ? 'Set' : 'Change' }}</button>
+         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp(info)">{{ user.email.length > 0 ? 'Change' : 'Set' }}</button>
       </div>
 
       <div
         class="grid grid-cols-3 gap-4 p-4">
          <div class="text-gray text-sm">Username</div>
-         <div class="text-gray text-sm">{{ user.firstName + ' ' + user.lastName }}</div>
-         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp()">{{ user.firstName.length > 0 ? 'Change':'Set' }}</button>
+         <div class="text-gray text-sm">{{ user.username }}</div>
+         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp(info)">{{ user.username.length > 0 ? 'Change' : 'Set' }}</button>
       </div>
 
       <div
         class="grid grid-cols-3 gap-4 p-4">
          <div class="text-gray text-sm">Password</div>
          <div class="text-gray text-sm">*******</div>
-         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp()">Change</button>
+         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp(info)">Change</button>
       </div>
 
       <Popup
@@ -54,6 +54,7 @@
 <script>
 import ProfileSettingsSection from '~/components/sections/profile/overview/Section'
 import Popup from '~/components/popups/profile'
+// import { userInfo } from 'os'
 export default {
   name: 'ProfileSettingsInformation',
   components: { 
