@@ -105,14 +105,18 @@ If the wrong browser is used, then the web application may not operate as expect
 
 ### Contributing
 Contributions to the project are welcome. To contribute, follow these steps:
-	- Fork the project to your GitHub account.
-	- Create a new branch for your changes.
-	- Make your changes and commit them to your branch.
-	- Submit a pull request to merge your changes into the main branch.
+- Fork the project to your GitHub account.
+- Create a new branch for your changes.
+- Make your changes and commit them to your branch.
+- Submit a pull request to merge your changes into the main branch.
 
 ### License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+### Troubleshooting and Problem-Solving Guide 
+
+### Appendix
 
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
