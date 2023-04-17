@@ -22,6 +22,14 @@ extend('email', {
   message: 'This must be a valid email address',
 })
 
+extend('match', {
+  validate(value, confirmed) {
+    if ( value !== confirmed) 
+    return false
+  },
+  message: 'Email addresses have to match',
+})
+
 extend('between', between)
 
 extend('min', {

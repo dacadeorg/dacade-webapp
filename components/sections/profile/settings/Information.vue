@@ -37,6 +37,10 @@ class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs
               title: 'Change your email',
               id: 'email'
             },
+            {
+              title: 'Confirm your email',
+              id: 'confirmEmail'
+            },
             ]})"
         >{{ user?.email?.length ? 'Change' : 'Set' }}
         </button>

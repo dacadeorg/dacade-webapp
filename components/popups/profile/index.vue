@@ -22,6 +22,7 @@
               v-slot="{ errors }"
               name="form"
               mode="passive"
+              rules="required|email|match"
             >
               <div>
                 <Input
@@ -113,6 +114,7 @@
       firstName: '',
       secondName: '',
       email: '',
+      confirmEmail: '',
       userData: {}
     }
   },
@@ -150,8 +152,17 @@
               break;
 
             case 'Email':
+               console.log("userDats", this.userData)
+
+              if ( this.userData.email !== this.userData.confirmEmail )
+              { 
+
+                return alert("emails don't match")
+
+              }
               await this.$store
-                .dispatch('user/updateEmail', {
+                // .dispatch('user/updateEmail', {
+                  .dispatch('', {
                   ...this.userData
                 })
               break;
