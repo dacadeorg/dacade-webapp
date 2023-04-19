@@ -5,8 +5,11 @@
     :class="extended ? 'rounded-3xl' : ''"
     class="flex hover:bg-gray-50 py-4 -mx-5 px-5 cursor-pointer"
   >
-    <div class="flex mr-2">
+    <div class="flex mr-2 relative">
       <Avatar :user="user" class="w-10 h-10" />
+      <span class="pt-3 inline-block relative">
+        <VerifiedIcon  class="absolute -left-2 bottom-1 w-3.5 h-3.5" />
+      </span>
     </div>
     <div class="pt-1 -mt-2">
       <span class="block text-base text-gray-700">{{ details.message }}</span>
@@ -20,11 +23,13 @@
 <script>
 import Avatar from '@/components/ui/Avatar'
 import DateManager from '@/utilities/DateManager'
+import VerifiedIcon from '~/assets/icons/verified.svg?inline-block'
 
 export default {
   name: 'Notification',
   components: {
     Avatar,
+    VerifiedIcon,
   },
   props: {
     user: {

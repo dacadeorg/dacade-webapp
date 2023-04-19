@@ -12,6 +12,9 @@
     >
       <nuxt-link :to="profileURL">
         <Avatar :user="user" size="medium" />
+        <span class="pt-3 inline-block relative">
+        <VerifiedIcon  class="absolute right-1.5 top-5 w-5 h-5" />
+      </span>
         <Badge
           v-if="badge"
           :value="badge"
@@ -73,6 +76,7 @@ import Badge from '@/components/ui/Badge'
 import DateManager from '@/utilities/DateManager'
 import Currency from '@/components/ui/Currency'
 import Tag from '@/components/ui/Tag.vue'
+import VerifiedIcon from '~/assets/icons/verified.svg?inline-block'
 
 export default {
   name: 'UserCard',
@@ -81,6 +85,7 @@ export default {
     Currency,
     Badge,
     Tag,
+    VerifiedIcon,
   },
   props: {
     user: {

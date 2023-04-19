@@ -3,7 +3,7 @@
     <Avatar size="extra" :user="user" :use-link="false" />
     <VerifiedIcon
       v-if="isKycVerified"
-      class="absolute left-98.5 top-24 w-6 h-6 bg-theme-accent text-white"
+      class="absolute left-98 top-24 w-6 h-6 bg-theme-accent text-white"
     />
     <span class="block capitalize text-5xl mt-5 leading-none">{{
       username
