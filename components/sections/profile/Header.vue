@@ -1,10 +1,6 @@
 <template>
   <div class="text-center pb-24 relative">
     <Avatar size="extra" :user="user" :use-link="false" />
-    <VerifiedIcon
-      v-if="isKycVerified"
-      class="absolute left-98 top-24 w-6 h-6 bg-theme-accent text-white"
-    />
     <span class="block capitalize text-5xl mt-5 leading-none">{{
       username
     }}</span>
@@ -68,7 +64,6 @@ import TimeIcon from '~/assets/icons/time.svg?inline'
 import DiscordIcon from '~/assets/icons/discordIcon.svg?inline'
 import KYCVerificationPopup from '~/components/popups/KYCVerification.vue'
 // import GithubIcon from '~/assets/icons/github.svg?inline'
-import VerifiedIcon from '~/assets/icons/verified.svg?inline-block'
 
 export default {
   name: 'ProfileHeader',
@@ -79,7 +74,6 @@ export default {
     Button,
     DiscordIcon,
     // GithubIcon,
-    VerifiedIcon,
   },
   computed: {
     ...mapGetters({

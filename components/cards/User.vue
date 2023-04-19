@@ -10,23 +10,18 @@
       class="z-10"
       :class="[boxLayout ? 'relative flex-none' : 'absolute top-0 left-0']"
     >
-      <nuxt-link :to="profileURL">
-        <Avatar :user="user" size="medium" />
-        <span class="pt-3 inline-block relative">
-        <VerifiedIcon  class="absolute right-1.5 top-5 w-5 h-5" />
-      </span>
-        <Badge
-          v-if="badge"
-          :value="badge"
-          class="absolute"
-          size="medium"
-          :custom-style="{
-            bottom: '-1px',
-            right: '-3px',
-            backgroundColor: colors.textAccent,
-          }"
-        />
-      </nuxt-link>
+      <Avatar :user="user" size="medium" :hide-verification-badge="!!badge" />
+      <Badge
+        v-if="badge"
+        :value="badge"
+        class="absolute"
+        size="medium"
+        :custom-style="{
+          bottom: '-1px',
+          right: '-3px',
+          backgroundColor: colors.textAccent,
+        }"
+      />
     </div>
     <div
       class="relative z-0 flex-1"
@@ -76,7 +71,6 @@ import Badge from '@/components/ui/Badge'
 import DateManager from '@/utilities/DateManager'
 import Currency from '@/components/ui/Currency'
 import Tag from '@/components/ui/Tag.vue'
-import VerifiedIcon from '~/assets/icons/verified.svg?inline-block'
 
 export default {
   name: 'UserCard',
@@ -85,7 +79,6 @@ export default {
     Currency,
     Badge,
     Tag,
-    VerifiedIcon,
   },
   props: {
     user: {
