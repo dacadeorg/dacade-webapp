@@ -22,7 +22,8 @@
               v-slot="{ errors }"
               name="form"
               mode="passive"
-              rules="required|email|match"
+              :rules="selectedInfo.rules"
+              :data-vv-as="selectedInfo.vv"
             >
               <div>
                 <Input

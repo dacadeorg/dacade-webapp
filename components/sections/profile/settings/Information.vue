@@ -35,11 +35,15 @@ class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs
             form:[
               {
               title: 'Change your email',
-              id: 'email'
+              id: 'email',
+              rule: 'required|email',
+              vv: ''
             },
             {
               title: 'Confirm your email',
-              id: 'confirmEmail'
+              id: 'confirmEmail',
+              rule: 'required|confirmed:form',
+              vv: 'form'
             },
             ]})"
         >{{ user?.email?.length ? 'Change' : 'Set' }}
@@ -61,11 +65,12 @@ class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs
             form:[
               {
               title: 'First Name',
-              id: 'firstName'
+              id: 'firstName',
+ 
             },
             {
               title: 'Last Name',
-              id: 'lastName'
+              id: 'lastName',
             },
 
             ]})"
