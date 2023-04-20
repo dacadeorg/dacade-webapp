@@ -27,16 +27,6 @@
             status: user?.email?.length === 0 ? 'Set' : 'Change',
             emailId: 'email',
             confirmId: 'confirmEmail',
-            // form:[
-            //   {
-            //   title: 'Change your email',
-            //   id: 'email',
-            // },
-            // {
-            //   title: 'Confirm your email',
-            //   id: 'confirmEmail',
-            // },
-            // ]
             })"
         >{{ user?.email?.length ? 'Change' : 'Set' }}
         </button>
@@ -56,18 +46,6 @@
             status: fullName.length ? 'Change':'Set' ,
             firstId: 'firstname',
             lastId: 'lastname'
-            // form:[
-            //   {
-            //   title: 'First Name',
-            //   id: 'firstName',
- 
-            // },
-            // {
-            //   title: 'Last Name',
-            //   id: 'lastName',
-            // },
-
-            // ]
             })"
         >{{ fullName.length ? 'Change' : 'Set' }}
         </button>
@@ -87,7 +65,7 @@
 <script>
 import {mapGetters} from "vuex";
 import ProfileSettingsSection from '~/components/sections/profile/overview/Section'
-import Popup from '~/components/popups/profile'
+import Popup from '~/components/popups/SettingsProfile'
 export default {
   name: 'ProfileSettingsInformation',
   components: {

@@ -22,7 +22,7 @@
 
 
 <script>
-import ProfileSettingsInformation from '~/components/sections/profile/settings/Information'
+import ProfileSettingsInformation from '~/components/sections/profile/settings/Overview'
 import ProfileSettingsLinking from '~/components/sections/profile/settings/Linking'
 import Button from '@/components/ui/button'
 

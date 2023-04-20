@@ -14,7 +14,6 @@
             <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
           {{  selectedInfo.title }}
         </h1>
-        {{  selectedInfo.info }}
 
         <!-- <div v-if="selectedInfo.info === 'Email'" -->
           <div
@@ -113,30 +112,6 @@
               </div>
             </ValidationProvider>
           </div>
-
-          <!-- <div
-          label-for="input-3" class="mb-5 relative">
-            <ValidationProvider
-              v-slot="{ errors }"
-              name="name"
-              mode="passive"
-              rules=""
-            >
-              <div>
-                <Input
-                v-for="(field, i) in selectedInfo.form" id="input"
-                  :key="i"
-                  v-model="userData[field.id]"
-                  required
-                  type="form"
-                  placeholder="Change Name"
-                  :label="field.title"
-                  class="mb-5"
-                  :error="errors[0]"
-                />
-              </div>
-            </ValidationProvider>
-          </div> -->
 
 
           <div class="flex justify-end mt-4">
@@ -251,17 +226,9 @@
               break;
 
             case 'Email':
-               console.log("userDats", this.userData)
-
-              if ( this.userData.email !== this.userData.confirmEmail )
-              { 
-
-                return alert("emails don't match")
-
-              }
               await this.$store
-                // .dispatch('user/updateEmail', {
-                  .dispatch('', {
+                .dispatch('user/updateEmail', {
+                  // .dispatch('', {
                   ...this.userData
                 })
               break;
