@@ -4,21 +4,14 @@
       see-more
       see-all
     >
-      <!-- <div
-        v-for="(info, i) in userInfo" :key="i"
-        class="grid grid-cols-3 gap-4 p-4">
-         <div class="text-gray text-sm">{{ info.info }}</div>
-         <div class="text-gray text-sm">{{ info.content}}</div>
-         <button class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs" @click="() => togglePopUp(info)">{{ info.status }}</button>
-      </div> -->
 
       <div
         class="grid grid-cols-3 gap-4 p-4">
         <div class="text-gray text-sm">Username</div>
         <div class="text-gray text-sm">{{ user.displayName }}</div>
         <button
-class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
-                @click="() => console.log()"></button>
+          class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
+            @click="() => console.log()"></button>
       </div>
 
       <div
@@ -32,20 +25,19 @@ class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs
             info: 'Email',
             content : user?.email,
             status: user?.email?.length === 0 ? 'Set' : 'Change',
-            form:[
-              {
-              title: 'Change your email',
-              id: 'email',
-              rule: 'required|email',
-              vv: ''
-            },
-            {
-              title: 'Confirm your email',
-              id: 'confirmEmail',
-              rule: 'required|confirmed:form',
-              vv: 'form'
-            },
-            ]})"
+            emailId: 'email',
+            confirmId: 'confirmEmail',
+            // form:[
+            //   {
+            //   title: 'Change your email',
+            //   id: 'email',
+            // },
+            // {
+            //   title: 'Confirm your email',
+            //   id: 'confirmEmail',
+            // },
+            // ]
+            })"
         >{{ user?.email?.length ? 'Change' : 'Set' }}
         </button>
       </div>
@@ -62,18 +54,21 @@ class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs
             info: 'Name',
             content : fullName,
             status: fullName.length ? 'Change':'Set' ,
-            form:[
-              {
-              title: 'First Name',
-              id: 'firstName',
+            firstId: 'firstname',
+            lastId: 'lastname'
+            // form:[
+            //   {
+            //   title: 'First Name',
+            //   id: 'firstName',
  
-            },
-            {
-              title: 'Last Name',
-              id: 'lastName',
-            },
+            // },
+            // {
+            //   title: 'Last Name',
+            //   id: 'lastName',
+            // },
 
-            ]})"
+            // ]
+            })"
         >{{ fullName.length ? 'Change' : 'Set' }}
         </button>
       </div>

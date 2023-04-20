@@ -16,14 +16,111 @@
         </h1>
         {{  selectedInfo.info }}
 
+        <!-- <div v-if="selectedInfo.info === 'Email'" -->
           <div
+          v-if="selectedInfo.info === 'Email'"
           label-for="input-1" class="mb-5 relative">
             <ValidationProvider
               v-slot="{ errors }"
-              name="form"
+              name="email"
               mode="passive"
-              :rules="selectedInfo.rules"
-              :data-vv-as="selectedInfo.vv"
+              rules="required|email"
+            >
+              <div>
+                <Input
+                  id="input-1"
+                  v-model="userData[selectedInfo.emailId]"
+                  required
+                  type="form"
+                  placeholder="Change your Email"
+                  label="Change your Email"
+                  class="mb-5"
+                  :error="errors[0]"
+                />
+              </div>
+            </ValidationProvider>
+          </div>
+
+          <div
+          v-if="selectedInfo.info === 'Email'"
+          label-for="input-2" class="mb-5 relative">
+            <ValidationProvider
+              v-slot="{ errors }"
+              name="confirm"
+              mode="passive"
+              rules="required|email|confirmed:email"
+            >
+              <div>
+                <Input
+                  id="input-2"
+                  v-model="userData[selectedInfo.confirmId]"
+                  required
+                  type="form"
+                  placeholder="Confirm your Email"
+                  label="Confirm your Email"
+                  class="mb-5"
+                  :error="errors[0]"
+                />
+              </div>
+            </ValidationProvider>
+          </div>
+        <!-- </div> -->
+
+          <div
+          v-if="selectedInfo.info === 'Name'"
+          label-for="input-3" class="mb-5 relative">
+            <ValidationProvider
+              v-slot="{ errors }"
+              name="first name"
+              mode="passive"
+              rules="required|min:3|username"
+            >
+              <div>
+                <Input
+                  id="input-3"
+                  v-model="userData[selectedInfo.firstId]"
+                  required
+                  type="form"
+                  placeholder="First Name"
+                  label="First Name"
+                  class="mb-5"
+                  :error="errors[0]"
+                />
+              </div>
+            </ValidationProvider>
+          </div>
+
+          <div
+          v-if="selectedInfo.info === 'Name'"
+          label-for="input-3" class="mb-5 relative">
+            <ValidationProvider
+              v-slot="{ errors }"
+              name="fast name"
+              mode="passive"
+              rules="required|min:3|username"
+            >
+              <div>
+                <Input
+                  id="input-3"
+                  v-model="userData[selectedInfo.lastId]"
+                  required
+                  type="form"
+                  placeholder="Last Name"
+                  label="Last Name"
+                  class="mb-5"
+                  :error="errors[0]"
+                />
+              </div>
+            </ValidationProvider>
+          </div>
+
+          <!-- <div
+          label-for="input-3" class="mb-5 relative">
+            <ValidationProvider
+              v-slot="{ errors }"
+              name="name"
+              mode="passive"
+              rules=""
             >
               <div>
                 <Input
@@ -32,14 +129,15 @@
                   v-model="userData[field.id]"
                   required
                   type="form"
-                  :placeholder="field.title"
+                  placeholder="Change Name"
                   :label="field.title"
                   class="mb-5"
                   :error="errors[0]"
                 />
               </div>
             </ValidationProvider>
-          </div>
+          </div> -->
+
 
           <div class="flex justify-end mt-4">
             <div class="flex text-right self-end">
