@@ -98,6 +98,12 @@ export const actions = {
     })
     return res
   },
+  async verifyEmailUpdate({ dispatch }, { code }) {
+    const res = await this.$api.post('auth/verify-email-update', {
+      code,
+    })
+    return res
+  },
 }
 
 export const getters = {
