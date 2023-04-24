@@ -5,7 +5,8 @@
     :class="[sizeClasses, shapeClasses, { 'cursor-pointer': user }]"
     class="inline-flex relative align-middle"
   >
-  <span :class="[shapeClasses]"
+  <span
+:class="[shapeClasses]"
     :style="{
       backgroundColor: color,
     }" class="bg-primary h-full w-full flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle relative z-0">
@@ -19,10 +20,8 @@
       <img v-if="icon" :src="icon" class="p-2" />
       <img v-if="image" :src="image" class="p-0 object-cover w-full h-full" />
   </span>
-    <VerifiedIcon v-if="showVerificationBadge" class="absolute right-1.5 bottom-0 z-10 bg-white rounded-full" :style="{
-      width: '20%',
-      height: '20%'
-    }" />
+    <VerifiedIcon
+v-if="showVerificationBadge" :class="[VerifiedIconSizeClasses]" class="absolute right-1.5 bottom-0 z-10 bg-white rounded-full" />
   </component>
 </template>
 
@@ -55,6 +54,10 @@ export default {
       type: Object,
     },
     size: {
+      default: 'small',
+      type: String,
+    },
+    verify: {
       default: 'small',
       type: String,
     },
@@ -91,6 +94,16 @@ export default {
           return 'w-5 h-5 text-xl'
         default:
           return 'w-9 h-9 text-lg'
+      }
+    },
+    VerifiedIconSizeClasses() {
+      switch (this.verify) {
+        case 'small-fixed':
+          return ' w-7 h-7'
+        case 'mini':
+          return 'w-3 h-3'
+        default:
+          return 'w-1/5 h-1/5'
       }
     },
     shapeClasses() {

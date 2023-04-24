@@ -2,8 +2,9 @@
   <div v-if="referrals && referrals.length" class="relative flex items-center">
     <div class="flex pr-3 cursor-pointer" @click="onClick">
       <Avatar
-        v-for="(referral, index) in previewList"
+v-for="(referral, index) in previewList"
         :key="index"
+        hide-verificationb-badge="true"
         :class="['border-2 border-solid border-white', { '-ml-3': index > 0 }]"
         :use-link="false"
         :user="referral.user"

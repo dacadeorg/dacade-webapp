@@ -16,7 +16,7 @@
               { 'pr-5': mainWallet },
             ]"
           >
-            <Avatar :user="user" :use-link="false" />
+            <Avatar :user="user" hide-verificationb-badge="true" :use-link="false" />
             <span
               v-if="mainWallet"
               :style="{
