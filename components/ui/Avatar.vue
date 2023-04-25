@@ -57,7 +57,7 @@ export default {
       default: 'small',
       type: String,
     },
-    verify: {
+    ProfileVerifySize: {
       default: 'small',
       type: String,
     },
@@ -97,11 +97,11 @@ export default {
       }
     },
     VerifiedIconSizeClasses() {
-      switch (this.verify) {
-        case 'small-fixed':
+      switch (this.ProfileVerifySize) {
+        case 'small':
           return ' w-7 h-7'
         case 'mini':
-          return 'w-3 h-3'
+          return 'w-4 h-4'
         default:
           return 'w-1/5 h-1/5'
       }
