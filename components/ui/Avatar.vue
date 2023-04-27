@@ -57,7 +57,7 @@ export default {
       default: 'small',
       type: String,
     },
-    ProfileVerifySize: {
+    profileVerifySize: {
       default: 'small',
       type: String,
     },
