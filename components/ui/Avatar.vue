@@ -5,12 +5,14 @@
     :class="[sizeClasses, shapeClasses, { 'cursor-pointer': user }]"
     class="inline-flex relative align-middle"
   >
-  <span
-:class="[shapeClasses]"
-    :style="{
-      backgroundColor: color,
-    }" class="bg-primary h-full w-full flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle relative z-0">
-    <img
+    <span
+      :class="[shapeClasses]"
+      :style="{
+        backgroundColor: color,
+      }"
+      class="bg-primary h-full w-full flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle relative z-0"
+    >
+      <img
         v-if="user && user.avatar"
         :src="user.avatar"
         alt="img"
@@ -19,9 +21,12 @@
       <span v-if="user && !user.avatar">{{ initials }}</span>
       <img v-if="icon" :src="icon" class="p-2" />
       <img v-if="image" :src="image" class="p-0 object-cover w-full h-full" />
-  </span>
+    </span>
     <VerifiedIcon
-v-if="showVerificationBadge" :class="[VerifiedIconSizeClasses]" class="absolute right-1.5 bottom-0 z-10 bg-white rounded-full" />
+      v-if="showVerificationBadge"
+      :class="[VerifiedIconSizeClasses]"
+      class="absolute right-1.5 bottom-0 z-10 bg-white rounded-full"
+    />
   </component>
 </template>
 
@@ -120,10 +125,10 @@ export default {
           return 'rounded-full'
       }
     },
-    showVerificationBadge(){
-      console.log(this.user);
+    showVerificationBadge() {
+      console.log(this.user)
       return !this.hideVerificationbBadge && this.user
-    }
+    },
   },
 }
 </script>
