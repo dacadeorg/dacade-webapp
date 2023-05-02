@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/attribute-hyphenation -->
 <template>
   <div
     class="group bg-gradient-to-trw-full relative"
@@ -10,7 +11,7 @@
       class="z-10"
       :class="[boxLayout ? 'relative flex-none' : 'absolute top-0 left-0']"
     >
-      <Avatar :user="user" size="medium" :hide-verification-badge="!!badge" />
+      <Avatar :user="user" size="medium" profileVerifySize="mini" profileVerifyPosition="small" :hideVerificationbBadge="!!badge" />
       <Badge
         v-if="badge"
         :value="badge"

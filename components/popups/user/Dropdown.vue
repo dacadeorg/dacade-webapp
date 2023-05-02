@@ -1,10 +1,11 @@
+<!-- eslint-disable vue/attribute-hyphenation -->
 <template>
   <DropdownPopup>
     <div class="divide-y divide-gray-200">
       <div class="flex justify-between hover:bg-gray-50">
         <div class="w-full p-4 text-left flex items-center">
           <div class="pr-3.5">
-            <Avatar :user="user" size="medium" :use-link="false" hide-verificationb-badge="true"/>
+            <Avatar :user="user" size="medium" :use-link="false" hideVerificationbBadge="true"/>
           </div>
           <div>
             <span

@@ -1,6 +1,7 @@
+<!-- eslint-disable vue/attribute-hyphenation -->
 <template>
   <div class="text-center pb-24 relative">
-    <Avatar size="extra" :user="user" :use-link="false" />
+    <Avatar size="extra" :user="user" profileVerifySize="medium" :use-link="false" />
     <span class="block capitalize text-5xl mt-5 leading-none">{{
       username
     }}</span>

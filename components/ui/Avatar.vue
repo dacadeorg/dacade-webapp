@@ -24,8 +24,8 @@
     </span>
     <VerifiedIcon
       v-if="showVerificationBadge"
-      :class="[VerifiedIconSizeClasses]"
-      class="absolute right-1.5 bottom-0 z-10 bg-white rounded-full"
+      :class="[VerifiedIconSizeClasses, VerifiedIconPositionClasses]"
+      class="absolute bottom-0 z-10 rounded-full"
     />
   </component>
 </template>
@@ -66,6 +66,10 @@ export default {
       default: 'small',
       type: String,
     },
+    profileVerifyPosition: {
+      default: '',
+      type: String,
+    },
     shape: {
       default: 'circular',
       type: String,
@@ -102,13 +106,27 @@ export default {
       }
     },
     VerifiedIconSizeClasses() {
-      switch (this.ProfileVerifySize) {
-        case 'small':
-          return ' w-7 h-7'
+      switch (this.profileVerifySize) {
+        case 'medium':
+          return ' w-1/5 h-1/5'
         case 'mini':
-          return 'w-4 h-4'
+          return 'w-1/3 h-1/3'
         default:
-          return 'w-1/5 h-1/5'
+          return 'w-1/2 h-1/2'
+      }
+    },
+    VerifiedIconPositionClasses() {
+      switch (this.profileVerifyPosition) {
+        case 'medium':
+          return ' right-1'
+        case 'small':
+          return ' right-0.5'
+        case 'mini':
+          return '-right-1'
+        case 'small-mini':
+          return '-right-2.5'
+        default:
+          return 'right-1.5'
       }
     },
     shapeClasses() {
@@ -126,7 +144,6 @@ export default {
       }
     },
     showVerificationBadge() {
-      console.log(this.user)
       return !this.hideVerificationbBadge && this.user
     },
   },

@@ -45,7 +45,7 @@
 
     <div class="relative float-right md:float-left sm:flex-none pt-1 sm:p-0">
       <div class="relative sm:inset-0">
-        <Avatar :user="value.user" size="large" />
+        <Avatar :user="value.user" size="large" hideVerificationbBadge="true"/>
         <Badge
           class="absolute left-9 top-10 w-6 h-6 bg-theme-accent text-white"
           :value="index"
