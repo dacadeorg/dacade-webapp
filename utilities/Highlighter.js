@@ -42,11 +42,15 @@ export default function attacher({ include, exclude, prefix, languages } = {}) {
       data.hProperties = {}
     }
 
-    data.hChildren = lowlight.highlight(lang, node.value, { prefix }).value
-    data.hProperties.className = [
-      'hljs',
-      ...(data.hProperties.className || []),
-      'language-' + lang,
-    ]
+    try {
+      data.hChildren = lowlight.highlight(lang, node.value, { prefix }).value
+      data.hProperties.className = [
+        'hljs',
+        ...(data.hProperties.className || []),
+        'language-' + lang,
+      ]
+    } catch (e) {
+      // console.error('error highlighting code:', e)
+    }
   }
 }
