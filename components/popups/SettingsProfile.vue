@@ -148,7 +148,7 @@
 
 
   export default {
-    name: 'ReferralPopup',
+    name: 'SettingsProfile',
     directives: {
       clickOutside: vClickOutside.directive,
     },

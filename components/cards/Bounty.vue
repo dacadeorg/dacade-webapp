@@ -53,7 +53,7 @@
               <Avatar
                 :user="submission.user"
                 size="mini"
-                class-name="avatar-font"
+                class-name="text-sm"
               />
               <div>{{ submission.user.displayName }}</div>
               <div

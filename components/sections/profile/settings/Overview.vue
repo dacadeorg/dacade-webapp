@@ -7,7 +7,7 @@
 
       <div
         class="grid grid-cols-3 gap-4 p-4">
-        <div class="text-gray text-sm">Username</div>
+        <div class="text-gray text-sm">{{ $t('profile.edit.username') }}</div>
         <div class="text-gray text-sm">{{ user.displayName }}</div>
         <button
           class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
@@ -16,37 +16,22 @@
 
       <div
         class="grid grid-cols-3 gap-4 p-4">
-        <div class="text-gray text-sm">Email</div>
+        <div class="text-gray text-sm">{{ $t('profile.edit.email') }}</div>
         <div class="text-gray text-sm">{{ user.email }}</div>
         <button
           class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
-          @click="() => togglePopUp( {
-            title: 'Change Email',
-            info: 'Email',
-            content : user?.email,
-            status: user?.email?.length === 0 ? 'Set' : 'Change',
-            emailId: 'email',
-            confirmId: 'confirmEmail',
-            })"
+          @click="() => togglePopUp()"
         >{{ user?.email?.length ? 'Change' : 'Set' }}
         </button>
       </div>
 
       <div
         class="grid grid-cols-3 gap-4 p-4">
-        <div class="text-gray text-sm">Full Name</div>
+        <div class="text-gray text-sm">{{ $t('profile.edit.fullname') }}</div>
         <div class="text-gray text-sm">{{ fullName }}</div>
         <button
           class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
-          @click="() => togglePopUp(
-           {
-            title: 'Change Name',
-            info: 'Name',
-            content : fullName,
-            status: fullName.length ? 'Change':'Set' ,
-            firstId: 'firstname',
-            lastId: 'lastname'
-            })"
+          @click="() => togglePopUp()"
         >{{ fullName.length ? 'Change' : 'Set' }}
         </button>
       </div>
@@ -67,7 +52,7 @@ import {mapGetters} from "vuex";
 import ProfileSettingsSection from '~/components/sections/profile/overview/Section'
 import Popup from '~/components/popups/SettingsProfile'
 export default {
-  name: 'ProfileSettingsInformation',
+  name: 'ProfileSettingsOverview',
   components: {
     ProfileSettingsSection,
     Popup
@@ -75,7 +60,14 @@ export default {
   data() {
     return {
       showPopup: false,
-      selectedInfo: {}
+      selectedInfo: {},
+      content: [],
+      itemsToggle: [{
+        title: 'Change Name',
+        info: 'Name',
+        firstId: 'firstname',
+        lastId: 'lastname'
+      }]
     }
   },
   computed: {
@@ -85,10 +77,19 @@ export default {
     fullName() {
       if (!this.user?.firstName || !this.user?.lastName) return ''
       return this.user.firstName + ' ' + this.user.lastName
-    }
+    },
+    status() {
+      return this.fullName.length ? 'Change':'Set'
+   }
   },
   methods: {
-    togglePopUp(info) {
+    togglePopUp(title, info, content, status, firstId, lastId) {
+      this.itemsToggle.title = title
+      this.itemsToggle.info = info
+      this.fullName = content
+      this.status = status
+      this.itemsToggle.firstId = firstId
+      this.itemsToggle.lastId = lastId
       this.selectedInfo = info
       this.showPopup = !this.showPopup
     },

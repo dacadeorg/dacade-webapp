@@ -1,13 +1,13 @@
-<template>
+<!-- <template>
     <Modal v-if="user" :show="showInformation" @close="close">
       <div class="w-full p-7 relative">
 
         <h1 class="text-xl md:text-3xl mr-3 mb-3 text-left">
-          Change names
+          {{ $t('profile.edit.label.change-name') }}
         </h1>
 
-        <div>last name</div>
-        <div>first name</div>
+        <div>{{ $t('profile.edit.label.first-name') }}</div>
+        <div>{{ $t('profile.edit.label.last-name') }}</div>
 
         <button
           class="bg-gray-100 self-start px-2.5 py-2.5 absolute top-2 right-2"
@@ -50,4 +50,4 @@
     },
   }
   </script>
-  
+   -->
