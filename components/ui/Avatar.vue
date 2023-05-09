@@ -112,7 +112,7 @@ export default {
         case 'mini':
           return 'w-1/3 h-1/3'
         default:
-          return 'w-1/2 h-1/2'
+          return 'w-2/5 h-2/5'
       }
     },
     VerifiedIconPositionClasses() {
@@ -124,9 +124,9 @@ export default {
         case 'mini':
           return '-right-1'
         case 'small-mini':
-          return '-right-2.5'
+          return '-right-1.5'
         default:
-          return 'right-1.5'
+          return 'right-2'
       }
     },
     shapeClasses() {
