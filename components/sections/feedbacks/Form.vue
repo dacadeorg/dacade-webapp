@@ -6,7 +6,7 @@
         <div class="relative w-full">
           <div class="relative">
             <div class="absolute z-50 left-3 md:-left-7 top-3">
-              <Avatar :user="user" size="medium" profileVerifySize="mini" profileVerifyPosition="mini"/>
+              <Avatar :user="user" size="medium" />
             </div>
           </div>
           <div label-for="input-text">

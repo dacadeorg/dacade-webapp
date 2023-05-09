@@ -22,11 +22,13 @@
       <img v-if="icon" :src="icon" class="p-2" />
       <img v-if="image" :src="image" class="p-0 object-cover w-full h-full" />
     </span>
-    <VerifiedIcon
+    <span
       v-if="showVerificationBadge"
-      :class="[VerifiedIconSizeClasses, VerifiedIconPositionClasses]"
-      class="absolute bottom-0 z-10 rounded-full"
-    />
+      :class="[VerifiedIconClasses]"
+      class="absolute z-10 rounded-full"
+    >
+      <VerifiedIcon class="w-100 h-100" />
+    </span>
   </component>
 </template>
 
@@ -38,7 +40,7 @@ export default {
     VerifiedIcon,
   },
   props: {
-    hideVerificationbBadge: {
+    hideVerificationBadge: {
       default: false,
       type: Boolean,
     },
@@ -60,14 +62,6 @@ export default {
     },
     size: {
       default: 'small',
-      type: String,
-    },
-    profileVerifySize: {
-      default: 'small',
-      type: String,
-    },
-    profileVerifyPosition: {
-      default: '',
       type: String,
     },
     shape: {
@@ -105,28 +99,16 @@ export default {
           return 'w-9 h-9 text-lg'
       }
     },
-    VerifiedIconSizeClasses() {
-      switch (this.profileVerifySize) {
+    VerifiedIconClasses() {
+      switch (this.size) {
         case 'medium':
-          return ' w-1/5 h-1/5'
+        case 'medium-fixed':
+        case 'small-fixed':
+          return 'w-1/3 h-1/3 right-0 -bottom-1/100'
         case 'mini':
-          return 'w-1/3 h-1/3'
+          return 'w-3/6 h-3/6 -right-1/10 -bottom-1/10'
         default:
-          return 'w-2/5 h-2/5'
-      }
-    },
-    VerifiedIconPositionClasses() {
-      switch (this.profileVerifyPosition) {
-        case 'medium':
-          return ' right-1'
-        case 'small':
-          return ' right-0.5'
-        case 'mini':
-          return '-right-1'
-        case 'small-mini':
-          return '-right-1.5'
-        default:
-          return 'right-2'
+          return 'w-1/5 h-1/5 right-1/10 bottom-1/100'
       }
     },
     shapeClasses() {
@@ -144,7 +126,7 @@ export default {
       }
     },
     showVerificationBadge() {
-      return !this.hideVerificationbBadge && this.user
+      return !this.hideVerificationBadge && this.user
     },
   },
 }

@@ -40,7 +40,7 @@
               <div
                 class="inline-flex items-center space-x-2 pr-3 bg-gray-200 p-1 rounded-full"
               >
-                <Avatar :user="achievement?.user"  profileVerifyPosition="mini" size="small-fixed" />
+                <Avatar :user="achievement?.user"  size="small-fixed" />
                 <p class="text-sm md:text-base">
                   {{ achievement?.metadata?.recipientName }}
                 </p>

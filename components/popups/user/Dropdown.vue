@@ -5,16 +5,23 @@
       <div class="flex justify-between hover:bg-gray-50">
         <div class="w-full p-4 text-left flex items-center">
           <div class="pr-3.5">
-            <Avatar :user="user" size="medium" :use-link="false" hideVerificationbBadge="true"/>
+            <Avatar
+              :user="user"
+              size="medium"
+              :use-link="false"
+              hide-verification-badge
+            />
           </div>
           <div>
-            <span
-              class="font-medium text-base inline-block leading-normal capitalize"
-              >{{ username }}</span
-            >
-            <span class="pt-3 inline-block">
-              <VerifiedIcon v-if="isKycVerified" class="w-3.5 h-3.5" />
-            </span>
+            <div class="flex items-center space-x-1">
+              <span
+                class="font-medium text-base block leading-normal capitalize"
+                >{{ username }}</span
+              >
+              <span class="block pt-0.5">
+                <VerifiedIcon v-if="isKycVerified" class="w-3.5 h-3.5" />
+              </span>
+            </div>
             <nuxt-link
               class="self-end text-sm block leading-normal"
               :to="localePath('/profile')"

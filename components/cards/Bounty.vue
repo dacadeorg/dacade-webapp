@@ -54,7 +54,6 @@
                 :user="submission.user"
                 size="mini"
                 style="font-size: 14px"
-                profileVerifyPosition="mini"
               />
               <div>{{ submission.user.displayName }}</div>
               <div
@@ -91,7 +90,6 @@
         :color="bounty.colors.primary"
         size="medium-fixed"
         shape="rounded"
-        profileVerifyPosition="mini"
       />
       <Badge
         v-if="bounty.submissions && bounty.submissions.length"

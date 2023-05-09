@@ -5,8 +5,6 @@
         <Avatar
           size="large"
           :user="referral.user"
-          profileVerifySize="mini"
-          profileVerifyPosition="small"
         />
       </div>
       <div class="ml-5">

@@ -11,7 +11,7 @@
       class="z-10"
       :class="[boxLayout ? 'relative flex-none' : 'absolute top-0 left-0']"
     >
-      <Avatar :user="user" size="medium" profileVerifySize="mini" profileVerifyPosition="small" :hideVerificationbBadge="!!badge" />
+      <Avatar :user="user" size="medium" :hideVerificationBadge="!!badge" />
       <Badge
         v-if="badge"
         :value="badge"

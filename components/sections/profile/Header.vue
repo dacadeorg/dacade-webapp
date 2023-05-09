@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/attribute-hyphenation -->
 <template>
   <div class="text-center pb-24 relative">
-    <Avatar size="extra" :user="user" profileVerifySize="medium" :use-link="false" />
+    <Avatar size="extra" :user="user" :use-link="false" />
     <span class="block capitalize text-5xl mt-5 leading-none">{{
       username
     }}</span>
@@ -28,12 +28,6 @@
       <!--        <span class="inline-block"><CompassIcon /></span>-->
       <!--        <span class="ml-1 inline-block">GMT+2</span>-->
       <!--      </div>-->
-      <div v-if="isKycVerified" class="flex items-center px-3">
-        <span class="inline-block"><VerifiedIcon /></span>
-        <span class="ml-1 inline-block">{{
-          $t('profile.header.sumsub.verified')
-        }}</span>
-      </div>
     </div>
     <div v-if="canConnectDiscord" class="pt-5">
       <Button
