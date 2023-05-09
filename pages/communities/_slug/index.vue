@@ -5,6 +5,7 @@
       <div class="w-full mx-auto divide-y divide-solid divide-gray-200">
         <Courses />
         <Scoreboard />
+        <ChallengeCard/>
       </div>
     </Section>
   </div>
@@ -14,6 +15,7 @@ import { mapGetters } from 'vuex'
 import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
 import Scoreboard from '@/components/sections/communities/overview/scoreboard'
 import Courses from '@/components/sections/communities/overview/Courses'
+import ChallengeCard from '@/components/cards/challenge/Challenge.vue'
 import Section from '@/components/ui/Section'
 import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 export default {
@@ -22,6 +24,7 @@ export default {
     Section,
     Scoreboard,
     Courses,
+    ChallengeCard
   },
   layout: 'community',
   scrollToTop: true,
