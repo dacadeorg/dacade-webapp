@@ -3,10 +3,6 @@
     <div class="grid grid-cols-3 gap-4 p-4">
       <div class="text-gray text-sm">{{ $t('profile.edit.username') }}</div>
       <div class="text-gray text-sm">{{ user.displayName }}</div>
-      <button
-        class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
-        @click="console.log()"
-      ></button>
     </div>
 
     <div class="grid grid-cols-3 gap-4 p-4">
