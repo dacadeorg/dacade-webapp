@@ -94,7 +94,7 @@
           label-for="input-3" class="mb-5 relative">
             <ValidationProvider
               v-slot="{ errors }"
-              name="fast name"
+              name="last name"
               mode="passive"
               rules="required|min:3|username"
             >
