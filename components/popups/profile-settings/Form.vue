@@ -22,7 +22,7 @@
           @click="close"
         >
           <!-- <Crossmark class="text-xl text-gray-600 w-6" /> -->
-          close
+          {{ $t('profile.edit.close') }}
         </button>
       </div>
     </form>

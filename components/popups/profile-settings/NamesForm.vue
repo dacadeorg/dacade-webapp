@@ -1,6 +1,6 @@
 <template>
   <ProfileSettingsForm
-    title="Change your names"
+    :title="$t('profile.edit.change.name')"
     :loading="loading"
     :errors="formErrors"
     @close="close"
@@ -9,7 +9,7 @@
     <div label-for="input-3" class="mb-5 relative">
       <ValidationProvider
         v-slot="{ errors }"
-        name="firstName"
+        :name="$t('profile.edit.first-name')"
         mode="passive"
         rules="required|min:3"
       >
@@ -19,8 +19,8 @@
             v-model="firstName"
             required
             type="form"
-            placeholder="First Name"
-            label="First Name"
+            :placeholder="$t('profile.edit.first.name')"
+            :label="$t('profile.edit.first.name')"
             class="mb-5"
             :error="errors[0]"
           />
@@ -30,7 +30,7 @@
     <div label-for="input-3" class="mb-5 relative">
       <ValidationProvider
         v-slot="{ errors }"
-        name="lastName"
+        :name="$t('profile.edit.last-name')"
         mode="passive"
         rules="required|min:3"
       >
@@ -40,8 +40,8 @@
             v-model="lastName"
             required
             type="form"
-            placeholder="Last Name"
-            label="Last Name"
+            :placeholder="$t('profile.edit.last-name')"
+            :label="$t('profile.edit.last.name')"
             class="mb-5"
             :error="errors[0]"
           />

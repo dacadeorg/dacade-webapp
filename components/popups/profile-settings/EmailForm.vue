@@ -1,6 +1,6 @@
 <template>
   <ProfileSettingsForm
-    title="Change your email"
+    :title="$t('profile.edit.change.email')"
     :loading="loading"
     :errors="formErrors"
     @close="close"
@@ -19,8 +19,8 @@
             v-model="email"
             required
             type="form"
-            placeholder="Change your Email"
-            label="Change your Email"
+            :placeholder="$t('profile.edit.change.email')"
+            :label="$t('profile.edit.change.email')"
             class="mb-5"
             :error="errors[0]"
           />
@@ -31,7 +31,7 @@
     <div label-for="input-2" class="mb-5 relative">
       <ValidationProvider
         v-slot="{ errors }"
-        name="confirmEmail"
+        :name="$t('profile.edit.confirm-email')"
         mode="passive"
         rules="required|email|confirmed:email"
       >
@@ -41,8 +41,8 @@
             v-model="confirmEmail"
             required
             type="form"
-            placeholder="Confirm your Email"
-            label="Confirm your Email"
+            :placeholder="$t('profile.edit.confirm.email')"
+            :label="$t('profile.edit.confirm.email')"
             class="mb-5"
             :error="errors[0]"
           />
