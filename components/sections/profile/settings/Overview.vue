@@ -1,66 +1,60 @@
 <template>
-    <ProfileSettingsSection
-      title="Profile Information"
-      see-more
-      see-all
-    >
+  <ProfileSettingsSection title="Profile Information" see-more see-all>
+    <div class="grid grid-cols-3 gap-4 p-4">
+      <div class="text-gray text-sm">{{ $t('profile.edit.username') }}</div>
+      <div class="text-gray text-sm">{{ user.displayName }}</div>
+      <button
+        class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
+        @click="console.log()"
+      ></button>
+    </div>
 
-      <div
-        class="grid grid-cols-3 gap-4 p-4">
-        <div class="text-gray text-sm">{{ $t('profile.edit.username') }}</div>
-        <div class="text-gray text-sm">{{ user.displayName }}</div>
-        <button
-          class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
-            @click="console.log()"></button>
-      </div>
+    <div class="grid grid-cols-3 gap-4 p-4">
+      <div class="text-gray text-sm">{{ $t('profile.edit.email') }}</div>
+      <div class="text-gray text-sm">{{ user.email }}</div>
+      <button
+        class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
+        @click="togglePopupEmail()"
+      >
+        {{ user?.email?.length ? 'Change' : 'Set' }}
+      </button>
+    </div>
 
-      <div
-        class="grid grid-cols-3 gap-4 p-4">
-        <div class="text-gray text-sm">{{ $t('profile.edit.email') }}</div>
-        <div class="text-gray text-sm">{{ user.email }}</div>
-        <button
-          class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
-          @click=" togglePopupEmail()"
-        >{{ user?.email?.length ? 'Change' : 'Set' }}
-        </button>
-      </div>
+    <div class="grid grid-cols-3 gap-4 p-4">
+      <div class="text-gray text-sm">{{ $t('profile.edit.fullname') }}</div>
+      <div class="text-gray text-sm">{{ fullName }}</div>
+      <button
+        class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
+        @click="togglePopupNames()"
+      >
+        {{ fullName.length ? 'Change' : 'Set' }}
+      </button>
+    </div>
 
-      <div
-        class="grid grid-cols-3 gap-4 p-4">
-        <div class="text-gray text-sm">{{ $t('profile.edit.fullname') }}</div>
-        <div class="text-gray text-sm">{{ fullName }}</div>
-        <button
-          class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
-          @click=" togglePopupNames()"
-        >{{ fullName.length ? 'Change' : 'Set' }}
-        </button>
-      </div>
-
-      <Popup
-        v-show="showPopup"
-        :selected-info="selectedInfo"
-        :show-popup="showPopup"
-        class="w-3/5"
-        @close="togglePopUp()"
-        @togglePopup="() => togglePopUp()"/>
-
-    </ProfileSettingsSection>
-  </template>
+    <Popup
+      v-show="showPopup"
+      :form-type="selectedFormType"
+      :show-popup="showPopup"
+      class="w-3/5"
+      @close="togglePopUp()"
+    />
+  </ProfileSettingsSection>
+</template>
 
 <script>
-import {mapGetters} from "vuex";
+import { mapGetters } from 'vuex'
 import ProfileSettingsSection from '~/components/sections/profile/overview/Section'
-import Popup from '~/components/popups/SettingsProfile'
+import Popup from '~/components/popups/profile-settings'
 export default {
   name: 'ProfileSettingsOverview',
   components: {
     ProfileSettingsSection,
-    Popup
+    Popup,
   },
   data() {
     return {
       showPopup: false,
-      selectedInfo: {}
+      selectedFormType: '',
     }
   },
   computed: {
@@ -70,34 +64,18 @@ export default {
     fullName() {
       if (!this.user?.firstName || !this.user?.lastName) return ''
       return this.user.firstName + ' ' + this.user.lastName
-    }
+    },
   },
   methods: {
-    togglePopUp(info) {
-      this.selectedInfo = info
+    togglePopUp(formType) {
+      this.selectedFormType = formType
       this.showPopup = !this.showPopup
     },
     togglePopupEmail() {
-      this.togglePopUp({
-            title: 'Change Email',
-            info: 'Email',
-            content : this.user?.email,
-            status: this.user?.email?.length === 0 ? 'Set' : 'Change',
-            emailId: 'email',
-            confirmId: 'confirmEmail',
-            }
-
-      )
+      this.togglePopUp('email')
     },
     togglePopupNames() {
-          this.togglePopUp({
-            title: 'Change Name',
-            info: 'Name',
-            content : this.fullName,
-            status: this.fullName.length ? 'Change':'Set' ,
-            firstId: 'firstname',
-            lastId: 'lastname'
-            })
+      this.togglePopUp('names')
     },
   },
 }
