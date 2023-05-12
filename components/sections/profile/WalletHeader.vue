@@ -11,18 +11,16 @@
       }}
       {{ $t('profile.wallets.address') }}
     </p>
-    <Tag :value="wallet.token" class="text-gray-500 mt-2"/>
+    <Tag :value="wallet.token" class="text-gray-500 mt-2" />
   </div>
-
 </template>
 
 <script>
-
-import Tag from "@/components/ui/Tag.vue";
+import Tag from '@/components/ui/Tag.vue'
 
 export default {
   name: 'WalletHeader',
-  components: {Tag},
+  components: { Tag },
   props: {
     wallet: {
       type: Object,
