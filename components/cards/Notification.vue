@@ -5,7 +5,7 @@
     :class="extended ? 'rounded-3xl' : ''"
     class="flex hover:bg-gray-50 py-4 -mx-5 px-5 cursor-pointer"
   >
-    <div class="flex relative" :class=" verifyIcon ? 'mr-2' : 'mr-5'">
+    <div class="flex mr-2">
       <Avatar :user="user" size="medium-fixed" />
     </div>
     <div class="pt-1 -mt-2">
@@ -40,10 +40,6 @@ export default {
       type: Object,
     },
     extended: {
-      default: false,
-      type: Boolean,
-    },
-    verifyIcon: {
       default: false,
       type: Boolean,
     },
