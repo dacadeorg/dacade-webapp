@@ -154,7 +154,7 @@ export default {
         completedAction: () => {
           this.showPayoutModal = true
         },
-      });
+      })
     },
   },
 }
