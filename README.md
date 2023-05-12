@@ -64,7 +64,7 @@ NUXT_ENV_GOOGLE_TRANSLATE_API_KEY="AIzaSyC6XYHCctzfWaxQK6Lbl9eZ0JUzbATcjpM"
 
 - authentication feature:
   Users can sign up and log in to the platform using their email and password or through their Google  
-   accounts. Firebase Authentication API is used to manage user authentication  
+   accounts. Firebase Authentication API is used to manage user authentication
 
 - Learning Materials
   The platform provides users with access to learning materials, including videos, quizzes, and text-based content. Users can navigate through the materials and track their progress.
