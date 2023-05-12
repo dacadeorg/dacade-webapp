@@ -1050,5 +1050,5 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [typography, aspectRatio, lineClamp]
+  plugins: [typography, aspectRatio, lineClamp],
 }

@@ -2,10 +2,7 @@
   <div class="bg-gray-50 text-sm text-gray-700 md:mb-0">
     <div class="flex p-7">
       <div class="">
-        <Avatar
-          size="large"
-          :user="referral.user"
-        />
+        <Avatar size="large" :user="referral.user" />
       </div>
       <div class="ml-5">
         <span class="text-lg leading-loose font-medium text-gray-900 pb-1">

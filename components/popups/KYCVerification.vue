@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     closeModal() {
-      this.$store.dispatch('kyc/closeVerificationModal');
+      this.$store.dispatch('kyc/closeVerificationModal')
     },
     verify() {
       if (this.completed) return this.handleCompleted()

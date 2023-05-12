@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import snsWebSdk from "@sumsub/websdk";
+import snsWebSdk from '@sumsub/websdk'
 import { auth as firebaseAuth } from '@/plugins/firebase'
-import { sleep } from "~/utilities";
+import { sleep } from '~/utilities'
 
-let snsWebSdkInstance = null;
+let snsWebSdkInstance = null
 export const state = () => ({
   sumsubToken: null,
   showModal: false,
@@ -24,29 +24,28 @@ export const mutations = {
     state.sumsubToken = payload
   },
   setShowModal(state, payload) {
-    state.showModal = payload;
+    state.showModal = payload
   },
   setLoading(state, payload) {
-    state.loading = payload;
+    state.loading = payload
   },
   setVerifying(state, payload) {
-    state.verifying = payload;
+    state.verifying = payload
   },
   setCompleted(state, payload) {
     state.completed = payload
   },
   setText(state, payload) {
-    state.reasonText = payload.reasonText;
-    state.title = payload.title;
-    state.completedText = payload.completedText;
-    state.actionText = payload.actionText;
-    state.completedActionText = payload.completedActionText;
-    state.completedAction = payload.completedAction;
+    state.reasonText = payload.reasonText
+    state.title = payload.title
+    state.completedText = payload.completedText
+    state.actionText = payload.actionText
+    state.completedActionText = payload.completedActionText
+    state.completedAction = payload.completedAction
   },
 }
 
 export const actions = {
-
   async getSumsubToken({ commit }) {
     const user = firebaseAuth.currentUser
     if (user) {
@@ -62,25 +61,25 @@ export const actions = {
     }
   },
   openVerificationModal({ commit, dispatch }, payload) {
-    if(this.getters['user/isKycVerified']){
-      dispatch('closeVerificationModal');
-      dispatch('triggerCompleteAction');
-      return;
+    if (this.getters['user/isKycVerified']) {
+      dispatch('closeVerificationModal')
+      dispatch('triggerCompleteAction')
+      return
     }
-    commit('setShowModal', true);
+    commit('setShowModal', true)
     // dispatch('launchWebSdk');
-    commit('setText', payload || {});
+    commit('setText', payload || {})
   },
   closeVerificationModal({ commit }) {
-    commit('setShowModal', false);
-    commit('setLoading', false);
-    commit('setVerifying', false);
+    commit('setShowModal', false)
+    commit('setLoading', false)
+    commit('setVerifying', false)
     if (snsWebSdkInstance) {
       snsWebSdkInstance?.destroy()
     }
   },
   async triggerCompleteAction({ commit, dispatch, state }) {
-    if (!state.completedAction) return;
+    if (!state.completedAction) return
     try {
       await state.completedAction()
     } catch (e) {
@@ -92,26 +91,27 @@ export const actions = {
     // if (reviewStatus === 'completed' && reviewResult?.reviewAnswer === 'GREEN') {
     // complete verification
     // delay for 2 seconds to allow the user to see the success message
-    await sleep(2000);
-    commit('setLoading', true);
-    await this.dispatch('user/fetch');
+    await sleep(2000)
+    commit('setLoading', true)
+    await this.dispatch('user/fetch')
     commit('setCompleted', true)
-    commit('setVerifying', false);
-    commit('setLoading', false);
+    commit('setVerifying', false)
+    commit('setLoading', false)
     // }
   },
   async launchWebSdk({ commit, dispatch, getters }) {
-    commit('setLoading', true);
-    const accessToken = await dispatch('getSumsubToken');
-    if (!accessToken) return;
-    const user = this.getters['user/get'];
-    snsWebSdkInstance = snsWebSdk.init(
-      accessToken,
-      // token update callback, must return Promise
-      // Access token expired
-      // get a new one and pass it to the callback to re-initiate the WebSDK
-      () => dispatch('getSumsubToken')
-    )
+    commit('setLoading', true)
+    const accessToken = await dispatch('getSumsubToken')
+    if (!accessToken) return
+    const user = this.getters['user/get']
+    snsWebSdkInstance = snsWebSdk
+      .init(
+        accessToken,
+        // token update callback, must return Promise
+        // Access token expired
+        // get a new one and pass it to the callback to re-initiate the WebSDK
+        () => dispatch('getSumsubToken')
+      )
       .withConf({
         lang: 'en',
         email: user.email,
@@ -121,19 +121,19 @@ export const actions = {
       })
       .withOptions({ addViewportTag: false, adaptIframeHeight: true })
       .on('idCheck.applicantStatus', (payload) => {
-        dispatch('completeSumSubVerification');
+        dispatch('completeSumSubVerification')
       })
-      .build();
+      .build()
 
     // you are ready to go:
     // just launch the WebSDK by providing the container element for it
-    await sleep(2000);
+    await sleep(2000)
     snsWebSdkInstance.launch('#sumsub-websdk-container')
 
-    await sleep(1000);
-    commit('setLoading', false);
-    commit('setVerifying', true);
-  }
+    await sleep(1000)
+    commit('setLoading', false)
+    commit('setVerifying', true)
+  },
 }
 
 export const getters = {
@@ -141,30 +141,30 @@ export const getters = {
     return state.sumsubToken
   },
   showModal(state) {
-    return state.showModal;
+    return state.showModal
   },
   loading(state) {
-    return state.loading;
+    return state.loading
   },
   verifying(state) {
-    return state.verifying;
+    return state.verifying
   },
   completed(state) {
-    return state.completed;
+    return state.completed
   },
   reasonText(state) {
-    return state.reasonText;
+    return state.reasonText
   },
   title(state) {
-    return state.title;
+    return state.title
   },
   completedText(state) {
-    return state.completedText;
+    return state.completedText
   },
   actionText(state) {
-    return state.actionText;
+    return state.actionText
   },
   completedActionText(state) {
-    return state.completedActionText;
+    return state.completedActionText
   },
 }

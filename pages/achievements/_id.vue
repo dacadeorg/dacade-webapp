@@ -40,7 +40,7 @@
               <div
                 class="inline-flex items-center space-x-2 pr-3 bg-gray-200 p-1 rounded-full"
               >
-                <Avatar :user="achievement?.user"  size="small-fixed" />
+                <Avatar :user="achievement?.user" size="small-fixed" />
                 <p class="text-sm md:text-base">
                   {{ achievement?.metadata?.recipientName }}
                 </p>
@@ -72,11 +72,11 @@
               <AchievementLinkField :link="achievement?.metadata?.linkToWork" />
             </AchievementViewItem>
             <div v-if="mintable">
-              <AchievementViewItem v-if="belongsToCurrentUser && !minted" :name="$t('profile.achievement.ipfs-metadata')">
-                <a
-                  :href="metadataPreviewURL"
-                  target="_blank"
-                  class="underline"
+              <AchievementViewItem
+                v-if="belongsToCurrentUser && !minted"
+                :name="$t('profile.achievement.ipfs-metadata')"
+              >
+                <a :href="metadataPreviewURL" target="_blank" class="underline"
                   >Preview</a
                 >
               </AchievementViewItem>

@@ -1,7 +1,7 @@
 <template>
   <component
     :is="component"
-    class="btn outline-none  focus:outline-none hover:outline-none cursor-pointer relative disabled:border-opacity-60 disabled:cursor-not-allowed"
+    class="btn outline-none focus:outline-none hover:outline-none cursor-pointer relative disabled:border-opacity-60 disabled:cursor-not-allowed"
     :disabled="disabled"
     :type="variant"
     :class="{

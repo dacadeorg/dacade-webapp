@@ -15,32 +15,30 @@
       </div>
       <div class="flex flex-row divide-x divide-solid divide-gray-300">
         <div class="whitespace-nowrap text-base sm:pr-4 pr-3">
+          <span class="font-normal text-xs">
+            {{ value.feedbacks }}
             <span class="font-normal text-xs">
-              {{ value.feedbacks }}
-              <span class="font-normal text-xs">
-                {{ $t(value.feedbacks == 1 ? 'Submission' : 'Submissions') }}
-              </span>
+              {{ $t(value.feedbacks == 1 ? 'Submission' : 'Submissions') }}
             </span>
-          </div>
-          <div class="whitespace-nowrap text-base sm:px-4 px-3">
+          </span>
+        </div>
+        <div class="whitespace-nowrap text-base sm:px-4 px-3">
+          <span class="font-normal text-xs">
+            {{ value.score }}
             <span class="font-normal text-xs">
-              {{ value.score }}
-              <span class="font-normal text-xs">
-                {{ $t(value.score == 1 ? 'Total Point' : 'Total Points') }}
-              </span>
+              {{ $t(value.score == 1 ? 'Total Point' : 'Total Points') }}
             </span>
-          </div>
-          <div class="whitespace-nowrap text-base sm:px-4 px-3">
+          </span>
+        </div>
+        <div class="whitespace-nowrap text-base sm:px-4 px-3">
+          <span class="font-normal text-xs">
+            {{ value.feedbacks }}
             <span class="font-normal text-xs">
-              {{ value.feedbacks }}
-              <span class="font-normal text-xs">
-                {{ $t(value.feedbacks == 1 ? 'Feedback' : 'Feedbacks') }}
-              </span>
+              {{ $t(value.feedbacks == 1 ? 'Feedback' : 'Feedbacks') }}
             </span>
-          </div>
-
+          </span>
+        </div>
       </div>
-  
     </div>
 
     <div class="relative float-right md:float-left sm:flex-none pt-1 sm:p-0">

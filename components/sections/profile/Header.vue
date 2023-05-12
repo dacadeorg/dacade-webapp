@@ -5,7 +5,9 @@
     <span class="block capitalize text-5xl mt-5 leading-none">{{
       username
     }}</span>
-    <div class="flex justify-center mt-2 leading-snug text-sm divide-x divide-solid">
+    <div
+      class="flex justify-center mt-2 leading-snug text-sm divide-x divide-solid"
+    >
       <!--      <div class="flex items-center px-3">-->
       <!--        <span class="inline-block"><GithubIcon /></span>-->
       <!--        <span class="ml-1 inline-block">Github</span>-->
@@ -32,10 +34,19 @@
       <!--      </div>-->
     </div>
     <div v-if="canConnectDiscord" class="pt-5">
-      <Button type="outline-primary" class="flex mx-auto text-base" @click="triggerDiscordOauth">
+      <Button
+        type="outline-primary"
+        class="flex mx-auto text-base"
+        @click="triggerDiscordOauth"
+      >
         {{ $t('profile.header.connect-discord') }}
       </Button>
-      <Button v-if="showKycVerificationButton" type="outline-primary" class="flex mx-auto text-base" @click="triggerKYCVerification">
+      <Button
+        v-if="showKycVerificationButton"
+        type="outline-primary"
+        class="flex mx-auto text-base"
+        @click="triggerKYCVerification"
+      >
         {{ $t('profile.header.sumsub.verify') }}
       </Button>
     </div>
@@ -104,8 +115,8 @@ export default {
       return process.env.NUXT_ENV_KYC_VERIFICATION_ENABLED === 'true'
     },
     showKycVerificationButton() {
-      return (!this.isKycVerified) && this.kycVerificationEnabled
-    }
+      return !this.isKycVerified && this.kycVerificationEnabled
+    },
   },
   methods: {
     triggerDiscordOauth() {
@@ -113,8 +124,8 @@ export default {
     },
     triggerKYCVerification() {
       if (!this.showKycVerificationButton) return
-      this.$store.dispatch('kyc/openVerificationModal');
-    }
+      this.$store.dispatch('kyc/openVerificationModal')
+    },
   },
 }
 </script>
