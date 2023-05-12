@@ -1,36 +1,20 @@
 <template>
   <div>
     <span v-click-outside="externalClick">
-      <li
-        :class="[show === true ? 'z-50' : 'z-10']"
-        :style="{ width: 'calc(100vw - 40px)', maxWidth: '340px' }"
-        class="inline-block align-middle mr-2 relative text-gray-500"
-        @click="toggle"
-      >
-        <Button
-          :padding="false"
-          type="secondary"
-          class="p-2 bg-gray-100 bg-opacity-75 hover:bg-gray-50"
-          :custom-style="buttonStyles"
-        >
+      <li :class="[show === true ? 'z-50' : 'z-10']" :style="{ width: 'calc(100vw - 40px)', maxWidth: '340px' }"
+        class="inline-block align-middle mr-2 relative text-gray-500" @click="toggle">
+        <Button :padding="false" type="secondary" class="p-2 bg-gray-100 bg-opacity-75 hover:bg-gray-50"
+          :custom-style="buttonStyles">
           <!-- @click="show = !show" -->
           <BellIcon />
-          <Badge
-            v-if="unread > 0"
-            :value="unread"
-            class="top-0 -right-1 absolute"
-          />
+          <Badge v-if="unread > 0" :value="unread" class="top-0 -right-1 absolute" />
         </Button>
       </li>
-      <div
-        v-show="show"
-        :style="{
-          width: '340px',
-          maxHeight: 'calc(100vh - 140px)',
-          overflow: 'hidden scroll',
-        }"
-        class="z-50 w-80 absolute top-14 right-0 bg-white py-4 px-4.5 rounded-3.5xl text-gray-900 no-scrollbar"
-      >
+      <div v-show="show" :style="{
+        width: '340px',
+        maxHeight: 'calc(100vh - 140px)',
+        overflow: 'hidden scroll',
+      }" class="z-50 w-80 absolute top-14 right-0 bg-white py-4 px-4.5 rounded-3.5xl text-gray-900 no-scrollbar">
         <NotificationList />
       </div>
     </span>
@@ -39,7 +23,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 import vClickOutside from 'v-click-outside'
 
 import Badge from '@/components/ui/Badge'
@@ -75,9 +59,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      unread: 'user/notifications/unread',
-    }),
+    unread() {
+      return 3
+    }
   },
   created() {
     this.$store.dispatch('user/notifications/all')

@@ -60,6 +60,8 @@ module.exports = {
       purple: colors.violet,
       pink: colors.pink,
       theme: {
+        cover: 'var(--tm-cover)',
+        'cover-text': 'var(--tm-cover-text)',
         primary: 'var(--tm-primary)',
         secondary: 'var(--tm-secondary)',
         text: 'var(--tm-text)',

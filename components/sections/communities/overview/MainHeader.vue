@@ -1,5 +1,5 @@
 <template>
-  <Section class="bg-theme-primary text-theme-text">
+  <Section class="bg-theme-cover text-theme-cover-text">
     <div class="py-2 md:py-8 mx-auto">
       <div class="flex flex-col justify-between lg:flex-row">
         <div
