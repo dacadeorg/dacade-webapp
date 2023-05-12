@@ -76,7 +76,7 @@
                 <a
                   :href="metadataPreviewURL"
                   target="_blank"
-                  class="text-xs underline"
+                  class="underline"
                   >Preview</a
                 >
               </AchievementViewItem>

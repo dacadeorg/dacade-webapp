@@ -7,6 +7,7 @@ export const state = () => ({
   current: null,
   feedbacks: [],
   submissions: [],
+  listDataUsername: null,
 })
 
 export const mutations = {
@@ -18,6 +19,9 @@ export const mutations = {
   },
   setList(state, payload) {
     state.list = payload
+  },
+  setListDataUsername(state, payload) {
+    state.listDataUsername = payload
   },
   setFeedbacks(state, payload) {
     state.feedbacks = payload
@@ -47,10 +51,13 @@ export const actions = {
     commit('setSubmissions', data.submissions)
     commit('setReputation', data.reputation)
   },
-  async all({ commit }, username) {
-    commit('clear')
+  async all({ commit, state }, username) {
     if (!username) return
+    if (username !== state.listDataUsername) {
+      commit('clear')
+    }
     const { data } = await this.$api.get(`profile/${username}/communities`)
+    commit('setListDataUsername', username)
     commit('setList', data)
   },
 }
