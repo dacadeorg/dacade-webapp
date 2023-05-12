@@ -33,7 +33,7 @@
             ><strong>{{ submissions }}</strong>
             {{ $t('communities.submissions') }}</span
           >
-          <span class="p-2 md:border-l md:ml-2"
+          <span class="p-2 md:border-l md:ml-2 border-theme-cover-text"
             ><strong>{{ feedbacks }}</strong>
             {{ $t('communities.feedbacks') }}</span
           >

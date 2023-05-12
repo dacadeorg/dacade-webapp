@@ -5,7 +5,7 @@
       @click="toggle"
     >
       <div v-if="!show">
-        <MobileMenuLogo :class="burgerColor ? 'text-white' : 'text-black'" />
+        <MobileMenuLogo :class="burgerColor || 'text-black'" />
       </div>
       <div v-else>
         <CloseIcon />
@@ -175,8 +175,8 @@ export default {
     },
 
     burgerColor: {
-      default: false,
-      type: Boolean,
+      default: "",
+      type: String,
     },
   },
   data() {

@@ -90,8 +90,8 @@ export default {
     },
 
     sidebarBurgerColor: {
-      default: false,
-      type: Boolean,
+      default: "",
+      type: String,
     },
   },
 
