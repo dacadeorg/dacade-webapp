@@ -132,7 +132,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isKycVerified: 'kyc/isVerified',
+      isKycVerified: 'user/isKycVerified',
     }),
     address() {
       if (!this.details.address) return null
@@ -144,10 +144,11 @@ export default {
   },
   methods: {
     cashout() {
-      if (this.isKycVerified) {
+      if (this.isKycVerified || process.env.NUXT_ENV_KYC_VERIFICATION_ENABLED !== 'true') {
         this.showPayoutModal = true
         return
       }
+      console.log('trigger kyc modal');
       this.$store.dispatch('kyc/openVerificationModal', {
         reasonText: this.$t('kyc.payout.reason'),
         completedActionText: this.$t('kyc.payout.button.completed'),
