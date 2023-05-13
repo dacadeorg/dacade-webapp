@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.0...v3.14.1) (2023-05-13)
+
+
+### Features
+
+* prevent kyc popup on cashout when kyc is disabled ([eff99cd](https://github.com/dacadeorg/dacade-webapp/commit/eff99cd75e8565ced217cf081f70b2f5c0930b72))
+
 ## [3.14.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.6...v3.14.0) (2023-05-11)
 
 
