@@ -2,10 +2,14 @@
   <div class="relative">
     <MainHeaderSection />
     <Section>
-      <div class="w-full mx-auto divide-y divide-solid divide-gray-200">
-        <Courses />
+      <div class="w-full mx-auto divide-y divide-solid divide-gray-200 mt-7">
+        <div class="flex divide-y divide-solid divide-gray-200">
+          <ChallengeSideBar/>
+          <ChallengeCard/>
+        </div>
+
         <Scoreboard />
-        <ChallengeCard/>
+        
       </div>
     </Section>
   </div>
@@ -14,8 +18,8 @@
 import { mapGetters } from 'vuex'
 import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
 import Scoreboard from '@/components/sections/communities/overview/scoreboard'
-import Courses from '@/components/sections/communities/overview/Courses'
 import ChallengeCard from '@/components/cards/challenge/Challenge.vue'
+import ChallengeSideBar from '@/components/layout/Challenge.vue'
 import Section from '@/components/ui/Section'
 import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
 export default {
@@ -23,7 +27,7 @@ export default {
     MainHeaderSection,
     Section,
     Scoreboard,
-    Courses,
+    ChallengeSideBar,
     ChallengeCard
   },
   layout: 'community',
