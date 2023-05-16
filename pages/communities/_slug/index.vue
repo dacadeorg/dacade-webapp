@@ -2,8 +2,8 @@
   <div class="relative">
     <MainHeaderSection />
     <Section>
-      <div class="w-full mx-auto divide-y divide-solid divide-gray-200 mt-7">
-        <div class="flex divide-y divide-solid divide-gray-200">
+      <div class="w-full mx-auto mt-7">
+        <div class="md:flex ">
           <ChallengeSideBar/>
           <ChallengeCard/>
         </div>

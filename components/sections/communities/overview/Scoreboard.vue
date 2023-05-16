@@ -1,8 +1,10 @@
 <template>
   <SectionWrapperCol
     v-if="list && list.length"
+    id="test"
     :title="$t('communities.overview.scoreboard.title')"
     :description="$t('communities.overview.scoreboard.description')"
+    class="scroll-smooth"
   >
     <div class="w-full flex flex-row mt-10">
       <ScoreboardFilter/>

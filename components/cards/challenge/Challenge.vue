@@ -5,9 +5,9 @@
     <div
       class="border-solid border-b border-gray-200 bg-white rounded-3xl sm:p-8 w-full p-6"
     >
-      <div class="divide-y-3 divide-red-700 divide-dashed">
-        <div class="flex">
-          <div class="pr-20 w-full sm:w-3/5 lg:w-2/3">
+      <div class="divide-y divide-solid divide-gray-200 w-full">
+        <div class="md:flex mb-3">
+          <div class="md:pr-20 w-full sm:w-3/5 lg:w-2/3">
             <div class="text-lg text-gray-900 font-medium leading-normal">
               Build a Celo dApp
             </div>
@@ -18,27 +18,27 @@
             </div>
           </div>
 
-          <div class="flex flex-col rounded-full max-w-max mr-4 text-sm">
+          <div class="flex flex-col mt-6 md:mt-0 rounded-full max-w-max text-sm">
             <div class="flex items-center mb-8">
               <Coin size="medium" token="cUSD" />
-              <div class="text-base lg:pl-2 lg:pr-3 md:px-2 max-w-max">
+              <div class="text-base lg:pl-2 max-w-max">
                 <div class="flex">
                   <span class="block font-medium text-base pr-1">150</span>
                   <span class="block font-medium text-base">cUSD Rewards</span>
                 </div>
-                <div class="text-gray-500 text-sm font-normal">
+                <div class="text-gray-500 text-xs font-normal">
                   Upon successful completion
                 </div>
               </div>
             </div>
             <div class="flex items-center">
               <Coin size="medium" token="ETH" />
-              <div class="text-base lg:pl-2 lg:pr-3 md:px-2 max-w-max">
+              <div class="text-base lg:pl-2 max-w-max">
                 <div class="flex">
                   <span class="block font-medium text-base pr-1">150</span>
                   <span class="block font-medium text-base">cUSD Rewards</span>
                 </div>
-                <div class="text-gray-500 text-sm font-normal">
+                <div class="text-gray-500 text-xs font-normal">
                   Upon successful completion
                 </div>
               </div>
@@ -52,13 +52,13 @@
           Beginner
         </div>
       </div>
-      <div class="flex flex-row mt-6 items-center text-sm">
+      <div class="md:flex flex-row mt-6 items-center text-sm">
         <div class="text-gray-400 sm:w-3/5 lg:w-2/3 text-base font-normal">
           <span>Deadline</span>
           <span class="font-bold">March 12th, 2022</span>
         </div>
 
-        <div>
+        <div class="mt-4">
           <nuxt-link :to="localePath(path)">
             <ArrowButton :community-styles="true" type="outline-primary">
               See the challenge
@@ -72,7 +72,7 @@
       <div class="mb-5 text-gray-400 font-semibold uppercase text-xxs">
         related content
       </div>
-      <div class="w-1/2 mb-8">
+      <div class="md:w-1/2 mb-8">
         <div class="mb-3 text-lg font-medium leading-normal">
           Celo Development 101
         </div>
@@ -81,7 +81,7 @@
           that you will need to navigate the Celo ecosystem.
         </div>
       </div>
-      <div class="w-1/2 mb-8">
+      <div class="md:w-1/2 mb-8">
         <div class="mb-3 text-lg font-medium leading-normal">
           Celo Development 101
         </div>
