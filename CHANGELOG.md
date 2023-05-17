@@ -11,15 +11,20 @@ All notable changes to this project will be documented in this file. See [standa
 * implement verification badge and the verify button ([#263](https://github.com/dacadeorg/dacade-webapp/issues/263)) ([39a6667](https://github.com/dacadeorg/dacade-webapp/commit/39a66674882f367ea507ed4b83bffd92e34a73aa))
 * show only avatar verification badge when Kyc is verified ([a624dad](https://github.com/dacadeorg/dacade-webapp/commit/a624dadca719ae009d392b8c99577a454c0daf62))
 
-
 ### Bug Fixes
 
 * an issue with the community color switching ([9406cba](https://github.com/dacadeorg/dacade-webapp/commit/9406cba12b9d9e6f030033a13a46ac2bc0bb7091))
 
-
 ### Improvements
 
 * change cUSD colors ([21f7962](https://github.com/dacadeorg/dacade-webapp/commit/21f79625ae5e440c3f249e77a786ea9a252a2e14))
+
+### [3.14.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.1...v3.14.2) (2023-05-16)
+
+
+### Bug Fixes
+
+* invalid badge filename naming ([6430658](https://github.com/dacadeorg/dacade-webapp/commit/64306587bac3d5aefc3f8a1070a5228c489632a1))
 
 ### [3.14.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.0...v3.14.1) (2023-05-13)
 
