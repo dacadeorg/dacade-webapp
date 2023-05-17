@@ -83,7 +83,7 @@ export const validateAddress = (address, token) => {
     return validateRegex(trimmedAddress, aeRegex)
   }
 
-  if (tokenLowerCase === 'algo') {
+  if (['algo', 'usdc'].includes(tokenLowerCase)) {
     return validateRegex(trimmedAddress, algoRegex)
   }
 

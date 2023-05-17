@@ -7,110 +7,58 @@
       <!--   display wallet modal when showWalletConnectionMethod is true   -->
       <div v-if="showWalletConnectionMethod">
         <p class="font-medium text-base mb-5">
-          How would you like to add your address?
+          {{ $t('profile.edit.wallet.select.title') }}
         </p>
-        <div
-          class="border border-solid border-gray-400 rounded-xl divide-y overflow-hidden"
-        >
-          <WalletButton @click="setConnectionMethod('manual')"
-            >Enter address manually
+        <div class="border border-solid border-gray-400 rounded-xl divide-y overflow-hidden">
+          <WalletButton @click="setConnectionMethod('manual')">
+            {{ $t('profile.edit.wallet.select.option.manual') }}
           </WalletButton>
 
-          <WalletButton @click="setConnectionMethod('wallet')"
-            >Connect a wallet
+          <WalletButton v-if="requireWalletConnection" @click="setConnectionMethod('wallet')">
+            {{ $t('profile.edit.wallet.select.option.connect') }}
           </WalletButton>
         </div>
       </div>
 
-      <!--   display wallet modal end   -->
-
       <!--   display manual address update  -->
-      <div
-        v-if="showWalletInfo && !showWalletConnectionMethod"
-        class="flex flex-col space-y-3"
-      >
-        <div class="flex">
+      <div v-if="!showWalletConnectionMethod" class="flex flex-col space-y-3">
+        <div v-if="currentAddress" class="flex">
           <!--    display text based on show edit address      -->
-          <p v-if="currentAddress" class="font-medium text-base">
-            Current Address:
+          <p class="font-medium text-base">
+            {{ $t('profile.edit.wallet.current.address') }}:
           </p>
-          <p v-else class="font-medium text-base">Enter Address:</p>
-
-          <a
-            v-if="currentAddress"
-            class="font-medium cursor-pointer text-base ml-auto text-primary"
-            @click="openEditAddress()"
-          >
-            Change
+          <a class="font-medium cursor-pointer text-base ml-auto text-primary" @click="openEditAddress()">
+            {{ $t('profile.edit.wallet.button.change') }}
           </a>
         </div>
 
-        <!--     display current address when not editting address -->
-        <p
-          v-if="currentAddress && !showWalletConnectionMethod"
-          class="text-base mb-3"
-        >
-          {{ currentAddress }}
-        </p>
-
-        <div v-if="currentAddress" class="pb-2">
-          <p class="font-medium text-base">{{ newAddressTitle }}</p>
+        <div class="block">
+          <p v-if="currentAddress" class="text-base mb-3">
+            {{ currentAddress }}
+          </p>
+          <div v-if="showForm" class="pb-2">
+            <p class="font-medium text-base">{{ newAddressTitle }}:</p>
+          </div>
         </div>
       </div>
     </div>
     <ValidationObserver ref="form" v-slot="{ passes }">
       <form class="flex flex-col space-y-4" @submit.prevent="passes(onSave)">
         <div class="px-6">
-          <ValidationProvider
-            v-if="showEditAddress && !showWalletConnectionMethod"
-            v-slot="{ errors }"
-            mode="passive"
-            name="address"
-            rules="required|min:2"
-          >
-            <div v-if="connectionMethod">
-              <Input
-                v-if="connectionMethod === 'wallet'"
-                :error="errors[0]"
-                :label="$t('profile.edit.label.account-address')"
-                :value="newAddress"
-                disabled
-                required
-              />
-              <Input
-                v-if="connectionMethod === 'manual'"
-                v-model="address"
-                :error="errors[0]"
-                :label="$t('profile.edit.label.account-address')"
-                required
-              />
-              <div v-if="isMatchingTheExistingOne" class="pt-4">
-                <p class="text-base">New address matches the existing one</p>
-              </div>
+          <ValidationProvider v-if="showForm" v-slot="{ errors }" mode="passive" name="address" rules="required|min:2">
+            <Input v-model="addressInput" :error="errors[0]" :label="$t('profile.edit.label.account-address')"
+              :disabled="!isManualConnectionMethod" required />
+            <div v-if="isMatchingTheExistingOne" class="pt-4">
+              <p class="text-base">{{ $t('profile.edit.wallet.error.matches-existing') }}</p>
             </div>
-
-            <!--    display when user connects via wallet   -->
-            <p
-              v-if="isWalletConnected && !currentAddress"
-              class="text-base mb-3"
-            >
-              {{ newAddress }}
-            </p>
           </ValidationProvider>
 
           <ErrorBox v-if="error" :error="error" />
         </div>
         <div class="flex items-center justify-between pt-4 pl-6 pr-2 pb-2">
-          <span
-            class="cursor-pointer text-sm font-medium text-primary"
-            @click="closeModal()"
-            >{{ $t('profile.edit.close') }}</span
-          >
-          <ArrowButton
-            :disabled="loading || !filled"
-            :loading="loading"
-            @click="onSave"
-            >{{ getChangeAddressText }}
+          <span class="cursor-pointer text-sm font-medium text-primary" @click="closeModal()">{{ $t('profile.edit.close')
+          }}</span>
+          <ArrowButton :disabled="loading || !filled" :loading="loading" @click="onSave">{{ getChangeAddressText }}
           </ArrowButton>
         </div>
       </form>
@@ -196,18 +144,16 @@ export default {
     },
     newAddressTitle() {
       if (this.connectionMethod === 'manual') {
-        return 'Enter new address'
+        return this.$t('profile.edit.wallet.input.label.manual')
       }
-      if (this.connectionMethod === 'wallet') {
-        return 'New address'
-      }
-      if (this.requireWalletConnection && this.isFirstTimeAddressSetup) {
-        return 'New address'
-      }
-      return ''
+      return this.$t('profile.edit.wallet.input.label.connect')
+    },
+    isManualConnectionMethod() {
+      return this.connectionMethod === 'manual'
     },
     getChangeAddressText() {
-      return this.filled ? 'Save Address' : 'Change address'
+      if (this.filled || !this.currentAddress) return this.$t('profile.edit.wallet.button.save-address');
+      return this.$t('profile.edit.wallet.button.change-address');
     },
     isMatchingTheExistingOne() {
       if (!this.newAddress || !this.currentAddress) return false
@@ -215,8 +161,20 @@ export default {
         this.currentAddress?.toLowerCase() === this.newAddress?.toLowerCase()
       )
     },
+    addressInput: {
+      get() {
+        if (!this.isManualConnectionMethod) return this.newAddress
+        return this.address
+      },
+      set(value) {
+        if (!this.isManualConnectionMethod) return
+        this.address = value
+      },
+    },
+    showForm() {
+      return this.showEditAddress && !this.showWalletConnectionMethod && this.connectionMethod
+    },
   },
-
   watch: {
     newAddress(newValue, oldValue) {
       if (newValue === oldValue) return
@@ -224,23 +182,13 @@ export default {
     },
     show(newValue, oldValue) {
       if (newValue === oldValue) return
-      this.error = null
-      this.loading = false
-
-      if (this.currentAddress) {
-        this.showWalletInfo = true
-        return
-      }
-
-      if (this.requireWalletConnection) {
-        this.showWalletConnectionMethod = true
-        return
-      }
-
+      this.initForm()
       this.disconnect()
     },
   },
-
+  mounted() {
+    this.initForm();
+  },
   methods: {
     async onSave() {
       this.loading = true
@@ -279,16 +227,14 @@ export default {
       this.$store.dispatch('wallet/disconnect')
     },
     openEditAddress() {
-      if (this.requireWalletConnection) {
-        this.showWalletConnectionMethod = true
-        return
-      }
-
+      this.showWalletConnectionMethod = true
       this.showEditAddress = true
       this.connectionMethod = 'manual'
     },
     async setConnectionMethod(method) {
       if (!method) return
+
+      if (method === 'wallet' && !this.requireWalletConnection) return;
 
       if (this.isWalletConnected) {
         await this.$store.dispatch('wallet/disconnect')
@@ -309,11 +255,22 @@ export default {
       this.connectionMethod = ''
       this.showWalletConnectionMethod = false
       this.showWalletInfo = false
+      this.address = ''
     },
     closeModal() {
       this.clearState()
       this.$emit('close', true)
     },
+    initForm() {
+      this.error = null
+      this.loading = false
+
+      if (this.currentAddress) {
+        this.showWalletInfo = true
+        return
+      }
+      this.showWalletConnectionMethod = true
+    }
   },
 }
 </script>
