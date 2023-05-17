@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.4](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.3...v3.14.4) (2023-05-17)
+
+
+### Features
+
+* add celo frontend badge ([7804be7](https://github.com/dacadeorg/dacade-webapp/commit/7804be7637d27c5cbf250d5596efdb692d8796fc))
+
+
+### Improvements
+
+* edit wallet address component ([e6720d3](https://github.com/dacadeorg/dacade-webapp/commit/e6720d381668eba8bdae953cada1dd0220a53b20))
+
 ### [3.14.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.15.0...v3.14.3) (2023-05-17)
 
 
