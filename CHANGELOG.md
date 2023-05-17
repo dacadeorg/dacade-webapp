@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.15.0...v3.14.3) (2023-05-17)
+
+
+### Bug Fixes
+
+* invalid user names update endpoint ([7dffd17](https://github.com/dacadeorg/dacade-webapp/commit/7dffd17c906b23d01e5c92dd2e9072ff4a59f458))
+
+### [3.14.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.1...v3.14.2) (2023-05-16)
+
+
+### Bug Fixes
+
+* invalid badge filename naming ([6430658](https://github.com/dacadeorg/dacade-webapp/commit/64306587bac3d5aefc3f8a1070a5228c489632a1))
+
+
+### Improvements
+
+* **release:** 3.14.2 ([443a0a0](https://github.com/dacadeorg/dacade-webapp/commit/443a0a0aeefe07bbf60a505b04b9848daedbd041))
+
 ## [3.15.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.1...v3.15.0) (2023-05-17)
 
 
