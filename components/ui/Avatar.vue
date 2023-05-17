@@ -1,32 +1,16 @@
 <template>
-  <component
-    :is="link ? 'nuxt-link' : 'span'"
-    :to="link"
-    :class="[sizeClasses, shapeClasses, { 'cursor-pointer': user }]"
-    class="inline-flex relative align-middle"
-  >
-    <span
-      :class="[shapeClasses]"
-      :style="{
-        backgroundColor: color,
-      }"
-      class="bg-primary h-full w-full flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle relative z-0"
-    >
-      <img
-        v-if="user && user.avatar"
-        :src="user.avatar"
-        alt="img"
-        class="object-cover w-full h-full"
-      />
+  <component :is="link ? 'nuxt-link' : 'span'" :to="link" :class="[sizeClasses, shapeClasses, { 'cursor-pointer': user }]"
+    class="inline-flex relative align-middle">
+    <span :class="[shapeClasses]" :style="{
+      backgroundColor: color,
+    }"
+      class="bg-primary h-full w-full flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle relative z-0">
+      <img v-if="user && user.avatar" :src="user.avatar" alt="img" class="object-cover w-full h-full" />
       <span v-if="user && !user.avatar">{{ initials }}</span>
       <img v-if="icon" :src="icon" class="p-2" />
       <img v-if="image" :src="image" class="p-0 object-cover w-full h-full" />
     </span>
-    <span
-      v-if="showVerificationBadge"
-      :class="[VerifiedIconClasses]"
-      class="absolute z-10 rounded-full"
-    >
+    <span v-if="showVerificationBadge" :class="[VerifiedIconClasses]" class="absolute z-10 rounded-full">
       <VerifiedIcon class="w-100 h-100" />
     </span>
   </component>
@@ -125,8 +109,11 @@ export default {
           return 'rounded-full'
       }
     },
+    kycVerified() {
+      return this.user?.kycStatus === 'VERIFIED'
+    },
     showVerificationBadge() {
-      return !this.hideVerificationBadge && this.user
+      return !this.hideVerificationBadge && this.kycVerified
     },
   },
 }
