@@ -11,11 +11,11 @@
 
     <div class="flex flex-row rounded-full max-w-max text-sm mt-6 space-x-8">
       <div class="flex items-center">
-        <Coin size="medium" token="cUSD" />
-        <div class="text-base lg:pl-2 max-w-max">
-          <div class="flex text-gray-700">
-            <span class="block font-medium text-base pr-1">150</span>
-            <span class="block font-medium text-base">cUSD Rewards</span>
+        <Coin size="medium-min" token="NFT" class="p-0"/>
+        <div class="text-sm lg:pl-2 max-w-max">
+          <div class="flex text-gray-700 font-medium">
+            <span class="block pr-1">150</span>
+            <span class="block ">cUSD Rewards</span>
           </div>
           <div class="text-gray-400 text-xs font-normal">
             Upon successful completion
@@ -23,11 +23,11 @@
         </div>
       </div>
       <div class="flex items-center">
-        <Coin size="medium" token="ETH" />
-        <div class="text-base lg:pl-2 max-w-max">
-          <div class="flex text-gray-700">
-            <span class="block font-medium text-base pr-1">150</span>
-            <span class="block font-medium text-base">cUSD Rewards</span>
+        <Coin size="medium" token="cUSD" />
+        <div class="text-sm lg:pl-2 max-w-max">
+          <div class="flex text-gray-700 font-medium">
+            <span class="block pr-1">150</span>
+            <span class="block ">cUSD Rewards</span>
           </div>
           <div class="text-gray-400 text-xs font-normal">
             Upon successful completion
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="text-gray-400 sm:w-3/5 lg:w-2/3 text-base font-normal pt-6">
+    <div class="text-gray-400 sm:w-3/5 lg:w-2/3 text-sm font-normal pt-6">
       <span>Deadline</span>
       <span class="font-medium">March 12th, 2022</span>
     </div>
