@@ -16,7 +16,7 @@
               concepts that you will need to navigate the Celo ecosystem.
             </div>
             <div
-          class="text-xxs px-2.5 py-0.5 bg-gray-200 text-gray-500 rounded-3xl max-w-max tracking-wider mb-6.5 uppercase font-medium"
+          class="md:hidden text-xxs px-2.5 py-0.5 bg-gray-200 text-gray-500 rounded-3xl max-w-max tracking-wider mb-6.5 uppercase font-medium"
         >
           Beginner
         </div>
@@ -26,7 +26,7 @@
             class="flex flex-col mb-6 lg:mb-0 mt-6 md:mt-0 rounded-full max-w-max text-sm"
           >
             <div class="flex items-center mb-8">
-              <Coin size="medium" token="cUSD" />
+              <Coin size="medium-mini" token="NFT" />
               <div class="md:pl-2 max-w-max">
                 <div class="flex text-sm text-gray-700">
                   <span class="block font-medium pr-1">150</span>
@@ -38,7 +38,7 @@
               </div>
             </div>
             <div class="flex items-center">
-              <Coin size="medium" token="ETH" />
+              <Coin size="medium" token="cUSD" />
               <div class="md:pl-2 max-w-max">
                 <div class="flex text-sm text-gray-700">
                   <span class="block font-medium  pr-1">150</span>
