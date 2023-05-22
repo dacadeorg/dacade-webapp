@@ -26,6 +26,7 @@
 // import { mapGetters } from 'vuex'
 import vClickOutside from 'v-click-outside'
 
+import { mapGetters } from 'vuex'
 import Badge from '@/components/ui/Badge'
 import NotificationList from '@/components/list/Notification'
 import Button from '@/components/ui/button'
@@ -59,9 +60,9 @@ export default {
     }
   },
   computed: {
-    unread() {
-      return 3
-    }
+    ...mapGetters({
+      count: 'user/notifications/count',
+    }),
   },
   created() {
     this.$store.dispatch('user/notifications/all')
