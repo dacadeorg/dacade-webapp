@@ -1,11 +1,11 @@
 <template>
   <div>
     <div
-      class="flex flex-col divide-y divide-solid divide-gray-200 w-3/4 text-gray-700 space-y-6"
+      class="flex flex-col divide-y divide-solid divide-gray-100 w-3/4 text-gray-700 space-y-6"
     >
       <a>
         <div class="font-medium text-.5xl leading-snug">Challenges</div>
-        <div class="text-sm font-light lg:w-full lg:pr-7 pt-2">
+        <div class="text-sm font-light lg:w-full lg:pr-7 pt-2 mb-6 md:mb-0">
           In the courses of this community, you will be able to learn about new
           technologies, solve challenges, get feedback and earn bounties.
         </div>
