@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.6](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.5...v3.14.6) (2023-05-22)
+
+
+### Bug Fixes
+
+* invalid unread notifications number ([56b1191](https://github.com/dacadeorg/dacade-webapp/commit/56b11919f0b7614f916cdc636e30989ef08474e2))
+
 ### [3.14.5](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.4...v3.14.5) (2023-05-22)
 
 
