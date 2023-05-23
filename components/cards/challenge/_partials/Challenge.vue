@@ -9,10 +9,10 @@
       <span class="ml-1.5">Build a Celo dApp</span>
     </div>
 
-    <div class="lg:flex lg:flex-row flex-col rounded-full max-w-max text-sm mt-6 lg:space-x-8 space-y-8">
+    <div class="md:flex md:flex-row flex-col rounded-full max-w-max text-sm mt-6 md:space-x-8 md:space-y-0 space-y-8">
       <div class="flex items-center">
         <Coin size="medium-min" token="NFT" class="p-0"/>
-        <div class="text-sm lg:pl-2 max-w-max">
+        <div class="text-sm md:pl-2 max-w-max">
           <div class="flex text-gray-700 font-medium">
             <span class="block pr-1">150</span>
             <span class="block ">cUSD Rewards</span>
@@ -24,7 +24,7 @@
       </div>
       <div class="flex md:items-center">
         <Coin size="medium" token="cUSD" />
-        <div class="text-sm lg:pl-2 max-w-max">
+        <div class="text-sm md:pl-2 max-w-max">
           <div class="flex text-gray-700 font-medium">
             <span class="block pr-1">150</span>
             <span class="block ">cUSD Rewards</span>
