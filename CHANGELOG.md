@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.7](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.6...v3.14.7) (2023-05-23)
+
+
+### Features
+
+* community colors issues and profile view bugs ([2b0bb8d](https://github.com/dacadeorg/dacade-webapp/commit/2b0bb8d0a4464667283a46bc62fa4b0ed8450a6b))
+
+
+### Bug Fixes
+
+* wallet card sizing ([d4c78a4](https://github.com/dacadeorg/dacade-webapp/commit/d4c78a4009eb672e9daa2519948e5f5f11684f27))
+
 ### [3.14.6](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.5...v3.14.6) (2023-05-22)
 
 
