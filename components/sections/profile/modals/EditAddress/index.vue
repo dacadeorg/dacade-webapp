@@ -33,7 +33,7 @@
         </div>
 
         <div class="block">
-          <p v-if="currentAddress" class="text-base mb-3">
+          <p v-if="currentAddress" class="text-base mb-3 font-mono text-gray-700">
             {{ currentAddress }}
           </p>
           <div v-if="showForm" class="pb-2">
@@ -46,7 +46,7 @@
       <form class="flex flex-col space-y-4" @submit.prevent="passes(onSave)">
         <div class="px-6">
           <ValidationProvider v-if="showForm" v-slot="{ errors }" mode="passive" name="address" rules="required|min:2">
-            <Input v-model="addressInput" :error="errors[0]" :label="$t('profile.edit.label.account-address')"
+            <Input v-model="addressInput" input-class="font-mono text-gray-700" :error="errors[0]" :label="$t('profile.edit.label.account-address')"
               :disabled="!isManualConnectionMethod" required />
             <div v-if="isMatchingTheExistingOne" class="pt-4">
               <p class="text-base">{{ $t('profile.edit.wallet.error.matches-existing') }}</p>

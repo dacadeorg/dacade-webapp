@@ -62,6 +62,7 @@ export default {
   computed: {
     ...mapGetters({
       count: 'user/notifications/count',
+      unread: 'user/notifications/unread',
     }),
   },
   created() {

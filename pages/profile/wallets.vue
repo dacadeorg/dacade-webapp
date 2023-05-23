@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full lg:w-9/12 xl:w-2/">
+  <div class="w-full lg:w-9/12">
     <div v-if="!cashable">
       <Hint class="mb-5"
         >{{ $t('profile.wallets.missing-info.warning') }}
