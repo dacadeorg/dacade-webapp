@@ -22,8 +22,8 @@
           </div>
         </div>
       </div>
-      <div class="flex md:items-center">
-        <Coin size="medium" token="cUSD" />
+      <div class="flex items-center">
+        <Coin size="medium-min" token="cUSD" />
         <div class="text-sm md:pl-2 max-w-max">
           <div class="flex text-gray-700 font-medium">
             <span class="block pr-1">150</span>

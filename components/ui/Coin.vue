@@ -122,7 +122,7 @@ export default {
     sizeClasses() {
       switch (this.size) {
         case 'medium-min':
-        return 'w-10 h-10 sm:w-15 sm:h-15 text-xl sm:text-2xl'
+        return 'w-15 h-15 text-xl sm:text-2xl'
         case 'medium':
           return 'w-10 h-10 sm:w-15 sm:h-15 text-xl p-1  sm:text-2xl sm:p-2'
         case 'normal':
