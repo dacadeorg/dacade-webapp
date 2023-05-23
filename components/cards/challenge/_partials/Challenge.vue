@@ -4,7 +4,7 @@
   >
     <div class="text-gray-900 text-lg leading-normal capitalize">
       <span class="text-default font-medium"
-        >ready ready to complete the challenge?</span
+        >Already ready to complete the challenge?</span
       >
       <span class="ml-1.5">Build a Celo dApp</span>
     </div>
