@@ -2,7 +2,7 @@
   <div
     class="border-solid border border-gray-200 rounded-3xl mb-5 group text-gray-700 p-6"
   >
-    <div class="text-gray-900 text-lg leading-normal capitalize">
+    <div class="text-gray-900 text-lg leading-normal">
       <span class="text-default font-medium"
         >Already ready to complete the challenge?</span
       >
