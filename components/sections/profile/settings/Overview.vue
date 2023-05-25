@@ -23,7 +23,7 @@
         class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
         @click="togglePopupNames()"
       >
-        {{ fullName.length ? 'Change' : 'Set' }}
+        {{ fullName.length ? $t('profile.edit.fullname.change') : $t('profile.edit.fullname.set') }}
       </button>
     </div>
 

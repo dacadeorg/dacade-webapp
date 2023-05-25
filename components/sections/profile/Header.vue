@@ -11,7 +11,7 @@
       <!--        <span class="inline-block"><GithubIcon /></span>-->
       <!--        <span class="ml-1 inline-block">Github</span>-->
       <!--      </div>-->
-      <div v-if="!canConnectDiscord" class="flex items-center px-2">
+      <div v-if="canConnectDiscord" class="flex items-center px-2">
         <span class="inline-block"><DiscordIcon/></span>
         <span class="inline-block mx-1">{{
             $t('profile.header.discord')
@@ -33,7 +33,7 @@
       </div>
 
     </div>
-    <div v-if="canConnectDiscord" class="pt-5">
+    <div v-if="!canConnectDiscord" class="pt-5">
       <Button
         type="outline-primary"
         class="flex mx-auto text-base"

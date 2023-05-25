@@ -241,6 +241,8 @@
   "profile.edit.username": "Username",
   "profile.edit.email": "Email",
   "profile.edit.fullname": "Full Name",
+  "profile.edit.fullname.change": "Change",
+  "profile.edit.fullname.set": "Set",
   "profile.edit.save": "Save changes",
   "profile.edit.change.email": "Change your Email",
   "profile.edit.confirm.email": "Confirm your Email",

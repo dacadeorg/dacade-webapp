@@ -21,7 +21,6 @@
           class="bg-transparent text-blue-400 self-start px-2.5 py-2.5 absolute bottom-6"
           @click="close"
         >
-          <!-- <Crossmark class="text-xl text-gray-600 w-6" /> -->
           {{ $t('profile.edit.close') }}
         </button>
       </div>
