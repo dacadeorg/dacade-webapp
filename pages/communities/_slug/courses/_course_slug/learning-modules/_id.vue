@@ -1,10 +1,11 @@
 <template>
   <Wrapper>
     <div
-      class="py-8 flex flex-col divide-y divide-solid divide-gray-200 space-y-8 text-gray-700"
+      class="py-8 flex flex-col space-y-8 text-gray-700"
     >
       <Header />
-      <div class="w-full divide-y divide-solid divide-gray-200">
+      <div class="w-full">
+        <ChallengeCourseCard/>
         <MaterialSection
           v-for="(material, i) in materials"
           :key="i"
@@ -27,6 +28,7 @@
 import { mapGetters } from 'vuex'
 import PageNavigation from '@/components/sections/courses/PageNavigation.vue'
 import Header from '@/components/sections/learning-modules/Header'
+import ChallengeCourseCard from '@/components/cards/challenge/_partials/Challenge.vue'
 import InteractiveModule from '@/components/sections/learning-modules/InteractiveModule'
 import MaterialSection from '@/components/sections/learning-modules/Material'
 import AdditionalMaterialsSection from '@/components/sections/learning-modules/AdditionalMaterials'
@@ -41,6 +43,7 @@ export default {
     PageNavigation,
     AdditionalMaterialsSection,
     InteractiveModule,
+    ChallengeCourseCard
   },
   scrollToTop: true,
   fetch({ store, params, error }) {
