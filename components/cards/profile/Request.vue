@@ -4,6 +4,7 @@
       <Avatar
         v-for="(referral, index) in previewList"
         :key="index"
+        hide-verification-badge
         :class="['border-2 border-solid border-white', { '-ml-3': index > 0 }]"
         :use-link="false"
         :user="referral.user"

@@ -1,16 +1,27 @@
+<!-- eslint-disable vue/attribute-hyphenation -->
 <template>
   <DropdownPopup>
     <div class="divide-y divide-gray-200">
       <div class="flex justify-between hover:bg-gray-50">
-        <div class="w-full p-4 text-left flex">
+        <div class="w-full p-4 text-left flex items-center">
           <div class="pr-3.5">
-            <Avatar :user="user" size="medium" :use-link="false" />
+            <Avatar
+              :user="user"
+              size="medium"
+              :use-link="false"
+              hide-verification-badge
+            />
           </div>
-          <div class="pt-2">
-            <span
-              class="font-medium text-base block leading-normal capitalize"
-              >{{ username }}</span
-            >
+          <div>
+            <div class="flex items-center space-x-1">
+              <span
+                class="font-medium text-base block leading-normal capitalize"
+                >{{ username }}</span
+              >
+              <span class="block pt-0.5">
+                <VerifiedIcon v-if="isKycVerified" class="w-3.5 h-3.5" />
+              </span>
+            </div>
             <nuxt-link
               class="self-end text-sm block leading-normal"
               :to="localePath('/profile')"
@@ -58,6 +69,7 @@ import LanguageList from '@/components/list/Language'
 import Avatar from '@/components/ui/Avatar'
 import Button from '@/components/ui/button'
 import DropdownPopup from '~/components/ui/DropdownPopup'
+import VerifiedIcon from '~/assets/icons/verified.svg?inline-block'
 
 export default {
   name: 'UserProfileDropdown',
@@ -68,6 +80,7 @@ export default {
     ReputationList,
     LanguageList,
     DropdownPopup,
+    VerifiedIcon,
   },
   props: {
     buttonStyles: {
@@ -80,6 +93,7 @@ export default {
       wallets: 'user/wallets/list',
       reputations: 'user/reputations/list',
       user: 'user/get',
+      isKycVerified: 'user/isKycVerified',
     }),
     showLanguageSwitcher() {
       return process.env.NUXT_ENV_SHOW_LANGUAGE_SELECTOR === 'true'

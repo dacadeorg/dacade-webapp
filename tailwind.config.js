@@ -60,6 +60,8 @@ module.exports = {
       purple: colors.violet,
       pink: colors.pink,
       theme: {
+        cover: 'var(--tm-cover)',
+        'cover-text': 'var(--tm-cover-text)',
         primary: 'var(--tm-primary)',
         secondary: 'var(--tm-secondary)',
         text: 'var(--tm-text)',
@@ -118,7 +120,9 @@ module.exports = {
       80: '20rem',
       96: '24rem',
       96.5: '25.5rem',
+      97: '27.5rem',
       98: '28rem',
+      98.5: '39.7rem',
       99: '45.625rem',
     },
     animation: {
@@ -441,7 +445,12 @@ module.exports = {
       '1/4': '25%',
       '2/4': '50%',
       '3/4': '75%',
+      '1/100': '1%',
+      '1/10': '10%',
       full: '100%',
+      '-1/100': '-1%',
+      '-1/10': '-10%',
+      '-1/20': '-5%',
       '-1/2': '-50%',
       '-1/3': '-33.333333%',
       '-2/3': '-66.666667%',
@@ -815,6 +824,7 @@ module.exports = {
       '2/3': '66.666667%',
       '1/4': '25%',
       '2/4': '50%',
+      '2.5/4': '52.5%',
       '3/4': '75%',
       '1/5': '20%',
       '2/5': '40%',
@@ -1042,5 +1052,5 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [typography, aspectRatio, lineClamp]
+  plugins: [typography, aspectRatio, lineClamp],
 }

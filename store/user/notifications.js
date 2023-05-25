@@ -16,7 +16,7 @@ export const mutations = {
     state.count = payload.length
   },
   setUnread(state, payload) {
-    state.unread = payload
+    state.unread = payload || 0
   },
 }
 

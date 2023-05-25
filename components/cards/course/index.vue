@@ -59,8 +59,8 @@
 
       <Avatar
         class="w-15 h-15 p-3 overflow-hidden"
-        :icon="community.icon"
-        :color="community.colors.primary"
+        :icon="certificateDetails.icon"
+        :color="certificateDetails.color"
         size="extra"
         shape="rounded-3xl"
       />
@@ -115,6 +115,12 @@ export default {
         (entity) => entity.type === 'SUBMISSION'
       )
     },
+    certificateDetails(){
+      return {
+        icon: this.community.icon,
+        color: this.community.colors?.cover?.background || this.community.colors?.primary,
+      }
+    }
   },
   methods: {
     debug(event) {},

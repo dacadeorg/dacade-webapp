@@ -12,30 +12,29 @@ export const mutations = {
   },
   setLoading(state, payload) {
     state.loading = payload
-  }
+  },
 }
 
 const sortByHandler = (list, attribute) => {
   return [...list].sort((a, b) => {
-      return b[attribute] - a[attribute]
-    }
-  )
+    return b[attribute] - a[attribute]
+  })
 }
 
 export const actions = {
-  async all({commit}, slug) {
+  async all({ commit }, slug) {
     commit('setLoading', true)
-    const {data} = await this.$api.get(`communities/${slug}/scoreboard`)
+    const { data } = await this.$api.get(`communities/${slug}/scoreboard`)
     commit('setList', data)
     commit('setLoading', false)
   },
 
-  async filter({commit}, {slug, filterBy, sortBy}) {
+  async filter({ commit }, { slug, filterBy, sortBy }) {
     commit('setLoading', true)
-    let {data} = await this.$api.get(`communities/${slug}/scoreboard`, {
+    let { data } = await this.$api.get(`communities/${slug}/scoreboard`, {
       params: {
-        "filter-by": filterBy,
-      }
+        'filter-by': filterBy,
+      },
     })
     if (sortBy) {
       data = sortByHandler(data, sortBy)
@@ -43,7 +42,7 @@ export const actions = {
     commit('setList', data)
     commit('setLoading', false)
   },
-  sort({commit, state}, {sortBy}) {
+  sort({ commit, state }, { sortBy }) {
     const sortedList = sortByHandler(state.list, sortBy)
     commit('setList', sortedList)
   },
@@ -55,5 +54,5 @@ export const getters = {
   },
   loading(state) {
     return state.loading
-  }
+  },
 }

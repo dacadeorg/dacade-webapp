@@ -32,7 +32,7 @@ export default {
       type: [Boolean, String, Object, Array, Number],
     },
     data: {
-      default: "",
+      default: '',
       type: String,
     },
     name: {
@@ -50,8 +50,8 @@ export default {
       },
     },
     checked() {
-      return this.value === this.data;
-    }
+      return this.value === this.data
+    },
   },
 }
 </script>

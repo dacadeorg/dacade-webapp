@@ -1,8 +1,7 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <div class="relative mb-7">
-    <div class="bg-gray-100 relative lg:flex md:flex sm:flex rounded-3.5xl">
-      <EditAddress
+    <EditAddress
         :wallet="details"
         :show="showEditModal"
         @close="showEditModal = false"
@@ -12,7 +11,8 @@
         :show="showPayoutModal"
         @close="showPayoutModal = false"
       />
-      <div class="bg-gray-50 lg:w-60 md:w-60 sm:w-60 rounded-3.5xl">
+    <div class="bg-gray-100 relative lg:flex md:flex sm:flex rounded-3.5xl">
+      <div class="bg-gray-50 sm:w-56 rounded-3.5xl flex-none">
         <div class="p-6">
           <div class="border-b border-dotted border-gray-900">
             <h1 class="text-2xl">
@@ -35,13 +35,13 @@
           </div>
         </div>
       </div>
-      <div class="px-7 pt-6 lg:w-96.5 md:w-8/12 sm:w-8/12 pb-24 lg:pb-24">
+      <div class="px-7 pt-6 flex-1 pb-24 lg:pb-24">
         <div
           v-if="cashable"
-          class="xl:w-72 md:w-72 lg:w-full text-sm text-gray-700"
+          class="text-sm text-gray-700"
         >
-          <p v-if="address" class="leading-5 text-sm">
-            <span v-for="(part, k) in address" :key="k" class="mr-2">{{
+          <p v-if="address" class="leading-5 text-sm flex gap-x-2 gap-y-1 flex-wrap font-mono font-normal">
+            <span v-for="(part, k) in address" :key="k">{{
               part
             }}</span>
           </p>
@@ -49,7 +49,7 @@
         </div>
         <div v-if="cashable" class="text-gray-700 text-sm mt-3">
           <span
-            class="cursor-pointer hover:underline"
+            class="cursor-pointer hover:underline font-normal"
             @click="showEditModal = true"
             >{{
               address
@@ -132,11 +132,17 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isKycVerified: 'kyc/isVerified',
+      isKycVerified: 'user/isKycVerified',
     }),
     address() {
       if (!this.details.address) return null
-      return this.details.address.match(/.{1,4}/g)
+      const chunks = this.details.address.match(/\w{2}/g);
+      const initials = chunks.shift();
+      const rest = chunks.join('');
+      return [
+        initials,
+        ...rest.match(/.{1,4}/g)
+      ]
     },
     cashable() {
       return String(this.details.token).toUpperCase() !== 'DAC'
@@ -144,17 +150,18 @@ export default {
   },
   methods: {
     cashout() {
-      if (this.isKycVerified) {
+      if (this.isKycVerified || process.env.NUXT_ENV_KYC_VERIFICATION_ENABLED !== 'true') {
         this.showPayoutModal = true
         return
       }
+      console.log('trigger kyc modal');
       this.$store.dispatch('kyc/openVerificationModal', {
         reasonText: this.$t('kyc.payout.reason'),
         completedActionText: this.$t('kyc.payout.button.completed'),
         completedAction: () => {
           this.showPayoutModal = true
         },
-      });
+      })
     },
   },
 }
