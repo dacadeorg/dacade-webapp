@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-gray-100 sm:flex sm:justify-between rounded-3xl lg:max-w-lg">
+  <div class="bg-gray-100 sm:flex sm:justify-between rounded-3xl">
     <div class="relative items-center ml-7 flex sm:flex-row">
       <Avatar
         :icon="community.icon"
-        :color="community.colors.primary"
+        :color="color"
         size="medium"
         shape="rounded"
       />
@@ -50,6 +50,10 @@ export default {
       submissions: 'profile/communities/submissions',
       reputation: 'profile/communities/reputation',
     }),
+    color() {
+      const colors = this.community?.colors
+      return colors?.cover?.background || colors?.primary
+    },
   },
 }
 </script>

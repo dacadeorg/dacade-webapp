@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/attribute-hyphenation -->
 <template>
   <div
     class="group bg-gradient-to-trw-full relative"
@@ -10,20 +11,18 @@
       class="z-10"
       :class="[boxLayout ? 'relative flex-none' : 'absolute top-0 left-0']"
     >
-      <nuxt-link :to="profileURL">
-        <Avatar :user="user" size="medium" />
-        <Badge
-          v-if="badge"
-          :value="badge"
-          class="absolute"
-          size="medium"
-          :custom-style="{
-            bottom: '-1px',
-            right: '-3px',
-            backgroundColor: colors.textAccent,
-          }"
-        />
-      </nuxt-link>
+      <Avatar :user="user" size="medium" :hideVerificationBadge="!!badge" />
+      <Badge
+        v-if="badge"
+        :value="badge"
+        class="absolute"
+        size="medium"
+        :custom-style="{
+          bottom: '-1px',
+          right: '-3px',
+          backgroundColor: colors.textAccent,
+        }"
+      />
     </div>
     <div
       class="relative z-0 flex-1"

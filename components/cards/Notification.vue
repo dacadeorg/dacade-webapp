@@ -6,7 +6,7 @@
     class="flex hover:bg-gray-50 py-4 -mx-5 px-5 cursor-pointer"
   >
     <div class="flex mr-2">
-      <Avatar :user="user" class="w-10 h-10" />
+      <Avatar :user="user" size="medium-fixed" />
     </div>
     <div class="pt-1 -mt-2">
       <span class="block text-base text-gray-700">{{ details.message }}</span>

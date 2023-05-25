@@ -6,7 +6,7 @@
     <div class="flex space-x-3 text-left hover:bg-gray-50 pb-3 -mx-5 px-5">
       <Avatar
         :icon="details.community?.icon"
-        :color="details.community?.colors?.primary"
+        :color="color"
         size="medium"
         shape="rounded"
       />
@@ -46,5 +46,11 @@ export default {
       type: Object,
     },
   },
+  computed: {
+    color(){
+      const colors = this.details.community?.colors;
+      return colors?.cover?.background || colors?.primary
+    }
+  }
 }
 </script>

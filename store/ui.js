@@ -10,6 +10,11 @@ export const state = () => ({
 export const mutations = {
   setColors(state, payload) {
     state.colors = {
+      ...payload,
+    }
+  },
+  updateColors(state, payload) {
+    state.colors = {
       ...state.colors,
       ...payload,
     }

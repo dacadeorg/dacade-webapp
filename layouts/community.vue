@@ -2,7 +2,7 @@
   <Wrapper>
     <ThemeWrapper :colors="colors">
       <div class="relative overflow-hidden lg:overflow-auto">
-        <Navbar :settings="settings" sidebar-burger-color />
+        <Navbar :settings="settings" sidebar-burger-color="text-theme-cover-text" />
         <NotificationBar />
         <div class="relative">
           <nuxt />

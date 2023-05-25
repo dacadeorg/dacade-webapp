@@ -24,7 +24,8 @@ html{
   @apply relative;
 }
 
-.content-wrapper, .width-wrapper {
+.content-wrapper,
+.width-wrapper {
   @apply xl:w-10/12 lg:w-10/12 md:w-10/12 sm:w-11/12 w-11/12 mx-auto max-w-7xl;
 }
 

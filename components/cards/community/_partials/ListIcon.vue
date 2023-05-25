@@ -1,7 +1,7 @@
 <template>
   <ThemeWrapper :colors="community.colors">
     <div
-      class="p-6 bg-theme-primary text-theme-text lg:min-w-md lg:min-h-sm lg:h-full md:w-full md:h-60 lg:max-w-sm"
+      class="p-6 bg-theme-cover text-theme-cover-text lg:min-w-md lg:min-h-sm lg:h-full md:w-full md:h-60 lg:max-w-sm"
     >
       <div class="mx-auto h-full">
         <div
@@ -10,7 +10,7 @@
           <div
             class="text-.5xl md:text-2xl font-medium md:max-w-sm sm:max-w-xs"
           >
-            <h1 class="tracking-tight max-w-text-xs text-theme-text">
+            <h1 class="tracking-tight max-w-text-xs text-theme-cover-text">
               {{ community.name }}
             </h1>
             <p

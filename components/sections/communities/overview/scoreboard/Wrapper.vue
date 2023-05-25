@@ -15,20 +15,19 @@
         <slot />
       </div>
     </div>
-  </template>
-  <script>
-  export default {
-    name: 'SectionWrapper',
-    props: {
-      title: {
-        default: '',
-        type: String,
-      },
-      description: {
-        default: '',
-        type: String,
-      },
+</template>
+<script>
+export default {
+  name: 'SectionWrapper',
+  props: {
+    title: {
+      default: '',
+      type: String,
     },
-  }
-  </script>
-  
+    description: {
+      default: '',
+      type: String,
+    },
+  },
+}
+</script>

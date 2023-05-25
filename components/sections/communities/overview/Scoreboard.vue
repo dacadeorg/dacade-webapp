@@ -7,35 +7,35 @@
     class="scroll-smooth"
   >
     <div class="w-full flex flex-row mt-10">
-      <ScoreboardFilter/>
+      <ScoreboardFilter />
       <div
         class="w-full flex flex-col divide-y divide-solid divide-gray-200 border border-gray-200 border-solid rounded-3xl overflow-hidden"
       >
-       <div v-if="loading" class=" h-full flex items-center justify-center">
-         <Loader :loading="true"/>
-       </div>
+        <div v-if="loading" class="h-full flex items-center justify-center">
+          <Loader :loading="true" />
+        </div>
 
-       <div v-else>
-         <ScoreboardCard
-           v-for="(item, i) in list.slice(0, items)"
-           :key="i"
-           :index="i + 1"
-           :value="item"
-         />
-         <div
-           v-if="items < list.length"
-           class="flex w-full sm:flex space-x-5 space-y-0 sm:flex-row-reverse overflow-hidden bg-gray-50 p-6 sm:px-4 sm:py-7 items-center sm:justify-center"
-         >
-           <ArrowButton
-             :community-styles="true"
-             type="outline-primary"
-             direction="down"
-             @click="loadMore"
-           >
-             {{ $t('course.scoreboard.button') }}
-           </ArrowButton>
-         </div>
-       </div>
+        <div v-else>
+          <ScoreboardCard
+            v-for="(item, i) in list.slice(0, items)"
+            :key="i"
+            :index="i + 1"
+            :value="item"
+          />
+          <div
+            v-if="items < list.length"
+            class="flex w-full sm:flex space-x-5 space-y-0 sm:flex-row-reverse overflow-hidden bg-gray-50 p-6 sm:px-4 sm:py-7 items-center sm:justify-center"
+          >
+            <ArrowButton
+              :community-styles="true"
+              type="outline-primary"
+              direction="down"
+              @click="loadMore"
+            >
+              {{ $t('course.scoreboard.button') }}
+            </ArrowButton>
+          </div>
+        </div>
       </div>
     </div>
   </SectionWrapperCol>
@@ -46,8 +46,7 @@ import SectionWrapperCol from './scoreboard/index.vue'
 import ScoreboardCard from '@/components/cards/Scoreboard'
 import ArrowButton from '@/components/ui/button/Arrow'
 import ScoreboardFilter from '@/components/sections/communities/overview/scoreboard/Filter.vue'
-import Loader from "~/components/ui/Loader.vue";
-
+import Loader from '~/components/ui/Loader.vue'
 
 export default {
   name: 'ScoreboardOverview',

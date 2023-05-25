@@ -28,7 +28,7 @@
         class="w-15 h-15 rounded-xl overflow-hidden"
         :icon="referral.community.icon"
         :image="referral.community.image"
-        :color="referral.community.colors.primary"
+        :color="cardColor"
         size="medium-fixed"
         shape="rounded"
       />
@@ -50,6 +50,12 @@ export default {
     referral: {
       type: Object,
       default: () => ({}),
+    },
+  },
+  computed: {
+    cardColor() {
+      const colors = this.referral?.community?.colors;
+      return colors?.cover?.background || colors?.primary 
     },
   },
   methods: {

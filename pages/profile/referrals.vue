@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:w-9/12 xl:w-2/3">
+  <div class="w-full">
     <div v-if="referrals && referrals.length" class="w-full relative">
       <div
         class="w-full flex flex-col rounded-3xl border border-solid border-gray-200 divide-y divide-solid divide-gray-200 overflow-hidden"
