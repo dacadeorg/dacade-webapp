@@ -8,10 +8,6 @@ export const state = () => ({
   balance: null,
   walletAddresses: null,
   token: null,
-<<<<<<< HEAD
-  disStatus: false
-=======
->>>>>>> dev
 })
 
 export const mutations = {
@@ -108,10 +104,7 @@ export const getters = {
   isKycVerified(state) {
     return state.data?.kycStatus === 'VERIFIED'
   },
-<<<<<<< HEAD
   isDiscordConnected(state) {
     return state.data?.discordConnected
   }
-=======
->>>>>>> dev
 }
