@@ -5,7 +5,7 @@
       @click="toggle"
     >
       <div v-if="!show">
-        <MobileMenuLogo :class="burgerColor ? 'text-white' : 'text-black'" />
+        <MobileMenuLogo :class="burgerColor || 'text-black'" />
       </div>
       <div v-else>
         <CloseIcon />
@@ -70,7 +70,7 @@
                   class="flex text-sm leading-normal"
                   :to="localePath('/profile')"
                 >
-                  <Avatar :user="user" :use-link="false" />
+                  <Avatar :user="user" :use-link="false" size="medium" />
                   <div class="py-2 px-2">
                     <span
                       class="font-medium text-lg block leading-normal capitalize"
@@ -175,8 +175,8 @@ export default {
     },
 
     burgerColor: {
-      default: false,
-      type: Boolean,
+      default: "",
+      type: String,
     },
   },
   data() {

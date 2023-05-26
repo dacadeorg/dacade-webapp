@@ -9,10 +9,7 @@
           {{ $t('app.name') }}
         </NavItem>
       </ul>
-      <ul
-        v-if="isAuthenticatedAndVerified"
-        class="hidden lg:block relative self-center"
-      >
+      <ul v-if="isAuthenticatedAndVerified" class="hidden lg:block relative self-center">
         <NavItem to="/bounties">
           {{ $t('nav.bounties') }}
         </NavItem>
@@ -23,58 +20,27 @@
       <ul class="ml-auto text-right relative flex lg:hidden items-center">
         <Sidebar :burger-color="sidebarBurgerColor" />
       </ul>
-      <ul
-        v-if="!isAuthenticated"
-        class="ml-auto text-right relative hidden lg:block"
-      >
-        <div
-          v-if="$router.history.current.path !== '/login'"
-          class="inline-block"
-        >
-          <span
-            v-if="$router.history.current.path === '/signup'"
-            class="text-sm"
-            >{{ $t('nav.signup.already-exist') }}</span
-          >
+      <ul v-if="!isAuthenticated" class="ml-auto text-right relative hidden lg:block">
+        <div v-if="$router.history.current.path !== '/login'" class="inline-block">
+          <span v-if="$router.history.current.path === '/signup'" class="text-sm">{{ $t('nav.signup.already-exist')
+          }}</span>
           <NavItem to="/login">
-            <span
-              class="py-2 text-sm"
-              :class="
-                $router.history.current.path === '/signup'
-                  ? 'text-primary'
-                  : 'inherit'
-              "
-            >
-              {{ $t('nav.login') }}</span
-            >
+            <span class="py-2 text-sm" :class="$router.history.current.path === '/signup'
+                ? 'text-primary'
+                : 'inherit'
+              ">
+              {{ $t('nav.login') }}</span>
           </NavItem>
         </div>
-        <div
-          v-if="$router.history.current.path !== '/signup'"
-          class="inline-block"
-        >
-          <span
-            v-if="$router.history.current.path === '/login'"
-            class="text-sm"
-            >{{ $t('nav.signin.new-accout') }}</span
-          >
+        <div v-if="$router.history.current.path !== '/signup'" class="inline-block">
+          <span v-if="$router.history.current.path === '/login'" class="text-sm">{{ $t('nav.signin.new-accout') }}</span>
           <NavItem to="/signup">
-            <span
-              v-if="$router.history.current.path === '/login'"
-              class="py-2 text-sm text-primary"
-              >{{ $t('nav.sign-up') }}</span
-            >
-            <Button
-              v-else
-              type="secondary"
-              :padding="false"
-              class="text-sm py-2"
-              :class="
-                $router.history.current.path === '/login'
-                  ? 'text-primary'
-                  : 'text-gray-900'
-              "
-            >
+            <span v-if="$router.history.current.path === '/login'" class="py-2 text-sm text-primary">{{ $t('nav.sign-up')
+            }}</span>
+            <Button v-else type="secondary" :padding="false" class="text-sm py-2" :class="$router.history.current.path === '/login'
+              ? 'text-primary'
+              : 'text-gray-900'
+              ">
               {{ $t('nav.sign-up') }}
             </Button>
           </NavItem>
@@ -83,14 +49,8 @@
           <LanguageSwitcherPopup />
         </div>
       </ul>
-      <ul
-        v-if="isAuthenticated"
-        class="hidden lg:flex ml-auto text-right relative"
-      >
-        <NotificationPopup
-          :button-styles="buttonStyle"
-          :badge-styles="badgeStyle"
-        />
+      <ul v-if="isAuthenticated" class="hidden lg:flex ml-auto text-right relative">
+        <NotificationPopup :button-styles="buttonStyle" :badge-styles="badgeStyle" />
         <UserPopup :button-styles="buttonStyle" />
       </ul>
     </div>
@@ -130,37 +90,39 @@ export default {
     },
 
     sidebarBurgerColor: {
-      default: false,
-      type: Boolean,
+      default: "",
+      type: String,
     },
   },
 
   computed: {
-    containerStyle() {
-      if (!this.settings || !this.settings.colors) {
-        return {}
-      }
+    colors() {
+      if (!this.settings || !this.settings.colors) return null
       return {
-        backgroundColor: this.settings.colors.primary,
-        color: this.settings.colors.text,
+        primary: this.settings.colors.cover?.background || this.settings.colors.primary,
+        text: this.settings.colors?.cover?.text || this.settings.colors.text,
+        accent: this.settings.colors.accent,
+      }
+    },
+    containerStyle() {
+      if (!this.colors) return {}
+      return {
+        backgroundColor: this.colors.primary,
+        color: this.colors.text,
       }
     },
     buttonStyle() {
-      if (!this.settings || !this.settings.colors) {
-        return {}
-      }
+      if (!this.colors) return {}
       return {
-        backgroundColor: hexToRgba(this.settings.colors.text, 0.3),
-        color: this.settings.colors.text,
+        backgroundColor: hexToRgba(this.colors.text, 0.3),
+        color: this.colors.text,
       }
     },
     badgeStyle() {
-      if (!this.settings || !this.settings.colors) {
-        return {}
-      }
+      if (!this.colors) return {}
       return {
-        backgroundColor: this.settings.colors.accent,
-        color: this.settings.colors.primary,
+        backgroundColor: this.colors.accent,
+        color: this.colors.primary,
       }
     },
     ...mapGetters({

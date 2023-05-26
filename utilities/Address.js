@@ -8,12 +8,12 @@ const algoRegex = /^([A-Z2-7]{6})+([A-Z2-7]{46})+([A-Z2-7]{6})$/
 
 const validateRegex = (address, regex) => {
   const match = address.match(regex)
-  return Boolean(match);
+  return Boolean(match)
 }
 
 const truncateHandler = (address, regex, callback) => {
   const match = address.match(regex)
-  if (!match) return address;
+  if (!match) return address
   return callback(match)
 }
 export const truncateEthAddress = (address) => {
@@ -69,13 +69,11 @@ export const truncateAddress = (rawAddress, token = 'eth') => {
   }
 }
 
-
 export const validateAddress = (address, token) => {
-
   if (!address) return false
 
   const trimmedAddress = address.trim()
-  const tokenLowerCase = token.toLowerCase();
+  const tokenLowerCase = token.toLowerCase()
 
   if (tokenLowerCase === 'near') {
     return validateRegex(trimmedAddress, nearRegex)
@@ -85,7 +83,7 @@ export const validateAddress = (address, token) => {
     return validateRegex(trimmedAddress, aeRegex)
   }
 
-  if (tokenLowerCase === 'algo') {
+  if (['algo', 'usdc'].includes(tokenLowerCase)) {
     return validateRegex(trimmedAddress, algoRegex)
   }
 

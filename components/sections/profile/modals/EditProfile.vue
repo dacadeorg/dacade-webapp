@@ -85,7 +85,7 @@ export default {
     onSave() {
       this.loading = true
       this.$store
-        .dispatch('user/update', {
+        .dispatch('user/updateName', {
           firstName: this.firstName,
           lastName: this.lastName,
         })

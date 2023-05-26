@@ -87,7 +87,7 @@
         class="w-15 h-15 rounded-xl overflow-hidden"
         :icon="bounty.icon"
         :image="bounty.image"
-        :color="bounty.colors.primary"
+        :color="cardColor"
         size="medium-fixed"
         shape="rounded"
       />
@@ -162,6 +162,9 @@ export default {
     },
     isExternalLink() {
       return this.link?.startsWith('http')
+    },
+    cardColor() {
+      return this.bounty?.colors?.cover?.background || this.bounty?.colors?.primary 
     },
   },
   methods: {

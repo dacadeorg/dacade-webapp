@@ -11,27 +11,19 @@
 
       <div class="pb-7 flex space-x-3">
         <Loader v-if="discordLoading" class="h-6 w-6 text-green-400 pt-6" />
-        <p
-          :class="
-            discordError
-              ? 'bg-red-50 text-red-700'
-              : discordSuccess
-              ? 'bg-green-50 text-green-700'
-              : 'bg-white'
-          "
-          class="p-3 rounded text-.2xl font-medium leading-snug flex-1"
-        >
+        <p :class="discordError
+          ? 'bg-red-50 text-red-700'
+          : discordSuccess
+            ? 'bg-green-50 text-green-700'
+            : 'bg-white'
+          " class="p-3 rounded text-.2xl font-medium leading-snug flex-1">
           {{ getDiscordMessage() }}
         </p>
       </div>
 
       <div class="pb-7">
-        <Button
-          :disabled="discordLoading"
-          class="-ml-4 font-semibold border-none!"
-          type="outline-primary"
-          @click="closeModal()"
-        >
+        <Button :disabled="discordLoading" class="-ml-4 font-semibold border-none!" type="outline-primary"
+          @click="closeModal()">
           {{ $t('profile.header.discord.close') }}
         </Button>
       </div>
@@ -81,15 +73,16 @@ export default {
     },
 
     async discordCallback() {
+
+      const { code } = this.$route.query
+      if (!code) {
+        return
+      }
+
+      this.discordLoading = true
+      this.showDiscordModal = true
+
       try {
-        const { code } = this.$route.query
-        if (!code) {
-          return
-        }
-
-        this.discordLoading = true
-        this.showDiscordModal = true
-
         // eslint-disable-next-line camelcase
         const res = await this.$api.post('auth/discord', {
           code,

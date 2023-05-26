@@ -1,5 +1,5 @@
 <template>
-  <Section class="bg-theme-primary text-theme-text">
+  <Section class="bg-theme-cover text-theme-cover-text">
     <div class="py-2 md:py-8 mx-auto">
       <div class="flex flex-col justify-between lg:flex-row">
         <div
@@ -33,7 +33,7 @@
             ><strong>{{ submissions }}</strong>
             {{ $t('communities.submissions') }}</span
           >
-          <span class="p-2 md:border-l md:ml-2"
+          <span class="p-2 md:border-l md:ml-2 border-theme-cover-text"
             ><strong>{{ feedbacks }}</strong>
             {{ $t('communities.feedbacks') }}</span
           >
