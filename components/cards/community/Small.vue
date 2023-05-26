@@ -4,7 +4,7 @@
       <div
         class="w-10 h-10 rounded-full border border-solid flex items-center"
         :style="{
-          backgroundColor: data.community.colors.primary,
+          backgroundColor: color,
         }"
       >
         <img
@@ -45,5 +45,11 @@ export default {
       },
     }
   },
+  computed: {
+    color() {
+      const colors = this.data.community?.colors
+      return colors?.cover?.background || colors?.primary
+    },
+  }
 }
 </script>

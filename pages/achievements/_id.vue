@@ -72,11 +72,11 @@
               <AchievementLinkField :link="achievement?.metadata?.linkToWork" />
             </AchievementViewItem>
             <div v-if="mintable">
-              <AchievementViewItem v-if="belongsToCurrentUser && !minted" :name="$t('profile.achievement.ipfs-metadata')">
-                <a
-                  :href="metadataPreviewURL"
-                  target="_blank"
-                  class="text-xs underline"
+              <AchievementViewItem
+                v-if="belongsToCurrentUser && !minted"
+                :name="$t('profile.achievement.ipfs-metadata')"
+              >
+                <a :href="metadataPreviewURL" target="_blank" class="underline"
                   >Preview</a
                 >
               </AchievementViewItem>

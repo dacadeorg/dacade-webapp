@@ -15,6 +15,8 @@ export default {
   computed: {
     cssVars() {
       return {
+        '--tm-cover': this.colors.cover?.background || this.colors.primary,
+        '--tm-cover-text': this.colors.cover?.text || this.colors.text,
         '--tm-primary': this.colors.primary,
         '--tm-secondary': this.colors.secondary,
         '--tm-text': this.colors.text,

@@ -1,6 +1,6 @@
 {
   "name": "dacade",
-  "version": "3.13.6",
+  "version": "3.14.7",
   "description": "blockchain education platform",
   "author": "moritzfelipe",
   "private": true,
@@ -30,7 +30,7 @@
   "lint-staged": {
     "*.{js,vue}": "eslint --quiet --fix",
     "*.{css,scss,sass,html,vue}": "stylelint",
-    "*.{js,vue,json}": "prettier --write --list-different"
+    "*.{js,vue,json,md}": "prettier --write --list-different"
   },
   "husky": {
     "hooks": {

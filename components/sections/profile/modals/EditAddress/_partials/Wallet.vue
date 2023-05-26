@@ -13,9 +13,7 @@
     <span class="flex h-full text-left items-center justify-between">
       <span class="leading-6 block"><slot /></span>
       <span class="block">
-        <ArrowRightIcon
-          v-if="!loading"
-          :class="[arrowClasses, 'transform']" />
+        <ArrowRightIcon v-if="!loading" :class="[arrowClasses, 'transform']" />
         <Spinner v-else :class="[arrowClasses, 'animate-spin']"
       /></span>
     </span>

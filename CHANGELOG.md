@@ -2,6 +2,130 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.7](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.6...v3.14.7) (2023-05-23)
+
+
+### Features
+
+* community colors issues and profile view bugs ([2b0bb8d](https://github.com/dacadeorg/dacade-webapp/commit/2b0bb8d0a4464667283a46bc62fa4b0ed8450a6b))
+
+
+### Bug Fixes
+
+* wallet card sizing ([d4c78a4](https://github.com/dacadeorg/dacade-webapp/commit/d4c78a4009eb672e9daa2519948e5f5f11684f27))
+
+### [3.14.6](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.5...v3.14.6) (2023-05-22)
+
+
+### Bug Fixes
+
+* invalid unread notifications number ([56b1191](https://github.com/dacadeorg/dacade-webapp/commit/56b11919f0b7614f916cdc636e30989ef08474e2))
+
+### [3.14.5](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.4...v3.14.5) (2023-05-22)
+
+
+### Bug Fixes
+
+* email unsubscribe ([478beeb](https://github.com/dacadeorg/dacade-webapp/commit/478beeb965e686cdf13ac384966db531626c6092))
+
+### [3.14.4](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.3...v3.14.4) (2023-05-17)
+
+
+### Features
+
+* add celo frontend badge ([7804be7](https://github.com/dacadeorg/dacade-webapp/commit/7804be7637d27c5cbf250d5596efdb692d8796fc))
+
+
+### Improvements
+
+* edit wallet address component ([e6720d3](https://github.com/dacadeorg/dacade-webapp/commit/e6720d381668eba8bdae953cada1dd0220a53b20))
+
+### [3.14.3](https://github.com/dacadeorg/dacade-webapp/compare/v3.15.0...v3.14.3) (2023-05-17)
+
+
+### Bug Fixes
+
+* invalid user names update endpoint ([7dffd17](https://github.com/dacadeorg/dacade-webapp/commit/7dffd17c906b23d01e5c92dd2e9072ff4a59f458))
+
+### [3.14.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.1...v3.14.2) (2023-05-16)
+
+
+### Bug Fixes
+
+* invalid badge filename naming ([6430658](https://github.com/dacadeorg/dacade-webapp/commit/64306587bac3d5aefc3f8a1070a5228c489632a1))
+
+
+### Improvements
+
+* **release:** 3.14.2 ([443a0a0](https://github.com/dacadeorg/dacade-webapp/commit/443a0a0aeefe07bbf60a505b04b9848daedbd041))
+
+## [3.15.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.1...v3.15.0) (2023-05-17)
+
+
+### Features
+
+* add cover colors for the community ([640d01b](https://github.com/dacadeorg/dacade-webapp/commit/640d01ba966e9cac57911eb05db8a79a951d3046))
+* implement verification badge and the verify button ([#263](https://github.com/dacadeorg/dacade-webapp/issues/263)) ([39a6667](https://github.com/dacadeorg/dacade-webapp/commit/39a66674882f367ea507ed4b83bffd92e34a73aa))
+* show only avatar verification badge when Kyc is verified ([a624dad](https://github.com/dacadeorg/dacade-webapp/commit/a624dadca719ae009d392b8c99577a454c0daf62))
+
+### Bug Fixes
+
+* an issue with the community color switching ([9406cba](https://github.com/dacadeorg/dacade-webapp/commit/9406cba12b9d9e6f030033a13a46ac2bc0bb7091))
+
+### Improvements
+
+* change cUSD colors ([21f7962](https://github.com/dacadeorg/dacade-webapp/commit/21f79625ae5e440c3f249e77a786ea9a252a2e14))
+
+### [3.14.2](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.1...v3.14.2) (2023-05-16)
+
+
+### Bug Fixes
+
+* invalid badge filename naming ([6430658](https://github.com/dacadeorg/dacade-webapp/commit/64306587bac3d5aefc3f8a1070a5228c489632a1))
+
+### [3.14.1](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.0...v3.14.1) (2023-05-13)
+
+
+### Features
+
+* prevent kyc popup on cashout when kyc is disabled ([eff99cd](https://github.com/dacadeorg/dacade-webapp/commit/eff99cd75e8565ced217cf081f70b2f5c0930b72))
+
+## [3.14.0](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.6...v3.14.0) (2023-05-11)
+
+
+### Features
+
+* add email update verification ([ef6a91b](https://github.com/dacadeorg/dacade-webapp/commit/ef6a91b8e8821cac94dd190644cbfd874d69510e))
+* add env variable to disable kyc verification ([846be26](https://github.com/dacadeorg/dacade-webapp/commit/846be26b3ba08893d161f1118caf116c4acd0fa0))
+* add preview link ([cfc0977](https://github.com/dacadeorg/dacade-webapp/commit/cfc0977020835310a51b862b49b1e09b111c29d9))
+* adjust the certificate icon and display metadata ([6049f46](https://github.com/dacadeorg/dacade-webapp/commit/6049f46145c4db0a86a675850cd7fa39e300573d))
+* complete sumsub verification ([e526fb5](https://github.com/dacadeorg/dacade-webapp/commit/e526fb551dde097c053b58dd3f7a580fa0cb3c4f))
+* implement new design of changing address ([#237](https://github.com/dacadeorg/dacade-webapp/issues/237)) ([c654ae3](https://github.com/dacadeorg/dacade-webapp/commit/c654ae37d57eaa29e861eb681ae17cbef5824fc7))
+* Implement the kyc verification design ([#254](https://github.com/dacadeorg/dacade-webapp/issues/254)) ([d6266fc](https://github.com/dacadeorg/dacade-webapp/commit/d6266fc08fe10d29e9c9bf86381c67b5c04cb53e))
+
+
+### Bug Fixes
+
+* check if sumsub token was fetched successfully ([1615e6f](https://github.com/dacadeorg/dacade-webapp/commit/1615e6f64374d502d4e336544d28c412ec6bc5aa))
+* check if sumsub token was fetched successfully ([7ed2854](https://github.com/dacadeorg/dacade-webapp/commit/7ed28546bc190b2c88890bebefe04da9167a42bc))
+* clear profile communities only when going to a different page ([0b76c98](https://github.com/dacadeorg/dacade-webapp/commit/0b76c987ae4e368dd8eade75a230e71407838844))
+* design issues on achievement page ([b54528e](https://github.com/dacadeorg/dacade-webapp/commit/b54528e08381f6a538bd79ad9381ce7607ef8692))
+* implement the mobile version of scoreboard ([#258](https://github.com/dacadeorg/dacade-webapp/issues/258)) ([58b87a5](https://github.com/dacadeorg/dacade-webapp/commit/58b87a58ea6ba04becfd094e6ea33c0e06e0141d))
+* markdown invalid language parsing error ([bf2e5e2](https://github.com/dacadeorg/dacade-webapp/commit/bf2e5e29676a0c2403ba818dd016c41c99f1d21f))
+* redo kyc frontend implementation ([57beb2a](https://github.com/dacadeorg/dacade-webapp/commit/57beb2aa946d906f9111569a7e84a3aaaa3e97f7))
+* refactor into custom kyc store ([066cc2c](https://github.com/dacadeorg/dacade-webapp/commit/066cc2cc4e5e19105bccbdcb5dc1bd0dc909da47))
+* remove invalid variable in minting modal ([c353dfd](https://github.com/dacadeorg/dacade-webapp/commit/c353dfd0736f275206a2e2f78b74aae99ee15eae))
+* the display of youtube video ([#261](https://github.com/dacadeorg/dacade-webapp/issues/261)) ([867b5f3](https://github.com/dacadeorg/dacade-webapp/commit/867b5f339a7aaf14646ef45043e78871f33a7eef))
+* update access token sumsub url ([ff6331a](https://github.com/dacadeorg/dacade-webapp/commit/ff6331aaf2a0bb5e297ca1c30ab71731e3b1f2dc))
+
+
+### Improvements
+
+* adjust mint popup styling ([d84e609](https://github.com/dacadeorg/dacade-webapp/commit/d84e6097a815f46ce1752d5522e9f6b53ea1da92))
+* adjust the achievement badge on minting ([912a6ad](https://github.com/dacadeorg/dacade-webapp/commit/912a6adc4d3242927cc64780098f5544beaae908))
+* change kyc component structure ([69ad6a3](https://github.com/dacadeorg/dacade-webapp/commit/69ad6a3fcc06887515b0391c173fe447108d93b6))
+* show narrative on achievement view page ([b66372a](https://github.com/dacadeorg/dacade-webapp/commit/b66372a3955454aea733d02edd50eff4548d3ff3))
+
 ### [3.13.6](https://github.com/dacadeorg/dacade-webapp/compare/v3.13.5...v3.13.6) (2023-03-23)
 
 
