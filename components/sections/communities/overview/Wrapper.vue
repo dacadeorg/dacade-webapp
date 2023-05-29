@@ -3,11 +3,11 @@
     <MainHeaderSection />
     <Section>
       <div class="w-full md:flex gap-36 mx-auto mt-14">
-        <div class="w-4/12">
+        <div class="md:w-4/12">
           <CommunitySidebar />
           <slot name="sidebar" />
         </div>
-        <div class="w-2/3">
+        <div class="md:w-2/3">
           <slot />
         </div>
       </div>
