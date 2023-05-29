@@ -44,7 +44,7 @@
 <script>
 import Coin from '@/components/ui/Coin'
 export default {
-  name: 'ChallengeCourseCard',
+  name: 'ChallengeOverviewCard',
   components: {
     Coin,
   },
