@@ -66,7 +66,7 @@
             <span class="font-medium">March 12th, 2022</span>
           </div>
 
-          <nuxt-link :to="localePath(path)">
+          <nuxt-link :to="link">
             <ArrowButton :community-styles="true" type="outline-primary">
               See the challenge
             </ArrowButton>
@@ -117,5 +117,11 @@ export default {
       type: Object,
     },
   },
+  computed : {
+    link() {
+      return `/communities/`
+    }
+  }
+  
 }
 </script>

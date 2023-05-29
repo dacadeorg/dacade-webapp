@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative w-full md:flex sm:space-x-5 space-y-0 sm:flex-row-reverse sm:space-x-reverse sm:justify-between overflow-hidden bg-gray-50 sm:p-7 py-5 px-6 sm:items-center"
+    class="relative w-full md:flex sm:space-x-5 space-y-0 sm:flex-row-reverse sm:space-x-reverse sm:justify-between overflow-hidden sm:p-7 py-5 px-6 sm:items-center"
   >
     <div class="md:flex-none absolute bottom-5 left-6 md:relative md:inset-0">
       <div

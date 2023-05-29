@@ -1,34 +1,17 @@
 <template>
-  <div class="relative">
-    <MainHeaderSection />
-    <Section>
-      <div class="w-full mx-auto mt-7">
-        <div class="md:flex ">
-          <ChallengeSideBar/>
-          <ChallengeCard/>
-        </div>
-
-        <Scoreboard />
-        
-      </div>
-    </Section>
-  </div>
+  <CommunityWrapper>
+    <ChallengeCard />
+  </CommunityWrapper>
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import MainHeaderSection from '@/components/sections/communities/overview/MainHeader'
-import Scoreboard from '@/components/sections/communities/overview/scoreboard'
 import ChallengeCard from '@/components/cards/challenge/Challenge.vue'
-import ChallengeSideBar from '@/components/layout/Challenge.vue'
-import Section from '@/components/ui/Section'
 import { getMetadataDescription, getMetadataTitle } from '~/utilities/Metadata'
+import CommunityWrapper from '@/components/sections/communities/overview/Wrapper'
 export default {
   components: {
-    MainHeaderSection,
-    Section,
-    Scoreboard,
-    ChallengeSideBar,
-    ChallengeCard
+    CommunityWrapper,
+    ChallengeCard,
   },
   layout: 'community',
   scrollToTop: true,
