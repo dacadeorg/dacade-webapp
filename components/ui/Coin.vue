@@ -24,6 +24,7 @@ import TEZIcon from '~/assets/icons/tokens/Tezos.svg?inline'
 import DAIIcon from '~/assets/icons/tokens/DAI.svg?inline'
 import NEARIcon from '~/assets/icons/tokens/NEAR.svg?inline'
 import USDCIcon from '~/assets/icons/tokens/USDC.svg?inline'
+import NFTIcon from '~/assets/icons/tokens/NFT.svg?inline'
 export default {
   name: 'Coin',
   components: {
@@ -34,6 +35,7 @@ export default {
     TEZIcon,
     DAIIcon,
     NEARIcon,
+    NFTIcon
   },
   props: {
     bgColor: {
@@ -70,7 +72,7 @@ export default {
           token: 'cUSD',
           icon: CUSDIcon,
           bgColor: '#FCFF52',
-          textColor: '#010101',
+          textColor: '#000000',
         },
         {
           token: 'ETH',
@@ -108,12 +110,19 @@ export default {
           bgColor: '#2775ca',
           textColor: '#FFFFFF',
         },
+        {
+          token: 'NFT',
+          icon: NFTIcon,
+          textColor: '#FFFFFF',
+        },
       ],
     }
   },
   computed: {
     sizeClasses() {
       switch (this.size) {
+        case 'medium-mini':
+        return 'w-10 h-10 sm:w-15 sm:h-15 text-xl sm:text-2xl'
         case 'medium':
           return 'w-10 h-10 sm:w-15 sm:h-15 text-xl p-1  sm:text-2xl sm:p-2'
         case 'normal':
