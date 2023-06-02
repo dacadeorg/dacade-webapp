@@ -88,50 +88,42 @@ export default {
       const submissionTime = submissionHours + ':' + submissionMinutes
       const submissionTimeAndDate = submissionDate + ' ' + submissionTime
       return submissionTimeAndDate
-    },
-  },
-}
-</script>
-
-<style scoped>
-.notification {
-  border: 1.6px solid #0000;
-  border-radius: 0.35rem;
-  background: #343b42;
-  padding: 1em;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
-    0 2px 1px -1px rgb(0 0 0 / 12%);
-}
-
-.notification:hover {
-  border: 1.6px solid #53d1af;
-  background: #343b42;
-  padding: 1em;
-  box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%),
-    0 3px 14px 2px rgb(0 0 0 / 12%);
-}
-
-.notification:hover a {
-  text-decoration: none;
-}
-
-.unread {
-  color: rgb(255 255 255 / 80%);
-  border-bottom: 2px solid rgb(255 255 255 / 80%);
-
-  /* animation: glow 0.5s infinite alternate; */
-}
-
-.unread a {
-  color: rgb(255 255 255 / 80%);
-}
-
-/* @keyframes glow {
-    from {
-      border-bottom: 2px solid rgba(255,255,255,.8);
     }
-    to {
-      border-bottom: 2px solid rgba(255,255,255,.0);
-    }
-  } */
+   }
+  }
+ </script>
+  
+  <style lang="scss" scoped>
+  .notification {
+    border: 1.6px solid #0000;
+    border-radius: 0.35rem;
+    background: #343b42;
+    padding: 1em;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+      0 2px 1px -1px rgb(0 0 0 / 12%);
+  }
+  
+  .notification:hover {
+    border: 1.6px solid #53d1af;
+    background: #343b42;
+    padding: 1em;
+    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%),
+      0 3px 14px 2px rgb(0 0 0 / 12%);
+  }
+  
+  .notification:hover a {
+    text-decoration: none;
+  }
+  
+  .unread {
+    color: rgb(255 255 255 / 80%);
+    border-bottom: 2px solid rgb(255 255 255 / 80%);
+  }
+  
+  .unread a {
+    color: rgb(255 255 255 / 80%);
+  }
+  
 </style>
+
+

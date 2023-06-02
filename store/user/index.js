@@ -50,13 +50,13 @@ export const actions = {
     }
   },
 
-  async updateName({ dispatch }, payload) {
-    await this.$api.patch('users/update/name', payload)
+  async updateEmail({dispatch}, payload) {
+    await this.$api.patch('users/update/email', payload)
     dispatch('fetch')
   },
 
-  async update({ dispatch }, payload) {
-    await this.$api.patch('users/update', payload)
+  async updateNames({dispatch}, payload) {
+    await this.$api.patch('users/update/name', payload)
     dispatch('fetch')
   },
 
@@ -77,6 +77,7 @@ export const actions = {
     return null
   },
 }
+
 
 export const getters = {
   get(state) {
@@ -103,4 +104,7 @@ export const getters = {
   isKycVerified(state) {
     return state.data?.kycStatus === 'VERIFIED'
   },
+  isDiscordConnected(state) {
+    return state.data?.discordConnected
+  }
 }

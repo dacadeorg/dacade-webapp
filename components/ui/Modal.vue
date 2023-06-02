@@ -33,6 +33,8 @@ export default {
       switch (this.size) {
         case 'medium':
           return 'w-11/12 md:w-9/12 lg:w-8/12 xl:w-1/2'
+        case 'small':
+          return 'w-11/12 md:w-6/12 lg:w-6/12 xl:w-2/5'
         default:
           return 'w-11/12 md:w-9/12 lg:w-8/12 xl:w-2/5'
       }
@@ -40,3 +42,5 @@ export default {
   },
 }
 </script>
+
+class="bg-white my-auto rounded-3.5xl relative mx-auto max-w-5xl w-8/12 md:w-6/12 lg:w-6/12 xl:w-2/5
