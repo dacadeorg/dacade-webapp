@@ -29,7 +29,6 @@
                 : 'relative'
             "
           >
-          <div class="font-medium text-base text-gray-700 pb-2">Relevance of topic</div>
             <span
               v-if="selectedRubric(rubric.id)"
               class="absolute -left-6 top-1 w-3"
