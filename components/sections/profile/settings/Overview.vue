@@ -12,7 +12,7 @@
         class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
         @click="togglePopupEmail()"
       >
-        {{ user?.email?.length ? 'Change' : 'Set' }}
+        {{ user?.email?.length ? $t('profile.edit.change')  : $t('profile.edit.set') }}
       </button>
     </div>
 
@@ -23,7 +23,7 @@
         class="bg-transparent hover:bg-transparent flex justify-end text-primary text-xs"
         @click="togglePopupNames()"
       >
-        {{ fullName.length ? $t('profile.edit.fullname.change') : $t('profile.edit.fullname.set') }}
+        {{ fullName.length ? $t('profile.edit.change') : $t('profile.edit.set') }}
       </button>
     </div>
 
