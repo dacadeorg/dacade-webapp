@@ -20,7 +20,8 @@
       <div
         class="grid grid-cols-1 space-y-4 md:space-y-0 md:grid-cols-2 lg:grid-cols-4 mt-3 gap-y-5 gap-x-5"
       >
-        <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm">
+      
+        <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm rounded-3xl group border-solid border border-gray-200 p-4">
           <div
             :class="
               selected.length && !selectedRubric(rubric.id)
@@ -28,6 +29,7 @@
                 : 'relative'
             "
           >
+          <div class="font-medium text-base text-gray-700 pb-2">Relevance of topic</div>
             <span
               v-if="selectedRubric(rubric.id)"
               class="absolute -left-6 top-1 w-3"
