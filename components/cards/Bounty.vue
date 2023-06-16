@@ -53,7 +53,6 @@
               <Avatar
                 :user="submission.user"
                 size="mini"
-                style="font-size: 14px"
               />
               <div>{{ submission.user.displayName }}</div>
               <div
@@ -164,7 +163,7 @@ export default {
       return this.link?.startsWith('http')
     },
     cardColor() {
-      return this.bounty?.colors?.cover?.background || this.bounty?.colors?.primary 
+      return this.bounty?.colors?.cover?.background || this.bounty?.colors?.primary
     },
   },
   methods: {
