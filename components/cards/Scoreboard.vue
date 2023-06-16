@@ -84,9 +84,6 @@ export default {
       type: Number,
     },
   },
-  mounted() {
-    console.log({value: this.value})
-  },
   computed: {
     ...mapGetters({
       colors: 'ui/colors',
