@@ -5,8 +5,8 @@
       backgroundColor: color,
     }"
       class="bg-primary h-full w-full flex overflow-hidden text-white items-center justify-center uppercase leading-none align-middle relative z-0">
-      <img v-if="user && user.avatar" :src="user.avatar" alt="img" class="object-cover w-full h-full" />
-      <span v-if="user && !user.avatar">{{ initials }}</span>
+      <img v-if="user && user.avatar && !showInitials" :src="user.avatar" alt="img" class="object-cover w-full h-full" @error="invalidAvatarImage" />
+      <span v-if="user && (!user.avatar || showInitials)">{{ initials }}</span>
       <img v-if="icon" :src="icon" class="p-2" />
       <img v-if="image" :src="image" class="p-0 object-cover w-full h-full" />
     </span>
@@ -56,6 +56,11 @@ export default {
       default: true,
       type: Boolean,
     },
+  },
+  data() {
+    return {
+      showInitials: false,
+    }
   },
   computed: {
     initials() {
@@ -116,5 +121,11 @@ export default {
       return !this.hideVerificationBadge && this.kycVerified
     },
   },
+  methods: {
+    invalidAvatarImage() {
+      console.log('invalid avatar image')
+      this.showInitials = true
+    },
+  }
 }
 </script>
