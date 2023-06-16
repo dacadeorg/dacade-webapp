@@ -16,9 +16,9 @@
       <div class="flex flex-row divide-x divide-solid divide-gray-300">
         <div class="whitespace-nowrap text-base sm:pr-4 pr-3">
           <span class="font-normal text-xs">
-            {{ value.feedbacks }}
+            {{ value.submissions }}
             <span class="font-normal text-xs">
-              {{ $t(value.feedbacks == 1 ? 'Submission' : 'Submissions') }}
+              {{ $t(value.submissions == 1 ? 'Submission' : 'Submissions') }}
             </span>
           </span>
         </div>
