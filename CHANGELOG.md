@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.8](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.7...v3.14.8) (2023-06-16)
+
+
+### Bug Fixes
+
+* submission count on the scoreboard card ([81c46cf](https://github.com/dacadeorg/dacade-webapp/commit/81c46cf4dd270d3419d761956b58bca3b442191a))
+
 ### [3.14.7](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.6...v3.14.7) (2023-05-23)
 
 
