@@ -240,7 +240,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .form-checkbox {
   height: 1rem;
 }
