@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.10](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.9...v3.14.10) (2023-06-21)
+
+
+### Features
+
+* add ai community icon ([7236a55](https://github.com/dacadeorg/dacade-webapp/commit/7236a55a78deffd267882a7156288020400ae3ce))
+
 ### [3.14.9](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.8...v3.14.9) (2023-06-16)
 
 
