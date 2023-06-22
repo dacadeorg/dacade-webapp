@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.11](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.10...v3.14.11) (2023-06-22)
+
+
+### Bug Fixes
+
+* markdown code box size ([29f1470](https://github.com/dacadeorg/dacade-webapp/commit/29f1470f5c22b5ab830bee325601460ba7fa550e))
+
 ### [3.14.10](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.9...v3.14.10) (2023-06-21)
 
 
