@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.13](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.12...v3.14.13) (2023-06-30)
+
+
+### Improvements
+
+* add icp token icon ([f589182](https://github.com/dacadeorg/dacade-webapp/commit/f5891820901d66921546bf85b941ffcfc22271f8))
+
 ### [3.14.12](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.11...v3.14.12) (2023-06-29)
 
 
