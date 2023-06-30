@@ -24,6 +24,7 @@ import TEZIcon from '~/assets/icons/tokens/Tezos.svg?inline'
 import DAIIcon from '~/assets/icons/tokens/DAI.svg?inline'
 import NEARIcon from '~/assets/icons/tokens/NEAR.svg?inline'
 import USDCIcon from '~/assets/icons/tokens/USDC.svg?inline'
+import ICPCoin from '~/assets/icons/tokens/ICP.svg?inline'
 export default {
   name: 'Coin',
   components: {
@@ -108,6 +109,12 @@ export default {
           bgColor: '#2775ca',
           textColor: '#FFFFFF',
         },
+        {
+          token: 'ICP',
+          icon: ICPCoin,
+          bgColor: '#FBB03B',
+          textColor: '#FFFFFF',
+        }
       ],
     }
   },
