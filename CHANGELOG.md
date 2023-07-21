@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.14](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.13...v3.14.14) (2023-07-21)
+
+
+### Features
+
+* show verify button when discord has been connected ([f5c5167](https://github.com/dacadeorg/dacade-webapp/commit/f5c5167dc51cb8d7e39d289b8a258dc367652c03))
+
 ### [3.14.13](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.12...v3.14.13) (2023-06-30)
 
 
