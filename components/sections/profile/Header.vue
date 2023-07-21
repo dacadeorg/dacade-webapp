@@ -33,8 +33,9 @@
       <!--        <span class="ml-1 inline-block">GMT+2</span>-->
       <!--      </div>-->
     </div>
-    <div v-if="canConnectDiscord" class="pt-5">
+    <div v-if="canConnectDiscord || showKycVerificationButton" class="pt-5">
       <Button
+        v-if="canConnectDiscord"
         type="outline-primary"
         class="flex mx-auto text-base"
         @click="triggerDiscordOauth"
