@@ -35,7 +35,6 @@
     &::after {
       content: '' !important;
     }
-
     max-width: fit-content;
   }
 }
@@ -87,7 +86,7 @@
   }
   @media (min-width: 1024px) {
     code {
-      width: 125%;
+      width: 100%;
     }
   }
   h2 {
@@ -105,4 +104,8 @@
 
 .web3modal-modal-lightbox {
   z-index: 999 !important;
+}
+
+code {
+  width: 100%;
 }
