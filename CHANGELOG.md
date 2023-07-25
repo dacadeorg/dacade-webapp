@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.15](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.14...v3.14.15) (2023-07-25)
+
+
+### Features
+
+* add icp coin icon ([596ec9a](https://github.com/dacadeorg/dacade-webapp/commit/596ec9a58c268d1126a35d8d4402e6c241ffa8e4))
+* add the icp logo ([41170ff](https://github.com/dacadeorg/dacade-webapp/commit/41170ffaf9cef8bdd26afc0eb65b1a9dd43af03b))
+
 ### [3.14.14](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.13...v3.14.14) (2023-07-21)
 
 
