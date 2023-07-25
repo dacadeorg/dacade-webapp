@@ -93,7 +93,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .notification {
   border: 1.6px solid #0000;
   border-radius: 0.35rem;
