@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.15](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.14...v3.14.15) (2023-07-25)
+
+
+### Features
+
+* add icp coin icon ([596ec9a](https://github.com/dacadeorg/dacade-webapp/commit/596ec9a58c268d1126a35d8d4402e6c241ffa8e4))
+* add the icp logo ([41170ff](https://github.com/dacadeorg/dacade-webapp/commit/41170ffaf9cef8bdd26afc0eb65b1a9dd43af03b))
+
+### [3.14.14](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.13...v3.14.14) (2023-07-21)
+
+
+### Features
+
+* show verify button when discord has been connected ([f5c5167](https://github.com/dacadeorg/dacade-webapp/commit/f5c5167dc51cb8d7e39d289b8a258dc367652c03))
+
+### [3.14.13](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.12...v3.14.13) (2023-06-30)
+
+
+### Improvements
+
+* add icp token icon ([f589182](https://github.com/dacadeorg/dacade-webapp/commit/f5891820901d66921546bf85b941ffcfc22271f8))
+
+### [3.14.12](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.11...v3.14.12) (2023-06-29)
+
+
+### Improvements
+
+* add icp community icon ([054e5ae](https://github.com/dacadeorg/dacade-webapp/commit/054e5ae1f89c55490465e3b481984c916866dd91))
+
+### [3.14.11](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.10...v3.14.11) (2023-06-22)
+
+
+### Bug Fixes
+
+* markdown code box size ([29f1470](https://github.com/dacadeorg/dacade-webapp/commit/29f1470f5c22b5ab830bee325601460ba7fa550e))
+
 ### [3.14.10](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.9...v3.14.10) (2023-06-21)
 
 
