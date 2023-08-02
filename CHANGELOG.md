@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.16](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.15...v3.14.16) (2023-08-02)
+
+
+### Bug Fixes
+
+* add support for icp ([#275](https://github.com/dacadeorg/dacade-webapp/issues/275)) ([9aca876](https://github.com/dacadeorg/dacade-webapp/commit/9aca876164a618a47655903cea3b4e5eb21bfbca))
+* incorrect submission count ([#272](https://github.com/dacadeorg/dacade-webapp/issues/272)) ([1671d71](https://github.com/dacadeorg/dacade-webapp/commit/1671d71d7070afd2b8c8f1cee90dac54612d5f14))
+* only show discord icon and kyc verify button for the current user ([930c009](https://github.com/dacadeorg/dacade-webapp/commit/930c0099f9ebf84dbefca1d111f4a98114d25937))
+
 ### [3.14.15](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.14...v3.14.15) (2023-07-25)
 
 
