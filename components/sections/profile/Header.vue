@@ -12,7 +12,7 @@
       <!--        <span class="inline-block"><GithubIcon /></span>-->
       <!--        <span class="ml-1 inline-block">Github</span>-->
       <!--      </div>-->
-      <div v-if="!canConnectDiscord" class="flex items-center px-2">
+      <div v-if="discordConneted" class="flex items-center px-2">
         <span class="inline-block">
           <DiscordIcon />
         </span>
@@ -109,14 +109,17 @@ export default {
         this.authUser?.displayName?.toLowerCase()
       )
     },
+    discordConneted(){
+      return this.user?.discord?.connected
+    },
     canConnectDiscord() {
-      return this.isCurrentUser && !this.user?.discord?.connected
+      return this.isCurrentUser && !this.discordConneted
     },
     kycVerificationEnabled() {
       return process.env.NUXT_ENV_KYC_VERIFICATION_ENABLED === 'true'
     },
     showKycVerificationButton() {
-      return !this.isKycVerified && this.kycVerificationEnabled
+      return this.isCurrentUser && !this.isKycVerified && this.kycVerificationEnabled
     },
   },
   methods: {
