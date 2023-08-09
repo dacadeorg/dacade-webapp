@@ -59,7 +59,7 @@
           <div>
             <MarkdownIcon />
           </div>
-          <div class="text-right mt-5">
+          <div class="text-right mt-5 pb-24">
             <ArrowButton
               :disabled="saving"
               :custom-style="activeButtonStyle"
