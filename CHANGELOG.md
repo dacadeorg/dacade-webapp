@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.17](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.16...v3.14.17) (2023-08-11)
+
+
+### Bug Fixes
+
+* add padding to submission modal submit button ([#278](https://github.com/dacadeorg/dacade-webapp/issues/278)) ([2e4e7d3](https://github.com/dacadeorg/dacade-webapp/commit/2e4e7d33551f8fe943301b2cdf59f4aeb614243a))
+
 ### [3.14.16](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.15...v3.14.16) (2023-08-02)
 
 
