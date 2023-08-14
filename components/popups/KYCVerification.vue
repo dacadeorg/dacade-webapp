@@ -8,7 +8,7 @@
         <p class="pt-8">
           {{
             completed
-              ? completedText || $t('kyc.default.completed')
+              ? completedText || $t('kyc.default.inReview')
               : reasonText || $t('kyc.default.reason')
           }}
         </p>
