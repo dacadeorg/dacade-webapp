@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.19](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.18...v3.14.19) (2023-08-31)
+
+
+### Bug Fixes
+
+* update AI and ICP cert images ([#280](https://github.com/dacadeorg/dacade-webapp/issues/280)) ([4efe83f](https://github.com/dacadeorg/dacade-webapp/commit/4efe83f9910c6a29ac07211a58f67d23b6562b4e))
+
 ### [3.14.18](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.17...v3.14.18) (2023-08-15)
 
 ### [3.14.17](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.16...v3.14.17) (2023-08-11)
