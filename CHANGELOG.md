@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.20](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.19...v3.14.20) (2023-08-31)
+
+
+### Improvements
+
+* hide the active bounties section when no referral bounties are avaible ([30792a6](https://github.com/dacadeorg/dacade-webapp/commit/30792a6b5162c602b6fa1faa97cadbfbc1a14ab8))
+
 ### [3.14.19](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.18...v3.14.19) (2023-08-31)
 
 
