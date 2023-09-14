@@ -53,8 +53,6 @@
 
 
     <KYCVerificationPopup />
-
-    <UnderMaintainancePopup :isOpen="showMaintenancePopup" @closeModal="toggleMaintenancePopup" />
   </div>
 </template>
 
@@ -66,8 +64,6 @@ import Button from '@/components/ui/button'
 import TimeIcon from '~/assets/icons/time.svg?inline'
 import DiscordIcon from '~/assets/icons/discordIcon.svg?inline'
 import KYCVerificationPopup from '~/components/popups/KYCVerification.vue'
-import UnderMaintainancePopup from "~/components/popups/UnderMaintainance.vue";
-// import GithubIcon from '~/assets/icons/github.svg?inline'
 
 export default {
   name: 'ProfileHeader',
@@ -78,7 +74,6 @@ export default {
     TimeIcon,
     Button,
     DiscordIcon,
-    // GithubIcon,
   },
   data() {
     return {
@@ -139,10 +134,7 @@ export default {
     triggerKYCVerification() {
       if (!this.showKycVerificationButton) return
       this.$store.dispatch('kyc/openVerificationModal')
-    },
-    toggleMaintenancePopup() {
-      this.showMaintenancePopup = !this.showMaintenancePopup
-    },
+    }
   },
 }
 </script>
