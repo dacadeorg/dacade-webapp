@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.21](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.20...v3.14.21) (2023-09-14)
+
+
+### Bug Fixes
+
+* coming soon sumsub ([a3d6075](https://github.com/dacadeorg/dacade-webapp/commit/a3d607528b030babe7718bfed5f2c8d6f6a32368))
+* coming soon sumsub ([#282](https://github.com/dacadeorg/dacade-webapp/issues/282)) ([2681863](https://github.com/dacadeorg/dacade-webapp/commit/26818638944e31da50a95fe17dbb5cbfd6b61660))
+* coming soon sumsub ([#282](https://github.com/dacadeorg/dacade-webapp/issues/282)) ([#288](https://github.com/dacadeorg/dacade-webapp/issues/288)) ([f13346e](https://github.com/dacadeorg/dacade-webapp/commit/f13346e05d467f85622eec8a25924f9914a99f09))
+* revert maintainance sumsub ([#286](https://github.com/dacadeorg/dacade-webapp/issues/286)) ([181832e](https://github.com/dacadeorg/dacade-webapp/commit/181832e31e0cf9124a9a5ec16df45dbccbba55a6))
+* total analytics amount ([b841d58](https://github.com/dacadeorg/dacade-webapp/commit/b841d5869270a08247aef5c7c792728ffa288b34))
+* total analytics amount ([#285](https://github.com/dacadeorg/dacade-webapp/issues/285)) ([bcd6a6e](https://github.com/dacadeorg/dacade-webapp/commit/bcd6a6eac16713a9611a8cdfd165a744ffe57ba2))
+
 ### [3.14.20](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.19...v3.14.20) (2023-08-31)
 
 
