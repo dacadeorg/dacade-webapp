@@ -55,7 +55,7 @@
 
     <KYCVerificationPopup />
 
-    <UnderMaintainancePopup :isOpen="showMaintenancePopup" @closeModal="toggleMaintenancePopup" />
+<!--    <UnderMaintainancePopup :isOpen="showMaintenancePopup" @closeModal="toggleMaintenancePopup" />-->
   </div>
 </template>
 
