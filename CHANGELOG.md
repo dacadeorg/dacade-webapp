@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.14.22](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.21...v3.14.22) (2023-09-15)
+
+
+### Bug Fixes
+
+* invalid component definition ([f731daf](https://github.com/dacadeorg/dacade-webapp/commit/f731dafad14eac478333ef6ae20206d656d966bb))
+
 ### [3.14.21](https://github.com/dacadeorg/dacade-webapp/compare/v3.14.20...v3.14.21) (2023-09-14)
 
 

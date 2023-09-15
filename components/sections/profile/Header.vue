@@ -63,7 +63,6 @@ import Button from '@/components/ui/button'
 import TimeIcon from '~/assets/icons/time.svg?inline'
 import DiscordIcon from '~/assets/icons/discordIcon.svg?inline'
 import KYCVerificationPopup from '~/components/popups/KYCVerification.vue'
-// import GithubIcon from '~/assets/icons/github.svg?inline'
 
 export default {
   name: 'ProfileHeader',
