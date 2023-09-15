@@ -68,7 +68,7 @@ import KYCVerificationPopup from '~/components/popups/KYCVerification.vue'
 export default {
   name: 'ProfileHeader',
   components: {
-    UnderMaintainancePopup,
+    // UnderMaintainancePopup,
     KYCVerificationPopup,
     Avatar,
     TimeIcon,
