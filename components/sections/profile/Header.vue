@@ -43,15 +43,14 @@
         {{ $t('profile.header.connect-discord') }}
       </Button>
       <Button
+        v-if="showKycVerificationButton"
         type="outline-primary"
         class="flex mx-auto text-base"
-        @click="toggleMaintenancePopup"
+        @click="triggerKYCVerification"
       >
         {{ $t('profile.header.sumsub.verify') }}
       </Button>
     </div>
-
-
     <KYCVerificationPopup />
   </div>
 </template>
@@ -64,21 +63,17 @@ import Button from '@/components/ui/button'
 import TimeIcon from '~/assets/icons/time.svg?inline'
 import DiscordIcon from '~/assets/icons/discordIcon.svg?inline'
 import KYCVerificationPopup from '~/components/popups/KYCVerification.vue'
+// import GithubIcon from '~/assets/icons/github.svg?inline'
 
 export default {
   name: 'ProfileHeader',
   components: {
-    UnderMaintainancePopup,
     KYCVerificationPopup,
     Avatar,
     TimeIcon,
     Button,
     DiscordIcon,
-  },
-  data() {
-    return {
-      showMaintenancePopup: false,
-    }
+    // GithubIcon,
   },
   computed: {
     ...mapGetters({
@@ -134,7 +129,7 @@ export default {
     triggerKYCVerification() {
       if (!this.showKycVerificationButton) return
       this.$store.dispatch('kyc/openVerificationModal')
-    }
+    },
   },
 }
 </script>
