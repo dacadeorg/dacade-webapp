@@ -1,15 +1,27 @@
 <template>
-  <Section
-    :title="!hideTitle ? $t('communities.challenge.criteria.title') : ''"
-  >
-    <div v-for="(criteria, i) in ratingCriteria" :key="i" class="mt-8">
+  <Section>
+    <div class="flex justify-between cursor-pointer" @click="toggleAccordion()">
+      <H3>{{
+        !hideTitle ? $t('communities.challenge.criteria.title') : ''
+      }}</H3>
+      <div>
+        <span><ArrowDown /></span>
+      </div>
+    </div>
+    <div
+      v-for="(criteria, i) in ratingCriteria"
+      v-show="isOpen"
+      :key="i"
+      class="mt-8"
+    >
       <span class="block text-sm capitalize font-medium">{{
         criteria.name
       }}</span>
       <div
         class="grid grid-cols-1 space-y-4 md:space-y-0 md:grid-cols-2 lg:grid-cols-4 mt-3 gap-y-5 gap-x-5"
       >
-        <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm">
+      
+        <div v-for="(rubric, k) in criteria.rubric" :key="k" class="text-sm rounded-3xl group border-solid border border-gray-200 p-4">
           <div
             :class="
               selected.length && !selectedRubric(rubric.id)
@@ -49,13 +61,17 @@
 /* eslint-disable no-console */
 import { mapGetters } from 'vuex'
 import Section from '@/components/sections/communities/_partials/Section.vue'
+import H3 from '~/components/ui/text/H3'
 import Checkmark from '~/assets/icons/checkmark.svg?inline'
+import ArrowDown from '~/assets/icons/down-icon-arrow.svg?inline'
 
 export default {
   name: 'RubricHeader',
   components: {
     Section,
     Checkmark,
+    ArrowDown,
+    H3,
   },
   props: {
     ratingCriteria: {
@@ -71,6 +87,11 @@ export default {
       type: Boolean,
     },
   },
+  data() {
+    return {
+      isOpen: false,
+    }
+  },
   computed: {
     ...mapGetters({
       community: 'communities/current',
@@ -80,6 +101,9 @@ export default {
   methods: {
     selectedRubric(id) {
       return this.selected.find((rubric) => rubric.id === id)
+    },
+    toggleAccordion() {
+      this.isOpen = !this.isOpen
     },
   },
 }

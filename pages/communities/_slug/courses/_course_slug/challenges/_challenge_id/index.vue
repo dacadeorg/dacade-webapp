@@ -5,6 +5,7 @@
     >
       <Header />
       <Rewards size="medium" />
+      <Learning/>
       <RatingRubric :rating-criteria="challenge.ratingCriteria" />
       <BestSubmissions />
       <div v-if="isAuthenticated">
@@ -29,6 +30,7 @@ import Header from '@/components/sections/challenges/Header'
 import RatingRubric from '@/components/sections/challenges/Rubric'
 import Rewards from '@/components/sections/challenges/Rewards'
 import SubmissionForm from '@/components/sections/challenges/Submission'
+import Learning from '@/components/sections/challenges/Learning'
 import SubmissionCard from '@/components/cards/Submission'
 import Wrapper from '@/components/sections/courses/Wrapper'
 import BestSubmissions from '@/components/sections/submissions/BestSubmissions'
@@ -43,6 +45,7 @@ export default {
     SubmissionForm,
     SubmissionCard,
     BestSubmissions,
+    Learning
   },
   scrollToTop: true,
   fetch({ store, params, error }) {
